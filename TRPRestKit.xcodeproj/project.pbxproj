@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B259129F20FCAB3600DA2A8C /* TRPFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B259129D20FCAADC00DA2A8C /* TRPFoundationKit.framework */; };
 		B29B462A20F607F90009E711 /* TRPRestKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B29B462820F607F90009E711 /* TRPRestKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B29B463720F60A630009E711 /* TRPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463620F60A630009E711 /* TRPClient.swift */; };
-		B29B463920F60A780009E711 /* TRPLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463820F60A780009E711 /* TRPLocation.swift */; };
 		B29B463B20F60A910009E711 /* TRPConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463A20F60A910009E711 /* TRPConfig.swift */; };
 		B29B463D20F60AAB0009E711 /* TRPTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463C20F60AAB0009E711 /* TRPTime.swift */; };
 		B29B463F20F60AC30009E711 /* TRPRestKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463E20F60AC30009E711 /* TRPRestKit.swift */; };
@@ -71,15 +71,14 @@
 		B29B46BD20F6144B0009E711 /* TRPRoutesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46BC20F6144B0009E711 /* TRPRoutesResult.swift */; };
 		B29B46BF20F6145B0009E711 /* TRPGrouteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46BE20F6145B0009E711 /* TRPGrouteResult.swift */; };
 		B29B46C120F6146D0009E711 /* TRPNearbyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46C020F6146D0009E711 /* TRPNearbyResult.swift */; };
-		B29B46C320F6148C0009E711 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46C220F6148C0009E711 /* Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B259129D20FCAADC00DA2A8C /* TRPFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = "<group>"; };
 		B29B462520F607F90009E711 /* TRPRestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TRPRestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29B462820F607F90009E711 /* TRPRestKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRPRestKit.h; sourceTree = "<group>"; };
 		B29B462920F607F90009E711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B29B463620F60A630009E711 /* TRPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPClient.swift; sourceTree = "<group>"; };
-		B29B463820F60A780009E711 /* TRPLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLocation.swift; sourceTree = "<group>"; };
 		B29B463A20F60A910009E711 /* TRPConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConfig.swift; sourceTree = "<group>"; };
 		B29B463C20F60AAB0009E711 /* TRPTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTime.swift; sourceTree = "<group>"; };
 		B29B463E20F60AC30009E711 /* TRPRestKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestKit.swift; sourceTree = "<group>"; };
@@ -141,7 +140,6 @@
 		B29B46BC20F6144B0009E711 /* TRPRoutesResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRoutesResult.swift; sourceTree = "<group>"; };
 		B29B46BE20F6145B0009E711 /* TRPGrouteResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGrouteResult.swift; sourceTree = "<group>"; };
 		B29B46C020F6146D0009E711 /* TRPNearbyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPNearbyResult.swift; sourceTree = "<group>"; };
-		B29B46C220F6148C0009E711 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,17 +147,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B259129F20FCAB3600DA2A8C /* TRPFoundationKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B259129C20FCAADC00DA2A8C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B259129D20FCAADC00DA2A8C /* TRPFoundationKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B29B461B20F607F90009E711 = {
 			isa = PBXGroup;
 			children = (
 				B29B462720F607F90009E711 /* TRPRestKit */,
 				B29B462620F607F90009E711 /* Products */,
+				B259129C20FCAADC00DA2A8C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,11 +186,8 @@
 				B29B463420F60A310009E711 /* Network */,
 				B29B463320F60A290009E711 /* Resource */,
 				B29B463220F60A1F0009E711 /* Services */,
-				B29B463120F60A100009E711 /* MockFile */,
-				B29B463020F60A060009E711 /* Extension */,
 				B29B462920F607F90009E711 /* Info.plist */,
 				B29B463620F60A630009E711 /* TRPClient.swift */,
-				B29B463820F60A780009E711 /* TRPLocation.swift */,
 				B29B463A20F60A910009E711 /* TRPConfig.swift */,
 				B29B463C20F60AAB0009E711 /* TRPTime.swift */,
 				B29B463E20F60AC30009E711 /* TRPRestKit.swift */,
@@ -192,21 +197,6 @@
 				B29B464620F60B1B0009E711 /* TRPUserTest.swift */,
 			);
 			path = TRPRestKit;
-			sourceTree = "<group>";
-		};
-		B29B463020F60A060009E711 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				B29B46C220F6148C0009E711 /* Array.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		B29B463120F60A100009E711 /* MockFile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MockFile;
 			sourceTree = "<group>";
 		};
 		B29B463220F60A1F0009E711 /* Services */ = {
@@ -512,13 +502,11 @@
 				B29B468820F60FA70009E711 /* TRPPlaceInfoJsonModel.swift in Sources */,
 				B29B46AA20F613A00009E711 /* TRPQuestion.swift in Sources */,
 				B29B465C20F60CBB0009E711 /* TRPRoutesResultTravelDetailsJsonModel.swift in Sources */,
-				B29B46C320F6148C0009E711 /* Array.swift in Sources */,
 				B29B46AC20F613B30009E711 /* TRPRecommendation.swift in Sources */,
 				B29B466E20F60D550009E711 /* TRPGrouteWaitInfoModel.swift in Sources */,
 				B29B464720F60B1B0009E711 /* TRPUserTest.swift in Sources */,
 				B29B467C20F60F430009E711 /* TRPRecommendationScoreJsonModel.swift in Sources */,
 				B29B465320F60C630009E711 /* TRPGRoutesResultWalkDriveJsonModel.swift in Sources */,
-				B29B463920F60A780009E711 /* TRPLocation.swift in Sources */,
 				B29B465E20F60CCB0009E711 /* TRPRoutesResultTravelJsonModel.swift in Sources */,
 				B29B463F20F60AC30009E711 /* TRPRestKit.swift in Sources */,
 				B29B468320F60F7C0009E711 /* TRPQuestionOptionsJsonModel.swift in Sources */,
@@ -597,7 +585,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -654,7 +642,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -676,6 +664,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TRPRestKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -703,6 +695,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TRPRestKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

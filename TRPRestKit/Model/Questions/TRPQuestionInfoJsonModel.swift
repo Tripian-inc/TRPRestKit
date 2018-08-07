@@ -8,6 +8,7 @@
 
 import Foundation
 public struct TRPQuestionInfoJsonModel: Decodable {
+    
     public var id: Int?;
     public var skippable: Bool?;
     public var inputType: Bool?
@@ -23,6 +24,7 @@ public struct TRPQuestionInfoJsonModel: Decodable {
     }
     
     public init(from decoder: Decoder) throws {
+        
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decodeIfPresent(Int.self, forKey: .id)
         let skip = try values.decodeIfPresent(Int.self, forKey: .skippable)
@@ -39,6 +41,7 @@ public struct TRPQuestionInfoJsonModel: Decodable {
         }
         self.name = try values.decodeIfPresent(String.self, forKey: .name);
         self.options = try values.decodeIfPresent([TRPQuestionOptionsJsonModel].self, forKey: .options);
+        
     }
     
 }

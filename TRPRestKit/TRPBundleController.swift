@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//Efx remove this class
 public class TRPBundleController : NSObject{
     
     public func getTextFromBundle() -> String? {

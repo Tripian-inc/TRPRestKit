@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//Move
 public enum TRPErrors:Error{
     case undefined
     case httpResult(code:Int, des:String, info: [String:Any]);

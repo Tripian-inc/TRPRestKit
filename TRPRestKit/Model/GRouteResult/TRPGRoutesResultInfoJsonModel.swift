@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TRPFoundationKit
 public struct TRPGRoutesResultInfoJsonModel: Decodable{
     
     public var travelMode: String?;

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TRPFoundationKit
 internal class TRPPlace: TRPRestServices {
     
     var placeIds: [Int]?;
