@@ -14,9 +14,7 @@
 		B29B463D20F60AAB0009E711 /* TRPTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463C20F60AAB0009E711 /* TRPTime.swift */; };
 		B29B463F20F60AC30009E711 /* TRPRestKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463E20F60AC30009E711 /* TRPRestKit.swift */; };
 		B29B464120F60ADF0009E711 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464020F60ADF0009E711 /* Pagination.swift */; };
-		B29B464320F60AF40009E711 /* TRPBundleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464220F60AF40009E711 /* TRPBundleController.swift */; };
 		B29B464520F60B090009E711 /* TRPUpdateTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464420F60B090009E711 /* TRPUpdateTypeModel.swift */; };
-		B29B464720F60B1B0009E711 /* TRPUserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464620F60B1B0009E711 /* TRPUserTest.swift */; };
 		B29B464920F60BF80009E711 /* TRPCoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464820F60BF80009E711 /* TRPCoordinateModel.swift */; };
 		B29B464B20F60C0D0009E711 /* TRPParentJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */; };
 		B29B464E20F60C330009E711 /* TRPNearbyResultJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464D20F60C330009E711 /* TRPNearbyResultJsonModel.swift */; };
@@ -83,9 +81,7 @@
 		B29B463C20F60AAB0009E711 /* TRPTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTime.swift; sourceTree = "<group>"; };
 		B29B463E20F60AC30009E711 /* TRPRestKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestKit.swift; sourceTree = "<group>"; };
 		B29B464020F60ADF0009E711 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
-		B29B464220F60AF40009E711 /* TRPBundleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPBundleController.swift; sourceTree = "<group>"; };
 		B29B464420F60B090009E711 /* TRPUpdateTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUpdateTypeModel.swift; sourceTree = "<group>"; };
-		B29B464620F60B1B0009E711 /* TRPUserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserTest.swift; sourceTree = "<group>"; };
 		B29B464820F60BF80009E711 /* TRPCoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCoordinateModel.swift; sourceTree = "<group>"; };
 		B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPParentJsonModel.swift; sourceTree = "<group>"; };
 		B29B464D20F60C330009E711 /* TRPNearbyResultJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPNearbyResultJsonModel.swift; sourceTree = "<group>"; };
@@ -192,9 +188,7 @@
 				B29B463C20F60AAB0009E711 /* TRPTime.swift */,
 				B29B463E20F60AC30009E711 /* TRPRestKit.swift */,
 				B29B464020F60ADF0009E711 /* Pagination.swift */,
-				B29B464220F60AF40009E711 /* TRPBundleController.swift */,
 				B29B464420F60B090009E711 /* TRPUpdateTypeModel.swift */,
-				B29B464620F60B1B0009E711 /* TRPUserTest.swift */,
 			);
 			path = TRPRestKit;
 			sourceTree = "<group>";
@@ -496,7 +490,6 @@
 				B29B465A20F60CA90009E711 /* TRPRoutesResultPlaceJsonModel.swift in Sources */,
 				B29B46B020F613D80009E711 /* TRPRestServices.swift in Sources */,
 				B29B467F20F60F5C0009E711 /* TRPQuestionJsonModel.swift in Sources */,
-				B29B464320F60AF40009E711 /* TRPBundleController.swift in Sources */,
 				B29B464120F60ADF0009E711 /* Pagination.swift in Sources */,
 				B29B46A820F6138D0009E711 /* TRPPlace.swift in Sources */,
 				B29B468820F60FA70009E711 /* TRPPlaceInfoJsonModel.swift in Sources */,
@@ -504,7 +497,6 @@
 				B29B465C20F60CBB0009E711 /* TRPRoutesResultTravelDetailsJsonModel.swift in Sources */,
 				B29B46AC20F613B30009E711 /* TRPRecommendation.swift in Sources */,
 				B29B466E20F60D550009E711 /* TRPGrouteWaitInfoModel.swift in Sources */,
-				B29B464720F60B1B0009E711 /* TRPUserTest.swift in Sources */,
 				B29B467C20F60F430009E711 /* TRPRecommendationScoreJsonModel.swift in Sources */,
 				B29B465320F60C630009E711 /* TRPGRoutesResultWalkDriveJsonModel.swift in Sources */,
 				B29B465E20F60CCB0009E711 /* TRPRoutesResultTravelJsonModel.swift in Sources */,

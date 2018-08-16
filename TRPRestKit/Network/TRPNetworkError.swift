@@ -30,7 +30,7 @@ extension TRPErrors: LocalizedError {
 extension TRPErrors: CustomNSError {
     
     public static var errorDomain: String {
-        return "TRPClientError";
+        return "com.tripian.TRPClientError";
     }
     
     public var errorCode: Int {

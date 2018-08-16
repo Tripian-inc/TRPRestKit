@@ -410,6 +410,11 @@ extension TRPRestKit {
         tagsServicesServices()
     }
     
+    
+    /// Tag listesinin çekilir
+    /// - note: donen obje TRPTagsJsonModel
+    /// - SeeAlso: 'tagsServices(completion: @escaping CompletionHandler)'
+    /// - Parameter completion: pagination, error, any
     public func tagsServices(completion: @escaping CompletionHandlerWithPagination){
         completionHandlerWithPagination = completion;
         tagsServicesServices()
