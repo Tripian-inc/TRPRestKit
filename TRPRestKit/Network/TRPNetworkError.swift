@@ -53,25 +53,22 @@ extension TRPErrors: CustomNSError {
 }
 
 extension TRPErrors {
-    
+    // TODO: - Unit test must write
     init?(json: JSON, link:String?) {
-        if let status = json["status"] as? Bool {
+        if let status = json["success"] as? Bool {
             if status == false {
-                guard let message = json["message"] as? JSON,
-                    let description = message["description"] as? String,
-                    let httpCode = message["http_code"] as? Int,
-                    let code = message["code"] as? String else{
+                guard let message = json["message"] as? String,
+                    let status = json["status"] as? Int else{
                         self = .undefined;
                         return nil;
                 }
                 var info = [String:Any]();
-                info["description"] = description;
-                info["httpCode"] = httpCode;
-                info["code"] = code;
+                info["description"] = message;
+                info["code"] = status;
                 if let link = link {
                     info["link"] = link;
                 }
-                self = .httpResult(code: httpCode, des: description, info:info)
+                self = .httpResult(code: status, des: message, info:info)
                 return;
             }
         }

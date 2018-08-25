@@ -17,10 +17,12 @@ internal class TRPRecommendation: TRPRestServices{
     }
     
     public override func servicesResult(data: Data?, error: NSError?) {
+        
         if let error = error {
             self.Completion?(nil,error, nil);
             return
         }
+        
         guard let data = data else {
             self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
             return

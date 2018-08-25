@@ -15,9 +15,15 @@ public class TRPRestServices {
         let network = TRPNetwork(path: path());
         network.add(params: createParams())
         network.add(mode: requestMode())
+
+        if let bodyData = bodyDataToJson(bodyParameters()) {
+            network.add(body: bodyData)
+        }
+
         network.build { (error, data) in
             self.servicesResult(data: data, error: error)
         }
+        
     }
     
     public func connection(link:String) {
@@ -35,6 +41,19 @@ public class TRPRestServices {
         return params
     }
     
+    private func bodyDataToJson(_ data: Dictionary<String, Any>?) -> Data? {
+        guard let bodyData = data else {
+            return nil
+        }
+        var jsonData:Data?
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: bodyData, options: [])
+        }catch(let error) {
+            print("HttpBody data: \(error.localizedDescription)")
+        }
+        return jsonData
+    }
+    
     // MARK: - Overriter Funstions
     
     public func requestMode() -> TRPRequestMode {
@@ -43,6 +62,10 @@ public class TRPRestServices {
     
     public func servicesResult(data:Data?, error:NSError?) {
         
+    }
+    
+    public func bodyParameters() -> Dictionary<String, Any>? {
+        return nil
     }
     
     public func parameters() -> Dictionary<String, Any>? {

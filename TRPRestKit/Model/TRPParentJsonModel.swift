@@ -11,43 +11,28 @@ import Foundation
 public class TRPParentJsonModel: Decodable {
     
     var meta: TRPMetaJsonModel?;
-    public var status: Bool = false
-    public var message: TRPParentMessageJsonModel?;
+    public var status: Int
+    public var success: Bool
+    public var message: String?;
     
     
     enum ParentCodingKeys: String, CodingKey {
         case meta
         case status
         case message
+        case success
     }
     
     public required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: ParentCodingKeys.self);
         meta = try values.decodeIfPresent(TRPMetaJsonModel.self, forKey: .meta);
-        status = try values.decodeIfPresent(Bool.self, forKey: .status) ?? false;
-        message = try values.decodeIfPresent(TRPParentMessageJsonModel.self, forKey: .message);
+        status = try values.decode(Int.self, forKey: .status);
+        success = try values.decode(Bool.self, forKey: TRPParentJsonModel.ParentCodingKeys.success)
+        message = try values.decodeIfPresent(String.self, forKey: .message);
     }
     
 }
 
-public struct TRPParentMessageJsonModel:Decodable {
-    public var code: String?;
-    public var httpCode: Int?;
-    public var description: String?;
-    
-    enum ParentCodingKeys: String, CodingKey {
-        case code
-        case httpCode = "http_code"
-        case description
-    }
-    
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: ParentCodingKeys.self);
-        code = try values.decodeIfPresent(String.self, forKey: .code);
-        httpCode = try values.decodeIfPresent(Int.self, forKey: .httpCode);
-        description = try values.decodeIfPresent(String.self, forKey: .description);
-    }
-}
 struct TRPMetaJsonModel:Decodable{
     var pagination: TRPMetasPaginationJsonModel?
 }

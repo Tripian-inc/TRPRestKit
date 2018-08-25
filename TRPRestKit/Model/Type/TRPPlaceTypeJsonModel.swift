@@ -7,9 +7,9 @@
 //
 
 import Foundation
-public class TRPTypeJsonModel: TRPParentJsonModel {
+public class TRPPlaceTypeJsonModel: TRPParentJsonModel {
     
-    public var data: [TRPTypeInfoJsonModel]?;
+    public var data: [TRPPlaceTypeInfoModel]?;
     
     enum CodingKeys: String, CodingKey {
         case data
@@ -17,9 +17,9 @@ public class TRPTypeJsonModel: TRPParentJsonModel {
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        if let datas = try? values.decodeIfPresent([TRPTypeInfoJsonModel].self, forKey: .data) {
+        if let datas = try? values.decodeIfPresent([TRPPlaceTypeInfoModel].self, forKey: .data) {
             self.data = datas;
-        }else if let data = try? values.decodeIfPresent(TRPTypeInfoJsonModel.self, forKey: .data), let newAr = [data] as? [TRPTypeInfoJsonModel]{
+        }else if let data = try? values.decodeIfPresent(TRPPlaceTypeInfoModel.self, forKey: .data), let newAr = [data] as? [TRPPlaceTypeInfoModel]{
             self.data = newAr;
         }
         

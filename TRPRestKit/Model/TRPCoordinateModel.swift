@@ -9,17 +9,17 @@
 import Foundation
 
 public struct TRPCoordinateModel: Decodable {
-    public var lat: Double?;
-    public var lon: Double?;
+    public var lat: Double
+    public var lon: Double
     
     enum CodingKeys: String, CodingKey {
         case lat
-        case lon
+        case lon = "lng"
     }
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
-        lat = try values.decodeIfPresent(Double.self, forKey: .lat)
-        lon = try values.decodeIfPresent(Double.self, forKey: .lon)
+        lat = try values.decode(Double.self, forKey: .lat)
+        lon = try values.decode(Double.self, forKey: .lon)
     }
 }

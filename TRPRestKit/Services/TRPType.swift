@@ -29,7 +29,7 @@ internal class TRPType: TRPRestServices {
         
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPTypeJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPPlaceTypeJsonModel.self, from: data)
             self.paginationController(parentJson: result) { (pagination) in
                 self.Completion?(result, nil, pagination);
             }
@@ -39,7 +39,7 @@ internal class TRPType: TRPRestServices {
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.Types.link;
+        var path = TRPConfig.ApiCall.PlaceTypes.link;
         if let id = typeId {
             path += "/\(id)"
         }

@@ -9,7 +9,7 @@
 import Foundation
 public struct TRPConfig {
     public static let BaseUrl: String = "34.251.216.241"
-    public static let BaseUrlPath: String = "tripian-tools/public/api"
+    public static let BaseUrlPath: String = "tripian-apiV2/public/v2"
     
     public static var apiLink: String {
         return "http://\(BaseUrl)/\(BaseUrlPath)/"
@@ -17,7 +17,7 @@ public struct TRPConfig {
     
     public enum ApiCall: String {
         case Cities
-        case Types
+        case PlaceTypes
         case Places
         case Questions
         case Recommendations
@@ -28,12 +28,13 @@ public struct TRPConfig {
         case Tags
         case CheckDataUpdates
         case User
+        case Oauth
         var link: String {
             switch self {
             case .Cities:
                 return getNewLink() ?? "cities"
-            case .Types:
-                return getNewLink() ?? "type"
+            case .PlaceTypes:
+                return getNewLink() ?? "placetypes"
             case .Places:
                 return getNewLink() ?? "places"
             case .Questions:
@@ -54,6 +55,8 @@ public struct TRPConfig {
                 return getNewLink() ?? "check-data-updates"
             case .User:
                 return getNewLink() ?? "v1/auth"
+            case .Oauth:
+                return getNewLink() ?? "auth/token"
             }
         }
         

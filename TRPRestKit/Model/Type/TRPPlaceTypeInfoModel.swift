@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct TRPTypeInfoJsonModel: Decodable {
+public struct TRPPlaceTypeInfoModel: Decodable {
     
     public var id: Int?;
     public var type: String?;

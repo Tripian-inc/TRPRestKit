@@ -90,22 +90,22 @@ extension TRPRestKit {
 // MARK: - Type Services
 extension TRPRestKit {
     
-    public func types(completion: @escaping CompletionHandler){
+    public func placeTypes(completion: @escaping CompletionHandler){
         self.completionHandler = completion;
-        typeServices(id: nil)
+        placeTypeServices(id: nil)
     }
     
-    public func types(completion: @escaping CompletionHandlerWithPagination){
+    public func placeTypes(completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
-        typeServices(id: nil)
+        placeTypeServices(id: nil)
     }
     
-    public func type(withId:Int, completion: @escaping CompletionHandler){
+    public func placeTypes(withId:Int, completion: @escaping CompletionHandler){
         self.completionHandler = completion;
-        typeServices(id: withId);
+        placeTypeServices(id: withId);
     }
     
-    private func typeServices(id:Int?) -> Void {
+    private func placeTypeServices(id:Int?) -> Void {
         var t: TRPType?;
         if id == nil {
             t = TRPType();
@@ -119,7 +119,7 @@ extension TRPRestKit {
                 return
             }
             
-            if let r = result as? TRPTypeJsonModel {
+            if let r = result as? TRPPlaceTypeJsonModel {
                 self.postData(result: r, pagination: pagination)
             }
         }
