@@ -27,12 +27,8 @@ public struct TRPQuestionInfoJsonModel: Decodable {
         
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decodeIfPresent(Int.self, forKey: .id)
-        let skip = try values.decodeIfPresent(Int.self, forKey: .skippable)
-        if skip != nil && skip! == 1 {
-            self.skippable = true;
-        }else {
-            self.skippable = false;
-        }
+        self.skippable = try values.decodeIfPresent(Bool.self, forKey: .skippable)
+        
         let input = try values.decodeIfPresent(Int.self, forKey: .inputType)
         if input != nil && input! == 1 {
             self.inputType = true;

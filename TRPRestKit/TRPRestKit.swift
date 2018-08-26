@@ -87,7 +87,7 @@ extension TRPRestKit {
 }
 
 
-// MARK: - Type Services
+// MARK: - Places Type Services
 extension TRPRestKit {
     
     public func placeTypes(completion: @escaping CompletionHandler){
@@ -258,8 +258,18 @@ extension TRPRestKit {
     
 }
 
+// MARK: - Programs
+extension TRPRestKit {
+    
+    public func createProgram(settings:TRPProgramSettings){
+        
+    }
+    
+}
 
-// MARK: - Routes Services
+
+
+// MARK: - Routes Services ---- silinecek
 extension TRPRestKit {
     
     public func routes(settings:TRPRoutesSettings, completion: @escaping CompletionHandler){

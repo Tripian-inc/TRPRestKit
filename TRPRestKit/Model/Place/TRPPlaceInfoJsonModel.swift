@@ -25,7 +25,6 @@ public struct TRPPlaceInfoJsonModel: Decodable {
     public var image: String?;
     public var gallery: [String]?;
     public var icon: String?;
-    public var keywordsArray: [Int]?;
     public var types = [Int]();
     public var tags = [Int]();
     public var coordinate: TRPCoordinateModel?
@@ -40,7 +39,7 @@ public struct TRPPlaceInfoJsonModel: Decodable {
         case duration
         case title
         case content
-        case address = "addr"
+        case address = "address"
         case price
         case web
         case hours
@@ -62,13 +61,7 @@ public struct TRPPlaceInfoJsonModel: Decodable {
         self.rating = try values.decodeIfPresent(Float.self, forKey: .rating);
         self.ratingCount = try values.decodeIfPresent(Int.self, forKey: .ratingCount);
         
-        let fav = try values.decodeIfPresent(Int.self, forKey: .favorite)
-        
-        if fav != nil && fav! == 1 {
-            self.favorite = true;
-        }else {
-            self.favorite = false;
-        }
+        self.favorite = try values.decodeIfPresent(Bool.self, forKey: .favorite) ?? false
         
         self.duration = try values.decodeIfPresent(String.self, forKey: .duration);
         self.title = try values.decodeIfPresent(String.self, forKey: .title);
@@ -83,12 +76,19 @@ public struct TRPPlaceInfoJsonModel: Decodable {
         self.icon = try values.decodeIfPresent(String.self, forKey: .icon);
         self.coordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .coord)
         
+        //TODO: - SADECE TYPE ID KULLANILIYOR.
+        //        {
+        //            "id": 3,
+        //            "type": "Restaurants",
+        //            "description": "Cuisine, brunch, vegetarian, etc."
+        //         }
         if let typeObj = try values.decodeIfPresent([TRPPlaceInfoIdsJsonModel].self, forKey: .types) {
             for i in typeObj {
                 types.append(i.id)
             }
         }
         
+        //TODO: - SADECE TAG ID KULLANILIYOR. BUNA KESİNLİKLE NAME EKLENMELİ
         if let tagObj = try values.decodeIfPresent([TRPPlaceInfoIdsJsonModel].self, forKey: .tag) {
             for i in tagObj {
                 tags.append(i.id)

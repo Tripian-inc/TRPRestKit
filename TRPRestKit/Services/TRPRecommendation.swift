@@ -51,24 +51,25 @@ internal class TRPRecommendation: TRPRestServices{
             let typeIdList = typeIds.map{"\($0)"}.joined(separator: ",")
             params["type_id"] = typeIdList
         }
-        if let rating = setting.rating {
-            params["rating"] = rating
+        if let adults = setting.adultsCount {
+            params["adults"] = adults
         }
-        if let distance = setting.distance {
-            params["distance"] = distance
+        if let adultAgeRange = setting.adultAgeRange {
+            params["adult_age_range"] = adultAgeRange
         }
-        if let popularity = setting.popularity{
-            params["popularity"] = popularity
+        if let childrenCount = setting.childrenCount{
+            params["children"] = childrenCount
         }
-        if let currentCoor = setting.currentCoordinate {
-            params["current_coord"] = "\(currentCoor)" // int
+        if let childrenAgeRange = setting.childrenAgeRange {
+            params["children_age_range"] = childrenAgeRange
+        }
+        if let coord = setting.currentCoordinate {
+            params["coord"] = coord // int
         }
         if let answer = setting.answer {
+            // TODO FOUNDATİON KİT DEN GÜNCELLE
             let answersMap = answer.map{"\($0)"}.joined(separator: ",")
             params["answer"] = answersMap;
-        }
-        if let limit = setting.limit {
-            params["limit"] = limit // int
         }
         
         return params;

@@ -29,6 +29,8 @@ public struct TRPConfig {
         case CheckDataUpdates
         case User
         case Oauth
+        case me
+        case myPrograms
         var link: String {
             switch self {
             case .Cities:
@@ -54,9 +56,13 @@ public struct TRPConfig {
             case .CheckDataUpdates:
                 return getNewLink() ?? "check-data-updates"
             case .User:
-                return getNewLink() ?? "v1/auth"
+                return getNewLink() ?? "user"
             case .Oauth:
                 return getNewLink() ?? "auth/token"
+            case .me:
+                return getNewLink() ?? "me"
+            case .myPrograms:
+                return getNewLink() ?? "myprograms"
             }
         }
         

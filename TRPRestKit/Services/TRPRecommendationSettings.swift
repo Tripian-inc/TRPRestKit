@@ -11,15 +11,13 @@ public struct TRPRecommendationSettings {
     
     public var cityId: Int;
     public var typeId: [Int]?;
-    public var rating: Int?;
-    public var distance: Int?;
-    public var popularity: Int?;
+    public var adultsCount: Int?
+    public var adultAgeRange: String?
+    public var childrenCount: Int?
+    public var childrenAgeRange: String?
     public var currentCoordinate: String?;
     public var answer: [Int]?;
-    //Result places count - Max value 200.Default 15;
-    public var limit: Int?;
     
-    public var paginationLimit: Int?
     
     public init(cityId:Int) {
         self.cityId = cityId;

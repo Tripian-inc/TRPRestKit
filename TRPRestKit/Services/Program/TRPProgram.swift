@@ -1,20 +1,20 @@
 //
-//  TRPUser.swift
+//  TRPProgram.swift
 //  TRPRestKit
 //
-//  Created by Evren Yaşar on 9.07.2018.
+//  Created by Evren Yaşar on 25.08.2018.
 //  Copyright © 2018 Evren Yaşar. All rights reserved.
 //
 
 import Foundation
-public class TRPUser: TRPRestServices{
+internal class TRPProgram: TRPRestServices{
     
-    let email: String
-    let password: String
+    var cityId:Int?;
     
-    public init(email: String, password: String) {
-        self.email = email
-        self.password = password
+    internal override init() {}
+    
+    internal init(cityId:Int) {
+        self.cityId = cityId;
     }
     
     public override func servicesResult(data: Data?, error: NSError?) {
@@ -26,11 +26,9 @@ public class TRPUser: TRPRestServices{
             self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
-        let json = String(data: data, encoding: .utf8)
-        print("UserJsonResult: \(json!)");
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPCityJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPMyProgramsJsonModel.self, from: data)
             self.paginationController(parentJson: result) { (pagination) in
                 self.Completion?(result, nil, pagination);
             }
@@ -39,20 +37,12 @@ public class TRPUser: TRPRestServices{
         }
     }
     
-    
-    public override func parameters() -> Dictionary<String, Any>? {
-        var params: [String:Any] = [:]
-        params["email"] = email
-        params["password"] = password
-        return params
-    }
-    
     public override func path() -> String {
-        let path = TRPConfig.ApiCall.User.link;
+        var path = TRPConfig.ApiCall.Cities.link;
+        if let id = cityId {
+            path += "/\(id)"
+        }
         return path;
     }
     
-    public override func requestMode() -> TRPRequestMode {
-        return TRPRequestMode.post
-    }
 }

@@ -17,9 +17,16 @@ public class TRPRestServices {
         network.add(mode: requestMode())
 
         if let bodyData = bodyDataToJson(bodyParameters()) {
+            network.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            network.addValue("application/json", forHTTPHeaderField: "Accept")
             network.add(body: bodyData)
         }
-
+        
+        if userOAuth() == true {
+            if let token = oauth() {
+                network.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            }
+        }
         network.build { (error, data) in
             self.servicesResult(data: data, error: error)
         }
@@ -54,6 +61,8 @@ public class TRPRestServices {
         return jsonData
     }
     
+    
+    
     // MARK: - Overriter Funstions
     
     public func requestMode() -> TRPRequestMode {
@@ -61,7 +70,6 @@ public class TRPRestServices {
     }
     
     public func servicesResult(data:Data?, error:NSError?) {
-        
     }
     
     public func bodyParameters() -> Dictionary<String, Any>? {
@@ -83,6 +91,14 @@ public class TRPRestServices {
         }else {
             pagination(.completed);
         }
+    }
+    
+    public func userOAuth() -> Bool {
+        return false
+    }
+    
+    public func oauth() -> String? {
+        return nil
     }
     
 }

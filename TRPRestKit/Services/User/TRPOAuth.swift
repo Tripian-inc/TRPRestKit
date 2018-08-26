@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TRPOauthServices: TRPRestServices{
+public class TRPOAuth: TRPRestServices{
     
     private var userName: String
     private var password: String

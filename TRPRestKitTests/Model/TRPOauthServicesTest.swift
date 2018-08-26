@@ -18,15 +18,37 @@ class TRPOauthServicesTest: XCTestCase {
     
     func testOaut() {
         let expression = XCTestExpectation(description: "Test Oaut Expectation")
-        
-        let oauth = TRPOauthServices(userName: "test@tripian.com", password: "pass")
+       
+        let userName = "necatievren@gmail.com"
+        let password = "123456"
+        let oauth = TRPOAuth(userName: userName, password: password)
         oauth.Completion = {(result, error, pagination) in
-            print("ROCK ROCK ROKC")
+            
+            if let error = error {
+                XCTFail("TRPOAuth Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("TRPOAuth Resutl is nil")
+                return
+            }
+            
+            guard let jsonModel = result as? TRPOAuthJsonModel else {
+                XCTFail("TRPOAuth Json model coundn't converted to  TRPOAuthJsonModel")
+                return
+            }
+            
+            print("")
+            print("ACCESS TOKEN")
+            print(jsonModel.data.accessToken)
+            print("")
             expression.fulfill()
         }
         oauth.connection()
         
-        wait(for: [expression], timeout: 5.0)
+        wait(for: [expression], timeout: 15.0)
     }
+    
+    
     
 }

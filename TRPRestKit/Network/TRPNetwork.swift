@@ -26,7 +26,7 @@ public class TRPNetwork {
     private var rawLink: String?;
     private var completionHandler: Completion?;
     private var bodyData: Data?
-    
+    private var headerValues: [String:String] = [:]
     public init(baseUrl: String,
                 path: String) {
         self.baseUrl = baseUrl;
@@ -52,6 +52,10 @@ public class TRPNetwork {
     
     internal func add(body: Data) -> Void {
         self.bodyData = body
+    }
+    
+    internal func addValue(_ value:String,forHTTPHeaderField:String) {
+        headerValues[forHTTPHeaderField] = value
     }
     
     /// Detect connection mode like Get,Post
@@ -87,19 +91,26 @@ public class TRPNetwork {
         let request = NSMutableURLRequest(url: mUrl);
         request.httpMethod = mode.rawValue
         
+        for headerValues in headerValues {
+            request.addValue(headerValues.value, forHTTPHeaderField: headerValues.key)
+        }
+    
         if let bodyData = bodyData {
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            //request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.httpBody = bodyData
         }
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             var object: Any? = nil
         
+            let strData = String(data: data!, encoding: String.Encoding.utf8)
+            print("Request Result \(strData)")
+            
             if let data = data {
                 object = try? JSONSerialization.jsonObject(with: data, options: [])
             }
-        
+            
             if let httpResponse = response as? HTTPURLResponse  {
                 //We will check httpStatus.
                 if (200..<300) ~= httpResponse.statusCode {
