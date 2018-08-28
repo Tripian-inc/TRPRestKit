@@ -8,14 +8,8 @@
 
 import Foundation
 //TODO - TOKEN I Bİ YERE KAYDET VE ORADAN KULLAN
-public class TRPMe: TRPRestServices {
-    
-    var oaut:String?
-    
-    internal init(oaut: String) {
-        self.oaut = oaut
-    }
-    
+public class TRPUserMe: TRPRestServices {
+
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
             self.Completion?(nil,error, nil);
@@ -43,7 +37,4 @@ public class TRPMe: TRPRestServices {
         return TRPConfig.ApiCall.me.link;
     }
     
-    public override func oauth() -> String? {
-        return oaut
-    }
 }

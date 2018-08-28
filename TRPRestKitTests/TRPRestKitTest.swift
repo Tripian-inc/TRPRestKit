@@ -194,6 +194,120 @@ class TRPRestKitTest: XCTestCase {
     }
     
     
+    func testLogin() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.userLogin expectation")
+        let mail = "necatievren@gmail.com"//"test@tripian.com"
+        let password = "123456"
+        TRPRestKit().userLogin(email: mail, password: password) { (result, error) in
+            if let error = error {
+                XCTFail("UserLogin Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let result = result else {
+                XCTFail("UserLogin Resutl is nil")
+                return
+            }
+            
+            guard let jsonModel = result as? TRPOAuthJsonModel else {
+                XCTFail("UserLogin Json model coundn't converted to  TRPOAuthJsonModel")
+                return
+            }
+            
+            guard let userHash = TRPUserPersistent.fetchHash() else{
+                XCTFail("UserLogin Hash coundn't save")
+                return
+            }
+            
+            XCTAssertEqual(userHash, jsonModel.data.accessToken,"User hash not equel user token")
+            
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 5.0)
+    }
+    
+    
+    func testMyProgram() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.getMyProram expectation")
+        
+        TRPRestKit().getMyProgram { (result, error, pagination) in
+            if let error = error {
+                XCTFail("MyProgram Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let result = result else {
+                XCTFail("MyProgram Resutl is nil")
+                return
+            }
+            
+            guard let _ = result as? TRPMyProgramsJsonModel else {
+                XCTFail("MyProgram Json model coundn't converted to  TRPMyProgramsJsonModel")
+                return
+            }
+            
+           expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    
+    func testGetProgram() {
+        
+        let expectation = XCTestExpectation(description: "TRPRestKit.getProgram expectation")
+        let nameSpace = "GetProgram"
+        TRPRestKit().getProgram(withHash: "8218494776115390d31b85aefc7c2ac5") { (result, error, pagination) in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            
+            guard let _ = result as? TRPProgramJsonModel else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPMyProgramsJsonModel")
+                return
+            }
+            
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    
+    func testCreateProgram() {
+        
+        let expectation = XCTestExpectation(description: "TRPRestKit.getProgram expectation")
+        let nameSpace = "CreateProgram"
+        let arrival = TRPTime(year: 2019, month: 01, day: 05, hours: 08, min: 00)
+        let departure = TRPTime(year: 2019, month: 01, day: 08, hours: 18, min: 00)
+        let settings = TRPProgramSettings(cityId: 107, arrivalTime: arrival, departureTime: departure)
+        
+        TRPRestKit().createProgram(settings: settings) { (result, error) in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            guard let _ = result as? TRPProgramJsonModel else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPMyProgramsJsonModel")
+                return
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    
     
     
     

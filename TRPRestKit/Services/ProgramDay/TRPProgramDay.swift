@@ -1,21 +1,26 @@
 //
-//  TRPMyPrograms.swift
+//  TRPProgramDay.swift
 //  TRPRestKit
 //
-//  Created by Evren Yaşar on 25.08.2018.
+//  Created by Evren Yaşar on 28.08.2018.
 //  Copyright © 2018 Evren Yaşar. All rights reserved.
 //
 
 import Foundation
-public class TRPMyProgram: TRPRestServices {
+internal class TRPProgramDay: TRPRestServices {
+    
+    var position:TRPProgramDayPosition?
+    
+    internal init(position: TRPProgramDayPosition) {
+        self.position = position
+    }
+    
     
     public override func servicesResult(data: Data?, error: NSError?) {
-        
         if let error = error {
             self.Completion?(nil,error, nil);
             return
         }
-        
         guard let data = data else {
             self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
@@ -23,7 +28,7 @@ public class TRPMyProgram: TRPRestServices {
         
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPMyProgramsJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPUserMeJsonModel.self, from: data)
             self.Completion?(result, nil, nil);
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
@@ -35,7 +40,20 @@ public class TRPMyProgram: TRPRestServices {
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.myPrograms.link;
+        return TRPConfig.ApiCall.ProgramDay.link;
     }
+}
+
+
+enum TRPProgramDayPosition{
+    case beginning, end
     
+    func getParams() -> String{
+        switch self {
+        case .beginning:
+            return "beginning"
+        case .end:
+            return "end"
+        }
+    }
 }

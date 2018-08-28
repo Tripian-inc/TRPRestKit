@@ -258,28 +258,58 @@ extension TRPRestKit {
     
 }
 
-// MARK: - Programs
+
+// MARK: - USER
 extension TRPRestKit {
     
-    public func createProgram(settings:TRPProgramSettings){
+    public func userLogin(email:String, password:String, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        userOAuthServices(email: email, password: password)
+    }
+    
+    public func createUser(firstName:String, lastName:String, email:String, password:String, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        userServices(firstName: firstName, lastName: lastName, email: email, password: password, status: TRPUser.UserStatus.create)
+    }
+    
+    public func updateUser(firstName:String, lastName:String, email:String, password:String, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        userServices(firstName: firstName, lastName: lastName, email: email, password: password, status: TRPUser.UserStatus.update)
+    }
+    
+    public func getUserInfo(completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        userMeServices()
+    }
+    
+    
+    private func userOAuthServices(email:String, password:String) {
+        let t = TRPOAuth(email: email, password: password)
+        t.Completion = {(result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            
+            //TODO: - SAVE USER ID
+            if let r = result as? TRPOAuthJsonModel {
+                TRPUserPersistent.saveHash(r.data.accessToken)
+                self.postData(result: r, pagination: pagination)
+            }
+        }
+        t.connection();
+    }
+
+    private func userServices(firstName:String, lastName:String, email:String, password:String, id:Int? = nil, status: TRPUser.UserStatus) {
+        var services: TRPUser?
         
-    }
-    
-}
-
-
-
-// MARK: - Routes Services ---- silinecek
-extension TRPRestKit {
-    
-    public func routes(settings:TRPRoutesSettings, completion: @escaping CompletionHandler){
-        completionHandler = completion;
-        routesServices(settings: settings)
-    }
-    
-    private func routesServices(settings:TRPRoutesSettings) {
-        let t = TRPRoutes(settings: settings);
-        t.Completion = {(result, error,_) in
+        if status == .create {
+            services = TRPUser(firstName: firstName, lastName: lastName, email: email, password: password)
+        }else if status == .update{
+            services = TRPUser(id: 1, firstName: firstName, lastName: lastName, password: password)
+        }
+        
+        services!.Completion = {(result, error,_) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -289,8 +319,30 @@ extension TRPRestKit {
                 self.postData(result: r);
             }
         }
+        services!.connection();
+    }
+
+    private func userMeServices() {
+        let t = TRPUserMe()
+        t.Completion = {(result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let r = result as? TRPUserMeJsonModel {
+                self.postData(result: r, pagination: pagination)
+            }
+        }
         t.connection();
     }
+}
+
+
+// MARK: - Routes Services ---- silinecek
+extension TRPRestKit {
+    
+    
+ 
 }
 
 // MARK: - Routes Result Services
@@ -469,7 +521,7 @@ extension TRPRestKit {
 
 extension TRPRestKit {
     
-    public func checkUpdate(cityId:Int, cityUpdate:Int ,completion: @escaping CompletionHandlerWithPagination){
+    public func checkUpdate(cityId:Int, cityUpdate:Int, completion: @escaping CompletionHandlerWithPagination){
         completionHandlerWithPagination = completion;
         checkUpdateServices(cityId: cityId, cityUpdate: cityUpdate)
     }
@@ -496,4 +548,90 @@ extension TRPRestKit {
         t.connection()
     }
 }
+
+
+extension TRPRestKit {
+    
+    public func getMyProgram(completion: @escaping CompletionHandlerWithPagination) {
+        completionHandlerWithPagination = completion
+        myProgramServices()
+    }
+    
+    private func myProgramServices() {
+        let t = TRPMyProgram()
+        t.Completion = {(result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            
+            if let r = result as? TRPMyProgramsJsonModel {
+                self.postData(result: r)
+            }
+        }
+        t.connection()
+    }
+    
+    public func createProgram(settings:TRPProgramSettings, completion: @escaping CompletionHandler){
+        completionHandler = completion;
+        createProgramServices(settings: settings)
+    }
+    
+    private func createProgramServices(settings:TRPProgramSettings) {
+        let t = TRPProgram(setting: settings)
+        t.Completion = {(result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let r = result as? TRPProgramJsonModel {
+                self.postData(result: r)
+            }
+        }
+        t.connection()
+    }
+    
+    public func getProgram(withHash:String, completion: @escaping CompletionHandlerWithPagination) {
+        completionHandlerWithPagination = completion
+        getProgramServices(hash: withHash)
+    }
+    
+    private func getProgramServices(hash: String) {
+        let t = TRPGetProgram(hash: hash)
+        t.Completion = {(result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let r = result as? TRPProgramJsonModel {
+                self.postData(result: r)
+            }
+        }
+        t.connection()
+    }
+    
+    public func deleteProgram(hash:String, completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        deleteProgramServices(hash: hash)
+    }
+    
+    private func deleteProgramServices(hash:String) {
+        
+        let t = TRPDeleteProgram(hash: hash)
+        t.Completion = {(result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let r = result as? TRPParentJsonModel {
+                self.postData(result: r)
+            }
+        }
+        t.connection()
+    }
+    
+}
+
+
+
 

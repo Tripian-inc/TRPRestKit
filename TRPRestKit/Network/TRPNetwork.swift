@@ -96,16 +96,15 @@ public class TRPNetwork {
         }
     
         if let bodyData = bodyData {
-            //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            //request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.httpBody = bodyData
         }
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             var object: Any? = nil
-        
-            let strData = String(data: data!, encoding: String.Encoding.utf8)
-            print("Request Result \(strData)")
+            if let strData = String(data: data!, encoding: String.Encoding.utf8) {
+                print("Request Result \(strData)")
+            }
+            
             
             if let data = data {
                 object = try? JSONSerialization.jsonObject(with: data, options: [])

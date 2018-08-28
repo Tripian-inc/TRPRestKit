@@ -13,7 +13,6 @@ public struct TRPMyProgramInfoModel: Decodable {
     var id: Int
     var arrivalTime: TRPTime?
     var depatureTime: TRPTime?
-    var createdTime: TRPTime?
     var city: TRPCityInfoModel?
     
     enum CodingKeys: String, CodingKey {
@@ -24,7 +23,6 @@ public struct TRPMyProgramInfoModel: Decodable {
         case arrivalTime = "arrival_time"
         case departureDate = "departure_date"
         case departureTime = "departure_time"
-        case createdAt = "created_at"
     }
     
     public init(from decoder: Decoder) throws {

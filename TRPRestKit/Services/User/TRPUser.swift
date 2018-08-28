@@ -10,7 +10,7 @@ import Foundation
 public class TRPUser: TRPRestServices{
     
     
-    enum UserStatus {
+    public enum UserStatus {
         case create, update, delete
     }
     
@@ -42,13 +42,11 @@ public class TRPUser: TRPRestServices{
     }
     
     /// UPDATE USER INFORMATION
-    public init(oauth:String,
-                id:Int,
+    public init(id:Int,
                 firstName: String,
                 lastName: String,
                 password:String) {
         status = .update
-        self.oaut = oauth
         self.userId = id
         self.firstName = firstName
         self.lastName = lastName

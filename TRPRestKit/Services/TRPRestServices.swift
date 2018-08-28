@@ -98,7 +98,7 @@ public class TRPRestServices {
     }
     
     public func oauth() -> String? {
-        return nil
+        return TRPUserPersistent.fetchHash()
     }
     
 }

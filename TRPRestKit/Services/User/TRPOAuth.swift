@@ -10,16 +10,15 @@ import Foundation
 
 public class TRPOAuth: TRPRestServices{
     
-    private var userName: String
+    private var email: String
     private var password: String
     
-    public init(userName: String, password: String){
-        self.userName = userName
+    public init(email: String, password: String){
+        self.email = email
         self.password = password
     }
     
     public override func servicesResult(data: Data?, error: NSError?) {
-        print("************************************ -----------------------")
         if let error = error {
             self.Completion?(nil,error, nil);
             return
@@ -47,7 +46,7 @@ public class TRPOAuth: TRPRestServices{
     }
     
     public override func bodyParameters() -> Dictionary<String, Any>? {
-        return ["username":"\(userName)","password":"\(password)"];
+        return ["username":"\(email)","password":"\(password)"];
     }
 
 }

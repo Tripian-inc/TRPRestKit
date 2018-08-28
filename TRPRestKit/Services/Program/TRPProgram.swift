@@ -9,12 +9,12 @@
 import Foundation
 internal class TRPProgram: TRPRestServices{
     
-    var cityId:Int?;
+    var setting: TRPProgramSettings?
     
     internal override init() {}
     
-    internal init(cityId:Int) {
-        self.cityId = cityId;
+    internal init(setting: TRPProgramSettings) {
+        self.setting = setting
     }
     
     public override func servicesResult(data: Data?, error: NSError?) {
@@ -27,8 +27,9 @@ internal class TRPProgram: TRPRestServices{
             return
         }
         let jsonDecode = JSONDecoder();
+        
         do {
-            let result = try jsonDecode.decode(TRPMyProgramsJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPProgramJsonModel.self, from: data)
             self.paginationController(parentJson: result) { (pagination) in
                 self.Completion?(result, nil, pagination);
             }
@@ -38,11 +39,59 @@ internal class TRPProgram: TRPRestServices{
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.Cities.link;
-        if let id = cityId {
-            path += "/\(id)"
+        return TRPConfig.ApiCall.Program.link
+    }
+    
+    override func requestMode() -> TRPRequestMode {
+        return TRPRequestMode.post
+    }
+ 
+    override func userOAuth() -> Bool {
+        return true
+    }
+    
+    public override func parameters() -> Dictionary<String, Any>? {
+        var params : Dictionary<String, Any> = [:];
+        
+        guard let setting = setting else {
+            return params
         }
-        return path;
+        
+        params["city_id"] = setting.cityId;
+        params["arrival_date"] = setting.arrivalTime.date
+        params["arrival_time"] = setting.arrivalTime.time;
+        params["departure_date"] = setting.departureTime.date
+        params["departure_time"] = setting.departureTime.time
+        params["adults"] = String(setting.adultsCount);
+        
+        if let adultAgeRange = setting.adultAgeRange {
+            params["adult_age_range"] = String(adultAgeRange);
+        }
+        
+        if let children = setting.childrenCount {
+            params["children"] = String(children);
+        }
+        
+        if let ageRange = setting.adultAgeRange {
+            params["children_age_range"] = ageRange;
+        }
+        
+        if let coordinate = setting.coordinate {
+            params["coord"] = coordinate;
+        }
+        
+        if let answer = setting.answer {
+            params["answer"] = answer.map{"\($0)"}.joined(separator: ",")
+        }
+        
+        if let hotel = setting.hotelAddress {
+            params["hotel_address"] = hotel
+        }
+        
+        if let doNotGenerate = setting.doNotGenerate {
+            params["do_not_generate"] = doNotGenerate
+        }
+        return params;
     }
     
 }

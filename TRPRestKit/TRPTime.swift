@@ -13,10 +13,11 @@ public struct TRPTime {
     var date: String = "";
     var time: String = ""
     
-    public init(year:Int, month:Int, day:Int, hours:Int, min:Int, seconds:Int) {
-        
-        date = String(year) + "-" + String(month) + "-" + String(day);
-        time = String(format: "%i:%02i:%02i", hours, min, seconds)
+    public init(year:Int, month:Int, day:Int, hours:Int, min:Int) {
+        let formatedMonth = String(format: "%02d", month)
+        let formatedDay = String(format: "%02d", day)
+        date = String(year) + "-" + formatedMonth + "-" + formatedDay;
+        time = String(format: "%02i:%02i", hours, min)
     }
     
     /// Set Time with Strign
