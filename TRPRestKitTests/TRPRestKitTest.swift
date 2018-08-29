@@ -258,7 +258,8 @@ class TRPRestKitTest: XCTestCase {
         
         let expectation = XCTestExpectation(description: "TRPRestKit.getProgram expectation")
         let nameSpace = "GetProgram"
-        TRPRestKit().getProgram(withHash: "8218494776115390d31b85aefc7c2ac5") { (result, error, pagination) in
+        let programHash = "cd774e23e78a7a90db276dfaebbefbe1" // 8218494776115390d31b85aefc7c2ac5
+        TRPRestKit().getProgram(withHash: programHash) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
@@ -308,9 +309,140 @@ class TRPRestKitTest: XCTestCase {
     }
     
     
+    func testAddNewDay() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.getProgram expectation")
+        let nameSpace = "AddNewDay"
+        
+        TRPRestKit().addNewProgramDayIn(hash: "8218494776115390d31b85aefc7c2ac5", position: TRPProgramDayPosition.end) { (result, error) in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            guard let _ = result as? TRPProgramDayJsonModel  else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPMyProgramsJsonModel")
+                return
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testGetProgramDetail() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.getProgram expectation")
+        let nameSpace = "AddNewDay"
+        TRPRestKit().getProgramDay(dayId: 64) { (result, error) in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            guard let _ = result as? TRPProgramDayJsonModel  else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPMyProgramsJsonModel")
+                return
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
     
     
+    func testNearByAll() {
+        let programHash = "cd774e23e78a7a90db276dfaebbefbe1"
+        let expectation = XCTestExpectation(description: "TRPRestKit.nearByAll expectation")
+        let nameSpace = "NearByAll"
+        
+        TRPRestKit().nearByAll(withHash: programHash) { (result, error) in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            guard let _ = result as? TRPNearByJsonModel  else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPMyProgramsJsonModel")
+                return
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testNearProgramStep() {
+        let stepId = 269
+        let expectation = XCTestExpectation(description: "TRPRestKit.nearBy expectation")
+        let nameSpace = "NearBy"
+        
+        TRPRestKit().nearBy(withProgramStepId: stepId) { (result, error) in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            guard let _ = result as? TRPNearByJsonModel  else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPMyProgramsJsonModel")
+                return
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
     
     
+    func testGetPreferences() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.nearBy expectation")
+        let nameSpace = "Get Preferences"
+        
+        TRPRestKit().getPreferences { (result, error, _)  in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            guard let _ = result as? TRPPreferenceJsonModel  else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPMyProgramsJsonModel")
+                return
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
     
+    func testAddPreferences() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.nearBy expectation")
+        let nameSpace = "Get Preferences"
+        
+         TRPRestKit().addPreferences(key: "InfoKey", value: "123123") { (result, error, _)  in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            guard let _ = result as? TRPPreferenceJsonModel  else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPMyProgramsJsonModel")
+                return
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
 }
+
+

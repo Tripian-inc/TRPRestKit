@@ -1,41 +1,51 @@
 //
-//  TRPMyPrograms.swift
+//  TRPGetProgram.swift
 //  TRPRestKit
 //
-//  Created by Evren Yaşar on 25.08.2018.
+//  Created by Evren Yaşar on 28.08.2018.
 //  Copyright © 2018 Evren Yaşar. All rights reserved.
 //
 
 import Foundation
-public class TRPMyProgram: TRPRestServices {
+internal class TRPGetProgram: TRPRestServices{
+    
+    var hash:String?;
+    
+    internal override init() {}
+    
+    internal init(hash:String) {
+        self.hash = hash
+    }
     
     public override func servicesResult(data: Data?, error: NSError?) {
-        
         if let error = error {
             self.Completion?(nil,error, nil);
             return
         }
-        
         guard let data = data else {
             self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
-        
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPMyProgramsJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPProgramJsonModel.self, from: data)
             self.Completion?(result, nil, nil);
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
         }
     }
     
-    public override func userOAuth() -> Bool {
-        return true
+    public override func path() -> String {
+        var path = TRPConfig.ApiCall.Program.link;
+        if let hash = hash {
+            path += "/\(hash)"
+        }
+        
+        return path;
     }
     
-    public override func path() -> String {
-        return TRPConfig.ApiCall.MyProgram.link;
+    override func userOAuth() -> Bool {
+        return true
     }
     
 }

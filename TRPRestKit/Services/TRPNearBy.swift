@@ -7,12 +7,26 @@
 //
 
 import Foundation
-public class TRPNearbyResult: TRPRestServices{
+public class TRPNearBy: TRPRestServices{
     
-    var hash: String;
+    enum NearByType {
+        case nearBy
+        case nearByAll
+    }
+    
+    var hash: String?
+    var programStepId: Int?
+    var type:NearByType?
+    
+    
+    public init(programStepId: Int) {
+        self.programStepId = programStepId
+        self.type = NearByType.nearBy
+    }
     
     public init(hash: String) {
         self.hash = hash;
+        self.type = NearByType.nearByAll
     }
     
     public override func servicesResult(data: Data?, error: NSError?) {
@@ -26,7 +40,7 @@ public class TRPNearbyResult: TRPRestServices{
         }
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPNearbyResultJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPNearByJsonModel.self, from: data)
             self.paginationController(parentJson: result) { (pagination) in
                 self.Completion?(result, nil, pagination);
             }
@@ -36,11 +50,20 @@ public class TRPNearbyResult: TRPRestServices{
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.NearbyResult.link;
+        if type == NearByType.nearBy {
+            if let stepId = programStepId {
+                return TRPConfig.ApiCall.Nearby.link + "/\(stepId)"
+            }
+        }else if type == NearByType.nearByAll {
+            if let hash = hash {
+                return TRPConfig.ApiCall.NearbyAll.link + "/\(hash)"
+            }
+        }
+        return TRPConfig.ApiCall.Nearby.link
     }
     
-    public override func parameters() -> Dictionary<String, Any>? {
-        return ["hash":hash];
+    public override func userOAuth() -> Bool {
+        return true
     }
     
 }

@@ -437,30 +437,38 @@ extension TRPRestKit {
 // MARK: - NearBy Services
 extension TRPRestKit {
     
-    public func nearByServices(hash: String, completion: @escaping CompletionHandler){
+    public func nearBy(withProgramStepId stepId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion;
-        nearByServicesServices(hash: hash)
+        nearByServices(stepId: stepId, hash: nil)
     }
     
-    public func nearByServices(hash: String, completion: @escaping CompletionHandlerWithPagination){
-        completionHandlerWithPagination = completion;
-        nearByServicesServices(hash: hash)
+    public func nearByAll(withHash hash: String, completion: @escaping CompletionHandler) {
+        completionHandler = completion;
+        nearByServices(stepId: nil, hash: hash)
     }
     
-    private func nearByServicesServices(hash:String) {
-        let t = TRPNearbyResult(hash: hash)
-        t.Completion = {(result, error, pagination) in
+    
+    private func nearByServices(stepId: Int?, hash: String?) {
+        var t:TRPNearBy?
+        
+        if let stepId = stepId {
+            t = TRPNearBy(programStepId: stepId)
+        }else if let hash = hash {
+            t = TRPNearBy(hash: hash)
+        }
+        
+        t?.Completion = {(result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            
-            if let r = result as? TRPNearbyResultJsonModel {
+            if let r = result as? TRPNearByJsonModel {
                 self.postData(result: r, pagination: pagination)
             }
         }
-        t.connection();
+        t?.connection()
     }
+    
 }
 
 
@@ -630,6 +638,128 @@ extension TRPRestKit {
         t.connection()
     }
     
+}
+
+// MARK: - Program Day
+extension TRPRestKit {
+    
+    public func addNewProgramDayIn(hash: String, position: TRPProgramDayPosition, completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        programDayServices(hash: hash, position: position)
+    }
+    
+    public func programDayServices(hash: String, position: TRPProgramDayPosition){
+        let t = TRPProgramDay(hash: hash, position: position)
+        t.Completion = {(result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let r = result as? TRPProgramDayJsonModel {
+                self.postData(result: r)
+            }
+        }
+        t.connection()
+    }
+    
+    public func getProgramDay(dayId:Int, completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        getProgramDayServices(dayId: dayId)
+    }
+    
+    private func getProgramDayServices(dayId:Int) {
+        let t = TRPGetProgramDay(id: dayId)
+        t.Completion = {(result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let r = result as? TRPProgramDayJsonModel {
+                self.postData(result: r)
+            }
+        }
+        t.connection()
+    }
+    
+    public func deleteProgramDay(dayId: Int, completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        getProgramDayServices(dayId: dayId)
+    }
+    
+    public func deleteProgramDayServices(dayId: Int) {
+        
+        let t = TRPDeleteProgramDay(id: dayId)
+        t.Completion = {(result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let r = result as? TRPParentJsonModel {
+                self.postData(result: r)
+            }
+        }
+        t.connection()
+    }
+    
+}
+
+
+// MARK: - Preferences
+extension TRPRestKit {
+    
+    public func getPreferences(completion: @escaping CompletionHandlerWithPagination) {
+        completionHandlerWithPagination = completion
+        preferencesServices(type: TRPPreferences.PreferenceStatus.get)
+    }
+    
+    public func addPreferences(key: String, value: String, completion: @escaping CompletionHandlerWithPagination) {
+        completionHandlerWithPagination = completion
+        preferencesServices(key: key, value: value, type: TRPPreferences.PreferenceStatus.add)
+    }
+    
+    public func updatePreferencees(id:Int, key:String, value: String, completion: @escaping CompletionHandlerWithPagination) {
+        completionHandlerWithPagination = completion
+        preferencesServices(id: id, key: key, value: value, type: TRPPreferences.PreferenceStatus.update)
+    }
+    
+    public func deletePreferences(id:Int, completion: @escaping CompletionHandlerWithPagination) {
+        completionHandlerWithPagination = completion
+        preferencesServices(id: id, type: TRPPreferences.PreferenceStatus.delete)
+    }
+    
+    private func preferencesServices(id:Int? = nil,
+                                     key:String? = nil,
+                                     value: String? = nil,
+                                     type: TRPPreferences.PreferenceStatus) {
+        var t: TRPPreferences?
+        
+        switch type {
+        case .get:
+            t = TRPPreferences()
+            break;
+        case .add:
+            t = TRPPreferences(key: key ?? "", value: value ?? "", type: type)
+            break;
+        case .update:
+            t = TRPPreferences(id: id ?? 0 , key: key ?? "", value: value ?? "")
+            break;
+        case .delete:
+            t = TRPPreferences(id: id ?? 0)
+            break;
+        }
+        
+        t?.Completion = {(result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let r = result as? TRPPreferenceJsonModel {
+                self.postData(result: r)
+            }
+        }
+        t?.connection()
+        
+    }
 }
 
 

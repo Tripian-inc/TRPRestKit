@@ -24,15 +24,17 @@ public struct TRPConfig {
         case Routes
         case RoutesResult
         case GRouteReuslt
-        case NearbyResult
+        case Nearby
+        case NearbyAll
         case Tags
         case CheckDataUpdates
         case User
         case Oauth
         case me
-        case myPrograms
+        case MyProgram
         case Program
         case ProgramDay
+        case Preferences
         var link: String {
             switch self {
             case .Cities:
@@ -51,8 +53,10 @@ public struct TRPConfig {
                 return getNewLink() ?? "routeresult"
             case .GRouteReuslt:
                 return getNewLink() ?? "grouteresult"
-            case .NearbyResult:
-                return getNewLink() ?? "nearbyresult"
+            case .Nearby:
+                return getNewLink() ?? "nearby"
+            case .NearbyAll:
+                return getNewLink() ?? "nearbyall"
             case .Tags:
                 return getNewLink() ?? "tags"
             case .CheckDataUpdates:
@@ -63,12 +67,14 @@ public struct TRPConfig {
                 return getNewLink() ?? "auth/token"
             case .me:
                 return getNewLink() ?? "me"
-            case .myPrograms:
+            case .MyProgram:
                 return getNewLink() ?? "myprograms"
             case .Program:
                 return getNewLink() ?? "program"
             case .ProgramDay:
                 return getNewLink() ?? "programday"
+            case .Preferences:
+                return getNewLink() ?? "preferences"
             }
         }
         

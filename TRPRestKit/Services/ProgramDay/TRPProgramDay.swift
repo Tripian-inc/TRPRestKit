@@ -10,8 +10,10 @@ import Foundation
 internal class TRPProgramDay: TRPRestServices {
     
     var position:TRPProgramDayPosition?
+    var hash: String?
     
-    internal init(position: TRPProgramDayPosition) {
+    internal init(hash: String, position: TRPProgramDayPosition) {
+        self.hash = hash
         self.position = position
     }
     
@@ -28,7 +30,7 @@ internal class TRPProgramDay: TRPRestServices {
         
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPUserMeJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPProgramDayJsonModel.self, from: data)
             self.Completion?(result, nil, nil);
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
@@ -42,10 +44,27 @@ internal class TRPProgramDay: TRPRestServices {
     public override func path() -> String {
         return TRPConfig.ApiCall.ProgramDay.link;
     }
+    
+    override func requestMode() -> TRPRequestMode {
+        return TRPRequestMode.post
+    }
+    
+    override func parameters() -> Dictionary<String, Any>? {
+        var params : Dictionary<String, Any> = [:];
+        if let position = position {
+            params["position"] = position.getParams()
+        }
+        
+        if let hash = hash {
+            params["hash"] = hash
+        }
+        
+        return params
+    }
 }
 
 
-enum TRPProgramDayPosition{
+public enum TRPProgramDayPosition{
     case beginning, end
     
     func getParams() -> String{

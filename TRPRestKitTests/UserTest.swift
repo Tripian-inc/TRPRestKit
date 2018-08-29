@@ -16,13 +16,13 @@ class UserTest: XCTestCase {
     }
     
     
-//    func testEmptyUserHash() {
-//        TRPUserPersistent.remove()
-//        let hash = TRPUserPersistent.fetchHash()
-//        if hash != nil {
-//            XCTFail("User hash isn't nil")
-//        }
-//    }
+    func testEmptyUserHash() {
+        TRPUserPersistent.remove()
+        let hash = TRPUserPersistent.fetchHash()
+        if hash != nil {
+            XCTFail("User hash isn't nil")
+        }
+    }
     
     func testLoginUser() {
         let expectation = XCTestExpectation(description: "TRPRestKit.userLogin expectation")
@@ -57,6 +57,38 @@ class UserTest: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
     
+    func testTripianUserLogin() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.userLogin expectation")
+        let mail = "test@tripian.com"
+        let password = "123123"
+        TRPRestKit().userLogin(email: mail, password: password) { (result, error) in
+            if let error = error {
+                XCTFail("UserLogin Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let result = result else {
+                XCTFail("UserLogin Resutl is nil")
+                return
+            }
+            
+            guard let jsonModel = result as? TRPOAuthJsonModel else {
+                XCTFail("UserLogin Json model coundn't converted to  TRPOAuthJsonModel")
+                return
+            }
+            
+            guard let userHash = TRPUserPersistent.fetchHash() else{
+                XCTFail("UserLogin Hash coundn't save")
+                return
+            }
+            
+            XCTAssertEqual(userHash, jsonModel.data.accessToken,"User hash not equel user token")
+            
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 5.0)
+    }
     
     func testUserInfo() {
         let expectation = XCTestExpectation(description: "TRPRestKit.cities expectation")
