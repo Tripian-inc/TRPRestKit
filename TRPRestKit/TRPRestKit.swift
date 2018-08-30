@@ -471,6 +471,68 @@ extension TRPRestKit {
     
 }
 
+// MARK: - ProgramStep
+extension TRPRestKit {
+    
+    public func addProgramStep(hash: String, dayId: Int, placeId: Int, order: Int, completion: @escaping CompletionHandler) {
+        completionHandler = completion;
+        programStepsServices(hash: hash, dayId: dayId, placeId: placeId, order: order, type: TRPProgramSteps.Status.add)
+    }
+    
+    public func getProgramStep(id:Int, completion: @escaping CompletionHandler) {
+        completionHandler = completion;
+        programStepsServices(id: id, type: .get)
+    }
+    
+    //id = programStepId
+    public func updateProgramStep(id: Int, dayId: Int? = nil, placeId: Int? = nil, order: Int? = nil, completion: @escaping CompletionHandler ) {
+        completionHandler = completion;
+        programStepsServices(id: id, dayId: dayId, placeId: placeId, order: order, type: .update)
+    }
+    
+    public func deleteProgramStep(id:Int, completion: @escaping CompletionHandler) {
+        completionHandler = completion;
+        programStepsServices(id: id, type: .delete)
+    }
+    
+    private func programStepsServices(hash: String? = nil, id: Int? = nil, dayId: Int? = nil, placeId: Int? = nil, order: Int? = nil, type:TRPProgramSteps.Status) {
+        var t: TRPProgramSteps?
+        
+        if type == TRPProgramSteps.Status.get || type == TRPProgramSteps.Status.delete {
+            if let id = id {
+                t = TRPProgramSteps(id: id, type: type)
+            }
+        }else if type == TRPProgramSteps.Status.add {
+            if let hash = hash, let dayId = dayId, let placeId = placeId, let order = order {
+                t = TRPProgramSteps(hash: hash, dayId: dayId, placeId: placeId, order: order)
+            }
+        }else if type == TRPProgramSteps.Status.update {
+            if let id = id {
+                t = TRPProgramSteps(id: id, dayId: dayId, placeId: placeId, order: order)
+            }
+        }
+        
+        guard let service = t else {
+            self.postError(error: TRPErrors.undefined as NSError)
+            return
+        }
+        
+        service.Completion = {(result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            
+            if let r = result as? TRPProgramStepJsonModel {
+                self.postData(result: r, pagination: pagination)
+            }
+        }
+        service.connection()
+    }
+    
+}
+
+
 
 // MARK: - Tags Services
 extension TRPRestKit {
@@ -557,7 +619,7 @@ extension TRPRestKit {
     }
 }
 
-
+// MARK: - Program
 extension TRPRestKit {
     
     public func getMyProgram(completion: @escaping CompletionHandlerWithPagination) {

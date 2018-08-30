@@ -10,8 +10,9 @@ import Foundation
 
 internal class TRPRecommendation: TRPRestServices{
     
-    var setting:TRPRecommendationSettings;
+    var setting: TRPRecommendationSettings;
     var limit: Int = 15
+    
     internal init(settings:TRPRecommendationSettings) {
         self.setting = settings
     }
@@ -48,6 +49,7 @@ internal class TRPRecommendation: TRPRestServices{
         params["city_id"] = setting.cityId
         
         if let typeIds = setting.typeId {
+            //TODO: - FOUNDATİON DAN AL
             let typeIdList = typeIds.map{"\($0)"}.joined(separator: ",")
             params["type_id"] = typeIdList
         }
@@ -66,6 +68,15 @@ internal class TRPRecommendation: TRPRestServices{
         if let coord = setting.currentCoordinate {
             params["coord"] = coord // int
         }
+        
+        if let hash = setting.hash {
+            params["hash"] = hash
+        }
+        
+        if let type = setting.type {
+            params["type"] = type
+        }
+        
         if let answer = setting.answer {
             // TODO FOUNDATİON KİT DEN GÜNCELLE
             let answersMap = answer.map{"\($0)"}.joined(separator: ",")

@@ -33,24 +33,3 @@ public struct TRPNearByInfoModel: Decodable {
         
     }
 }
-
-public struct TRPProgramStep1: Decodable {
-    
-    var id: Int;
-    var placeId: Int;
-    var order: Int;
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case placeId = "place_id"
-        case order
-    }
-    
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
-        id = try values.decode(Int.self, forKey: .id)
-        placeId = try values.decode(Int.self, forKey: .placeId)
-        order = try values.decode(Int.self, forKey: .order)
-    }
-    
-}

@@ -443,6 +443,97 @@ class TRPRestKitTest: XCTestCase {
         }
         wait(for: [expectation], timeout: 10.0)
     }
+    
+    func testGetProgramStepInfo() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.nearBy expectation")
+        let nameSpace = "Get Program Step Info"
+        TRPRestKit().getProgramStep(id: 269) { (result, error)  in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            guard let _ = result as? TRPProgramStepJsonModel  else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                return
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testAddProgramStep() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.nearBy expectation")
+        let nameSpace = "Add Program Step Info"
+        let hash = "cd774e23e78a7a90db276dfaebbefbe1"
+        TRPRestKit().addProgramStep(hash: hash, dayId: 1, placeId: 200, order: 1)  { (result, error)  in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            guard let _ = result as? TRPProgramStepJsonModel  else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                return
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testUpdateProgramStep() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.update expectation")
+        let nameSpace = "Update Program Step Info"
+        
+        //TRPRestKit().updateProgramStep(id: 266, completion: <#T##TRPRestKit.CompletionHandler##TRPRestKit.CompletionHandler##(Any?, NSError?) -> Void#>)
+//        TRPRestKit().addProgramStep(hash: hash, dayId: 1, placeId: 200, order: 1)  { (result, error)  in
+//            if let error = error {
+//                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+//                return
+//            }
+//            guard let result = result else {
+//                XCTFail("\(nameSpace) Resutl is nil")
+//                return
+//            }
+//            guard let _ = result as? TRPProgramStepJsonModel  else {
+//                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+//                return
+//            }
+//            expectation.fulfill()
+//        }
+//        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    
+    func testDeleteProgramStep() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.update expectation")
+        let nameSpace = "Update Program Step Info"
+        
+        TRPRestKit().deleteProgramStep(id: 270) { (result, error) in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            guard let _ = result as? TRPProgramStepJsonModel  else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                return
+            }
+            expectation.fulfill()
+        }
+         wait(for: [expectation], timeout: 10.0)
+       
+    }
+    
 }
 
 

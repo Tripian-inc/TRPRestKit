@@ -10,6 +10,7 @@ import Foundation
 public struct TRPRecommendationSettings {
     
     public var cityId: Int;
+    public var hash: String?;
     public var typeId: [Int]?;
     public var adultsCount: Int?
     public var adultAgeRange: String?
@@ -17,7 +18,7 @@ public struct TRPRecommendationSettings {
     public var childrenAgeRange: String?
     public var currentCoordinate: String?;
     public var answer: [Int]?;
-    
+    public var type: String?
     
     public init(cityId:Int) {
         self.cityId = cityId;

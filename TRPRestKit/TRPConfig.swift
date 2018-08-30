@@ -35,6 +35,7 @@ public struct TRPConfig {
         case Program
         case ProgramDay
         case Preferences
+        case ProgramStep
         var link: String {
             switch self {
             case .Cities:
@@ -75,6 +76,8 @@ public struct TRPConfig {
                 return getNewLink() ?? "programday"
             case .Preferences:
                 return getNewLink() ?? "preferences"
+            case .ProgramStep:
+                return getNewLink() ?? "programstep"
             }
         }
         
