@@ -85,7 +85,7 @@ public class TRPRestServices {
     }
     
     public func paginationController(parentJson: TRPParentJsonModel, pagination: (_ status: Pagination) -> ()){
-        if let nextPage = parentJson.meta?.pagination?.links?.next {
+        if let nextPage = parentJson.pagination?.links?.next {
             pagination(.continuing)
             connection(link: nextPage)
         }else {

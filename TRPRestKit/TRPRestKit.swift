@@ -231,11 +231,23 @@ extension TRPRestKit {
 // MARK: - Recommendation
 extension TRPRestKit {
     
+    ///Fetch recommendation
+    /// seeAlso: [TRPRecommendationInfoJsonModel]
     public func recommendation(settings:TRPRecommendationSettings, completion: @escaping CompletionHandler){
         self.completionHandler = completion;
         recoomendationServices(settings: settings)
     }
     
+    /// Fetch recommendation with Pagination
+    /// seeAlso: [TRPRecommendationInfoJsonModel]
+    
+    
+    /// Fetch recommendation with settings
+    ///
+    /// - Parameters:
+    ///   - settings: Recommendation setting
+    ///   - completion: Callback with Pagination
+    /// - Important: CallBack class is [TRPRecommendationInfoJsonModel]
     public func recommendation(settings:TRPRecommendationSettings, completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
         recoomendationServices(settings: settings)
@@ -249,8 +261,10 @@ extension TRPRestKit {
                 return
             }
             
-            if let r = result as? TRPRecommendationJsonModel {
-                self.postData(result: r, pagination: pagination)
+            if let r = result as? TRPRecommendationJsonModel, let recommendationPlaces = r.data {
+                self.postData(result: recommendationPlaces, pagination: pagination)
+            }else {
+                self.postData(result: [], pagination: pagination)
             }
         }
         t.connection();
@@ -261,7 +275,7 @@ extension TRPRestKit {
 
 // MARK: - USER
 extension TRPRestKit {
-    
+    /// seeAlso: TRPOAuthJsonModel
     public func userLogin(email:String, password:String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         userOAuthServices(email: email, password: password)

@@ -9,7 +9,7 @@
 import Foundation
 public struct TRPRecommendationInfoJsonModel: Decodable {
     
-    public var id: Int?;
+    public var id: Int;
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -17,7 +17,7 @@ public struct TRPRecommendationInfoJsonModel: Decodable {
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
-        self.id = try values.decodeIfPresent(Int.self, forKey: .id);
+        self.id = try values.decode(Int.self, forKey: .id);
     }
     
 }

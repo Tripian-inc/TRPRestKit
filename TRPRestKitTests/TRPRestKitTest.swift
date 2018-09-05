@@ -134,6 +134,30 @@ class TRPRestKitTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
+    func testAllPlacesInIstanbul() {
+        let expectation = XCTestExpectation(description: "TRPRestKit.Question expectation")
+        let nameSpace = "Update Program Step Info"
+    
+        TRPRestKit().places(withCityId: 107) { (result, error, pagination) in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                return
+            }
+            
+            guard let _ = result as? TRPPlaceJsonModel  else {
+                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                return
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    
     func testQuestionForIstanbul() {
         let expectation = XCTestExpectation(description: "TRPRestKit.Question expectation")
         

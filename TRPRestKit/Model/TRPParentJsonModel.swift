@@ -9,43 +9,46 @@
 import Foundation
 /// Parent Json parser.
 public class TRPParentJsonModel: Decodable {
-    
-    var meta: TRPMetaJsonModel?;
+
     public var status: Int
     public var success: Bool
     public var message: String?;
-    
+    var pagination: TRPPaginationJsonModel?
     
     enum ParentCodingKeys: String, CodingKey {
-        case meta
         case status
         case message
         case success
+        case pagination
     }
     
     public required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: ParentCodingKeys.self);
-        meta = try values.decodeIfPresent(TRPMetaJsonModel.self, forKey: .meta);
         status = try values.decode(Int.self, forKey: .status);
         success = try values.decode(Bool.self, forKey: TRPParentJsonModel.ParentCodingKeys.success)
         message = try values.decodeIfPresent(String.self, forKey: .message);
+        
+        if let pagination = try? values.decodeIfPresent(TRPPaginationJsonModel.self, forKey: .pagination) {
+            self.pagination = pagination
+        }
     }
     
 }
 
+
 struct TRPMetaJsonModel:Decodable{
-    var pagination: TRPMetasPaginationJsonModel?
+    var pagination: TRPPaginationJsonModel?
 }
 
 //ETODO: Yorum satırlarını yaz.
-struct TRPMetasPaginationJsonModel: Decodable{
+struct TRPPaginationJsonModel: Decodable{
     
     var total: Int = 0;
     var count: Int = 0;
     var perPage: Int = 0
     var currentPage: Int = 0;
     var totalPages: Int = 0;
-    var links: TRPMetasPaginationLinksJsonModel?
+    var links: TRPPaginationLinkJsonModel?
     
     enum CodingKeys: String, CodingKey{
         case total = "total"
@@ -66,14 +69,14 @@ struct TRPMetasPaginationJsonModel: Decodable{
         self.count = try values.decodeIfPresent(Int.self, forKey: .count) ?? 0
         self.totalPages = try values.decodeIfPresent(Int.self, forKey: .totalPages) ?? 0
         
-        if let links = try? values.decodeIfPresent(TRPMetasPaginationLinksJsonModel.self, forKey: .links){
+        if let links = try? values.decodeIfPresent(TRPPaginationLinkJsonModel.self, forKey: .links){
             self.links = links;
         }
     }
     
 }
 
-struct TRPMetasPaginationLinksJsonModel: Decodable {
+struct TRPPaginationLinkJsonModel: Decodable {
     
     var next: String?
     var previous: String?
