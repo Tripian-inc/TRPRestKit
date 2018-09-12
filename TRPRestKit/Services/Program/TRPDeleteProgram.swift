@@ -36,7 +36,7 @@ internal class TRPDeleteProgram: TRPRestServices{
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.Program.link;
+        var path = TRPConfig.ApiCall.Trip.link;
         if let hash = hash {
             path += "/\(hash)"
         }

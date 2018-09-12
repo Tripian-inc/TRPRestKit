@@ -11,15 +11,15 @@ public class TRPCityInfoModel:NSObject, Decodable {
     
     public var id: Int
     public var name: String
-    public var coordinate: TRPCoordinateModel
+    public var coordinate: TRPCoordinateModel?
     public var country: TRPCountryJsonModel?
     public var updateType: TRPUpdateTypeModel = .added
     public var image: String?
     
     enum CodingKeys: String, CodingKey {
         case id
-        case name = "city_name"
-        case coord
+        case name = "name"
+        case coord 
         case country
         case updateType
         case image
@@ -30,7 +30,8 @@ public class TRPCityInfoModel:NSObject, Decodable {
         self.id = try values.decode(Int.self, forKey: .id);
         self.name = try values.decode(String.self, forKey: .name);
         self.image = try values.decodeIfPresent(String.self, forKey: .image)
-        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coord)
+        // TODO: open coordinate method
+        //self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coord)
         self.country = try values.decodeIfPresent(TRPCountryJsonModel.self, forKey: .country);
         
         if let updateStr = try values.decodeIfPresent(String.self, forKey: .updateType), let type = TRPUpdateTypeModel.convert(updateStr) {

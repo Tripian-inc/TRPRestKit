@@ -1,5 +1,5 @@
 //
-//  TRPUserMeJsonModel.swift
+//  TRPMyProgramsJsonModel.swift
 //  TRPRestKit
 //
 //  Created by Evren Yaşar on 25.08.2018.
@@ -7,9 +7,9 @@
 //
 
 import Foundation
-public class TRPUserMeJsonModel: TRPParentJsonModel{
-    
-    public var data: TRPUserInfoModel;
+class TRPUserTripsJsonModel:TRPParentJsonModel {
+   
+    public var data: [TRPUserTripInfoModel]?;
     
     enum CodingKeys: String, CodingKey {
         case data
@@ -17,7 +17,7 @@ public class TRPUserMeJsonModel: TRPParentJsonModel{
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.data = try values.decode(TRPUserInfoModel.self, forKey: .data)
+        self.data = try values.decode([TRPUserTripInfoModel].self, forKey: .data)
         try super.init(from: decoder);
     }
 }

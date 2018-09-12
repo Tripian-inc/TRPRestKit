@@ -9,7 +9,7 @@
 import Foundation
 public class TRPPreferenceJsonModel: TRPParentJsonModel{
     
-    public var data: [TRPPreferenceInfoModel]?
+    public var data: [TRPUserPreferencesInfoModel]?
     
     enum CodingKeys: String, CodingKey {
         case data
@@ -17,10 +17,10 @@ public class TRPPreferenceJsonModel: TRPParentJsonModel{
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        if let datas = try? values.decodeIfPresent([TRPPreferenceInfoModel].self, forKey: .data) {
+        if let datas = try? values.decodeIfPresent([TRPUserPreferencesInfoModel].self, forKey: .data) {
             self.data = datas
-        }else if let infoModel = try? values.decodeIfPresent(TRPPreferenceInfoModel.self, forKey: .data) {
-            self.data = [infoModel] as? [TRPPreferenceInfoModel]
+        }else if let infoModel = try? values.decodeIfPresent(TRPUserPreferencesInfoModel.self, forKey: .data) {
+            self.data = [infoModel] as? [TRPUserPreferencesInfoModel]
         }
         
         try super.init(from: decoder);

@@ -7,14 +7,29 @@
 //
 
 import Foundation
+import TRPFoundationKit
 internal class TRPCities: TRPRestServices{
     
-    var cityId:Int?;
+    private enum RequestType {
+        case allCities
+        case cityWithId
+        case cityWithLocation
+    }
+    
+    private var cityId:Int?;
+    private var requestType: RequestType = RequestType.allCities
+    private var location: TRPLocation?
     
     internal override init() {}
     
     internal init(cityId:Int) {
+        self.requestType = .cityWithId
         self.cityId = cityId;
+    }
+    
+    internal init(location: TRPLocation) {
+        self.requestType = .cityWithLocation
+        self.location = location
     }
     
     public override func servicesResult(data: Data?, error: NSError?) {
@@ -38,11 +53,26 @@ internal class TRPCities: TRPRestServices{
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.Cities.link;
-        if let id = cityId {
-            path += "/\(id)"
+        var path = ""
+        
+        if requestType == .allCities || requestType == .cityWithId {
+            path = TRPConfig.ApiCall.Cities.link;
+            if let id = cityId {
+                path += "/\(id)"
+            }
+        }else if requestType == .cityWithLocation {
+            path = TRPConfig.ApiCall.GetcityByCoordinates.link;
         }
         return path;
+    }
+    
+    override func parameters() -> Dictionary<String, Any>? {
+        var params: Dictionary<String, Any> = [:]
+        if let location = location {
+            params["lat"] = location.lat
+            params["lng"] = location.lon
+        }
+        return params
     }
     
 }

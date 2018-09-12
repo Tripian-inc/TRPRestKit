@@ -10,18 +10,18 @@ import Foundation
 public class TRPRestServices {
     
     public var Completion:((_ result:Any?, _ error:NSError?, _ pagination: Pagination?) -> Void)?
-    
+    public var isAutoPagination = true
     public func connection() {
         let network = TRPNetwork(path: path());
         network.add(params: createParams())
         network.add(mode: requestMode())
-
+        
+        network.addValue(TRPClient.getKey(), forHTTPHeaderField: "x-api-key")
         if let bodyData = bodyDataToJson(bodyParameters()) {
             network.addValue("application/json", forHTTPHeaderField: "Content-Type")
             network.addValue("application/json", forHTTPHeaderField: "Accept")
             network.add(body: bodyData)
         }
-        
         if userOAuth() == true {
             if let token = oauth() {
                 network.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -30,7 +30,6 @@ public class TRPRestServices {
         network.build { (error, data) in
             self.servicesResult(data: data, error: error)
         }
-        
     }
     
     public func connection(link:String) {
@@ -41,7 +40,7 @@ public class TRPRestServices {
     }
     
     private func createParams() -> Dictionary<String, Any> {
-        var params : Dictionary<String, Any> = ["api_key":TRPClient.getKey()];
+        var params : Dictionary<String, Any> = [:];
         if let additionalParams = parameters() {
             params.merge(additionalParams, uniquingKeysWith: {(old, new) in new});
         }
@@ -86,8 +85,11 @@ public class TRPRestServices {
     
     public func paginationController(parentJson: TRPParentJsonModel, pagination: (_ status: Pagination) -> ()){
         if let nextPage = parentJson.pagination?.links?.next {
-            pagination(.continuing)
-            connection(link: nextPage)
+            //pagination(.continuing(nextPage: nextPage))
+            pagination(.continues(nextPage))
+            if isAutoPagination {
+                connection(link: nextPage)
+            }
         }else {
             pagination(.completed);
         }

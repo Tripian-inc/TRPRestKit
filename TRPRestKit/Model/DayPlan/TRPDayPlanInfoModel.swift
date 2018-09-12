@@ -7,13 +7,13 @@
 //
 
 import Foundation
-public struct TRPProgramDayInfoModel: Decodable {
+public struct TRPDayPlanInfoModel: Decodable {
     var id: Int
     var hash: String
     var date: String?
     var startTime: String?
     var endTime: String?
-    var steps: [TRPProgramStep]?
+    var planPoints: [TRPPlanPoint]?
     
     //TODO: - preferences eklenecek
     enum CodingKeys: String, CodingKey {
@@ -22,7 +22,7 @@ public struct TRPProgramDayInfoModel: Decodable {
         case date
         case startTime = "start_time"
         case endTime = "end_time"
-        case steps
+        case planPoints = "planpoints"
     }
     
     public init(from decoder: Decoder) throws {
@@ -33,9 +33,10 @@ public struct TRPProgramDayInfoModel: Decodable {
         self.startTime = try values.decodeIfPresent(String.self, forKey: .startTime)
         self.endTime = try values.decodeIfPresent(String.self, forKey: .endTime)
         
-        if let steps = try? values.decodeIfPresent([TRPProgramStep].self, forKey: .steps) {
-            self.steps = steps
+        if let planPoints = try? values.decodeIfPresent([TRPPlanPoint].self, forKey: .planPoints) {
+            self.planPoints = planPoints
         }
         
     }
+    
 }

@@ -28,7 +28,7 @@ internal class TRPGetProgram: TRPRestServices{
         }
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPProgramJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPTripJsonModel.self, from: data)
             self.Completion?(result, nil, nil);
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
@@ -36,7 +36,7 @@ internal class TRPGetProgram: TRPRestServices{
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.Program.link;
+        var path = TRPConfig.ApiCall.Trip.link;
         if let hash = hash {
             path += "/\(hash)"
         }

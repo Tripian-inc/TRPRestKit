@@ -42,7 +42,7 @@ public class TRPFeedback: TRPRestServices {
         
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPMyProgramsJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPUserTripsJsonModel.self, from: data)
             self.Completion?(result, nil, nil);
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
@@ -54,7 +54,7 @@ public class TRPFeedback: TRPRestServices {
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.MyProgram.link;
+        return TRPConfig.ApiCall.UserTrips.link;
     }
     
 }

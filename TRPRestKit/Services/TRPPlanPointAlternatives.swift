@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public class TRPNearBy: TRPRestServices{
+public class TRPPlanPointAlternatives: TRPRestServices{
     
     enum NearByType {
         case nearBy
@@ -15,12 +15,12 @@ public class TRPNearBy: TRPRestServices{
     }
     
     var hash: String?
-    var programStepId: Int?
+    var planPointId: Int?
     var type:NearByType?
     
     
-    public init(programStepId: Int) {
-        self.programStepId = programStepId
+    public init(planPointId: Int) {
+        self.planPointId = planPointId
         self.type = NearByType.nearBy
     }
     
@@ -40,7 +40,7 @@ public class TRPNearBy: TRPRestServices{
         }
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPNearByJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPPlanPointAlternativeJsonModel.self, from: data)
             self.paginationController(parentJson: result) { (pagination) in
                 self.Completion?(result, nil, pagination);
             }
@@ -50,20 +50,21 @@ public class TRPNearBy: TRPRestServices{
     }
     
     public override func path() -> String {
-        if type == NearByType.nearBy {
-            if let stepId = programStepId {
-                return TRPConfig.ApiCall.Nearby.link + "/\(stepId)"
-            }
-        }else if type == NearByType.nearByAll {
-            if let hash = hash {
-                return TRPConfig.ApiCall.NearbyAll.link + "/\(hash)"
-            }
-        }
-        return TRPConfig.ApiCall.Nearby.link
+        return TRPConfig.ApiCall.PlanPointAlternative.link
     }
     
     public override func userOAuth() -> Bool {
         return true
+    }
+    
+    public override func parameters() -> Dictionary<String, Any>? {
+        var params: Dictionary<String, Any> = [:]
+        if let hash = hash {
+            params["hash"] = hash
+        }else if let planPointId = planPointId {
+            params["planpoint_id"] = planPointId
+        }
+        return params
     }
     
 }

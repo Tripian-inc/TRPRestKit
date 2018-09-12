@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public class TRPMyProgram: TRPRestServices {
+public class TRPUserTrips: TRPRestServices {
     
     public override func servicesResult(data: Data?, error: NSError?) {
         
@@ -23,7 +23,7 @@ public class TRPMyProgram: TRPRestServices {
         
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPMyProgramsJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPUserTripsJsonModel.self, from: data)
             self.Completion?(result, nil, nil);
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
@@ -35,7 +35,7 @@ public class TRPMyProgram: TRPRestServices {
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.MyProgram.link;
+        return TRPConfig.ApiCall.UserTrips.link;
     }
     
 }

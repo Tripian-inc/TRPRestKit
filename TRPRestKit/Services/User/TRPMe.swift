@@ -34,7 +34,7 @@ public class TRPUserMe: TRPRestServices {
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.me.link;
+        return TRPConfig.ApiCall.user.link;
     }
     
 }

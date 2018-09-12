@@ -8,8 +8,8 @@
 
 import Foundation
 public struct TRPConfig {
-    public static let BaseUrl: String = "34.251.216.241"
-    public static let BaseUrlPath: String = "tripian-apiV2/public/v2"
+    public static let BaseUrl: String = "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
+    public static let BaseUrlPath: String = "v02"
     
     public static var apiLink: String {
         return "http://\(BaseUrl)/\(BaseUrlPath)/"
@@ -17,6 +17,7 @@ public struct TRPConfig {
     
     public enum ApiCall: String {
         case Cities
+        case GetcityByCoordinates
         case PlaceTypes
         case Places
         case Questions
@@ -24,28 +25,30 @@ public struct TRPConfig {
         case Routes
         case RoutesResult
         case GRouteReuslt
-        case Nearby
-        case NearbyAll
+        case PlanPointAlternative
         case Tags
         case CheckDataUpdates
         case User
-        case Oauth
-        case me
-        case MyProgram
-        case Program
-        case ProgramDay
-        case Preferences
-        case ProgramStep
+        case Login
+        case user
+        case UserTrips
+        case Trip
+        case DayPlan
+        case UserPreferences
+        case PlanPoints
+        case Register
         var link: String {
             switch self {
             case .Cities:
                 return getNewLink() ?? "cities"
+            case .GetcityByCoordinates:
+                return getNewLink() ?? "getcitybycoordinates"
             case .PlaceTypes:
                 return getNewLink() ?? "placetypes"
             case .Places:
                 return getNewLink() ?? "places"
             case .Questions:
-                return getNewLink() ?? "questions"
+                return getNewLink() ?? "tripquestions"
             case .Recommendations:
                 return getNewLink() ?? "recommendation"
             case .Routes:
@@ -54,30 +57,30 @@ public struct TRPConfig {
                 return getNewLink() ?? "routeresult"
             case .GRouteReuslt:
                 return getNewLink() ?? "grouteresult"
-            case .Nearby:
-                return getNewLink() ?? "nearby"
-            case .NearbyAll:
-                return getNewLink() ?? "nearbyall"
+            case .PlanPointAlternative:
+                return getNewLink() ?? "planpointalternatives"
             case .Tags:
                 return getNewLink() ?? "tags"
             case .CheckDataUpdates:
                 return getNewLink() ?? "check-data-updates"
             case .User:
                 return getNewLink() ?? "user"
-            case .Oauth:
-                return getNewLink() ?? "auth/token"
-            case .me:
-                return getNewLink() ?? "me"
-            case .MyProgram:
-                return getNewLink() ?? "myprograms"
-            case .Program:
-                return getNewLink() ?? "program"
-            case .ProgramDay:
-                return getNewLink() ?? "programday"
-            case .Preferences:
-                return getNewLink() ?? "preferences"
-            case .ProgramStep:
-                return getNewLink() ?? "programstep"
+            case .Login:
+                return getNewLink() ?? "login"
+            case .user:
+                return getNewLink() ?? "user"
+            case .UserTrips:
+                return getNewLink() ?? "user/trips"
+            case .Trip:
+                return getNewLink() ?? "trip"
+            case .DayPlan:
+                return getNewLink() ?? "dayplan"
+            case .UserPreferences:
+                return getNewLink() ?? "user/preferences"
+            case .PlanPoints:
+                return getNewLink() ?? "planpoints"
+            case .Register:
+                return getNewLink() ?? "register"
             }
         }
         

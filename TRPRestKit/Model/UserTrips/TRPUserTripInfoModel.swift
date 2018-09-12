@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct TRPMyProgramInfoModel: Decodable {
+public struct TRPUserTripInfoModel: Decodable {
     
     var id: Int
     var arrivalTime: TRPTime?

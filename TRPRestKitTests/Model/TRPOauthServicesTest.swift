@@ -23,7 +23,7 @@ class TRPOauthServicesTest: XCTestCase {
        
         let userName = "necatievren@gmail.com"
         let password = "123456"
-        let oauth = TRPOAuth(email: userName, password: password)
+        let oauth = TRPLogin(email: userName, password: password)
         oauth.Completion = {(result, error, pagination) in
             
             if let error = error {

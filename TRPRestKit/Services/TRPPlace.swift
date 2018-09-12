@@ -9,18 +9,40 @@
 import Foundation
 import TRPFoundationKit
 internal class TRPPlace: TRPRestServices {
+    private enum FetchType {
+        case withCityId
+        case withPlacesId
+        case withLocation
+    }
     
     var placeIds: [Int]?;
     var cities: [Int]?;
     var limit: Int = 25;
+    var typeId: Int? = nil
+    private var location: TRPLocation?
+    private var distance: Double?
+    private var status: FetchType = FetchType.withCityId
+    
     internal override init() {}
     
-    internal init(ids: [Int]) {
+    internal init(ids: [Int], cityId: Int) {
         self.placeIds = ids;
+        self.cities = [cityId]
+        status = .withPlacesId
     }
     
     internal init(cities:[Int]){
         self.cities = cities;
+        status = .withCityId
+    }
+    
+    internal init(location: TRPLocation,
+                  distance:Double? = nil,
+                  typeId: Int? = nil) {
+        self.location = location
+        self.distance = distance
+        self.typeId = typeId
+        status = .withLocation
     }
     
     public override func servicesResult(data: Data?, error: NSError?) {
@@ -45,15 +67,36 @@ internal class TRPPlace: TRPRestServices {
     }
     
     override func parameters() -> Dictionary<String, Any>? {
-        if let cities = cities {
-            let citiesList = cities.toString()
-            return ["q":"city_id:" + citiesList,"limit":String(limit)]
-        }else if let places = placeIds {
-            let placesList = places.toString()
-            return ["q":"id:" + placesList]
-            
+        var params: [String: Any] = [:]
+        if status == .withCityId {
+            if let cities = cities {
+                let citiesList = cities.toString()
+                params["city_id"] = citiesList
+                params["limit"] = String(limit)
+            }
+        }else if status == .withPlacesId {
+            if let places = placeIds, let cities = cities, let city = cities.first {
+                let placesList = places.toString()
+                params["city_id"] = city
+                params["q"] = "id:" + placesList
+            }
+        }else if status == .withLocation {
+            if let location = location {
+                params["lat"] = location.lat
+                params["lng"] = location.lon
+                if let distance = distance {
+                    params["distance"] = distance
+                }
+                // TODO: typeid eklenecek
+                if let typeId = typeId {
+                    
+                }
+            }
         }
-        return nil
+        if params.count > 0 {
+            params["limit"] = limit
+        }
+        return params
     }
     
     public override func path() -> String {

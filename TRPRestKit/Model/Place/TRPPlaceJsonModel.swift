@@ -17,7 +17,7 @@ public class TRPPlaceJsonModel:TRPParentJsonModel {
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        if let models = try? values.decodeIfPresent(Array<TRPPlaceInfoJsonModel>.self, forKey: .data) {
+        if let models = try? values.decodeIfPresent([TRPPlaceInfoJsonModel].self, forKey: .data) {
             self.data = models
         }else if let model = try? values.decodeIfPresent(TRPPlaceInfoJsonModel.self, forKey: .data), let data = [model] as? [TRPPlaceInfoJsonModel]{
             self.data = data;

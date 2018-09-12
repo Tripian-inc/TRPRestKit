@@ -71,7 +71,7 @@ public class TRPNetwork {
             generateSession(URL(string: rawLink!));
         }else {
             var urlComponents = URLComponents();
-            urlComponents.scheme = "http"
+            urlComponents.scheme = "https"
             urlComponents.host = baseUrl
             urlComponents.path = "/" + path
             
@@ -87,7 +87,7 @@ public class TRPNetwork {
             completionHandler?(TRPErrors.undefined as NSError,nil);
             return
         }
-        //print("Current URl: \(mUrl)")
+        print("Current URl: \(mUrl)")
         let request = NSMutableURLRequest(url: mUrl);
         request.httpMethod = mode.rawValue
         
@@ -101,9 +101,9 @@ public class TRPNetwork {
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             var object: Any? = nil
-//            if let strData = String(data: data!, encoding: String.Encoding.utf8) {
-//                print("Request Result \(strData)")
-//            }
+            if let strData = String(data: data!, encoding: String.Encoding.utf8) {
+                print("Request Result \(strData)")
+            }
                         
             if let data = data {
                 object = try? JSONSerialization.jsonObject(with: data, options: [])

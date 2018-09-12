@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPPreferences: TRPRestServices {
+internal class TRPUseerPreferences: TRPRestServices {
     
     var typeId: Int?;
     enum PreferenceStatus {
@@ -92,7 +92,7 @@ internal class TRPPreferences: TRPRestServices {
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.Preferences.link;
+        return TRPConfig.ApiCall.UserPreferences.link;
     }
     
     override func userOAuth() -> Bool {

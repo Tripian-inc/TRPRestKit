@@ -8,20 +8,18 @@
 
 import Foundation
 public struct TRPQuestionOptionsJsonModel: Decodable{
-    public var id: Int?
-    public var name: String?;
-    public var keywords = [String]();
+    
+    public var id: Int
+    public var name: String
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case keywords
     }
     
     public init(from decoder: Decoder) throws{
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try values.decodeIfPresent(Int.self, forKey: .id);
-        self.name = try values.decodeIfPresent(String.self, forKey: .name);
-        self.keywords = try values.decodeIfPresent([String].self, forKey: .keywords) ?? [];
+        self.id = try values.decode(Int.self, forKey: .id);
+        self.name = try values.decode(String.self, forKey: .name);
     }
 }

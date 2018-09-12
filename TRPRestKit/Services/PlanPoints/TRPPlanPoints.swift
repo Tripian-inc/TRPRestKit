@@ -8,16 +8,15 @@
 
 import Foundation
 // TODO: - ORDER KALDIRILABİLİR
-internal class TRPProgramSteps: TRPRestServices {
+internal class TRPPlanPoints: TRPRestServices {
     
     enum Status {
         case add
-        case get
         case update
         case delete
     }
     
-    var type: Status = Status.get
+    var type: Status = Status.add
     var programStepId: Int?
     var hash: String?
     var dayId: Int?
@@ -26,12 +25,13 @@ internal class TRPProgramSteps: TRPRestServices {
     
     
     /// Add new ProgramStep
-    internal init(hash:String, dayId: Int, placeId:Int, order:Int) {
+    internal init(hash:String, dayId: Int, placeId:Int, order:Int?) {
         type = Status.add
         self.hash = hash
         self.dayId = dayId
         self.placeId = placeId
         self.order = order
+        type = .add
     }
     
     /// ProgramStep Get or Delete With Id
@@ -46,6 +46,7 @@ internal class TRPProgramSteps: TRPRestServices {
         self.dayId = dayId
         self.placeId = placeId
         self.order = order
+        type = .update
     }
     
     
@@ -73,22 +74,18 @@ internal class TRPProgramSteps: TRPRestServices {
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.ProgramStep.link
-        
-        if type != .update {
+        var path = TRPConfig.ApiCall.PlanPoints.link
+        if type != .add {
             if let id = programStepId {
                 path += "/\(id)"
             }
         }
-        
         return path
     }
     
     override func requestMode() -> TRPRequestMode {
         if type == Status.add {
             return TRPRequestMode.post
-        }else if type == Status.get {
-            return TRPRequestMode.get
         }else if type == Status.update {
             return TRPRequestMode.put
         }else if type == Status.delete {
@@ -104,7 +101,7 @@ internal class TRPProgramSteps: TRPRestServices {
                 let placeId = placeId,
                 let hash = hash {
                 params["hash"] = hash
-                params["day_id"] = dayId
+                params["dayplan_id"] = dayId
                 params["place_id"] = placeId
                 if let order = order {
                     params["order"] = order
@@ -114,9 +111,10 @@ internal class TRPProgramSteps: TRPRestServices {
             guard let id = programStepId else {
                 return params
             }
+            
             params["id"] = id
             if let dayId = dayId {
-                params["day_id"] = dayId
+                params["dayplan_id"] = dayId
             }
             if let placeId = placeId {
                 params["place_id"] = placeId

@@ -1,8 +1,8 @@
 //
-//  TRPOAuthInfoJsonModel.swift
+//  TRPLoginJsonModel.swift
 //  TRPRestKit
 //
-//  Created by Evren Yaşar on 25.08.2018.
+//  Created by Evren Yaşar on 11.09.2018.
 //  Copyright © 2018 Evren Yaşar. All rights reserved.
 //
 

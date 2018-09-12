@@ -60,8 +60,8 @@ public struct TRPPlaceInfoJsonModel: Decodable {
         self.cityId = try values.decodeIfPresent(Int.self, forKey: .cityId);
         self.rating = try values.decodeIfPresent(Float.self, forKey: .rating);
         self.ratingCount = try values.decodeIfPresent(Int.self, forKey: .ratingCount);
-        
-        self.favorite = try values.decodeIfPresent(Bool.self, forKey: .favorite) ?? false
+        // TODO: BOOL AÇILACAK
+        //self.favorite = try values.decodeIfPresent(Bool.self, forKey: .favorite) ?? false
         
         self.duration = try values.decodeIfPresent(String.self, forKey: .duration);
         self.title = try values.decodeIfPresent(String.self, forKey: .title);

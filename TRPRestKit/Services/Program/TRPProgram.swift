@@ -9,11 +9,11 @@
 import Foundation
 internal class TRPProgram: TRPRestServices{
     
-    var setting: TRPProgramSettings?
+    var setting: TRPTripSettings?
     
     internal override init() {}
     
-    internal init(setting: TRPProgramSettings) {
+    internal init(setting: TRPTripSettings) {
         self.setting = setting
     }
     
@@ -29,7 +29,7 @@ internal class TRPProgram: TRPRestServices{
         let jsonDecode = JSONDecoder();
         
         do {
-            let result = try jsonDecode.decode(TRPProgramJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPTripJsonModel.self, from: data)
             self.paginationController(parentJson: result) { (pagination) in
                 self.Completion?(result, nil, pagination);
             }
@@ -39,7 +39,7 @@ internal class TRPProgram: TRPRestServices{
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.Program.link
+        return TRPConfig.ApiCall.Trip.link
     }
     
     override func requestMode() -> TRPRequestMode {

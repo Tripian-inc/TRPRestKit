@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct TRPProgramSettings {
+public struct TRPTripSettings {
     
     public var cityId: Int;
     //Incelenecek. Daha iyi nasıl yapılır bakılacak.

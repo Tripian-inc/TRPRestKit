@@ -12,6 +12,9 @@ public enum TRPErrors:Error{
     case undefined
     case httpResult(code:Int, des:String, info: [String:Any]);
     case wrongData
+    case emptyData
+    case emptyDataOrParserError
+    case objectIsNil(name:String)
 }
 
 extension TRPErrors: LocalizedError {
@@ -23,6 +26,12 @@ extension TRPErrors: LocalizedError {
             return NSLocalizedString("Undefined error", comment: "");
         case .wrongData:
             return NSLocalizedString("Wrong Data", comment: "");
+        case .emptyData:
+            return NSLocalizedString("Empty Data", comment: "");
+        case .emptyDataOrParserError:
+            return NSLocalizedString("Empty data or couldn't parse json", comment: "");
+        case .objectIsNil(let name):
+            return NSLocalizedString("\(name) is a nil", comment: "");
         }
     }
 }

@@ -1,15 +1,15 @@
 //
-//  TRPProgramDayJsonModel.swift
+//  TRPProgramStepJsonModel.swift
 //  TRPRestKit
 //
-//  Created by Evren Yaşar on 28.08.2018.
+//  Created by Evren Yaşar on 29.08.2018.
 //  Copyright © 2018 Evren Yaşar. All rights reserved.
 //
 
 import Foundation
-public class TRPProgramDayJsonModel: TRPParentJsonModel{
+public class TRPProgramStepJsonModel: TRPParentJsonModel{
     
-    public var data: TRPProgramDayInfoModel;
+    public var data: TRPPlanPointInfoModel?
     
     enum CodingKeys: String, CodingKey {
         case data
@@ -17,7 +17,9 @@ public class TRPProgramDayJsonModel: TRPParentJsonModel{
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.data = try values.decode(TRPProgramDayInfoModel.self, forKey: .data)
+        if let data = try? values.decodeIfPresent(TRPPlanPointInfoModel.self, forKey: .data) {
+            self.data = data
+        }
         try super.init(from: decoder);
     }
 }

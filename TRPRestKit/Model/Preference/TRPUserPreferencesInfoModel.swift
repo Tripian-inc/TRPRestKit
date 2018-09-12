@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct TRPPreferenceInfoModel: Decodable {
+public struct TRPUserPreferencesInfoModel: Decodable {
     
     var id: Int;
     var key: String;

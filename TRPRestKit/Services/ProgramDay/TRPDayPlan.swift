@@ -7,14 +7,13 @@
 //
 
 import Foundation
-internal class TRPGetProgramDay: TRPRestServices {
+internal class TRPDayPlan: TRPRestServices {
     
     var dayId:Int?
     
     internal init(id:Int) {
         self.dayId = id
     }
-    
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
@@ -28,7 +27,7 @@ internal class TRPGetProgramDay: TRPRestServices {
         
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPProgramDayJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPDayPlanJsonModel.self, from: data)
             self.Completion?(result, nil, nil);
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
@@ -40,7 +39,7 @@ internal class TRPGetProgramDay: TRPRestServices {
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.ProgramDay.link;
+        var path = TRPConfig.ApiCall.DayPlan.link;
         if let id = dayId {
             path += "/\(id)"
         }

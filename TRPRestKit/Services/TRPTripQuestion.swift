@@ -7,13 +7,19 @@
 //
 
 import Foundation
-internal class TRPQuestion: TRPRestServices{
+internal class TRPTripQuestion: TRPRestServices{
     
-    private var cityId: Int;
+    private var cityId: Int?;
+    private var questionId: Int?
     
-    internal init(cityId:Int){
+    internal init(cityId: Int){
         self.cityId = cityId;
     }
+    
+    internal init(questionId: Int){
+        self.questionId = questionId;
+    }
+    
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
@@ -26,7 +32,7 @@ internal class TRPQuestion: TRPRestServices{
         }
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPQuestionJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPTripQuestionJsonModel.self, from: data)
             self.paginationController(parentJson: result) { (pagination) in
                 self.Completion?(result, nil, pagination);
             }
@@ -36,11 +42,18 @@ internal class TRPQuestion: TRPRestServices{
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.Questions.link;
+        var link = TRPConfig.ApiCall.Questions.link
+        if let questionId = questionId {
+            link += "/\(questionId)"
+        }
+        return link
     }
     
     public override func parameters() -> Dictionary<String, Any>? {
-        return ["city_id":"\(cityId)"];
+        if let cityId = cityId {
+            return ["city_id":"\(cityId)"];
+        }
+        return nil
     }
     
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TRPOAuth: TRPRestServices{
+public class TRPLogin: TRPRestServices{
     
     private var email: String
     private var password: String
@@ -42,7 +42,7 @@ public class TRPOAuth: TRPRestServices{
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.Oauth.link
+        return TRPConfig.ApiCall.Login.link
     }
     
     public override func bodyParameters() -> Dictionary<String, Any>? {

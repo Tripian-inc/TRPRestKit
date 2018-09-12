@@ -51,8 +51,8 @@ class TRPCityJsonModelTest: XCTestCase {
             
             XCTAssertEqual(berlin.id, 44,"Berlin's id not equeal 44")
             XCTAssertEqual(berlin.name, "Berlin","Berlin's name not equeal Berlin")
-            XCTAssertEqual(berlin.coordinate.lat, 52.5200066,"Berlin's lat not equeal 52.5200066")
-            XCTAssertEqual(berlin.coordinate.lon, 13.404953999999975,"Berlin's lon not equeal 13.404953999999975")
+            XCTAssertEqual(berlin.coordinate?.lat, 52.5200066,"Berlin's lat not equeal 52.5200066")
+            XCTAssertEqual(berlin.coordinate?.lon, 13.404953999999975,"Berlin's lon not equeal 13.404953999999975")
             
         }catch(let tryError) {
             XCTFail(tryError.localizedDescription)
@@ -101,8 +101,8 @@ class TRPCityJsonModelTest: XCTestCase {
             
             XCTAssertEqual(berlin.id, 44,"Berlin's id not equeal 44")
             XCTAssertEqual(berlin.name, "Berlin","Berlin's name not equeal Berlin")
-            XCTAssertEqual(berlin.coordinate.lat, 52.5200066,"Berlin's lat not equeal 52.5200066")
-            XCTAssertEqual(berlin.coordinate.lon, 13.404953999999975,"Berlin's lon not equeal 13.404953999999975")
+            XCTAssertEqual(berlin.coordinate?.lat, 52.5200066,"Berlin's lat not equeal 52.5200066")
+            XCTAssertEqual(berlin.coordinate?.lon, 13.404953999999975,"Berlin's lon not equeal 13.404953999999975")
             guard let country = berlin.country else {
                 XCTFail("Country data is nil")
                 return
@@ -123,7 +123,7 @@ class TRPCityJsonModelTest: XCTestCase {
     
     func testConnection() {
         let expectation = XCTestExpectation(description: "City Network Expectation")
-        TRPRestKit().cities { (result, error) in
+        TRPRestKit().cities { (result, error, _) in
             if let error = error {
                 XCTFail(error.localizedDescription)
                 return

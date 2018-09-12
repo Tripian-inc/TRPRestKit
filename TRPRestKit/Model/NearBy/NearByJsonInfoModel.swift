@@ -7,18 +7,18 @@
 //
 
 import Foundation
-public struct TRPNearByInfoModel: Decodable {
+public struct TRPPlanPointAlternativeInfoModel: Decodable {
     var id: Int
     var hash: String
     var placeId: Int
-    var steps: TRPProgramStep?
+    var planPoint: TRPPlanPoint?
     
     //TODO: - preferences eklenecek
     enum CodingKeys: String, CodingKey {
         case id
         case hash
         case placeId = "place_id"
-        case steps = "programstep"
+        case planPoint = "planpoint"
     }
     
     public init(from decoder: Decoder) throws {
@@ -27,8 +27,8 @@ public struct TRPNearByInfoModel: Decodable {
         self.hash = try values.decode(String.self, forKey: .hash)
         self.placeId = try values.decode(Int.self, forKey: .placeId)
         
-        if let steps = try? values.decodeIfPresent(TRPProgramStep.self, forKey: .steps) {
-            self.steps = steps
+        if let points = try? values.decodeIfPresent(TRPPlanPoint.self, forKey: .planPoint) {
+            self.planPoint = points
         }
         
     }
