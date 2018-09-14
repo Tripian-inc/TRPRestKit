@@ -9,7 +9,7 @@
 import Foundation
 public struct TRPRecommendationSettings {
     
-    public var cityId: Int;
+    public var cityId: Int?;
     public var hash: String?;
     public var typeId: [Int]?;
     public var adultsCount: Int?
@@ -22,6 +22,10 @@ public struct TRPRecommendationSettings {
     
     public init(cityId:Int) {
         self.cityId = cityId;
+    }
+    
+    public init(hash:String)  {
+        self.hash = hash
     }
     
     public mutating func currentCoordinate(lat:Double, lon:Double){

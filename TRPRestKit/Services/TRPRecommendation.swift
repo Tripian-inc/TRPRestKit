@@ -46,7 +46,19 @@ internal class TRPRecommendation: TRPRestServices{
     
     public override func parameters() -> Dictionary<String, Any>? {
         var params : Dictionary<String, Any> = [:];
-        params["city_id"] = setting.cityId
+        // TODO: Kontrol edilecek
+        if setting.cityId != nil || setting.hash != nil {
+            return [:]
+        }
+        
+        
+        if let cityId = setting.cityId {
+            params["city_id"] = setting.cityId
+        }
+        
+        if let hash = setting.hash {
+            params["hash"] = hash
+        }
         
         if let typeIds = setting.typeId {
             //TODO: - FOUNDATİON DAN AL
@@ -67,10 +79,6 @@ internal class TRPRecommendation: TRPRestServices{
         }
         if let coord = setting.currentCoordinate {
             params["coord"] = coord // int
-        }
-        
-        if let hash = setting.hash {
-            params["hash"] = hash
         }
         
         if let type = setting.type {

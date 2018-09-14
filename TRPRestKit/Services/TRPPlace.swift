@@ -82,8 +82,8 @@ internal class TRPPlace: TRPRestServices {
             }
         }else if status == .withLocation {
             if let location = location {
-                params["lat"] = location.lat
-                params["lng"] = location.lon
+                params["coordinate"] = "\(location.lat),\(location.lon)"
+                
                 if let distance = distance {
                     params["distance"] = distance
                 }

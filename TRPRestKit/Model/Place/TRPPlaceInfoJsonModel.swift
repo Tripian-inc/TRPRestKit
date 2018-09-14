@@ -15,7 +15,7 @@ public struct TRPPlaceInfoJsonModel: Decodable {
     public var ratingCount: Int?;
     public var favorite: Bool = false;
     public var duration: String?;
-    public var title: String?;
+    public var name: String?;
     public var content: String?;
     public var address: String?;
     public var price: String?;
@@ -37,7 +37,7 @@ public struct TRPPlaceInfoJsonModel: Decodable {
         case ratingCount = "rating_count"
         case favorite
         case duration
-        case title
+        case name
         case content
         case address = "address"
         case price
@@ -49,7 +49,7 @@ public struct TRPPlaceInfoJsonModel: Decodable {
         case icon
         case types = "type"
         case tag = "tag"
-        case coord
+        case coordinate
         case updateType
     }
     
@@ -64,7 +64,7 @@ public struct TRPPlaceInfoJsonModel: Decodable {
         //self.favorite = try values.decodeIfPresent(Bool.self, forKey: .favorite) ?? false
         
         self.duration = try values.decodeIfPresent(String.self, forKey: .duration);
-        self.title = try values.decodeIfPresent(String.self, forKey: .title);
+        self.name = try values.decodeIfPresent(String.self, forKey: .name);
         self.content = try values.decodeIfPresent(String.self, forKey: .content);
         self.address = try values.decodeIfPresent(String.self, forKey: .address);
         self.price = try values.decodeIfPresent(String.self, forKey: .price);
@@ -74,7 +74,7 @@ public struct TRPPlaceInfoJsonModel: Decodable {
         self.image = try values.decodeIfPresent(String.self, forKey: .image);
         self.gallery = try values.decodeIfPresent([String].self, forKey: .gallery);
         self.icon = try values.decodeIfPresent(String.self, forKey: .icon);
-        self.coordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .coord)
+        self.coordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .coordinate)
         
         //TODO: - SADECE TYPE ID KULLANILIYOR.
         //        {

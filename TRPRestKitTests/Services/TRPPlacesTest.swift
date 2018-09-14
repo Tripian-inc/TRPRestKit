@@ -20,6 +20,7 @@ class TRPPlacesTest: XCTestCase {
     func testFethPlaceWithCityId() {
         let nameSpace = "TRPPlaces"
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+        
         TRPRestKit().places(withCityId: 112) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
@@ -43,28 +44,31 @@ class TRPPlacesTest: XCTestCase {
     }
     
     func testFethPlacesWithIds() {
-        let nameSpace = "TRPRestKit().city(withPlacesId:)"
-        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        TRPRestKit().places(withPlacesId: [1,2,3],
-                            cityId: 112) { (result, error, pagination) in
-            if let error = error {
-                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
-                return
-            }
-            guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
-                return
-            }
-            guard let places = result as? [TRPPlaceInfoJsonModel]  else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
-                return
-            }
-            if places.count < 1 {
-                XCTFail("\(nameSpace) no exist data in array")
-            }
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 10.0)
+        TRPTripSettings(
+    
+//        let nameSpace = "TRPRestKit().city(withPlacesId:)"
+//        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+//        // TODO: - Refactor
+//        TRPRestKit().places(withPlacesId: [1,2,3],
+//                            cityId: 112) { (result, error, pagination) in
+//            if let error = error {
+//                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+//                return
+//            }
+//            guard let result = result else {
+//                XCTFail("\(nameSpace) Resutl is nil")
+//                return
+//            }
+//            guard let places = result as? [TRPPlaceInfoJsonModel]  else {
+//                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+//                return
+//            }
+//            if places.count < 1 {
+//                XCTFail("\(nameSpace) no exist data in array")
+//            }
+//            expectation.fulfill()
+//        }
+//        wait(for: [expectation], timeout: 10.0)
     }
     
     func testFethPlacesWithLocation() {

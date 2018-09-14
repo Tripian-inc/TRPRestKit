@@ -171,7 +171,7 @@
         placesServices(placeIds: [withId], cities: nil)
     }
     
-    public func places(withPlacesId ids:[Int], cityId: Int, autoPagination:Bool = true, completion: @escaping CompletionHandlerWithPagination){
+    public func places(withIds ids:[Int], cityId: Int, autoPagination:Bool = true, completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
         placesServices(placeIds: ids, cities: [cityId], autoPagination: autoPagination)
     }
@@ -608,9 +608,9 @@
     }
     
     //id = programStepId
-    public func updatePlanPoints(id: Int, dayId: Int? = nil, placeId: Int? = nil, order: Int? = nil, completion: @escaping CompletionHandler ) {
+    public func updatePlanPoints(id: Int, placeId: Int? = nil, order: Int? = nil, completion: @escaping CompletionHandler ) {
         completionHandler = completion;
-        planPointsServices(id: id, dayId: dayId, placeId: placeId, order: order, type: .update)
+        planPointsServices(id: id, placeId: placeId, order: order, type: .update)
     }
     
     public func deletePlanPoints(id:Int, completion: @escaping CompletionHandler) {
