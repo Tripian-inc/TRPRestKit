@@ -18,7 +18,7 @@ typealias JSON = [String: Any]
 ///
 /// ````
 public class TRPNetwork {
-    typealias Completion = (_ error: NSError?, _ data:Data?) -> Void
+    public typealias Completion = (_ error: NSError?, _ data:Data?) -> Void
     private var baseUrl: String;
     private var path: String;
     private var params: Dictionary<String, Any>? = nil;
@@ -27,12 +27,17 @@ public class TRPNetwork {
     private var completionHandler: Completion?;
     private var bodyData: Data?
     private var headerValues: [String:String] = [:]
+    
     public init(baseUrl: String,
                 path: String) {
         self.baseUrl = baseUrl;
         self.path = path;
     }
     
+    public convenience init(link:String) {
+        self.init(baseUrl: "", path: "")
+        self.rawLink = link
+    }
     
     /// Config dosyasındaki BaseUrl ve BaseUrlPath i referans alır.
     /// Convenience yapıdır.
@@ -65,7 +70,7 @@ public class TRPNetwork {
         self.mode = mode;
     }
     
-    internal func build(_ completion: @escaping Completion) -> Void {
+    public func build(_ completion: @escaping Completion) -> Void {
         self.completionHandler = completion;
         if rawLink != nil {
             generateSession(URL(string: rawLink!));
@@ -87,7 +92,7 @@ public class TRPNetwork {
             completionHandler?(TRPErrors.undefined as NSError,nil);
             return
         }
-        print("Current URl: \(mUrl)")
+        //print("Current URl: \(mUrl)")
         let request = NSMutableURLRequest(url: mUrl);
         request.httpMethod = mode.rawValue
         
@@ -101,12 +106,13 @@ public class TRPNetwork {
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             var object: Any? = nil
-            if let strData = String(data: data!, encoding: String.Encoding.utf8) {
-                print("Request Result \(strData)")
-            }
-                        
+            
+            
             if let data = data {
                 object = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let strData = String(data: data, encoding: String.Encoding.utf8) {
+                    print("Request Result \(strData)")
+                }
             }
             
             if let httpResponse = response as? HTTPURLResponse  {
@@ -149,6 +155,10 @@ public class TRPNetwork {
             }
         }
         return queryItems
+    }
+    
+    deinit {
+        print("Network Deinit")
     }
     
 }

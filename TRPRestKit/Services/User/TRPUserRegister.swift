@@ -77,9 +77,8 @@ public class TRPUserRegister: TRPRestServices{
         let jsonDecode = JSONDecoder();
         do {
             let result = try jsonDecode.decode(TRPUserMeJsonModel.self, from: data)
-            self.paginationController(parentJson: result) { (pagination) in
-                self.Completion?(result, nil, pagination);
-            }
+            let pag = paginationController(parentJson: result)
+            self.Completion?(result, nil, pag);
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
         }

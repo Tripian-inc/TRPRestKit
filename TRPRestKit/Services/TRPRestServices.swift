@@ -83,17 +83,29 @@ public class TRPRestServices {
         return ""
     }
     
-    public func paginationController(parentJson: TRPParentJsonModel, pagination: (_ status: Pagination) -> ()){
+    public func paginationController(parentJson: TRPParentJsonModel) -> Pagination {
         if let nextPage = parentJson.pagination?.links?.next {
-            //pagination(.continuing(nextPage: nextPage))
-            pagination(.continues(nextPage))
             if isAutoPagination {
                 connection(link: nextPage)
             }
+            return .continues(nextPage)
         }else {
-            pagination(.completed);
+            return .completed
         }
     }
+    
+    
+//    public func paginationController(parentJson: TRPParentJsonModel, pagination: (_ status: Pagination) -> ()){
+//        if let nextPage = parentJson.pagination?.links?.next {
+//            //pagination(.continuing(nextPage: nextPage))
+//            pagination(.continues(nextPage))
+//            if isAutoPagination {
+//                connection(link: nextPage)
+//            }
+//        }else {
+//            pagination(.completed);
+//        }
+//    }
     
     public func userOAuth() -> Bool {
         return false
@@ -102,5 +114,7 @@ public class TRPRestServices {
     public func oauth() -> String? {
         return TRPUserPersistent.fetchHash()
     }
-    
+    deinit {
+        print("TRPRestServices Deinit")
+    }
 }

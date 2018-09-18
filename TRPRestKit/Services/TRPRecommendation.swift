@@ -32,9 +32,8 @@ internal class TRPRecommendation: TRPRestServices{
         let jsonDecode = JSONDecoder();
         do {
             let result = try jsonDecode.decode(TRPRecommendationJsonModel.self, from: data)
-            self.paginationController(parentJson: result) { (pagination) in
-                self.Completion?(result, nil, pagination);
-            }
+            let pag = paginationController(parentJson: result)
+            self.Completion?(result, nil, pag);
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
         }
@@ -46,14 +45,13 @@ internal class TRPRecommendation: TRPRestServices{
     
     public override func parameters() -> Dictionary<String, Any>? {
         var params : Dictionary<String, Any> = [:];
-        // TODO: Kontrol edilecek
-        if setting.cityId != nil || setting.hash != nil {
+
+        if setting.cityId == nil && setting.hash == nil {
             return [:]
         }
         
-        
         if let cityId = setting.cityId {
-            params["city_id"] = setting.cityId
+            params["city_id"] = cityId
         }
         
         if let hash = setting.hash {

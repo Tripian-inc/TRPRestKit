@@ -16,9 +16,6 @@ class TRPCitiesTest: XCTestCase {
         super.setUp()
         
         TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
-        
-        
-        
     }
     
     func testFethAllCity() {
