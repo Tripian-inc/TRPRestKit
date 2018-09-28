@@ -1,16 +1,14 @@
- //
- //  TRPRestKit.swift
- //  TRPRestKit
- //
- //  Created by Evren Yaşar on 22.05.2018.
- //  Copyright © 2018 Evren Yaşar. All rights reserved.
- //
- //
- import Foundation
- import TRPFoundationKit
- import CoreData
- 
- @objc public class TRPRestKit:NSObject {
+
+//
+//  TRPRestKit.swift
+//  TRPRestKit
+//
+//  Created by Evren Yaşar on 22.05.2018.
+//  Copyright © 2018 Evren Yaşar. All rights reserved.
+//
+//
+import Foundation
+@objc public class TRPRestKit:NSObject {
     
     public typealias CompletionHandler = (_ result:Any?, _ error: NSError?)-> Void;
     /// The aaacompletion handler to call when the load request is complete.
