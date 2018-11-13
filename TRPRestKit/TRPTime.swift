@@ -36,4 +36,17 @@ public struct TRPTime {
         self.date = date
         self.time = time
     }
+    
+    public init(date: Date) {
+        
+        let calendar = Calendar.current
+        
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let min = calendar.component(.minute, from: date)
+        
+        self.init(year: year, month: month, day: day, hours: hour, min: min)
+    }
 }

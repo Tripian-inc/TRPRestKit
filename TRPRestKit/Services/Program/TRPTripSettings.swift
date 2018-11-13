@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct TRPTripSettings {
+public class TRPTripSettings {
     
     public var cityId: Int;
     //Incelenecek. Daha iyi nasıl yapılır bakılacak.
@@ -28,7 +28,7 @@ public struct TRPTripSettings {
         self.departureTime = departureTime;
     }
     
-    public mutating func setCoordinate(lat:Double, lon:Double){
+    public func setCoordinate(lat:Double, lon:Double){
         coordinate = String(lat) + "," + String(lon);
     }
 }

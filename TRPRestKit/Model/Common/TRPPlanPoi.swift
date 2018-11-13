@@ -7,22 +7,22 @@
 //
 
 import Foundation
-public struct TRPPlanPoint: Decodable {
-    
-    var cityId: Int;
-    var placeId: Int;
+public struct TRPPlanPoi: Decodable {
+
+    var id: Int;
+    var poiId: Int;
     var order: Int;
     
     enum CodingKeys: String, CodingKey {
         case id
-        case placeId = "place_id"
+        case poiId = "poi_id"
         case order
     }
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
-        cityId = try values.decode(Int.self, forKey: .id)
-        placeId = try values.decode(Int.self, forKey: .placeId)
+        id = try values.decode(Int.self, forKey: .id)
+        poiId = try values.decode(Int.self, forKey: .poiId)
         order = try values.decode(Int.self, forKey: .order)
     }
     

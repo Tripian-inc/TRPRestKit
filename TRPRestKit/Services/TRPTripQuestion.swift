@@ -10,9 +10,8 @@ import Foundation
 public enum TPRTripQuestionType: String {
     case trip = "trip"
     case profile = "profile"
-    
-    
 }
+
 internal class TRPTripQuestion: TRPRestServices{
     
     private var cityId: Int?;

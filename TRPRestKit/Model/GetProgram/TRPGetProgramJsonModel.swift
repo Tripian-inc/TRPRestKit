@@ -7,12 +7,6 @@
 //
 
 import Foundation
-
-
-
-
-
-
 public struct TRPGetProgramParamsInfoModel: Decodable {
     
     
@@ -74,36 +68,75 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
 
 }
 
-public struct TRPGetProgramDayInfoModel: Decodable {
+// TODO: - REFACTOR EDİLECEK.
+
+/*
+ "id": 11705,
+ "hash": "dac35e8551c58aad0a634680a902d9bd652206d4814cb94e06c73625932c01f7",
+ "date": "2018-11-12",
+ "start_time": "09:00",
+ "end_time": "21:00",
+ "dailyplanpoi": [{
+ "id": 108722,
+ "order": 0,
+ "poi_id": 20589
+ }, {
+ "id": 108723,
+ "order": 1,
+ "poi_id": 43428
+ }, {
+ "id": 108724,
+ "order": 2,
+ "poi_id": 29107
+ }, {
+ "id": 108725,
+ "order": 3,
+ "poi_id": 21795
+ }, {
+ "id": 108726,
+ "order": 4,
+ "poi_id": 43843
+ }, {
+ "id": 108727,
+ "order": 5,
+ "poi_id": 44473
+ }, {
+ "id": 108728,
+ "order": 6,
+ "poi_id": 28734
+ }]
+ 
+ */
+
+
+public struct TRPDailyPlans: Decodable {
     var id: Int
     var hash: String
-    var programId: Int
+    
     var date: String
-    var startTime: String
-    var endTime: String
-    var steps: [TRPPlanPoint]?
+    var startTime: String?
+    var endTime: String?
+    var planPois: [TRPPlanPoi]?
     
     enum CodingKeys: String, CodingKey {
         case id
         case hash
-        case programId = "program_id"
         case date
-        case startTime = "starttime"
-        case endTime = "endtime"
-        case steps
+        case startTime = "start_time"
+        case endTime = "end_time"
+        case dailyPlanPoi = "dailyplanpoi"
     }
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         id = try values.decode(Int.self, forKey: .id)
         hash = try values.decode(String.self, forKey: .hash);
-        programId = try values.decode(Int.self, forKey: .programId);
         date = try values.decode(String.self, forKey: .date);
-        startTime = try values.decode(String.self, forKey: .startTime);
-        endTime = try values.decode(String.self, forKey: .endTime);
+        startTime = try values.decodeIfPresent(String.self, forKey: .startTime);
+        endTime = try values.decodeIfPresent(String.self, forKey: .endTime);
     
-        if let steps = try? values.decode([TRPPlanPoint].self, forKey: .steps) {
-            self.steps = steps
+        if let pois = try? values.decode([TRPPlanPoi].self, forKey: .dailyPlanPoi) {
+            self.planPois = pois
         }
     }
 }

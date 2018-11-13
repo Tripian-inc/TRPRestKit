@@ -64,14 +64,14 @@ internal class TRPProgram: TRPRestServices{
         params["adults"] = String(setting.adultsCount);
         
         if let adultAgeRange = setting.adultAgeRange {
-            params["adult_age_range"] = String(adultAgeRange);
+            params["adult_age_range"] = adultAgeRange;
         }
         
         if let children = setting.childrenCount {
             params["children"] = String(children);
         }
         
-        if let ageRange = setting.adultAgeRange {
+        if let ageRange = setting.childrenAgeRange {
             params["children_age_range"] = ageRange;
         }
         

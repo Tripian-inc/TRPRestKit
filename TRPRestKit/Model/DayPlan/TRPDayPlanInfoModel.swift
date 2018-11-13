@@ -13,7 +13,7 @@ public struct TRPDayPlanInfoModel: Decodable {
     var date: String?
     var startTime: String?
     var endTime: String?
-    var planPoints: [TRPPlanPoint]?
+    var planPoints: [TRPPlanPoi]?
     
     //TODO: - preferences eklenecek
     enum CodingKeys: String, CodingKey {
@@ -33,7 +33,7 @@ public struct TRPDayPlanInfoModel: Decodable {
         self.startTime = try values.decodeIfPresent(String.self, forKey: .startTime)
         self.endTime = try values.decodeIfPresent(String.self, forKey: .endTime)
         
-        if let planPoints = try? values.decodeIfPresent([TRPPlanPoint].self, forKey: .planPoints) {
+        if let planPoints = try? values.decodeIfPresent([TRPPlanPoi].self, forKey: .planPoints) {
             self.planPoints = planPoints
         }
         

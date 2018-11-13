@@ -575,7 +575,7 @@ extension TRPRestKit {
                  self.postError(error: error)
                 return
             }
-            if let r = result as? TRPTripJsonModel {
+            if let data = result as? TRPTripJsonModel, let r = data.data {
                  self.postData(result: r)
             }
         }

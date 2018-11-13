@@ -7,13 +7,15 @@
 //
 
 import Foundation
+
+// TODO: - DAİLY PLANS EKLENECEK
 public struct TRPTripInfoModel: Decodable{
-    var id: Int
-    var hash: String?
-    var arrivalTime: TRPTime?
-    var depatureTime: TRPTime?
-    var params: TRPGetProgramParamsInfoModel?
-    var days: [TRPGetProgramDayInfoModel]?
+    public var id: Int
+    public var hash: String
+    public var arrivalTime: TRPTime?
+    public var depatureTime: TRPTime?
+    public var params: TRPGetProgramParamsInfoModel?
+    public var dailyPlans: [TRPDailyPlans]?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -23,13 +25,19 @@ public struct TRPTripInfoModel: Decodable{
         case departureDate = "departure_date"
         case departureTime = "departure_time"
         case params
-        case days
+        case dailyplans
     }
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decode(Int.self, forKey: .id)
-        self.hash = try values.decodeIfPresent(String.self, forKey: .hash) ?? ""
+        self.hash = try values.decode(String.self, forKey: .hash)
+        
+        if let days = try? values.decodeIfPresent([TRPDailyPlans].self, forKey: .dailyplans) {
+            self.dailyPlans = days
+        }
+        
+        
         let arrivalDate = try values.decode(String.self, forKey: .arrivalDate)
         let arrivalTime = try values.decode(String.self, forKey: .arrivalTime)
         let departureDate = try values.decode(String.self, forKey: .departureDate)
@@ -38,13 +46,13 @@ public struct TRPTripInfoModel: Decodable{
         self.arrivalTime = TRPTime(date: arrivalDate, time: arrivalTime)
         self.depatureTime = TRPTime(date: departureDate, time: departureTime)
         
+        
+        
         if let programParams = try? values.decodeIfPresent(TRPGetProgramParamsInfoModel.self, forKey: .params) {
             self.params = programParams
         }
         
-        if let days = try? values.decodeIfPresent([TRPGetProgramDayInfoModel].self, forKey: .days) {
-            self.days = days
-        }
+        
         //        if let city = try? values.decodeIfPresent(TRPCityInfoModel.self, forKey: .city) {
         //            self.city = city
         //        }

@@ -11,7 +11,7 @@ public struct TRPPlanPointAlternativeInfoModel: Decodable {
     var id: Int
     var hash: String
     var placeId: Int
-    var planPoint: TRPPlanPoint?
+    var planPoint: TRPPlanPoi?
     
     //TODO: - preferences eklenecek
     enum CodingKeys: String, CodingKey {
@@ -27,7 +27,7 @@ public struct TRPPlanPointAlternativeInfoModel: Decodable {
         self.hash = try values.decode(String.self, forKey: .hash)
         self.placeId = try values.decode(Int.self, forKey: .placeId)
         
-        if let points = try? values.decodeIfPresent(TRPPlanPoint.self, forKey: .planPoint) {
+        if let points = try? values.decodeIfPresent(TRPPlanPoi.self, forKey: .planPoint) {
             self.planPoint = points
         }
         
