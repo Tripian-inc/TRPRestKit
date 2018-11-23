@@ -69,54 +69,14 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
 }
 
 // TODO: - REFACTOR EDİLECEK.
-
-/*
- "id": 11705,
- "hash": "dac35e8551c58aad0a634680a902d9bd652206d4814cb94e06c73625932c01f7",
- "date": "2018-11-12",
- "start_time": "09:00",
- "end_time": "21:00",
- "dailyplanpoi": [{
- "id": 108722,
- "order": 0,
- "poi_id": 20589
- }, {
- "id": 108723,
- "order": 1,
- "poi_id": 43428
- }, {
- "id": 108724,
- "order": 2,
- "poi_id": 29107
- }, {
- "id": 108725,
- "order": 3,
- "poi_id": 21795
- }, {
- "id": 108726,
- "order": 4,
- "poi_id": 43843
- }, {
- "id": 108727,
- "order": 5,
- "poi_id": 44473
- }, {
- "id": 108728,
- "order": 6,
- "poi_id": 28734
- }]
- 
- */
-
-
 public struct TRPDailyPlans: Decodable {
-    var id: Int
-    var hash: String
+    public var id: Int
+    public var hash: String
     
-    var date: String
+    public var date: String
     var startTime: String?
     var endTime: String?
-    var planPois: [TRPPlanPoi]?
+    public var planPois: [TRPPlanPoi]?
     
     enum CodingKeys: String, CodingKey {
         case id

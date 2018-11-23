@@ -71,7 +71,7 @@ class TRPParentJsonModelTest: XCTestCase {
     """
         do {
             let result = try jsonDecoder!.decode(TRPParentJsonModel.self, from: rawJson.data(using: String.Encoding.utf8)!)
-            print(result)
+            
         }catch(let tryError) {
             XCTFail(tryError.localizedDescription)
         }
@@ -97,7 +97,7 @@ class TRPParentJsonModelTest: XCTestCase {
     """
         do {
             let result = try jsonDecoder!.decode(TRPParentJsonModel.self, from: rawJson.data(using: String.Encoding.utf8)!)
-            print(result)
+            
         }catch(let tryError) {
             XCTFail(tryError.localizedDescription)
         }

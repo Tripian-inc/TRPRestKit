@@ -11,7 +11,7 @@ public class TRPCityInfoModel:NSObject, Decodable {
     
     public var id: Int
     public var name: String
-    public var coordinate: TRPCoordinateModel?
+    public var coordinate: TRPCoordinateModel
     public var country: TRPCountryJsonModel?
     public var updateType: TRPUpdateTypeModel = .added
     public var image: String?

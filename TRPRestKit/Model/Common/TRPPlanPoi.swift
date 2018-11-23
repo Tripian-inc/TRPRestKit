@@ -9,14 +9,16 @@
 import Foundation
 public struct TRPPlanPoi: Decodable {
 
-    var id: Int;
-    var poiId: Int;
-    var order: Int;
+    public var id: Int
+    public var poiId: Int
+    public var order: Int
+    public var dailyPlanId: Int?
     
     enum CodingKeys: String, CodingKey {
         case id
         case poiId = "poi_id"
         case order
+        case dailyPlanId = "dailyplan_id"
     }
     
     public init(from decoder: Decoder) throws {
@@ -24,6 +26,8 @@ public struct TRPPlanPoi: Decodable {
         id = try values.decode(Int.self, forKey: .id)
         poiId = try values.decode(Int.self, forKey: .poiId)
         order = try values.decode(Int.self, forKey: .order)
+        
+       // dailyPlanId = try? values.decodeIfPresent(Int.self, forKey: TRPPlanPoi.CodingKeys.dailyPlanId)
     }
     
 }

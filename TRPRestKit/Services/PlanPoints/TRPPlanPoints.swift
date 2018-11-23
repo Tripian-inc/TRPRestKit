@@ -19,16 +19,16 @@ internal class TRPPlanPoints: TRPRestServices {
     var type: Status = Status.add
     var programStepId: Int?
     var hash: String?
-    var dayId: Int?
+    var dailyPlanId: Int?
     var placeId: Int?
     var order: Int?
     
     
     /// Add new ProgramStep
-    internal init(hash:String, dayId: Int, placeId:Int, order:Int?) {
+    internal init(hash:String, dailyPlanId: Int, placeId:Int, order:Int?) {
         type = Status.add
         self.hash = hash
-        self.dayId = dayId
+        self.dailyPlanId = dailyPlanId
         self.placeId = placeId
         self.order = order
         type = .add
@@ -41,9 +41,9 @@ internal class TRPPlanPoints: TRPRestServices {
     }
     
     /// ProgramStep Update
-    internal init(id:Int, dayId:Int?, placeId: Int?, order:Int?) {
+    internal init(id:Int, placeId: Int?, order:Int?) {
         self.programStepId = id
-        self.dayId = dayId
+        
         self.placeId = placeId
         self.order = order
         type = .update
@@ -62,8 +62,14 @@ internal class TRPPlanPoints: TRPRestServices {
         
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPProgramStepJsonModel.self, from: data)
-            self.Completion?(result, nil, nil);
+            if type == .add {
+                let result = try jsonDecode.decode(TRPPoiAddRouteJsonModel.self, from: data)
+                self.Completion?(result, nil, nil);
+            }else  {
+                let result = try jsonDecode.decode(TRPProgramStepJsonModel.self, from: data)
+                self.Completion?(result, nil, nil);
+            }
+            
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
         }
@@ -74,7 +80,7 @@ internal class TRPPlanPoints: TRPRestServices {
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.PlanPoints.link
+        var path = TRPConfig.ApiCall.DailyPlanPoi.link
         if type != .add {
             if let id = programStepId {
                 path += "/\(id)"
@@ -97,27 +103,23 @@ internal class TRPPlanPoints: TRPRestServices {
     override func parameters() -> Dictionary<String, Any>? {
         var params : Dictionary<String, Any> = [:];
         if type == .add {
-            if let dayId = dayId,
+            if let dailyPlanId = dailyPlanId,
                 let placeId = placeId,
                 let hash = hash {
                 params["hash"] = hash
-                params["dayplan_id"] = dayId
-                params["place_id"] = placeId
+                params["dailyplan_id"] = dailyPlanId
+                params["poi_id"] = placeId
                 if let order = order {
                     params["order"] = order
                 }
             }
         }else if type == .update {
-            guard let id = programStepId else {
+            guard let _ = programStepId else {
                 return params
             }
             
-            params["id"] = id
-            if let dayId = dayId {
-                params["dayplan_id"] = dayId
-            }
             if let placeId = placeId {
-                params["place_id"] = placeId
+                params["poi_id"] = placeId
             }
             if let order = order {
                 params["order"] = order
@@ -125,4 +127,6 @@ internal class TRPPlanPoints: TRPRestServices {
         }
         return params
     }
+    
+    
 }

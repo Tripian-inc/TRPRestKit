@@ -35,7 +35,7 @@ public struct TRPConfig {
         case Trip
         case DayPlan
         case UserPreferences
-        case PlanPoints
+        case DailyPlanPoi
         case Register
         case Favorite
         var link: String {
@@ -59,7 +59,7 @@ public struct TRPConfig {
             case .GRouteReuslt:
                 return getNewLink() ?? "grouteresult"
             case .PlanPointAlternative:
-                return getNewLink() ?? "planpointalternatives"
+                return getNewLink() ?? "dailyplanpoi-alternatives"
             case .Tags:
                 return getNewLink() ?? "tags"
             case .CheckDataUpdates:
@@ -78,8 +78,8 @@ public struct TRPConfig {
                 return getNewLink() ?? "dayplan"
             case .UserPreferences:
                 return getNewLink() ?? "user/preferences"
-            case .PlanPoints:
-                return getNewLink() ?? "planpoints"
+            case .DailyPlanPoi:
+                return getNewLink() ?? "dailyplanpoi"
             case .Register:
                 return getNewLink() ?? "register"
             case .Favorite:

@@ -650,35 +650,37 @@ extension TRPRestKit {
  // MARK: - PlanPoints
  extension TRPRestKit {
     
-    public func addPlanPoints(hash: String, dayId: Int, placeId: Int, order: Int? = nil, completion: @escaping CompletionHandler) {
+    public func addPlanPoints(hash: String, dailyPlanId: Int, poiId: Int, order: Int? = nil, completion: @escaping CompletionHandler) {
         completionHandler = completion;
-        planPointsServices(hash: hash, dayId: dayId, placeId: placeId, order: order, type: TRPPlanPoints.Status.add)
+        planPointsServices(hash: hash, dailyPlanId: dailyPlanId, placeId: poiId, order: order, type: TRPPlanPoints.Status.add)
     }
     
     //id = programStepId
-    public func updatePlanPoints(id: Int, placeId: Int? = nil, order: Int? = nil, completion: @escaping CompletionHandler ) {
+    public func replacePlanPoiFrom(dailyPlanPoiId: Int, poiId: Int? = nil, order: Int? = nil, completion: @escaping CompletionHandler ) {
         completionHandler = completion;
-        planPointsServices(id: id, placeId: placeId, order: order, type: .update)
+        planPointsServices(id: dailyPlanPoiId, placeId: poiId, order: order, type: .update)
     }
     
-    public func deletePlanPoints(id:Int, completion: @escaping CompletionHandler) {
+    
+    
+    public func deleteDailyPlanPoi(planPoiId id:Int, completion: @escaping CompletionHandler) {
         completionHandler = completion;
         planPointsServices(id: id, type: .delete)
     }
     
     private func planPointsServices(hash: String? = nil,
                                     id: Int? = nil,
-                                    dayId: Int? = nil,
+                                    dailyPlanId: Int? = nil,
                                     placeId: Int? = nil,
                                     order: Int? = nil, type:TRPPlanPoints.Status) {
         var t: TRPPlanPoints?
         
         if type == TRPPlanPoints.Status.delete, let id = id {
             t = TRPPlanPoints(id: id, type: type)
-        }else if type == TRPPlanPoints.Status.add, let hash = hash, let dayId = dayId, let placeId = placeId {
-            t = TRPPlanPoints(hash: hash, dayId: dayId, placeId: placeId, order: order)
+        }else if type == TRPPlanPoints.Status.add, let hash = hash, let dailyPlanId = dailyPlanId, let placeId = placeId {
+            t = TRPPlanPoints(hash: hash, dailyPlanId: dailyPlanId, placeId: placeId, order: order)
         }else if type == TRPPlanPoints.Status.update, let id = id {
-            t = TRPPlanPoints(id: id, dayId: dayId, placeId: placeId, order: order)
+            t = TRPPlanPoints(id: id, placeId: placeId, order: order)
         }
         
         guard let service = t else {
@@ -696,6 +698,12 @@ extension TRPRestKit {
                      self.postData(result: r, pagination: pagination)
                     return
                 }
+            }else if type == .add{
+                if let r = result as? TRPPoiAddRouteJsonModel{
+                    self.postData(result: r.data, pagination: pagination)
+                    return
+                }
+            
             }else {
                 if let r = result as? TRPProgramStepJsonModel, let data = r.data {
                      self.postData(result: data, pagination: pagination)
@@ -713,12 +721,12 @@ extension TRPRestKit {
  // MARK: - NearBy Services
  extension TRPRestKit {
     
-    public func planPointAlternatives(withPlanPointId id: Int, completion: @escaping CompletionHandler) {
+    public func planPoiAlternatives(withPlanPointId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion;
         planPointAlternative(planPointId: id, hash: nil)
     }
     
-    public func planPointAlternatives(withHash hash: String, completion: @escaping CompletionHandler) {
+    public func planPoiAlternatives(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion;
         planPointAlternative(planPointId: nil, hash: hash)
     }
