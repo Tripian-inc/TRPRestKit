@@ -7,13 +7,13 @@
 //
 
 import Foundation
-public struct TRPDayPlanInfoModel: Decodable {
-    var id: Int
-    var hash: String
-    var date: String?
-    var startTime: String?
-    var endTime: String?
-    var planPoints: [TRPPlanPoi]?
+public struct TRPDailyPlanInfoModel: Decodable {
+    public var id: Int
+    public var hash: String
+    public var date: String
+    public var startTime: String?
+    public var endTime: String?
+    public var planPois: [TRPPlanPoi]?
     
     //TODO: - preferences eklenecek
     enum CodingKeys: String, CodingKey {
@@ -22,19 +22,24 @@ public struct TRPDayPlanInfoModel: Decodable {
         case date
         case startTime = "start_time"
         case endTime = "end_time"
-        case planPoints = "planpoints"
+        case planPoints = "dailyplanpoi"
     }
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decode(Int.self, forKey: .id)
         self.hash = try values.decode(String.self, forKey: .hash)
-        self.date = try values.decodeIfPresent(String.self, forKey: .date)
+        self.date = try values.decode(String.self, forKey: .date)
         self.startTime = try values.decodeIfPresent(String.self, forKey: .startTime)
         self.endTime = try values.decodeIfPresent(String.self, forKey: .endTime)
-        
+        //todo:- alk kod açılacak test için yapıldı
         if let planPoints = try? values.decodeIfPresent([TRPPlanPoi].self, forKey: .planPoints) {
-            self.planPoints = planPoints
+            self.planPois = planPoints
+            print(" ")
+            print("*****")
+            print("PLAN POİNT SAYISI \(planPoints?.count)")
+            print("*****")
+            print(" ")
         }
         
     }

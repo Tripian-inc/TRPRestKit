@@ -15,7 +15,8 @@ public struct TRPTripInfoModel: Decodable{
     public var arrivalTime: TRPTime?
     public var depatureTime: TRPTime?
     public var params: TRPGetProgramParamsInfoModel?
-    public var dailyPlans: [TRPDailyPlans]?
+    public var dailyPlans: [TRPDailyPlanInfoModel]?
+    public var city: TRPCityInfoModel
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -26,6 +27,7 @@ public struct TRPTripInfoModel: Decodable{
         case departureTime = "departure_time"
         case params
         case dailyplans
+        case city
     }
     
     public init(from decoder: Decoder) throws {
@@ -33,10 +35,10 @@ public struct TRPTripInfoModel: Decodable{
         self.id = try values.decode(Int.self, forKey: .id)
         self.hash = try values.decode(String.self, forKey: .hash)
         
-        if let days = try? values.decodeIfPresent([TRPDailyPlans].self, forKey: .dailyplans) {
+        
+        if let days = try? values.decodeIfPresent([TRPDailyPlanInfoModel].self, forKey: .dailyplans) {
             self.dailyPlans = days
         }
-        
         
         let arrivalDate = try values.decode(String.self, forKey: .arrivalDate)
         let arrivalTime = try values.decode(String.self, forKey: .arrivalTime)
@@ -46,15 +48,11 @@ public struct TRPTripInfoModel: Decodable{
         self.arrivalTime = TRPTime(date: arrivalDate, time: arrivalTime)
         self.depatureTime = TRPTime(date: departureDate, time: departureTime)
         
-        
+        city = try values.decode(TRPCityInfoModel.self, forKey: .city)
         
         if let programParams = try? values.decodeIfPresent(TRPGetProgramParamsInfoModel.self, forKey: .params) {
             self.params = programParams
         }
-        
-        
-        //        if let city = try? values.decodeIfPresent(TRPCityInfoModel.self, forKey: .city) {
-        //            self.city = city
-        //        }
     }
+    
 }

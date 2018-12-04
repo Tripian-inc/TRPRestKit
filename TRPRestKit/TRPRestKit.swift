@@ -8,7 +8,7 @@
 //
 import Foundation
 import TRPFoundationKit
-import CoreData
+
  
 @objc public class TRPRestKit:NSObject {
     
@@ -38,6 +38,10 @@ import CoreData
         }
     }
   
+    deinit {
+        print("**** RestKit Deinit")
+    }
+    
  }
 
  
@@ -87,23 +91,23 @@ extension TRPRestKit {
         }
         
         guard let service = t else {return}
-        
         service.limit = limit ?? 50
         
-        service.Completion = {   (result, error, pagination) in
+        service.Completion = { (result, error, pagination) in
             if let error = error {
-                 self.postError(error: error)
+                self.postError(error: error)
                 return
             }
             if let r = result as? TRPCityJsonModel{
                 if let cities = r.data {
                     if id != nil || location != nil {
                         if let city = cities.first {
-                             self.postData(result: city, pagination: pagination)
+                            sleep(4)
+                            self.postData(result: city, pagination: pagination)
                             return
                         }
                     }else {
-                         self.postData(result: cities, pagination: pagination)
+                        self.postData(result: cities, pagination: pagination)
                         return
                     }
                 }
@@ -623,23 +627,23 @@ extension TRPRestKit {
     
  }
  
- // MARK: - Day Plan
+ // MARK: - Daily Plan
  extension TRPRestKit {
     
-    public func dayPlan(id:Int, completion: @escaping CompletionHandler) {
+    public func dailyPlan(id:Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
-        dayPlanServices(id: id)
+        dailyPlanServices(id: id)
     }
     
-    private func dayPlanServices(id:Int) {
-        let t = TRPDayPlan(id: id)
+    private func dailyPlanServices(id:Int) {
+        let t = TRPDailyPlanServices(id: id)
         t.Completion = {   (result, error, pagination) in
             if let error = error {
                  self.postError(error: error)
                 return
             }
             if let r = result as? TRPDayPlanJsonModel {
-                 self.postData(result: r)
+                 self.postData(result: r.data)
             }
         }
         t.connection()
@@ -661,7 +665,10 @@ extension TRPRestKit {
         planPointsServices(id: dailyPlanPoiId, placeId: poiId, order: order, type: .update)
     }
     
-    
+    public func reOrderPlanPoiFrom(dailyPlanPoiId: Int, poiId: Int, order: Int, completion: @escaping CompletionHandler) {
+        completionHandler = completion;
+        planPointsServices(id: dailyPlanPoiId, placeId: poiId, order: order, type: .update)
+    }
     
     public func deleteDailyPlanPoi(planPoiId id:Int, completion: @escaping CompletionHandler) {
         completionHandler = completion;

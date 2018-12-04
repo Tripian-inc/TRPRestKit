@@ -9,7 +9,7 @@
 import Foundation
 public class TRPDayPlanJsonModel: TRPParentJsonModel{
     
-    public var data: TRPDayPlanInfoModel;
+    public var data: TRPDailyPlanInfoModel;
     
     enum CodingKeys: String, CodingKey {
         case data
@@ -17,7 +17,7 @@ public class TRPDayPlanJsonModel: TRPParentJsonModel{
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.data = try values.decode(TRPDayPlanInfoModel.self, forKey: .data)
+        self.data = try values.decode(TRPDailyPlanInfoModel.self, forKey: .data)
         try super.init(from: decoder);
     }
 }

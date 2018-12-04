@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//fixme: - isim refactor edilecek
 internal class TRPGetProgram: TRPRestServices{
     
     var hash:String?;

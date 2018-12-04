@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPDayPlan: TRPRestServices {
+internal class TRPDailyPlanServices: TRPRestServices {
     
     var dayId:Int?
     
@@ -39,7 +39,7 @@ internal class TRPDayPlan: TRPRestServices {
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.DayPlan.link;
+        var path = TRPConfig.ApiCall.DailyPlan.link;
         if let id = dayId {
             path += "/\(id)"
         }

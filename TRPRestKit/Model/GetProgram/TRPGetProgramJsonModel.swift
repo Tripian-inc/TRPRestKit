@@ -68,37 +68,4 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
 
 }
 
-// TODO: - REFACTOR EDİLECEK.
-public struct TRPDailyPlans: Decodable {
-    public var id: Int
-    public var hash: String
-    
-    public var date: String
-    var startTime: String?
-    var endTime: String?
-    public var planPois: [TRPPlanPoi]?
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case hash
-        case date
-        case startTime = "start_time"
-        case endTime = "end_time"
-        case dailyPlanPoi = "dailyplanpoi"
-    }
-    
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
-        id = try values.decode(Int.self, forKey: .id)
-        hash = try values.decode(String.self, forKey: .hash);
-        date = try values.decode(String.self, forKey: .date);
-        startTime = try values.decodeIfPresent(String.self, forKey: .startTime);
-        endTime = try values.decodeIfPresent(String.self, forKey: .endTime);
-    
-        if let pois = try? values.decode([TRPPlanPoi].self, forKey: .dailyPlanPoi) {
-            self.planPois = pois
-        }
-    }
-}
-
 

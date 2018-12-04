@@ -11,15 +11,14 @@ public struct TRPPlanPointInfoModel: Decodable {
     
     public var id: Int;
     public var hash: String;
-    public var dayPlanId: Int;
     public var placeId: Int
     public var order: Int
     
     enum CodingKeys: String, CodingKey {
         case id
         case hash
-        case dayId = "dayplan_id"
-        case placeId = "place_id"
+        
+        case placeId = "poi_id"
         case order
     }
     
@@ -27,8 +26,14 @@ public struct TRPPlanPointInfoModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         id = try values.decode(Int.self, forKey: .id)
         hash = try values.decode(String.self, forKey: .hash)
-        dayPlanId = try values.decode(Int.self, forKey: .dayId)
-        placeId = try values.decode(Int.self, forKey: .placeId)
+        if let placeId: String = try values.decodeIfPresent(String.self, forKey: .placeId), let id = Int(placeId) {
+            self.placeId = id
+        }else if let placeId = try values.decodeIfPresent(Int.self, forKey: .placeId) {
+            self.placeId = placeId
+        }else {
+            self.placeId = 0
+        }
+        
         order = try values.decode(Int.self, forKey: .order)
     }
     

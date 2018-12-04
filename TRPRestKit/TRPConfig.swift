@@ -33,7 +33,7 @@ public struct TRPConfig {
         case user
         case UserTrips
         case Trip
-        case DayPlan
+        case DailyPlan
         case UserPreferences
         case DailyPlanPoi
         case Register
@@ -74,8 +74,8 @@ public struct TRPConfig {
                 return getNewLink() ?? "user/trips"
             case .Trip:
                 return getNewLink() ?? "trip"
-            case .DayPlan:
-                return getNewLink() ?? "dayplan"
+            case .DailyPlan:
+                return getNewLink() ?? "dailyplan"
             case .UserPreferences:
                 return getNewLink() ?? "user/preferences"
             case .DailyPlanPoi:
