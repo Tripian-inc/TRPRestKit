@@ -35,11 +35,7 @@ public struct TRPDailyPlanInfoModel: Decodable {
         //todo:- alk kod açılacak test için yapıldı
         if let planPoints = try? values.decodeIfPresent([TRPPlanPoi].self, forKey: .planPoints) {
             self.planPois = planPoints
-            print(" ")
-            print("*****")
-            print("PLAN POİNT SAYISI \(planPoints?.count)")
-            print("*****")
-            print(" ")
+            
         }
         
     }

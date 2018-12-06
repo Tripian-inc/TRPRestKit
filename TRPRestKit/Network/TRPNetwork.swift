@@ -110,7 +110,7 @@ public class TRPNetwork {
             if let data = data {
                 object = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let strData = String(data: data, encoding: String.Encoding.utf8) {
-                    print("Request Result \(strData)")
+                   // print("Request Result \(strData)")
                 }
             }
             
