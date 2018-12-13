@@ -22,7 +22,7 @@ public class TRPCityInfoModel:NSObject, Decodable {
         case coord = "coordinate"
         case country
         case updateType
-        case image
+        case image = "featured"
     }
     
     public required init(from decoder: Decoder) throws {

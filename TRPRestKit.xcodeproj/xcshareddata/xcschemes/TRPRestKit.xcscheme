@@ -14,27 +14,37 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B20BBABB212F20F200DEAA3E"
-               BuildableName = "HostApp.app"
-               BlueprintName = "HostApp"
+               BlueprintIdentifier = "B29B462420F607F90009E711"
+               BuildableName = "TRPRestKit.framework"
+               BlueprintName = "TRPRestKit"
                ReferencedContainer = "container:TRPRestKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Debug(TestServer)"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B20BBAAC212F20E500DEAA3E"
+               BuildableName = "TRPRestKitTests.xctest"
+               BlueprintName = "TRPRestKitTests"
+               ReferencedContainer = "container:TRPRestKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B20BBABB212F20F200DEAA3E"
-            BuildableName = "HostApp.app"
-            BlueprintName = "HostApp"
+            BlueprintIdentifier = "B29B462420F607F90009E711"
+            BuildableName = "TRPRestKit.framework"
+            BlueprintName = "TRPRestKit"
             ReferencedContainer = "container:TRPRestKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -42,7 +52,7 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Debug(TestServer)"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -51,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B20BBABB212F20F200DEAA3E"
-            BuildableName = "HostApp.app"
-            BlueprintName = "HostApp"
+            BlueprintIdentifier = "B29B462420F607F90009E711"
+            BuildableName = "TRPRestKit.framework"
+            BlueprintName = "TRPRestKit"
             ReferencedContainer = "container:TRPRestKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B20BBABB212F20F200DEAA3E"
-            BuildableName = "HostApp.app"
-            BlueprintName = "HostApp"
+            BlueprintIdentifier = "B29B462420F607F90009E711"
+            BuildableName = "TRPRestKit.framework"
+            BlueprintName = "TRPRestKit"
             ReferencedContainer = "container:TRPRestKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -1,0 +1,13 @@
+//
+//  TestServerConfig.xcconfig
+//  TRPRestKit
+//
+//  Created by Evren Yaşar on 13.12.2018.
+//  Copyright © 2018 Evren Yaşar. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+config_name = "TestServerConfig"
+server_url = "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
+server_path = "v2"

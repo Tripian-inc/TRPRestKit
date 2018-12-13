@@ -11,7 +11,10 @@ import TRPFoundationKit
 
  
 @objc public class TRPRestKit:NSObject {
-    
+    public func pListTest() {
+        let userName = Environment().configuration(PlistKey.ConfigName)
+        print("Plist User Name In Config \(userName)")
+    }
     public typealias CompletionHandler = (_ result:Any?, _ error: NSError?)-> Void;
     /// The aaacompletion handler to call when the load request is complete.
     public typealias CompletionHandlerWithPagination = (_ result:Any?, _ error: NSError?, _ pagination:Pagination?)-> Void;

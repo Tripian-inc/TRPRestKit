@@ -8,11 +8,26 @@
 
 import Foundation
 public struct TRPConfig {
-    public static let BaseUrl: String = "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
-    public static let BaseUrlPath: String = "v02"
+    
+    public static var BaseUrl: String {
+        get {
+            return Environment().configuration(PlistKey.ServerURL)
+        }
+    }
+    
+    public static var BaseUrlPath: String {
+        get {
+            return Environment().configuration(PlistKey.ServerPath)
+        }
+    }
+    
+    //public static let BaseUrl: String = "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
+    //public static let BaseUrlPath: String = "v02"
     
     public static var apiLink: String {
-        return "http://\(BaseUrl)/\(BaseUrlPath)/"
+        get {
+            return "http://\(BaseUrl)/\(BaseUrlPath)/"
+        }
     }
     
     public enum ApiCall: String {
