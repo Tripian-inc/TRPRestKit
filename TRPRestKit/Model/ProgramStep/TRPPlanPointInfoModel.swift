@@ -17,7 +17,6 @@ public struct TRPPlanPointInfoModel: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case hash
-        
         case placeId = "poi_id"
         case order
     }
@@ -26,14 +25,7 @@ public struct TRPPlanPointInfoModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         id = try values.decode(Int.self, forKey: .id)
         hash = try values.decode(String.self, forKey: .hash)
-        if let placeId: String = try values.decodeIfPresent(String.self, forKey: .placeId), let id = Int(placeId) {
-            self.placeId = id
-        }else if let placeId = try values.decodeIfPresent(Int.self, forKey: .placeId) {
-            self.placeId = placeId
-        }else {
-            self.placeId = 0
-        }
-        
+        placeId = try values.decode(Int.self, forKey: .placeId)
         order = try values.decode(Int.self, forKey: .order)
     }
     

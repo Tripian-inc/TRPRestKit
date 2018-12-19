@@ -25,6 +25,8 @@ public enum PlistKey {
 }
 public class Environment {
     
+    public init() {}
+    
     fileprivate  var frameworkInfoDict: [String: Any]  {
         get {
             let fmBundle = Bundle(for: type(of: self))

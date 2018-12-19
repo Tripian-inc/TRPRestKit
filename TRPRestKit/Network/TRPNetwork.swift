@@ -92,7 +92,9 @@ public class TRPNetwork {
             completionHandler?(TRPErrors.undefined as NSError,nil);
             return
         }
-        print("Current URl: \(mUrl)")
+        if TRPClient.shared.showLink {
+            print("Current URl: \(mUrl)")
+        }
         let request = NSMutableURLRequest(url: mUrl);
         request.httpMethod = mode.rawValue
         
@@ -110,7 +112,9 @@ public class TRPNetwork {
             if let data = data {
                 object = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let strData = String(data: data, encoding: String.Encoding.utf8) {
-                    print("Request Result \(strData)")
+                    if TRPClient.shared.showData  {
+                        print("Request Result \(strData)")
+                    }
                 }
             }
             

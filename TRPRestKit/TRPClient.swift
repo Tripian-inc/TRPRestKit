@@ -11,6 +11,8 @@ import Foundation
     
     internal static var shared = TRPClient();
     private var ApiKey = "";
+    public var showLink = false
+    public var showData = false
     
     private override init() {}
     
@@ -22,4 +24,11 @@ import Foundation
         return TRPClient.shared.ApiKey;
     }
     
+    public static func printLink(_ status:Bool) -> Void {
+        TRPClient.shared.showLink = status
+    }
+    
+    public static func printData(_ status: Bool) -> Void {
+        TRPClient.shared.showData = status
+    }
 }

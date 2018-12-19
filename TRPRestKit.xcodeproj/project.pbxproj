@@ -943,7 +943,7 @@
 /* Begin XCBuildConfiguration section */
 		B20BBAB5212F20E500DEAA3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */;
+			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LKU8459YDL;
@@ -986,7 +986,7 @@
 		};
 		B20F29A421C259DD0041957B /* Debug(TestServer) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
+			baseConfigurationReference = B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1054,7 +1054,7 @@
 		};
 		B20F29A521C259DD0041957B /* Debug(TestServer) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
+			baseConfigurationReference = B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1086,7 +1086,7 @@
 		};
 		B20F29A621C259DD0041957B /* Debug(TestServer) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
+			baseConfigurationReference = B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LKU8459YDL;

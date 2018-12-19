@@ -11,13 +11,15 @@ public struct TRPConfig {
     
     public static var BaseUrl: String {
         get {
-            return Environment().configuration(PlistKey.ServerURL)
+            let rawLink = Environment().configuration(PlistKey.ServerURL)
+            return rawLink.replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "\'", with: "")
         }
     }
     
     public static var BaseUrlPath: String {
         get {
-            return Environment().configuration(PlistKey.ServerPath)
+            let rawLink = Environment().configuration(PlistKey.ServerPath)
+            return rawLink.replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "\'", with: "")
         }
     }
     

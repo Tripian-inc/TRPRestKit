@@ -377,6 +377,10 @@ extension TRPRestKit {
         t.connection();
     }
     
+    public func logout() {
+        TRPUserPersistent.remove()
+    }
+    
  }
  
  
@@ -596,7 +600,7 @@ extension TRPRestKit {
     
     private func getTripServices(hash: String) {
         let t = TRPGetProgram(hash: hash)
-        t.Completion = {   (result, error, pagination) in
+        t.Completion = {  (result, error, pagination) in
             if let error = error {
                  self.postError(error: error)
                 return
