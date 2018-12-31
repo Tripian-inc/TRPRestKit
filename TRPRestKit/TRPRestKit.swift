@@ -40,10 +40,6 @@ import TRPFoundationKit
             full(nil,error,pagination);
         }
     }
-  
-    deinit {
-        print("**** RestKit Deinit")
-    }
     
  }
 
@@ -737,25 +733,33 @@ extension TRPRestKit {
     
     public func planPoiAlternatives(withPlanPointId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion;
-        planPointAlternative(planPointId: id, hash: nil)
+        planPointAlternative(planPointId: id)
     }
     
     public func planPoiAlternatives(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion;
-        planPointAlternative(planPointId: nil, hash: hash)
+        planPointAlternative(hash: hash)
+    }
+    
+    public func planPoiAlternatives(withDailyPlanId id: Int, completion: @escaping CompletionHandler) {
+        completionHandler = completion;
+        planPointAlternative(dailyPlanId: id)
     }
     
     
-    private func planPointAlternative(planPointId: Int?, hash: String?) {
+    private func planPointAlternative(planPointId: Int? = nil, hash: String? = nil, dailyPlanId: Int? = nil) {
         var t:TRPPlanPointAlternatives?
         
         if let planPointId = planPointId {
             t = TRPPlanPointAlternatives(planPointId: planPointId)
         }else if let hash = hash {
             t = TRPPlanPointAlternatives(hash: hash)
+        }else if let dailyPlanId = dailyPlanId {
+            t =  TRPPlanPointAlternatives(dailyPlanId: dailyPlanId)
         }
         
-        t?.Completion = {   (result, error, pagination) in
+        guard let service = t else {return}
+        service.Completion = {   (result, error, pagination) in
             if let error = error {
                  self.postError(error: error)
                 return
@@ -764,9 +768,9 @@ extension TRPRestKit {
                  self.postData(result: data, pagination: pagination)
                 return
             }
-              self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
-        t?.connection()
+        service.connection()
     }
     
  }

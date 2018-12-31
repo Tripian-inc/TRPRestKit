@@ -13,7 +13,8 @@ public struct TRPDailyPlanInfoModel: Decodable {
     public var date: String
     public var startTime: String?
     public var endTime: String?
-    public var planPois: [TRPPlanPoi]?
+    public var planPois: [TRPPlanPoi]
+    public var generate: Bool
     
     //TODO: - preferences eklenecek
     enum CodingKeys: String, CodingKey {
@@ -23,6 +24,7 @@ public struct TRPDailyPlanInfoModel: Decodable {
         case startTime = "start_time"
         case endTime = "end_time"
         case planPoints = "dailyplanpoi"
+        case generate
     }
     
     public init(from decoder: Decoder) throws {
@@ -30,12 +32,14 @@ public struct TRPDailyPlanInfoModel: Decodable {
         self.id = try values.decode(Int.self, forKey: .id)
         self.hash = try values.decode(String.self, forKey: .hash)
         self.date = try values.decode(String.self, forKey: .date)
+        self.generate = try values.decode(Bool.self, forKey: .generate)
         self.startTime = try values.decodeIfPresent(String.self, forKey: .startTime)
         self.endTime = try values.decodeIfPresent(String.self, forKey: .endTime)
         //todo:- alk kod açılacak test için yapıldı
         if let planPoints = try? values.decodeIfPresent([TRPPlanPoi].self, forKey: .planPoints) {
-            self.planPois = planPoints
-            
+            self.planPois = planPoints ?? []
+        }else {
+            self.planPois = []
         }
         
     }

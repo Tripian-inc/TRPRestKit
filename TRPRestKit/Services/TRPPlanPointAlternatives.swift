@@ -9,24 +9,22 @@
 import Foundation
 internal class TRPPlanPointAlternatives: TRPRestServices{
     
-    enum NearByType {
-        case nearBy
-        case nearByAll
-    }
     
     var hash: String?
     var planPointId: Int?
-    var type:NearByType?
+    var dailyPlanId: Int?
     
     
     public init(planPointId: Int) {
         self.planPointId = planPointId
-        self.type = NearByType.nearBy
     }
     
     public init(hash: String) {
         self.hash = hash;
-        self.type = NearByType.nearByAll
+    }
+    
+    public init(dailyPlanId: Int) {
+        self.dailyPlanId = dailyPlanId
     }
     
     public override func servicesResult(data: Data?, error: NSError?) {
@@ -62,6 +60,8 @@ internal class TRPPlanPointAlternatives: TRPRestServices{
             params["hash"] = hash
         }else if let planPointId = planPointId {
             params["planpoint_id"] = planPointId
+        }else if let dailyPlanId = dailyPlanId {
+            params["dailyplan_id"] = dailyPlanId
         }
         return params
     }

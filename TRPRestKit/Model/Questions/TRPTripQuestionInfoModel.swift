@@ -27,6 +27,7 @@ public struct TRPTripQuestionInfoModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decodeIfPresent(Int.self, forKey: .id)
         self.skippable = try values.decodeIfPresent(Bool.self, forKey: .skippable)
+        print("SKIPPABLE \(skippable)")
         self.selectMultiple = try values.decodeIfPresent(Bool.self, forKey: .selectMultiple)
         self.name = try values.decodeIfPresent(String.self, forKey: .name);
         self.options = try values.decodeIfPresent([TRPQuestionOptionsJsonModel].self, forKey: .options);
