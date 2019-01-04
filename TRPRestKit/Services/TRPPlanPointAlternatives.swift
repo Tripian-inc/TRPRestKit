@@ -9,7 +9,6 @@
 import Foundation
 internal class TRPPlanPointAlternatives: TRPRestServices{
     
-    
     var hash: String?
     var planPointId: Int?
     var dailyPlanId: Int?

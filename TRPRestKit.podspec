@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'TRPRestKit'
-s.version = '1.0.9'
+s.version = '1.1.0'
 s.summary = 'POD_DESCRIPTION'
 s.homepage = 'https://github.com/necatievrenyasar'
 
