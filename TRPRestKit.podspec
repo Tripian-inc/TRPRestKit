@@ -9,7 +9,7 @@ s.license =  s.license = { :type => 'MIT', :file => '/Users/evrenyasar/Xcode/TRP
 s.author = { 'Evren Yaşar' => 'necatievren@gmail.com' }
 s.platform = :ios, '10.0'
 # s.source = { :path => '*', :tag => s.version.to_s }
-s.source = { :git => 'https://necatievrenyasar:N-pibolu13@github.com/Tripian-inc/TRPRestKit.git', :tag => '1.1.5' }
+s.source = { :git => 'https://necatievrenyasar:N-pibolu13@github.com/Tripian-inc/TRPRestKit.git', :tag => '1.1.6' }
 s.source_files = 'TRPRestKit/**/**/**/**/**/*.{h,m,swift,xcdatamodeld}'
 s.exclude_files = "TRPRestKit/*.plist"
 # s.source_files = 'TRPRestKit'

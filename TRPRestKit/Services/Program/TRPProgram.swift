@@ -80,7 +80,7 @@ internal class TRPProgram: TRPRestServices{
         }
         
         if let answer = setting.answer {
-            params["answer"] = answer.map{"\($0)"}.joined(separator: ",")
+            params["answers"] = answer.map{"\($0)"}.joined(separator: ",")
         }
         
         if let hotel = setting.hotelAddress {

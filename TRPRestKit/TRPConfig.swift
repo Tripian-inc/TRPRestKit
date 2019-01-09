@@ -11,15 +11,17 @@ public struct TRPConfig {
     
     public static var BaseUrl: String {
         get {
-            let rawLink = Environment().configuration(PlistKey.ServerURL)
-            return rawLink.replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "\'", with: "")
+            //let rawLink = Environment().configuration(PlistKey.ServerURL)
+            return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
+            //return rawLink.replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "\'", with: "")
         }
     }
     
     public static var BaseUrlPath: String {
         get {
-            let rawLink = Environment().configuration(PlistKey.ServerPath)
-            return rawLink.replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "\'", with: "")
+            //let rawLink = Environment().configuration(PlistKey.ServerPath)
+            //return rawLink.replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "\'", with: "")
+            return "v2"
         }
     }
     
