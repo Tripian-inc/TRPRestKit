@@ -35,6 +35,10 @@
 		B215BF122132808A00659818 /* TRPUserTripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215BF112132808A00659818 /* TRPUserTripInfoModel.swift */; };
 		B2179D262133EF87004954A4 /* TRPUserPersistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2179D252133EF87004954A4 /* TRPUserPersistent.swift */; };
 		B2179D282133F3CD004954A4 /* UserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2179D272133F3CD004954A4 /* UserTest.swift */; };
+		B21E1A89220A27DF00EF471F /* TRPGooglePlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E1A88220A27DF00EF471F /* TRPGooglePlaceService.swift */; };
+		B21E1A8B220A27F500EF471F /* TRPGooglePlaceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E1A8A220A27F500EF471F /* TRPGooglePlaceLocation.swift */; };
+		B21E1A8D220A281200EF471F /* TRPGoogleAutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E1A8C220A281200EF471F /* TRPGoogleAutoComplete.swift */; };
+		B21E1A8F220A282800EF471F /* TRPGooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E1A8E220A282800EF471F /* TRPGooglePlace.swift */; };
 		B22372242131151900E21532 /* TRPOAuthJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22372232131151900E21532 /* TRPOAuthJsonModel.swift */; };
 		B227F45C216CA2BA00591C70 /* TRPFavoritesJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B227F45B216CA2BA00591C70 /* TRPFavoritesJsonModel.swift */; };
 		B236885F216BAE0800920DA7 /* TRPUserFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236885E216BAE0800920DA7 /* TRPUserFavorite.swift */; };
@@ -167,6 +171,10 @@
 		B215BF112132808A00659818 /* TRPUserTripInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserTripInfoModel.swift; sourceTree = "<group>"; };
 		B2179D252133EF87004954A4 /* TRPUserPersistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserPersistent.swift; sourceTree = "<group>"; };
 		B2179D272133F3CD004954A4 /* UserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
+		B21E1A88220A27DF00EF471F /* TRPGooglePlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGooglePlaceService.swift; sourceTree = "<group>"; };
+		B21E1A8A220A27F500EF471F /* TRPGooglePlaceLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGooglePlaceLocation.swift; sourceTree = "<group>"; };
+		B21E1A8C220A281200EF471F /* TRPGoogleAutoComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGoogleAutoComplete.swift; sourceTree = "<group>"; };
+		B21E1A8E220A282800EF471F /* TRPGooglePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGooglePlace.swift; sourceTree = "<group>"; };
 		B22372232131151900E21532 /* TRPOAuthJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOAuthJsonModel.swift; sourceTree = "<group>"; };
 		B227F45B216CA2BA00591C70 /* TRPFavoritesJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPFavoritesJsonModel.swift; sourceTree = "<group>"; };
 		B236885E216BAE0800920DA7 /* TRPUserFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserFavorite.swift; sourceTree = "<group>"; };
@@ -384,6 +392,17 @@
 			path = UserTrips;
 			sourceTree = "<group>";
 		};
+		B21E1A87220A27CF00EF471F /* Google Place */ = {
+			isa = PBXGroup;
+			children = (
+				B21E1A88220A27DF00EF471F /* TRPGooglePlaceService.swift */,
+				B21E1A8A220A27F500EF471F /* TRPGooglePlaceLocation.swift */,
+				B21E1A8C220A281200EF471F /* TRPGoogleAutoComplete.swift */,
+				B21E1A8E220A282800EF471F /* TRPGooglePlace.swift */,
+			);
+			path = "Google Place";
+			sourceTree = "<group>";
+		};
 		B2237222213114FE00E21532 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,6 +493,7 @@
 		B29B463220F60A1F0009E711 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B21E1A87220A27CF00EF471F /* Google Place */,
 				B20CD9F121368BFC00497ED3 /* PlanPoints */,
 				B20CD9CA2135942500497ED3 /* ProgramDay */,
 				B215BF00213178BF00659818 /* User */,
@@ -861,6 +881,7 @@
 				B29B466920F60D290009E711 /* TRPRoutesResultJsonModel.swift in Sources */,
 				B29B467A20F60F320009E711 /* TRPRecommendationInfoJsonModel.swift in Sources */,
 				B29B466420F60D000009E711 /* TRPRoutesResultParamsJsonModel.swift in Sources */,
+				B21E1A8D220A281200EF471F /* TRPGoogleAutoComplete.swift in Sources */,
 				B29B469920F610370009E711 /* TRPTagsInfoModel.swift in Sources */,
 				B29B468620F60F970009E711 /* TRPPoiJsonModel.swift in Sources */,
 				B29B466620F60D120009E711 /* TRPRoutesResultDataJsonModel.swift in Sources */,
@@ -869,6 +890,7 @@
 				B29B468D20F60FD30009E711 /* TRPCategoryInfoModel.swift in Sources */,
 				B29B467520F60F070009E711 /* TRPRoutesTimeJsonModel.swift in Sources */,
 				B29B468B20F60FC20009E711 /* TRPPlaceTypeJsonModel.swift in Sources */,
+				B21E1A8F220A282800EF471F /* TRPGooglePlace.swift in Sources */,
 				B215BF0721319C9700659818 /* TRPUserMeJsonModel.swift in Sources */,
 				B20CD9C921357C0800497ED3 /* TRPGetProgramJsonModel.swift in Sources */,
 				B215BEFD2131756700659818 /* TRPTripSettings.swift in Sources */,
@@ -888,6 +910,7 @@
 				B29B464120F60ADF0009E711 /* Pagination.swift in Sources */,
 				B20CD9E821365B3D00497ED3 /* NearByJsonInfoModel.swift in Sources */,
 				B20CD9F82136A90B00497ED3 /* TRPPlanPointInfoModel.swift in Sources */,
+				B21E1A8B220A27F500EF471F /* TRPGooglePlaceLocation.swift in Sources */,
 				B215BF0B2131D18A00659818 /* TRPMyPrograms.swift in Sources */,
 				B29B46A820F6138D0009E711 /* TRPPlace.swift in Sources */,
 				B29B468820F60FA70009E711 /* TRPPoiInfoModel.swift in Sources */,
@@ -919,6 +942,7 @@
 				B20CD9F321368CF800497ED3 /* TRPPlanPoints.swift in Sources */,
 				B2FDCFB92147EE41000C9387 /* TRPLoginJsonModel.swift in Sources */,
 				B29B465720F60C890009E711 /* TRPGRoutesResultTextValueJsonModel.swift in Sources */,
+				B21E1A89220A27DF00EF471F /* TRPGooglePlaceService.swift in Sources */,
 				B29B467820F60F220009E711 /* TRPRecommendationJsonModel.swift in Sources */,
 				B20BBAEB213046CB00DEAA3E /* TRPLogin.swift in Sources */,
 				B29B469720F610280009E711 /* TRPTagsJsonModel.swift in Sources */,

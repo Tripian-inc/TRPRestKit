@@ -73,7 +73,12 @@ public class TRPNetwork {
     public func build(_ completion: @escaping Completion) -> Void {
         self.completionHandler = completion;
         if rawLink != nil {
-            generateSession(URL(string: rawLink!));
+            //generateSession(URL(string: rawLink!));
+            var urlComponents = URLComponents(string: rawLink!)
+            if let urlQueryItems = getItems(params: params) {
+                urlComponents!.queryItems = urlQueryItems;
+            }
+            generateSession(urlComponents!.url)
         }else {
             var urlComponents = URLComponents();
             urlComponents.scheme = "https"

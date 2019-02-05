@@ -12,7 +12,8 @@ public struct TRPConfig {
     public static var BaseUrl: String {
         get {
             //let rawLink = Environment().configuration(PlistKey.ServerURL)
-            return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
+            //return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
+            return "uqo7xnd7f9.execute-api.eu-west-1.amazonaws.com"
             //return rawLink.replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "\'", with: "")
         }
     }

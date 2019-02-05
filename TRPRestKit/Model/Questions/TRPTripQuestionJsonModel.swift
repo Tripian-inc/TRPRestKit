@@ -18,8 +18,8 @@ public class TRPTripQuestionJsonModel: TRPParentJsonModel {
         
         if let datas = try? values.decodeIfPresent([TRPTripQuestionInfoModel].self, forKey: .data) {
             self.data = datas
-        }else if let mdata = try? values.decodeIfPresent(TRPTripQuestionInfoModel.self, forKey: .data) {
-            self.data = [mdata] as! [TRPTripQuestionInfoModel]
+        }else if let mdata = try? values.decodeIfPresent(TRPTripQuestionInfoModel.self, forKey: .data), let convertedData = [mdata] as? [TRPTripQuestionInfoModel] {
+            self.data = convertedData
         }
         
         try super.init(from: decoder);

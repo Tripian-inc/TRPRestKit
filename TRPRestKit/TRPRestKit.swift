@@ -213,7 +213,6 @@ extension TRPRestKit {
                                 link: String? = nil,
                                 autoPagination:Bool = true) -> Void {
         var t: TRPPlace?;
-        
         if let places = placeIds, let cities = cities, let city = cities.first{
             t = TRPPlace(ids: places, cityId:city);
         }else if let location = location{
@@ -288,7 +287,6 @@ extension TRPRestKit {
                  self.postError(error: error)
                 return
             }
-            
             if let r = result as? TRPTripQuestionJsonModel{
                 if let questions = r.data {
                     if questionId != nil {
@@ -552,7 +550,7 @@ extension TRPRestKit {
         let t = TRPUserTrips()
         t.Completion = {   (result, error, pagination) in
             if let error = error {
-                 self.postError(error: error)
+                self.postError(error: error)
                 return
             }
             
@@ -775,14 +773,6 @@ extension TRPRestKit {
     
  }
  
- 
- 
- 
- 
- 
- 
- //************************************************************************************************************************************************************
- 
  // MARK: - Routes Result Services
  extension TRPRestKit {
     
@@ -949,7 +939,7 @@ extension TRPRestKit {
         t.placeUpdate = placeUpdate
         t.Completion = { (result, error, pagination) in
             if let error = error {
-                 self.postError(error: error)
+                self.postError(error: error)
                 return
             }
             
@@ -960,4 +950,51 @@ extension TRPRestKit {
         t.connection()
     }
  }
- 
+
+extension TRPRestKit {
+    
+    public func googleAutoComplete(key:String, text: String, completion: @escaping CompletionHandler){
+        self.completionHandler = completion
+        googlePlaceAutoCompleteService(key: key, text: text)
+    }
+    
+    private func googlePlaceAutoCompleteService(key: String, text: String) {
+        let t = TRPGoogleAutoComplete(key: key, text: text)
+        t.start { (data, error) in
+            
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let data = data as? [TRPGooglePlace] {
+                self.postData(result: data)
+            }else {
+                print("hataaa")
+            }
+        }
+    }
+
+}
+
+extension TRPRestKit {
+    
+    public func googlePlace(key:String, id: String, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        googlePlaceServices(key:key, placeId: id)
+    }
+    
+    private func googlePlaceServices(key:String, placeId: String) {
+        let t = TRPGooglePlaceService(key: key, placeId: placeId)
+        t.start { (data, error) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            
+            if let result = data as? TRPGooglePlaceLocation {
+                self.postData(result: result)
+            }
+        }
+    }
+    
+}
