@@ -18,7 +18,7 @@ public class TRPTripSettings {
     public var childrenCount: Int?;
     public var childrenAgeRange: String?;
     public var coordinate: String?;
-    public var hotelAddress: String?
+    
     public var answer: [Int]?;
     public var doNotGenerate:Bool?
     

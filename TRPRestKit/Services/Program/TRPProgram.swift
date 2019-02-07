@@ -83,7 +83,7 @@ internal class TRPProgram: TRPRestServices{
             params["answers"] = answer.map{"\($0)"}.joined(separator: ",")
         }
         
-        if let hotel = setting.hotelAddress {
+        if let hotel = setting.coordinate {
             params["hotel_address"] = hotel
         }
         

@@ -19,14 +19,13 @@ class TRPGoogleAutoComplete {
     }
     
     func start(completion: @escaping (_ result:Any?, _ error:NSError?) -> Void) {
-        //https://maps.googleapis.com/maps/api/
-        //https://maps.googleapis.com/maps/api/place/autocomplete/json
-        let network = TRPNetwork(link: "https://maps.googleapis.com/maps/api/place/autocomplete/json")
-        network.add(params: ["input":text, "key":key])
+        
+        guard let escapedAddress = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {return}
+        let network = TRPNetwork(link: "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\(escapedAddress)&key=\(key)")
+        //network.add(params: ["input":escapedAddress, "key":key])
         network.add(mode: .post)
         network.build { (error, data) in
             if let error = error {
-                print("Google Place Api Error \(error.localizedDescription)")
                 completion(nil,error)
                 return
             }
@@ -36,11 +35,10 @@ class TRPGoogleAutoComplete {
                     object = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
                 } catch {
                     object = nil
-                    print("GooglePlaces Error")
+                    completion(nil, TRPErrors.wrongData as NSError)
                     return
                 }
                 if let errorMessage = object?["error_message"] as? String {
-                    print("HATA \(errorMessage)")
                     completion(nil,TRPErrors.someThingWronk(errorMessage) as NSError)
                     return
                 }
