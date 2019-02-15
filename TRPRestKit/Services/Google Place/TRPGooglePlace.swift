@@ -8,6 +8,7 @@
 
 import Foundation
 open class TRPGooglePlace: NSObject {
+    
     public let id: String
     public let mainAddress: String
     public let secondaryAddress: String

@@ -15,6 +15,7 @@ public class TRPCityInfoModel:NSObject, Decodable {
     public var country: TRPCountryJsonModel?
     public var updateType: TRPUpdateTypeModel = .added
     public var image: String?
+    public var boundary: [Double] = []
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -23,6 +24,7 @@ public class TRPCityInfoModel:NSObject, Decodable {
         case country
         case updateType
         case image = "featured"
+        case boundary
     }
     
     public required init(from decoder: Decoder) throws {
@@ -33,10 +35,12 @@ public class TRPCityInfoModel:NSObject, Decodable {
         // TODO: open coordinate method
         self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coord)
         self.country = try values.decodeIfPresent(TRPCountryJsonModel.self, forKey: .country);
+        self.boundary = try values.decodeIfPresent([Double].self, forKey: .boundary) ?? []
         
         if let updateStr = try values.decodeIfPresent(String.self, forKey: .updateType), let type = TRPUpdateTypeModel.convert(updateStr) {
             updateType = type
         }
+        
     }
     
 }

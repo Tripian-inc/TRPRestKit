@@ -11,4 +11,5 @@ import TRPFoundationKit
 public struct TRPGooglePlaceLocation {
     public var id: String
     public var location: TRPLocation
+    public var hotelAddress: String
 }

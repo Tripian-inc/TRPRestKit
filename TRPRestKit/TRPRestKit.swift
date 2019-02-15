@@ -953,15 +953,26 @@ extension TRPRestKit {
 
 extension TRPRestKit {
     
-    public func googleAutoComplete(key:String, text: String, completion: @escaping CompletionHandler){
+    public func googleAutoComplete(key:String,
+                                   text: String,
+                                   centerForBoundary center: TRPLocation? = nil,
+                                   radiusForBoundary radius: Double? = nil,
+                                   completion: @escaping CompletionHandler){
         self.completionHandler = completion
-        googlePlaceAutoCompleteService(key: key, text: text)
+        googlePlaceAutoCompleteService(key: key,
+                                       text: text,
+                                       centerForBoundary: center,
+                                       radiusForBoundary: radius)
     }
     
-    private func googlePlaceAutoCompleteService(key: String, text: String) {
+    private func googlePlaceAutoCompleteService(key: String,
+                                                text: String,
+                                                centerForBoundary center: TRPLocation? = nil,
+                                                radiusForBoundary radius: Double? = nil) {
         let t = TRPGoogleAutoComplete(key: key, text: text)
+        t.centerLocationForBoundary = center
+        t.radiusForBoundary = radius
         t.start { (data, error) in
-            
             if let error = error {
                 self.postError(error: error)
                 return

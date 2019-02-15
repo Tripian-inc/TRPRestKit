@@ -10,7 +10,7 @@ import Foundation
 public struct TRPPlanPointAlternativeInfoModel: Decodable {
     public var id: Int
     public var hash: String
-    public var poiId: Int
+    public var alternativePoiId: Int
     public var dailyPlanPoi: TRPPlanPoi?
 
     enum CodingKeys: String, CodingKey {
@@ -24,7 +24,7 @@ public struct TRPPlanPointAlternativeInfoModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decode(Int.self, forKey: .id)
         self.hash = try values.decode(String.self, forKey: .hash)
-        self.poiId = try values.decode(Int.self, forKey: .poiId)
+        self.alternativePoiId = try values.decode(Int.self, forKey: .poiId)
         
         if let points = try? values.decodeIfPresent(TRPPlanPoi.self, forKey: .planPoint) {
             self.dailyPlanPoi = points

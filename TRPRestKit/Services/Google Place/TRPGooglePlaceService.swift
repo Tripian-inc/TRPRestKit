@@ -52,7 +52,18 @@ class TRPGooglePlaceService {
                         completion(nil,TRPErrors.wrongData as NSError)
                         return
                 }
-                let model =  TRPGooglePlaceLocation(id: self.id, location: TRPLocation(lat: lat, lon: lon))
+                //todo: otel adress aktif hale getirilecek
+                var address = "Hotel"
+                if let formattedAddress = result["formatted_address"] as? String {
+                    /*if let escapedAddress = formattedAddress.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) {
+                        address = escapedAddress
+                    }else {
+                        address = formattedAddress
+                    }*/
+                     address = formattedAddress
+                }
+                
+                let model = TRPGooglePlaceLocation(id: self.id, location: TRPLocation(lat: lat, lon: lon), hotelAddress: address)
                 completion(model,nil)
             }
         }

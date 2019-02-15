@@ -118,6 +118,7 @@ public class TRPNetwork {
                 object = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let strData = String(data: data, encoding: String.Encoding.utf8) {
                     if TRPClient.shared.showData  {
+                        print("Request Link \(url!.absoluteString)")
                         print("Request Result \(strData)")
                     }
                 }

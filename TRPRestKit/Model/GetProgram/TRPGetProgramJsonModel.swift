@@ -19,9 +19,9 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     var adultAgeRange: String?
     var children: Int?
     var childrenAgeRange: String?
-    var coord: String?
+    public var coordinate: String?
     var answers: String?
-    var hotelAddress: String?
+    public var hotelAddress: String?
     
     
     
@@ -32,11 +32,10 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         case arrivalTime = "arrival_time";
         case departureTime = "departure_time";
         case adults
-        
         case adultAgeRange = "adult_age_range"
         case children
         case childAgeRange = "children_age_range"
-        case coord
+        case coordinate
         case answer
         case hotelAddress = "hotel_address"
     }
@@ -59,7 +58,7 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         
         self.adultAgeRange = try values.decodeIfPresent(String.self, forKey: .adultAgeRange)
         self.childrenAgeRange = try values.decodeIfPresent(String.self, forKey: .childAgeRange)
-        self.coord = try values.decodeIfPresent(String.self, forKey: .coord)
+        self.coordinate = try values.decodeIfPresent(String.self, forKey: .coordinate)
         self.answers = try values.decodeIfPresent(String.self, forKey: .answer)
         self.hotelAddress = try values.decodeIfPresent(String.self, forKey: .hotelAddress)
         

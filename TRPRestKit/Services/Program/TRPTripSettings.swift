@@ -17,7 +17,9 @@ public class TRPTripSettings {
     public var adultAgeRange: String?;
     public var childrenCount: Int?;
     public var childrenAgeRange: String?;
-    public var coordinate: String?;
+    private(set) var coordinate: String?;
+    private(set) var hotelAddress: String?;
+    
     
     public var answer: [Int]?;
     public var doNotGenerate:Bool?
@@ -28,8 +30,12 @@ public class TRPTripSettings {
         self.departureTime = departureTime;
     }
     
-    public func setCoordinate(lat:Double, lon:Double){
+    public func setCoordinateWithAddress(lat:Double, lon:Double, hotelAddress: String){
         coordinate = String(lat) + "," + String(lon);
+        self.hotelAddress  = hotelAddress
     }
+    
+    
+    
 }
 

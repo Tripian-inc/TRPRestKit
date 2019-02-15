@@ -27,7 +27,7 @@ public struct TRPPoiInfoModel: Decodable {
     public var icon: String?;
     // TODO: add category
     public var category = [TRPCategoryInfoModel]()
-    public var tags = [Int]();
+    public var tags = [TRPPoiTagInfoModel]();
     public var coordinate: TRPCoordinateModel?
     public var updateType: TRPUpdateTypeModel = .added
     
@@ -82,10 +82,8 @@ public struct TRPPoiInfoModel: Decodable {
         }
         
         //TODO: - SADECE TAG ID KULLANILIYOR. BUNA KESİNLİKLE NAME EKLENMELİ
-        if let tagObj = try values.decodeIfPresent([TRPPlaceInfoIdsJsonModel].self, forKey: .tag) {
-            for i in tagObj {
-                tags.append(i.id)
-            }
+        if let tagObj = try values.decodeIfPresent([TRPPoiTagInfoModel].self, forKey: .tag) {
+            tags = tagObj
         }
         
         if let updateStr = try values.decodeIfPresent(String.self, forKey: .updateType), let type = TRPUpdateTypeModel.convert(updateStr) {
@@ -95,6 +93,7 @@ public struct TRPPoiInfoModel: Decodable {
     
 }
 
-struct TRPPlaceInfoIdsJsonModel: Decodable{
-    var id:Int
+public struct TRPPoiTagInfoModel: Decodable{
+    public var id:Int
+    public var name: String
 }

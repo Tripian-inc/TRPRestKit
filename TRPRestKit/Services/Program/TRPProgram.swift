@@ -75,16 +75,16 @@ internal class TRPProgram: TRPRestServices{
             params["children_age_range"] = ageRange;
         }
         
-        if let coordinate = setting.coordinate {
-            params["coord"] = coordinate;
-        }
-        
         if let answer = setting.answer {
             params["answers"] = answer.map{"\($0)"}.joined(separator: ",")
         }
         
-        if let hotel = setting.coordinate {
-            params["hotel_address"] = hotel
+        if let coordinate = setting.coordinate {
+            params["coordinate"] = coordinate
+        }
+        
+        if let hodelAddreess = setting.hotelAddress {
+            params["hotel_address"] = hodelAddreess
         }
         
         if let doNotGenerate = setting.doNotGenerate {

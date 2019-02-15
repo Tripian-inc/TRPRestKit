@@ -9,6 +9,7 @@
 import Foundation
 import TRPFoundationKit
 internal class TRPPlace: TRPRestServices {
+    
     private enum FetchType {
         case withCityId
         case withPlacesId

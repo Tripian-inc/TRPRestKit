@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import TRPFoundationKit
 class TRPGoogleAutoComplete {
     
     private var key: String
     private var text: String
-    
-    
+    public var centerLocationForBoundary: TRPLocation?
+    public var radiusForBoundary: Double?
+
     init(key: String, text: String) {
         self.key = key
         self.text = text
@@ -21,7 +23,17 @@ class TRPGoogleAutoComplete {
     func start(completion: @escaping (_ result:Any?, _ error:NSError?) -> Void) {
         
         guard let escapedAddress = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {return}
-        let network = TRPNetwork(link: "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\(escapedAddress)&key=\(key)")
+        
+        var link = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\(escapedAddress)&key=\(key)"
+        if let location = centerLocationForBoundary, let radius = radiusForBoundary {
+            link += "&location=\(location.lat),\(location.lon)&radius=\(radius)&strictbounds=true"
+        }
+        let network = TRPNetwork(link: link)
+        print("-----")
+        print(link)
+        print("-----")
+        //location=
+        //radius=
         //network.add(params: ["input":escapedAddress, "key":key])
         network.add(mode: .post)
         network.build { (error, data) in

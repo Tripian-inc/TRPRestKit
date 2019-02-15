@@ -12,7 +12,6 @@ public struct TRPPlanPoi: Decodable {
     public var id: Int
     public var poiId: Int
     public var order: Int
-    public var dailyPlanId: Int?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -26,7 +25,6 @@ public struct TRPPlanPoi: Decodable {
         id = try values.decode(Int.self, forKey: .id)
         poiId = try values.decode(Int.self, forKey: .poiId)
         order = try values.decode(Int.self, forKey: .order)
-        
        // dailyPlanId = try? values.decodeIfPresent(Int.self, forKey: TRPPlanPoi.CodingKeys.dailyPlanId)
     }
     
