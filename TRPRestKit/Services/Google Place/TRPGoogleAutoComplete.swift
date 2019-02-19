@@ -29,12 +29,6 @@ class TRPGoogleAutoComplete {
             link += "&location=\(location.lat),\(location.lon)&radius=\(radius)&strictbounds=true"
         }
         let network = TRPNetwork(link: link)
-        print("-----")
-        print(link)
-        print("-----")
-        //location=
-        //radius=
-        //network.add(params: ["input":escapedAddress, "key":key])
         network.add(mode: .post)
         network.build { (error, data) in
             if let error = error {

@@ -203,6 +203,12 @@ extension TRPRestKit {
         poiServices(limit: limit, location: location, distance: distance, typeId: typeId, autoPagination: autoPagination ?? false)
     }
     
+    public func poi(search: String,
+                    cityId: Int,
+                    completion: @escaping CompletionHandlerWithPagination) {
+        self.completionHandlerWithPagination = completion;
+        poiServices(searchText: search, cityId: cityId, autoPagination:false)
+    }
     
     private func poiServices(placeIds: [Int]? = nil,
                                 cities: [Int]? = nil,
@@ -211,6 +217,8 @@ extension TRPRestKit {
                                 distance: Double? = nil,
                                 typeId: Int? = nil,
                                 link: String? = nil,
+                                searchText: String? = nil,
+                                cityId: Int? = nil,
                                 autoPagination:Bool = true) -> Void {
         var t: TRPPlace?;
         if let places = placeIds, let cities = cities, let city = cities.first{
@@ -222,6 +230,8 @@ extension TRPRestKit {
             }
         }else if let cities = cities {
             t = TRPPlace(cities: cities)
+        }else if let cityId = cityId, let search = searchText {
+            t = TRPPlace(searchText: search, cityId: cityId)
         }else if link != nil {
             t = TRPPlace()
         }

@@ -30,6 +30,8 @@ public struct TRPPoiInfoModel: Decodable {
     public var tags = [TRPPoiTagInfoModel]();
     public var coordinate: TRPCoordinateModel?
     public var updateType: TRPUpdateTypeModel = .added
+    public var subCategory: String?
+    
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -52,6 +54,7 @@ public struct TRPPoiInfoModel: Decodable {
         case tag = "tag"
         case coordinate
         case updateType
+        case subCategory = "sub_category"
     }
     
     public init(from decoder: Decoder) throws {
@@ -89,6 +92,8 @@ public struct TRPPoiInfoModel: Decodable {
         if let updateStr = try values.decodeIfPresent(String.self, forKey: .updateType), let type = TRPUpdateTypeModel.convert(updateStr) {
             updateType = type
         }
+        
+        self.subCategory = try values.decodeIfPresent(String.self, forKey: TRPPoiInfoModel.CodingKeys.subCategory)
     }
     
 }

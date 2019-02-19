@@ -14,6 +14,7 @@ internal class TRPPlace: TRPRestServices {
         case withCityId
         case withPlacesId
         case withLocation
+        case withSearchText
     }
     
     var placeIds: [Int]?;
@@ -23,6 +24,8 @@ internal class TRPPlace: TRPRestServices {
     private var location: TRPLocation?
     private var distance: Double?
     private var status: FetchType = FetchType.withCityId
+    private var searchText: String?
+    private var cityId: Int?
     
     internal override init() {}
     
@@ -45,6 +48,14 @@ internal class TRPPlace: TRPRestServices {
         self.typeId = typeId
         status = .withLocation
     }
+    
+    internal init(searchText: String,
+                  cityId: Int) {
+        self.searchText = searchText
+        self.cityId = cityId
+        status = .withSearchText
+    }
+    
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
@@ -92,7 +103,13 @@ internal class TRPPlace: TRPRestServices {
                     params["poi_categories"] = typeId
                 }
             }
+        }else if status == .withSearchText {
+            if let cityId = cityId, let searchText = searchText {
+                params["city_id"] = cityId
+                params["search"] = searchText
+            }
         }
+        
         if params.count > 0 {
             params["limit"] = limit
         }

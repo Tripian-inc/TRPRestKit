@@ -158,10 +158,13 @@ public class TRPNetwork {
         guard let params = params else {return nil}
         var queryItems = [URLQueryItem]()
         for (key, value) in params {
-            if let mKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            // İKİ KERE DECODE EDİLMİŞ OLUYOR.
+            // Bu yüzden türkçe karakter bozulması oluyor. Kod ileride bozulmaya neden olabiir.
+           /* if let mKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
                 let mValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
                 queryItems.append(URLQueryItem(name: mKey, value: mValue));
-            }
+            } */
+            queryItems.append(URLQueryItem(name: key, value: "\(value)"));
         }
         return queryItems
     }
