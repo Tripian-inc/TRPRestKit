@@ -49,8 +49,10 @@ internal class TRPPlace: TRPRestServices {
         status = .withLocation
     }
     
-    internal init(searchText: String,
+    internal init(location: TRPLocation? = nil,
+                  searchText: String,
                   cityId: Int) {
+        self.location = location
         self.searchText = searchText
         self.cityId = cityId
         status = .withSearchText
@@ -105,8 +107,12 @@ internal class TRPPlace: TRPRestServices {
             }
         }else if status == .withSearchText {
             if let cityId = cityId, let searchText = searchText {
-                params["city_id"] = cityId
+                //buparams["city_id"] = cityId
                 params["search"] = searchText
+            }
+            
+            if let location = location {
+                params["coordinate"] = "\(location.lat),\(location.lon)"
             }
         }
         
