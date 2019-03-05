@@ -196,15 +196,21 @@ extension TRPRestKit {
     public func poi(withLocation location: TRPLocation,
                        distance: Double? = nil,
                        typeId: Int? = nil,
+                       types: [Int]? = nil,
                        autoPagination: Bool? = false,
                        limit: Int? = 25,
                        completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion;
-        poiServices(limit: limit, location: location, distance: distance, typeId: typeId, autoPagination: autoPagination ?? false)
+        poiServices(limit: limit,
+                    location: location,
+                    distance: distance,
+                    typeId: typeId,
+                    typeIds: types,
+                    autoPagination: autoPagination ?? false)
     }
     
     public func poi(search: String,
-                    cityId: Int,
+                    cityId: Int? = nil,
                     location userLoc: TRPLocation? = nil,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion;
@@ -220,6 +226,7 @@ extension TRPRestKit {
                                 location: TRPLocation? = nil,
                                 distance: Double? = nil,
                                 typeId: Int? = nil,
+                                typeIds: [Int]? = nil,
                                 link: String? = nil,
                                 searchText: String? = nil,
                                 cityId: Int? = nil,
@@ -227,12 +234,17 @@ extension TRPRestKit {
         var t: TRPPlace?;
         if let places = placeIds, let cities = cities, let city = cities.first{
             t = TRPPlace(ids: places, cityId:city);
-        }else if let cityId = cityId, let search = searchText {
-            t = TRPPlace(location: location, searchText: search, cityId: cityId)
+        }else if let search = searchText {
+            t = TRPPlace(location: location,
+                         searchText: search,
+                         cityId: cityId)
         }else if let location = location{
             t = TRPPlace(location: location,distance: distance)
             if let id = typeId {
                 t?.typeId = id
+            }
+            if let ids = typeIds {
+                t?.typeIds = ids
             }
         }else if let cities = cities {
             t = TRPPlace(cities: cities)

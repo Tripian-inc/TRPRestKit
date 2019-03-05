@@ -21,6 +21,7 @@ internal class TRPPlace: TRPRestServices {
     var cities: [Int]?;
     var limit: Int = 25;
     var typeId: Int? = nil
+    var typeIds: [Int]? = nil
     private var location: TRPLocation?
     private var distance: Double?
     private var status: FetchType = FetchType.withCityId
@@ -42,16 +43,18 @@ internal class TRPPlace: TRPRestServices {
     
     internal init(location: TRPLocation,
                   distance:Double? = nil,
-                  typeId: Int? = nil) {
+                  typeId: Int? = nil,
+                  typeIds: [Int]? = nil) {
         self.location = location
         self.distance = distance
         self.typeId = typeId
+        self.typeIds = typeIds
         status = .withLocation
     }
     
     internal init(location: TRPLocation? = nil,
                   searchText: String,
-                  cityId: Int) {
+                  cityId: Int?) {
         self.location = location
         self.searchText = searchText
         self.cityId = cityId
@@ -104,13 +107,17 @@ internal class TRPPlace: TRPRestServices {
                 if let typeId = typeId {
                     params["poi_categories"] = typeId
                 }
+                if let typeIds = typeIds {
+                    params["poi_categories"] = typeIds.toString()
+                }
             }
         }else if status == .withSearchText {
-            if let cityId = cityId, let searchText = searchText {
-                //buparams["city_id"] = cityId
+            if let cityId = cityId {
+                params["city_id"] = cityId
+            }
+            if let searchText = searchText {
                 params["search"] = searchText
             }
-            
             if let location = location {
                 params["coordinate"] = "\(location.lat),\(location.lon)"
             }
