@@ -19,7 +19,7 @@ public class TRPCityInfoModel:NSObject, Decodable {
     
     enum CodingKeys: String, CodingKey {
         case id
-        case name = "name"
+        case name
         case coord = "coordinate"
         case country
         case updateType
@@ -40,7 +40,6 @@ public class TRPCityInfoModel:NSObject, Decodable {
         if let updateStr = try values.decodeIfPresent(String.self, forKey: .updateType), let type = TRPUpdateTypeModel.convert(updateStr) {
             updateType = type
         }
-        
     }
     
 }

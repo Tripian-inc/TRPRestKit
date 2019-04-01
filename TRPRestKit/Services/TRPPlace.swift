@@ -22,11 +22,12 @@ internal class TRPPlace: TRPRestServices {
     var limit: Int = 25;
     var typeId: Int? = nil
     var typeIds: [Int]? = nil
+    
     private var location: TRPLocation?
     private var distance: Double?
     private var status: FetchType = FetchType.withCityId
     private var searchText: String?
-    private var cityId: Int?
+    public var cityId: Int?
     
     internal override init() {}
     
@@ -109,6 +110,9 @@ internal class TRPPlace: TRPRestServices {
                 }
                 if let typeIds = typeIds {
                     params["poi_categories"] = typeIds.toString()
+                }
+                if let cityId = cityId {
+                    params["city_id"] = cityId
                 }
             }
         }else if status == .withSearchText {

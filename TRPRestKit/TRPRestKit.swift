@@ -195,6 +195,7 @@ extension TRPRestKit {
     
     public func poi(withLocation location: TRPLocation,
                        distance: Double? = nil,
+                       cityId: Int? = nil,
                        typeId: Int? = nil,
                        types: [Int]? = nil,
                        autoPagination: Bool? = false,
@@ -206,6 +207,7 @@ extension TRPRestKit {
                     distance: distance,
                     typeId: typeId,
                     typeIds: types,
+                    cityId: cityId,
                     autoPagination: autoPagination ?? false)
     }
     
@@ -246,6 +248,7 @@ extension TRPRestKit {
             if let ids = typeIds {
                 t?.typeIds = ids
             }
+            t?.cityId = cityId
         }else if let cities = cities {
             t = TRPPlace(cities: cities)
         }else if link != nil {
@@ -1034,4 +1037,57 @@ extension TRPRestKit {
         }
     }
     
+}
+
+// MARK: - Problem Categories
+extension TRPRestKit {
+    
+    public func problemCategories(completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        problemCategoriesService()
+    }
+    
+    //Return [TRPProblemCategoriesInfoModel]
+    private func problemCategoriesService() {
+        let t = TRPProblemCategories()
+        t.Completion = { (result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let r = result as? TRPProblemCategoriesJsonModel {
+                self.postData(result: r.datas)
+            }
+        }
+        t.connection()
+    }
+    
+}
+
+//Send a problem
+extension TRPRestKit {
+    
+    public func reportaProblem(category id: Int,
+                               message msg: String?,
+                               poiId poi: Int?,
+                               completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        reportaProblemService(category: id, message: msg, poiId: poi)
+    }
+    
+    private func reportaProblemService(category:Int, message: String?, poiId: Int?) {
+        let t = TRPReportAProblemServices(categoryId: category,
+                                          message: message,
+                                          poiId: poiId)
+        t.Completion = { result, error, _ in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let r = result as? TRPReportAProblemJsonModel {
+                self.postData(result: r.data ?? nil)
+            }
+        }
+        t.connection()
+    }
 }

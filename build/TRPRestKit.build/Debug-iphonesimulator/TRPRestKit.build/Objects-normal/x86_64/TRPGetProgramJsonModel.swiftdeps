@@ -1,0 +1,407 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "TRPGetProgramParamsInfoModel"
+provides-nominal:
+- "10TRPRestKit28TRPGetProgramParamsInfoModelV"
+- "10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO"
+provides-member:
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", ""]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- !private "Array"
+- "AssignmentPrecedence"
+- "CodingKey"
+- "Decodable"
+- "Decoder"
+- !private "FloatLiteralType"
+- "Int"
+- !private "IntegerLiteralType"
+- "String"
+- "StringLiteralType"
+- "TRPGetProgramParamsInfoModel"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sz", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- ["s9CodingKeyP", "RawValue"]
+- ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_Default_RawValue"]
+- !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- !private ["s9CodingKeyP", "adultAgeRange"]
+- !private ["s9CodingKeyP", "adults"]
+- !private ["s9CodingKeyP", "answer"]
+- !private ["s9CodingKeyP", "arrivalDate"]
+- !private ["s9CodingKeyP", "arrivalTime"]
+- !private ["s9CodingKeyP", "childAgeRange"]
+- !private ["s9CodingKeyP", "children"]
+- !private ["s9CodingKeyP", "cityId"]
+- !private ["s9CodingKeyP", "coordinate"]
+- ["s9CodingKeyP", "debugDescription"]
+- !private ["s9CodingKeyP", "departureDate"]
+- !private ["s9CodingKeyP", "departureTime"]
+- ["s9CodingKeyP", "description"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- !private ["s9CodingKeyP", "hotelAddress"]
+- ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- ["s9CodingKeyP", "rawValue"]
+- ["s9CodingKeyP", "stringValue"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "RawValue"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "_Default_RawValue"]
+- !private ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "_findStringSwitchCase"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "adultAgeRange"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "adults"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "answer"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "arrivalDate"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "arrivalTime"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "childAgeRange"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "children"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "cityId"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "coordinate"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "debugDescription"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "deinit"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "departureDate"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "departureTime"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "description"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "hash"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "hashValue"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "hotelAddress"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "init"]
+- !private ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "init"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "intValue"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "rawValue"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO", "stringValue"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- ["SL", "init"]
+- ["SL", "init"]
+- ["s28CustomDebugStringConvertibleP", "RawValue"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s28CustomDebugStringConvertibleP", "adultAgeRange"]
+- !private ["s28CustomDebugStringConvertibleP", "adults"]
+- !private ["s28CustomDebugStringConvertibleP", "answer"]
+- !private ["s28CustomDebugStringConvertibleP", "arrivalDate"]
+- !private ["s28CustomDebugStringConvertibleP", "arrivalTime"]
+- !private ["s28CustomDebugStringConvertibleP", "childAgeRange"]
+- !private ["s28CustomDebugStringConvertibleP", "children"]
+- !private ["s28CustomDebugStringConvertibleP", "cityId"]
+- !private ["s28CustomDebugStringConvertibleP", "coordinate"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- !private ["s28CustomDebugStringConvertibleP", "departureDate"]
+- !private ["s28CustomDebugStringConvertibleP", "departureTime"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- !private ["s28CustomDebugStringConvertibleP", "hotelAddress"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- ["s28CustomDebugStringConvertibleP", "rawValue"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "adultAgeRange"]
+- !private ["s23CustomStringConvertibleP", "adults"]
+- !private ["s23CustomStringConvertibleP", "answer"]
+- !private ["s23CustomStringConvertibleP", "arrivalDate"]
+- !private ["s23CustomStringConvertibleP", "arrivalTime"]
+- !private ["s23CustomStringConvertibleP", "childAgeRange"]
+- !private ["s23CustomStringConvertibleP", "children"]
+- !private ["s23CustomStringConvertibleP", "cityId"]
+- !private ["s23CustomStringConvertibleP", "coordinate"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- !private ["s23CustomStringConvertibleP", "departureDate"]
+- !private ["s23CustomStringConvertibleP", "departureTime"]
+- ["s23CustomStringConvertibleP", "description"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- !private ["s23CustomStringConvertibleP", "hotelAddress"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["Se", "CodingKeys"]
+- !private ["Se", "Int"]
+- !private ["Se", "String"]
+- ["Se", ""]
+- !private ["Se", "_findStringSwitchCase"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "adultAgeRange"]
+- !private ["Se", "adults"]
+- !private ["Se", "answers"]
+- !private ["Se", "arrivalDate"]
+- !private ["Se", "arrivalTime"]
+- !private ["Se", "children"]
+- !private ["Se", "childrenAgeRange"]
+- !private ["Se", "cityId"]
+- !private ["Se", "coordinate"]
+- !private ["Se", "departureDate"]
+- !private ["Se", "departureTime"]
+- !private ["Se", "hotelAddress"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["s7DecoderP", "container"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- ["SE", "init"]
+- ["SE", "init"]
+- ["SQ", "RawValue"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- !private ["SQ", "adultAgeRange"]
+- !private ["SQ", "adults"]
+- !private ["SQ", "answer"]
+- !private ["SQ", "arrivalDate"]
+- !private ["SQ", "arrivalTime"]
+- !private ["SQ", "childAgeRange"]
+- !private ["SQ", "children"]
+- !private ["SQ", "cityId"]
+- !private ["SQ", "coordinate"]
+- ["SQ", "debugDescription"]
+- !private ["SQ", "departureDate"]
+- !private ["SQ", "departureTime"]
+- ["SQ", "description"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- !private ["SQ", "hotelAddress"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "intValue"]
+- ["SQ", "rawValue"]
+- ["SQ", "stringValue"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s27ExpressibleByIntegerLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s17FixedWidthIntegerP", "init"]
+- ["SH", "RawValue"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- !private ["SH", "adultAgeRange"]
+- !private ["SH", "adults"]
+- !private ["SH", "answer"]
+- !private ["SH", "arrivalDate"]
+- !private ["SH", "arrivalTime"]
+- !private ["SH", "childAgeRange"]
+- !private ["SH", "children"]
+- !private ["SH", "cityId"]
+- !private ["SH", "coordinate"]
+- ["SH", "debugDescription"]
+- !private ["SH", "departureDate"]
+- !private ["SH", "departureTime"]
+- ["SH", "description"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- !private ["SH", "hotelAddress"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "intValue"]
+- ["SH", "rawValue"]
+- ["SH", "stringValue"]
+- !private ["s6HasherV", "combine"]
+- !private ["Si", "init"]
+- !private ["s22KeyedDecodingContainerV", "decodeIfPresent"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decodeIfPresent"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- !private ["Sj", "init"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- !private ["SY", "adultAgeRange"]
+- !private ["SY", "adults"]
+- !private ["SY", "answer"]
+- !private ["SY", "arrivalDate"]
+- !private ["SY", "arrivalTime"]
+- !private ["SY", "childAgeRange"]
+- !private ["SY", "children"]
+- !private ["SY", "cityId"]
+- !private ["SY", "coordinate"]
+- ["SY", "debugDescription"]
+- !private ["SY", "departureDate"]
+- !private ["SY", "departureTime"]
+- ["SY", "description"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- !private ["SY", "hotelAddress"]
+- ["SY", "init"]
+- !private ["SY", "init"]
+- ["SY", "intValue"]
+- ["SY", "rawValue"]
+- ["SY", "stringValue"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["SZ", "init"]
+- !private ["s13SignedNumericP", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["Sx", "init"]
+- ["SS", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "CodingKey"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "CodingKeys"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "Decoder"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "Int"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "String"]
+- !private ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "_findStringSwitchCase"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "adultAgeRange"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "adults"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "answers"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "arrivalDate"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "arrivalTime"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "children"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "childrenAgeRange"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "cityId"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "coordinate"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "deinit"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "departureDate"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "departureTime"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "hotelAddress"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- !private ["s18_BitwiseOperationsP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sz"
+- !private "Sb"
+- "s7CVarArgP"
+- "s9CodingKeyP"
+- "10TRPRestKit28TRPGetProgramParamsInfoModelV10CodingKeysO"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "s7DecoderP"
+- "SE"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "s17FixedWidthIntegerP"
+- "SH"
+- !private "s6HasherV"
+- !private "Si"
+- !private "s22KeyedDecodingContainerV"
+- !private "s30KeyedDecodingContainerProtocolP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- !private "Sj"
+- "Sm"
+- "SY"
+- "ST"
+- !private "SZ"
+- !private "s13SignedNumericP"
+- !private "s12StaticStringV"
+- !private "Sx"
+- "SS"
+- "Sy"
+- "10TRPRestKit28TRPGetProgramParamsInfoModelV"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- !private "s18_BitwiseOperationsP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/unextended-module.modulemap"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "df32574c25d9220a165d3fbaafaa5b5b"

@@ -31,7 +31,7 @@ public struct TRPPoiInfoModel: Decodable {
     public var coordinate: TRPCoordinateModel?
     public var updateType: TRPUpdateTypeModel = .added
     public var subCategory: String?
-    
+    public var description: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -54,6 +54,7 @@ public struct TRPPoiInfoModel: Decodable {
         case tag = "tag"
         case coordinate
         case updateType
+        case description
         case subCategory = "sub_category"
     }
     
@@ -82,6 +83,10 @@ public struct TRPPoiInfoModel: Decodable {
         
         if let categorys = try values.decodeIfPresent([TRPCategoryInfoModel].self, forKey: .category) {
             category = categorys
+        }
+        
+        if let desk = try values.decodeIfPresent(String.self, forKey: .description) {
+            description = desk
         }
         
         //TODO: - SADECE TAG ID KULLANILIYOR. BUNA KESİNLİKLE NAME EKLENMELİ

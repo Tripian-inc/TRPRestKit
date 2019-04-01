@@ -35,17 +35,14 @@ public struct TRPFavoritesInfoModel: Decodable{
     public var cityId: Int
     
     enum CodingKeys: String, CodingKey {
-    
         case poiId = "poi_id"
         case cityId = "city_id"
     }
     
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
-        
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         self.poiId = try values.decode(Int.self, forKey: .poiId)
         self.cityId = try values.decode(Int.self, forKey: .cityId)
-       
     }
 }
 

@@ -1,0 +1,345 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "TRPGoogleAutoComplete"
+provides-nominal:
+- "10TRPRestKit21TRPGoogleAutoCompleteC"
+provides-member:
+- ["10TRPRestKit21TRPGoogleAutoCompleteC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "+="
+- "AssignmentPrecedence"
+- !private "CastingPrecedence"
+- !private "CharacterSet"
+- "Double"
+- !private "JSONSerialization"
+- !private "NSDictionary"
+- "NSError"
+- "String"
+- !private "StringLiteralType"
+- !private "TRPErrors"
+- "TRPGoogleAutoComplete"
+- !private "TRPGooglePlace"
+- "TRPLocation"
+- !private "TRPNetwork"
+- !private "UnicodeScalarType"
+- "Void"
+depends-member:
+- !private ["Sa", "map"]
+- !private ["s13ArrayProtocolP", "map"]
+- !private ["SK", "addingPercentEncoding"]
+- !private ["SK", "init"]
+- !private ["SK", "init"]
+- !private ["SK", "map"]
+- !private ["s7CVarArgP", "addingPercentEncoding"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "jsonObject"]
+- !private ["s7CVarArgP", "lat"]
+- !private ["s7CVarArgP", "lon"]
+- !private ["s7CVarArgP", "map"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["10Foundation12CharacterSetV", "urlQueryAllowed"]
+- !private ["Sl", "addingPercentEncoding"]
+- !private ["Sl", "init"]
+- !private ["Sl", "init"]
+- !private ["Sl", "map"]
+- !private ["SL", "addingPercentEncoding"]
+- !private ["SL", "init"]
+- !private ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "addingPercentEncoding"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "jsonObject"]
+- !private ["s28CustomDebugStringConvertibleP", "lat"]
+- !private ["s28CustomDebugStringConvertibleP", "lon"]
+- !private ["s28CustomDebugStringConvertibleP", "map"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "urlQueryAllowed"]
+- !private ["10Foundation13CustomNSErrorP", "someThingWronk"]
+- !private ["10Foundation13CustomNSErrorP", "wrongData"]
+- !private ["s29CustomPlaygroundQuickLookableP", "addingPercentEncoding"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "addingPercentEncoding"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "map"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "addingPercentEncoding"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "jsonObject"]
+- !private ["s23CustomStringConvertibleP", "lat"]
+- !private ["s23CustomStringConvertibleP", "lon"]
+- !private ["s23CustomStringConvertibleP", "map"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "urlQueryAllowed"]
+- !private ["Se", "addingPercentEncoding"]
+- !private ["Se", "init"]
+- !private ["Se", "init"]
+- !private ["Se", "map"]
+- !private ["Se", "urlQueryAllowed"]
+- !private ["SE", "addingPercentEncoding"]
+- !private ["SE", "init"]
+- !private ["SE", "init"]
+- !private ["SE", "map"]
+- !private ["SE", "urlQueryAllowed"]
+- !private ["SQ", "addingPercentEncoding"]
+- !private ["SQ", "init"]
+- !private ["SQ", "init"]
+- !private ["SQ", "jsonObject"]
+- !private ["SQ", "lat"]
+- !private ["SQ", "lon"]
+- !private ["SQ", "map"]
+- !private ["SQ", "mutableContainers"]
+- !private ["SQ", "post"]
+- !private ["SQ", "subscript"]
+- !private ["SQ", "urlQueryAllowed"]
+- !private ["s5ErrorP", "someThingWronk"]
+- !private ["s5ErrorP", "wrongData"]
+- !private ["s25ExpressibleByArrayLiteralP", "map"]
+- !private ["s25ExpressibleByArrayLiteralP", "mutableContainers"]
+- !private ["s25ExpressibleByArrayLiteralP", "urlQueryAllowed"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "addingPercentEncoding"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "addingPercentEncoding"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "addingPercentEncoding"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "addingPercentEncoding"]
+- !private ["SH", "init"]
+- !private ["SH", "init"]
+- !private ["SH", "jsonObject"]
+- !private ["SH", "lat"]
+- !private ["SH", "lon"]
+- !private ["SH", "map"]
+- !private ["SH", "post"]
+- !private ["SH", "subscript"]
+- !private ["SH", "urlQueryAllowed"]
+- !private ["So19NSJSONSerializationC", "jsonObject"]
+- !private ["10Foundation14LocalizedErrorP", "someThingWronk"]
+- !private ["10Foundation14LocalizedErrorP", "wrongData"]
+- !private ["s25LosslessStringConvertibleP", "addingPercentEncoding"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "addingPercentEncoding"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["SM", "map"]
+- !private ["So8NSCodingP", "addingPercentEncoding"]
+- !private ["So8NSCodingP", "subscript"]
+- !private ["So9NSCopyingP", "addingPercentEncoding"]
+- !private ["So9NSCopyingP", "subscript"]
+- !private ["So12NSDictionaryC", "subscript"]
+- !private ["So17NSFastEnumerationP", "subscript"]
+- !private ["So21NSItemProviderReadingP", "addingPercentEncoding"]
+- !private ["So21NSItemProviderWritingP", "addingPercentEncoding"]
+- !private ["So16NSMutableCopyingP", "addingPercentEncoding"]
+- !private ["So16NSMutableCopyingP", "subscript"]
+- !private ["So8NSObjectC", "addingPercentEncoding"]
+- !private ["So8NSObjectC", "jsonObject"]
+- !private ["So8NSObjectC", "lat"]
+- !private ["So8NSObjectC", "lon"]
+- !private ["So8NSObjectC", "subscript"]
+- !private ["So8NSObjectP", "addingPercentEncoding"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "jsonObject"]
+- !private ["So8NSObjectP", "lat"]
+- !private ["So8NSObjectP", "lon"]
+- !private ["So8NSObjectP", "subscript"]
+- !private ["So14NSSecureCodingP", "addingPercentEncoding"]
+- !private ["So14NSSecureCodingP", "subscript"]
+- !private ["So8NSStringC", "addingPercentEncoding"]
+- !private ["s9OptionSetP", "mutableContainers"]
+- !private ["Sk", "map"]
+- !private ["Sm", "addingPercentEncoding"]
+- !private ["Sm", "init"]
+- !private ["Sm", "init"]
+- !private ["Sm", "map"]
+- !private ["SY", "mutableContainers"]
+- !private ["SY", "post"]
+- !private ["So20NSJSONReadingOptionsV", "mutableContainers"]
+- !private ["10Foundation20ReferenceConvertibleP", "urlQueryAllowed"]
+- !private ["ST", "addingPercentEncoding"]
+- !private ["ST", "init"]
+- !private ["ST", "init"]
+- !private ["ST", "map"]
+- !private ["ST", "subscript"]
+- !private ["s10SetAlgebraP", "mutableContainers"]
+- !private ["s10SetAlgebraP", "urlQueryAllowed"]
+- !private ["SS", "addingPercentEncoding"]
+- !private ["SS", "init"]
+- !private ["SS", "init"]
+- !private ["Sy", "addingPercentEncoding"]
+- !private ["Sy", "init"]
+- !private ["Sy", "init"]
+- !private ["10TRPRestKit9TRPErrorsO", "someThingWronk"]
+- !private ["10TRPRestKit9TRPErrorsO", "wrongData"]
+- !private ["10TRPRestKit21TRPGoogleAutoCompleteC", "CharacterSet"]
+- ["10TRPRestKit21TRPGoogleAutoCompleteC", "Double"]
+- !private ["10TRPRestKit21TRPGoogleAutoCompleteC", "JSONSerialization"]
+- !private ["10TRPRestKit21TRPGoogleAutoCompleteC", "NSDictionary"]
+- ["10TRPRestKit21TRPGoogleAutoCompleteC", "NSError"]
+- ["10TRPRestKit21TRPGoogleAutoCompleteC", "String"]
+- !private ["10TRPRestKit21TRPGoogleAutoCompleteC", "TRPErrors"]
+- !private ["10TRPRestKit21TRPGoogleAutoCompleteC", "TRPGooglePlace"]
+- ["10TRPRestKit21TRPGoogleAutoCompleteC", "TRPLocation"]
+- !private ["10TRPRestKit21TRPGoogleAutoCompleteC", "TRPNetwork"]
+- ["10TRPRestKit21TRPGoogleAutoCompleteC", "Void"]
+- ["10TRPRestKit21TRPGoogleAutoCompleteC", "centerLocationForBoundary"]
+- ["10TRPRestKit21TRPGoogleAutoCompleteC", "init"]
+- !private ["10TRPRestKit21TRPGoogleAutoCompleteC", "key"]
+- ["10TRPRestKit21TRPGoogleAutoCompleteC", "radiusForBoundary"]
+- ["10TRPRestKit21TRPGoogleAutoCompleteC", "start"]
+- !private ["10TRPRestKit21TRPGoogleAutoCompleteC", "text"]
+- !private ["10TRPRestKit14TRPGooglePlaceC", "init"]
+- !private ["16TRPFoundationKit11TRPLocationC", "lat"]
+- !private ["16TRPFoundationKit11TRPLocationC", "lon"]
+- !private ["10TRPRestKit10TRPNetworkC", "add"]
+- !private ["10TRPRestKit10TRPNetworkC", "build"]
+- !private ["10TRPRestKit10TRPNetworkC", "init"]
+- !private ["10TRPRestKit14TRPRequestModeO", "post"]
+- !private ["s16TextOutputStreamP", "addingPercentEncoding"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "addingPercentEncoding"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s24_DestructorSafeContainerP", "map"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "addingPercentEncoding"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "addingPercentEncoding"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "addingPercentEncoding"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "addingPercentEncoding"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "addingPercentEncoding"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "addingPercentEncoding"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "map"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "addingPercentEncoding"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "jsonObject"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "lat"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "lon"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "addingPercentEncoding"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "map"]
+- !private ["s21_ObjectiveCBridgeableP", "urlQueryAllowed"]
+- !private ["s16_SwiftStringViewP", "addingPercentEncoding"]
+- !private ["s16_SwiftStringViewP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "Sa"
+- !private "s13ArrayProtocolP"
+- !private "SK"
+- !private "s7CVarArgP"
+- !private "10Foundation12CharacterSetV"
+- !private "Sl"
+- !private "SL"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "10Foundation13CustomNSErrorP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "Se"
+- !private "SE"
+- !private "SQ"
+- !private "s5ErrorP"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s30ExpressibleByDictionaryLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "SH"
+- !private "So19NSJSONSerializationC"
+- !private "10Foundation14LocalizedErrorP"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "SM"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So12NSDictionaryC"
+- !private "So17NSFastEnumerationP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- !private "So8NSObjectC"
+- !private "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "s9OptionSetP"
+- !private "Sk"
+- !private "Sm"
+- !private "SY"
+- !private "So20NSJSONReadingOptionsV"
+- !private "10Foundation20ReferenceConvertibleP"
+- !private "ST"
+- !private "s10SetAlgebraP"
+- !private "SS"
+- !private "Sy"
+- !private "10TRPRestKit9TRPErrorsO"
+- "10TRPRestKit21TRPGoogleAutoCompleteC"
+- !private "10TRPRestKit14TRPGooglePlaceC"
+- !private "16TRPFoundationKit11TRPLocationC"
+- !private "10TRPRestKit10TRPNetworkC"
+- !private "10TRPRestKit14TRPRequestModeO"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "f6e10bb5f8a1a054f9abe8eb424bb254"

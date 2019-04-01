@@ -1,0 +1,303 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "TRPProgram"
+provides-nominal:
+- "10TRPRestKit10TRPProgramC"
+provides-member:
+- ["10TRPRestKit10TRPProgramC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "CastingPrecedence"
+- "Data"
+- "Dictionary"
+- !private "JSONDecoder"
+- "NSError"
+- "String"
+- !private "StringLiteralType"
+- !private "TRPConfig"
+- !private "TRPErrors"
+- "TRPProgram"
+- "TRPRequestMode"
+- "TRPRestServices"
+- !private "TRPTripJsonModel"
+- "TRPTripSettings"
+- !private "UnicodeScalarType"
+depends-member:
+- !private ["10TRPRestKit9TRPConfigV7ApiCallO", "Trip"]
+- !private ["10TRPRestKit9TRPConfigV7ApiCallO", "link"]
+- !private ["Sa", "joined"]
+- !private ["Sa", "map"]
+- !private ["s13ArrayProtocolP", "joined"]
+- !private ["s13ArrayProtocolP", "map"]
+- !private ["SK", "init"]
+- !private ["SK", "init"]
+- !private ["SK", "joined"]
+- !private ["SK", "map"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "joined"]
+- !private ["s7CVarArgP", "map"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["Sl", "init"]
+- !private ["Sl", "init"]
+- !private ["Sl", "joined"]
+- !private ["Sl", "map"]
+- !private ["Sl", "subscript"]
+- !private ["SL", "init"]
+- !private ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "joined"]
+- !private ["s28CustomDebugStringConvertibleP", "map"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["10Foundation13CustomNSErrorP", "wrongData"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "joined"]
+- !private ["s17CustomReflectableP", "map"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "joined"]
+- !private ["s23CustomStringConvertibleP", "map"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["Se", "init"]
+- !private ["Se", "init"]
+- !private ["Se", "joined"]
+- !private ["Se", "map"]
+- !private ["Se", "subscript"]
+- !private ["SD", "subscript"]
+- !private ["SE", "init"]
+- !private ["SE", "init"]
+- !private ["SE", "joined"]
+- !private ["SE", "map"]
+- !private ["SE", "subscript"]
+- !private ["SQ", "Trip"]
+- !private ["SQ", "init"]
+- !private ["SQ", "init"]
+- !private ["SQ", "joined"]
+- !private ["SQ", "link"]
+- !private ["SQ", "map"]
+- !private ["SQ", "post"]
+- !private ["SQ", "subscript"]
+- !private ["s5ErrorP", "wrongData"]
+- !private ["s25ExpressibleByArrayLiteralP", "joined"]
+- !private ["s25ExpressibleByArrayLiteralP", "map"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "Trip"]
+- !private ["SH", "init"]
+- !private ["SH", "init"]
+- !private ["SH", "joined"]
+- !private ["SH", "link"]
+- !private ["SH", "map"]
+- !private ["SH", "post"]
+- !private ["SH", "subscript"]
+- !private ["10Foundation11JSONDecoderC", "decode"]
+- !private ["10Foundation11JSONDecoderC", "init"]
+- !private ["10Foundation14LocalizedErrorP", "wrongData"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["SM", "joined"]
+- !private ["SM", "map"]
+- !private ["Sk", "joined"]
+- !private ["Sk", "map"]
+- !private ["Sm", "init"]
+- !private ["Sm", "init"]
+- !private ["Sm", "joined"]
+- !private ["Sm", "map"]
+- !private ["SY", "Trip"]
+- !private ["SY", "link"]
+- !private ["SY", "post"]
+- !private ["ST", "init"]
+- !private ["ST", "init"]
+- !private ["ST", "joined"]
+- !private ["ST", "map"]
+- !private ["ST", "subscript"]
+- !private ["SS", "init"]
+- !private ["SS", "init"]
+- !private ["Sy", "init"]
+- !private ["Sy", "init"]
+- !private ["10TRPRestKit9TRPConfigV", "ApiCall"]
+- !private ["10TRPRestKit9TRPErrorsO", "wrongData"]
+- ["10TRPRestKit10TRPProgramC", "Bool"]
+- !private ["10TRPRestKit10TRPProgramC", "Completion"]
+- ["10TRPRestKit10TRPProgramC", "Data"]
+- ["10TRPRestKit10TRPProgramC", "Dictionary"]
+- !private ["10TRPRestKit10TRPProgramC", "JSONDecoder"]
+- ["10TRPRestKit10TRPProgramC", "NSError"]
+- ["10TRPRestKit10TRPProgramC", "String"]
+- !private ["10TRPRestKit10TRPProgramC", "TRPConfig"]
+- !private ["10TRPRestKit10TRPProgramC", "TRPErrors"]
+- ["10TRPRestKit10TRPProgramC", "TRPRequestMode"]
+- !private ["10TRPRestKit10TRPProgramC", "TRPTripJsonModel"]
+- ["10TRPRestKit10TRPProgramC", "TRPTripSettings"]
+- ["10TRPRestKit10TRPProgramC", "init"]
+- !private ["10TRPRestKit10TRPProgramC", "paginationController"]
+- ["10TRPRestKit10TRPProgramC", "parameters"]
+- ["10TRPRestKit10TRPProgramC", "path"]
+- ["10TRPRestKit10TRPProgramC", "requestMode"]
+- ["10TRPRestKit10TRPProgramC", "servicesResult"]
+- ["10TRPRestKit10TRPProgramC", "setting"]
+- ["10TRPRestKit10TRPProgramC", "userOAuth"]
+- !private ["10TRPRestKit14TRPRequestModeO", "post"]
+- ["10TRPRestKit0A8ServicesC", "Bool"]
+- !private ["10TRPRestKit0A8ServicesC", "Completion"]
+- ["10TRPRestKit0A8ServicesC", "Data"]
+- ["10TRPRestKit0A8ServicesC", "Dictionary"]
+- !private ["10TRPRestKit0A8ServicesC", "JSONDecoder"]
+- ["10TRPRestKit0A8ServicesC", "NSError"]
+- ["10TRPRestKit0A8ServicesC", "String"]
+- !private ["10TRPRestKit0A8ServicesC", "TRPConfig"]
+- !private ["10TRPRestKit0A8ServicesC", "TRPErrors"]
+- ["10TRPRestKit0A8ServicesC", "TRPRequestMode"]
+- !private ["10TRPRestKit0A8ServicesC", "TRPTripJsonModel"]
+- ["10TRPRestKit0A8ServicesC", "TRPTripSettings"]
+- ["10TRPRestKit0A8ServicesC", ""]
+- ["10TRPRestKit0A8ServicesC", "init"]
+- !private ["10TRPRestKit0A8ServicesC", "paginationController"]
+- ["10TRPRestKit0A8ServicesC", "parameters"]
+- ["10TRPRestKit0A8ServicesC", "path"]
+- ["10TRPRestKit0A8ServicesC", "requestMode"]
+- ["10TRPRestKit0A8ServicesC", "servicesResult"]
+- ["10TRPRestKit0A8ServicesC", "setting"]
+- ["10TRPRestKit0A8ServicesC", "userOAuth"]
+- !private ["10TRPRestKit7TRPTimeV", "date"]
+- !private ["10TRPRestKit7TRPTimeV", "time"]
+- !private ["10TRPRestKit16TRPTripJsonModelC", "deinit"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "adultAgeRange"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "adultsCount"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "answer"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "arrivalTime"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "childrenAgeRange"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "childrenCount"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "cityId"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "coordinate"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "departureTime"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "doNotGenerate"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "hotelAddress"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s24_DestructorSafeContainerP", "joined"]
+- !private ["s24_DestructorSafeContainerP", "map"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "joined"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "map"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "joined"]
+- !private ["s21_ObjectiveCBridgeableP", "map"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "10TRPRestKit9TRPConfigV7ApiCallO"
+- !private "Sa"
+- !private "s13ArrayProtocolP"
+- !private "SK"
+- !private "s7CVarArgP"
+- !private "Sl"
+- !private "SL"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "10Foundation13CustomNSErrorP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "Se"
+- !private "SD"
+- !private "SE"
+- !private "SQ"
+- !private "s5ErrorP"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s30ExpressibleByDictionaryLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "SH"
+- !private "10Foundation11JSONDecoderC"
+- !private "10Foundation14LocalizedErrorP"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "SM"
+- !private "Sk"
+- !private "Sm"
+- !private "SY"
+- !private "ST"
+- !private "SS"
+- !private "Sy"
+- !private "10TRPRestKit9TRPConfigV"
+- !private "10TRPRestKit9TRPErrorsO"
+- "10TRPRestKit10TRPProgramC"
+- !private "10TRPRestKit14TRPRequestModeO"
+- "10TRPRestKit0A8ServicesC"
+- !private "10TRPRestKit7TRPTimeV"
+- !private "10TRPRestKit16TRPTripJsonModelC"
+- !private "10TRPRestKit15TRPTripSettingsC"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/unextended-module.modulemap"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "71fc4324fb3336aebf78e228332e09bd"
