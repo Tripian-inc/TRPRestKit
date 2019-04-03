@@ -14,7 +14,6 @@ class TRPCitiesTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
         TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
     }
     

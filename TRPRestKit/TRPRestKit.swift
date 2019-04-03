@@ -606,7 +606,7 @@ extension TRPRestKit {
         let t = TRPProgram(setting: settings)
         t.Completion = {   (result, error, pagination) in
             if let error = error {
-                 self.postError(error: error)
+                self.postError(error: error)
                 return
             }
             if let data = result as? TRPTripJsonModel, let r = data.data {

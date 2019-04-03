@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B20BBAAC212F20E500DEAA3E"
+               BuildableName = "TRPRestKitTests.xctest"
+               BlueprintName = "TRPRestKitTests"
+               ReferencedContainer = "container:TRPRestKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B29B462420F607F90009E711"
+            BuildableName = "TRPRestKit.framework"
+            BlueprintName = "TRPRestKit"
+            ReferencedContainer = "container:TRPRestKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
