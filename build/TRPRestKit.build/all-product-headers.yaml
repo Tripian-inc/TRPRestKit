@@ -4,12 +4,12 @@
   'roots': [
     {
       'type': 'directory',
-      'name': "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphonesimulator/TRPRestKit.framework/Headers",
+      'name': "/Users/evrenyasar/Xcode/TRPRestKit/build/Release(TestServer)-iphoneos/TRPRestKit.framework/Headers",
       'contents': [
         {
           'type': 'file',
           'name': "TRPRestKit-Swift.h",
-          'external-contents': "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphonesimulator/TRPRestKit.framework/Headers/TRPRestKit-Swift.h"
+          'external-contents': "/Users/evrenyasar/Xcode/TRPRestKit/build/Release(TestServer)-iphoneos/TRPRestKit.framework/Headers/TRPRestKit-Swift.h"
         },
         {
           'type': 'file',
@@ -20,12 +20,12 @@
     },
     {
       'type': 'directory',
-      'name': "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphonesimulator/TRPRestKit.framework/Modules",
+      'name': "/Users/evrenyasar/Xcode/TRPRestKit/build/Release(TestServer)-iphoneos/TRPRestKit.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/module.modulemap"
+          'external-contents': "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Release(TestServer)-iphoneos/TRPRestKit.build/module.modulemap"
         }
       ]
     }

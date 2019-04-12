@@ -15,7 +15,7 @@ public class TRPParentJsonModel: Decodable {
     public var message: String?;
     var pagination: TRPPaginationJsonModel?
     
-    enum ParentCodingKeys: String, CodingKey {
+    internal enum ParentCodingKeys: String, CodingKey {
         case status
         case message
         case success
@@ -50,7 +50,7 @@ struct TRPPaginationJsonModel: Decodable{
     var totalPages: Int = 0;
     var links: TRPPaginationLinkJsonModel?
     
-    enum CodingKeys: String, CodingKey{
+    private enum CodingKeys: String, CodingKey{
         case total = "total"
         case count = "count"
         case perPage = "per_page";
@@ -81,7 +81,7 @@ struct TRPPaginationLinkJsonModel: Decodable {
     var next: String?
     var previous: String?
     
-    enum CodingKeys: String, CodingKey{
+    private enum CodingKeys: String, CodingKey{
         case next = "next"
         case previous = "previous"
     }

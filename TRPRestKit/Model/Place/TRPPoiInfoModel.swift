@@ -33,7 +33,7 @@ public struct TRPPoiInfoModel: Decodable {
     public var subCategory: String?
     public var description: String?
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case cityId = "city_id"
         case rating

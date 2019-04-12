@@ -11,7 +11,7 @@ public class TRPCheckUpdateJsonModel: TRPParentJsonModel {
     
     public var data: [String:TRPCheckUpdateInfoModel]?;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case data
     }
     
@@ -32,7 +32,7 @@ public class TRPCheckUpdateInfoModel:NSObject, Decodable {
     public var deleted: Int?;
     public var url: String?;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case added
         case updated
         case deleted

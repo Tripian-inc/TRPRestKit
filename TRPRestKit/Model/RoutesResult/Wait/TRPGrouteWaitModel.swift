@@ -10,7 +10,7 @@ import Foundation
 class TRPGrouteWaitModel:TRPParentJsonModel {
     var data: TRPGrouteWaitInfoModel?
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case data
     }
     

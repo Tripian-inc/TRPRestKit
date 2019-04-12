@@ -18,9 +18,7 @@ depends-top-level:
 - "CastingPrecedence"
 - "Data"
 - "Dictionary"
-- !private "FloatLiteralType"
 - "Int"
-- !private "IntegerLiteralType"
 - !private "JSONDecoder"
 - "NSError"
 - "String"
@@ -161,7 +159,6 @@ depends-member:
 - !private ["10TRPRestKit13TRPPlanPointsC", "TRPProgramStepJsonModel"]
 - ["10TRPRestKit13TRPPlanPointsC", "TRPRequestMode"]
 - ["10TRPRestKit13TRPPlanPointsC", "dailyPlanId"]
-- ["10TRPRestKit13TRPPlanPointsC", "deinit"]
 - ["10TRPRestKit13TRPPlanPointsC", "hash"]
 - ["10TRPRestKit13TRPPlanPointsC", "init"]
 - ["10TRPRestKit13TRPPlanPointsC", "order"]

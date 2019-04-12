@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 public struct TRPUserTripInfoModel: Decodable {
     
     public var id: Int
@@ -16,7 +15,7 @@ public struct TRPUserTripInfoModel: Decodable {
     public var city: TRPCityInfoModel?
     public var hash: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case hash
         case city

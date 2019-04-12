@@ -13,7 +13,7 @@ public struct TRPPlanPointAlternativeInfoModel: Decodable {
     public var alternativePoiId: Int
     public var dailyPlanPoi: TRPPlanPoi?
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case hash
         case poiId = "poi_id"

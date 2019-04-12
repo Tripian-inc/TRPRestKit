@@ -12,7 +12,7 @@ struct TRPRoutesTimeJsonModel: Decodable {
     var timeZoneType: Int?;
     var timeZone: String?;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case date
         case timeZoneType = "timezone_type"
         case timeZone = "timezone"

@@ -7,11 +7,11 @@
 //
 
 import Foundation
-public class TRPDayPlanJsonModel: TRPParentJsonModel{
+internal class TRPDayPlanJsonModel: TRPParentJsonModel{
     
     public var data: TRPDailyPlanInfoModel;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case data
     }
     

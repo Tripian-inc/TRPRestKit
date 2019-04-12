@@ -14,10 +14,10 @@ public struct TRPDailyPlanInfoModel: Decodable {
     public var startTime: String?
     public var endTime: String?
     public var planPois: [TRPPlanPoi]
-    public var generate: Bool
+    public var generate: Int
     
     //TODO: - preferences eklenecek
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case hash
         case date
@@ -32,7 +32,7 @@ public struct TRPDailyPlanInfoModel: Decodable {
         self.id = try values.decode(Int.self, forKey: .id)
         self.hash = try values.decode(String.self, forKey: .hash)
         self.date = try values.decode(String.self, forKey: .date)
-        self.generate = try values.decode(Bool.self, forKey: .generate)
+        self.generate = try values.decode(Int.self, forKey: .generate)
         self.startTime = try values.decodeIfPresent(String.self, forKey: .startTime)
         self.endTime = try values.decodeIfPresent(String.self, forKey: .endTime)
         //todo:- alk kod açılacak test için yapıldı

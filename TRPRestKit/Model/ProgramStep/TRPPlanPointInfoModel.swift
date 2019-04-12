@@ -14,7 +14,7 @@ public struct TRPPlanPointInfoModel: Decodable {
     public var placeId: Int
     public var order: Int
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case hash
         case placeId = "poi_id"

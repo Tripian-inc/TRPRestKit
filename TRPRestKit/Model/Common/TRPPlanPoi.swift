@@ -13,7 +13,7 @@ public struct TRPPlanPoi: Decodable {
     public var poiId: Int
     public var order: Int
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case poiId = "poi_id"
         case order

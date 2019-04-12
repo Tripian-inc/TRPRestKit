@@ -13,7 +13,7 @@ public class TRPTagsInfoModel:NSObject, Decodable {
     public var name: String?;
     public var updateType: TRPUpdateTypeModel = .added
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case name
         case updateType

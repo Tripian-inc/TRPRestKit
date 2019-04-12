@@ -13,7 +13,7 @@ public struct TRPCategoryInfoModel: Decodable {
     public var name: String
     public var description: String?;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case name
         case description

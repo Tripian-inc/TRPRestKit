@@ -7,11 +7,11 @@
 //
 
 import Foundation
-public class TRPPoiJsonModel:TRPParentJsonModel {
+internal class TRPPoiJsonModel:TRPParentJsonModel {
     
-    public var data: [TRPPoiInfoModel]?;
+    internal var data: [TRPPoiInfoModel]?;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case data
     }
     

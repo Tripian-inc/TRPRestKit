@@ -15,8 +15,6 @@ depends-top-level:
 - "CodingKey"
 - "Decodable"
 - "Decoder"
-- !private "FloatLiteralType"
-- !private "IntegerLiteralType"
 - "String"
 - "StringLiteralType"
 - "TRPGRoutesResultInfoJsonModel"

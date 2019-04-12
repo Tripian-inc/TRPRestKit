@@ -11,9 +11,9 @@ public struct TRPUserInfoModel: Decodable {
     
     public var userName: String
     public var info: [TRPUserPreferencesInfoModel]?
+    
     //TODO: - preferences eklenecek
-    enum CodingKeys: String, CodingKey {
-        
+    private enum CodingKeys: String, CodingKey {
         case userName = "username"
         case info
     }
@@ -33,7 +33,7 @@ public struct TRPUserPreferencesInfoModel: Decodable {
     public var key: String;
     public var value: String;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case key
         case value

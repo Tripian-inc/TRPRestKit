@@ -13,7 +13,7 @@ public struct TRPPoiAddRouteInfoModel: Decodable {
     public var poiId: Int?
     public var order: Int?
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case hash
         case poiId = "poi_id"

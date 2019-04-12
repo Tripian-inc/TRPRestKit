@@ -18,7 +18,7 @@ public struct TRPTripInfoModel: Decodable{
     public var dailyPlans: [TRPDailyPlanInfoModel]?
     public var city: TRPCityInfoModel
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case hash
         case arrivalDate = "arrival_date"

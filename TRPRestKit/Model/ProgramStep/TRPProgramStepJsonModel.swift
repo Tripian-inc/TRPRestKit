@@ -7,15 +7,15 @@
 //
 
 import Foundation
-public class TRPProgramStepJsonModel: TRPParentJsonModel{
+internal class TRPProgramStepJsonModel: TRPParentJsonModel{
     
-    public var data: TRPPlanPointInfoModel?
+    internal var data: TRPPlanPointInfoModel?
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case data
     }
     
-    required public init(from decoder: Decoder) throws {
+    required internal init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         if let data = try? values.decodeIfPresent(TRPPlanPointInfoModel.self, forKey: .data) {
             self.data = data

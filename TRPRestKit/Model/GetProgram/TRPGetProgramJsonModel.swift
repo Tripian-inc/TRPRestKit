@@ -9,7 +9,6 @@
 import Foundation
 public struct TRPGetProgramParamsInfoModel: Decodable {
     
-    
     var cityId: String?;
     var arrivalDate: String?;
     var departureDate: String?;
@@ -23,9 +22,7 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     var answers: String?
     public var hotelAddress: String?
     
-    
-    
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case cityId = "city_id";
         case arrivalDate = "arrival_date";
         case departureDate = "departure_date";

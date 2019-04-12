@@ -7,11 +7,11 @@
 //
 
 import Foundation
-public class TRPTripQuestionJsonModel: TRPParentJsonModel {
+internal class TRPTripQuestionJsonModel: TRPParentJsonModel {
     
     public var data: [TRPTripQuestionInfoModel]?;
     
-    enum CodingKeys: String, CodingKey { case data }
+    private enum CodingKeys: String, CodingKey { case data }
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);

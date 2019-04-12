@@ -9,13 +9,13 @@
 import Foundation
 internal class TRPProblemCategoriesJsonModel: TRPParentJsonModel {
     
-    public var datas: [TRPProblemCategoriesInfoModel]?;
+    internal var datas: [TRPProblemCategoriesInfoModel]?;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case data
     }
     
-    required public init(from decoder: Decoder) throws {
+    required internal init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         datas = try values.decodeIfPresent([TRPProblemCategoriesInfoModel].self, forKey: .data)
         try super.init(from: decoder)
@@ -29,7 +29,7 @@ public struct TRPProblemCategoriesInfoModel: Decodable {
     public var id: Int
     public var name: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case name
     }

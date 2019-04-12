@@ -17,6 +17,7 @@ provides-member:
 - ["10TRPRestKitAAC", "poi"]
 - ["10TRPRestKitAAC", "poi"]
 - ["10TRPRestKitAAC", "poi"]
+- ["10TRPRestKitAAC", "poi"]
 - ["10TRPRestKitAAC", "tripQuestions"]
 - ["10TRPRestKitAAC", "tripQuestions"]
 - ["10TRPRestKitAAC", "recommendation"]
@@ -53,6 +54,8 @@ provides-member:
 - ["10TRPRestKitAAC", "checkUpdate"]
 - ["10TRPRestKitAAC", "googleAutoComplete"]
 - ["10TRPRestKitAAC", "googlePlace"]
+- ["10TRPRestKitAAC", "problemCategories"]
+- ["10TRPRestKitAAC", "reportaProblem"]
 provides-dynamic-lookup:
 depends-top-level:
 - !private "!="
@@ -105,11 +108,15 @@ depends-top-level:
 - "TRPPlanPoints"
 - !private "TRPPoiAddRouteJsonModel"
 - !private "TRPPoiJsonModel"
+- !private "TRPProblemCategories"
+- !private "TRPProblemCategoriesJsonModel"
 - !private "TRPProgram"
 - !private "TRPProgramStepJsonModel"
 - !private "TRPRecommendation"
 - !private "TRPRecommendationJsonModel"
 - "TRPRecommendationSettings"
+- !private "TRPReportAProblemJsonModel"
+- !private "TRPReportAProblemServices"
 - "TRPRestKit"
 - !private "TRPRoutesResult"
 - !private "TRPRoutesResultJsonModel"
@@ -156,8 +163,10 @@ depends-member:
 - !private ["s7CVarArgP", "TRPPlace"]
 - !private ["s7CVarArgP", "TRPPlanPointAlternatives"]
 - !private ["s7CVarArgP", "TRPPlanPoints"]
+- !private ["s7CVarArgP", "TRPProblemCategories"]
 - !private ["s7CVarArgP", "TRPProgram"]
 - !private ["s7CVarArgP", "TRPRecommendation"]
+- !private ["s7CVarArgP", "TRPReportAProblemServices"]
 - !private ["s7CVarArgP", "TRPRoutesResult"]
 - !private ["s7CVarArgP", "TRPTags"]
 - !private ["s7CVarArgP", "TRPTripQuestion"]
@@ -193,8 +202,10 @@ depends-member:
 - !private ["s7CVarArgP", "postData"]
 - !private ["s7CVarArgP", "postError"]
 - !private ["s7CVarArgP", "print"]
+- !private ["s7CVarArgP", "problemCategoriesService"]
 - !private ["s7CVarArgP", "questionServices"]
 - !private ["s7CVarArgP", "recoomendationServices"]
+- !private ["s7CVarArgP", "reportaProblemService"]
 - !private ["s7CVarArgP", "routesResultServices"]
 - !private ["s7CVarArgP", "routesResultServicesLooper"]
 - !private ["s7CVarArgP", "sleep"]
@@ -227,8 +238,10 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "TRPPlace"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPPlanPointAlternatives"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPPlanPoints"]
+- !private ["s28CustomDebugStringConvertibleP", "TRPProblemCategories"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPProgram"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPRecommendation"]
+- !private ["s28CustomDebugStringConvertibleP", "TRPReportAProblemServices"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPRoutesResult"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPTags"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPTripQuestion"]
@@ -263,8 +276,10 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "postData"]
 - !private ["s28CustomDebugStringConvertibleP", "postError"]
 - !private ["s28CustomDebugStringConvertibleP", "print"]
+- !private ["s28CustomDebugStringConvertibleP", "problemCategoriesService"]
 - !private ["s28CustomDebugStringConvertibleP", "questionServices"]
 - !private ["s28CustomDebugStringConvertibleP", "recoomendationServices"]
+- !private ["s28CustomDebugStringConvertibleP", "reportaProblemService"]
 - !private ["s28CustomDebugStringConvertibleP", "routesResultServices"]
 - !private ["s28CustomDebugStringConvertibleP", "routesResultServicesLooper"]
 - !private ["s28CustomDebugStringConvertibleP", "sleep"]
@@ -302,8 +317,10 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "TRPPlace"]
 - !private ["s23CustomStringConvertibleP", "TRPPlanPointAlternatives"]
 - !private ["s23CustomStringConvertibleP", "TRPPlanPoints"]
+- !private ["s23CustomStringConvertibleP", "TRPProblemCategories"]
 - !private ["s23CustomStringConvertibleP", "TRPProgram"]
 - !private ["s23CustomStringConvertibleP", "TRPRecommendation"]
+- !private ["s23CustomStringConvertibleP", "TRPReportAProblemServices"]
 - !private ["s23CustomStringConvertibleP", "TRPRoutesResult"]
 - !private ["s23CustomStringConvertibleP", "TRPTags"]
 - !private ["s23CustomStringConvertibleP", "TRPTripQuestion"]
@@ -339,8 +356,10 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "postData"]
 - !private ["s23CustomStringConvertibleP", "postError"]
 - !private ["s23CustomStringConvertibleP", "print"]
+- !private ["s23CustomStringConvertibleP", "problemCategoriesService"]
 - !private ["s23CustomStringConvertibleP", "questionServices"]
 - !private ["s23CustomStringConvertibleP", "recoomendationServices"]
+- !private ["s23CustomStringConvertibleP", "reportaProblemService"]
 - !private ["s23CustomStringConvertibleP", "routesResultServices"]
 - !private ["s23CustomStringConvertibleP", "routesResultServicesLooper"]
 - !private ["s23CustomStringConvertibleP", "sleep"]
@@ -352,6 +371,7 @@ depends-member:
 - !private ["Se", "_getBuiltinLogicValue"]
 - !private ["Se", "accessToken"]
 - !private ["Se", "data"]
+- !private ["Se", "datas"]
 - !private ["Se", "first"]
 - !private ["Se", "init"]
 - !private ["Se", "init"]
@@ -387,8 +407,10 @@ depends-member:
 - !private ["SQ", "TRPPlace"]
 - !private ["SQ", "TRPPlanPointAlternatives"]
 - !private ["SQ", "TRPPlanPoints"]
+- !private ["SQ", "TRPProblemCategories"]
 - !private ["SQ", "TRPProgram"]
 - !private ["SQ", "TRPRecommendation"]
+- !private ["SQ", "TRPReportAProblemServices"]
 - !private ["SQ", "TRPRoutesResult"]
 - !private ["SQ", "TRPTags"]
 - !private ["SQ", "TRPTripQuestion"]
@@ -429,8 +451,10 @@ depends-member:
 - !private ["SQ", "postData"]
 - !private ["SQ", "postError"]
 - !private ["SQ", "print"]
+- !private ["SQ", "problemCategoriesService"]
 - !private ["SQ", "questionServices"]
 - !private ["SQ", "recoomendationServices"]
+- !private ["SQ", "reportaProblemService"]
 - !private ["SQ", "routesResultServices"]
 - !private ["SQ", "routesResultServicesLooper"]
 - !private ["SQ", "sleep"]
@@ -474,8 +498,10 @@ depends-member:
 - !private ["SH", "TRPPlace"]
 - !private ["SH", "TRPPlanPointAlternatives"]
 - !private ["SH", "TRPPlanPoints"]
+- !private ["SH", "TRPProblemCategories"]
 - !private ["SH", "TRPProgram"]
 - !private ["SH", "TRPRecommendation"]
+- !private ["SH", "TRPReportAProblemServices"]
 - !private ["SH", "TRPRoutesResult"]
 - !private ["SH", "TRPTags"]
 - !private ["SH", "TRPTripQuestion"]
@@ -515,8 +541,10 @@ depends-member:
 - !private ["SH", "postData"]
 - !private ["SH", "postError"]
 - !private ["SH", "print"]
+- !private ["SH", "problemCategoriesService"]
 - !private ["SH", "questionServices"]
 - !private ["SH", "recoomendationServices"]
+- !private ["SH", "reportaProblemService"]
 - !private ["SH", "routesResultServices"]
 - !private ["SH", "routesResultServicesLooper"]
 - !private ["SH", "sleep"]
@@ -582,11 +610,15 @@ depends-member:
 - ["So8NSObjectC", "TRPPlanPoints"]
 - !private ["So8NSObjectC", "TRPPoiAddRouteJsonModel"]
 - !private ["So8NSObjectC", "TRPPoiJsonModel"]
+- !private ["So8NSObjectC", "TRPProblemCategories"]
+- !private ["So8NSObjectC", "TRPProblemCategoriesJsonModel"]
 - !private ["So8NSObjectC", "TRPProgram"]
 - !private ["So8NSObjectC", "TRPProgramStepJsonModel"]
 - !private ["So8NSObjectC", "TRPRecommendation"]
 - !private ["So8NSObjectC", "TRPRecommendationJsonModel"]
 - ["So8NSObjectC", "TRPRecommendationSettings"]
+- !private ["So8NSObjectC", "TRPReportAProblemJsonModel"]
+- !private ["So8NSObjectC", "TRPReportAProblemServices"]
 - !private ["So8NSObjectC", "TRPRoutesResult"]
 - !private ["So8NSObjectC", "TRPRoutesResultJsonModel"]
 - !private ["So8NSObjectC", "TRPTags"]
@@ -648,12 +680,16 @@ depends-member:
 - ["So8NSObjectC", "postData"]
 - ["So8NSObjectC", "postError"]
 - !private ["So8NSObjectC", "print"]
+- ["So8NSObjectC", "problemCategories"]
+- ["So8NSObjectC", "problemCategoriesService"]
 - ["So8NSObjectC", "questionServices"]
 - ["So8NSObjectC", "reOrderPlanPoiFrom"]
 - ["So8NSObjectC", "recommendation"]
 - ["So8NSObjectC", "recoomendationServices"]
 - ["So8NSObjectC", "register"]
 - ["So8NSObjectC", "replacePlanPoiFrom"]
+- ["So8NSObjectC", "reportaProblem"]
+- ["So8NSObjectC", "reportaProblemService"]
 - ["So8NSObjectC", "routesResult"]
 - ["So8NSObjectC", "routesResultServices"]
 - ["So8NSObjectC", "routesResultServicesLooper"]
@@ -688,8 +724,10 @@ depends-member:
 - !private ["So8NSObjectP", "TRPPlace"]
 - !private ["So8NSObjectP", "TRPPlanPointAlternatives"]
 - !private ["So8NSObjectP", "TRPPlanPoints"]
+- !private ["So8NSObjectP", "TRPProblemCategories"]
 - !private ["So8NSObjectP", "TRPProgram"]
 - !private ["So8NSObjectP", "TRPRecommendation"]
+- !private ["So8NSObjectP", "TRPReportAProblemServices"]
 - !private ["So8NSObjectP", "TRPRoutesResult"]
 - !private ["So8NSObjectP", "TRPTags"]
 - !private ["So8NSObjectP", "TRPTripQuestion"]
@@ -722,8 +760,10 @@ depends-member:
 - !private ["So8NSObjectP", "postData"]
 - !private ["So8NSObjectP", "postError"]
 - !private ["So8NSObjectP", "print"]
+- !private ["So8NSObjectP", "problemCategoriesService"]
 - !private ["So8NSObjectP", "questionServices"]
 - !private ["So8NSObjectP", "recoomendationServices"]
+- !private ["So8NSObjectP", "reportaProblemService"]
 - !private ["So8NSObjectP", "routesResultServices"]
 - !private ["So8NSObjectP", "routesResultServicesLooper"]
 - !private ["So8NSObjectP", "sleep"]
@@ -801,6 +841,7 @@ depends-member:
 - !private ["10TRPRestKit17TRPLoginInfoModelV", "accessToken"]
 - !private ["10TRPRestKit17TRPLoginJsonModelC", "data"]
 - !private ["10TRPRestKit18TRPParentJsonModelC", "data"]
+- !private ["10TRPRestKit18TRPParentJsonModelC", "datas"]
 - !private ["10TRPRestKit18TRPParentJsonModelC", "waitResult"]
 - !private ["10TRPRestKit8TRPPlaceC", "Completion"]
 - !private ["10TRPRestKit8TRPPlaceC", "cityId"]
@@ -821,6 +862,10 @@ depends-member:
 - !private ["10TRPRestKit13TRPPlanPointsC", "init"]
 - !private ["10TRPRestKit23TRPPoiAddRouteJsonModelC", "data"]
 - !private ["10TRPRestKit15TRPPoiJsonModelC", "data"]
+- !private ["10TRPRestKit20TRPProblemCategoriesC", "Completion"]
+- !private ["10TRPRestKit20TRPProblemCategoriesC", "connection"]
+- !private ["10TRPRestKit20TRPProblemCategoriesC", "init"]
+- !private ["10TRPRestKit29TRPProblemCategoriesJsonModelC", "datas"]
 - !private ["10TRPRestKit10TRPProgramC", "Completion"]
 - !private ["10TRPRestKit10TRPProgramC", "connection"]
 - !private ["10TRPRestKit10TRPProgramC", "init"]
@@ -830,6 +875,10 @@ depends-member:
 - !private ["10TRPRestKit17TRPRecommendationC", "init"]
 - !private ["10TRPRestKit17TRPRecommendationC", "isAutoPagination"]
 - !private ["10TRPRestKit26TRPRecommendationJsonModelC", "data"]
+- !private ["10TRPRestKit26TRPReportAProblemJsonModelC", "data"]
+- !private ["10TRPRestKit25TRPReportAProblemServicesC", "Completion"]
+- !private ["10TRPRestKit25TRPReportAProblemServicesC", "connection"]
+- !private ["10TRPRestKit25TRPReportAProblemServicesC", "init"]
 - ["10TRPRestKitAAC", "Bool"]
 - ["10TRPRestKitAAC", "CompletionHandler"]
 - ["10TRPRestKitAAC", "CompletionHandlerWithPagination"]
@@ -870,11 +919,15 @@ depends-member:
 - ["10TRPRestKitAAC", "TRPPlanPoints"]
 - !private ["10TRPRestKitAAC", "TRPPoiAddRouteJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPPoiJsonModel"]
+- !private ["10TRPRestKitAAC", "TRPProblemCategories"]
+- !private ["10TRPRestKitAAC", "TRPProblemCategoriesJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPProgram"]
 - !private ["10TRPRestKitAAC", "TRPProgramStepJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPRecommendation"]
 - !private ["10TRPRestKitAAC", "TRPRecommendationJsonModel"]
 - ["10TRPRestKitAAC", "TRPRecommendationSettings"]
+- !private ["10TRPRestKitAAC", "TRPReportAProblemJsonModel"]
+- !private ["10TRPRestKitAAC", "TRPReportAProblemServices"]
 - !private ["10TRPRestKitAAC", "TRPRoutesResult"]
 - !private ["10TRPRestKitAAC", "TRPRoutesResultJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPTags"]
@@ -933,12 +986,16 @@ depends-member:
 - !private ["10TRPRestKitAAC", "postData"]
 - !private ["10TRPRestKitAAC", "postError"]
 - !private ["10TRPRestKitAAC", "print"]
+- ["10TRPRestKitAAC", "problemCategories"]
+- !private ["10TRPRestKitAAC", "problemCategoriesService"]
 - !private ["10TRPRestKitAAC", "questionServices"]
 - ["10TRPRestKitAAC", "reOrderPlanPoiFrom"]
 - ["10TRPRestKitAAC", "recommendation"]
 - !private ["10TRPRestKitAAC", "recoomendationServices"]
 - ["10TRPRestKitAAC", "register"]
 - ["10TRPRestKitAAC", "replacePlanPoiFrom"]
+- ["10TRPRestKitAAC", "reportaProblem"]
+- !private ["10TRPRestKitAAC", "reportaProblemService"]
 - ["10TRPRestKitAAC", "routesResult"]
 - !private ["10TRPRestKitAAC", "routesResultServices"]
 - !private ["10TRPRestKitAAC", "routesResultServicesLooper"]
@@ -1036,8 +1093,10 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPPlace"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPPlanPointAlternatives"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPPlanPoints"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPProblemCategories"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPProgram"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPRecommendation"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPReportAProblemServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPRoutesResult"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPTags"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPTripQuestion"]
@@ -1070,8 +1129,10 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "postData"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "postError"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "problemCategoriesService"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "questionServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "recoomendationServices"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "reportaProblemService"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "routesResultServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "routesResultServicesLooper"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "sleep"]
@@ -1157,10 +1218,14 @@ depends-nominal:
 - "10TRPRestKit13TRPPlanPointsC"
 - !private "10TRPRestKit23TRPPoiAddRouteJsonModelC"
 - !private "10TRPRestKit15TRPPoiJsonModelC"
+- !private "10TRPRestKit20TRPProblemCategoriesC"
+- !private "10TRPRestKit29TRPProblemCategoriesJsonModelC"
 - !private "10TRPRestKit10TRPProgramC"
 - !private "10TRPRestKit23TRPProgramStepJsonModelC"
 - !private "10TRPRestKit17TRPRecommendationC"
 - !private "10TRPRestKit26TRPRecommendationJsonModelC"
+- !private "10TRPRestKit26TRPReportAProblemJsonModelC"
+- !private "10TRPRestKit25TRPReportAProblemServicesC"
 - "10TRPRestKitAAC"
 - "10TRPRestKit0A8ServicesC"
 - !private "10TRPRestKit15TRPRoutesResultC"
@@ -1221,4 +1286,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "4a2baeac64b67fc62376f4e10a54f01b"
+interface-hash: "d300841fa36a03e6118b4069c6247b21"

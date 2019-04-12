@@ -7,15 +7,15 @@
 //
 
 import Foundation
-public class TRPFavoritesJsonModel: TRPParentJsonModel {
+internal class TRPFavoritesJsonModel: TRPParentJsonModel {
     
-    public var data: [TRPFavoritesInfoModel]?;
+    internal var data: [TRPFavoritesInfoModel]?;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case data
     }
     
-    required public init(from decoder: Decoder) throws {
+    required internal init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         if let data = try? values.decodeIfPresent(TRPFavoritesInfoModel.self, forKey: .data) {
@@ -34,7 +34,7 @@ public struct TRPFavoritesInfoModel: Decodable{
     public var poiId: Int
     public var cityId: Int
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case poiId = "poi_id"
         case cityId = "city_id"
     }

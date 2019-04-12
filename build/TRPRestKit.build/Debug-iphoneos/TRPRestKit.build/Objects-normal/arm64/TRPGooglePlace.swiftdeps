@@ -107,6 +107,7 @@ depends-member:
 - !private ["Sy", "init"]
 - !private ["Sy", "init"]
 - ["10TRPRestKit14TRPGooglePlaceC", "String"]
+- ["10TRPRestKit14TRPGooglePlaceC", "deinit"]
 - ["10TRPRestKit14TRPGooglePlaceC", "description"]
 - ["10TRPRestKit14TRPGooglePlaceC", "id"]
 - ["10TRPRestKit14TRPGooglePlaceC", "init"]

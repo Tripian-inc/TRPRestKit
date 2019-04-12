@@ -11,17 +11,14 @@ import TRPFoundationKit
 
  
 @objc public class TRPRestKit:NSObject {
-    public func pListTest() {
-        let userName = Environment().configuration(PlistKey.ConfigName)
-        print("Plist User Name In Config \(userName)")
-    }
+    
+    /// This method hold a Result and Error object when the request is completed.
     public typealias CompletionHandler = (_ result:Any?, _ error: NSError?)-> Void;
-    /// The aaacompletion handler to call when the load request is complete.
+    /// This method hold a Result, Error and Pagination object when the request is completed.
     public typealias CompletionHandlerWithPagination = (_ result:Any?, _ error: NSError?, _ pagination:Pagination?)-> Void;
     
-    var completionHandler: CompletionHandler?;
-    var completionHandlerWithPagination: CompletionHandlerWithPagination?;
-    
+    private var completionHandler: CompletionHandler?;
+    private var completionHandlerWithPagination: CompletionHandlerWithPagination?;
     
     public override init() {}
     
@@ -47,35 +44,50 @@ import TRPFoundationKit
 // MARK: - Cities Services
 extension TRPRestKit {
     
-    /// Seyahat planı oluşturmak için gerekli olan şehirlerin tam listesini getirir.
-    /// Getirilen verilerde şehre ait id, konum, görsel vs... veriler bulunur.
-    /// Veri çekmek işlemi tamamlandığında completionHandler tetiklenir, bu sayede veri çekme işlemini bitmesi beklenmeden işlemler devam eder.
-    /// CompletionHandler Any, NSError ve Pagination objelerini döndürür.
+    
+    /// Obtain all city information.
     ///
-    /// - Parameter completionHandler: The completion handler to call when the load request is complete.
-    ///                                 - Any tipinde donen değer casting işlemi ile **[TRPCityInfoModel]** dizisine donusturulmelidir.
-    ///                                 - Error değeri, HTTP sorgusunda veya JsonParser işleminde hata oluşursa dondurulur. Herhangi bir hata yoksa 'nil' doner.
-    ///                                 - Pagination nesnesi, veri birden fazla sorguda dondurulecekse oluşturulur. Pagination enum tipindedir. Pagination continues ise verinin devamı vardır. Continues içinde gelen değer yeni sayfanın linkidir. Pagination completed ise tüm veriler çekilmiştir.
-    ///
+    /// - Parameter completionHandler: Any objects needs to be converted to **[TRPCityInfoModel]** object.
     public func cities(completionHandler: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completionHandler;
         citiesServices(id: nil);
     }
     
+    
+    
+    /// Obtain information of a city using City Id.
+    ///
+    /// - Parameters:
+    ///   - id: City Id
+    ///   - completion: A closer which will be called after request completes.
+    /// - Important: Any objects needs to be converted to **TRPCityInfoModel** object.
     public func city(with id: Int, completion: @escaping CompletionHandler){
         self.completionHandler = completion;
         citiesServices(id: id);
     }
     
+    
+    /// Obtain information of a city using user location.
+    /// The nearest city is found by user location
+    /// - Parameters:
+    ///   - location: user's current location
+    ///   - completionHandler: Any objects needs to be converted to **TRPCityInfoModel** object.
     public func city(with location: TRPLocation, completionHandler: @escaping CompletionHandler){
         self.completionHandler = completionHandler;
         citiesServices(location: location)
     }
     
+    
+    /// Obtain information of cities using link which returned from Pagination
+    ///
+    /// - Parameters:
+    ///   - link: link that returned from Pagination
+    ///   - completion: Any objects needs to be converted to **[TRPCityInfoModel]** object.
     public func city(link: String, completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion;
         citiesServices(id: nil,link: link);
     }
+    
     
     private func citiesServices(id:Int? = nil,
                                 link:String? = nil,
@@ -126,6 +138,7 @@ extension TRPRestKit {
  
  // MARK: - Places Type Services
  extension TRPRestKit {
+    
     
     public func poiCategories(completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
@@ -213,12 +226,27 @@ extension TRPRestKit {
     
     public func poi(search: String,
                     cityId: Int? = nil,
+                    completion: @escaping CompletionHandlerWithPagination) {
+        self.completionHandlerWithPagination = completion;
+        poiServices(searchText: search,
+                    cityId: cityId,
+                    autoPagination:false)
+    }
+    
+    public func poi(search: String,
+                    cityId: Int? = nil,
+                    location userLoc: TRPLocation? = nil,
+                    completion: @escaping CompletionHandlerWithPagination) {
+        self.completionHandlerWithPagination = completion;
+        poiServices(location: userLoc, searchText: search, cityId: cityId, autoPagination: false)
+    }
+    
+    public func poi(search: String,
                     location userLoc: TRPLocation? = nil,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion;
         poiServices(location: userLoc,
                     searchText: search,
-                    cityId: cityId,
                     autoPagination:false)
     }
     
@@ -256,7 +284,6 @@ extension TRPRestKit {
         }
         
         guard let services = t else {return}
-        
         services.isAutoPagination = autoPagination
         services.limit = limit ?? 25
         services.Completion = {    (result, error, pagination) in
@@ -302,13 +329,11 @@ extension TRPRestKit {
                                   type: TPRTripQuestionType? = nil) {
         
         var t: TRPTripQuestion?
-        
         if let cityId = cityId {
             t = TRPTripQuestion(cityId: cityId)
         }else if let questionId = questionId  {
             t = TRPTripQuestion(questionId: questionId)
         }
-        
         guard let services = t else {return}
         services.tripType = type ?? .trip
         services.Completion = {   (result, error, pagination) in
@@ -335,8 +360,7 @@ extension TRPRestKit {
     }
     
  }
- 
- 
+
  // MARK: - Recommendation
  extension TRPRestKit {
     
@@ -405,8 +429,7 @@ extension TRPRestKit {
     }
     
  }
- 
- 
+
  
  // MARK: - USER
  extension TRPRestKit {
@@ -561,12 +584,6 @@ extension TRPRestKit {
 }
 
   
-  
-  
-  
-  
-  
-  
  // MARK: - User Trips
  extension TRPRestKit {
     
@@ -591,8 +608,6 @@ extension TRPRestKit {
     }
     
  }
- 
- 
  
  // MARK: - Trip
  extension TRPRestKit {
@@ -891,10 +906,6 @@ extension TRPRestKit {
     }
  }
  
-
- 
- 
- 
  // MARK: - Tags Services
  extension TRPRestKit {
     
@@ -948,7 +959,6 @@ extension TRPRestKit {
     }
     
  }
- 
  
  extension TRPRestKit {
     

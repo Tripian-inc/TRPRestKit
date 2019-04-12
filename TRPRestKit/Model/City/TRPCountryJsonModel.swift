@@ -13,13 +13,13 @@ public struct TRPCountryJsonModel: Decodable {
     public var name: String?;
     public var continient: String?;
     
-    enum CodingKeys: String, CodingKey{
+    private enum CodingKeys: String, CodingKey{
         case code
         case name
         case continent
     }
     
-    enum ContinientKeys:String, CodingKey {
+    private enum ContinientKeys:String, CodingKey {
         case name
     }
     

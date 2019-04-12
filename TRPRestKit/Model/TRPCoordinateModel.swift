@@ -12,7 +12,7 @@ public struct TRPCoordinateModel: Decodable {
     public var lat: Double
     public var lon: Double
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case lat
         case lon = "lng"
     }

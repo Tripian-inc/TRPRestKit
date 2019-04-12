@@ -15,7 +15,7 @@ public struct TRPTripQuestionInfoModel: Decodable {
     public var name: String?;
     public var options:[TRPQuestionOptionsJsonModel]?;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case skippable
         case selectMultiple = "select_multiple"

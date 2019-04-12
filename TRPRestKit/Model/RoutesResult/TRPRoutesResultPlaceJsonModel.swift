@@ -11,7 +11,7 @@ public struct TRPRoutesResultPlaceJsonModel:Decodable {
     
     public var id: Int?;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id = "id"
     }
     

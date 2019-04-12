@@ -12,7 +12,7 @@ public struct TRPQuestionOptionsJsonModel: Decodable{
     public var id: Int
     public var name: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case name
     }

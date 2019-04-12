@@ -74,7 +74,7 @@ internal class TRPReportAProblemJsonModel:  TRPParentJsonModel {
     
     public var data: TRPReportAProblemInfoModel?
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case data
     }
     
@@ -94,7 +94,7 @@ public struct TRPReportAProblemInfoModel: Decodable {
     let message: String?
     var poiId: Int?
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case problemCategory = "problem_category"
         case message

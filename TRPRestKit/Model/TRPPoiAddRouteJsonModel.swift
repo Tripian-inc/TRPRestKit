@@ -11,7 +11,7 @@ public class TRPPoiAddRouteJsonModel: TRPParentJsonModel{
     
     public var data: TRPPoiAddRouteInfoModel
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case data
     }
     

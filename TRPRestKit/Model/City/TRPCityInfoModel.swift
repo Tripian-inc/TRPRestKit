@@ -17,7 +17,7 @@ public class TRPCityInfoModel:NSObject, Decodable {
     public var image: String?
     public var boundary: [Double] = []
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case name
         case coord = "coordinate"

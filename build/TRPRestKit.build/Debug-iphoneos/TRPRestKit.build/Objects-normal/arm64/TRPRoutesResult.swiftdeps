@@ -11,6 +11,8 @@ depends-top-level:
 - "CastingPrecedence"
 - "Data"
 - "Dictionary"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
 - !private "JSONDecoder"
 - "NSError"
 - "String"

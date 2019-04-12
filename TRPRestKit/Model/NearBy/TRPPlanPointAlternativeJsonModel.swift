@@ -7,11 +7,11 @@
 //
 
 import Foundation
-public class TRPPlanPointAlternativeJsonModel: TRPParentJsonModel{
+internal class TRPPlanPointAlternativeJsonModel: TRPParentJsonModel{
     
-    public var data: [TRPPlanPointAlternativeInfoModel]?
+    internal var data: [TRPPlanPointAlternativeInfoModel]?
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case data
     }
     

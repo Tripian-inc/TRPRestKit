@@ -12,7 +12,7 @@ public struct TRPRoutesResultTravelDetailsJsonModel:Decodable {
     var preferred:Bool?;
     var time: String?;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case preferred
         case time
     }

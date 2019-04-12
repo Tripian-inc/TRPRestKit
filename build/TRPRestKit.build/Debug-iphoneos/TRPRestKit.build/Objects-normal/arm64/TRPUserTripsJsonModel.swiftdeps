@@ -14,8 +14,6 @@ depends-top-level:
 - "AssignmentPrecedence"
 - "CodingKey"
 - "Decoder"
-- !private "FloatLiteralType"
-- !private "IntegerLiteralType"
 - "String"
 - "StringLiteralType"
 - "TRPParentJsonModel"

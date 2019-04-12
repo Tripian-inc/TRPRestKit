@@ -12,7 +12,7 @@ public struct TRPLoginInfoModel: Decodable {
     public var tokenType: String?;
     public var accessToken: String;
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case tokenType = "token_type"
         case accessToken = "access_token"
     }

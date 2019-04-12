@@ -11,7 +11,7 @@ public class TRPGrouteWaitInfoModel:Decodable {
     public var wait: Bool?
     public var hash: String?
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case wait
         case hash
     }
