@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//NOT USED NOW
+/*
 internal class TRPCheckDataUpdates: TRPRestServices{
     
     var cityId:Int;
@@ -56,3 +58,4 @@ internal class TRPCheckDataUpdates: TRPRestServices{
         return ar
     }
 }
+ */

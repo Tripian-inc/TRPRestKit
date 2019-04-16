@@ -11,6 +11,8 @@ import Foundation
 /// Parent Json parser model for PoiCategories
 internal class TRPPoiCategories: TRPParentJsonModel {
     
+    
+    /// Categories data
     public var data: [TRPCategoryInfoModel]?;
     
     private enum CodingKeys: String, CodingKey {

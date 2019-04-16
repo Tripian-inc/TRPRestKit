@@ -9,7 +9,27 @@
 import Foundation
 import TRPFoundationKit
 
- 
+
+/// The TRPRestKit is a framework of Tripian Api that allows you to create a trip and take information about places.
+///
+/// - SeeAlso: [My Library Reference](https://example.com)
+///  Framework provide you;
+///  * Information of City
+///  * Type of Cİty
+///  * Information of Place
+///  * Question of trip
+///  * Take a recommendation
+///  * User login/register/info
+///  * User's trip
+///  * Daily Plan
+///  * Plan's place
+///  * NearBy services
+/// - reference: - [Tripian API](https://www.tripian.com/apidocs/)
+///
+/// - seealso: [asda](https://www.tripian.com/apidocs/)
+///
+/// - parameters: asdad asda
+///
 @objc public class TRPRestKit:NSObject {
     
     /// This method hold a Result and Error object when the request is completed.
@@ -19,8 +39,7 @@ import TRPFoundationKit
     
     private var completionHandler: CompletionHandler?;
     private var completionHandlerWithPagination: CompletionHandlerWithPagination?;
-    
-    public override init() {}
+
     
     fileprivate func postData(result: Any?, pagination: Pagination? = Pagination.completed){
         if let comp = completionHandler {
@@ -89,6 +108,13 @@ extension TRPRestKit {
     }
     
     
+    /// A services that manage all task to connecting remote server
+    ///
+    /// - Parameters:
+    ///   - id: city Id
+    ///   - link: Link that returened from Pagination
+    ///   - location: User current location
+    ///   - limit: number of record to display
     private func citiesServices(id:Int? = nil,
                                 link:String? = nil,
                                 location: TRPLocation? = nil, limit: Int? = 25) -> Void {
@@ -136,20 +162,42 @@ extension TRPRestKit {
  }
  
  
- // MARK: - Places Type Services
+ // MARK: - Poi Categories Services
  extension TRPRestKit {
     
     
+    /// Obtain the list of all categories, such as attractions, restaurants, cafes,
+    /// bars, religious places, cool finds, shopping centers, museums, bakeries and art galleries.
+    ///
+    /// When you craete a Add Place List View(Eat&Drink, Attractions), you can use poi categories.
+    /// PoiCategories can be matched **Place.categories**.
+    ///
+    /// - SeeAlso: [Api Doc](https://www.tripian.com/apidocs/#get-all-place-types)
+    ///
+    /// - Parameter completion: Any objects needs to be converted to **[TRPCategoryInfoModel]** object.
     public func poiCategories(completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
         poiCategoriesServices(id: nil)
     }
     
+    
+    /// Obtain information of a pois categories using Category id.
+    ///
+    /// When you craete a Add Place List View(Eat&Drink, Attractions), you can use poi categories.
+    /// PoiCategories can be matched **Place.categories**.
+    ///
+    /// - Parameters:
+    ///   - withId: Category id
+    ///   - completion: Any objects needs to be converted to **TRPCategoryInfoModel** object.
     public func poiCategories(withId:Int, completion: @escaping CompletionHandler){
         self.completionHandler = completion;
         poiCategoriesServices(id: withId);
     }
     
+    
+    /// A services that manage all task to connecting remote server
+    ///
+    /// - Parameter id: if id is no nil, service take a object.
     private func poiCategoriesServices(id:Int?) -> Void {
         var t: PoiCategories?;
         if id == nil {
@@ -163,7 +211,7 @@ extension TRPRestKit {
                 return
             }
             
-            if let r = result as? TRPPlaceTypeJsonModel{
+            if let r = result as? TRPPoiCategories{
                 if let types = r.data {
                     if id == nil{
                          self.postData(result: types, pagination: pagination)
@@ -183,7 +231,7 @@ extension TRPRestKit {
  }
  
  
- // MARK: - Places Services
+ // MARK: - Poi Services
  extension TRPRestKit {
     
     public func poi(withId:Int, completion: @escaping CompletionHandler){
@@ -373,10 +421,10 @@ extension TRPRestKit {
     /// - Important: CallBack class is [TRPRecommendationInfoJsonModel]
     public func recommendation(settings:TRPRecommendationSettings, autoPagination: Bool = true, completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
-        recoomendationServices(settings: settings, autoPagination: autoPagination)
+        recommendationServices(settings: settings, autoPagination: autoPagination)
     }
     
-    private func recoomendationServices(settings:TRPRecommendationSettings, autoPagination: Bool) {
+    private func recommendationServices(settings:TRPRecommendationSettings, autoPagination: Bool) {
         let t = TRPRecommendation(settings: settings);
         t.isAutoPagination = autoPagination
         t.Completion = {   (result, error, pagination) in
@@ -656,7 +704,6 @@ extension TRPRestKit {
     }
     
     private func deleteTripServices(hash:String) {
-        
         let t = TRPDeleteProgram(hash: hash)
         t.Completion = { (result, error, pagination) in
             if let error = error {
@@ -817,149 +864,8 @@ extension TRPRestKit {
     
  }
  
- // MARK: - Routes Result Services
- extension TRPRestKit {
-    
-    public func routesResult(hash: String, completion: @escaping CompletionHandler){
-        completionHandler = completion;
-        routesResultServices(hash: hash)
-    }
-    
-    public func routesResult(hash: String, completion: @escaping CompletionHandlerWithPagination){
-        completionHandlerWithPagination = completion;
-        routesResultServices(hash: hash)
-    }
-    
-    private func routesResultServices(hash:String) {
-        DispatchQueue.global().async {
-            self.routesResultServicesLooper(hash: hash);
-        }
-    }
-    
-    
-    private func routesResultServicesLooper(hash:String){
-        let t = TRPRoutesResult(hash: hash);
-        t.Completion = {   (result, error,pagination) in
-            if let error = error {
-                 self.postError(error: error)
-                return
-            }
-            
-            guard let result = result as? TRPRoutesResultJsonModel else {return}
-            
-            if let waitMain = result.waitResult, let waitResult = waitMain.wait {
-                if waitResult == true {
-                    print("**** Wait until server crete a route");
-                    sleep(1)
-                     self.routesResultServicesLooper(hash: hash)
-                    return
-                }
-            }
-             self.postData(result: result, pagination: pagination)
-        }
-        t.connection();
-    }
- }
- 
- 
- // MARK: - Google Route Services
- extension TRPRestKit {
-    
-    public func gRoutesResult(hash: String, completion: @escaping CompletionHandler){
-        completionHandler = completion;
-        gRoutesResultServices(hash: hash)
-    }
-    
-    public func gRoutesResult(hash: String, completion: @escaping CompletionHandlerWithPagination){
-        completionHandlerWithPagination = completion;
-        gRoutesResultServices(hash: hash)
-    }
-    
-    private func gRoutesResultServices(hash:String) {
-        print("Algoritma başladı");
-        DispatchQueue.global().async {
-            self.gRoutesResultServicesLooper(hash: hash);
-        }
-    }
-    
-    private func gRoutesResultServicesLooper(hash:String){
-        let t = TRPGrouteResult(hash: hash);
-        t.Completion = {   (result, error,pagination) in
-            if let error = error {
-                 self.postError(error: error)
-                return
-            }
-            
-            guard let result = result as? TRPGRoutesResultJsonModel else {return}
-            
-            if let waitMain = result.waitResult, let waitResult = waitMain.wait {
-                if waitResult == true {
-                    print("**** Wait until server crete a route");
-                    sleep(1)
-                     self.gRoutesResultServicesLooper(hash: hash)
-                    return
-                }
-            }
-             self.postData(result: result, pagination: pagination)
-        }
-        t.connection();
-    }
- }
- 
- // MARK: - Tags Services
- extension TRPRestKit {
-    
-    public func tagsServices(completion: @escaping CompletionHandler){
-        completionHandler = completion;
-        tagsServicesServices()
-    }
-    
-    
-    /// Tag listesinin çekilir
-    /// - note: donen obje TRPTagsJsonModel
-    /// - SeeAlso: 'tagsServices(completion: @escaping CompletionHandler)'
-    /// - Parameter completion: pagination, error, any
-    public func tagsServices(completion: @escaping CompletionHandlerWithPagination){
-        completionHandlerWithPagination = completion;
-        tagsServicesServices()
-    }
-    
-    public func tagsServices(limit:Int? = 2000,completion: @escaping CompletionHandlerWithPagination){
-        completionHandlerWithPagination = completion;
-        tagsServicesServices(limit: limit)
-    }
-    
-    public func tagsServices(link: String, limit:Int? = 2000, completion: @escaping CompletionHandlerWithPagination){
-        self.completionHandlerWithPagination = completion;
-        tagsServicesServices(limit: limit, link: link)
-    }
-    
-    private func tagsServicesServices(limit:Int? = 2000, link:String? = nil) {
-        
-        let t = TRPTags()
-        if let limit = limit {
-            t.limit = limit
-        }
-        t.Completion = { (result, error, pagination) in
-            if let error = error {
-                 self.postError(error: error)
-                return
-            }
-            
-            if let r = result as? TRPTagsJsonModel {
-                 self.postData(result: r, pagination: pagination)
-            }
-        }
-        
-        if let directLink = link {
-            t.connection(link: directLink)
-        }else {
-            t.connection();
-        }
-    }
-    
- }
- 
+
+ /*
  extension TRPRestKit {
     
     public func checkUpdate(cityId:Int, cityUpdate:Int, completion: @escaping CompletionHandlerWithPagination){
@@ -988,7 +894,7 @@ extension TRPRestKit {
         }
         t.connection()
     }
- }
+ } */
 
 extension TRPRestKit {
     

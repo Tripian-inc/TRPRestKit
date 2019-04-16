@@ -7,16 +7,24 @@
 //
 
 import Foundation
+
+/// This model provide you to use full information of City to creating a trip
 public class TRPCityInfoModel:NSObject, Decodable {
     
+    /// An Int value. Unique id of a city.
     public var id: Int
+    /// A String value. Name of a city
     public var name: String
+    /// A TRPCoordinateModel object that refers center coordinate(lat,lon) of a city.
     public var coordinate: TRPCoordinateModel
+    /// A TRPCountryJsonModel object that indicates a country information that which the city is in.
     public var country: TRPCountryJsonModel?
-    public var updateType: TRPUpdateTypeModel = .added
+    /// A string value that indicate a featured image of City
     public var image: String?
+    /// A double array that indicate a boundary of City
     public var boundary: [Double] = []
     
+    /// Tag matcher
     private enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -27,6 +35,9 @@ public class TRPCityInfoModel:NSObject, Decodable {
         case boundary
     }
     
+    /// Json to Object converter
+    ///
+    /// - Parameter decoder: Json Decoder Object
     public required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decode(Int.self, forKey: .id);
@@ -36,10 +47,6 @@ public class TRPCityInfoModel:NSObject, Decodable {
         self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coord)
         self.country = try values.decodeIfPresent(TRPCountryJsonModel.self, forKey: .country);
         self.boundary = try values.decodeIfPresent([Double].self, forKey: .boundary) ?? []
-        
-        if let updateStr = try values.decodeIfPresent(String.self, forKey: .updateType), let type = TRPUpdateTypeModel.convert(updateStr) {
-            updateType = type
-        }
     }
     
 }

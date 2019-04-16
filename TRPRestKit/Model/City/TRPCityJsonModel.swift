@@ -7,8 +7,12 @@
 //
 
 import Foundation
+
+/// Parent Json parser model for City
 internal class TRPCityJsonModel: TRPParentJsonModel {
     
+    
+    /// Cities data
     internal var data: [TRPCityInfoModel]?;
     
     private enum CodingKeys: String, CodingKey {

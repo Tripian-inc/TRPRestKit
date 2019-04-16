@@ -7,18 +7,30 @@
 //
 
 import Foundation
+
+
+/// This model provide you to use full information of poi category.
 public struct TRPCategoryInfoModel: Decodable {
     
+    /// An Int value. Unique id of a poi category.
     public var id: Int
+    
+    /// A String value. Name of a poi category.
     public var name: String
+    
+    /// A String value. Description of a poi category. Description can be used in search bar that is in AddPlace.
     public var description: String?;
     
+    /// Tag matcher
     private enum CodingKeys: String, CodingKey {
         case id
         case name
         case description
     }
     
+    /// Json to Object converter
+    ///
+    /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decode(Int.self, forKey: .id);

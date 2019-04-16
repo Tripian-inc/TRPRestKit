@@ -29,7 +29,6 @@ public struct TRPPoiInfoModel: Decodable {
     public var category = [TRPCategoryInfoModel]()
     public var tags = [TRPPoiTagInfoModel]();
     public var coordinate: TRPCoordinateModel?
-    public var updateType: TRPUpdateTypeModel = .added
     public var subCategory: String?
     public var description: String?
     
@@ -53,7 +52,6 @@ public struct TRPPoiInfoModel: Decodable {
         case category
         case tag = "tag"
         case coordinate
-        case updateType
         case description
         case subCategory = "sub_category"
     }
@@ -92,10 +90,6 @@ public struct TRPPoiInfoModel: Decodable {
         //TODO: - SADECE TAG ID KULLANILIYOR. BUNA KESİNLİKLE NAME EKLENMELİ
         if let tagObj = try values.decodeIfPresent([TRPPoiTagInfoModel].self, forKey: .tag) {
             tags = tagObj
-        }
-        
-        if let updateStr = try values.decodeIfPresent(String.self, forKey: .updateType), let type = TRPUpdateTypeModel.convert(updateStr) {
-            updateType = type
         }
         
         self.subCategory = try values.decodeIfPresent(String.self, forKey: TRPPoiInfoModel.CodingKeys.subCategory)

@@ -29,7 +29,7 @@ internal class PoiCategories: TRPRestServices {
         
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPPlaceTypeJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPPoiCategories.self, from: data)
             let pag = paginationController(parentJson: result)
             self.Completion?(result, nil, pag);
         }catch(let tryError) {

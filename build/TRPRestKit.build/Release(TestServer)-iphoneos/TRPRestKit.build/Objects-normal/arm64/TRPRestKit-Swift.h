@@ -182,13 +182,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 
-SWIFT_CLASS("_TtC10TRPRestKit23TRPCheckUpdateInfoModel")
-@interface TRPCheckUpdateInfoModel : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
-@end
-
-
+/// This model provide you to use full information of City to creating a trip
 SWIFT_CLASS("_TtC10TRPRestKit16TRPCityInfoModel")
 @interface TRPCityInfoModel : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -212,6 +206,52 @@ SWIFT_CLASS("_TtC10TRPRestKit14TRPGooglePlace")
 @end
 
 
+/// The TRPRestKit is a framework of Tripian Api that allows you to create a trip and take information about places.
+/// seealso:
+/// <a href="https://example.com">My Library Reference</a>
+/// Framework provide you;
+/// <ul>
+///   <li>
+///     Information of City
+///   </li>
+///   <li>
+///     Type of Cİty
+///   </li>
+///   <li>
+///     Information of Place
+///   </li>
+///   <li>
+///     Question of trip
+///   </li>
+///   <li>
+///     Take a recommendation
+///   </li>
+///   <li>
+///     User login/register/info
+///   </li>
+///   <li>
+///     User’s trip
+///   </li>
+///   <li>
+///     Daily Plan
+///   </li>
+///   <li>
+///     Plan’s place
+///   </li>
+///   <li>
+///     NearBy services
+///   </li>
+/// </ul>
+/// seealso:
+/// <a href="https://www.tripian.com/apidocs/">asda</a>
+/// <ul>
+///   <li>
+///     reference: - <a href="https://www.tripian.com/apidocs/">Tripian API</a>
+///   </li>
+///   <li>
+///     parameters: asdad asda
+///   </li>
+/// </ul>
 SWIFT_CLASS("_TtC10TRPRestKit10TRPRestKit")
 @interface TRPRestKit : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -252,21 +292,6 @@ SWIFT_CLASS("_TtC10TRPRestKit10TRPRestKit")
 
 
 
-
-
-
-
-
-
-
-
-
-
-SWIFT_CLASS("_TtC10TRPRestKit16TRPTagsInfoModel")
-@interface TRPTagsInfoModel : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
-@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

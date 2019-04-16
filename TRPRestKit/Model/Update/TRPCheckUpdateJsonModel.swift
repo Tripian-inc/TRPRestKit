@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//NOT USED NOW
+/**
 public class TRPCheckUpdateJsonModel: TRPParentJsonModel {
     
     public var data: [String:TRPCheckUpdateInfoModel]?;
@@ -46,4 +48,4 @@ public class TRPCheckUpdateInfoModel:NSObject, Decodable {
         self.deleted = try values.decodeIfPresent(Int.self, forKey: .deleted);
         self.url = try values.decodeIfPresent(String.self, forKey: .url);
     }
-}
+} */
