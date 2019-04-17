@@ -7,8 +7,10 @@
 //
 
 import Foundation
+/// Parent Json parser model for UserInfo
 internal class TRPUserInfoJsonModel: TRPParentJsonModel{
     
+    /// User data
     public var data: TRPUserInfoModel;
     
     private enum CodingKeys: String, CodingKey {

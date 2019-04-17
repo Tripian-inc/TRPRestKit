@@ -7,8 +7,10 @@
 //
 
 import Foundation
+/// Parent Json parser model for Poi
 internal class TRPPoiJsonModel:TRPParentJsonModel {
     
+    /// Pois data
     internal var data: [TRPPoiInfoModel]?;
     
     private enum CodingKeys: String, CodingKey {

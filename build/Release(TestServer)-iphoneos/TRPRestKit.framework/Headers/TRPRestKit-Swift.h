@@ -207,8 +207,6 @@ SWIFT_CLASS("_TtC10TRPRestKit14TRPGooglePlace")
 
 
 /// The TRPRestKit is a framework of Tripian Api that allows you to create a trip and take information about places.
-/// seealso:
-/// <a href="https://example.com">My Library Reference</a>
 /// Framework provide you;
 /// <ul>
 ///   <li>
@@ -244,14 +242,16 @@ SWIFT_CLASS("_TtC10TRPRestKit14TRPGooglePlace")
 /// </ul>
 /// seealso:
 /// <a href="https://www.tripian.com/apidocs/">asda</a>
-/// <ul>
-///   <li>
-///     reference: - <a href="https://www.tripian.com/apidocs/">Tripian API</a>
-///   </li>
-///   <li>
-///     parameters: asdad asda
-///   </li>
-/// </ul>
+/// precondition:
+///
+/// \code
+///
+/// TRPClient.provideApiKey(tripianApi)
+///
+/// TRPRestKit().city(withId:completionHandler:)
+///
+///
+/// \endcode
 SWIFT_CLASS("_TtC10TRPRestKit10TRPRestKit")
 @interface TRPRestKit : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;

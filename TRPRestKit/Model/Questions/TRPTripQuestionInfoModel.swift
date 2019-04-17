@@ -7,12 +7,21 @@
 //
 
 import Foundation
+
+/// This model provide you to use full information of Question to creating a trip.
 public struct TRPTripQuestionInfoModel: Decodable {
     
+    
+    /// An Int value. Unique Id of question.
     public var id: Int?;
+    /// A Bool value. Indicates that the question can be skipped without an answer.
     public var skippable: Bool?;
+    /// A Bool value. A Question can be multiple answer.
     public var selectMultiple: Bool?
+    /// A String value. Name of question.
     public var name: String?;
+    
+    /// A TRPQuestionOptionsJsonModel object. Options of a question.
     public var options:[TRPQuestionOptionsJsonModel]?;
     
     private enum CodingKeys: String, CodingKey {
@@ -23,6 +32,9 @@ public struct TRPTripQuestionInfoModel: Decodable {
         case options
     }
     
+    /// Json to Object converter
+    ///
+    /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decodeIfPresent(Int.self, forKey: .id)

@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "9469e9dccf54acdda2cabba58fa56bd3"
-build_time: [1555406424, 290232000]
+build_time: [1555495878, 995141000]
 inputs:
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPDeleteProgram.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPUserPersistent.swift": [9223372036, 854775807]
@@ -25,7 +25,7 @@ inputs:
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Place/TRPPoiJsonModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Common/TRPPlanPoi.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Type/TRPCategoryInfoModel.swift": [9223372036, 854775807]
-  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Type/TRPPlaceTypeJsonModel.swift": [9223372036, 854775807]
+  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Type/TRPPoiCategories.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Google Place/TRPGooglePlace.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserMe/TRPUserMeJsonModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/GetProgram/TRPGetProgramJsonModel.swift": [9223372036, 854775807]
@@ -56,6 +56,7 @@ inputs:
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/ProgramStep/TRPProgramStepJsonModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPPoiAddRouteInfoModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendation.swift": [9223372036, 854775807]
+  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Place/TRPImageOwner.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDayPlanJsonModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/ProblemCategories/TRPProblemCategoriesJsonModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/User/TRPMe.swift": [9223372036, 854775807]

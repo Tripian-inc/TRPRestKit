@@ -58,10 +58,10 @@ internal class TRPRecommendation: TRPRestServices{
             params["hash"] = hash
         }
         
-        if let typeIds = setting.typeId {
+        if let typeIds = setting.poiCategoryIds {
             //TODO: - FOUNDATİON DAN AL
             let typeIdList = typeIds.map{"\($0)"}.joined(separator: ",")
-            params["type_id"] = typeIdList
+            params["poi_categories"] = typeIdList
         }
         if let adults = setting.adultsCount {
             params["adults"] = adults
@@ -77,10 +77,6 @@ internal class TRPRecommendation: TRPRestServices{
         }
         if let coord = setting.currentCoordinate {
             params["coordinate"] = coord // int
-        }
-        
-        if let type = setting.type {
-            params["poi_categories"] = type
         }
         
         if let answer = setting.answer {

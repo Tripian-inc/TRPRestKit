@@ -12,7 +12,6 @@ import TRPFoundationKit
 
 /// The TRPRestKit is a framework of Tripian Api that allows you to create a trip and take information about places.
 ///
-/// - SeeAlso: [My Library Reference](https://example.com)
 ///  Framework provide you;
 ///  * Information of City
 ///  * Type of Cİty
@@ -24,11 +23,18 @@ import TRPFoundationKit
 ///  * Daily Plan
 ///  * Plan's place
 ///  * NearBy services
-/// - reference: - [Tripian API](https://www.tripian.com/apidocs/)
 ///
 /// - seealso: [asda](https://www.tripian.com/apidocs/)
 ///
-/// - parameters: asdad asda
+///
+/// - precondition:
+/// ```
+///
+/// TRPClient.provideApiKey(tripianApi)
+///
+/// TRPRestKit().city(withId:completionHandler:)
+///
+/// ```
 ///
 @objc public class TRPRestKit:NSObject {
     
@@ -234,31 +240,81 @@ extension TRPRestKit {
  // MARK: - Poi Services
  extension TRPRestKit {
     
+    /// Obtain information of a poi using Poi Id.
+    ///
+    /// - Parameters:
+    ///   - withId: unique poi id
+    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object.
+    ///
+    /// - Postcondition: Result array must be converted to single **(ar.first!)** object.
     public func poi(withId:Int, completion: @escaping CompletionHandler){
         self.completionHandler = completion;
         poiServices(placeIds: [withId], cities: nil)
     }
     
-    public func poi(withIds ids:[Int], cityId: Int, autoPagination:Bool = true, completion: @escaping CompletionHandlerWithPagination){
+    
+    /// Obtain information of pois using both poi ids and city id.
+    /// All pois have to be in same city.
+    ///
+    /// - SeeAlso: [Api Doc](https://www.tripian.com/apidocs/#get-places)
+    ///
+    /// - Parameters:
+    ///   - ids: poi ids
+    ///   - cityId: city id
+    ///   - autoPagination: if you set a `true`, next link will be continued automatically. If you set a `false`, next link will not be continued automatically. You must call **poi(link:complation:)** using `pagination.nextlink`.
+    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
+    public func poi(withIds ids:[Int],
+                    cityId: Int,
+                    autoPagination:Bool = true,
+                    completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
         poiServices(placeIds: ids, cities: [cityId], autoPagination: autoPagination)
     }
     
-    public func poi(withCityId cityId:Int, limit:Int? = 100, completion: @escaping CompletionHandlerWithPagination){
+    
+    /// Obtain all information of pois using city id.
+    ///
+    /// - Parameters:
+    ///   - cityId: City Id
+    ///   - limit: number of record to display
+    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
+    public func poi(withCityId cityId:Int,
+                    limit:Int? = 100,
+                    completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
         poiServices(placeIds: nil, cities: [cityId],limit: limit)
     }
     
+    
+    /// Obtain information of pois using link which returned from Pagination
+    ///
+    /// - Parameters:
+    ///   - link: Link that returened from Pagination
+    ///   - limit: number of record to display
+    ///   - autoPagination: if you set a `true`, next link will be continued automatically. If you set a `false`, next link will not be continued automatically. You must call **poi(link:complation:)** using `pagination.nextlink`.
+    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
     public func poi(link: String, limit:Int? = 100, autoPagination:Bool = true, completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
         poiServices(placeIds: nil, cities: nil, limit: limit, link: link, autoPagination:autoPagination)
     }
     
+    
+    /// Obtain information of pois using location. You can use this method to `Near By` in Add Place.
+    /// The poi that nearest the coordinate is at the top.
+    /// If you want obtain all poi, we suggest that categoryIds is nil.
+    ///
+    /// - Parameters:
+    ///   - location: Center coordinate.
+    ///   - distance: Defines the distance(in km) within which to return poi results.Default value: 50(km)
+    ///   - cityId: City Id
+    ///   - categoryId: Poi category id. You can use this method like `Near By` in `Add Place`.
+    ///   - autoPagination: if you set a `true`, next link will be continued automatically. If you set a `false`, next link will not be continued automatically. You must call **poi(link:complation:)** using `pagination.nextlink`.
+    ///   - limit: number of record to display
+    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
     public func poi(withLocation location: TRPLocation,
                        distance: Double? = nil,
                        cityId: Int? = nil,
-                       typeId: Int? = nil,
-                       types: [Int]? = nil,
+                       categoryId: Int,
                        autoPagination: Bool? = false,
                        limit: Int? = 25,
                        completion: @escaping CompletionHandlerWithPagination) {
@@ -266,21 +322,48 @@ extension TRPRestKit {
         poiServices(limit: limit,
                     location: location,
                     distance: distance,
-                    typeId: typeId,
-                    typeIds: types,
+                    typeId: categoryId,
                     cityId: cityId,
                     autoPagination: autoPagination ?? false)
     }
     
-    public func poi(search: String,
+    
+    /// Obtain information of pois using location. You can use this method to `Search This Area` button on the map view.
+    /// The poi that nearest the coordinate is at the top.
+    /// If you want obtain all poi, we suggest that categoryIds is nil.
+    ///
+    /// - Parameters:
+    ///   - location: Center coordinate.
+    ///   - distance: Defines the distance(in km) within which to return poi results.Default value: 50(km)
+    ///   - cityId: City Id
+    ///   - categoryIds: Poi category ids. You can use this method like `Search This Area` button on `Map View`.
+    ///   - autoPagination: if you set a `true`, next link will be continued automatically. If you set a `false`, next link will not be continued automatically. You must call **poi(link:complation:)** using `pagination.nextlink`.
+    ///   - limit: number of record to display
+    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
+    public func poi(withLocation location: TRPLocation,
+                    distance: Double? = nil,
                     cityId: Int? = nil,
+                    categoryIds: [Int]? = nil,
+                    autoPagination: Bool? = false,
+                    limit: Int? = 25,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion;
-        poiServices(searchText: search,
+        poiServices(limit: limit,
+                    location: location,
+                    distance: distance,
+                    typeIds: categoryIds,
                     cityId: cityId,
-                    autoPagination:false)
+                    autoPagination: autoPagination ?? false)
     }
+
     
+    /// Obtain information of pois using search text such as tags(for example "restaurant", "museum", "bar" etc.), name of poi.
+    ///
+    /// - Parameters:
+    ///   - search: Text
+    ///   - cityId: City Id. If user is not in referans city, city id should be sent. When city id is sent, pois are sorted by distance.
+    ///   - userLoc: User's coordinate. If userLocation is sent, pois are sorted by distance. CityId is not needed.
+    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
     public func poi(search: String,
                     cityId: Int? = nil,
                     location userLoc: TRPLocation? = nil,
@@ -289,15 +372,21 @@ extension TRPRestKit {
         poiServices(location: userLoc, searchText: search, cityId: cityId, autoPagination: false)
     }
     
-    public func poi(search: String,
-                    location userLoc: TRPLocation? = nil,
-                    completion: @escaping CompletionHandlerWithPagination) {
-        self.completionHandlerWithPagination = completion;
-        poiServices(location: userLoc,
-                    searchText: search,
-                    autoPagination:false)
-    }
     
+    /// A services that manage all task to connecting remote server
+    ///
+    /// - Parameters:
+    ///   - placeIds: Place id
+    ///   - cities: cities Id
+    ///   - limit:  number of record to display
+    ///   - location: user current location
+    ///   - distance: limit that location and distance between
+    ///   - typeId: CategoryId
+    ///   - typeIds: CategoriesIds
+    ///   - link: Link for Pagination
+    ///   - searchText: Search text parameter for tags or places name
+    ///   - cityId: CityId
+    ///   - autoPagination: AutoCompletion patameter
     private func poiServices(placeIds: [Int]? = nil,
                                 cities: [Int]? = nil,
                                 limit: Int? = 25,
@@ -347,11 +436,13 @@ extension TRPRestKit {
                  self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
+        
         if let link = link {
             services.connection(link: link)
         }else {
             services.connection();
         }
+        
     }
     
  }
@@ -360,11 +451,24 @@ extension TRPRestKit {
  // MARK: - Question Services
  extension TRPRestKit {
     
+    
+    /// Return a question which can be used when creating a trip by Question Id.
+    ///
+    /// - Parameters:
+    ///   - questionId: Id of question
+    ///   - completion: Any objects needs to be converted to **TRPTripQuestionInfoModel** object.
     public func tripQuestions(withQuestionId questionId: Int, completion: @escaping CompletionHandler){
         self.completionHandler = completion;
         questionServices(questionId: questionId)
     }
     
+    
+    /// Return questions which can be used when creating a trip by city Id.
+    ///
+    /// - Parameters:
+    ///   - cityId: City Id
+    ///   - type: type of Question such as `trip` and `profile`. Both `trip` and `profile` have be used when creating a trip. Profile can be used in `Localy Mode`.
+    ///   - completion: Any objects needs to be converted to **[TRPTripQuestionInfoModel]** object.
     public func tripQuestions(withCityId cityId: Int,
                               type: TPRTripQuestionType? = TPRTripQuestionType.trip,
                               completion: @escaping CompletionHandlerWithPagination){
@@ -372,6 +476,13 @@ extension TRPRestKit {
         questionServices(cityId: cityId, type:type)
     }
     
+    
+    /// A services that manage all task to connecting remote server
+    ///
+    /// - Parameters:
+    ///   - cityId: id of city
+    ///   - questionId: id of question
+    ///   - type: type of request. You can use Profile when opening add place in localy mode. You have to use Profile and Trip when creating a trip.
     private func questionServices(cityId:Int? = nil,
                                   questionId: Int? = nil,
                                   type: TPRTripQuestionType? = nil) {
@@ -410,21 +521,14 @@ extension TRPRestKit {
  }
 
  // MARK: - Recommendation
- extension TRPRestKit {
+extension TRPRestKit {
     
-    // TODO: PAGİNATİON VE AUTOPAGİN KALKACAK
-    /// Fetch recommendation with settings
-    ///
-    /// - Parameters:
-    ///   - settings: Recommendation setting
-    ///   - completion: Callback with Pagination
-    /// - Important: CallBack class is [TRPRecommendationInfoJsonModel]
-    public func recommendation(settings:TRPRecommendationSettings, autoPagination: Bool = true, completion: @escaping CompletionHandlerWithPagination){
+    public func recommendation(settings: TRPRecommendationSettings, autoPagination: Bool = true, completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
         recommendationServices(settings: settings, autoPagination: autoPagination)
     }
     
-    private func recommendationServices(settings:TRPRecommendationSettings, autoPagination: Bool) {
+    private func recommendationServices(settings: TRPRecommendationSettings, autoPagination: Bool) {
         let t = TRPRecommendation(settings: settings);
         t.isAutoPagination = autoPagination
         t.Completion = {   (result, error, pagination) in
@@ -432,7 +536,6 @@ extension TRPRestKit {
                  self.postError(error: error)
                 return
             }
-            
             if let r = result as? TRPRecommendationJsonModel, let recommendationPlaces = r.data {
                  self.postData(result: recommendationPlaces, pagination: pagination)
             }else {
@@ -448,12 +551,27 @@ extension TRPRestKit {
  // MARK: - USER LOGİN
  extension TRPRestKit {
     
-    /// seeAlso: TRPLoginInfoModel
+    
+    /// Obtain the access token for API calls that require user identification.
+    ///
+    /// If user login is successful, TRPUserPersistent object saves user accessToken.
+    ///
+    /// - Parameters:
+    ///   - name: Name of User. The name parameters is automatically generated by Tripian.
+    ///   - password: Password of User
+    ///   - completion: Any objects needs to be converted to **TRPLoginInfoModel** object.
     public func login(userName name:String, password: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         loginServices(userName: name, password: password)
     }
     
+    
+    
+    /// User Login service
+    ///
+    /// - Parameters:
+    ///   - name: User name
+    ///   - password: user password
     private func loginServices(userName name: String, password: String) {
         let t = TRPLogin(userName: name, password: password)
         t.Completion = {    (result, error, pagination) in
@@ -472,6 +590,8 @@ extension TRPRestKit {
         t.connection();
     }
     
+    
+    /// User logout. TRPUserPersistent removes all accessToken.
     public func logout() {
         TRPUserPersistent.remove()
     }
@@ -479,24 +599,25 @@ extension TRPRestKit {
  }
 
  
- // MARK: - USER
+ // MARK: - User Register
  extension TRPRestKit {
-    // TRPUserLoginInfoModel
     
     
-    /// Yeni Kullanıcı oluşturmak için kullanılır.
+    /// This method can be used to create a new User.
+    /// Tripian Api generates a `userName` automatically.
     ///
     /// - Parameters:
-    ///   - firstName: kullanıcı adı
-    ///   - lastName: kullanıcı soyadı
-    ///   - email: kullanıcının mail adresi
-    ///   - password: şifresi
-    ///   - completion: any obje **TRPUserInfoModel**
+    ///   - password: Password of user.
+    ///   - completion: Any objects needs to be converted to **TRPUserInfoModel** object.
     public func register(password:String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         userRegisterServices(password: password)
     }
     
+    
+    /// Return information about user such as eat and drink preferences
+    ///
+    /// - Parameter completion:  Any objects needs to be converted to **TRPUserInfoModel** object.
     public func userInfo(completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         userInfoServices(type: .getInfo)
@@ -863,38 +984,6 @@ extension TRPRestKit {
     }
     
  }
- 
-
- /*
- extension TRPRestKit {
-    
-    public func checkUpdate(cityId:Int, cityUpdate:Int, completion: @escaping CompletionHandlerWithPagination){
-        completionHandlerWithPagination = completion;
-        checkUpdateServices(cityId: cityId, cityUpdate: cityUpdate)
-    }
-    
-    public func checkUpdate(cityId:Int, cityUpdate:Int, tagUpdate:Int? = nil, placeUpdate:Int? = nil, completion: @escaping CompletionHandlerWithPagination){
-        completionHandlerWithPagination = completion;
-        checkUpdateServices(cityId: cityId, cityUpdate: cityUpdate, tagUpdate: tagUpdate,placeUpdate: placeUpdate);
-    }
-    
-    private func checkUpdateServices(cityId:Int, cityUpdate:Int, tagUpdate:Int? = nil, placeUpdate:Int? = nil) {
-        let t = TRPCheckDataUpdates(cityId: cityId,cityUpdate: cityUpdate);
-        t.tagUpdate = tagUpdate
-        t.placeUpdate = placeUpdate
-        t.Completion = { (result, error, pagination) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            
-            if let r = result as? TRPCheckUpdateJsonModel {
-                 self.postData(result: r, pagination: pagination)
-            }
-        }
-        t.connection()
-    }
- } */
 
 extension TRPRestKit {
     

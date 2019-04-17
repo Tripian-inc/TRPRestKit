@@ -7,9 +7,14 @@
 //
 
 import Foundation
+
+/// This model provide you to use information of user.
 public struct TRPUserInfoModel: Decodable {
     
+    
+    /// A String value. Name of user.
     public var userName: String
+    /// A array of TRPUserPreferencesInfoModel objects.
     public var info: [TRPUserPreferencesInfoModel]?
     
     //TODO: - preferences eklenecek
@@ -18,6 +23,9 @@ public struct TRPUserInfoModel: Decodable {
         case info
     }
     
+    /// Json to Object converter
+    ///
+    /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
        
@@ -29,16 +37,24 @@ public struct TRPUserInfoModel: Decodable {
 
 public struct TRPUserPreferencesInfoModel: Decodable {
     
-    public var id: Int;
-    public var key: String;
-    public var value: String;
     
+    /// An Int value. Unique id of User Preferences.
+    public var id: Int;
+    /// A String value.
+    public var key: String;
+    /// A String value.
+    public var value: String;
+
     private enum CodingKeys: String, CodingKey {
         case id
         case key
         case value
     }
     
+    
+    /// Json to Object converter
+    ///
+    /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         id = try values.decode(Int.self, forKey: .id)

@@ -7,8 +7,10 @@
 //
 
 import Foundation
+/// Parent Json parser model for TripQuestion
 internal class TRPTripQuestionJsonModel: TRPParentJsonModel {
     
+    /// Question datas.
     public var data: [TRPTripQuestionInfoModel]?;
     
     private enum CodingKeys: String, CodingKey { case data }
