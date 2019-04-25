@@ -16,23 +16,17 @@ depends-top-level:
 - !private "NSDictionary"
 - "NSError"
 - "String"
-- !private "StringLiteralType"
 - !private "TRPErrors"
 - "TRPGoogleAutoComplete"
 - !private "TRPGooglePlace"
 - "TRPLocation"
 - !private "TRPNetwork"
-- !private "UnicodeScalarType"
 - "Void"
 depends-member:
 - !private ["Sa", "map"]
-- !private ["s13ArrayProtocolP", "map"]
 - !private ["SK", "addingPercentEncoding"]
-- !private ["SK", "init"]
-- !private ["SK", "init"]
 - !private ["SK", "map"]
 - !private ["s7CVarArgP", "addingPercentEncoding"]
-- !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "jsonObject"]
 - !private ["s7CVarArgP", "lat"]
@@ -41,14 +35,10 @@ depends-member:
 - !private ["s7CVarArgP", "subscript"]
 - !private ["10Foundation12CharacterSetV", "urlQueryAllowed"]
 - !private ["Sl", "addingPercentEncoding"]
-- !private ["Sl", "init"]
-- !private ["Sl", "init"]
 - !private ["Sl", "map"]
 - !private ["SL", "addingPercentEncoding"]
-- !private ["SL", "init"]
-- !private ["SL", "init"]
+- !private ["10Foundation15ContiguousBytesP", "map"]
 - !private ["s28CustomDebugStringConvertibleP", "addingPercentEncoding"]
-- !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "jsonObject"]
 - !private ["s28CustomDebugStringConvertibleP", "lat"]
@@ -58,16 +48,12 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "urlQueryAllowed"]
 - !private ["10Foundation13CustomNSErrorP", "someThingWronk"]
 - !private ["10Foundation13CustomNSErrorP", "wrongData"]
-- !private ["s29CustomPlaygroundQuickLookableP", "addingPercentEncoding"]
-- !private ["s29CustomPlaygroundQuickLookableP", "init"]
-- !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s17CustomReflectableP", "addingPercentEncoding"]
-- !private ["s17CustomReflectableP", "init"]
-- !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "map"]
 - !private ["s17CustomReflectableP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "addingPercentEncoding"]
-- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "appendInterpolation"]
+- !private ["s23CustomStringConvertibleP", "appendLiteral"]
 - !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "jsonObject"]
 - !private ["s23CustomStringConvertibleP", "lat"]
@@ -75,18 +61,16 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "map"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "urlQueryAllowed"]
+- !private ["10Foundation12DataProtocolP", "map"]
 - !private ["Se", "addingPercentEncoding"]
-- !private ["Se", "init"]
-- !private ["Se", "init"]
 - !private ["Se", "map"]
 - !private ["Se", "urlQueryAllowed"]
+- !private ["s26DefaultStringInterpolationV", "appendInterpolation"]
+- !private ["s26DefaultStringInterpolationV", "appendLiteral"]
 - !private ["SE", "addingPercentEncoding"]
-- !private ["SE", "init"]
-- !private ["SE", "init"]
 - !private ["SE", "map"]
 - !private ["SE", "urlQueryAllowed"]
 - !private ["SQ", "addingPercentEncoding"]
-- !private ["SQ", "init"]
 - !private ["SQ", "init"]
 - !private ["SQ", "jsonObject"]
 - !private ["SQ", "lat"]
@@ -103,16 +87,10 @@ depends-member:
 - !private ["s25ExpressibleByArrayLiteralP", "urlQueryAllowed"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "addingPercentEncoding"]
-- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
-- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s32ExpressibleByStringInterpolationP", "addingPercentEncoding"]
 - !private ["s26ExpressibleByStringLiteralP", "addingPercentEncoding"]
-- !private ["s26ExpressibleByStringLiteralP", "init"]
-- !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "addingPercentEncoding"]
-- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["SH", "addingPercentEncoding"]
-- !private ["SH", "init"]
 - !private ["SH", "init"]
 - !private ["SH", "jsonObject"]
 - !private ["SH", "lat"]
@@ -125,12 +103,9 @@ depends-member:
 - !private ["10Foundation14LocalizedErrorP", "someThingWronk"]
 - !private ["10Foundation14LocalizedErrorP", "wrongData"]
 - !private ["s25LosslessStringConvertibleP", "addingPercentEncoding"]
-- !private ["s25LosslessStringConvertibleP", "init"]
-- !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s10MirrorPathP", "addingPercentEncoding"]
-- !private ["s10MirrorPathP", "init"]
-- !private ["s10MirrorPathP", "init"]
 - !private ["SM", "map"]
+- !private ["10Foundation19MutableDataProtocolP", "map"]
 - !private ["So8NSCodingP", "addingPercentEncoding"]
 - !private ["So8NSCodingP", "subscript"]
 - !private ["So9NSCopyingP", "addingPercentEncoding"]
@@ -158,26 +133,20 @@ depends-member:
 - !private ["s9OptionSetP", "mutableContainers"]
 - !private ["Sk", "map"]
 - !private ["Sm", "addingPercentEncoding"]
-- !private ["Sm", "init"]
-- !private ["Sm", "init"]
 - !private ["Sm", "map"]
 - !private ["SY", "mutableContainers"]
 - !private ["SY", "post"]
 - !private ["So20NSJSONReadingOptionsV", "mutableContainers"]
 - !private ["10Foundation20ReferenceConvertibleP", "urlQueryAllowed"]
 - !private ["ST", "addingPercentEncoding"]
-- !private ["ST", "init"]
-- !private ["ST", "init"]
 - !private ["ST", "map"]
 - !private ["ST", "subscript"]
 - !private ["s10SetAlgebraP", "mutableContainers"]
 - !private ["s10SetAlgebraP", "urlQueryAllowed"]
 - !private ["SS", "addingPercentEncoding"]
-- !private ["SS", "init"]
-- !private ["SS", "init"]
+- !private ["s27StringInterpolationProtocolP", "appendInterpolation"]
+- !private ["s27StringInterpolationProtocolP", "appendLiteral"]
 - !private ["Sy", "addingPercentEncoding"]
-- !private ["Sy", "init"]
-- !private ["Sy", "init"]
 - !private ["10TRPRestKit9TRPErrorsO", "someThingWronk"]
 - !private ["10TRPRestKit9TRPErrorsO", "wrongData"]
 - !private ["10TRPRestKit21TRPGoogleAutoCompleteC", "CharacterSet"]
@@ -205,27 +174,17 @@ depends-member:
 - !private ["10TRPRestKit10TRPNetworkC", "init"]
 - !private ["10TRPRestKit14TRPRequestModeO", "post"]
 - !private ["s16TextOutputStreamP", "addingPercentEncoding"]
-- !private ["s16TextOutputStreamP", "init"]
-- !private ["s16TextOutputStreamP", "init"]
+- !private ["s16TextOutputStreamP", "appendInterpolation"]
+- !private ["s16TextOutputStreamP", "appendLiteral"]
 - !private ["s20TextOutputStreamableP", "addingPercentEncoding"]
-- !private ["s20TextOutputStreamableP", "init"]
-- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s14_ArrayProtocolP", "map"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "addingPercentEncoding"]
 - !private ["s24_DestructorSafeContainerP", "map"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "addingPercentEncoding"]
-- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
-- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "addingPercentEncoding"]
-- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "addingPercentEncoding"]
-- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "addingPercentEncoding"]
-- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- !private ["s33_ExpressibleByStringInterpolationP", "addingPercentEncoding"]
-- !private ["s33_ExpressibleByStringInterpolationP", "init"]
-- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s19_HasContiguousBytesP", "addingPercentEncoding"]
+- !private ["s19_HasContiguousBytesP", "map"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "addingPercentEncoding"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "map"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
@@ -236,33 +195,30 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "lon"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "subscript"]
 - !private ["s21_ObjectiveCBridgeableP", "addingPercentEncoding"]
-- !private ["s21_ObjectiveCBridgeableP", "init"]
-- !private ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "map"]
 - !private ["s21_ObjectiveCBridgeableP", "urlQueryAllowed"]
-- !private ["s16_SwiftStringViewP", "addingPercentEncoding"]
-- !private ["s16_SwiftStringViewP", "init"]
-- !private ["s16_SwiftStringViewP", "init"]
 depends-nominal:
 - !private "Sa"
-- !private "s13ArrayProtocolP"
 - !private "SK"
 - !private "s7CVarArgP"
 - !private "10Foundation12CharacterSetV"
 - !private "Sl"
 - !private "SL"
+- !private "10Foundation15ContiguousBytesP"
 - !private "s28CustomDebugStringConvertibleP"
 - !private "10Foundation13CustomNSErrorP"
-- !private "s29CustomPlaygroundQuickLookableP"
 - !private "s17CustomReflectableP"
 - !private "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
 - !private "Se"
+- !private "s26DefaultStringInterpolationV"
 - !private "SE"
 - !private "SQ"
 - !private "s5ErrorP"
 - !private "s25ExpressibleByArrayLiteralP"
 - !private "s30ExpressibleByDictionaryLiteralP"
 - !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s32ExpressibleByStringInterpolationP"
 - !private "s26ExpressibleByStringLiteralP"
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
 - !private "SH"
@@ -271,6 +227,7 @@ depends-nominal:
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
 - !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
 - !private "So8NSCodingP"
 - !private "So9NSCopyingP"
 - !private "So12NSDictionaryC"
@@ -291,6 +248,7 @@ depends-nominal:
 - !private "ST"
 - !private "s10SetAlgebraP"
 - !private "SS"
+- !private "s27StringInterpolationProtocolP"
 - !private "Sy"
 - !private "10TRPRestKit9TRPErrorsO"
 - "10TRPRestKit21TRPGoogleAutoCompleteC"
@@ -300,20 +258,19 @@ depends-nominal:
 - !private "10TRPRestKit14TRPRequestModeO"
 - !private "s16TextOutputStreamP"
 - !private "s20TextOutputStreamableP"
+- !private "s14_ArrayProtocolP"
+- !private "s30_CustomPlaygroundQuickLookableP"
 - !private "s24_DestructorSafeContainerP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
-- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
-- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s19_HasContiguousBytesP"
 - !private "s35_HasCustomAnyHashableRepresentationP"
 - !private "10Foundation27_KeyValueCodingAndObservingP"
 - !private "s21_ObjectiveCBridgeableP"
-- !private "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
@@ -326,20 +283,21 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "f6e10bb5f8a1a054f9abe8eb424bb254"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "c9b87d6356d644dc14216f59d0aee9f9"

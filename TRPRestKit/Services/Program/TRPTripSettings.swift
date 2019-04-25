@@ -7,35 +7,57 @@
 //
 
 import Foundation
+
+/// This model provides you all setting to create trip.
 public class TRPTripSettings {
     
+    /// An Int value. Id of city.
     public var cityId: Int;
-    //Incelenecek. Daha iyi nasıl yapılır bakılacak.
+    /// A TRPTime object. Arrival date of trip.
     public var arrivalTime: TRPTime;
+    /// A TRPTime object. Departure date of trip.
     public var departureTime: TRPTime;
+    /// An Int value. Adult count.
     public var adultsCount: Int = 1
+    /// A String value. Adults age range such as 32
     public var adultAgeRange: String?;
+    /// An Int value. Count of Children
     public var childrenCount: Int?;
+    /// A String value. Children age range such as 12
     public var childrenAgeRange: String?;
+    /// A String value. Center coordinate of hotel (41.123,29.4532)
     private(set) var coordinate: String?;
+    /// A String value. Address of hotel.
     private(set) var hotelAddress: String?;
-    
-    
+    /// An Int array. Answer of questions.
     public var answer: [Int]?;
+    /// A Bool value. If you set true, trip is not going to generate.
     public var doNotGenerate:Bool?
     
+    
+    /// Initializes a new Settings with cityId, arrivalTime and departureTime
+    ///
+    /// - Parameters:
+    ///   - cityId: Id of city
+    ///   - arrivalTime: Arrival time
+    ///   - departureTime: Departure time
     public init(cityId: Int, arrivalTime:TRPTime, departureTime:TRPTime) {
         self.cityId = cityId;
         self.arrivalTime = arrivalTime
         self.departureTime = departureTime;
     }
     
+    
+    /// Address of Hotel. The hotel is going to be First step in trip.
+    ///
+    /// - Parameters:
+    ///   - lat: Latitude
+    ///   - lon: longitude
+    ///   - hotelAddress: Hodel adress.
     public func setCoordinateWithAddress(lat:Double, lon:Double, hotelAddress: String){
         coordinate = String(lat) + "," + String(lon);
         self.hotelAddress  = hotelAddress
     }
-    
-    
     
 }
 

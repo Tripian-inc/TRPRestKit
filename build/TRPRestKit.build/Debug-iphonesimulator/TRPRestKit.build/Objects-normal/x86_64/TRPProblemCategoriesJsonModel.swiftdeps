@@ -4,18 +4,13 @@ provides-top-level:
 - "TRPProblemCategoriesInfoModel"
 provides-nominal:
 - "10TRPRestKit29TRPProblemCategoriesJsonModelC"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
 - "10TRPRestKit29TRPProblemCategoriesInfoModelV"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
 provides-member:
 - ["10TRPRestKit29TRPProblemCategoriesJsonModelC", ""]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", ""]
 - ["10TRPRestKit29TRPProblemCategoriesInfoModelV", ""]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", ""]
 provides-dynamic-lookup:
 depends-top-level:
 - "=="
-- !private "Array"
 - "AssignmentPrecedence"
 - "CodingKey"
 - "Decodable"
@@ -31,16 +26,12 @@ depends-top-level:
 - !private "_findStringSwitchCase"
 - !private "~="
 depends-member:
-- ["SK", "init"]
-- ["SK", "init"]
-- !private ["Sb", "_getBuiltinLogicValue"]
-- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
-- ["s7CVarArgP", "init"]
-- ["s7CVarArgP", "init"]
+- ["s9CodingKeyP", "=="]
 - ["s9CodingKeyP", "RawValue"]
-- ["s9CodingKeyP", ""]
+- !private ["s9CodingKeyP", ""]
 - ["s9CodingKeyP", "_Default_RawValue"]
 - !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- ["s9CodingKeyP", "_rawHashValue"]
 - !private ["s9CodingKeyP", "data"]
 - ["s9CodingKeyP", "debugDescription"]
 - ["s9CodingKeyP", "description"]
@@ -53,43 +44,12 @@ depends-member:
 - !private ["s9CodingKeyP", "name"]
 - ["s9CodingKeyP", "rawValue"]
 - ["s9CodingKeyP", "stringValue"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "RawValue"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "RawValue"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "_Default_RawValue"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "_Default_RawValue"]
-- !private ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "_findStringSwitchCase"]
-- !private ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "_findStringSwitchCase"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "data"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "debugDescription"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "debugDescription"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "deinit"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "deinit"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "description"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "description"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "hash"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "hash"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "hashValue"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "hashValue"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "id"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "init"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "init"]
-- !private ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "init"]
-- !private ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "init"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "intValue"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "intValue"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "name"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "rawValue"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "rawValue"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO", "stringValue"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO", "stringValue"]
-- ["Sl", "init"]
-- ["Sl", "init"]
-- ["SL", "init"]
-- ["SL", "init"]
+- ["s28CustomDebugStringConvertibleP", "=="]
 - ["s28CustomDebugStringConvertibleP", "RawValue"]
-- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", ""]
 - ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- ["s28CustomDebugStringConvertibleP", "_rawHashValue"]
 - !private ["s28CustomDebugStringConvertibleP", "data"]
 - ["s28CustomDebugStringConvertibleP", "debugDescription"]
 - ["s28CustomDebugStringConvertibleP", "description"]
@@ -97,22 +57,17 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "hashValue"]
 - !private ["s28CustomDebugStringConvertibleP", "id"]
 - ["s28CustomDebugStringConvertibleP", "init"]
-- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
 - ["s28CustomDebugStringConvertibleP", "intValue"]
 - !private ["s28CustomDebugStringConvertibleP", "name"]
 - ["s28CustomDebugStringConvertibleP", "rawValue"]
 - ["s28CustomDebugStringConvertibleP", "stringValue"]
-- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
-- ["s29CustomPlaygroundQuickLookableP", "init"]
-- ["s29CustomPlaygroundQuickLookableP", "init"]
-- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
-- ["s17CustomReflectableP", "init"]
-- ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "=="]
 - ["s23CustomStringConvertibleP", "RawValue"]
-- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", ""]
 - ["s23CustomStringConvertibleP", "_Default_RawValue"]
 - !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
-- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "_rawHashValue"]
 - !private ["s23CustomStringConvertibleP", "data"]
 - ["s23CustomStringConvertibleP", "debugDescription"]
 - ["s23CustomStringConvertibleP", "description"]
@@ -120,7 +75,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "hashValue"]
 - !private ["s23CustomStringConvertibleP", "id"]
 - ["s23CustomStringConvertibleP", "init"]
-- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
 - ["s23CustomStringConvertibleP", "intValue"]
 - !private ["s23CustomStringConvertibleP", "name"]
 - ["s23CustomStringConvertibleP", "rawValue"]
@@ -131,21 +86,17 @@ depends-member:
 - !private ["Se", "TRPProblemCategoriesInfoModel"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
-- !private ["Se", "_getBuiltinLogicValue"]
 - !private ["Se", "datas"]
 - !private ["Se", "id"]
 - ["Se", "init"]
-- ["Se", "init"]
 - !private ["Se", "name"]
 - !private ["s7DecoderP", "container"]
-- !private ["SE", "_getBuiltinLogicValue"]
-- ["SE", "init"]
-- ["SE", "init"]
+- ["SQ", "=="]
 - ["SQ", "RawValue"]
-- ["SQ", ""]
+- !private ["SQ", ""]
 - ["SQ", "_Default_RawValue"]
 - !private ["SQ", "_findStringSwitchCase"]
-- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "_rawHashValue"]
 - !private ["SQ", "data"]
 - ["SQ", "debugDescription"]
 - ["SQ", "description"]
@@ -153,23 +104,17 @@ depends-member:
 - ["SQ", "hashValue"]
 - !private ["SQ", "id"]
 - ["SQ", "init"]
-- ["SQ", "init"]
+- !private ["SQ", "init"]
 - ["SQ", "intValue"]
 - !private ["SQ", "name"]
 - ["SQ", "rawValue"]
 - ["SQ", "stringValue"]
-- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
-- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
-- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
-- ["s26ExpressibleByStringLiteralP", "init"]
-- ["s26ExpressibleByStringLiteralP", "init"]
-- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["SH", "=="]
 - ["SH", "RawValue"]
-- ["SH", ""]
+- !private ["SH", ""]
 - ["SH", "_Default_RawValue"]
 - !private ["SH", "_findStringSwitchCase"]
-- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "_rawHashValue"]
 - !private ["SH", "data"]
 - ["SH", "debugDescription"]
 - ["SH", "description"]
@@ -177,27 +122,21 @@ depends-member:
 - ["SH", "hashValue"]
 - !private ["SH", "id"]
 - ["SH", "init"]
-- ["SH", "init"]
+- !private ["SH", "init"]
 - ["SH", "intValue"]
 - !private ["SH", "name"]
 - ["SH", "rawValue"]
 - ["SH", "stringValue"]
-- !private ["s6HasherV", "combine"]
 - !private ["s22KeyedDecodingContainerV", "decode"]
 - !private ["s22KeyedDecodingContainerV", "decodeIfPresent"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decode"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decodeIfPresent"]
-- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
-- ["s25LosslessStringConvertibleP", "init"]
-- ["s25LosslessStringConvertibleP", "init"]
-- ["s10MirrorPathP", "init"]
-- ["s10MirrorPathP", "init"]
-- ["Sm", "init"]
-- ["Sm", "init"]
+- ["SY", "=="]
 - ["SY", "RawValue"]
-- ["SY", ""]
+- !private ["SY", ""]
 - ["SY", "_Default_RawValue"]
 - !private ["SY", "_findStringSwitchCase"]
+- ["SY", "_rawHashValue"]
 - !private ["SY", "data"]
 - ["SY", "debugDescription"]
 - ["SY", "description"]
@@ -210,14 +149,6 @@ depends-member:
 - !private ["SY", "name"]
 - ["SY", "rawValue"]
 - ["SY", "stringValue"]
-- ["ST", "init"]
-- ["ST", "init"]
-- !private ["s12StaticStringV", "init"]
-- !private ["s12StaticStringV", "init"]
-- ["SS", "init"]
-- ["SS", "init"]
-- ["Sy", "init"]
-- ["Sy", "init"]
 - ["10TRPRestKit18TRPParentJsonModelC", "CodingKey"]
 - !private ["10TRPRestKit18TRPParentJsonModelC", "CodingKeys"]
 - ["10TRPRestKit18TRPParentJsonModelC", "Decoder"]
@@ -229,7 +160,7 @@ depends-member:
 - !private ["10TRPRestKit18TRPParentJsonModelC", "deinit"]
 - ["10TRPRestKit18TRPParentJsonModelC", "init"]
 - ["10TRPRestKit29TRPProblemCategoriesInfoModelV", "CodingKey"]
-- ["10TRPRestKit29TRPProblemCategoriesInfoModelV", "CodingKeys"]
+- !private ["10TRPRestKit29TRPProblemCategoriesInfoModelV", "CodingKeys"]
 - ["10TRPRestKit29TRPProblemCategoriesInfoModelV", "Decoder"]
 - ["10TRPRestKit29TRPProblemCategoriesInfoModelV", "Int"]
 - ["10TRPRestKit29TRPProblemCategoriesInfoModelV", "String"]
@@ -240,7 +171,7 @@ depends-member:
 - ["10TRPRestKit29TRPProblemCategoriesInfoModelV", "init"]
 - ["10TRPRestKit29TRPProblemCategoriesInfoModelV", "name"]
 - ["10TRPRestKit29TRPProblemCategoriesJsonModelC", "CodingKey"]
-- ["10TRPRestKit29TRPProblemCategoriesJsonModelC", "CodingKeys"]
+- !private ["10TRPRestKit29TRPProblemCategoriesJsonModelC", "CodingKeys"]
 - ["10TRPRestKit29TRPProblemCategoriesJsonModelC", "Decoder"]
 - ["10TRPRestKit29TRPProblemCategoriesJsonModelC", "String"]
 - ["10TRPRestKit29TRPProblemCategoriesJsonModelC", "TRPProblemCategoriesInfoModel"]
@@ -248,99 +179,22 @@ depends-member:
 - ["10TRPRestKit29TRPProblemCategoriesJsonModelC", "datas"]
 - ["10TRPRestKit29TRPProblemCategoriesJsonModelC", "deinit"]
 - ["10TRPRestKit29TRPProblemCategoriesJsonModelC", "init"]
-- ["s16TextOutputStreamP", "init"]
-- ["s16TextOutputStreamP", "init"]
-- ["s20TextOutputStreamableP", "init"]
-- ["s20TextOutputStreamableP", "init"]
-- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
-- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
-- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
-- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- ["s33_ExpressibleByStringInterpolationP", "init"]
-- ["s33_ExpressibleByStringInterpolationP", "init"]
-- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
-- ["s21_ObjectiveCBridgeableP", "init"]
-- ["s21_ObjectiveCBridgeableP", "init"]
-- ["s16_SwiftStringViewP", "init"]
-- ["s16_SwiftStringViewP", "init"]
 depends-nominal:
-- "SK"
-- !private "Sb"
-- "s7CVarArgP"
 - "s9CodingKeyP"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- !private "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- !private "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- !private "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesInfoModelV10CodingKeysO"
-- "10TRPRestKit29TRPProblemCategoriesJsonModelC10CodingKeysO"
-- "Sl"
-- "SL"
 - "s28CustomDebugStringConvertibleP"
-- "s29CustomPlaygroundQuickLookableP"
-- "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
 - "Se"
 - !private "s7DecoderP"
-- "SE"
 - "SQ"
-- !private "s27ExpressibleByBooleanLiteralP"
-- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
-- "s26ExpressibleByStringLiteralP"
-- "s33ExpressibleByUnicodeScalarLiteralP"
 - "SH"
-- !private "s6HasherV"
 - !private "s22KeyedDecodingContainerV"
 - !private "s30KeyedDecodingContainerProtocolP"
-- "s25LosslessStringConvertibleP"
-- "s10MirrorPathP"
-- "Sm"
 - "SY"
-- "ST"
-- !private "s12StaticStringV"
-- "SS"
-- "Sy"
 - "10TRPRestKit18TRPParentJsonModelC"
 - "10TRPRestKit29TRPProblemCategoriesInfoModelV"
 - "10TRPRestKit29TRPProblemCategoriesJsonModelC"
-- "s16TextOutputStreamP"
-- "s20TextOutputStreamableP"
-- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
-- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
-- "s34_ExpressibleByBuiltinStringLiteralP"
-- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
-- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
-- "s33_ExpressibleByStringInterpolationP"
-- "s21_ObjectiveCBridgeableP"
-- "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
@@ -359,15 +213,16 @@ depends-external:
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/unextended-module.modulemap"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "dfbe3bf2140a43e0350dcc438523b999"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "e7b47c5307f909a71d51f86473b6c9db"

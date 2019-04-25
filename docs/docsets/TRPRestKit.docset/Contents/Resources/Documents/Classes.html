@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">TRPRestKit Docs</a> (35% documented)</p>
+        <p><a href="index.html">TRPRestKit Docs</a> (92% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -30,9 +30,6 @@
           <li class="nav-group-name">
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Classes/Environment.html">Environment</a>
-              </li>
               <li class="nav-group-task">
                 <a href="Classes/TRPCityInfoModel.html">TRPCityInfoModel</a>
               </li>
@@ -52,9 +49,6 @@
                 <a href="Classes/TRPParentJsonModel.html">TRPParentJsonModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/TRPPoiAddRouteJsonModel.html">TRPPoiAddRouteJsonModel</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/TRPRestKit.html">TRPRestKit</a>
               </li>
               <li class="nav-group-task">
@@ -72,9 +66,6 @@
                 <a href="Enums/Pagination.html">Pagination</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/PlistKey.html">PlistKey</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Enums/TPRTripQuestionType.html">TPRTripQuestionType</a>
               </li>
               <li class="nav-group-task">
@@ -90,12 +81,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Structs/TRPCategoryInfoModel.html">TRPCategoryInfoModel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/TRPConfig.html">TRPConfig</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/TRPConfig/ApiCall.html">– ApiCall</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/TRPCoordinateModel.html">TRPCoordinateModel</a>
@@ -126,12 +111,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/TRPPlanPointAlternativeInfoModel.html">TRPPlanPointAlternativeInfoModel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/TRPPlanPointInfoModel.html">TRPPlanPointInfoModel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/TRPPoiAddRouteInfoModel.html">TRPPoiAddRouteInfoModel</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/TRPPoiInfoModel.html">TRPPoiInfoModel</a>
@@ -228,7 +207,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Parent Json parser.</p>
+                        <p>Main json parser. Determines the status of requet.
+TRPParentJsonModel is can be parsed all json models of Tripian.
+You must be implemented data model.</p>
 
                         <a href="Classes/TRPParentJsonModel.html" class="slightly-smaller">See more</a>
                       </div>
@@ -237,38 +218,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">TRPParentJsonModel</span> <span class="p">:</span> <span class="kt">Decodable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10TRPRestKit23TRPPoiAddRouteJsonModelC"></a>
-                    <a name="//apple_ref/swift/Class/TRPPoiAddRouteJsonModel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10TRPRestKit23TRPPoiAddRouteJsonModelC">TRPPoiAddRouteJsonModel</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Classes/TRPPoiAddRouteJsonModel.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">TRPPoiAddRouteJsonModel</span> <span class="p">:</span> <span class="kt"><a href="Classes/TRPParentJsonModel.html">TRPParentJsonModel</a></span></code></pre>
 
                         </div>
                       </div>
@@ -293,13 +242,7 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Provide connection remote server.
-This class is use NSURLRequest.
-You can generate this class with Builder DP.</p>
-<h3 id='usage-example' class='heading'>Usage Example:</h3>
-<pre class="highlight swift"><code><span class="kt">TRPNetwork</span><span class="p">(</span><span class="nv">baseUrl</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="nv">path</span><span class="p">:</span><span class="s">""</span><span class="p">)</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span><span class="s">""</span><span class="p">)</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="nv">mode</span><span class="p">:</span> <span class="o">.</span><span class="n">post</span><span class="p">)</span>
-
-
-</code></pre>
+This class is use NSURLRequest.</p>
 
                         <a href="Classes/TRPNetwork.html" class="slightly-smaller">See more</a>
                       </div>
@@ -308,38 +251,6 @@ You can generate this class with Builder DP.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">TRPNetwork</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10TRPRestKit11EnvironmentC"></a>
-                    <a name="//apple_ref/swift/Class/Environment" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10TRPRestKit11EnvironmentC">Environment</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Classes/Environment.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Environment</span></code></pre>
 
                         </div>
                       </div>
@@ -363,7 +274,7 @@ You can generate this class with Builder DP.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Google Place Model that provides use information</p>
 
                         <a href="Classes/TRPGooglePlace.html" class="slightly-smaller">See more</a>
                       </div>
@@ -395,7 +306,7 @@ You can generate this class with Builder DP.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This model provides you all setting to create trip.</p>
 
                         <a href="Classes/TRPTripSettings.html" class="slightly-smaller">See more</a>
                       </div>
@@ -427,7 +338,8 @@ You can generate this class with Builder DP.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This is a high-level class to connectiong with remote server.
+If you want to generate a new servise, new servise must be extended TRPRestServices.</p>
 
                         <a href="Classes/TRPRestServices.html" class="slightly-smaller">See more</a>
                       </div>
@@ -459,7 +371,16 @@ You can generate this class with Builder DP.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This class provide you to start TRPRestKit.
+Class was written with Observer Dessing pattern</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <a href="https://www.tripian.com/request-api-key/">Request Api Key</a>
+
+</div>
+<h3 id='usage-example' class='heading'>Usage Example:</h3>
+<pre class="highlight swift"><code>  <span class="kt">TRPClient</span><span class="o">.</span><span class="nf">provideApiKey</span><span class="p">(</span><span class="err">#</span><span class="o">&lt;</span><span class="kt">YourApiKey</span><span class="o">&gt;</span><span class="err">#</span><span class="p">)</span>
+</code></pre>
 
                         <a href="Classes/TRPClient.html" class="slightly-smaller">See more</a>
                       </div>
@@ -492,7 +413,7 @@ You can generate this class with Builder DP.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Provides new link to resizing Images</p>
 
                         <a href="Classes/TRPImageResizer.html" class="slightly-smaller">See more</a>
                       </div>
@@ -572,7 +493,7 @@ You can generate this class with Builder DP.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/necatievrenyasar" target="_blank" rel="external">Evren Yaşar</a>. All rights reserved. (Last updated: 2019-04-17)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/necatievrenyasar" target="_blank" rel="external">Evren Yaşar</a>. All rights reserved. (Last updated: 2019-04-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

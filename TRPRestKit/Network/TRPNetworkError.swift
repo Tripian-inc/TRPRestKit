@@ -7,7 +7,16 @@
 //
 
 import Foundation
-//Move
+
+/// A type representing an error value that can be thrown.
+///
+/// - undefined: Undifened error
+/// - httpResult: HTTP error that was send from Tripian server
+/// - wrongData: Wrond data type
+/// - emptyData: Empdty data
+/// - emptyDataOrParserError: Json parser problem
+/// - objectIsNil: Object is nil
+/// - someThingWronk: Undifened error with message
 public enum TRPErrors:Error{
     case undefined
     case httpResult(code:Int, des:String, info: [String:Any]);
@@ -19,6 +28,8 @@ public enum TRPErrors:Error{
 }
 
 extension TRPErrors: LocalizedError {
+    
+    /// Return Error Message Description using NSLocalizedString
     public var errorDescription: String? {
         switch self {
         case .httpResult(_, let message,_):
@@ -41,10 +52,13 @@ extension TRPErrors: LocalizedError {
 
 extension TRPErrors: CustomNSError {
     
+    
+    /// Framework Domain
     public static var errorDomain: String {
         return "com.tripian.TRPClientError";
     }
     
+    /// When a Http Error is occered, error code returns it.
     public var errorCode: Int {
         switch self {
         case .httpResult(let code,_,_):
@@ -53,19 +67,16 @@ extension TRPErrors: CustomNSError {
             return 999
         }
     }
-    public var errorUserInfo: [String : Any]{
-        switch self {
-        case .httpResult(_, _, let info):
-            return info
-        default:
-            return [:];
-        }
-    }
     
 }
 
 extension TRPErrors {
-    // TODO: - Unit test must write
+    
+    /// This method is parse a Tripian Json Model
+    ///
+    /// - Parameters:
+    ///   - json: Json Model
+    ///   - link: Url
     init?(json: JSON, link:String?) {
         if let status = json["success"] as? Bool {
             if status == false {

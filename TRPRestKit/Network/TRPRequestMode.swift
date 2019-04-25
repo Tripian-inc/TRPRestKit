@@ -7,6 +7,14 @@
 //
 
 import Foundation
+
+
+/// A type representing a HTTP Request Mode values.
+///
+/// - get: Get
+/// - post: Post
+/// - put: Put
+/// - delete: Delete
 public enum TRPRequestMode:String {
     case get = "GET";
     case post = "POST";

@@ -7,10 +7,17 @@
 //
 
 import Foundation
+
+/// Indicates alternative of the plan poi.
 public struct TRPPlanPointAlternativeInfoModel: Decodable {
+    
+    /// An Int value. Id of Alternative
     public var id: Int
+    /// A String value. Hash of trip
     public var hash: String
+    /// An Int value. Alternative poi Id.
     public var alternativePoiId: Int
+    /// Referance plan poi
     public var dailyPlanPoi: TRPPlanPoi?
 
     private enum CodingKeys: String, CodingKey {
@@ -20,6 +27,9 @@ public struct TRPPlanPointAlternativeInfoModel: Decodable {
         case planPoint = "dailyplanpoi"
     }
     
+    /// Initializes a new object with decoder
+    ///
+    /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decode(Int.self, forKey: .id)

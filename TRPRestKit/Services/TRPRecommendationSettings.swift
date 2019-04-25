@@ -11,7 +11,6 @@ import Foundation
 /// This struct provide us with necessary settings to create Quick Recommendation.
 public struct TRPRecommendationSettings {
     
-    
     /// An Int value. Id of city
     private(set) var cityId: Int?;
     /// A String value. Hash of trip.

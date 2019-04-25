@@ -7,6 +7,7 @@ provides-member:
 - ["10TRPRestKitAAC", ""]
 - ["10TRPRestKitAAC", "cities"]
 - ["10TRPRestKitAAC", "city"]
+- ["10TRPRestKitAAC", "deneme"]
 - ["10TRPRestKitAAC", "city"]
 - ["10TRPRestKitAAC", "city"]
 - ["10TRPRestKitAAC", "poiCategories"]
@@ -20,13 +21,12 @@ provides-member:
 - ["10TRPRestKitAAC", "poi"]
 - ["10TRPRestKitAAC", "tripQuestions"]
 - ["10TRPRestKitAAC", "tripQuestions"]
-- ["10TRPRestKitAAC", "recommendation"]
+- ["10TRPRestKitAAC", "quickRecommendation"]
 - ["10TRPRestKitAAC", "login"]
 - ["10TRPRestKitAAC", "logout"]
 - ["10TRPRestKitAAC", "register"]
 - ["10TRPRestKitAAC", "userInfo"]
 - ["10TRPRestKitAAC", "updateUserAnswer"]
-- ["10TRPRestKitAAC", "updateUserInfo"]
 - ["10TRPRestKitAAC", "addUserFavorite"]
 - ["10TRPRestKitAAC", "getUserFavorite"]
 - ["10TRPRestKitAAC", "deleteUserFavorite"]
@@ -42,16 +42,6 @@ provides-member:
 - ["10TRPRestKitAAC", "planPoiAlternatives"]
 - ["10TRPRestKitAAC", "planPoiAlternatives"]
 - ["10TRPRestKitAAC", "planPoiAlternatives"]
-- ["10TRPRestKitAAC", "routesResult"]
-- ["10TRPRestKitAAC", "routesResult"]
-- ["10TRPRestKitAAC", "gRoutesResult"]
-- ["10TRPRestKitAAC", "gRoutesResult"]
-- ["10TRPRestKitAAC", "tagsServices"]
-- ["10TRPRestKitAAC", "tagsServices"]
-- ["10TRPRestKitAAC", "tagsServices"]
-- ["10TRPRestKitAAC", "tagsServices"]
-- ["10TRPRestKitAAC", "checkUpdate"]
-- ["10TRPRestKitAAC", "checkUpdate"]
 - ["10TRPRestKitAAC", "googleAutoComplete"]
 - ["10TRPRestKitAAC", "googlePlace"]
 - ["10TRPRestKitAAC", "problemCategories"]
@@ -62,27 +52,17 @@ depends-top-level:
 - !private "&&"
 - !private "=="
 - !private "??"
-- !private "Array"
 - "AssignmentPrecedence"
 - "Bool"
-- "BooleanLiteralType"
 - "CastingPrecedence"
-- !private "DispatchQueue"
 - "Double"
-- !private "Environment"
-- "FloatLiteralType"
 - "Int"
-- "IntegerLiteralType"
 - "NSError"
 - "NSObject"
 - "Pagination"
-- !private "PlistKey"
 - !private "PoiCategories"
 - "String"
-- !private "StringLiteralType"
 - "TPRTripQuestionType"
-- !private "TRPCheckDataUpdates"
-- !private "TRPCheckUpdateJsonModel"
 - !private "TRPCities"
 - !private "TRPCityJsonModel"
 - !private "TRPDailyPlanServices"
@@ -90,23 +70,21 @@ depends-top-level:
 - !private "TRPDeleteProgram"
 - !private "TRPErrors"
 - !private "TRPFavoritesJsonModel"
-- !private "TRPGRoutesResultJsonModel"
 - !private "TRPGetProgram"
 - !private "TRPGoogleAutoComplete"
 - !private "TRPGooglePlace"
 - !private "TRPGooglePlaceLocation"
 - !private "TRPGooglePlaceService"
-- !private "TRPGrouteResult"
 - "TRPLocation"
 - !private "TRPLogin"
 - !private "TRPLoginJsonModel"
 - !private "TRPParentJsonModel"
 - !private "TRPPlace"
-- !private "TRPPlaceTypeJsonModel"
 - !private "TRPPlanPointAlternativeJsonModel"
 - !private "TRPPlanPointAlternatives"
 - "TRPPlanPoints"
 - !private "TRPPoiAddRouteJsonModel"
+- !private "TRPPoiCategories"
 - !private "TRPPoiJsonModel"
 - !private "TRPProblemCategories"
 - !private "TRPProblemCategoriesJsonModel"
@@ -118,10 +96,6 @@ depends-top-level:
 - !private "TRPReportAProblemJsonModel"
 - !private "TRPReportAProblemServices"
 - "TRPRestKit"
-- !private "TRPRoutesResult"
-- !private "TRPRoutesResultJsonModel"
-- !private "TRPTags"
-- !private "TRPTagsJsonModel"
 - !private "TRPTripJsonModel"
 - !private "TRPTripQuestion"
 - !private "TRPTripQuestionJsonModel"
@@ -134,23 +108,14 @@ depends-top-level:
 - !private "TRPUserTrips"
 - !private "TRPUserTripsJsonModel"
 - "Void"
-- !private "print"
 - !private "sleep"
 - !private "||"
 depends-member:
 - !private ["Sa", "first"]
-- !private ["s13ArrayProtocolP", "first"]
 - !private ["SK", "first"]
-- !private ["SK", "init"]
-- !private ["SK", "init"]
-- !private ["Sb", "_getBuiltinLogicValue"]
-- !private ["s7CVarArgP", "DispatchQueue"]
-- !private ["s7CVarArgP", "Environment"]
 - !private ["s7CVarArgP", "Pagination"]
-- !private ["s7CVarArgP", "PlistKey"]
 - !private ["s7CVarArgP", "PoiCategories"]
 - !private ["s7CVarArgP", "TPRTripQuestionType"]
-- !private ["s7CVarArgP", "TRPCheckDataUpdates"]
 - !private ["s7CVarArgP", "TRPCities"]
 - !private ["s7CVarArgP", "TRPDailyPlanServices"]
 - !private ["s7CVarArgP", "TRPDeleteProgram"]
@@ -158,7 +123,6 @@ depends-member:
 - !private ["s7CVarArgP", "TRPGetProgram"]
 - !private ["s7CVarArgP", "TRPGoogleAutoComplete"]
 - !private ["s7CVarArgP", "TRPGooglePlaceService"]
-- !private ["s7CVarArgP", "TRPGrouteResult"]
 - !private ["s7CVarArgP", "TRPLogin"]
 - !private ["s7CVarArgP", "TRPPlace"]
 - !private ["s7CVarArgP", "TRPPlanPointAlternatives"]
@@ -167,8 +131,6 @@ depends-member:
 - !private ["s7CVarArgP", "TRPProgram"]
 - !private ["s7CVarArgP", "TRPRecommendation"]
 - !private ["s7CVarArgP", "TRPReportAProblemServices"]
-- !private ["s7CVarArgP", "TRPRoutesResult"]
-- !private ["s7CVarArgP", "TRPTags"]
 - !private ["s7CVarArgP", "TRPTripQuestion"]
 - !private ["s7CVarArgP", "TRPUserFavorite"]
 - !private ["s7CVarArgP", "TRPUserInfoServices"]
@@ -176,9 +138,6 @@ depends-member:
 - !private ["s7CVarArgP", "TRPUserRegister"]
 - !private ["s7CVarArgP", "TRPUserTrips"]
 - ["s7CVarArgP", ""]
-- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
-- !private ["s7CVarArgP", "async"]
-- !private ["s7CVarArgP", "checkUpdateServices"]
 - !private ["s7CVarArgP", "citiesServices"]
 - !private ["s7CVarArgP", "completionHandler"]
 - !private ["s7CVarArgP", "completionHandlerWithPagination"]
@@ -186,10 +145,7 @@ depends-member:
 - !private ["s7CVarArgP", "dailyPlanServices"]
 - !private ["s7CVarArgP", "deleteTripServices"]
 - !private ["s7CVarArgP", "first"]
-- !private ["s7CVarArgP", "gRoutesResultServices"]
-- !private ["s7CVarArgP", "gRoutesResultServicesLooper"]
 - !private ["s7CVarArgP", "getTripServices"]
-- !private ["s7CVarArgP", "global"]
 - !private ["s7CVarArgP", "googlePlaceAutoCompleteService"]
 - !private ["s7CVarArgP", "googlePlaceServices"]
 - !private ["s7CVarArgP", "init"]
@@ -201,31 +157,20 @@ depends-member:
 - !private ["s7CVarArgP", "poiServices"]
 - !private ["s7CVarArgP", "postData"]
 - !private ["s7CVarArgP", "postError"]
-- !private ["s7CVarArgP", "print"]
 - !private ["s7CVarArgP", "problemCategoriesService"]
 - !private ["s7CVarArgP", "questionServices"]
-- !private ["s7CVarArgP", "recoomendationServices"]
+- !private ["s7CVarArgP", "recommendationServices"]
 - !private ["s7CVarArgP", "reportaProblemService"]
-- !private ["s7CVarArgP", "routesResultServices"]
-- !private ["s7CVarArgP", "routesResultServicesLooper"]
 - !private ["s7CVarArgP", "sleep"]
-- !private ["s7CVarArgP", "tagsServicesServices"]
 - !private ["s7CVarArgP", "userFavoriteServices"]
 - !private ["s7CVarArgP", "userInfoServices"]
 - !private ["s7CVarArgP", "userRegisterServices"]
 - !private ["s7CVarArgP", "userTripsServices"]
 - !private ["Sl", "first"]
-- !private ["Sl", "init"]
-- !private ["Sl", "init"]
-- !private ["SL", "init"]
-- !private ["SL", "init"]
-- !private ["s28CustomDebugStringConvertibleP", "DispatchQueue"]
-- !private ["s28CustomDebugStringConvertibleP", "Environment"]
+- !private ["10Foundation15ContiguousBytesP", "first"]
 - !private ["s28CustomDebugStringConvertibleP", "Pagination"]
-- !private ["s28CustomDebugStringConvertibleP", "PlistKey"]
 - !private ["s28CustomDebugStringConvertibleP", "PoiCategories"]
 - !private ["s28CustomDebugStringConvertibleP", "TPRTripQuestionType"]
-- !private ["s28CustomDebugStringConvertibleP", "TRPCheckDataUpdates"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPCities"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPDailyPlanServices"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPDeleteProgram"]
@@ -233,7 +178,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "TRPGetProgram"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPGoogleAutoComplete"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPGooglePlaceService"]
-- !private ["s28CustomDebugStringConvertibleP", "TRPGrouteResult"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPLogin"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPPlace"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPPlanPointAlternatives"]
@@ -242,8 +186,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "TRPProgram"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPRecommendation"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPReportAProblemServices"]
-- !private ["s28CustomDebugStringConvertibleP", "TRPRoutesResult"]
-- !private ["s28CustomDebugStringConvertibleP", "TRPTags"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPTripQuestion"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPUserFavorite"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPUserInfoServices"]
@@ -251,8 +193,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "TRPUserRegister"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPUserTrips"]
 - ["s28CustomDebugStringConvertibleP", ""]
-- !private ["s28CustomDebugStringConvertibleP", "async"]
-- !private ["s28CustomDebugStringConvertibleP", "checkUpdateServices"]
 - !private ["s28CustomDebugStringConvertibleP", "citiesServices"]
 - !private ["s28CustomDebugStringConvertibleP", "completionHandler"]
 - !private ["s28CustomDebugStringConvertibleP", "completionHandlerWithPagination"]
@@ -260,10 +200,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "dailyPlanServices"]
 - !private ["s28CustomDebugStringConvertibleP", "deleteTripServices"]
 - !private ["s28CustomDebugStringConvertibleP", "first"]
-- !private ["s28CustomDebugStringConvertibleP", "gRoutesResultServices"]
-- !private ["s28CustomDebugStringConvertibleP", "gRoutesResultServicesLooper"]
 - !private ["s28CustomDebugStringConvertibleP", "getTripServices"]
-- !private ["s28CustomDebugStringConvertibleP", "global"]
 - !private ["s28CustomDebugStringConvertibleP", "googlePlaceAutoCompleteService"]
 - !private ["s28CustomDebugStringConvertibleP", "googlePlaceServices"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
@@ -275,15 +212,11 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "poiServices"]
 - !private ["s28CustomDebugStringConvertibleP", "postData"]
 - !private ["s28CustomDebugStringConvertibleP", "postError"]
-- !private ["s28CustomDebugStringConvertibleP", "print"]
 - !private ["s28CustomDebugStringConvertibleP", "problemCategoriesService"]
 - !private ["s28CustomDebugStringConvertibleP", "questionServices"]
-- !private ["s28CustomDebugStringConvertibleP", "recoomendationServices"]
+- !private ["s28CustomDebugStringConvertibleP", "recommendationServices"]
 - !private ["s28CustomDebugStringConvertibleP", "reportaProblemService"]
-- !private ["s28CustomDebugStringConvertibleP", "routesResultServices"]
-- !private ["s28CustomDebugStringConvertibleP", "routesResultServicesLooper"]
 - !private ["s28CustomDebugStringConvertibleP", "sleep"]
-- !private ["s28CustomDebugStringConvertibleP", "tagsServicesServices"]
 - !private ["s28CustomDebugStringConvertibleP", "userFavoriteServices"]
 - !private ["s28CustomDebugStringConvertibleP", "userInfoServices"]
 - !private ["s28CustomDebugStringConvertibleP", "userRegisterServices"]
@@ -291,20 +224,10 @@ depends-member:
 - !private ["10Foundation13CustomNSErrorP", "emptyDataOrParserError"]
 - !private ["10Foundation13CustomNSErrorP", "objectIsNil"]
 - !private ["10Foundation13CustomNSErrorP", "wrongData"]
-- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
-- !private ["s29CustomPlaygroundQuickLookableP", "init"]
-- !private ["s29CustomPlaygroundQuickLookableP", "init"]
-- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
 - !private ["s17CustomReflectableP", "first"]
-- !private ["s17CustomReflectableP", "init"]
-- !private ["s17CustomReflectableP", "init"]
-- !private ["s23CustomStringConvertibleP", "DispatchQueue"]
-- !private ["s23CustomStringConvertibleP", "Environment"]
 - !private ["s23CustomStringConvertibleP", "Pagination"]
-- !private ["s23CustomStringConvertibleP", "PlistKey"]
 - !private ["s23CustomStringConvertibleP", "PoiCategories"]
 - !private ["s23CustomStringConvertibleP", "TPRTripQuestionType"]
-- !private ["s23CustomStringConvertibleP", "TRPCheckDataUpdates"]
 - !private ["s23CustomStringConvertibleP", "TRPCities"]
 - !private ["s23CustomStringConvertibleP", "TRPDailyPlanServices"]
 - !private ["s23CustomStringConvertibleP", "TRPDeleteProgram"]
@@ -312,7 +235,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "TRPGetProgram"]
 - !private ["s23CustomStringConvertibleP", "TRPGoogleAutoComplete"]
 - !private ["s23CustomStringConvertibleP", "TRPGooglePlaceService"]
-- !private ["s23CustomStringConvertibleP", "TRPGrouteResult"]
 - !private ["s23CustomStringConvertibleP", "TRPLogin"]
 - !private ["s23CustomStringConvertibleP", "TRPPlace"]
 - !private ["s23CustomStringConvertibleP", "TRPPlanPointAlternatives"]
@@ -321,8 +243,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "TRPProgram"]
 - !private ["s23CustomStringConvertibleP", "TRPRecommendation"]
 - !private ["s23CustomStringConvertibleP", "TRPReportAProblemServices"]
-- !private ["s23CustomStringConvertibleP", "TRPRoutesResult"]
-- !private ["s23CustomStringConvertibleP", "TRPTags"]
 - !private ["s23CustomStringConvertibleP", "TRPTripQuestion"]
 - !private ["s23CustomStringConvertibleP", "TRPUserFavorite"]
 - !private ["s23CustomStringConvertibleP", "TRPUserInfoServices"]
@@ -330,9 +250,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "TRPUserRegister"]
 - !private ["s23CustomStringConvertibleP", "TRPUserTrips"]
 - ["s23CustomStringConvertibleP", ""]
-- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
-- !private ["s23CustomStringConvertibleP", "async"]
-- !private ["s23CustomStringConvertibleP", "checkUpdateServices"]
 - !private ["s23CustomStringConvertibleP", "citiesServices"]
 - !private ["s23CustomStringConvertibleP", "completionHandler"]
 - !private ["s23CustomStringConvertibleP", "completionHandlerWithPagination"]
@@ -340,10 +257,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "dailyPlanServices"]
 - !private ["s23CustomStringConvertibleP", "deleteTripServices"]
 - !private ["s23CustomStringConvertibleP", "first"]
-- !private ["s23CustomStringConvertibleP", "gRoutesResultServices"]
-- !private ["s23CustomStringConvertibleP", "gRoutesResultServicesLooper"]
 - !private ["s23CustomStringConvertibleP", "getTripServices"]
-- !private ["s23CustomStringConvertibleP", "global"]
 - !private ["s23CustomStringConvertibleP", "googlePlaceAutoCompleteService"]
 - !private ["s23CustomStringConvertibleP", "googlePlaceServices"]
 - !private ["s23CustomStringConvertibleP", "init"]
@@ -355,46 +269,24 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "poiServices"]
 - !private ["s23CustomStringConvertibleP", "postData"]
 - !private ["s23CustomStringConvertibleP", "postError"]
-- !private ["s23CustomStringConvertibleP", "print"]
 - !private ["s23CustomStringConvertibleP", "problemCategoriesService"]
 - !private ["s23CustomStringConvertibleP", "questionServices"]
-- !private ["s23CustomStringConvertibleP", "recoomendationServices"]
+- !private ["s23CustomStringConvertibleP", "recommendationServices"]
 - !private ["s23CustomStringConvertibleP", "reportaProblemService"]
-- !private ["s23CustomStringConvertibleP", "routesResultServices"]
-- !private ["s23CustomStringConvertibleP", "routesResultServicesLooper"]
 - !private ["s23CustomStringConvertibleP", "sleep"]
-- !private ["s23CustomStringConvertibleP", "tagsServicesServices"]
 - !private ["s23CustomStringConvertibleP", "userFavoriteServices"]
 - !private ["s23CustomStringConvertibleP", "userInfoServices"]
 - !private ["s23CustomStringConvertibleP", "userRegisterServices"]
 - !private ["s23CustomStringConvertibleP", "userTripsServices"]
-- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["10Foundation12DataProtocolP", "first"]
 - !private ["Se", "accessToken"]
 - !private ["Se", "data"]
 - !private ["Se", "datas"]
 - !private ["Se", "first"]
-- !private ["Se", "init"]
-- !private ["Se", "init"]
-- !private ["Se", "wait"]
-- !private ["Se", "waitResult"]
-- !private ["So18OS_dispatch_objectC", "async"]
-- !private ["So18OS_dispatch_objectC", "global"]
-- !private ["So17OS_dispatch_queueC", "async"]
-- !private ["So17OS_dispatch_queueC", "global"]
-- !private ["SE", "_getBuiltinLogicValue"]
 - !private ["SE", "first"]
-- !private ["SE", "init"]
-- !private ["SE", "init"]
-- !private ["10TRPRestKit11EnvironmentC", "configuration"]
-- !private ["10TRPRestKit11EnvironmentC", "init"]
-- !private ["SQ", "ConfigName"]
-- !private ["SQ", "DispatchQueue"]
-- !private ["SQ", "Environment"]
 - !private ["SQ", "Pagination"]
-- !private ["SQ", "PlistKey"]
 - !private ["SQ", "PoiCategories"]
 - !private ["SQ", "TPRTripQuestionType"]
-- !private ["SQ", "TRPCheckDataUpdates"]
 - !private ["SQ", "TRPCities"]
 - !private ["SQ", "TRPDailyPlanServices"]
 - !private ["SQ", "TRPDeleteProgram"]
@@ -402,7 +294,6 @@ depends-member:
 - !private ["SQ", "TRPGetProgram"]
 - !private ["SQ", "TRPGoogleAutoComplete"]
 - !private ["SQ", "TRPGooglePlaceService"]
-- !private ["SQ", "TRPGrouteResult"]
 - !private ["SQ", "TRPLogin"]
 - !private ["SQ", "TRPPlace"]
 - !private ["SQ", "TRPPlanPointAlternatives"]
@@ -411,8 +302,6 @@ depends-member:
 - !private ["SQ", "TRPProgram"]
 - !private ["SQ", "TRPRecommendation"]
 - !private ["SQ", "TRPReportAProblemServices"]
-- !private ["SQ", "TRPRoutesResult"]
-- !private ["SQ", "TRPTags"]
 - !private ["SQ", "TRPTripQuestion"]
 - !private ["SQ", "TRPUserFavorite"]
 - !private ["SQ", "TRPUserInfoServices"]
@@ -420,10 +309,7 @@ depends-member:
 - !private ["SQ", "TRPUserRegister"]
 - !private ["SQ", "TRPUserTrips"]
 - ["SQ", ""]
-- !private ["SQ", "_getBuiltinLogicValue"]
 - !private ["SQ", "add"]
-- !private ["SQ", "async"]
-- !private ["SQ", "checkUpdateServices"]
 - !private ["SQ", "citiesServices"]
 - !private ["SQ", "completed"]
 - !private ["SQ", "completionHandler"]
@@ -433,12 +319,9 @@ depends-member:
 - !private ["SQ", "delete"]
 - !private ["SQ", "deleteTripServices"]
 - !private ["SQ", "first"]
-- !private ["SQ", "gRoutesResultServices"]
-- !private ["SQ", "gRoutesResultServicesLooper"]
 - !private ["SQ", "get"]
 - !private ["SQ", "getInfo"]
 - !private ["SQ", "getTripServices"]
-- !private ["SQ", "global"]
 - !private ["SQ", "googlePlaceAutoCompleteService"]
 - !private ["SQ", "googlePlaceServices"]
 - !private ["SQ", "init"]
@@ -450,15 +333,11 @@ depends-member:
 - !private ["SQ", "poiServices"]
 - !private ["SQ", "postData"]
 - !private ["SQ", "postError"]
-- !private ["SQ", "print"]
 - !private ["SQ", "problemCategoriesService"]
 - !private ["SQ", "questionServices"]
-- !private ["SQ", "recoomendationServices"]
+- !private ["SQ", "recommendationServices"]
 - !private ["SQ", "reportaProblemService"]
-- !private ["SQ", "routesResultServices"]
-- !private ["SQ", "routesResultServicesLooper"]
 - !private ["SQ", "sleep"]
-- !private ["SQ", "tagsServicesServices"]
 - !private ["SQ", "trip"]
 - !private ["SQ", "update"]
 - !private ["SQ", "updateAnswer"]
@@ -471,21 +350,9 @@ depends-member:
 - !private ["s5ErrorP", "objectIsNil"]
 - !private ["s5ErrorP", "wrongData"]
 - !private ["s25ExpressibleByArrayLiteralP", "first"]
-- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
-- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
-- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
-- !private ["s26ExpressibleByStringLiteralP", "init"]
-- !private ["s26ExpressibleByStringLiteralP", "init"]
-- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- !private ["SH", "ConfigName"]
-- !private ["SH", "DispatchQueue"]
-- !private ["SH", "Environment"]
 - !private ["SH", "Pagination"]
-- !private ["SH", "PlistKey"]
 - !private ["SH", "PoiCategories"]
 - !private ["SH", "TPRTripQuestionType"]
-- !private ["SH", "TRPCheckDataUpdates"]
 - !private ["SH", "TRPCities"]
 - !private ["SH", "TRPDailyPlanServices"]
 - !private ["SH", "TRPDeleteProgram"]
@@ -493,7 +360,6 @@ depends-member:
 - !private ["SH", "TRPGetProgram"]
 - !private ["SH", "TRPGoogleAutoComplete"]
 - !private ["SH", "TRPGooglePlaceService"]
-- !private ["SH", "TRPGrouteResult"]
 - !private ["SH", "TRPLogin"]
 - !private ["SH", "TRPPlace"]
 - !private ["SH", "TRPPlanPointAlternatives"]
@@ -502,8 +368,6 @@ depends-member:
 - !private ["SH", "TRPProgram"]
 - !private ["SH", "TRPRecommendation"]
 - !private ["SH", "TRPReportAProblemServices"]
-- !private ["SH", "TRPRoutesResult"]
-- !private ["SH", "TRPTags"]
 - !private ["SH", "TRPTripQuestion"]
 - !private ["SH", "TRPUserFavorite"]
 - !private ["SH", "TRPUserInfoServices"]
@@ -511,10 +375,7 @@ depends-member:
 - !private ["SH", "TRPUserRegister"]
 - !private ["SH", "TRPUserTrips"]
 - ["SH", ""]
-- !private ["SH", "_getBuiltinLogicValue"]
 - !private ["SH", "add"]
-- !private ["SH", "async"]
-- !private ["SH", "checkUpdateServices"]
 - !private ["SH", "citiesServices"]
 - !private ["SH", "completionHandler"]
 - !private ["SH", "completionHandlerWithPagination"]
@@ -523,12 +384,9 @@ depends-member:
 - !private ["SH", "delete"]
 - !private ["SH", "deleteTripServices"]
 - !private ["SH", "first"]
-- !private ["SH", "gRoutesResultServices"]
-- !private ["SH", "gRoutesResultServicesLooper"]
 - !private ["SH", "get"]
 - !private ["SH", "getInfo"]
 - !private ["SH", "getTripServices"]
-- !private ["SH", "global"]
 - !private ["SH", "googlePlaceAutoCompleteService"]
 - !private ["SH", "googlePlaceServices"]
 - !private ["SH", "init"]
@@ -540,15 +398,11 @@ depends-member:
 - !private ["SH", "poiServices"]
 - !private ["SH", "postData"]
 - !private ["SH", "postError"]
-- !private ["SH", "print"]
 - !private ["SH", "problemCategoriesService"]
 - !private ["SH", "questionServices"]
-- !private ["SH", "recoomendationServices"]
+- !private ["SH", "recommendationServices"]
 - !private ["SH", "reportaProblemService"]
-- !private ["SH", "routesResultServices"]
-- !private ["SH", "routesResultServicesLooper"]
 - !private ["SH", "sleep"]
-- !private ["SH", "tagsServicesServices"]
 - !private ["SH", "trip"]
 - !private ["SH", "update"]
 - !private ["SH", "updateAnswer"]
@@ -560,31 +414,22 @@ depends-member:
 - !private ["10Foundation14LocalizedErrorP", "emptyDataOrParserError"]
 - !private ["10Foundation14LocalizedErrorP", "objectIsNil"]
 - !private ["10Foundation14LocalizedErrorP", "wrongData"]
-- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
-- !private ["s25LosslessStringConvertibleP", "init"]
-- !private ["s25LosslessStringConvertibleP", "init"]
-- !private ["s10MirrorPathP", "init"]
-- !private ["s10MirrorPathP", "init"]
 - !private ["10TRPRestKit15TRPUserFavoriteC4ModeO", "add"]
 - !private ["10TRPRestKit15TRPUserFavoriteC4ModeO", "deinit"]
 - !private ["10TRPRestKit15TRPUserFavoriteC4ModeO", "delete"]
 - !private ["10TRPRestKit15TRPUserFavoriteC4ModeO", "get"]
 - !private ["SM", "first"]
+- !private ["10Foundation19MutableDataProtocolP", "first"]
 - ["So8NSObjectC", "Bool"]
 - ["So8NSObjectC", "CompletionHandler"]
 - ["So8NSObjectC", "CompletionHandlerWithPagination"]
-- !private ["So8NSObjectC", "DispatchQueue"]
 - ["So8NSObjectC", "Double"]
-- !private ["So8NSObjectC", "Environment"]
 - ["So8NSObjectC", "Int"]
 - ["So8NSObjectC", "NSError"]
 - ["So8NSObjectC", "Pagination"]
-- !private ["So8NSObjectC", "PlistKey"]
 - !private ["So8NSObjectC", "PoiCategories"]
 - ["So8NSObjectC", "String"]
 - ["So8NSObjectC", "TPRTripQuestionType"]
-- !private ["So8NSObjectC", "TRPCheckDataUpdates"]
-- !private ["So8NSObjectC", "TRPCheckUpdateJsonModel"]
 - !private ["So8NSObjectC", "TRPCities"]
 - !private ["So8NSObjectC", "TRPCityJsonModel"]
 - !private ["So8NSObjectC", "TRPDailyPlanServices"]
@@ -592,23 +437,21 @@ depends-member:
 - !private ["So8NSObjectC", "TRPDeleteProgram"]
 - !private ["So8NSObjectC", "TRPErrors"]
 - !private ["So8NSObjectC", "TRPFavoritesJsonModel"]
-- !private ["So8NSObjectC", "TRPGRoutesResultJsonModel"]
 - !private ["So8NSObjectC", "TRPGetProgram"]
 - !private ["So8NSObjectC", "TRPGoogleAutoComplete"]
 - !private ["So8NSObjectC", "TRPGooglePlace"]
 - !private ["So8NSObjectC", "TRPGooglePlaceLocation"]
 - !private ["So8NSObjectC", "TRPGooglePlaceService"]
-- !private ["So8NSObjectC", "TRPGrouteResult"]
 - ["So8NSObjectC", "TRPLocation"]
 - !private ["So8NSObjectC", "TRPLogin"]
 - !private ["So8NSObjectC", "TRPLoginJsonModel"]
 - !private ["So8NSObjectC", "TRPParentJsonModel"]
 - !private ["So8NSObjectC", "TRPPlace"]
-- !private ["So8NSObjectC", "TRPPlaceTypeJsonModel"]
 - !private ["So8NSObjectC", "TRPPlanPointAlternativeJsonModel"]
 - !private ["So8NSObjectC", "TRPPlanPointAlternatives"]
 - ["So8NSObjectC", "TRPPlanPoints"]
 - !private ["So8NSObjectC", "TRPPoiAddRouteJsonModel"]
+- !private ["So8NSObjectC", "TRPPoiCategories"]
 - !private ["So8NSObjectC", "TRPPoiJsonModel"]
 - !private ["So8NSObjectC", "TRPProblemCategories"]
 - !private ["So8NSObjectC", "TRPProblemCategoriesJsonModel"]
@@ -619,10 +462,6 @@ depends-member:
 - ["So8NSObjectC", "TRPRecommendationSettings"]
 - !private ["So8NSObjectC", "TRPReportAProblemJsonModel"]
 - !private ["So8NSObjectC", "TRPReportAProblemServices"]
-- !private ["So8NSObjectC", "TRPRoutesResult"]
-- !private ["So8NSObjectC", "TRPRoutesResultJsonModel"]
-- !private ["So8NSObjectC", "TRPTags"]
-- !private ["So8NSObjectC", "TRPTagsJsonModel"]
 - !private ["So8NSObjectC", "TRPTripJsonModel"]
 - !private ["So8NSObjectC", "TRPTripQuestion"]
 - !private ["So8NSObjectC", "TRPTripQuestionJsonModel"]
@@ -638,9 +477,6 @@ depends-member:
 - ["So8NSObjectC", ""]
 - ["So8NSObjectC", "addPlanPoints"]
 - ["So8NSObjectC", "addUserFavorite"]
-- !private ["So8NSObjectC", "async"]
-- ["So8NSObjectC", "checkUpdate"]
-- ["So8NSObjectC", "checkUpdateServices"]
 - ["So8NSObjectC", "cities"]
 - ["So8NSObjectC", "citiesServices"]
 - ["So8NSObjectC", "city"]
@@ -654,22 +490,19 @@ depends-member:
 - ["So8NSObjectC", "deleteTrip"]
 - ["So8NSObjectC", "deleteTripServices"]
 - ["So8NSObjectC", "deleteUserFavorite"]
-- ["So8NSObjectC", "gRoutesResult"]
-- ["So8NSObjectC", "gRoutesResultServices"]
-- ["So8NSObjectC", "gRoutesResultServicesLooper"]
+- ["So8NSObjectC", "deneme"]
 - ["So8NSObjectC", "getTrip"]
 - ["So8NSObjectC", "getTripServices"]
 - ["So8NSObjectC", "getUserFavorite"]
-- !private ["So8NSObjectC", "global"]
 - ["So8NSObjectC", "googleAutoComplete"]
 - ["So8NSObjectC", "googlePlace"]
 - ["So8NSObjectC", "googlePlaceAutoCompleteService"]
 - ["So8NSObjectC", "googlePlaceServices"]
 - ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "init"]
 - ["So8NSObjectC", "login"]
 - ["So8NSObjectC", "loginServices"]
 - ["So8NSObjectC", "logout"]
-- ["So8NSObjectC", "pListTest"]
 - ["So8NSObjectC", "planPoiAlternatives"]
 - ["So8NSObjectC", "planPointAlternative"]
 - ["So8NSObjectC", "planPointsServices"]
@@ -679,39 +512,28 @@ depends-member:
 - ["So8NSObjectC", "poiServices"]
 - ["So8NSObjectC", "postData"]
 - ["So8NSObjectC", "postError"]
-- !private ["So8NSObjectC", "print"]
 - ["So8NSObjectC", "problemCategories"]
 - ["So8NSObjectC", "problemCategoriesService"]
 - ["So8NSObjectC", "questionServices"]
+- ["So8NSObjectC", "quickRecommendation"]
 - ["So8NSObjectC", "reOrderPlanPoiFrom"]
-- ["So8NSObjectC", "recommendation"]
-- ["So8NSObjectC", "recoomendationServices"]
+- ["So8NSObjectC", "recommendationServices"]
 - ["So8NSObjectC", "register"]
 - ["So8NSObjectC", "replacePlanPoiFrom"]
 - ["So8NSObjectC", "reportaProblem"]
 - ["So8NSObjectC", "reportaProblemService"]
-- ["So8NSObjectC", "routesResult"]
-- ["So8NSObjectC", "routesResultServices"]
-- ["So8NSObjectC", "routesResultServicesLooper"]
 - !private ["So8NSObjectC", "sleep"]
-- ["So8NSObjectC", "tagsServices"]
-- ["So8NSObjectC", "tagsServicesServices"]
 - ["So8NSObjectC", "tripQuestions"]
 - ["So8NSObjectC", "updateUserAnswer"]
-- ["So8NSObjectC", "updateUserInfo"]
 - ["So8NSObjectC", "userFavoriteServices"]
 - ["So8NSObjectC", "userInfo"]
 - ["So8NSObjectC", "userInfoServices"]
 - ["So8NSObjectC", "userRegisterServices"]
 - ["So8NSObjectC", "userTrips"]
 - ["So8NSObjectC", "userTripsServices"]
-- !private ["So8NSObjectP", "DispatchQueue"]
-- !private ["So8NSObjectP", "Environment"]
 - !private ["So8NSObjectP", "Pagination"]
-- !private ["So8NSObjectP", "PlistKey"]
 - !private ["So8NSObjectP", "PoiCategories"]
 - !private ["So8NSObjectP", "TPRTripQuestionType"]
-- !private ["So8NSObjectP", "TRPCheckDataUpdates"]
 - !private ["So8NSObjectP", "TRPCities"]
 - !private ["So8NSObjectP", "TRPDailyPlanServices"]
 - !private ["So8NSObjectP", "TRPDeleteProgram"]
@@ -719,7 +541,6 @@ depends-member:
 - !private ["So8NSObjectP", "TRPGetProgram"]
 - !private ["So8NSObjectP", "TRPGoogleAutoComplete"]
 - !private ["So8NSObjectP", "TRPGooglePlaceService"]
-- !private ["So8NSObjectP", "TRPGrouteResult"]
 - !private ["So8NSObjectP", "TRPLogin"]
 - !private ["So8NSObjectP", "TRPPlace"]
 - !private ["So8NSObjectP", "TRPPlanPointAlternatives"]
@@ -728,8 +549,6 @@ depends-member:
 - !private ["So8NSObjectP", "TRPProgram"]
 - !private ["So8NSObjectP", "TRPRecommendation"]
 - !private ["So8NSObjectP", "TRPReportAProblemServices"]
-- !private ["So8NSObjectP", "TRPRoutesResult"]
-- !private ["So8NSObjectP", "TRPTags"]
 - !private ["So8NSObjectP", "TRPTripQuestion"]
 - !private ["So8NSObjectP", "TRPUserFavorite"]
 - !private ["So8NSObjectP", "TRPUserInfoServices"]
@@ -737,20 +556,16 @@ depends-member:
 - !private ["So8NSObjectP", "TRPUserRegister"]
 - !private ["So8NSObjectP", "TRPUserTrips"]
 - ["So8NSObjectP", ""]
-- !private ["So8NSObjectP", "async"]
-- !private ["So8NSObjectP", "checkUpdateServices"]
 - !private ["So8NSObjectP", "citiesServices"]
 - !private ["So8NSObjectP", "completionHandler"]
 - !private ["So8NSObjectP", "completionHandlerWithPagination"]
 - !private ["So8NSObjectP", "createTripServices"]
 - !private ["So8NSObjectP", "dailyPlanServices"]
 - !private ["So8NSObjectP", "deleteTripServices"]
-- !private ["So8NSObjectP", "gRoutesResultServices"]
-- !private ["So8NSObjectP", "gRoutesResultServicesLooper"]
 - !private ["So8NSObjectP", "getTripServices"]
-- !private ["So8NSObjectP", "global"]
 - !private ["So8NSObjectP", "googlePlaceAutoCompleteService"]
 - !private ["So8NSObjectP", "googlePlaceServices"]
+- !private ["So8NSObjectP", "init"]
 - !private ["So8NSObjectP", "init"]
 - !private ["So8NSObjectP", "loginServices"]
 - !private ["So8NSObjectP", "planPointAlternative"]
@@ -759,34 +574,23 @@ depends-member:
 - !private ["So8NSObjectP", "poiServices"]
 - !private ["So8NSObjectP", "postData"]
 - !private ["So8NSObjectP", "postError"]
-- !private ["So8NSObjectP", "print"]
 - !private ["So8NSObjectP", "problemCategoriesService"]
 - !private ["So8NSObjectP", "questionServices"]
-- !private ["So8NSObjectP", "recoomendationServices"]
+- !private ["So8NSObjectP", "recommendationServices"]
 - !private ["So8NSObjectP", "reportaProblemService"]
-- !private ["So8NSObjectP", "routesResultServices"]
-- !private ["So8NSObjectP", "routesResultServicesLooper"]
 - !private ["So8NSObjectP", "sleep"]
-- !private ["So8NSObjectP", "tagsServicesServices"]
 - !private ["So8NSObjectP", "userFavoriteServices"]
 - !private ["So8NSObjectP", "userInfoServices"]
 - !private ["So8NSObjectP", "userRegisterServices"]
 - !private ["So8NSObjectP", "userTripsServices"]
-- !private ["So9OS_objectC", "async"]
-- !private ["So9OS_objectC", "global"]
 - !private ["10TRPRestKit10PaginationO", "completed"]
-- !private ["10TRPRestKit8PlistKeyO", "ConfigName"]
 - !private ["10TRPRestKit13PoiCategoriesC", "Completion"]
 - !private ["10TRPRestKit13PoiCategoriesC", "connection"]
 - !private ["10TRPRestKit13PoiCategoriesC", "init"]
 - !private ["Sk", "first"]
 - !private ["Sm", "first"]
-- !private ["Sm", "init"]
-- !private ["Sm", "init"]
 - !private ["SY", "trip"]
 - !private ["ST", "first"]
-- !private ["ST", "init"]
-- !private ["ST", "init"]
 - !private ["10TRPRestKit19TRPUserInfoServicesC11ServiceTypeO", "deinit"]
 - !private ["10TRPRestKit19TRPUserInfoServicesC11ServiceTypeO", "getInfo"]
 - !private ["10TRPRestKit19TRPUserInfoServicesC11ServiceTypeO", "updateAnswer"]
@@ -795,16 +599,7 @@ depends-member:
 - !private ["10TRPRestKit13TRPPlanPointsC6StatusO", "deinit"]
 - !private ["10TRPRestKit13TRPPlanPointsC6StatusO", "delete"]
 - !private ["10TRPRestKit13TRPPlanPointsC6StatusO", "update"]
-- !private ["SS", "init"]
-- !private ["SS", "init"]
-- !private ["Sy", "init"]
-- !private ["Sy", "init"]
 - !private ["10TRPRestKit19TPRTripQuestionTypeO", "trip"]
-- !private ["10TRPRestKit19TRPCheckDataUpdatesC", "Completion"]
-- !private ["10TRPRestKit19TRPCheckDataUpdatesC", "connection"]
-- !private ["10TRPRestKit19TRPCheckDataUpdatesC", "init"]
-- !private ["10TRPRestKit19TRPCheckDataUpdatesC", "placeUpdate"]
-- !private ["10TRPRestKit19TRPCheckDataUpdatesC", "tagUpdate"]
 - !private ["10TRPRestKit9TRPCitiesC", "Completion"]
 - !private ["10TRPRestKit9TRPCitiesC", "connection"]
 - !private ["10TRPRestKit9TRPCitiesC", "init"]
@@ -821,7 +616,6 @@ depends-member:
 - !private ["10TRPRestKit9TRPErrorsO", "objectIsNil"]
 - !private ["10TRPRestKit9TRPErrorsO", "wrongData"]
 - !private ["10TRPRestKit21TRPFavoritesJsonModelC", "data"]
-- !private ["10TRPRestKit25TRPGRoutesResultJsonModelC", "waitResult"]
 - !private ["10TRPRestKit13TRPGetProgramC", "Completion"]
 - !private ["10TRPRestKit13TRPGetProgramC", "connection"]
 - !private ["10TRPRestKit13TRPGetProgramC", "init"]
@@ -831,10 +625,6 @@ depends-member:
 - !private ["10TRPRestKit21TRPGoogleAutoCompleteC", "start"]
 - !private ["10TRPRestKit21TRPGooglePlaceServiceC", "init"]
 - !private ["10TRPRestKit21TRPGooglePlaceServiceC", "start"]
-- !private ["10TRPRestKit15TRPGrouteResultC", "Completion"]
-- !private ["10TRPRestKit15TRPGrouteResultC", "connection"]
-- !private ["10TRPRestKit15TRPGrouteResultC", "init"]
-- !private ["10TRPRestKit22TRPGrouteWaitInfoModelC", "wait"]
 - !private ["10TRPRestKit8TRPLoginC", "Completion"]
 - !private ["10TRPRestKit8TRPLoginC", "connection"]
 - !private ["10TRPRestKit8TRPLoginC", "init"]
@@ -842,7 +632,6 @@ depends-member:
 - !private ["10TRPRestKit17TRPLoginJsonModelC", "data"]
 - !private ["10TRPRestKit18TRPParentJsonModelC", "data"]
 - !private ["10TRPRestKit18TRPParentJsonModelC", "datas"]
-- !private ["10TRPRestKit18TRPParentJsonModelC", "waitResult"]
 - !private ["10TRPRestKit8TRPPlaceC", "Completion"]
 - !private ["10TRPRestKit8TRPPlaceC", "cityId"]
 - !private ["10TRPRestKit8TRPPlaceC", "connection"]
@@ -851,7 +640,6 @@ depends-member:
 - !private ["10TRPRestKit8TRPPlaceC", "limit"]
 - !private ["10TRPRestKit8TRPPlaceC", "typeId"]
 - !private ["10TRPRestKit8TRPPlaceC", "typeIds"]
-- !private ["10TRPRestKit21TRPPlaceTypeJsonModelC", "data"]
 - !private ["10TRPRestKit32TRPPlanPointAlternativeJsonModelC", "data"]
 - !private ["10TRPRestKit24TRPPlanPointAlternativesC", "Completion"]
 - !private ["10TRPRestKit24TRPPlanPointAlternativesC", "connection"]
@@ -861,6 +649,7 @@ depends-member:
 - !private ["10TRPRestKit13TRPPlanPointsC", "connection"]
 - !private ["10TRPRestKit13TRPPlanPointsC", "init"]
 - !private ["10TRPRestKit23TRPPoiAddRouteJsonModelC", "data"]
+- !private ["10TRPRestKit16TRPPoiCategoriesC", "data"]
 - !private ["10TRPRestKit15TRPPoiJsonModelC", "data"]
 - !private ["10TRPRestKit20TRPProblemCategoriesC", "Completion"]
 - !private ["10TRPRestKit20TRPProblemCategoriesC", "connection"]
@@ -882,18 +671,13 @@ depends-member:
 - ["10TRPRestKitAAC", "Bool"]
 - ["10TRPRestKitAAC", "CompletionHandler"]
 - ["10TRPRestKitAAC", "CompletionHandlerWithPagination"]
-- !private ["10TRPRestKitAAC", "DispatchQueue"]
 - ["10TRPRestKitAAC", "Double"]
-- !private ["10TRPRestKitAAC", "Environment"]
 - ["10TRPRestKitAAC", "Int"]
 - ["10TRPRestKitAAC", "NSError"]
 - ["10TRPRestKitAAC", "Pagination"]
-- !private ["10TRPRestKitAAC", "PlistKey"]
 - !private ["10TRPRestKitAAC", "PoiCategories"]
 - ["10TRPRestKitAAC", "String"]
 - ["10TRPRestKitAAC", "TPRTripQuestionType"]
-- !private ["10TRPRestKitAAC", "TRPCheckDataUpdates"]
-- !private ["10TRPRestKitAAC", "TRPCheckUpdateJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPCities"]
 - !private ["10TRPRestKitAAC", "TRPCityJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPDailyPlanServices"]
@@ -901,23 +685,21 @@ depends-member:
 - !private ["10TRPRestKitAAC", "TRPDeleteProgram"]
 - !private ["10TRPRestKitAAC", "TRPErrors"]
 - !private ["10TRPRestKitAAC", "TRPFavoritesJsonModel"]
-- !private ["10TRPRestKitAAC", "TRPGRoutesResultJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPGetProgram"]
 - !private ["10TRPRestKitAAC", "TRPGoogleAutoComplete"]
 - !private ["10TRPRestKitAAC", "TRPGooglePlace"]
 - !private ["10TRPRestKitAAC", "TRPGooglePlaceLocation"]
 - !private ["10TRPRestKitAAC", "TRPGooglePlaceService"]
-- !private ["10TRPRestKitAAC", "TRPGrouteResult"]
 - ["10TRPRestKitAAC", "TRPLocation"]
 - !private ["10TRPRestKitAAC", "TRPLogin"]
 - !private ["10TRPRestKitAAC", "TRPLoginJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPParentJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPPlace"]
-- !private ["10TRPRestKitAAC", "TRPPlaceTypeJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPPlanPointAlternativeJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPPlanPointAlternatives"]
 - ["10TRPRestKitAAC", "TRPPlanPoints"]
 - !private ["10TRPRestKitAAC", "TRPPoiAddRouteJsonModel"]
+- !private ["10TRPRestKitAAC", "TRPPoiCategories"]
 - !private ["10TRPRestKitAAC", "TRPPoiJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPProblemCategories"]
 - !private ["10TRPRestKitAAC", "TRPProblemCategoriesJsonModel"]
@@ -928,10 +710,6 @@ depends-member:
 - ["10TRPRestKitAAC", "TRPRecommendationSettings"]
 - !private ["10TRPRestKitAAC", "TRPReportAProblemJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPReportAProblemServices"]
-- !private ["10TRPRestKitAAC", "TRPRoutesResult"]
-- !private ["10TRPRestKitAAC", "TRPRoutesResultJsonModel"]
-- !private ["10TRPRestKitAAC", "TRPTags"]
-- !private ["10TRPRestKitAAC", "TRPTagsJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPTripJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPTripQuestion"]
 - !private ["10TRPRestKitAAC", "TRPTripQuestionJsonModel"]
@@ -946,24 +724,21 @@ depends-member:
 - ["10TRPRestKitAAC", "Void"]
 - ["10TRPRestKitAAC", "addPlanPoints"]
 - ["10TRPRestKitAAC", "addUserFavorite"]
-- ["10TRPRestKitAAC", "checkUpdate"]
-- !private ["10TRPRestKitAAC", "checkUpdateServices"]
 - ["10TRPRestKitAAC", "cities"]
 - !private ["10TRPRestKitAAC", "citiesServices"]
 - ["10TRPRestKitAAC", "city"]
-- ["10TRPRestKitAAC", "completionHandler"]
-- ["10TRPRestKitAAC", "completionHandlerWithPagination"]
+- !private ["10TRPRestKitAAC", "completionHandler"]
+- !private ["10TRPRestKitAAC", "completionHandlerWithPagination"]
 - ["10TRPRestKitAAC", "createTrip"]
 - !private ["10TRPRestKitAAC", "createTripServices"]
 - ["10TRPRestKitAAC", "dailyPlan"]
 - !private ["10TRPRestKitAAC", "dailyPlanServices"]
+- ["10TRPRestKitAAC", "deinit"]
 - ["10TRPRestKitAAC", "deleteDailyPlanPoi"]
 - ["10TRPRestKitAAC", "deleteTrip"]
 - !private ["10TRPRestKitAAC", "deleteTripServices"]
 - ["10TRPRestKitAAC", "deleteUserFavorite"]
-- ["10TRPRestKitAAC", "gRoutesResult"]
-- !private ["10TRPRestKitAAC", "gRoutesResultServices"]
-- !private ["10TRPRestKitAAC", "gRoutesResultServicesLooper"]
+- ["10TRPRestKitAAC", "deneme"]
 - ["10TRPRestKitAAC", "getTrip"]
 - !private ["10TRPRestKitAAC", "getTripServices"]
 - ["10TRPRestKitAAC", "getUserFavorite"]
@@ -975,7 +750,6 @@ depends-member:
 - ["10TRPRestKitAAC", "login"]
 - !private ["10TRPRestKitAAC", "loginServices"]
 - ["10TRPRestKitAAC", "logout"]
-- ["10TRPRestKitAAC", "pListTest"]
 - ["10TRPRestKitAAC", "planPoiAlternatives"]
 - !private ["10TRPRestKitAAC", "planPointAlternative"]
 - !private ["10TRPRestKitAAC", "planPointsServices"]
@@ -985,26 +759,19 @@ depends-member:
 - !private ["10TRPRestKitAAC", "poiServices"]
 - !private ["10TRPRestKitAAC", "postData"]
 - !private ["10TRPRestKitAAC", "postError"]
-- !private ["10TRPRestKitAAC", "print"]
 - ["10TRPRestKitAAC", "problemCategories"]
 - !private ["10TRPRestKitAAC", "problemCategoriesService"]
 - !private ["10TRPRestKitAAC", "questionServices"]
+- ["10TRPRestKitAAC", "quickRecommendation"]
 - ["10TRPRestKitAAC", "reOrderPlanPoiFrom"]
-- ["10TRPRestKitAAC", "recommendation"]
-- !private ["10TRPRestKitAAC", "recoomendationServices"]
+- !private ["10TRPRestKitAAC", "recommendationServices"]
 - ["10TRPRestKitAAC", "register"]
 - ["10TRPRestKitAAC", "replacePlanPoiFrom"]
 - ["10TRPRestKitAAC", "reportaProblem"]
 - !private ["10TRPRestKitAAC", "reportaProblemService"]
-- ["10TRPRestKitAAC", "routesResult"]
-- !private ["10TRPRestKitAAC", "routesResultServices"]
-- !private ["10TRPRestKitAAC", "routesResultServicesLooper"]
 - !private ["10TRPRestKitAAC", "sleep"]
-- ["10TRPRestKitAAC", "tagsServices"]
-- !private ["10TRPRestKitAAC", "tagsServicesServices"]
 - ["10TRPRestKitAAC", "tripQuestions"]
 - ["10TRPRestKitAAC", "updateUserAnswer"]
-- ["10TRPRestKitAAC", "updateUserInfo"]
 - !private ["10TRPRestKitAAC", "userFavoriteServices"]
 - ["10TRPRestKitAAC", "userInfo"]
 - !private ["10TRPRestKitAAC", "userInfoServices"]
@@ -1020,19 +787,9 @@ depends-member:
 - !private ["10TRPRestKit0A8ServicesC", "init"]
 - !private ["10TRPRestKit0A8ServicesC", "isAutoPagination"]
 - !private ["10TRPRestKit0A8ServicesC", "limit"]
-- !private ["10TRPRestKit0A8ServicesC", "placeUpdate"]
-- !private ["10TRPRestKit0A8ServicesC", "tagUpdate"]
 - !private ["10TRPRestKit0A8ServicesC", "tripType"]
 - !private ["10TRPRestKit0A8ServicesC", "typeId"]
 - !private ["10TRPRestKit0A8ServicesC", "typeIds"]
-- !private ["10TRPRestKit15TRPRoutesResultC", "Completion"]
-- !private ["10TRPRestKit15TRPRoutesResultC", "connection"]
-- !private ["10TRPRestKit15TRPRoutesResultC", "init"]
-- !private ["10TRPRestKit24TRPRoutesResultJsonModelC", "waitResult"]
-- !private ["10TRPRestKit7TRPTagsC", "Completion"]
-- !private ["10TRPRestKit7TRPTagsC", "connection"]
-- !private ["10TRPRestKit7TRPTagsC", "init"]
-- !private ["10TRPRestKit7TRPTagsC", "limit"]
 - !private ["10TRPRestKit16TRPTripJsonModelC", "data"]
 - !private ["10TRPRestKit15TRPTripQuestionC", "Completion"]
 - !private ["10TRPRestKit15TRPTripQuestionC", "connection"]
@@ -1057,30 +814,13 @@ depends-member:
 - !private ["10TRPRestKit12TRPUserTripsC", "connection"]
 - !private ["10TRPRestKit12TRPUserTripsC", "init"]
 - !private ["10TRPRestKit21TRPUserTripsJsonModelC", "data"]
-- !private ["s16TextOutputStreamP", "init"]
-- !private ["s16TextOutputStreamP", "init"]
-- !private ["s20TextOutputStreamableP", "init"]
-- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s14_ArrayProtocolP", "first"]
 - !private ["s24_DestructorSafeContainerP", "first"]
-- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
-- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
-- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
-- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- !private ["s33_ExpressibleByStringInterpolationP", "init"]
-- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s19_HasContiguousBytesP", "first"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "first"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "DispatchQueue"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "Environment"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Pagination"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "PlistKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "PoiCategories"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TPRTripQuestionType"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPCheckDataUpdates"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPCities"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPDailyPlanServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPDeleteProgram"]
@@ -1088,7 +828,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPGetProgram"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPGoogleAutoComplete"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPGooglePlaceService"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPGrouteResult"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPLogin"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPPlace"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPPlanPointAlternatives"]
@@ -1097,8 +836,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPProgram"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPRecommendation"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPReportAProblemServices"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPRoutesResult"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPTags"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPTripQuestion"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPUserFavorite"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPUserInfoServices"]
@@ -1106,20 +843,16 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPUserRegister"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPUserTrips"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "async"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "checkUpdateServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "citiesServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "completionHandler"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "completionHandlerWithPagination"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "createTripServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "dailyPlanServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "deleteTripServices"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "gRoutesResultServices"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "gRoutesResultServicesLooper"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "getTripServices"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "global"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "googlePlaceAutoCompleteService"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "googlePlaceServices"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "loginServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "planPointAlternative"]
@@ -1128,61 +861,40 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "poiServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "postData"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "postError"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "problemCategoriesService"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "questionServices"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "recoomendationServices"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "recommendationServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "reportaProblemService"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "routesResultServices"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "routesResultServicesLooper"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "sleep"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "tagsServicesServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "userFavoriteServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "userInfoServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "userRegisterServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "userTripsServices"]
-- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - !private ["s21_ObjectiveCBridgeableP", "first"]
-- !private ["s21_ObjectiveCBridgeableP", "init"]
-- !private ["s21_ObjectiveCBridgeableP", "init"]
-- !private ["s16_SwiftStringViewP", "init"]
-- !private ["s16_SwiftStringViewP", "init"]
 depends-nominal:
 - !private "Sa"
-- !private "s13ArrayProtocolP"
 - !private "SK"
-- !private "Sb"
 - "s7CVarArgP"
 - !private "Sl"
-- !private "SL"
+- !private "10Foundation15ContiguousBytesP"
 - "s28CustomDebugStringConvertibleP"
 - !private "10Foundation13CustomNSErrorP"
-- !private "s29CustomPlaygroundQuickLookableP"
 - !private "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
 - !private "Se"
-- !private "So18OS_dispatch_objectC"
-- !private "So17OS_dispatch_queueC"
 - !private "SE"
-- !private "10TRPRestKit11EnvironmentC"
 - "SQ"
 - !private "s5ErrorP"
 - !private "s25ExpressibleByArrayLiteralP"
-- !private "s27ExpressibleByBooleanLiteralP"
-- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
-- !private "s26ExpressibleByStringLiteralP"
-- !private "s33ExpressibleByUnicodeScalarLiteralP"
 - "SH"
 - !private "10Foundation14LocalizedErrorP"
-- !private "s25LosslessStringConvertibleP"
-- !private "s10MirrorPathP"
 - !private "10TRPRestKit15TRPUserFavoriteC4ModeO"
 - !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
 - "So8NSObjectC"
 - "So8NSObjectP"
-- !private "So9OS_objectC"
 - !private "10TRPRestKit10PaginationO"
-- !private "10TRPRestKit8PlistKeyO"
 - !private "10TRPRestKit13PoiCategoriesC"
 - !private "Sk"
 - !private "Sm"
@@ -1190,10 +902,7 @@ depends-nominal:
 - !private "ST"
 - !private "10TRPRestKit19TRPUserInfoServicesC11ServiceTypeO"
 - !private "10TRPRestKit13TRPPlanPointsC6StatusO"
-- !private "SS"
-- !private "Sy"
 - !private "10TRPRestKit19TPRTripQuestionTypeO"
-- !private "10TRPRestKit19TRPCheckDataUpdatesC"
 - !private "10TRPRestKit9TRPCitiesC"
 - !private "10TRPRestKit16TRPCityJsonModelC"
 - !private "10TRPRestKit20TRPDailyPlanServicesC"
@@ -1201,22 +910,19 @@ depends-nominal:
 - !private "10TRPRestKit16TRPDeleteProgramC"
 - !private "10TRPRestKit9TRPErrorsO"
 - !private "10TRPRestKit21TRPFavoritesJsonModelC"
-- !private "10TRPRestKit25TRPGRoutesResultJsonModelC"
 - !private "10TRPRestKit13TRPGetProgramC"
 - !private "10TRPRestKit21TRPGoogleAutoCompleteC"
 - !private "10TRPRestKit21TRPGooglePlaceServiceC"
-- !private "10TRPRestKit15TRPGrouteResultC"
-- !private "10TRPRestKit22TRPGrouteWaitInfoModelC"
 - !private "10TRPRestKit8TRPLoginC"
 - !private "10TRPRestKit17TRPLoginInfoModelV"
 - !private "10TRPRestKit17TRPLoginJsonModelC"
 - !private "10TRPRestKit18TRPParentJsonModelC"
 - !private "10TRPRestKit8TRPPlaceC"
-- !private "10TRPRestKit21TRPPlaceTypeJsonModelC"
 - !private "10TRPRestKit32TRPPlanPointAlternativeJsonModelC"
 - !private "10TRPRestKit24TRPPlanPointAlternativesC"
 - "10TRPRestKit13TRPPlanPointsC"
 - !private "10TRPRestKit23TRPPoiAddRouteJsonModelC"
+- !private "10TRPRestKit16TRPPoiCategoriesC"
 - !private "10TRPRestKit15TRPPoiJsonModelC"
 - !private "10TRPRestKit20TRPProblemCategoriesC"
 - !private "10TRPRestKit29TRPProblemCategoriesJsonModelC"
@@ -1228,9 +934,6 @@ depends-nominal:
 - !private "10TRPRestKit25TRPReportAProblemServicesC"
 - "10TRPRestKitAAC"
 - "10TRPRestKit0A8ServicesC"
-- !private "10TRPRestKit15TRPRoutesResultC"
-- !private "10TRPRestKit24TRPRoutesResultJsonModelC"
-- !private "10TRPRestKit7TRPTagsC"
 - !private "10TRPRestKit16TRPTripJsonModelC"
 - !private "10TRPRestKit15TRPTripQuestionC"
 - !private "10TRPRestKit24TRPTripQuestionJsonModelC"
@@ -1241,23 +944,15 @@ depends-nominal:
 - !private "10TRPRestKit15TRPUserRegisterC"
 - !private "10TRPRestKit12TRPUserTripsC"
 - !private "10TRPRestKit21TRPUserTripsJsonModelC"
-- !private "s16TextOutputStreamP"
-- !private "s20TextOutputStreamableP"
+- !private "s14_ArrayProtocolP"
 - !private "s24_DestructorSafeContainerP"
-- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
-- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
-- !private "s34_ExpressibleByBuiltinStringLiteralP"
-- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
-- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
-- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s19_HasContiguousBytesP"
 - !private "s35_HasCustomAnyHashableRepresentationP"
 - "10Foundation27_KeyValueCodingAndObservingP"
 - !private "s21_ObjectiveCBridgeableP"
-- !private "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
@@ -1270,20 +965,21 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "d300841fa36a03e6118b4069c6247b21"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "6786c07c43436c9d688fc1efba614a14"

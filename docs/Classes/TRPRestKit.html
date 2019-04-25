@@ -14,7 +14,7 @@
     <a title="TRPRestKit Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">TRPRestKit Docs</a> (35% documented)</p>
+        <p><a href="../index.html">TRPRestKit Docs</a> (92% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -30,9 +30,6 @@
           <li class="nav-group-name">
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Classes/Environment.html">Environment</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Classes/TRPCityInfoModel.html">TRPCityInfoModel</a>
               </li>
@@ -52,9 +49,6 @@
                 <a href="../Classes/TRPParentJsonModel.html">TRPParentJsonModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/TRPPoiAddRouteJsonModel.html">TRPPoiAddRouteJsonModel</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/TRPRestKit.html">TRPRestKit</a>
               </li>
               <li class="nav-group-task">
@@ -72,9 +66,6 @@
                 <a href="../Enums/Pagination.html">Pagination</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/PlistKey.html">PlistKey</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Enums/TPRTripQuestionType.html">TPRTripQuestionType</a>
               </li>
               <li class="nav-group-task">
@@ -90,12 +81,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/TRPCategoryInfoModel.html">TRPCategoryInfoModel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/TRPConfig.html">TRPConfig</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/TRPConfig/ApiCall.html">– ApiCall</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/TRPCoordinateModel.html">TRPCoordinateModel</a>
@@ -126,12 +111,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/TRPPlanPointAlternativeInfoModel.html">TRPPlanPointAlternativeInfoModel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/TRPPlanPointInfoModel.html">TRPPlanPointInfoModel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/TRPPoiAddRouteInfoModel.html">TRPPoiAddRouteInfoModel</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/TRPPoiInfoModel.html">TRPPoiInfoModel</a>
@@ -404,7 +383,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Obtain information of a city using user location.
+                        <h1 id='deneme' class='heading'>deneme</h1>
+
+<p>Obtain information of a city using user location.
 The nearest city is found by user location</p>
 
                       </div>
@@ -1436,19 +1417,19 @@ If you want obtain all poi, we suggest that categoryIds is nil.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Recommendation"></a>
-                <a name="//apple_ref/swift/Section/Recommendation" class="dashAnchor"></a>
-                <a href="#/Recommendation">
-                  <h3 class="section-name">Recommendation</h3>
+                <a name="/Quick%20Recommendation"></a>
+                <a name="//apple_ref/swift/Section/Quick Recommendation" class="dashAnchor"></a>
+                <a href="#/Quick%20Recommendation">
+                  <h3 class="section-name">Quick Recommendation</h3>
                 </a>
               </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10TRPRestKitAAC14recommendation8settings14autoPagination10completionyAA25TRPRecommendationSettingsV_SbyypSg_So7NSErrorCSgAA0F0OSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/recommendation(settings:autoPagination:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10TRPRestKitAAC14recommendation8settings14autoPagination10completionyAA25TRPRecommendationSettingsV_SbyypSg_So7NSErrorCSgAA0F0OSgtctF">recommendation(settings:autoPagination:completion:)</a>
+                    <a name="/s:10TRPRestKitAAC19quickRecommendation8settings14autoPagination10completionyAA25TRPRecommendationSettingsV_SbyypSg_So7NSErrorCSgAA0G0OSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/quickRecommendation(settings:autoPagination:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10TRPRestKitAAC19quickRecommendation8settings14autoPagination10completionyAA25TRPRecommendationSettingsV_SbyypSg_So7NSErrorCSgAA0G0OSgtctF">quickRecommendation(settings:autoPagination:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1456,19 +1437,15 @@ If you want obtain all poi, we suggest that categoryIds is nil.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Fetch recommendation with settings</p>
-<div class="aside aside-important">
-    <p class="aside-title">Important</p>
-    CallBack class is [TRPRecommendationInfoJsonModel]
-
-</div>
+                        <p>Returns list of pois ids generated using TRPRecommendationSettings by Recommendation Engine.
+You can use <code>TRPRecommendationSettings(cityId:)</code>in <code>Localy Mode</code> but we suggest that uses <code>TRPRecommendationSettings(hash:)</code> in <code>Trip Mode</code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">recommendation</span><span class="p">(</span><span class="nv">settings</span><span class="p">:</span><span class="kt"><a href="../Structs/TRPRecommendationSettings.html">TRPRecommendationSettings</a></span><span class="p">,</span> <span class="nv">autoPagination</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC31CompletionHandlerWithPaginationa">CompletionHandlerWithPagination</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">quickRecommendation</span><span class="p">(</span><span class="nv">settings</span><span class="p">:</span> <span class="kt"><a href="../Structs/TRPRecommendationSettings.html">TRPRecommendationSettings</a></span><span class="p">,</span> <span class="nv">autoPagination</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC31CompletionHandlerWithPaginationa">CompletionHandlerWithPagination</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1484,7 +1461,19 @@ If you want obtain all poi, we suggest that categoryIds is nil.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>Recommendation setting</p>
+                                  <p>A TRPRecommendationSettings object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>autoPagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>if you set a <code>true</code>, next link will be continued automatically. If you set a <code>false</code>, next link will not be continued automatically. You must call <strong>poi(link:complation:)</strong> using <code>pagination.nextlink</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1496,7 +1485,7 @@ If you want obtain all poi, we suggest that categoryIds is nil.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>Callback with Pagination</p>
+                                  <p>Any objects needs to be converted to <strong>[TRPRecommendationInfoJsonModel]</strong> object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1756,7 +1745,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Updates the user&rsquo;s answers. The answers change Recommendation Engine&rsquo;s working.</p>
 
                       </div>
                       <div class="declaration">
@@ -1767,36 +1756,36 @@ Tripian Api generates a <code>userName</code> automatically.</p>
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10TRPRestKitAAC14updateUserInfo9firstName04lastG08password7answers10completionySSSg_A2ISaySiGSgyypSg_So7NSErrorCSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/updateUserInfo(firstName:lastName:password:answers:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10TRPRestKitAAC14updateUserInfo9firstName04lastG08password7answers10completionySSSg_A2ISaySiGSgyypSg_So7NSErrorCSgtctF">updateUserInfo(firstName:lastName:password:answers:completion:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateUserInfo</span><span class="p">(</span><span class="nv">firstName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                           <span class="nv">lastName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                           <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                           <span class="nv">answers</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                           <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC17CompletionHandlera">CompletionHandler</a></span><span class="p">)</span></code></pre>
-
-                        </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>answers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>User answers of Trip</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>TRPUserInfoModel</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1805,10 +1794,10 @@ Tripian Api generates a <code>userName</code> automatically.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Update%20User%20Info2"></a>
-                <a name="//apple_ref/swift/Section/Update User Info" class="dashAnchor"></a>
-                <a href="#/Update%20User%20Info2">
-                  <h3 class="section-name">Update User Info</h3>
+                <a name="/Favorites%20of%20User&#39;s%20Poi."></a>
+                <a name="//apple_ref/swift/Section/Favorites of User&#39;s Poi." class="dashAnchor"></a>
+                <a href="#/Favorites%20of%20User&#39;s%20Poi.">
+                  <h3 class="section-name">Favorites of User&#39;s Poi.</h3>
                 </a>
               </div>
               <ul>
@@ -1825,7 +1814,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method is used to add poi to user&rsquo;s favorite list.</p>
 
                       </div>
                       <div class="declaration">
@@ -1835,6 +1824,49 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addUserFavorite</span><span class="p">(</span><span class="nv">cityId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">poiId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC17CompletionHandlera">CompletionHandler</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cityId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Id of city where the poi is located.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>poiId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Id of Poi</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>TRPFavoritesInfoModel</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1852,7 +1884,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns Poi ids of user&rsquo;s favorite poi list.</p>
 
                       </div>
                       <div class="declaration">
@@ -1862,6 +1894,37 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUserFavorite</span><span class="p">(</span><span class="nv">cityId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC17CompletionHandlera">CompletionHandler</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cityId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Id of city where the poi is located.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>[TRPFavoritesInfoModel]</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1879,7 +1942,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method is used to delete poi to user&rsquo;s favorite list.</p>
 
                       </div>
                       <div class="declaration">
@@ -1889,6 +1952,49 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteUserFavorite</span><span class="p">(</span><span class="nv">cityId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">poiId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC17CompletionHandlera">CompletionHandler</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cityId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Id of city where the poi is located.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>poiId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Id of Poi</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>TRPParentJsonModel</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1917,7 +2023,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns all trips created by User.</p>
 
                       </div>
                       <div class="declaration">
@@ -1927,6 +2033,37 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">userTrips</span><span class="p">(</span><span class="nv">limit</span><span class="p">:</span><span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC31CompletionHandlerWithPaginationa">CompletionHandlerWithPagination</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>number of record to display</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>TRPUserTripInfoModels</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1955,7 +2092,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>To create a new trip for user.</p>
 
                       </div>
                       <div class="declaration">
@@ -1965,6 +2102,37 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createTrip</span><span class="p">(</span><span class="nv">settings</span><span class="p">:</span> <span class="kt"><a href="../Classes/TRPTripSettings.html">TRPTripSettings</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC17CompletionHandlera">CompletionHandler</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>settings</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Includes settings about a trip to create.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>TRPTripInfoModel</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1982,7 +2150,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns foundation information about trip using hash.</p>
 
                       </div>
                       <div class="declaration">
@@ -1992,6 +2160,37 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTrip</span><span class="p">(</span><span class="n">withHash</span> <span class="nv">hash</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC17CompletionHandlera">CompletionHandler</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hash</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>hash of trip</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>TRPTripInfoModel</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2047,7 +2246,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Return a day plan.</p>
 
                       </div>
                       <div class="declaration">
@@ -2057,6 +2256,37 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">dailyPlan</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span><span class="kt">Int</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC17CompletionHandlera">CompletionHandler</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of plan</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>TRPDailyPlanInfoModel</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2085,7 +2315,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Provides adding a poi to the plan</p>
 
                       </div>
                       <div class="declaration">
@@ -2095,6 +2325,73 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addPlanPoints</span><span class="p">(</span><span class="nv">hash</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">dailyPlanId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">poiId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">order</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC17CompletionHandlera">CompletionHandler</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hash</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>hash of trip</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dailyPlanId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of Plan</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>poiId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>new poi id</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>order</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pois order</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>TRPPlanPointInfoModel</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2112,7 +2409,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>TODO: BU KISIM İYİ ANLATILMALI. GÖRSEL OLARAK HAZIRLANMALI.</p>
 
                       </div>
                       <div class="declaration">
@@ -2166,7 +2463,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Provides deleting a poi to the plan</p>
 
                       </div>
                       <div class="declaration">
@@ -2176,6 +2473,37 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteDailyPlanPoi</span><span class="p">(</span><span class="n">planPoiId</span> <span class="nv">id</span><span class="p">:</span><span class="kt">Int</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC17CompletionHandlera">CompletionHandler</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of poi</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>TRPParentJsonModel</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2296,7 +2624,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Find</p>
 
                       </div>
                       <div class="declaration">
@@ -2338,7 +2666,8 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns information of a place from Google Server with place&rsquo;s id.
+This method doesn&rsquo;t use Tripian Server.</p>
 
                       </div>
                       <div class="declaration">
@@ -2348,6 +2677,49 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">googlePlace</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC17CompletionHandlera">CompletionHandler</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Google Place Api key</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of Place that registered in Google</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>TRPGooglePlaceLocation</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2376,7 +2748,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns categories of problem such as incorrect location, incorrect name etc&hellip;</p>
 
                       </div>
                       <div class="declaration">
@@ -2386,6 +2758,25 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">problemCategories</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/TRPRestKit.html#/s:10TRPRestKitAAC17CompletionHandlera">CompletionHandler</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>[TRPProblemCategoriesInfoModel]</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2414,7 +2805,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Report a problem about poi.</p>
 
                       </div>
                       <div class="declaration">
@@ -2428,6 +2819,61 @@ Tripian Api generates a <code>userName</code> automatically.</p>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of category</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>msg</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>mesage</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>poi</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of poi</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Any objects needs to be converted to <strong>TRPReportAProblemInfoModel</strong> object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -2436,7 +2882,7 @@ Tripian Api generates a <code>userName</code> automatically.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/necatievrenyasar" target="_blank" rel="external">Evren Yaşar</a>. All rights reserved. (Last updated: 2019-04-17)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/necatievrenyasar" target="_blank" rel="external">Evren Yaşar</a>. All rights reserved. (Last updated: 2019-04-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

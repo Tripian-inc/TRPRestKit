@@ -7,12 +7,20 @@
 //
 
 import Foundation
+
+/// Indicates information about trip to listin.
+/// This model can be used in `MyTip`
 public struct TRPUserTripInfoModel: Decodable {
     
+    /// An Int value. Id of a trip.
     public var id: Int
+    /// A TRPTime object. Arrival time of trip.
     public var arrivalTime: TRPTime?
+    /// A TRPTime object. Departure time of trip.
     public var depatureTime: TRPTime?
+    /// A TRPCityInfoModel object. The city where the trip is.
     public var city: TRPCityInfoModel?
+    /// A String value. Unique hash of trip.
     public var hash: String
     
     private enum CodingKeys: String, CodingKey {
@@ -25,6 +33,9 @@ public struct TRPUserTripInfoModel: Decodable {
         case departureTime = "departure_time"
     }
     
+    /// Json to Object converter
+    ///
+    /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decode(Int.self, forKey: .id)

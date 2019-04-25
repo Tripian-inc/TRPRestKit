@@ -7,9 +7,14 @@
 //
 
 import Foundation
+
+/// Indicates a informaion of login.
 public struct TRPLoginInfoModel: Decodable {
     
+    /// Type of token
     public var tokenType: String?;
+    
+    /// Token access key
     public var accessToken: String;
     
     private enum CodingKeys: String, CodingKey {
@@ -17,6 +22,9 @@ public struct TRPLoginInfoModel: Decodable {
         case accessToken = "access_token"
     }
     
+    /// Initializes a new object with decoder
+    ///
+    /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.tokenType = try values.decodeIfPresent(String.self, forKey: .tokenType)

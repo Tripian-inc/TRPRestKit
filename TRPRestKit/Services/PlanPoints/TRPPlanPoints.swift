@@ -63,7 +63,7 @@ internal class TRPPlanPoints: TRPRestServices {
         let jsonDecode = JSONDecoder();
         do {
             if type == .add {
-                let result = try jsonDecode.decode(TRPPoiAddRouteJsonModel.self, from: data)
+                let result = try jsonDecode.decode(TRPProgramStepJsonModel.self, from: data)
                 self.Completion?(result, nil, nil);
             }else  {
                 let result = try jsonDecode.decode(TRPProgramStepJsonModel.self, from: data)

@@ -8,8 +8,15 @@
 
 import Foundation
 import TRPFoundationKit
+
+/// This model provides you to use information of Place
 public struct TRPGooglePlaceLocation {
+    
+    /// A String value. Id of place
     public var id: String
+    /// A TRPLocation object. Center location of place.
     public var location: TRPLocation
+    /// A String value. Address of Hotel.
     public var hotelAddress: String
+    
 }

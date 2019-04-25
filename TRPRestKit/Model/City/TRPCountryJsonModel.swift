@@ -7,10 +7,14 @@
 //
 
 import Foundation
+/// This model provide you to use full information of Country
 public struct TRPCountryJsonModel: Decodable {
     
+    /// Code of Country such as us
     public var code: String?;
+    /// Name of Country such as USA
     public var name: String?;
+    /// Continient of County
     public var continient: String?;
     
     private enum CodingKeys: String, CodingKey{
@@ -23,6 +27,9 @@ public struct TRPCountryJsonModel: Decodable {
         case name
     }
     
+    /// Initializes a new object with decoder
+    ///
+    /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.code = try values.decodeIfPresent(String.self, forKey: .code)

@@ -14,7 +14,7 @@
     <a title="TRPTime Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">TRPRestKit Docs</a> (35% documented)</p>
+        <p><a href="../index.html">TRPRestKit Docs</a> (92% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -30,9 +30,6 @@
           <li class="nav-group-name">
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Classes/Environment.html">Environment</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Classes/TRPCityInfoModel.html">TRPCityInfoModel</a>
               </li>
@@ -52,9 +49,6 @@
                 <a href="../Classes/TRPParentJsonModel.html">TRPParentJsonModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/TRPPoiAddRouteJsonModel.html">TRPPoiAddRouteJsonModel</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/TRPRestKit.html">TRPRestKit</a>
               </li>
               <li class="nav-group-task">
@@ -72,9 +66,6 @@
                 <a href="../Enums/Pagination.html">Pagination</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/PlistKey.html">PlistKey</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Enums/TPRTripQuestionType.html">TPRTripQuestionType</a>
               </li>
               <li class="nav-group-task">
@@ -90,12 +81,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/TRPCategoryInfoModel.html">TRPCategoryInfoModel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/TRPConfig.html">TRPConfig</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/TRPConfig/ApiCall.html">– ApiCall</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/TRPCoordinateModel.html">TRPCoordinateModel</a>
@@ -126,12 +111,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/TRPPlanPointAlternativeInfoModel.html">TRPPlanPointAlternativeInfoModel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/TRPPlanPointInfoModel.html">TRPPlanPointInfoModel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/TRPPoiAddRouteInfoModel.html">TRPPoiAddRouteInfoModel</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/TRPPoiInfoModel.html">TRPPoiInfoModel</a>
@@ -183,7 +162,10 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>This struct has Date and Time formats.
+To convert string to Date/Time.
+Date is <code>yyyy-mm-dd</code>
+Time is <code>hh:mm</code></p>
 
           </section>
           <section class="section task-group-section">
@@ -202,7 +184,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A Date value. Closer uses a <code>yyyy-MM-dd HH:mm</code>style to convert.</p>
 
                       </div>
                       <div class="declaration">
@@ -229,7 +211,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initilizes a new TRPTime with Int values.</p>
 
                       </div>
                       <div class="declaration">
@@ -239,6 +221,73 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">year</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">month</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">day</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">hours</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">min</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>year</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>years such as 2019</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>month</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>month such as 12</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>day</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>day such as 29</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hours</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>hours such as 14</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>min</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>min such as 00</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -256,7 +305,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set Time with Strign</p>
+                        <p>Initilizes a new TRPTime with string values.</p>
 
                       </div>
                       <div class="declaration">
@@ -314,7 +363,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initilizes a new TRPTime with date</p>
 
                       </div>
                       <div class="declaration">
@@ -325,6 +374,25 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Date object will be parsed Date/Time.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -333,7 +401,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/necatievrenyasar" target="_blank" rel="external">Evren Yaşar</a>. All rights reserved. (Last updated: 2019-04-17)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/necatievrenyasar" target="_blank" rel="external">Evren Yaşar</a>. All rights reserved. (Last updated: 2019-04-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

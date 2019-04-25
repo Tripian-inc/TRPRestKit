@@ -1,160 +1,6 @@
 {
   "warnings": [
     {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/City/TRPCountryJsonModel.swift",
-      "line": 10,
-      "symbol": "TRPCountryJsonModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/City/TRPCountryJsonModel.swift",
-      "line": 12,
-      "symbol": "TRPCountryJsonModel.code",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/City/TRPCountryJsonModel.swift",
-      "line": 13,
-      "symbol": "TRPCountryJsonModel.name",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/City/TRPCountryJsonModel.swift",
-      "line": 14,
-      "symbol": "TRPCountryJsonModel.continient",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Common/TRPPlanPoi.swift",
-      "line": 10,
-      "symbol": "TRPPlanPoi",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Common/TRPPlanPoi.swift",
-      "line": 12,
-      "symbol": "TRPPlanPoi.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Common/TRPPlanPoi.swift",
-      "line": 13,
-      "symbol": "TRPPlanPoi.poiId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Common/TRPPlanPoi.swift",
-      "line": 14,
-      "symbol": "TRPPlanPoi.order",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDailyPlanInfoModel.swift",
-      "line": 10,
-      "symbol": "TRPDailyPlanInfoModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDailyPlanInfoModel.swift",
-      "line": 11,
-      "symbol": "TRPDailyPlanInfoModel.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDailyPlanInfoModel.swift",
-      "line": 12,
-      "symbol": "TRPDailyPlanInfoModel.hash",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDailyPlanInfoModel.swift",
-      "line": 13,
-      "symbol": "TRPDailyPlanInfoModel.date",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDailyPlanInfoModel.swift",
-      "line": 14,
-      "symbol": "TRPDailyPlanInfoModel.startTime",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDailyPlanInfoModel.swift",
-      "line": 15,
-      "symbol": "TRPDailyPlanInfoModel.endTime",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDailyPlanInfoModel.swift",
-      "line": 16,
-      "symbol": "TRPDailyPlanInfoModel.planPois",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDailyPlanInfoModel.swift",
-      "line": 17,
-      "symbol": "TRPDailyPlanInfoModel.generate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Favorites/TRPFavoritesJsonModel.swift",
-      "line": 32,
-      "symbol": "TRPFavoritesInfoModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Favorites/TRPFavoritesJsonModel.swift",
-      "line": 34,
-      "symbol": "TRPFavoritesInfoModel.poiId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Favorites/TRPFavoritesJsonModel.swift",
-      "line": 35,
-      "symbol": "TRPFavoritesInfoModel.cityId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/GetProgram/TRPGetProgramJsonModel.swift",
-      "line": 10,
-      "symbol": "TRPGetProgramParamsInfoModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/GetProgram/TRPGetProgramJsonModel.swift",
-      "line": 21,
-      "symbol": "TRPGetProgramParamsInfoModel.coordinate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/GetProgram/TRPGetProgramJsonModel.swift",
-      "line": 23,
-      "symbol": "TRPGetProgramParamsInfoModel.hotelAddress",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/NearBy/NearByJsonInfoModel.swift",
       "line": 10,
       "symbol": "TRPPlanPointAlternativeInfoModel",
@@ -163,50 +9,29 @@
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/NearBy/NearByJsonInfoModel.swift",
-      "line": 11,
+      "line": 12,
       "symbol": "TRPPlanPointAlternativeInfoModel.id",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/NearBy/NearByJsonInfoModel.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "TRPPlanPointAlternativeInfoModel.hash",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/NearBy/NearByJsonInfoModel.swift",
-      "line": 13,
+      "line": 14,
       "symbol": "TRPPlanPointAlternativeInfoModel.alternativePoiId",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/NearBy/NearByJsonInfoModel.swift",
-      "line": 14,
+      "line": 15,
       "symbol": "TRPPlanPointAlternativeInfoModel.dailyPlanPoi",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/OAuth/TRPLoginJsonModel.swift",
-      "line": 10,
-      "symbol": "TRPLoginInfoModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/OAuth/TRPLoginJsonModel.swift",
-      "line": 12,
-      "symbol": "TRPLoginInfoModel.tokenType",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/OAuth/TRPLoginJsonModel.swift",
-      "line": 13,
-      "symbol": "TRPLoginInfoModel.accessToken",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -239,216 +64,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/ProgramStep/TRPPlanPointInfoModel.swift",
-      "line": 10,
-      "symbol": "TRPPlanPointInfoModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/ProgramStep/TRPPlanPointInfoModel.swift",
-      "line": 12,
-      "symbol": "TRPPlanPointInfoModel.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/ProgramStep/TRPPlanPointInfoModel.swift",
-      "line": 13,
-      "symbol": "TRPPlanPointInfoModel.hash",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/ProgramStep/TRPPlanPointInfoModel.swift",
-      "line": 14,
-      "symbol": "TRPPlanPointInfoModel.placeId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/ProgramStep/TRPPlanPointInfoModel.swift",
-      "line": 15,
-      "symbol": "TRPPlanPointInfoModel.order",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPQuestionOptionsJsonModel.swift",
-      "line": 10,
-      "symbol": "TRPQuestionOptionsJsonModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPQuestionOptionsJsonModel.swift",
-      "line": 12,
-      "symbol": "TRPQuestionOptionsJsonModel.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPQuestionOptionsJsonModel.swift",
-      "line": 13,
-      "symbol": "TRPQuestionOptionsJsonModel.name",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPTripQuestionInfoModel.swift",
-      "line": 10,
-      "symbol": "TRPTripQuestionInfoModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPTripQuestionInfoModel.swift",
-      "line": 12,
-      "symbol": "TRPTripQuestionInfoModel.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPTripQuestionInfoModel.swift",
-      "line": 13,
-      "symbol": "TRPTripQuestionInfoModel.skippable",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPTripQuestionInfoModel.swift",
-      "line": 14,
-      "symbol": "TRPTripQuestionInfoModel.selectMultiple",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPTripQuestionInfoModel.swift",
-      "line": 15,
-      "symbol": "TRPTripQuestionInfoModel.name",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPTripQuestionInfoModel.swift",
-      "line": 16,
-      "symbol": "TRPTripQuestionInfoModel.options",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Recommendation/TRPRecommendationInfoJsonModel.swift",
-      "line": 10,
-      "symbol": "TRPRecommendationInfoJsonModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Recommendation/TRPRecommendationInfoJsonModel.swift",
-      "line": 12,
-      "symbol": "TRPRecommendationInfoJsonModel.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPCoordinateModel.swift",
-      "line": 11,
-      "symbol": "TRPCoordinateModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPCoordinateModel.swift",
-      "line": 12,
-      "symbol": "TRPCoordinateModel.lat",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPCoordinateModel.swift",
-      "line": 13,
-      "symbol": "TRPCoordinateModel.lon",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPParentJsonModel.swift",
-      "line": 13,
-      "symbol": "TRPParentJsonModel.status",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPParentJsonModel.swift",
-      "line": 14,
-      "symbol": "TRPParentJsonModel.success",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPParentJsonModel.swift",
-      "line": 15,
-      "symbol": "TRPParentJsonModel.message",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPPoiAddRouteInfoModel.swift",
-      "line": 10,
-      "symbol": "TRPPoiAddRouteInfoModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPPoiAddRouteInfoModel.swift",
-      "line": 11,
-      "symbol": "TRPPoiAddRouteInfoModel.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPPoiAddRouteInfoModel.swift",
-      "line": 12,
-      "symbol": "TRPPoiAddRouteInfoModel.hash",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPPoiAddRouteInfoModel.swift",
-      "line": 13,
-      "symbol": "TRPPoiAddRouteInfoModel.poiId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPPoiAddRouteInfoModel.swift",
-      "line": 14,
-      "symbol": "TRPPoiAddRouteInfoModel.order",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPPoiAddRouteJsonModel.swift",
-      "line": 10,
-      "symbol": "TRPPoiAddRouteJsonModel",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPPoiAddRouteJsonModel.swift",
-      "line": 12,
-      "symbol": "TRPPoiAddRouteJsonModel.data",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPPoiAddRouteJsonModel.swift",
-      "line": 18,
-      "symbol": "TRPPoiAddRouteJsonModel.init(from:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Trip/TRPTripInfoModel.swift",
       "line": 12,
       "symbol": "TRPTripInfoModel",
@@ -456,101 +71,10 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Trip/TRPTripInfoModel.swift",
-      "line": 13,
-      "symbol": "TRPTripInfoModel.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Trip/TRPTripInfoModel.swift",
-      "line": 14,
-      "symbol": "TRPTripInfoModel.hash",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Trip/TRPTripInfoModel.swift",
-      "line": 15,
-      "symbol": "TRPTripInfoModel.arrivalTime",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Trip/TRPTripInfoModel.swift",
-      "line": 16,
-      "symbol": "TRPTripInfoModel.depatureTime",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Trip/TRPTripInfoModel.swift",
-      "line": 17,
-      "symbol": "TRPTripInfoModel.params",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Trip/TRPTripInfoModel.swift",
-      "line": 18,
-      "symbol": "TRPTripInfoModel.dailyPlans",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Trip/TRPTripInfoModel.swift",
-      "line": 19,
-      "symbol": "TRPTripInfoModel.city",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserMe/TRPUserInfoModel.swift",
-      "line": 10,
-      "symbol": "TRPUserInfoModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserMe/TRPUserInfoModel.swift",
-      "line": 12,
-      "symbol": "TRPUserInfoModel.userName",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserMe/TRPUserInfoModel.swift",
-      "line": 13,
-      "symbol": "TRPUserInfoModel.info",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserMe/TRPUserInfoModel.swift",
-      "line": 30,
+      "line": 38,
       "symbol": "TRPUserPreferencesInfoModel",
       "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserMe/TRPUserInfoModel.swift",
-      "line": 32,
-      "symbol": "TRPUserPreferencesInfoModel.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserMe/TRPUserInfoModel.swift",
-      "line": 33,
-      "symbol": "TRPUserPreferencesInfoModel.key",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserMe/TRPUserInfoModel.swift",
-      "line": 34,
-      "symbol": "TRPUserPreferencesInfoModel.value",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -561,1080 +85,156 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserTrips/TRPUserTripInfoModel.swift",
-      "line": 12,
-      "symbol": "TRPUserTripInfoModel.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserTrips/TRPUserTripInfoModel.swift",
-      "line": 13,
-      "symbol": "TRPUserTripInfoModel.arrivalTime",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserTrips/TRPUserTripInfoModel.swift",
-      "line": 14,
-      "symbol": "TRPUserTripInfoModel.depatureTime",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserTrips/TRPUserTripInfoModel.swift",
-      "line": 15,
-      "symbol": "TRPUserTripInfoModel.city",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserTrips/TRPUserTripInfoModel.swift",
-      "line": 16,
-      "symbol": "TRPUserTripInfoModel.hash",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetwork.swift",
+      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetworkError.swift",
       "line": 21,
-      "symbol": "TRPNetwork.Completion",
-      "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetwork.swift",
-      "line": 31,
-      "symbol": "TRPNetwork.init(baseUrl:path:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetwork.swift",
-      "line": 37,
-      "symbol": "TRPNetwork.init(link:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetwork.swift",
-      "line": 73,
-      "symbol": "TRPNetwork.build(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetwork.swift",
-      "line": 95,
-      "symbol": "TRPNetwork.generateSession(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetworkError.swift",
-      "line": null,
-      "symbol": "TRPErrors",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetworkError.swift",
-      "line": null,
-      "symbol": "TRPErrors",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetworkError.swift",
-      "line": 11,
-      "symbol": "TRPErrors",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetworkError.swift",
-      "line": 12,
       "symbol": "TRPErrors.undefined",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetworkError.swift",
-      "line": 13,
+      "line": 22,
       "symbol": "TRPErrors.httpResult(code:des:info:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetworkError.swift",
-      "line": 14,
+      "line": 23,
       "symbol": "TRPErrors.wrongData",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetworkError.swift",
-      "line": 15,
+      "line": 24,
       "symbol": "TRPErrors.emptyData",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetworkError.swift",
-      "line": 16,
+      "line": 25,
       "symbol": "TRPErrors.emptyDataOrParserError",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetworkError.swift",
-      "line": 17,
+      "line": 26,
       "symbol": "TRPErrors.objectIsNil(name:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPNetworkError.swift",
-      "line": 18,
+      "line": 27,
       "symbol": "TRPErrors.someThingWronk(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPRequestMode.swift",
-      "line": 10,
-      "symbol": "TRPRequestMode",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPRequestMode.swift",
-      "line": 11,
+      "line": 19,
       "symbol": "TRPRequestMode.get",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPRequestMode.swift",
-      "line": 12,
+      "line": 20,
       "symbol": "TRPRequestMode.post",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPRequestMode.swift",
-      "line": 13,
+      "line": 21,
       "symbol": "TRPRequestMode.put",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Network/TRPRequestMode.swift",
-      "line": 14,
+      "line": 22,
       "symbol": "TRPRequestMode.delete",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Pagination.swift",
-      "line": null,
-      "symbol": "Pagination",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Pagination.swift",
-      "line": 10,
-      "symbol": "Pagination",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Pagination.swift",
-      "line": 14,
+      "line": 18,
       "symbol": "Pagination.continues(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Pagination.swift",
-      "line": 15,
+      "line": 21,
       "symbol": "Pagination.completed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Pagination.swift",
-      "line": 17,
-      "symbol": "Pagination.readable",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Plist.swift",
-      "line": 10,
-      "symbol": "PlistKey",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Plist.swift",
-      "line": 11,
-      "symbol": "PlistKey.ServerURL",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Plist.swift",
-      "line": 12,
-      "symbol": "PlistKey.ConfigName",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Plist.swift",
-      "line": 13,
-      "symbol": "PlistKey.ServerPath",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Plist.swift",
-      "line": 27,
-      "symbol": "Environment",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Plist.swift",
-      "line": 29,
-      "symbol": "Environment.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Plist.swift",
-      "line": 51,
-      "symbol": "Environment.configuration(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Google Place/TRPGooglePlace.swift",
-      "line": 10,
-      "symbol": "TRPGooglePlace",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Google Place/TRPGooglePlace.swift",
-      "line": 12,
-      "symbol": "TRPGooglePlace.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Google Place/TRPGooglePlace.swift",
-      "line": 13,
-      "symbol": "TRPGooglePlace.mainAddress",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Google Place/TRPGooglePlace.swift",
-      "line": 14,
-      "symbol": "TRPGooglePlace.secondaryAddress",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Google Place/TRPGooglePlace.swift",
-      "line": 16,
-      "symbol": "TRPGooglePlace.description",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Google Place/TRPGooglePlaceLocation.swift",
-      "line": 11,
-      "symbol": "TRPGooglePlaceLocation",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Google Place/TRPGooglePlaceLocation.swift",
-      "line": 12,
-      "symbol": "TRPGooglePlaceLocation.id",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Google Place/TRPGooglePlaceLocation.swift",
-      "line": 13,
-      "symbol": "TRPGooglePlaceLocation.location",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Google Place/TRPGooglePlaceLocation.swift",
-      "line": 14,
-      "symbol": "TRPGooglePlaceLocation.hotelAddress",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 10,
-      "symbol": "TRPTripSettings",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 12,
-      "symbol": "TRPTripSettings.cityId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 14,
-      "symbol": "TRPTripSettings.arrivalTime",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 15,
-      "symbol": "TRPTripSettings.departureTime",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 16,
-      "symbol": "TRPTripSettings.adultsCount",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 17,
-      "symbol": "TRPTripSettings.adultAgeRange",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 18,
-      "symbol": "TRPTripSettings.childrenCount",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 19,
-      "symbol": "TRPTripSettings.childrenAgeRange",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 24,
-      "symbol": "TRPTripSettings.answer",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 25,
-      "symbol": "TRPTripSettings.doNotGenerate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 27,
-      "symbol": "TRPTripSettings.init(cityId:arrivalTime:departureTime:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPTripSettings.swift",
-      "line": 33,
-      "symbol": "TRPTripSettings.setCoordinateWithAddress(lat:lon:hotelAddress:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/ReportAProblem/TRPReportAProblemServices.swift",
-      "line": 90,
-      "symbol": "TRPReportAProblemInfoModel",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 10,
-      "symbol": "TRPRecommendationSettings",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 12,
-      "symbol": "TRPRecommendationSettings.cityId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 13,
-      "symbol": "TRPRecommendationSettings.hash",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 14,
-      "symbol": "TRPRecommendationSettings.typeId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 15,
-      "symbol": "TRPRecommendationSettings.adultsCount",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 16,
-      "symbol": "TRPRecommendationSettings.adultAgeRange",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 17,
-      "symbol": "TRPRecommendationSettings.childrenCount",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 18,
-      "symbol": "TRPRecommendationSettings.childrenAgeRange",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 19,
-      "symbol": "TRPRecommendationSettings.currentCoordinate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 20,
-      "symbol": "TRPRecommendationSettings.answer",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 21,
-      "symbol": "TRPRecommendationSettings.type",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 23,
-      "symbol": "TRPRecommendationSettings.init(cityId:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 27,
-      "symbol": "TRPRecommendationSettings.init(hash:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendationSettings.swift",
-      "line": 31,
-      "symbol": "TRPRecommendationSettings.currentCoordinate(lat:lon:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 10,
-      "symbol": "TRPRestServices",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 12,
-      "symbol": "TRPRestServices.Completion",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 13,
-      "symbol": "TRPRestServices.isAutoPagination",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 14,
-      "symbol": "TRPRestServices.connection()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 35,
-      "symbol": "TRPRestServices.connection(link:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 78,
-      "symbol": "TRPRestServices.requestMode()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 82,
-      "symbol": "TRPRestServices.servicesResult(data:error:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 85,
-      "symbol": "TRPRestServices.bodyParameters()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 89,
-      "symbol": "TRPRestServices.parameters()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 93,
-      "symbol": "TRPRestServices.path()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 97,
+      "line": 131,
       "symbol": "TRPRestServices.paginationController(parentJson:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 121,
-      "symbol": "TRPRestServices.userOAuth()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRestServices.swift",
-      "line": 125,
-      "symbol": "TRPRestServices.oauth()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPTripQuestion.swift",
-      "line": 10,
-      "symbol": "TPRTripQuestionType",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPTripQuestion.swift",
-      "line": 11,
+      "line": 17,
       "symbol": "TPRTripQuestionType.trip",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPTripQuestion.swift",
-      "line": 12,
+      "line": 19,
       "symbol": "TPRTripQuestionType.profile",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPClient.swift",
-      "line": 10,
-      "symbol": "TRPClient",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPClient.swift",
-      "line": 14,
-      "symbol": "TRPClient.showLink",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPClient.swift",
-      "line": 15,
-      "symbol": "TRPClient.showData",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPClient.swift",
-      "line": 19,
-      "symbol": "TRPClient.provideApiKey(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPClient.swift",
-      "line": 27,
-      "symbol": "TRPClient.printLink(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPClient.swift",
-      "line": 31,
-      "symbol": "TRPClient.printData(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 10,
-      "symbol": "TRPConfig",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 12,
-      "symbol": "TRPConfig.BaseUrl",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 20,
-      "symbol": "TRPConfig.BaseUrlPath",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 31,
-      "symbol": "TRPConfig.apiLink",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 37,
-      "symbol": "TRPConfig.ApiCall",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 38,
-      "symbol": "TRPConfig.ApiCall.Cities",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 39,
-      "symbol": "TRPConfig.ApiCall.GetcityByCoordinates",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 40,
-      "symbol": "TRPConfig.ApiCall.PoiCategories",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 41,
-      "symbol": "TRPConfig.ApiCall.Poi",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 42,
-      "symbol": "TRPConfig.ApiCall.Questions",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 43,
-      "symbol": "TRPConfig.ApiCall.Recommendations",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 44,
-      "symbol": "TRPConfig.ApiCall.Routes",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 45,
-      "symbol": "TRPConfig.ApiCall.RoutesResult",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 46,
-      "symbol": "TRPConfig.ApiCall.GRouteReuslt",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 47,
-      "symbol": "TRPConfig.ApiCall.PlanPointAlternative",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 48,
-      "symbol": "TRPConfig.ApiCall.Tags",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 49,
-      "symbol": "TRPConfig.ApiCall.CheckDataUpdates",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 50,
-      "symbol": "TRPConfig.ApiCall.User",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 51,
-      "symbol": "TRPConfig.ApiCall.Login",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 52,
-      "symbol": "TRPConfig.ApiCall.user",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 53,
-      "symbol": "TRPConfig.ApiCall.UserTrips",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 54,
-      "symbol": "TRPConfig.ApiCall.Trip",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 55,
-      "symbol": "TRPConfig.ApiCall.DailyPlan",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 56,
-      "symbol": "TRPConfig.ApiCall.UserPreferences",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 57,
-      "symbol": "TRPConfig.ApiCall.DailyPlanPoi",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 58,
-      "symbol": "TRPConfig.ApiCall.Register",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift",
-      "line": 59,
-      "symbol": "TRPConfig.ApiCall.Favorite",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPImageResizer.swift",
-      "line": 10,
-      "symbol": "TRPImageResizer",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPImageResizer.swift",
-      "line": 11,
+      "line": 13,
       "symbol": "TRPImageResizer.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPImageResizer.swift",
-      "line": 12,
-      "symbol": "TRPImageResizer.generate(imageLink:w:h:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 454,
-      "symbol": "TRPRestKit.tripQuestions(withQuestionId:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 459,
-      "symbol": "TRPRestKit.tripQuestions(withCityId:type:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 566,
-      "symbol": "TRPRestKit.logout()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 591,
-      "symbol": "TRPRestKit.userInfo(completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 618,
-      "symbol": "TRPRestKit.updateUserAnswer(answers:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 623,
-      "symbol": "TRPRestKit.updateUserInfo(firstName:lastName:password:answers:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 667,
-      "symbol": "TRPRestKit.addUserFavorite(cityId:poiId:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 672,
-      "symbol": "TRPRestKit.getUserFavorite(cityId:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 677,
-      "symbol": "TRPRestKit.deleteUserFavorite(cityId:poiId:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 729,
-      "symbol": "TRPRestKit.userTrips(limit:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 754,
-      "symbol": "TRPRestKit.createTrip(settings:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 773,
-      "symbol": "TRPRestKit.getTrip(withHash:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 792,
+      "line": 877,
       "symbol": "TRPRestKit.deleteTrip(hash:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 816,
-      "symbol": "TRPRestKit.dailyPlan(id:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 840,
-      "symbol": "TRPRestKit.addPlanPoints(hash:dailyPlanId:poiId:order:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 846,
-      "symbol": "TRPRestKit.replacePlanPoiFrom(dailyPlanPoiId:poiId:order:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 851,
+      "line": 953,
       "symbol": "TRPRestKit.reOrderPlanPoiFrom(dailyPlanPoiId:poiId:order:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 856,
-      "symbol": "TRPRestKit.deleteDailyPlanPoi(planPoiId:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 914,
+      "line": 1023,
       "symbol": "TRPRestKit.planPoiAlternatives(withPlanPointId:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 919,
+      "line": 1028,
       "symbol": "TRPRestKit.planPoiAlternatives(withHash:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 924,
+      "line": 1033,
       "symbol": "TRPRestKit.planPoiAlternatives(withDailyPlanId:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 992,
-      "symbol": "TRPRestKit.googleAutoComplete(key:text:centerForBoundary:radiusForBoundary:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 1028,
-      "symbol": "TRPRestKit.googlePlace(key:id:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 1052,
-      "symbol": "TRPRestKit.problemCategories(completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift",
-      "line": 1077,
-      "symbol": "TRPRestKit.reportaProblem(category:message:poiId:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPTime.swift",
-      "line": 12,
-      "symbol": "TRPTime",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPTime.swift",
-      "line": 14,
-      "symbol": "TRPTime.formated",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPTime.swift",
-      "line": 23,
-      "symbol": "TRPTime.init(year:month:day:hours:min:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPTime.swift",
-      "line": 40,
-      "symbol": "TRPTime.init(date:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }

@@ -7,8 +7,11 @@
 //
 
 import Foundation
+
+/// Parent Json parser model for City
 internal class TRPFavoritesJsonModel: TRPParentJsonModel {
     
+    ///Favorite's list
     internal var data: [TRPFavoritesInfoModel]?;
     
     private enum CodingKeys: String, CodingKey {
@@ -29,9 +32,13 @@ internal class TRPFavoritesJsonModel: TRPParentJsonModel {
 }
 
 
+/// This model provides you information of Favorites Poi.
 public struct TRPFavoritesInfoModel: Decodable{
     
+    /// An Int value. Unique id of a poi.
     public var poiId: Int
+    
+    /// An Int value. Id of city where the poi is located.
     public var cityId: Int
     
     private enum CodingKeys: String, CodingKey {
@@ -39,6 +46,9 @@ public struct TRPFavoritesInfoModel: Decodable{
         case cityId = "city_id"
     }
     
+    /// Json to Object converter
+    ///
+    /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.poiId = try values.decode(Int.self, forKey: .poiId)

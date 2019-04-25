@@ -7,12 +7,19 @@
 //
 
 import Foundation
-/// Parent Json parser.
+/// Main json parser. Determines the status of requet.
+/// TRPParentJsonModel is can be parsed all json models of Tripian.
+/// You must be implemented data model.
 public class TRPParentJsonModel: Decodable {
 
+    
+    /// An Int value. Http response status codes such as 200, 400 etc...
     public var status: Int
+    /// A Bool value. Indicates a request status.
     public var success: Bool
+    /// A String value. Message is dependent on `Success` variable.
     public var message: String?;
+    /// A TRPPaginationJsonModel object. If request has a page more then one, You can control with pagination.
     var pagination: TRPPaginationJsonModel?
     
     internal enum ParentCodingKeys: String, CodingKey {
@@ -22,6 +29,9 @@ public class TRPParentJsonModel: Decodable {
         case pagination
     }
     
+    /// Initializes a new object with decoder
+    ///
+    /// - Parameter decoder: Json decoder
     public required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: ParentCodingKeys.self);
         status = try values.decode(Int.self, forKey: .status);
@@ -35,13 +45,9 @@ public class TRPParentJsonModel: Decodable {
     
 }
 
-
-struct TRPMetaJsonModel:Decodable{
-    var pagination: TRPPaginationJsonModel?
-}
-
-//ETODO: Yorum satırlarını yaz.
+/// Controls how many pages the request has.
 struct TRPPaginationJsonModel: Decodable{
+    
     
     var total: Int = 0;
     var count: Int = 0;

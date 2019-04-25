@@ -15,8 +15,6 @@ internal class TRPUserInfoServices: TRPRestServices {
     }
     
     let serviceType: ServiceType
-    var firstName: String?
-    var lastName: String?
     var password: String?
     var answers: [Int]?
     
@@ -30,13 +28,9 @@ internal class TRPUserInfoServices: TRPRestServices {
         self.answers = answers
     }
     
-    init(firstName: String? = nil,
-         lastName: String? = nil,
-         password: String? = nil,
+    init(password: String? = nil,
          answers: [Int]? = nil) {
         self.serviceType = .updateInfo
-        self.firstName = firstName
-        self.lastName = lastName
         self.password = password
         self.answers = answers
     }
@@ -67,12 +61,6 @@ internal class TRPUserInfoServices: TRPRestServices {
                 params["answers"] = answers.toString()
             }
         }else if serviceType == .updateInfo {
-            if let firstName = firstName {
-                params["first_name"] = firstName
-            }
-            if let lastName = lastName {
-                params["last_name"] = lastName
-            }
             if let password = password {
                 params["password"] = password
             }

@@ -7,10 +7,19 @@
 //
 
 import Foundation
+
+
+/// This is a high-level class to connectiong with remote server.
+/// If you want to generate a new servise, new servise must be extended TRPRestServices.
 public class TRPRestServices {
     
+    /// A Closer. Completion handler
     public var Completion:((_ result:Any?, _ error:NSError?, _ pagination: Pagination?) -> Void)?
+    
+    /// Sets automatic loading of Pages
     public var isAutoPagination = true
+    
+    /// To start connection
     public func connection() {
         let network = TRPNetwork(path: path());
         network.add(params: createParams())
@@ -32,8 +41,13 @@ public class TRPRestServices {
         }
     }
     
+    
+    /// To start connection using link
+    ///
+    /// - Parameter link: Raw link
     public func connection(link:String) {
-        let network = TRPNetwork(rawLink: link)
+        
+        let network = TRPNetwork(link: link)
         network.addValue(TRPClient.getKey(), forHTTPHeaderField: "x-api-key")
         if let bodyData = bodyDataToJson(bodyParameters()) {
             network.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -75,21 +89,41 @@ public class TRPRestServices {
     
     // MARK: - Overriter Funstions
     
+    
+    /// HTTP request mode
+    ///
+    /// - Returns: Request mode(Default is get)
     public func requestMode() -> TRPRequestMode {
         return TRPRequestMode.get
     }
     
-    public func servicesResult(data:Data?, error:NSError?) {
-    }
     
+    /// This method must be overrided to parse json
+    ///
+    /// - Parameters:
+    ///   - data: returns from remote server
+    ///   - error: nsError
+    public func servicesResult(data:Data?, error:NSError?) {}
+    
+    
+    /// Returns HTTP body parameters
+    ///
+    /// - Returns: Body params
     public func bodyParameters() -> Dictionary<String, Any>? {
         return nil
     }
     
+    /// Returns HTTP parameters
+    ///
+    /// - Returns: params
     public func parameters() -> Dictionary<String, Any>? {
         return nil
     }
     
+    
+    /// Sets custom path such as /trip etc...
+    ///
+    /// - Returns: path
     public func path() -> String {
         return ""
     }
@@ -104,24 +138,19 @@ public class TRPRestServices {
             return .completed
         }
     }
+
     
-    
-//    public func paginationController(parentJson: TRPParentJsonModel, pagination: (_ status: Pagination) -> ()){
-//        if let nextPage = parentJson.pagination?.links?.next {
-//            //pagination(.continuing(nextPage: nextPage))
-//            pagination(.continues(nextPage))
-//            if isAutoPagination {
-//                connection(link: nextPage)
-//            }
-//        }else {
-//            pagination(.completed);
-//        }
-//    }
-    
+    /// To use user oauth
+    ///
+    /// - Returns: bool
     public func userOAuth() -> Bool {
         return false
     }
     
+    
+    /// Returns user hash using `DataHolder`
+    ///
+    /// - Returns: User hash for oauth
     public func oauth() -> String? {
         return TRPUserPersistent.fetchHash()
     }

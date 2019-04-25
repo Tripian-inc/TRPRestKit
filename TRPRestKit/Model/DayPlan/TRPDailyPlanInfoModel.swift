@@ -7,16 +7,33 @@
 //
 
 import Foundation
+
+/// The struct provides you to plan of day. Thera are pois in a Daily Plan.
+/// Pois were recommended by Tripian.
 public struct TRPDailyPlanInfoModel: Decodable {
+    
+    /// An Int value. Id of plan
     public var id: Int
+    /// A String value. Hash of plan
     public var hash: String
+    /// A String value. Date of plan
     public var date: String
+    /// A String value. Start time of plan
     public var startTime: String?
+    /// A String value. End time of plan
     public var endTime: String?
+    /// A TRPPlanPoi array. Indicates a pois to go within a day.
     public var planPois: [TRPPlanPoi]
+    
+    /**
+        Indicates whether the plan was generated.
+     
+     *  0: The plan hasn't generated yet.
+     * -1: The plan was generated but the plan hasn't any poi.
+     *  1: The plan was generated and it has pois.
+     */
     public var generate: Int
     
-    //TODO: - preferences eklenecek
     private enum CodingKeys: String, CodingKey {
         case id
         case hash
@@ -27,6 +44,10 @@ public struct TRPDailyPlanInfoModel: Decodable {
         case generate
     }
     
+    
+    /// Initializes a new object with decoder
+    ///
+    /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decode(Int.self, forKey: .id)

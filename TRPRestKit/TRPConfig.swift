@@ -7,20 +7,16 @@
 //
 
 import Foundation
-public struct TRPConfig {
+internal struct TRPConfig {
     
-    public static var BaseUrl: String {
+    internal static var BaseUrl: String {
         get {
-            //let rawLink = Environment().configuration(PlistKey.ServerURL)
-            //return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
             return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
         }
     }
     
-    public static var BaseUrlPath: String {
+    internal static var BaseUrlPath: String {
         get {
-            //let rawLink = Environment().configuration(PlistKey.ServerPath)
-            //return rawLink.replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "\'", with: "")
             return "v2"
         }
     }
@@ -28,13 +24,13 @@ public struct TRPConfig {
     //public static let BaseUrl: String = "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
     //public static let BaseUrlPath: String = "v02"
     
-    public static var apiLink: String {
+    internal static var apiLink: String {
         get {
             return "http://\(BaseUrl)/\(BaseUrlPath)/"
         }
     }
     
-    public enum ApiCall: String {
+    internal enum ApiCall: String {
         case Cities
         case GetcityByCoordinates
         case PoiCategories

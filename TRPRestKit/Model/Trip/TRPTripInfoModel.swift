@@ -8,14 +8,22 @@
 
 import Foundation
 
-// TODO: - DAİLY PLANS EKLENECEK
+/// Indicates information of a trip.
 public struct TRPTripInfoModel: Decodable{
+    
+    /// An Int value. Id of trip.
     public var id: Int
+    /// A String value. Unique hash of trip.
     public var hash: String
+    /// A TRPTime object. Arrival time of trip.
     public var arrivalTime: TRPTime?
+    /// A TRPTime object. Departure time of trip.
     public var depatureTime: TRPTime?
+    /// A TRPGetProgramParamsInfoModel object. All parameters sent to create a trip.
     public var params: TRPGetProgramParamsInfoModel?
+    /// Array of TRPDailyPlanInfoModel object. Includes information of one day such as date, poi etc...
     public var dailyPlans: [TRPDailyPlanInfoModel]?
+    /// A TRPCityInfoModel objects.
     public var city: TRPCityInfoModel
     
     private enum CodingKeys: String, CodingKey {
@@ -30,6 +38,9 @@ public struct TRPTripInfoModel: Decodable{
         case city
     }
     
+    /// Json to Object converter
+    ///
+    /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         self.id = try values.decode(Int.self, forKey: .id)

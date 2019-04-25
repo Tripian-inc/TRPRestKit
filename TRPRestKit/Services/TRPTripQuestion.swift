@@ -7,8 +7,15 @@
 //
 
 import Foundation
+
+/// Indicates question type
+///
+/// - trip: question about Trip.
+/// - profile: question about user profile.
 public enum TPRTripQuestionType: String {
+    // Question about Trip.
     case trip = "trip"
+    // Question about user profile.
     case profile = "profile"
 }
 

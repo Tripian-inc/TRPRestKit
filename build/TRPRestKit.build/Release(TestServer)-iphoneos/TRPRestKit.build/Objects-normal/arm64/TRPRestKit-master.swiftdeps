@@ -1,6 +1,6 @@
-version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
-options: "9469e9dccf54acdda2cabba58fa56bd3"
-build_time: [1555507022, 585749000]
+version: "Apple Swift version 5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+options: "f22bc2da0d3641055069b4394c7f6115"
+build_time: [1556191249, 111544000]
 inputs:
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPDeleteProgram.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPUserPersistent.swift": [9223372036, 854775807]
@@ -42,19 +42,16 @@ inputs:
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPTripQuestionJsonModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Pagination.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/NearBy/NearByJsonInfoModel.swift": [9223372036, 854775807]
-  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/ProgramStep/TRPPlanPointInfoModel.swift": [9223372036, 854775807]
+  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/ReportAProblem/TRPReportAProblemJsonModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Google Place/TRPGooglePlaceLocation.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/User/TRPMyPrograms.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPPlace.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Place/TRPPoiInfoModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPTripQuestion.swift": [9223372036, 854775807]
-  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Plist.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPFeedback.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserTrips/TRPUserTripsJsonModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/NearBy/TRPPlanPointAlternativeJsonModel.swift": [9223372036, 854775807]
-  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPPoiAddRouteJsonModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/ProgramStep/TRPProgramStepJsonModel.swift": [9223372036, 854775807]
-  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPPoiAddRouteInfoModel.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPRecommendation.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Place/TRPImageOwner.swift": [9223372036, 854775807]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDayPlanJsonModel.swift": [9223372036, 854775807]

@@ -1,70 +1,54 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
 - "TRPPoiInfoModel"
-- "TRPPoiTagInfoModel"
 provides-nominal:
 - "10TRPRestKit15TRPPoiInfoModelV"
-- "10TRPRestKit15TRPPoiInfoModelV10CodingKeysO"
-- "10TRPRestKit18TRPPoiTagInfoModelV"
 provides-member:
 - ["10TRPRestKit15TRPPoiInfoModelV", ""]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", ""]
-- ["10TRPRestKit18TRPPoiTagInfoModelV", ""]
 provides-dynamic-lookup:
 depends-top-level:
 - "=="
 - !private "??"
-- !private "Array"
 - "AssignmentPrecedence"
-- "Bool"
-- "BooleanLiteralType"
 - "CodingKey"
 - "Decodable"
 - "Decoder"
 - "Float"
-- "FloatLiteralType"
 - "Int"
-- "IntegerLiteralType"
 - "String"
-- "StringLiteralType"
 - "TRPCategoryInfoModel"
 - "TRPCoordinateModel"
+- "TRPImageOwner"
 - "TRPPoiInfoModel"
-- "TRPPoiTagInfoModel"
-- "TRPUpdateTypeModel"
 - !private "_findStringSwitchCase"
 - !private "~="
 depends-member:
 - ["Sa", "init"]
-- ["s13ArrayProtocolP", "init"]
 - ["SK", "init"]
-- ["SK", "init"]
-- !private ["Sb", "_getBuiltinLogicValue"]
-- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
 - ["s7CVarArgP", "init"]
-- ["s7CVarArgP", "init"]
+- ["s9CodingKeyP", "=="]
 - ["s9CodingKeyP", "RawValue"]
-- ["s9CodingKeyP", ""]
+- !private ["s9CodingKeyP", ""]
 - ["s9CodingKeyP", "_Default_RawValue"]
 - !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- ["s9CodingKeyP", "_rawHashValue"]
 - !private ["s9CodingKeyP", "address"]
 - !private ["s9CodingKeyP", "category"]
 - !private ["s9CodingKeyP", "cityId"]
-- !private ["s9CodingKeyP", "content"]
 - !private ["s9CodingKeyP", "coordinate"]
 - ["s9CodingKeyP", "debugDescription"]
 - ["s9CodingKeyP", "description"]
-- !private ["s9CodingKeyP", "duration"]
-- !private ["s9CodingKeyP", "gallery"]
 - ["s9CodingKeyP", "hash"]
 - ["s9CodingKeyP", "hashValue"]
 - !private ["s9CodingKeyP", "hours"]
 - !private ["s9CodingKeyP", "icon"]
 - !private ["s9CodingKeyP", "id"]
 - !private ["s9CodingKeyP", "image"]
+- !private ["s9CodingKeyP", "imageOwner"]
 - ["s9CodingKeyP", "init"]
 - !private ["s9CodingKeyP", "init"]
 - ["s9CodingKeyP", "intValue"]
+- !private ["s9CodingKeyP", "mainCuisisnes"]
 - !private ["s9CodingKeyP", "name"]
 - !private ["s9CodingKeyP", "phone"]
 - !private ["s9CodingKeyP", "price"]
@@ -73,69 +57,32 @@ depends-member:
 - ["s9CodingKeyP", "rawValue"]
 - ["s9CodingKeyP", "stringValue"]
 - !private ["s9CodingKeyP", "subCategory"]
-- !private ["s9CodingKeyP", "tag"]
-- !private ["s9CodingKeyP", "updateType"]
 - !private ["s9CodingKeyP", "web"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "RawValue"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "_Default_RawValue"]
-- !private ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "_findStringSwitchCase"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "address"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "category"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "cityId"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "content"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "coordinate"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "debugDescription"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "deinit"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "description"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "duration"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "favorite"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "gallery"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "hash"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "hashValue"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "hours"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "icon"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "id"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "image"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "init"]
-- !private ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "init"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "intValue"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "name"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "phone"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "price"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "rating"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "ratingCount"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "rawValue"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "stringValue"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "subCategory"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "tag"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "updateType"]
-- ["10TRPRestKit15TRPPoiInfoModelV10CodingKeysO", "web"]
 - ["Sl", "init"]
-- ["Sl", "init"]
-- ["SL", "init"]
-- ["SL", "init"]
+- ["10Foundation15ContiguousBytesP", "init"]
+- ["s28CustomDebugStringConvertibleP", "=="]
 - ["s28CustomDebugStringConvertibleP", "RawValue"]
-- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", ""]
 - ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- ["s28CustomDebugStringConvertibleP", "_rawHashValue"]
 - !private ["s28CustomDebugStringConvertibleP", "address"]
 - !private ["s28CustomDebugStringConvertibleP", "category"]
 - !private ["s28CustomDebugStringConvertibleP", "cityId"]
-- !private ["s28CustomDebugStringConvertibleP", "content"]
 - !private ["s28CustomDebugStringConvertibleP", "coordinate"]
 - ["s28CustomDebugStringConvertibleP", "debugDescription"]
 - ["s28CustomDebugStringConvertibleP", "description"]
-- !private ["s28CustomDebugStringConvertibleP", "duration"]
-- !private ["s28CustomDebugStringConvertibleP", "gallery"]
 - ["s28CustomDebugStringConvertibleP", "hash"]
 - ["s28CustomDebugStringConvertibleP", "hashValue"]
 - !private ["s28CustomDebugStringConvertibleP", "hours"]
 - !private ["s28CustomDebugStringConvertibleP", "icon"]
 - !private ["s28CustomDebugStringConvertibleP", "id"]
 - !private ["s28CustomDebugStringConvertibleP", "image"]
+- !private ["s28CustomDebugStringConvertibleP", "imageOwner"]
 - ["s28CustomDebugStringConvertibleP", "init"]
-- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
 - ["s28CustomDebugStringConvertibleP", "intValue"]
+- !private ["s28CustomDebugStringConvertibleP", "mainCuisisnes"]
 - !private ["s28CustomDebugStringConvertibleP", "name"]
 - !private ["s28CustomDebugStringConvertibleP", "phone"]
 - !private ["s28CustomDebugStringConvertibleP", "price"]
@@ -144,38 +91,31 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "rawValue"]
 - ["s28CustomDebugStringConvertibleP", "stringValue"]
 - !private ["s28CustomDebugStringConvertibleP", "subCategory"]
-- !private ["s28CustomDebugStringConvertibleP", "tag"]
-- !private ["s28CustomDebugStringConvertibleP", "updateType"]
 - !private ["s28CustomDebugStringConvertibleP", "web"]
-- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
-- ["s29CustomPlaygroundQuickLookableP", "init"]
-- ["s29CustomPlaygroundQuickLookableP", "init"]
-- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
 - ["s17CustomReflectableP", "init"]
-- ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "=="]
 - ["s23CustomStringConvertibleP", "RawValue"]
-- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", ""]
 - ["s23CustomStringConvertibleP", "_Default_RawValue"]
 - !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
-- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "_rawHashValue"]
 - !private ["s23CustomStringConvertibleP", "address"]
 - !private ["s23CustomStringConvertibleP", "category"]
 - !private ["s23CustomStringConvertibleP", "cityId"]
-- !private ["s23CustomStringConvertibleP", "content"]
 - !private ["s23CustomStringConvertibleP", "coordinate"]
 - ["s23CustomStringConvertibleP", "debugDescription"]
 - ["s23CustomStringConvertibleP", "description"]
-- !private ["s23CustomStringConvertibleP", "duration"]
-- !private ["s23CustomStringConvertibleP", "gallery"]
 - ["s23CustomStringConvertibleP", "hash"]
 - ["s23CustomStringConvertibleP", "hashValue"]
 - !private ["s23CustomStringConvertibleP", "hours"]
 - !private ["s23CustomStringConvertibleP", "icon"]
 - !private ["s23CustomStringConvertibleP", "id"]
 - !private ["s23CustomStringConvertibleP", "image"]
+- !private ["s23CustomStringConvertibleP", "imageOwner"]
 - ["s23CustomStringConvertibleP", "init"]
-- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
 - ["s23CustomStringConvertibleP", "intValue"]
+- !private ["s23CustomStringConvertibleP", "mainCuisisnes"]
 - !private ["s23CustomStringConvertibleP", "name"]
 - !private ["s23CustomStringConvertibleP", "phone"]
 - !private ["s23CustomStringConvertibleP", "price"]
@@ -184,73 +124,61 @@ depends-member:
 - ["s23CustomStringConvertibleP", "rawValue"]
 - ["s23CustomStringConvertibleP", "stringValue"]
 - !private ["s23CustomStringConvertibleP", "subCategory"]
-- !private ["s23CustomStringConvertibleP", "tag"]
-- !private ["s23CustomStringConvertibleP", "updateType"]
 - !private ["s23CustomStringConvertibleP", "web"]
+- ["10Foundation12DataProtocolP", "init"]
 - !private ["Se", "CodingKeys"]
 - !private ["Se", "Float"]
 - !private ["Se", "Int"]
 - !private ["Se", "String"]
 - ["Se", "TRPCategoryInfoModel"]
 - !private ["Se", "TRPCoordinateModel"]
-- !private ["Se", "TRPPoiInfoModel"]
-- ["Se", "TRPPoiTagInfoModel"]
-- !private ["Se", "TRPUpdateTypeModel"]
+- !private ["Se", "TRPImageOwner"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
-- !private ["Se", "_getBuiltinLogicValue"]
 - !private ["Se", "address"]
 - !private ["Se", "category"]
 - !private ["Se", "cityId"]
-- !private ["Se", "content"]
 - !private ["Se", "coordinate"]
 - !private ["Se", "description"]
-- !private ["Se", "duration"]
-- !private ["Se", "gallery"]
 - !private ["Se", "hours"]
 - !private ["Se", "icon"]
 - !private ["Se", "id"]
 - !private ["Se", "image"]
+- !private ["Se", "imageOwner"]
 - ["Se", "init"]
-- ["Se", "init"]
+- !private ["Se", "mainCuisines"]
 - !private ["Se", "name"]
 - !private ["Se", "phone"]
 - !private ["Se", "price"]
 - !private ["Se", "rating"]
 - !private ["Se", "ratingCount"]
 - !private ["Se", "subCategory"]
-- !private ["Se", "tags"]
-- !private ["Se", "updateType"]
 - !private ["Se", "web"]
 - !private ["s7DecoderP", "container"]
-- !private ["SE", "_getBuiltinLogicValue"]
 - ["SE", "init"]
-- ["SE", "init"]
+- ["SQ", "=="]
 - ["SQ", "RawValue"]
-- ["SQ", ""]
+- !private ["SQ", ""]
 - ["SQ", "_Default_RawValue"]
 - !private ["SQ", "_findStringSwitchCase"]
-- !private ["SQ", "_getBuiltinLogicValue"]
-- ["SQ", "added"]
+- ["SQ", "_rawHashValue"]
 - !private ["SQ", "address"]
 - !private ["SQ", "category"]
 - !private ["SQ", "cityId"]
-- !private ["SQ", "content"]
-- !private ["SQ", "convert"]
 - !private ["SQ", "coordinate"]
 - ["SQ", "debugDescription"]
 - ["SQ", "description"]
-- !private ["SQ", "duration"]
-- !private ["SQ", "gallery"]
 - ["SQ", "hash"]
 - ["SQ", "hashValue"]
 - !private ["SQ", "hours"]
 - !private ["SQ", "icon"]
 - !private ["SQ", "id"]
 - !private ["SQ", "image"]
+- !private ["SQ", "imageOwner"]
 - ["SQ", "init"]
-- ["SQ", "init"]
+- !private ["SQ", "init"]
 - ["SQ", "intValue"]
+- !private ["SQ", "mainCuisisnes"]
 - !private ["SQ", "name"]
 - !private ["SQ", "phone"]
 - !private ["SQ", "price"]
@@ -259,42 +187,31 @@ depends-member:
 - ["SQ", "rawValue"]
 - ["SQ", "stringValue"]
 - !private ["SQ", "subCategory"]
-- !private ["SQ", "tag"]
-- !private ["SQ", "updateType"]
 - !private ["SQ", "web"]
 - ["s25ExpressibleByArrayLiteralP", "init"]
-- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
-- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
-- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
-- ["s26ExpressibleByStringLiteralP", "init"]
-- ["s26ExpressibleByStringLiteralP", "init"]
-- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["SH", "=="]
 - ["SH", "RawValue"]
-- ["SH", ""]
+- !private ["SH", ""]
 - ["SH", "_Default_RawValue"]
 - !private ["SH", "_findStringSwitchCase"]
-- !private ["SH", "_getBuiltinLogicValue"]
-- ["SH", "added"]
+- ["SH", "_rawHashValue"]
 - !private ["SH", "address"]
 - !private ["SH", "category"]
 - !private ["SH", "cityId"]
-- !private ["SH", "content"]
-- !private ["SH", "convert"]
 - !private ["SH", "coordinate"]
 - ["SH", "debugDescription"]
 - ["SH", "description"]
-- !private ["SH", "duration"]
-- !private ["SH", "gallery"]
 - ["SH", "hash"]
 - ["SH", "hashValue"]
 - !private ["SH", "hours"]
 - !private ["SH", "icon"]
 - !private ["SH", "id"]
 - !private ["SH", "image"]
+- !private ["SH", "imageOwner"]
 - ["SH", "init"]
-- ["SH", "init"]
+- !private ["SH", "init"]
 - ["SH", "intValue"]
+- !private ["SH", "mainCuisisnes"]
 - !private ["SH", "name"]
 - !private ["SH", "phone"]
 - !private ["SH", "price"]
@@ -303,47 +220,38 @@ depends-member:
 - ["SH", "rawValue"]
 - ["SH", "stringValue"]
 - !private ["SH", "subCategory"]
-- !private ["SH", "tag"]
-- !private ["SH", "updateType"]
 - !private ["SH", "web"]
-- !private ["s6HasherV", "combine"]
 - !private ["s22KeyedDecodingContainerV", "decode"]
 - !private ["s22KeyedDecodingContainerV", "decodeIfPresent"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decode"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decodeIfPresent"]
-- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
-- ["s25LosslessStringConvertibleP", "init"]
-- ["s25LosslessStringConvertibleP", "init"]
-- ["s10MirrorPathP", "init"]
-- ["s10MirrorPathP", "init"]
 - ["SM", "init"]
+- ["10Foundation19MutableDataProtocolP", "init"]
 - ["Sk", "init"]
 - ["Sm", "init"]
-- ["Sm", "init"]
+- ["SY", "=="]
 - ["SY", "RawValue"]
-- ["SY", ""]
+- !private ["SY", ""]
 - ["SY", "_Default_RawValue"]
 - !private ["SY", "_findStringSwitchCase"]
-- ["SY", "added"]
+- ["SY", "_rawHashValue"]
 - !private ["SY", "address"]
 - !private ["SY", "category"]
 - !private ["SY", "cityId"]
-- !private ["SY", "content"]
-- !private ["SY", "convert"]
 - !private ["SY", "coordinate"]
 - ["SY", "debugDescription"]
 - ["SY", "description"]
-- !private ["SY", "duration"]
-- !private ["SY", "gallery"]
 - ["SY", "hash"]
 - ["SY", "hashValue"]
 - !private ["SY", "hours"]
 - !private ["SY", "icon"]
 - !private ["SY", "id"]
 - !private ["SY", "image"]
+- !private ["SY", "imageOwner"]
 - ["SY", "init"]
 - !private ["SY", "init"]
 - ["SY", "intValue"]
+- !private ["SY", "mainCuisisnes"]
 - !private ["SY", "name"]
 - !private ["SY", "phone"]
 - !private ["SY", "price"]
@@ -352,152 +260,82 @@ depends-member:
 - ["SY", "rawValue"]
 - ["SY", "stringValue"]
 - !private ["SY", "subCategory"]
-- !private ["SY", "tag"]
-- !private ["SY", "updateType"]
 - !private ["SY", "web"]
 - ["ST", "init"]
-- ["ST", "init"]
-- !private ["s12StaticStringV", "init"]
-- !private ["s12StaticStringV", "init"]
-- ["SS", "init"]
-- ["SS", "init"]
-- ["Sy", "init"]
-- ["Sy", "init"]
 - !private ["10TRPRestKit20TRPCategoryInfoModelV", "deinit"]
 - !private ["10TRPRestKit18TRPCoordinateModelV", "deinit"]
-- ["10TRPRestKit15TRPPoiInfoModelV", "Bool"]
+- !private ["10TRPRestKit13TRPImageOwnerV", "deinit"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "CodingKey"]
-- ["10TRPRestKit15TRPPoiInfoModelV", "CodingKeys"]
+- !private ["10TRPRestKit15TRPPoiInfoModelV", "CodingKeys"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "Decoder"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "Float"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "Int"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "String"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "TRPCategoryInfoModel"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "TRPCoordinateModel"]
-- !private ["10TRPRestKit15TRPPoiInfoModelV", "TRPPoiInfoModel"]
-- ["10TRPRestKit15TRPPoiInfoModelV", "TRPPoiTagInfoModel"]
-- ["10TRPRestKit15TRPPoiInfoModelV", "TRPUpdateTypeModel"]
+- ["10TRPRestKit15TRPPoiInfoModelV", "TRPImageOwner"]
 - !private ["10TRPRestKit15TRPPoiInfoModelV", "_findStringSwitchCase"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "address"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "category"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "cityId"]
-- ["10TRPRestKit15TRPPoiInfoModelV", "content"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "coordinate"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "deinit"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "description"]
-- ["10TRPRestKit15TRPPoiInfoModelV", "duration"]
-- ["10TRPRestKit15TRPPoiInfoModelV", "favorite"]
-- ["10TRPRestKit15TRPPoiInfoModelV", "gallery"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "hours"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "icon"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "id"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "image"]
+- ["10TRPRestKit15TRPPoiInfoModelV", "imageOwner"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "init"]
+- ["10TRPRestKit15TRPPoiInfoModelV", "mainCuisines"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "name"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "phone"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "price"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "rating"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "ratingCount"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "subCategory"]
-- ["10TRPRestKit15TRPPoiInfoModelV", "tags"]
-- ["10TRPRestKit15TRPPoiInfoModelV", "updateType"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "web"]
-- ["10TRPRestKit18TRPPoiTagInfoModelV", "Int"]
-- ["10TRPRestKit18TRPPoiTagInfoModelV", "String"]
-- ["10TRPRestKit18TRPPoiTagInfoModelV", "deinit"]
-- ["10TRPRestKit18TRPPoiTagInfoModelV", "id"]
-- ["10TRPRestKit18TRPPoiTagInfoModelV", "init"]
-- ["10TRPRestKit18TRPPoiTagInfoModelV", "name"]
-- ["10TRPRestKit18TRPUpdateTypeModelO", "added"]
-- !private ["10TRPRestKit18TRPUpdateTypeModelO", "convert"]
-- ["s16TextOutputStreamP", "init"]
-- ["s16TextOutputStreamP", "init"]
-- ["s20TextOutputStreamableP", "init"]
-- ["s20TextOutputStreamableP", "init"]
+- ["s14_ArrayProtocolP", "init"]
 - ["s24_DestructorSafeContainerP", "init"]
-- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
-- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
-- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
-- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- ["s33_ExpressibleByStringInterpolationP", "init"]
-- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s19_HasContiguousBytesP", "init"]
 - ["s35_HasCustomAnyHashableRepresentationP", "init"]
-- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - ["s21_ObjectiveCBridgeableP", "init"]
-- ["s21_ObjectiveCBridgeableP", "init"]
-- ["s16_SwiftStringViewP", "init"]
-- ["s16_SwiftStringViewP", "init"]
 depends-nominal:
 - "Sa"
-- "s13ArrayProtocolP"
 - "SK"
-- !private "Sb"
 - "s7CVarArgP"
 - "s9CodingKeyP"
-- "10TRPRestKit15TRPPoiInfoModelV10CodingKeysO"
-- "10TRPRestKit15TRPPoiInfoModelV10CodingKeysO"
-- "10TRPRestKit15TRPPoiInfoModelV10CodingKeysO"
-- "10TRPRestKit15TRPPoiInfoModelV10CodingKeysO"
-- "10TRPRestKit15TRPPoiInfoModelV10CodingKeysO"
-- "10TRPRestKit15TRPPoiInfoModelV10CodingKeysO"
-- "10TRPRestKit15TRPPoiInfoModelV10CodingKeysO"
-- "10TRPRestKit15TRPPoiInfoModelV10CodingKeysO"
-- "10TRPRestKit15TRPPoiInfoModelV10CodingKeysO"
-- "10TRPRestKit15TRPPoiInfoModelV10CodingKeysO"
 - "Sl"
-- "SL"
+- "10Foundation15ContiguousBytesP"
 - "s28CustomDebugStringConvertibleP"
-- "s29CustomPlaygroundQuickLookableP"
 - "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
+- "10Foundation12DataProtocolP"
 - "Se"
 - !private "s7DecoderP"
 - "SE"
 - "SQ"
 - "s25ExpressibleByArrayLiteralP"
-- !private "s27ExpressibleByBooleanLiteralP"
-- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
-- "s26ExpressibleByStringLiteralP"
-- "s33ExpressibleByUnicodeScalarLiteralP"
 - "SH"
-- !private "s6HasherV"
 - !private "s22KeyedDecodingContainerV"
 - !private "s30KeyedDecodingContainerProtocolP"
-- "s25LosslessStringConvertibleP"
-- "s10MirrorPathP"
 - "SM"
+- "10Foundation19MutableDataProtocolP"
 - "Sk"
 - "Sm"
 - "SY"
 - "ST"
-- !private "s12StaticStringV"
-- "SS"
-- "Sy"
 - !private "10TRPRestKit20TRPCategoryInfoModelV"
 - !private "10TRPRestKit18TRPCoordinateModelV"
+- !private "10TRPRestKit13TRPImageOwnerV"
 - "10TRPRestKit15TRPPoiInfoModelV"
-- "10TRPRestKit18TRPPoiTagInfoModelV"
-- "10TRPRestKit18TRPUpdateTypeModelO"
-- "s16TextOutputStreamP"
-- "s20TextOutputStreamableP"
+- "s14_ArrayProtocolP"
 - "s24_DestructorSafeContainerP"
-- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
-- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
-- "s34_ExpressibleByBuiltinStringLiteralP"
-- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
-- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
-- "s33_ExpressibleByStringInterpolationP"
+- "s19_HasContiguousBytesP"
 - "s35_HasCustomAnyHashableRepresentationP"
 - "s21_ObjectiveCBridgeableP"
-- "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
@@ -516,15 +354,16 @@ depends-external:
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/unextended-module.modulemap"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "3c84007181f36ef50ce14677da9bc7a7"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "a11095493c7dc8b397f50239f49dd270"

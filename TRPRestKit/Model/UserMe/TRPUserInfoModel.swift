@@ -35,8 +35,10 @@ public struct TRPUserInfoModel: Decodable {
     
 }
 
+
+
+/// Indicate preferences of user with Key/Value.
 public struct TRPUserPreferencesInfoModel: Decodable {
-    
     
     /// An Int value. Unique id of User Preferences.
     public var id: Int;

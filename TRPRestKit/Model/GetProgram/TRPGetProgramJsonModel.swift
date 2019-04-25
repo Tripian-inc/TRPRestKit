@@ -7,20 +7,34 @@
 //
 
 import Foundation
+/// Indicates parameters used when creating a trip.
 public struct TRPGetProgramParamsInfoModel: Decodable {
     
-    var cityId: String?;
-    var arrivalDate: String?;
-    var departureDate: String?;
-    var arrivalTime:String?;
-    var departureTime: String?;
-    var adults: Int?;
-    var adultAgeRange: String?
-    var children: Int?
-    var childrenAgeRange: String?
+    /// An Int value. Id of city.
+    public var cityId: String?;
+    /// A String value. Arrival date of trip.
+    public var arrivalDate: String?;
+    /// A String value. Departure date of trip.
+    public var departureDate: String?;
+    /// A String value. Arrival time of trip.
+    public var arrivalTime:String?;
+    /// A String value. Departure time of trip.
+    public var departureTime: String?;
+    /// An Int value. Adult count.
+    public var adults: Int?;
+    /// A String value. Adults age range such as 32
+    public var adultAgeRange: String?
+    /// An Int value. Count of Children
+    public var children: Int?
+    /// A String value. Children age range such as 12
+    public var childrenAgeRange: String?
+    /// A String value. Center coordinate of hotel (41.123,29.4532)
     public var coordinate: String?
-    var answers: String?
+    /// A String value. Address of hotel.
     public var hotelAddress: String?
+    /// A String value. Answer of questions.You must convert to Array.
+    public var answers: String?
+    
     
     private enum CodingKeys: String, CodingKey {
         case cityId = "city_id";
@@ -37,6 +51,10 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         case hotelAddress = "hotel_address"
     }
     
+    
+    /// Initializes a new object with decoder
+    ///
+    /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
         cityId = try values.decodeIfPresent(String.self, forKey: .cityId);
@@ -58,8 +76,6 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         self.coordinate = try values.decodeIfPresent(String.self, forKey: .coordinate)
         self.answers = try values.decodeIfPresent(String.self, forKey: .answer)
         self.hotelAddress = try values.decodeIfPresent(String.self, forKey: .hotelAddress)
-        
-        
     }
 
 }

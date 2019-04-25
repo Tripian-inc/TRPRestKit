@@ -7,25 +7,27 @@
 //
 
 import Foundation
+
+/// Indicates status of page that about request
+///
+/// - continues: pages have shown yet.
+/// - completed: request is completed. Pages were showed.
 public enum Pagination{
     
-    
-    //case continuing(nextPage:String)
+    // Pages have shown yet. Value is a link
     case continues(String)
+    
+    // request is completed. Pages were showed.
     case completed
     
-    public var readable: String  {
-        switch self {
-        case .continues:
-            return "continues"
-        case .completed:
-            return "completed"
-        }
-    }
-    
 }
+
+
 extension Pagination: Equatable {
     
+    
+    /// Compare to pagination object
+    ///
     public static func ==(lhs: Pagination, rhs:Pagination) -> Bool {
         
         switch (lhs,rhs) {

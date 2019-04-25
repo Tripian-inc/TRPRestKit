@@ -10,14 +10,9 @@ import Foundation
 typealias JSON = [String: Any]
 /// Provide connection remote server.
 /// This class is use NSURLRequest.
-/// You can generate this class with Builder DP.
-/// ### Usage Example: ###
-/// ````
-/// TRPNetwork(baseUrl:"",path:"").add(params:"").add(mode: .post)
-///
-///
-/// ````
 public class TRPNetwork {
+    
+    /// A typealias value. Completion handler.
     public typealias Completion = (_ error: NSError?, _ data:Data?) -> Void
     private var baseUrl: String;
     private var path: String;
@@ -28,27 +23,32 @@ public class TRPNetwork {
     private var bodyData: Data?
     private var headerValues: [String:String] = [:]
     
+    
+    /// Initializes a new object with baseURL and path.
+    ///
+    /// - Parameters:
+    ///   - baseUrl: Remote server base url
+    ///   - path: path
     public init(baseUrl: String,
                 path: String) {
         self.baseUrl = baseUrl;
         self.path = path;
     }
     
+    
+    /// Initializes a new object with link.
+    ///
+    /// - Parameter link: url
     public convenience init(link:String) {
         self.init(baseUrl: "", path: "")
         self.rawLink = link
     }
     
-    /// Config dosyasındaki BaseUrl ve BaseUrlPath i referans alır.
-    /// Convenience yapıdır.
-    /// - Parameter path: BaseUrl in son basamığına eklenmesi gerekn path
+    /// Initializes a new object with path.
+    /// Base url is taken from TRPConfig classes.
+    /// - Parameter link: url
     convenience init(path:String) {
         self.init(baseUrl: TRPConfig.BaseUrl, path: TRPConfig.BaseUrlPath + "/" + path)
-    }
-    
-    convenience init(rawLink:String) {
-        self.init(baseUrl: "", path: "")
-        self.rawLink = rawLink
     }
     
     internal func add(params: Dictionary<String, Any>) -> Void {
@@ -70,6 +70,10 @@ public class TRPNetwork {
         self.mode = mode;
     }
     
+    
+    /// To start connection with server
+    ///
+    /// - Parameter completion: Completion handler
     public func build(_ completion: @escaping Completion) -> Void {
         self.completionHandler = completion;
         if rawLink != nil {
@@ -92,6 +96,9 @@ public class TRPNetwork {
         }
     }
     
+    /// To start connection with server using Url
+    ///
+    /// - Parameter completion: Completion handler
     public func generateSession(_ url: URL?) -> Void {
         guard let mUrl = url else {
             completionHandler?(TRPErrors.undefined as NSError,nil);
@@ -120,6 +127,7 @@ public class TRPNetwork {
                     if TRPClient.shared.showData  {
                         print("Request Link \(url!.absoluteString)")
                         print("Request Result \(strData)")
+                        print(" ")
                     }
                 }
             }

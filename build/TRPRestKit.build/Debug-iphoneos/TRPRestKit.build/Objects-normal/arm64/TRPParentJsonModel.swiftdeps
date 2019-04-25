@@ -1,57 +1,41 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
 - "TRPParentJsonModel"
-- "TRPMetaJsonModel"
 - "TRPPaginationJsonModel"
 - "TRPPaginationLinkJsonModel"
 provides-nominal:
 - "10TRPRestKit18TRPParentJsonModelC"
 - "10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO"
-- "10TRPRestKit16TRPMetaJsonModelV"
 - "10TRPRestKit22TRPPaginationJsonModelV"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
 - "10TRPRestKit26TRPPaginationLinkJsonModelV"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
 provides-member:
 - ["10TRPRestKit18TRPParentJsonModelC", ""]
 - ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", ""]
-- ["10TRPRestKit16TRPMetaJsonModelV", ""]
 - ["10TRPRestKit22TRPPaginationJsonModelV", ""]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", ""]
 - ["10TRPRestKit26TRPPaginationLinkJsonModelV", ""]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", ""]
 provides-dynamic-lookup:
 depends-top-level:
 - "=="
 - !private "??"
-- !private "Array"
 - "AssignmentPrecedence"
 - "Bool"
 - "CodingKey"
 - "Decodable"
 - "Decoder"
-- "FloatLiteralType"
 - "Int"
-- "IntegerLiteralType"
 - "String"
-- "StringLiteralType"
-- "TRPMetaJsonModel"
 - "TRPPaginationJsonModel"
 - "TRPPaginationLinkJsonModel"
 - "TRPParentJsonModel"
 - !private "_findStringSwitchCase"
 - !private "~="
 depends-member:
-- ["SK", "init"]
-- ["SK", "init"]
-- !private ["Sb", "_getBuiltinLogicValue"]
-- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
-- ["s7CVarArgP", "init"]
-- ["s7CVarArgP", "init"]
+- ["s9CodingKeyP", "=="]
 - ["s9CodingKeyP", "RawValue"]
 - ["s9CodingKeyP", ""]
 - ["s9CodingKeyP", "_Default_RawValue"]
 - !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- ["s9CodingKeyP", "_rawHashValue"]
 - !private ["s9CodingKeyP", "count"]
 - !private ["s9CodingKeyP", "currentPage"]
 - ["s9CodingKeyP", "debugDescription"]
@@ -73,48 +57,12 @@ depends-member:
 - !private ["s9CodingKeyP", "success"]
 - !private ["s9CodingKeyP", "total"]
 - !private ["s9CodingKeyP", "totalPages"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "RawValue"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "RawValue"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "_Default_RawValue"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "_Default_RawValue"]
-- !private ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "_findStringSwitchCase"]
-- !private ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "_findStringSwitchCase"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "count"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "currentPage"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "debugDescription"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "debugDescription"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "deinit"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "deinit"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "description"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "description"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "hash"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "hash"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "hashValue"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "hashValue"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "init"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "init"]
-- !private ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "init"]
-- !private ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "init"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "intValue"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "intValue"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "links"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "next"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "perPage"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "previous"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "rawValue"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "rawValue"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "stringValue"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO", "stringValue"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "total"]
-- ["10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO", "totalPages"]
-- ["Sl", "init"]
-- ["Sl", "init"]
-- ["SL", "init"]
-- ["SL", "init"]
+- ["s28CustomDebugStringConvertibleP", "=="]
 - ["s28CustomDebugStringConvertibleP", "RawValue"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- ["s28CustomDebugStringConvertibleP", "_rawHashValue"]
 - !private ["s28CustomDebugStringConvertibleP", "count"]
 - !private ["s28CustomDebugStringConvertibleP", "currentPage"]
 - ["s28CustomDebugStringConvertibleP", "debugDescription"]
@@ -122,7 +70,7 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "hash"]
 - ["s28CustomDebugStringConvertibleP", "hashValue"]
 - ["s28CustomDebugStringConvertibleP", "init"]
-- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
 - ["s28CustomDebugStringConvertibleP", "intValue"]
 - !private ["s28CustomDebugStringConvertibleP", "links"]
 - !private ["s28CustomDebugStringConvertibleP", "message"]
@@ -136,17 +84,12 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "success"]
 - !private ["s28CustomDebugStringConvertibleP", "total"]
 - !private ["s28CustomDebugStringConvertibleP", "totalPages"]
-- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
-- ["s29CustomPlaygroundQuickLookableP", "init"]
-- ["s29CustomPlaygroundQuickLookableP", "init"]
-- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
-- ["s17CustomReflectableP", "init"]
-- ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "=="]
 - ["s23CustomStringConvertibleP", "RawValue"]
 - ["s23CustomStringConvertibleP", ""]
 - ["s23CustomStringConvertibleP", "_Default_RawValue"]
 - !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
-- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "_rawHashValue"]
 - !private ["s23CustomStringConvertibleP", "count"]
 - !private ["s23CustomStringConvertibleP", "currentPage"]
 - ["s23CustomStringConvertibleP", "debugDescription"]
@@ -154,7 +97,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "hash"]
 - ["s23CustomStringConvertibleP", "hashValue"]
 - ["s23CustomStringConvertibleP", "init"]
-- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
 - ["s23CustomStringConvertibleP", "intValue"]
 - !private ["s23CustomStringConvertibleP", "links"]
 - !private ["s23CustomStringConvertibleP", "message"]
@@ -178,10 +121,8 @@ depends-member:
 - !private ["Se", "TRPParentJsonModel"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
-- !private ["Se", "_getBuiltinLogicValue"]
 - !private ["Se", "count"]
 - !private ["Se", "currentPage"]
-- ["Se", "init"]
 - ["Se", "init"]
 - !private ["Se", "links"]
 - !private ["Se", "message"]
@@ -194,14 +135,12 @@ depends-member:
 - !private ["Se", "total"]
 - !private ["Se", "totalPages"]
 - !private ["s7DecoderP", "container"]
-- !private ["SE", "_getBuiltinLogicValue"]
-- ["SE", "init"]
-- ["SE", "init"]
+- ["SQ", "=="]
 - ["SQ", "RawValue"]
 - ["SQ", ""]
 - ["SQ", "_Default_RawValue"]
 - !private ["SQ", "_findStringSwitchCase"]
-- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "_rawHashValue"]
 - !private ["SQ", "count"]
 - !private ["SQ", "currentPage"]
 - ["SQ", "debugDescription"]
@@ -209,7 +148,7 @@ depends-member:
 - ["SQ", "hash"]
 - ["SQ", "hashValue"]
 - ["SQ", "init"]
-- ["SQ", "init"]
+- !private ["SQ", "init"]
 - ["SQ", "intValue"]
 - !private ["SQ", "links"]
 - !private ["SQ", "message"]
@@ -223,18 +162,12 @@ depends-member:
 - !private ["SQ", "success"]
 - !private ["SQ", "total"]
 - !private ["SQ", "totalPages"]
-- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
-- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
-- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
-- ["s26ExpressibleByStringLiteralP", "init"]
-- ["s26ExpressibleByStringLiteralP", "init"]
-- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["SH", "=="]
 - ["SH", "RawValue"]
 - ["SH", ""]
 - ["SH", "_Default_RawValue"]
 - !private ["SH", "_findStringSwitchCase"]
-- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "_rawHashValue"]
 - !private ["SH", "count"]
 - !private ["SH", "currentPage"]
 - ["SH", "debugDescription"]
@@ -242,7 +175,7 @@ depends-member:
 - ["SH", "hash"]
 - ["SH", "hashValue"]
 - ["SH", "init"]
-- ["SH", "init"]
+- !private ["SH", "init"]
 - ["SH", "intValue"]
 - !private ["SH", "links"]
 - !private ["SH", "message"]
@@ -256,19 +189,15 @@ depends-member:
 - !private ["SH", "success"]
 - !private ["SH", "total"]
 - !private ["SH", "totalPages"]
-- !private ["s6HasherV", "combine"]
 - !private ["s22KeyedDecodingContainerV", "decode"]
 - !private ["s22KeyedDecodingContainerV", "decodeIfPresent"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decode"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decodeIfPresent"]
-- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
-- ["s25LosslessStringConvertibleP", "init"]
-- ["s25LosslessStringConvertibleP", "init"]
-- ["s10MirrorPathP", "init"]
-- ["s10MirrorPathP", "init"]
+- ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", "=="]
 - ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", "RawValue"]
 - ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", "_Default_RawValue"]
 - !private ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", "_findStringSwitchCase"]
+- ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", "_rawHashValue"]
 - ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", "debugDescription"]
 - ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", "deinit"]
 - ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", "description"]
@@ -283,12 +212,12 @@ depends-member:
 - ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", "status"]
 - ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", "stringValue"]
 - ["10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO", "success"]
-- ["Sm", "init"]
-- ["Sm", "init"]
+- ["SY", "=="]
 - ["SY", "RawValue"]
 - ["SY", ""]
 - ["SY", "_Default_RawValue"]
 - !private ["SY", "_findStringSwitchCase"]
+- ["SY", "_rawHashValue"]
 - !private ["SY", "count"]
 - !private ["SY", "currentPage"]
 - ["SY", "debugDescription"]
@@ -310,20 +239,8 @@ depends-member:
 - !private ["SY", "success"]
 - !private ["SY", "total"]
 - !private ["SY", "totalPages"]
-- ["ST", "init"]
-- ["ST", "init"]
-- !private ["s12StaticStringV", "init"]
-- !private ["s12StaticStringV", "init"]
-- ["SS", "init"]
-- ["SS", "init"]
-- ["Sy", "init"]
-- ["Sy", "init"]
-- ["10TRPRestKit16TRPMetaJsonModelV", "TRPPaginationJsonModel"]
-- ["10TRPRestKit16TRPMetaJsonModelV", "deinit"]
-- ["10TRPRestKit16TRPMetaJsonModelV", "init"]
-- ["10TRPRestKit16TRPMetaJsonModelV", "pagination"]
 - ["10TRPRestKit22TRPPaginationJsonModelV", "CodingKey"]
-- ["10TRPRestKit22TRPPaginationJsonModelV", "CodingKeys"]
+- !private ["10TRPRestKit22TRPPaginationJsonModelV", "CodingKeys"]
 - ["10TRPRestKit22TRPPaginationJsonModelV", "Decoder"]
 - ["10TRPRestKit22TRPPaginationJsonModelV", "Int"]
 - ["10TRPRestKit22TRPPaginationJsonModelV", "String"]
@@ -338,7 +255,7 @@ depends-member:
 - ["10TRPRestKit22TRPPaginationJsonModelV", "total"]
 - ["10TRPRestKit22TRPPaginationJsonModelV", "totalPages"]
 - ["10TRPRestKit26TRPPaginationLinkJsonModelV", "CodingKey"]
-- ["10TRPRestKit26TRPPaginationLinkJsonModelV", "CodingKeys"]
+- !private ["10TRPRestKit26TRPPaginationLinkJsonModelV", "CodingKeys"]
 - ["10TRPRestKit26TRPPaginationLinkJsonModelV", "Decoder"]
 - ["10TRPRestKit26TRPPaginationLinkJsonModelV", "String"]
 - !private ["10TRPRestKit26TRPPaginationLinkJsonModelV", "_findStringSwitchCase"]
@@ -361,108 +278,24 @@ depends-member:
 - ["10TRPRestKit18TRPParentJsonModelC", "pagination"]
 - ["10TRPRestKit18TRPParentJsonModelC", "status"]
 - ["10TRPRestKit18TRPParentJsonModelC", "success"]
-- ["s16TextOutputStreamP", "init"]
-- ["s16TextOutputStreamP", "init"]
-- ["s20TextOutputStreamableP", "init"]
-- ["s20TextOutputStreamableP", "init"]
-- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
-- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
-- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
-- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- ["s33_ExpressibleByStringInterpolationP", "init"]
-- ["s33_ExpressibleByStringInterpolationP", "init"]
-- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
-- ["s21_ObjectiveCBridgeableP", "init"]
-- ["s21_ObjectiveCBridgeableP", "init"]
-- ["s16_SwiftStringViewP", "init"]
-- ["s16_SwiftStringViewP", "init"]
 depends-nominal:
-- "SK"
-- !private "Sb"
-- "s7CVarArgP"
 - "s9CodingKeyP"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- !private "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- !private "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- !private "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- !private "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "10TRPRestKit26TRPPaginationLinkJsonModelV10CodingKeysO"
-- "10TRPRestKit22TRPPaginationJsonModelV10CodingKeysO"
-- "Sl"
-- "SL"
 - "s28CustomDebugStringConvertibleP"
-- "s29CustomPlaygroundQuickLookableP"
-- "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
 - "Se"
 - !private "s7DecoderP"
-- "SE"
 - "SQ"
-- !private "s27ExpressibleByBooleanLiteralP"
-- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
-- "s26ExpressibleByStringLiteralP"
-- "s33ExpressibleByUnicodeScalarLiteralP"
 - "SH"
-- !private "s6HasherV"
 - !private "s22KeyedDecodingContainerV"
 - !private "s30KeyedDecodingContainerProtocolP"
-- "s25LosslessStringConvertibleP"
-- "s10MirrorPathP"
 - "10TRPRestKit18TRPParentJsonModelC16ParentCodingKeysO"
-- "Sm"
 - "SY"
-- "ST"
-- !private "s12StaticStringV"
-- "SS"
-- "Sy"
-- "10TRPRestKit16TRPMetaJsonModelV"
 - "10TRPRestKit22TRPPaginationJsonModelV"
 - "10TRPRestKit26TRPPaginationLinkJsonModelV"
 - "10TRPRestKit18TRPParentJsonModelC"
-- "s16TextOutputStreamP"
-- "s20TextOutputStreamableP"
-- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
-- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
-- "s34_ExpressibleByBuiltinStringLiteralP"
-- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
-- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
-- "s33_ExpressibleByStringInterpolationP"
-- "s21_ObjectiveCBridgeableP"
-- "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
@@ -475,20 +308,21 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-fldkmyqkjgszdmcposcyfdudykys/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "aa41057c5d2de4a103decff7c38ea0b8"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "56e0b82b5e5073d2ee69a208554f66e2"
