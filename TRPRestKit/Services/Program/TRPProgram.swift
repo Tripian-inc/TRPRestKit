@@ -55,7 +55,6 @@ internal class TRPProgram: TRPRestServices{
         guard let setting = setting else {
             return params
         }
-        
         params["city_id"] = setting.cityId;
         params["arrival_date"] = setting.arrivalTime.date
         params["arrival_time"] = setting.arrivalTime.time;
@@ -64,7 +63,7 @@ internal class TRPProgram: TRPRestServices{
         params["adults"] = String(setting.adultsCount);
         
         if let adultAgeRange = setting.adultAgeRange {
-            params["adult_age_range"] = adultAgeRange;
+            params["adult_age_average"] = adultAgeRange;
         }
         
         if let children = setting.childrenCount {
@@ -72,7 +71,7 @@ internal class TRPProgram: TRPRestServices{
         }
         
         if let ageRange = setting.childrenAgeRange {
-            params["children_age_range"] = ageRange;
+            params["children_age_average"] = ageRange;
         }
         
         if let answer = setting.answer {

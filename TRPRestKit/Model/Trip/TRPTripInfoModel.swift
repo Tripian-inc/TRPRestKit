@@ -26,6 +26,8 @@ public struct TRPTripInfoModel: Decodable{
     /// A TRPCityInfoModel objects.
     public var city: TRPCityInfoModel
     
+    
+    
     private enum CodingKeys: String, CodingKey {
         case id
         case hash

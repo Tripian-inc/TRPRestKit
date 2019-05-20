@@ -22,18 +22,18 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     public var departureTime: String?;
     /// An Int value. Adult count.
     public var adults: Int?;
-    /// A String value. Adults age range such as 32
-    public var adultAgeRange: String?
+    /// An Int value. Adults age range such as 32
+    public var adultAgeRange: Int?
     /// An Int value. Count of Children
     public var children: Int?
-    /// A String value. Children age range such as 12
-    public var childrenAgeRange: String?
+    /// An Int value. Children age range such as 12
+    public var childrenAgeRange: Int?
     /// A String value. Center coordinate of hotel (41.123,29.4532)
     public var coordinate: String?
     /// A String value. Address of hotel.
     public var hotelAddress: String?
     /// A String value. Answer of questions.You must convert to Array.
-    public var answers: String?
+    public var answers = [Int]()
     
     
     private enum CodingKeys: String, CodingKey {
@@ -43,11 +43,11 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         case arrivalTime = "arrival_time";
         case departureTime = "departure_time";
         case adults
-        case adultAgeRange = "adult_age_range"
+        case adultAgeRange = "adult_age_average"
         case children
-        case childAgeRange = "children_age_range"
+        case childAgeRange = "children_age_average"
         case coordinate
-        case answer
+        case answers
         case hotelAddress = "hotel_address"
     }
     
@@ -71,11 +71,23 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
             self.children = childrenCount
         }
         
-        self.adultAgeRange = try values.decodeIfPresent(String.self, forKey: .adultAgeRange)
-        self.childrenAgeRange = try values.decodeIfPresent(String.self, forKey: .childAgeRange)
+        if let ageRange = try values.decodeIfPresent(String.self, forKey: .adultAgeRange), let range = Int(ageRange) {
+            self.adultAgeRange = range
+        }
+        
+        if let ageRange = try values.decodeIfPresent(String.self, forKey: .childAgeRange), let range = Int(ageRange) {
+            self.childrenAgeRange = range
+        }
+        
         self.coordinate = try values.decodeIfPresent(String.self, forKey: .coordinate)
-        self.answers = try values.decodeIfPresent(String.self, forKey: .answer)
+        
         self.hotelAddress = try values.decodeIfPresent(String.self, forKey: .hotelAddress)
+        if let answersStr = try values.decodeIfPresent(String.self, forKey: .answers) {
+            let ar = answersStr.components(separatedBy: ",")
+            answers = ar.map { (s) -> Int in
+                return Int(s) ?? -1
+            }
+        }
     }
 
 }
