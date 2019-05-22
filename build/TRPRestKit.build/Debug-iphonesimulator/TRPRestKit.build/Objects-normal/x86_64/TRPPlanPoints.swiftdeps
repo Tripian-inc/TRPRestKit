@@ -24,7 +24,6 @@ depends-top-level:
 - !private "TRPConfig"
 - !private "TRPErrors"
 - "TRPPlanPoints"
-- !private "TRPPoiAddRouteJsonModel"
 - !private "TRPProgramStepJsonModel"
 - "TRPRequestMode"
 - "TRPRestServices"
@@ -109,7 +108,6 @@ depends-member:
 - ["10TRPRestKit13TRPPlanPointsC", "String"]
 - !private ["10TRPRestKit13TRPPlanPointsC", "TRPConfig"]
 - !private ["10TRPRestKit13TRPPlanPointsC", "TRPErrors"]
-- !private ["10TRPRestKit13TRPPlanPointsC", "TRPPoiAddRouteJsonModel"]
 - !private ["10TRPRestKit13TRPPlanPointsC", "TRPProgramStepJsonModel"]
 - ["10TRPRestKit13TRPPlanPointsC", "TRPRequestMode"]
 - ["10TRPRestKit13TRPPlanPointsC", "dailyPlanId"]
@@ -124,7 +122,6 @@ depends-member:
 - ["10TRPRestKit13TRPPlanPointsC", "servicesResult"]
 - ["10TRPRestKit13TRPPlanPointsC", "type"]
 - ["10TRPRestKit13TRPPlanPointsC", "userOAuth"]
-- !private ["10TRPRestKit23TRPPoiAddRouteJsonModelC", "deinit"]
 - !private ["10TRPRestKit23TRPProgramStepJsonModelC", "deinit"]
 - !private ["10TRPRestKit14TRPRequestModeO", "delete"]
 - !private ["10TRPRestKit14TRPRequestModeO", "get"]
@@ -141,7 +138,6 @@ depends-member:
 - ["10TRPRestKit0A8ServicesC", "String"]
 - !private ["10TRPRestKit0A8ServicesC", "TRPConfig"]
 - !private ["10TRPRestKit0A8ServicesC", "TRPErrors"]
-- !private ["10TRPRestKit0A8ServicesC", "TRPPoiAddRouteJsonModel"]
 - !private ["10TRPRestKit0A8ServicesC", "TRPProgramStepJsonModel"]
 - ["10TRPRestKit0A8ServicesC", "TRPRequestMode"]
 - ["10TRPRestKit0A8ServicesC", ""]
@@ -187,7 +183,6 @@ depends-nominal:
 - !private "10TRPRestKit9TRPConfigV"
 - !private "10TRPRestKit9TRPErrorsO"
 - "10TRPRestKit13TRPPlanPointsC"
-- !private "10TRPRestKit23TRPPoiAddRouteJsonModelC"
 - !private "10TRPRestKit23TRPProgramStepJsonModelC"
 - !private "10TRPRestKit14TRPRequestModeO"
 - "10TRPRestKit0A8ServicesC"

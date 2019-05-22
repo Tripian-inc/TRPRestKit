@@ -9,17 +9,13 @@ provides-dynamic-lookup:
 depends-top-level:
 - "AssignmentPrecedence"
 - "Bool"
-- !private "BooleanLiteralType"
 - "CastingPrecedence"
 - "Data"
 - "Dictionary"
-- !private "FloatLiteralType"
 - "Int"
-- !private "IntegerLiteralType"
 - !private "JSONDecoder"
 - "NSError"
 - "String"
-- !private "StringLiteralType"
 - !private "TRPConfig"
 - !private "TRPErrors"
 - !private "TRPPlanPointAlternativeJsonModel"
@@ -66,6 +62,7 @@ depends-member:
 - !private ["10TRPRestKit24TRPPlanPointAlternativesC", "TRPErrors"]
 - !private ["10TRPRestKit24TRPPlanPointAlternativesC", "TRPPlanPointAlternativeJsonModel"]
 - ["10TRPRestKit24TRPPlanPointAlternativesC", "dailyPlanId"]
+- ["10TRPRestKit24TRPPlanPointAlternativesC", "deinit"]
 - ["10TRPRestKit24TRPPlanPointAlternativesC", "hash"]
 - ["10TRPRestKit24TRPPlanPointAlternativesC", "init"]
 - !private ["10TRPRestKit24TRPPlanPointAlternativesC", "paginationController"]

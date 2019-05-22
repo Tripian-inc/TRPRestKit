@@ -8,6 +8,7 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "=="
+- !private "??"
 - "AssignmentPrecedence"
 - "CodingKey"
 - "Decodable"
@@ -19,8 +20,15 @@ depends-top-level:
 - !private "~="
 depends-member:
 - !private ["s18AdditiveArithmeticP", "init"]
+- ["Sa", "init"]
+- !private ["Sa", "map"]
+- !private ["SK", "components"]
+- ["SK", "init"]
+- !private ["SK", "map"]
 - !private ["Sz", "init"]
-- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "components"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "map"]
 - ["s9CodingKeyP", "=="]
 - ["s9CodingKeyP", "RawValue"]
 - !private ["s9CodingKeyP", ""]
@@ -29,7 +37,7 @@ depends-member:
 - ["s9CodingKeyP", "_rawHashValue"]
 - !private ["s9CodingKeyP", "adultAgeRange"]
 - !private ["s9CodingKeyP", "adults"]
-- !private ["s9CodingKeyP", "answer"]
+- !private ["s9CodingKeyP", "answers"]
 - !private ["s9CodingKeyP", "arrivalDate"]
 - !private ["s9CodingKeyP", "arrivalTime"]
 - !private ["s9CodingKeyP", "childAgeRange"]
@@ -48,7 +56,13 @@ depends-member:
 - ["s9CodingKeyP", "intValue"]
 - ["s9CodingKeyP", "rawValue"]
 - ["s9CodingKeyP", "stringValue"]
+- !private ["Sl", "components"]
+- ["Sl", "init"]
+- !private ["Sl", "map"]
+- !private ["SL", "components"]
 - !private ["SL", "init"]
+- ["10Foundation15ContiguousBytesP", "init"]
+- !private ["10Foundation15ContiguousBytesP", "map"]
 - ["s28CustomDebugStringConvertibleP", "=="]
 - ["s28CustomDebugStringConvertibleP", "RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", ""]
@@ -57,12 +71,13 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "_rawHashValue"]
 - !private ["s28CustomDebugStringConvertibleP", "adultAgeRange"]
 - !private ["s28CustomDebugStringConvertibleP", "adults"]
-- !private ["s28CustomDebugStringConvertibleP", "answer"]
+- !private ["s28CustomDebugStringConvertibleP", "answers"]
 - !private ["s28CustomDebugStringConvertibleP", "arrivalDate"]
 - !private ["s28CustomDebugStringConvertibleP", "arrivalTime"]
 - !private ["s28CustomDebugStringConvertibleP", "childAgeRange"]
 - !private ["s28CustomDebugStringConvertibleP", "children"]
 - !private ["s28CustomDebugStringConvertibleP", "cityId"]
+- !private ["s28CustomDebugStringConvertibleP", "components"]
 - !private ["s28CustomDebugStringConvertibleP", "coordinate"]
 - ["s28CustomDebugStringConvertibleP", "debugDescription"]
 - !private ["s28CustomDebugStringConvertibleP", "departureDate"]
@@ -74,9 +89,12 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - ["s28CustomDebugStringConvertibleP", "intValue"]
+- !private ["s28CustomDebugStringConvertibleP", "map"]
 - ["s28CustomDebugStringConvertibleP", "rawValue"]
 - ["s28CustomDebugStringConvertibleP", "stringValue"]
-- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "components"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "map"]
 - ["s23CustomStringConvertibleP", "=="]
 - ["s23CustomStringConvertibleP", "RawValue"]
 - !private ["s23CustomStringConvertibleP", ""]
@@ -85,12 +103,13 @@ depends-member:
 - ["s23CustomStringConvertibleP", "_rawHashValue"]
 - !private ["s23CustomStringConvertibleP", "adultAgeRange"]
 - !private ["s23CustomStringConvertibleP", "adults"]
-- !private ["s23CustomStringConvertibleP", "answer"]
+- !private ["s23CustomStringConvertibleP", "answers"]
 - !private ["s23CustomStringConvertibleP", "arrivalDate"]
 - !private ["s23CustomStringConvertibleP", "arrivalTime"]
 - !private ["s23CustomStringConvertibleP", "childAgeRange"]
 - !private ["s23CustomStringConvertibleP", "children"]
 - !private ["s23CustomStringConvertibleP", "cityId"]
+- !private ["s23CustomStringConvertibleP", "components"]
 - !private ["s23CustomStringConvertibleP", "coordinate"]
 - ["s23CustomStringConvertibleP", "debugDescription"]
 - !private ["s23CustomStringConvertibleP", "departureDate"]
@@ -102,10 +121,13 @@ depends-member:
 - ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "init"]
 - ["s23CustomStringConvertibleP", "intValue"]
+- !private ["s23CustomStringConvertibleP", "map"]
 - ["s23CustomStringConvertibleP", "rawValue"]
 - ["s23CustomStringConvertibleP", "stringValue"]
+- ["10Foundation12DataProtocolP", "init"]
+- !private ["10Foundation12DataProtocolP", "map"]
 - !private ["Se", "CodingKeys"]
-- !private ["Se", "Int"]
+- ["Se", "Int"]
 - !private ["Se", "String"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
@@ -117,13 +139,17 @@ depends-member:
 - !private ["Se", "children"]
 - !private ["Se", "childrenAgeRange"]
 - !private ["Se", "cityId"]
+- !private ["Se", "components"]
 - !private ["Se", "coordinate"]
 - !private ["Se", "departureDate"]
 - !private ["Se", "departureTime"]
 - !private ["Se", "hotelAddress"]
 - ["Se", "init"]
+- !private ["Se", "map"]
 - !private ["s7DecoderP", "container"]
-- !private ["SE", "init"]
+- !private ["SE", "components"]
+- ["SE", "init"]
+- !private ["SE", "map"]
 - ["SQ", "=="]
 - ["SQ", "RawValue"]
 - !private ["SQ", ""]
@@ -132,12 +158,13 @@ depends-member:
 - ["SQ", "_rawHashValue"]
 - !private ["SQ", "adultAgeRange"]
 - !private ["SQ", "adults"]
-- !private ["SQ", "answer"]
+- !private ["SQ", "answers"]
 - !private ["SQ", "arrivalDate"]
 - !private ["SQ", "arrivalTime"]
 - !private ["SQ", "childAgeRange"]
 - !private ["SQ", "children"]
 - !private ["SQ", "cityId"]
+- !private ["SQ", "components"]
 - !private ["SQ", "coordinate"]
 - ["SQ", "debugDescription"]
 - !private ["SQ", "departureDate"]
@@ -149,9 +176,16 @@ depends-member:
 - ["SQ", "init"]
 - !private ["SQ", "init"]
 - ["SQ", "intValue"]
+- !private ["SQ", "map"]
 - ["SQ", "rawValue"]
 - ["SQ", "stringValue"]
+- ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s25ExpressibleByArrayLiteralP", "map"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "components"]
 - !private ["s27ExpressibleByIntegerLiteralP", "init"]
+- !private ["s32ExpressibleByStringInterpolationP", "components"]
+- !private ["s26ExpressibleByStringLiteralP", "components"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "components"]
 - !private ["s17FixedWidthIntegerP", "init"]
 - ["SH", "=="]
 - ["SH", "RawValue"]
@@ -161,12 +195,13 @@ depends-member:
 - ["SH", "_rawHashValue"]
 - !private ["SH", "adultAgeRange"]
 - !private ["SH", "adults"]
-- !private ["SH", "answer"]
+- !private ["SH", "answers"]
 - !private ["SH", "arrivalDate"]
 - !private ["SH", "arrivalTime"]
 - !private ["SH", "childAgeRange"]
 - !private ["SH", "children"]
 - !private ["SH", "cityId"]
+- !private ["SH", "components"]
 - !private ["SH", "coordinate"]
 - ["SH", "debugDescription"]
 - !private ["SH", "departureDate"]
@@ -178,14 +213,35 @@ depends-member:
 - ["SH", "init"]
 - !private ["SH", "init"]
 - ["SH", "intValue"]
+- !private ["SH", "map"]
 - ["SH", "rawValue"]
 - ["SH", "stringValue"]
 - !private ["Si", "init"]
 - !private ["s22KeyedDecodingContainerV", "decodeIfPresent"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decodeIfPresent"]
+- !private ["s25LosslessStringConvertibleP", "components"]
 - !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "components"]
 - !private ["s10MirrorPathP", "init"]
+- ["SM", "init"]
+- !private ["SM", "map"]
+- ["10Foundation19MutableDataProtocolP", "init"]
+- !private ["10Foundation19MutableDataProtocolP", "map"]
+- !private ["So8NSCodingP", "components"]
+- !private ["So9NSCopyingP", "components"]
+- !private ["So21NSItemProviderReadingP", "components"]
+- !private ["So21NSItemProviderWritingP", "components"]
+- !private ["So16NSMutableCopyingP", "components"]
+- !private ["So8NSObjectC", "components"]
+- !private ["So8NSObjectP", "components"]
+- !private ["So14NSSecureCodingP", "components"]
+- !private ["So8NSStringC", "components"]
 - !private ["Sj", "init"]
+- ["Sk", "init"]
+- !private ["Sk", "map"]
+- !private ["Sm", "components"]
+- ["Sm", "init"]
+- !private ["Sm", "map"]
 - ["SY", "=="]
 - ["SY", "RawValue"]
 - !private ["SY", ""]
@@ -194,7 +250,7 @@ depends-member:
 - ["SY", "_rawHashValue"]
 - !private ["SY", "adultAgeRange"]
 - !private ["SY", "adults"]
-- !private ["SY", "answer"]
+- !private ["SY", "answers"]
 - !private ["SY", "arrivalDate"]
 - !private ["SY", "arrivalTime"]
 - !private ["SY", "childAgeRange"]
@@ -214,9 +270,14 @@ depends-member:
 - ["SY", "rawValue"]
 - ["SY", "stringValue"]
 - !private ["s10SIMDScalarP", "init"]
+- !private ["ST", "components"]
+- ["ST", "init"]
+- !private ["ST", "map"]
 - !private ["SZ", "init"]
 - !private ["s13SignedNumericP", "init"]
 - !private ["Sx", "init"]
+- !private ["SS", "components"]
+- !private ["Sy", "components"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "CodingKey"]
 - !private ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "CodingKeys"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "Decoder"]
@@ -237,24 +298,52 @@ depends-member:
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "departureTime"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "hotelAddress"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "init"]
+- !private ["s16TextOutputStreamP", "components"]
+- !private ["s20TextOutputStreamableP", "components"]
+- ["s14_ArrayProtocolP", "init"]
+- !private ["s14_ArrayProtocolP", "map"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "components"]
 - !private ["s30_CustomPlaygroundQuickLookableP", "init"]
+- ["s24_DestructorSafeContainerP", "init"]
+- !private ["s24_DestructorSafeContainerP", "map"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "components"]
 - !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
-- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
-- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "components"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "components"]
+- !private ["s19_HasContiguousBytesP", "components"]
+- ["s19_HasContiguousBytesP", "init"]
+- !private ["s19_HasContiguousBytesP", "map"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "components"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "map"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "components"]
+- !private ["s21_ObjectiveCBridgeableP", "components"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "map"]
 depends-nominal:
 - !private "s18AdditiveArithmeticP"
+- "Sa"
+- "SK"
 - !private "Sz"
-- !private "s7CVarArgP"
+- "s7CVarArgP"
 - "s9CodingKeyP"
+- "Sl"
 - !private "SL"
+- "10Foundation15ContiguousBytesP"
 - "s28CustomDebugStringConvertibleP"
-- !private "s17CustomReflectableP"
+- "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
+- "10Foundation12DataProtocolP"
 - "Se"
 - !private "s7DecoderP"
-- !private "SE"
+- "SE"
 - "SQ"
+- "s25ExpressibleByArrayLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
 - !private "s27ExpressibleByIntegerLiteralP"
+- !private "s32ExpressibleByStringInterpolationP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
 - !private "s17FixedWidthIntegerP"
 - "SH"
 - !private "Si"
@@ -262,17 +351,42 @@ depends-nominal:
 - !private "s30KeyedDecodingContainerProtocolP"
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
+- "SM"
+- "10Foundation19MutableDataProtocolP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- !private "So8NSObjectC"
+- !private "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
 - !private "Sj"
+- "Sk"
+- "Sm"
 - "SY"
 - !private "s10SIMDScalarP"
+- "ST"
 - !private "SZ"
 - !private "s13SignedNumericP"
 - !private "Sx"
+- !private "SS"
+- !private "Sy"
 - "10TRPRestKit28TRPGetProgramParamsInfoModelV"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- "s14_ArrayProtocolP"
 - !private "s30_CustomPlaygroundQuickLookableP"
+- "s24_DestructorSafeContainerP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s35_ExpressibleByBuiltinIntegerLiteralP"
-- !private "s35_HasCustomAnyHashableRepresentationP"
-- !private "s21_ObjectiveCBridgeableP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s19_HasContiguousBytesP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
 depends-dynamic-lookup:
 depends-external:
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
@@ -305,4 +419,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "4da8bdabad177f10497505b4eb2c4526"
+interface-hash: "4dca698172b7a4b90524a88106f58f95"

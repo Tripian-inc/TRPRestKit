@@ -39,7 +39,6 @@
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/Pagination.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/NearByJsonInfoModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPReportAProblemJsonModel.o
-/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPPlanPointInfoModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPGooglePlaceLocation.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPMyPrograms.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPPlace.o
@@ -48,9 +47,7 @@
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPFeedback.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPUserTripsJsonModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPPlanPointAlternativeJsonModel.o
-/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPPoiAddRouteJsonModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPProgramStepJsonModel.o
-/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPPoiAddRouteInfoModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPRecommendation.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPImageOwner.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPDayPlanJsonModel.o

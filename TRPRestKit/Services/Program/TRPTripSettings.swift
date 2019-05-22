@@ -12,7 +12,7 @@ import Foundation
 public class TRPTripSettings {
     
     /// An Int value. Id of city.
-    public var cityId: Int;
+    public var cityId: Int?;
     /// A TRPTime object. Arrival date of trip.
     public var arrivalTime: TRPTime;
     /// A TRPTime object. Departure date of trip.
@@ -34,6 +34,7 @@ public class TRPTripSettings {
     /// A Bool value. If you set true, trip is not going to generate.
     public var doNotGenerate:Bool?
     
+    public var hash: String?
     
     /// Initializes a new Settings with cityId, arrivalTime and departureTime
     ///
@@ -46,6 +47,13 @@ public class TRPTripSettings {
         self.arrivalTime = arrivalTime
         self.departureTime = departureTime;
     }
+    
+    public init(hash: String, arrivalTime:TRPTime, departureTime:TRPTime) {
+        self.hash = hash
+        self.arrivalTime = arrivalTime
+        self.departureTime = departureTime;
+    }
+    
     
     
     /// Address of Hotel. The hotel is going to be First step in trip.

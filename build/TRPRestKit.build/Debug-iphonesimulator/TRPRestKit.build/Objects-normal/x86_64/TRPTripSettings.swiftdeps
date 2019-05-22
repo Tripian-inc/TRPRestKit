@@ -53,6 +53,7 @@ depends-member:
 - ["10TRPRestKit15TRPTripSettingsC", "coordinate"]
 - ["10TRPRestKit15TRPTripSettingsC", "departureTime"]
 - ["10TRPRestKit15TRPTripSettingsC", "doNotGenerate"]
+- ["10TRPRestKit15TRPTripSettingsC", "hash"]
 - ["10TRPRestKit15TRPTripSettingsC", "hotelAddress"]
 - ["10TRPRestKit15TRPTripSettingsC", "init"]
 - ["10TRPRestKit15TRPTripSettingsC", "setCoordinateWithAddress"]
@@ -127,4 +128,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "1d7eb44affd0f50d455efd0a66c4cefa"
+interface-hash: "420666f8019fbfac9c49bab5a7df7e96"

@@ -32,6 +32,7 @@ provides-member:
 - ["10TRPRestKitAAC", "deleteUserFavorite"]
 - ["10TRPRestKitAAC", "userTrips"]
 - ["10TRPRestKitAAC", "createTrip"]
+- ["10TRPRestKitAAC", "editTrip"]
 - ["10TRPRestKitAAC", "getTrip"]
 - ["10TRPRestKitAAC", "deleteTrip"]
 - ["10TRPRestKitAAC", "dailyPlan"]
@@ -83,7 +84,6 @@ depends-top-level:
 - !private "TRPPlanPointAlternativeJsonModel"
 - !private "TRPPlanPointAlternatives"
 - "TRPPlanPoints"
-- !private "TRPPoiAddRouteJsonModel"
 - !private "TRPPoiCategories"
 - !private "TRPPoiJsonModel"
 - !private "TRPProblemCategories"
@@ -141,7 +141,7 @@ depends-member:
 - !private ["s7CVarArgP", "citiesServices"]
 - !private ["s7CVarArgP", "completionHandler"]
 - !private ["s7CVarArgP", "completionHandlerWithPagination"]
-- !private ["s7CVarArgP", "createTripServices"]
+- !private ["s7CVarArgP", "createOrEditTripServices"]
 - !private ["s7CVarArgP", "dailyPlanServices"]
 - !private ["s7CVarArgP", "deleteTripServices"]
 - !private ["s7CVarArgP", "first"]
@@ -196,7 +196,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "citiesServices"]
 - !private ["s28CustomDebugStringConvertibleP", "completionHandler"]
 - !private ["s28CustomDebugStringConvertibleP", "completionHandlerWithPagination"]
-- !private ["s28CustomDebugStringConvertibleP", "createTripServices"]
+- !private ["s28CustomDebugStringConvertibleP", "createOrEditTripServices"]
 - !private ["s28CustomDebugStringConvertibleP", "dailyPlanServices"]
 - !private ["s28CustomDebugStringConvertibleP", "deleteTripServices"]
 - !private ["s28CustomDebugStringConvertibleP", "first"]
@@ -253,7 +253,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "citiesServices"]
 - !private ["s23CustomStringConvertibleP", "completionHandler"]
 - !private ["s23CustomStringConvertibleP", "completionHandlerWithPagination"]
-- !private ["s23CustomStringConvertibleP", "createTripServices"]
+- !private ["s23CustomStringConvertibleP", "createOrEditTripServices"]
 - !private ["s23CustomStringConvertibleP", "dailyPlanServices"]
 - !private ["s23CustomStringConvertibleP", "deleteTripServices"]
 - !private ["s23CustomStringConvertibleP", "first"]
@@ -314,7 +314,7 @@ depends-member:
 - !private ["SQ", "completed"]
 - !private ["SQ", "completionHandler"]
 - !private ["SQ", "completionHandlerWithPagination"]
-- !private ["SQ", "createTripServices"]
+- !private ["SQ", "createOrEditTripServices"]
 - !private ["SQ", "dailyPlanServices"]
 - !private ["SQ", "delete"]
 - !private ["SQ", "deleteTripServices"]
@@ -379,7 +379,7 @@ depends-member:
 - !private ["SH", "citiesServices"]
 - !private ["SH", "completionHandler"]
 - !private ["SH", "completionHandlerWithPagination"]
-- !private ["SH", "createTripServices"]
+- !private ["SH", "createOrEditTripServices"]
 - !private ["SH", "dailyPlanServices"]
 - !private ["SH", "delete"]
 - !private ["SH", "deleteTripServices"]
@@ -450,7 +450,6 @@ depends-member:
 - !private ["So8NSObjectC", "TRPPlanPointAlternativeJsonModel"]
 - !private ["So8NSObjectC", "TRPPlanPointAlternatives"]
 - ["So8NSObjectC", "TRPPlanPoints"]
-- !private ["So8NSObjectC", "TRPPoiAddRouteJsonModel"]
 - !private ["So8NSObjectC", "TRPPoiCategories"]
 - !private ["So8NSObjectC", "TRPPoiJsonModel"]
 - !private ["So8NSObjectC", "TRPProblemCategories"]
@@ -482,8 +481,8 @@ depends-member:
 - ["So8NSObjectC", "city"]
 - ["So8NSObjectC", "completionHandler"]
 - ["So8NSObjectC", "completionHandlerWithPagination"]
+- ["So8NSObjectC", "createOrEditTripServices"]
 - ["So8NSObjectC", "createTrip"]
-- ["So8NSObjectC", "createTripServices"]
 - ["So8NSObjectC", "dailyPlan"]
 - ["So8NSObjectC", "dailyPlanServices"]
 - ["So8NSObjectC", "deleteDailyPlanPoi"]
@@ -491,6 +490,7 @@ depends-member:
 - ["So8NSObjectC", "deleteTripServices"]
 - ["So8NSObjectC", "deleteUserFavorite"]
 - ["So8NSObjectC", "deneme"]
+- ["So8NSObjectC", "editTrip"]
 - ["So8NSObjectC", "getTrip"]
 - ["So8NSObjectC", "getTripServices"]
 - ["So8NSObjectC", "getUserFavorite"]
@@ -559,7 +559,7 @@ depends-member:
 - !private ["So8NSObjectP", "citiesServices"]
 - !private ["So8NSObjectP", "completionHandler"]
 - !private ["So8NSObjectP", "completionHandlerWithPagination"]
-- !private ["So8NSObjectP", "createTripServices"]
+- !private ["So8NSObjectP", "createOrEditTripServices"]
 - !private ["So8NSObjectP", "dailyPlanServices"]
 - !private ["So8NSObjectP", "deleteTripServices"]
 - !private ["So8NSObjectP", "getTripServices"]
@@ -648,7 +648,6 @@ depends-member:
 - ["10TRPRestKit13TRPPlanPointsC", "Status"]
 - !private ["10TRPRestKit13TRPPlanPointsC", "connection"]
 - !private ["10TRPRestKit13TRPPlanPointsC", "init"]
-- !private ["10TRPRestKit23TRPPoiAddRouteJsonModelC", "data"]
 - !private ["10TRPRestKit16TRPPoiCategoriesC", "data"]
 - !private ["10TRPRestKit15TRPPoiJsonModelC", "data"]
 - !private ["10TRPRestKit20TRPProblemCategoriesC", "Completion"]
@@ -698,7 +697,6 @@ depends-member:
 - !private ["10TRPRestKitAAC", "TRPPlanPointAlternativeJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPPlanPointAlternatives"]
 - ["10TRPRestKitAAC", "TRPPlanPoints"]
-- !private ["10TRPRestKitAAC", "TRPPoiAddRouteJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPPoiCategories"]
 - !private ["10TRPRestKitAAC", "TRPPoiJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPProblemCategories"]
@@ -729,8 +727,8 @@ depends-member:
 - ["10TRPRestKitAAC", "city"]
 - !private ["10TRPRestKitAAC", "completionHandler"]
 - !private ["10TRPRestKitAAC", "completionHandlerWithPagination"]
+- !private ["10TRPRestKitAAC", "createOrEditTripServices"]
 - ["10TRPRestKitAAC", "createTrip"]
-- !private ["10TRPRestKitAAC", "createTripServices"]
 - ["10TRPRestKitAAC", "dailyPlan"]
 - !private ["10TRPRestKitAAC", "dailyPlanServices"]
 - ["10TRPRestKitAAC", "deinit"]
@@ -739,6 +737,7 @@ depends-member:
 - !private ["10TRPRestKitAAC", "deleteTripServices"]
 - ["10TRPRestKitAAC", "deleteUserFavorite"]
 - ["10TRPRestKitAAC", "deneme"]
+- ["10TRPRestKitAAC", "editTrip"]
 - ["10TRPRestKitAAC", "getTrip"]
 - !private ["10TRPRestKitAAC", "getTripServices"]
 - ["10TRPRestKitAAC", "getUserFavorite"]
@@ -846,7 +845,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "citiesServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "completionHandler"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "completionHandlerWithPagination"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "createTripServices"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "createOrEditTripServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "dailyPlanServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "deleteTripServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "getTripServices"]
@@ -921,7 +920,6 @@ depends-nominal:
 - !private "10TRPRestKit32TRPPlanPointAlternativeJsonModelC"
 - !private "10TRPRestKit24TRPPlanPointAlternativesC"
 - "10TRPRestKit13TRPPlanPointsC"
-- !private "10TRPRestKit23TRPPoiAddRouteJsonModelC"
 - !private "10TRPRestKit16TRPPoiCategoriesC"
 - !private "10TRPRestKit15TRPPoiJsonModelC"
 - !private "10TRPRestKit20TRPProblemCategoriesC"
@@ -982,4 +980,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "6786c07c43436c9d688fc1efba614a14"
+interface-hash: "a6204e3f110e9aea97e4ee00f3203ab0"

@@ -38,10 +38,17 @@ internal class TRPProgram: TRPRestServices{
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.Trip.link
+        var link = TRPConfig.ApiCall.Trip.link
+        if let hash = setting?.hash {
+            link += "/\(hash)"
+        }
+        return link
     }
     
     override func requestMode() -> TRPRequestMode {
+        if setting?.hash != nil {
+            return .put
+        }
         return TRPRequestMode.post
     }
  
@@ -55,7 +62,14 @@ internal class TRPProgram: TRPRestServices{
         guard let setting = setting else {
             return params
         }
-        params["city_id"] = setting.cityId;
+        
+        //Edit
+        if let hash = setting.hash {
+            params["hash"] = hash;
+        }else {//Create
+            params["city_id"] = setting.cityId;
+        }
+        
         params["arrival_date"] = setting.arrivalTime.date
         params["arrival_time"] = setting.arrivalTime.time;
         params["departure_date"] = setting.departureTime.date

@@ -830,11 +830,16 @@ extension TRPRestKit {
     ///   - completion: Any objects needs to be converted to **TRPTripInfoModel** object.
     public func createTrip(settings: TRPTripSettings, completion: @escaping CompletionHandler){
         completionHandler = completion;
-        createTripServices(settings: settings)
+        createOrEditTripServices(settings: settings)
+    }
+    
+    public func editTrip(settings: TRPTripSettings, completion: @escaping CompletionHandler) {
+        completionHandler = completion;
+        createOrEditTripServices(settings: settings)
     }
     
     /// A services that manage all task to connecting remote server
-    private func createTripServices(settings: TRPTripSettings) {
+    private func createOrEditTripServices(settings: TRPTripSettings) {
         let t = TRPProgram(setting: settings)
         t.Completion = {   (result, error, pagination) in
             if let error = error {

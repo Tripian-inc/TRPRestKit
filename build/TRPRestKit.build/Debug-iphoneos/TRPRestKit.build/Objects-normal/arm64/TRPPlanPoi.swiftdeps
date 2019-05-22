@@ -74,8 +74,10 @@ depends-member:
 - ["s23CustomStringConvertibleP", "stringValue"]
 - !private ["Se", "CodingKeys"]
 - !private ["Se", "Int"]
+- !private ["Se", "String"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
+- !private ["Se", "hash"]
 - !private ["Se", "id"]
 - ["Se", "init"]
 - !private ["Se", "order"]
@@ -118,7 +120,9 @@ depends-member:
 - ["SH", "rawValue"]
 - ["SH", "stringValue"]
 - !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s22KeyedDecodingContainerV", "decodeIfPresent"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decodeIfPresent"]
 - ["SY", "=="]
 - ["SY", "RawValue"]
 - !private ["SY", ""]
@@ -144,6 +148,7 @@ depends-member:
 - ["10TRPRestKit10TRPPlanPoiV", "String"]
 - !private ["10TRPRestKit10TRPPlanPoiV", "_findStringSwitchCase"]
 - ["10TRPRestKit10TRPPlanPoiV", "deinit"]
+- ["10TRPRestKit10TRPPlanPoiV", "hash"]
 - ["10TRPRestKit10TRPPlanPoiV", "id"]
 - ["10TRPRestKit10TRPPlanPoiV", "init"]
 - ["10TRPRestKit10TRPPlanPoiV", "order"]
@@ -192,4 +197,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "d87414c402f4607b6f250f7b5ce0c3f1"
+interface-hash: "ce30d319d16cc65b71b8fb76eae74263"

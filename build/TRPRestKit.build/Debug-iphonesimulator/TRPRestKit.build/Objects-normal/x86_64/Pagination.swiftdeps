@@ -14,7 +14,6 @@ depends-top-level:
 - "Equatable"
 - "Pagination"
 - "String"
-- !private "StringLiteralType"
 depends-member:
 - ["SQ", "=="]
 - ["SQ", ""]
@@ -27,7 +26,6 @@ depends-member:
 - ["10TRPRestKit10PaginationO", "completed"]
 - ["10TRPRestKit10PaginationO", "continues"]
 - ["10TRPRestKit10PaginationO", "deinit"]
-- ["10TRPRestKit10PaginationO", "readable"]
 depends-nominal:
 - "SQ"
 - "10TRPRestKit10PaginationO"
@@ -63,4 +61,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "a4856762f01217ee5667d57baabd20a3"
+interface-hash: "0982760c364a13c31c77824770bd6153"

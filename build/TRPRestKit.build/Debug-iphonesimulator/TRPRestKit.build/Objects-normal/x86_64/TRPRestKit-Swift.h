@@ -193,14 +193,27 @@ SWIFT_CLASS("_TtC10TRPRestKit16TRPCityInfoModel")
 @end
 
 
+/// This class provide you to start TRPRestKit.
+/// Class was written with Observer Dessing pattern
+/// seealso:
+/// <a href="https://www.tripian.com/request-api-key/">Request Api Key</a>
+/// <h3>Usage Example:</h3>
+/// \code
+///  TRPClient.provideApiKey(#<YourApiKey>#)
+///
+/// \endcode
 SWIFT_CLASS("_TtC10TRPRestKit9TRPClient")
 @interface TRPClient : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+/// An api key must be setted
+/// \param key Your api key
+///
 + (void)provideApiKey:(NSString * _Nonnull)key;
 @end
 
 
+/// Google Place Model that provides use information
 SWIFT_CLASS("_TtC10TRPRestKit14TRPGooglePlace")
 @interface TRPGooglePlace : NSObject
 /// An String value. Readable address format.

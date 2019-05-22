@@ -13,7 +13,7 @@ depends-top-level:
 - "Decoder"
 - "String"
 - "TRPParentJsonModel"
-- "TRPPlanPointInfoModel"
+- "TRPPlanPoi"
 - "TRPProgramStepJsonModel"
 - !private "_findStringSwitchCase"
 - !private "~="
@@ -67,7 +67,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "rawValue"]
 - ["s23CustomStringConvertibleP", "stringValue"]
 - !private ["Se", "CodingKeys"]
-- !private ["Se", "TRPPlanPointInfoModel"]
+- !private ["Se", "TRPPlanPoi"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
 - !private ["Se", "data"]
@@ -127,18 +127,18 @@ depends-member:
 - !private ["10TRPRestKit18TRPParentJsonModelC", "CodingKeys"]
 - ["10TRPRestKit18TRPParentJsonModelC", "Decoder"]
 - ["10TRPRestKit18TRPParentJsonModelC", "String"]
-- ["10TRPRestKit18TRPParentJsonModelC", "TRPPlanPointInfoModel"]
+- ["10TRPRestKit18TRPParentJsonModelC", "TRPPlanPoi"]
 - ["10TRPRestKit18TRPParentJsonModelC", ""]
 - !private ["10TRPRestKit18TRPParentJsonModelC", "_findStringSwitchCase"]
 - ["10TRPRestKit18TRPParentJsonModelC", "data"]
 - !private ["10TRPRestKit18TRPParentJsonModelC", "deinit"]
 - ["10TRPRestKit18TRPParentJsonModelC", "init"]
-- !private ["10TRPRestKit21TRPPlanPointInfoModelV", "deinit"]
+- !private ["10TRPRestKit10TRPPlanPoiV", "deinit"]
 - ["10TRPRestKit23TRPProgramStepJsonModelC", "CodingKey"]
 - !private ["10TRPRestKit23TRPProgramStepJsonModelC", "CodingKeys"]
 - ["10TRPRestKit23TRPProgramStepJsonModelC", "Decoder"]
 - ["10TRPRestKit23TRPProgramStepJsonModelC", "String"]
-- ["10TRPRestKit23TRPProgramStepJsonModelC", "TRPPlanPointInfoModel"]
+- ["10TRPRestKit23TRPProgramStepJsonModelC", "TRPPlanPoi"]
 - !private ["10TRPRestKit23TRPProgramStepJsonModelC", "_findStringSwitchCase"]
 - ["10TRPRestKit23TRPProgramStepJsonModelC", "data"]
 - ["10TRPRestKit23TRPProgramStepJsonModelC", "deinit"]
@@ -155,7 +155,7 @@ depends-nominal:
 - !private "s30KeyedDecodingContainerProtocolP"
 - "SY"
 - "10TRPRestKit18TRPParentJsonModelC"
-- !private "10TRPRestKit21TRPPlanPointInfoModelV"
+- !private "10TRPRestKit10TRPPlanPoiV"
 - "10TRPRestKit23TRPProgramStepJsonModelC"
 depends-dynamic-lookup:
 depends-external:
@@ -189,4 +189,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "3e1955e2780872b92baf995ca07644e6"
+interface-hash: "fbcf4ab220c3e27c6298c3f9b3cb3570"

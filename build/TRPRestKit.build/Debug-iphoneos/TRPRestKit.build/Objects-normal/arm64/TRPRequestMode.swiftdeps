@@ -8,10 +8,7 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "=="
-- !private "FloatLiteralType"
-- !private "IntegerLiteralType"
 - "String"
-- "StringLiteralType"
 - "TRPRequestMode"
 - !private "_findStringSwitchCase"
 - !private "~="
