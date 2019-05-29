@@ -10,12 +10,27 @@ import Foundation
 
 internal class TRPLogin: TRPRestServices{
     
-    private var name: String
-    private var password: String
+    //Airmiles
+    private var email:String?
+    private var password: String?
+    //Test server
+    private var userName: String?
     
-    init(userName name: String, password: String){
-        self.name = name
+    /// Login in AirmilesServer
+    ///
+    /// - Parameters:
+    ///   - email: email address
+    ///   - password: user password
+    init(email:String, password:String) {
+        self.email = email
         self.password = password
+    }
+    
+    /// Login in Test Server
+    ///
+    /// - Parameter userName: User Name
+    init(userName: String) {
+        self.userName = userName
     }
     
     override func servicesResult(data: Data?, error: NSError?) {
@@ -46,7 +61,13 @@ internal class TRPLogin: TRPRestServices{
     }
     
     public override func bodyParameters() -> Dictionary<String, Any>? {
-        return ["username":"\(name)","password":"\(password)"];
+        if let email = email, let password = password {
+            return ["email":email, "password":password]
+        }
+        if let userName = userName {
+            return ["username":userName]
+        }
+        return nil
     }
 
 }

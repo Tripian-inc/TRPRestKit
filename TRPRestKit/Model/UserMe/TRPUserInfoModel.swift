@@ -13,6 +13,34 @@ public struct TRPUserInfoModel: Decodable {
     
     
     /// A String value. Name of user.
+    public var email: String
+    
+    /// A array of TRPUserPreferencesInfoModel objects.
+    public var info: [TRPUserPreferencesInfoModel]?
+    
+    //TODO: - preferences eklenecek
+    private enum CodingKeys: String, CodingKey {
+        case email
+        case info
+    }
+    
+    /// Json to Object converter
+    ///
+    /// - Parameter decoder: Json Decoder Object
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self);
+       
+        self.email = try values.decode(String.self, forKey: .email)
+        self.info = try values.decodeIfPresent([TRPUserPreferencesInfoModel].self, forKey: .info)
+    }
+    
+}
+
+/// This model provide you to use information of user.
+public struct TRPTestUserInfoModel: Decodable {
+    
+    
+    /// A String value. Name of user.
     public var userName: String
     /// A array of TRPUserPreferencesInfoModel objects.
     public var info: [TRPUserPreferencesInfoModel]?
@@ -28,9 +56,9 @@ public struct TRPUserInfoModel: Decodable {
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self);
-       
-        self.userName = try values.decode(String.self, forKey: TRPUserInfoModel.CodingKeys.userName)
-        self.info = try values.decodeIfPresent([TRPUserPreferencesInfoModel].self, forKey: TRPUserInfoModel.CodingKeys.info)
+        
+        self.userName = try values.decode(String.self, forKey: .userName)
+        self.info = try values.decodeIfPresent([TRPUserPreferencesInfoModel].self, forKey: .info)
     }
     
 }

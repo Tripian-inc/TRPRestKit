@@ -11,18 +11,18 @@ import Foundation
 internal class TRPUserRegister: TRPRestServices{
 
     var password: String?
-
-    /// Create New User
-    ///
-    /// - Parameters:
-    ///   - firstName: User Name
-    ///   - lastName: User Last Name
-    ///   - email: User email adress
-    ///   - password: user password
-    public init(password: String) {
+    var userName: String?
+    var email: String?
+    
+    
+    public init(email: String, password: String) {
         self.password = password
+        self.email = email
     }
 
+    public init(userName:String) {
+        self.userName = userName
+    }
 
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
@@ -37,18 +37,31 @@ internal class TRPUserRegister: TRPRestServices{
         print("UserJsonResult: \(json!)");
         let jsonDecode = JSONDecoder();
         do {
-            let result = try jsonDecode.decode(TRPUserInfoJsonModel.self, from: data)
-            let pag = paginationController(parentJson: result)
-            self.Completion?(result, nil, pag);
+            if password != nil && email != nil {
+                let result = try jsonDecode.decode(TRPUserInfoJsonModel.self, from: data)
+                let pag = paginationController(parentJson: result)
+                self.Completion?(result, nil, pag);
+            }else if userName != nil {
+                let result = try jsonDecode.decode(TRPTestUserInfoJsonModel.self, from: data)
+                let pag = paginationController(parentJson: result)
+                self.Completion?(result, nil, pag);
+            }
+            
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
         }
     }
 
     public override func parameters() -> Dictionary<String, Any>? {
-        var params: [String:Any] = [:]
-        params["password"] = password ?? ""
-        return params
+        
+        if let email = email, let password = password {
+            return ["email":email, "password":password]
+        }
+        if let userName = userName {
+            return ["username":userName]
+        }
+        
+        return [:]
     }
 
     public override func userOAuth() -> Bool {

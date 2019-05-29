@@ -23,3 +23,20 @@ internal class TRPUserInfoJsonModel: TRPParentJsonModel{
         try super.init(from: decoder);
     }
 }
+
+
+internal class TRPTestUserInfoJsonModel: TRPParentJsonModel{
+    
+    /// User data
+    public var data: TRPTestUserInfoModel;
+    
+    private enum CodingKeys: String, CodingKey {
+        case data
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.data = try values.decode(TRPTestUserInfoModel.self, forKey: .data)
+        try super.init(from: decoder);
+    }
+}

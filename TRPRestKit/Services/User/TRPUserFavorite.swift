@@ -12,6 +12,7 @@ internal class TRPUserFavorite: TRPRestServices{
     public enum Mode {
         case add, get, delete
     }
+    
     private let type: Mode
     private var cityId: Int?
     private var poiId: Int?
@@ -66,7 +67,6 @@ internal class TRPUserFavorite: TRPRestServices{
         return true
     }
  
-    
     public override func parameters() -> Dictionary<String, Any>? {
         if type == .get {
             if let cityId = cityId {

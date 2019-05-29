@@ -1,12 +1,15 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
 - "TRPUserInfoModel"
+- "TRPTestUserInfoModel"
 - "TRPUserPreferencesInfoModel"
 provides-nominal:
 - "10TRPRestKit16TRPUserInfoModelV"
+- "10TRPRestKit20TRPTestUserInfoModelV"
 - "10TRPRestKit27TRPUserPreferencesInfoModelV"
 provides-member:
 - ["10TRPRestKit16TRPUserInfoModelV", ""]
+- ["10TRPRestKit20TRPTestUserInfoModelV", ""]
 - ["10TRPRestKit27TRPUserPreferencesInfoModelV", ""]
 provides-dynamic-lookup:
 depends-top-level:
@@ -17,6 +20,7 @@ depends-top-level:
 - "Decoder"
 - "Int"
 - "String"
+- "TRPTestUserInfoModel"
 - "TRPUserInfoModel"
 - "TRPUserPreferencesInfoModel"
 - !private "_findStringSwitchCase"
@@ -30,6 +34,7 @@ depends-member:
 - ["s9CodingKeyP", "_rawHashValue"]
 - ["s9CodingKeyP", "debugDescription"]
 - ["s9CodingKeyP", "description"]
+- !private ["s9CodingKeyP", "email"]
 - ["s9CodingKeyP", "hash"]
 - ["s9CodingKeyP", "hashValue"]
 - !private ["s9CodingKeyP", "id"]
@@ -50,6 +55,7 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "_rawHashValue"]
 - ["s28CustomDebugStringConvertibleP", "debugDescription"]
 - ["s28CustomDebugStringConvertibleP", "description"]
+- !private ["s28CustomDebugStringConvertibleP", "email"]
 - ["s28CustomDebugStringConvertibleP", "hash"]
 - ["s28CustomDebugStringConvertibleP", "hashValue"]
 - !private ["s28CustomDebugStringConvertibleP", "id"]
@@ -70,6 +76,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "_rawHashValue"]
 - ["s23CustomStringConvertibleP", "debugDescription"]
 - ["s23CustomStringConvertibleP", "description"]
+- !private ["s23CustomStringConvertibleP", "email"]
 - ["s23CustomStringConvertibleP", "hash"]
 - ["s23CustomStringConvertibleP", "hashValue"]
 - !private ["s23CustomStringConvertibleP", "id"]
@@ -85,10 +92,10 @@ depends-member:
 - !private ["Se", "CodingKeys"]
 - !private ["Se", "Int"]
 - !private ["Se", "String"]
-- !private ["Se", "TRPUserInfoModel"]
 - !private ["Se", "TRPUserPreferencesInfoModel"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
+- !private ["Se", "email"]
 - !private ["Se", "id"]
 - !private ["Se", "info"]
 - ["Se", "init"]
@@ -104,6 +111,7 @@ depends-member:
 - ["SQ", "_rawHashValue"]
 - ["SQ", "debugDescription"]
 - ["SQ", "description"]
+- !private ["SQ", "email"]
 - ["SQ", "hash"]
 - ["SQ", "hashValue"]
 - !private ["SQ", "id"]
@@ -124,6 +132,7 @@ depends-member:
 - ["SH", "_rawHashValue"]
 - ["SH", "debugDescription"]
 - ["SH", "description"]
+- !private ["SH", "email"]
 - ["SH", "hash"]
 - ["SH", "hashValue"]
 - !private ["SH", "id"]
@@ -148,6 +157,7 @@ depends-member:
 - ["SY", "_rawHashValue"]
 - ["SY", "debugDescription"]
 - ["SY", "description"]
+- !private ["SY", "email"]
 - ["SY", "hash"]
 - ["SY", "hashValue"]
 - !private ["SY", "id"]
@@ -160,17 +170,26 @@ depends-member:
 - ["SY", "stringValue"]
 - !private ["SY", "userName"]
 - !private ["SY", "value"]
+- ["10TRPRestKit20TRPTestUserInfoModelV", "CodingKey"]
+- !private ["10TRPRestKit20TRPTestUserInfoModelV", "CodingKeys"]
+- ["10TRPRestKit20TRPTestUserInfoModelV", "Decoder"]
+- ["10TRPRestKit20TRPTestUserInfoModelV", "String"]
+- ["10TRPRestKit20TRPTestUserInfoModelV", "TRPUserPreferencesInfoModel"]
+- !private ["10TRPRestKit20TRPTestUserInfoModelV", "_findStringSwitchCase"]
+- ["10TRPRestKit20TRPTestUserInfoModelV", "deinit"]
+- ["10TRPRestKit20TRPTestUserInfoModelV", "info"]
+- ["10TRPRestKit20TRPTestUserInfoModelV", "init"]
+- ["10TRPRestKit20TRPTestUserInfoModelV", "userName"]
 - ["10TRPRestKit16TRPUserInfoModelV", "CodingKey"]
 - !private ["10TRPRestKit16TRPUserInfoModelV", "CodingKeys"]
 - ["10TRPRestKit16TRPUserInfoModelV", "Decoder"]
 - ["10TRPRestKit16TRPUserInfoModelV", "String"]
-- !private ["10TRPRestKit16TRPUserInfoModelV", "TRPUserInfoModel"]
 - ["10TRPRestKit16TRPUserInfoModelV", "TRPUserPreferencesInfoModel"]
 - !private ["10TRPRestKit16TRPUserInfoModelV", "_findStringSwitchCase"]
 - ["10TRPRestKit16TRPUserInfoModelV", "deinit"]
+- ["10TRPRestKit16TRPUserInfoModelV", "email"]
 - ["10TRPRestKit16TRPUserInfoModelV", "info"]
 - ["10TRPRestKit16TRPUserInfoModelV", "init"]
-- ["10TRPRestKit16TRPUserInfoModelV", "userName"]
 - ["10TRPRestKit27TRPUserPreferencesInfoModelV", "CodingKey"]
 - !private ["10TRPRestKit27TRPUserPreferencesInfoModelV", "CodingKeys"]
 - ["10TRPRestKit27TRPUserPreferencesInfoModelV", "Decoder"]
@@ -193,11 +212,12 @@ depends-nominal:
 - !private "s22KeyedDecodingContainerV"
 - !private "s30KeyedDecodingContainerProtocolP"
 - "SY"
+- "10TRPRestKit20TRPTestUserInfoModelV"
 - "10TRPRestKit16TRPUserInfoModelV"
 - "10TRPRestKit27TRPUserPreferencesInfoModelV"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
@@ -210,11 +230,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
@@ -227,4 +247,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "163b21daf5108fd50a530e017cd8b232"
+interface-hash: "da690447bd9113a1a11166f7375c2255"

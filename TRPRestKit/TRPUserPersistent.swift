@@ -7,10 +7,15 @@
 //
 
 import Foundation
-internal struct TRPUserPersistent {
+public struct TRPUserPersistent {
     
     private static let userHashCodeTag = "trpuserhash"
     private static let userIdCodeTag = "trpuserid"
+    
+    public static func didUserLoging() -> Bool {
+        return fetchHash() == nil ? false : true
+    }
+    
     
     public static func fetchHash() -> String? {
         return UserDefaults.standard.string(forKey: userHashCodeTag)

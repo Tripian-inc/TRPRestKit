@@ -11,7 +11,11 @@ internal struct TRPConfig {
     
     internal static var BaseUrl: String {
         get {
-            return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
+            //TestServer return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
+            //return "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
+            
+            //return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com" //TestServer
+            return "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com" // AirMiles
         }
     }
     
@@ -26,7 +30,7 @@ internal struct TRPConfig {
     
     internal static var apiLink: String {
         get {
-            return "http://\(BaseUrl)/\(BaseUrlPath)/"
+            return "https://\(BaseUrl)/\(BaseUrlPath)/"
         }
     }
     

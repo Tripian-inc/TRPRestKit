@@ -1,10 +1,13 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
 - "TRPUserInfoJsonModel"
+- "TRPTestUserInfoJsonModel"
 provides-nominal:
 - "10TRPRestKit20TRPUserInfoJsonModelC"
+- "10TRPRestKit24TRPTestUserInfoJsonModelC"
 provides-member:
 - ["10TRPRestKit20TRPUserInfoJsonModelC", ""]
+- ["10TRPRestKit24TRPTestUserInfoJsonModelC", ""]
 provides-dynamic-lookup:
 depends-top-level:
 - "=="
@@ -13,6 +16,8 @@ depends-top-level:
 - "Decoder"
 - "String"
 - "TRPParentJsonModel"
+- "TRPTestUserInfoJsonModel"
+- "TRPTestUserInfoModel"
 - "TRPUserInfoJsonModel"
 - "TRPUserInfoModel"
 - !private "_findStringSwitchCase"
@@ -67,6 +72,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "rawValue"]
 - ["s23CustomStringConvertibleP", "stringValue"]
 - !private ["Se", "CodingKeys"]
+- !private ["Se", "TRPTestUserInfoModel"]
 - !private ["Se", "TRPUserInfoModel"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
@@ -127,12 +133,23 @@ depends-member:
 - !private ["10TRPRestKit18TRPParentJsonModelC", "CodingKeys"]
 - ["10TRPRestKit18TRPParentJsonModelC", "Decoder"]
 - ["10TRPRestKit18TRPParentJsonModelC", "String"]
+- ["10TRPRestKit18TRPParentJsonModelC", "TRPTestUserInfoModel"]
 - ["10TRPRestKit18TRPParentJsonModelC", "TRPUserInfoModel"]
 - ["10TRPRestKit18TRPParentJsonModelC", ""]
 - !private ["10TRPRestKit18TRPParentJsonModelC", "_findStringSwitchCase"]
 - ["10TRPRestKit18TRPParentJsonModelC", "data"]
 - !private ["10TRPRestKit18TRPParentJsonModelC", "deinit"]
 - ["10TRPRestKit18TRPParentJsonModelC", "init"]
+- ["10TRPRestKit24TRPTestUserInfoJsonModelC", "CodingKey"]
+- !private ["10TRPRestKit24TRPTestUserInfoJsonModelC", "CodingKeys"]
+- ["10TRPRestKit24TRPTestUserInfoJsonModelC", "Decoder"]
+- ["10TRPRestKit24TRPTestUserInfoJsonModelC", "String"]
+- ["10TRPRestKit24TRPTestUserInfoJsonModelC", "TRPTestUserInfoModel"]
+- !private ["10TRPRestKit24TRPTestUserInfoJsonModelC", "_findStringSwitchCase"]
+- ["10TRPRestKit24TRPTestUserInfoJsonModelC", "data"]
+- ["10TRPRestKit24TRPTestUserInfoJsonModelC", "deinit"]
+- ["10TRPRestKit24TRPTestUserInfoJsonModelC", "init"]
+- !private ["10TRPRestKit20TRPTestUserInfoModelV", "deinit"]
 - ["10TRPRestKit20TRPUserInfoJsonModelC", "CodingKey"]
 - !private ["10TRPRestKit20TRPUserInfoJsonModelC", "CodingKeys"]
 - ["10TRPRestKit20TRPUserInfoJsonModelC", "Decoder"]
@@ -155,11 +172,13 @@ depends-nominal:
 - !private "s30KeyedDecodingContainerProtocolP"
 - "SY"
 - "10TRPRestKit18TRPParentJsonModelC"
+- "10TRPRestKit24TRPTestUserInfoJsonModelC"
+- !private "10TRPRestKit20TRPTestUserInfoModelV"
 - "10TRPRestKit20TRPUserInfoJsonModelC"
 - !private "10TRPRestKit16TRPUserInfoModelV"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
@@ -172,11 +191,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
@@ -189,4 +208,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "d910e251a88f2a8a259a8755c9fb296f"
+interface-hash: "3020b321e9dbfb8c232bccdc43532fff"

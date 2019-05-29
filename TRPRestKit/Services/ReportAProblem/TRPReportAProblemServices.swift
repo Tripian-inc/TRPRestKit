@@ -9,14 +9,14 @@
 import Foundation
 internal class TRPReportAProblemServices: TRPRestServices {
     
-    let categoryId: Int
+    let categoryName: String
     var message: String?
     var poiId: Int?
     
-    internal init(categoryId id: Int,
+    internal init(categoryName : String,
                            message msg: String? = nil,
                            poiId poi: Int? = nil) {
-        self.categoryId = id
+        self.categoryName = categoryName
         self.message = msg
         self.poiId = poi
     }
@@ -49,7 +49,7 @@ internal class TRPReportAProblemServices: TRPRestServices {
     
     override func parameters() -> Dictionary<String, Any>? {
         var params : Dictionary<String, Any> = [:]
-        params["problem_category"] = categoryId
+        params["problem_category"] = categoryName
         
         if let message = message {
             params["message"] = message

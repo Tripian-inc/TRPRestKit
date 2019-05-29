@@ -8,7 +8,3 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
-config_name = "TestServerConfig"
-//server_url = 'v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com'
-server_url = "uqo7xnd7f9.execute-api.eu-west-1.amazonaws.com"
-server_path = 'v2'
