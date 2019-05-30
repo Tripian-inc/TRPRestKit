@@ -24,6 +24,8 @@ internal class TRPTripQuestion: TRPRestServices{
     private var cityId: Int?;
     private var questionId: Int?
     public var tripType = TPRTripQuestionType.trip
+    public var language: String?;
+    
     
     internal init(cityId: Int){
         self.cityId = cityId;
@@ -62,8 +64,17 @@ internal class TRPTripQuestion: TRPRestServices{
     }
     
     public override func parameters() -> Dictionary<String, Any>? {
+        
         if let cityId = cityId {
-            return ["city_id":"\(cityId)","category":"\(tripType.rawValue)"];
+            var dic: Dictionary<String, Any> = [:]
+            dic["city_id"] = "\(cityId)"
+            dic["category"] = "\(tripType.rawValue)"
+            
+            if let lang = language {
+                dic["language_code"] = "\(lang)"
+            }
+            
+            return dic
         }
         return nil
     }

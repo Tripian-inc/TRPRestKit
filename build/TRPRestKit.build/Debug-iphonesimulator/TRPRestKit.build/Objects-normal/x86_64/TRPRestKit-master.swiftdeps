@@ -1,9 +1,9 @@
 version: "Apple Swift version 5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
 options: "1f01e79d93179e427b505b64d8c2ffd2"
-build_time: [1559113744, 201551000]
+build_time: [1559131052, 187467000]
 inputs:
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPDeleteProgram.swift": [1539863231, 404906236]
-  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPUserPersistent.swift": [1535361524, 0]
+  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPUserPersistent.swift": [1559130819, 826010353]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPCheckDataUpdates.swift": [1555068950, 39900294]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPTripQuestionInfoModel.swift": [1555498551, 21243365]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPCities.swift": [1555316178, 818795145]

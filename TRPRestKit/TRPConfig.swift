@@ -14,8 +14,8 @@ internal struct TRPConfig {
             //TestServer return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
             //return "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
             
-            //return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com" //TestServer
-            return "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com" // AirMiles
+            return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com" //TestServer
+            //return "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com" // AirMiles
         }
     }
     

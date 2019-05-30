@@ -474,9 +474,10 @@ extension TRPRestKit {
     ///   - completion: Any objects needs to be converted to **[TRPTripQuestionInfoModel]** object.
     public func tripQuestions(withCityId cityId: Int,
                               type: TPRTripQuestionType? = TPRTripQuestionType.trip,
+                              language: String? = nil,
                               completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
-        questionServices(cityId: cityId, type:type)
+        questionServices(cityId: cityId, type:type,language:language)
     }
     
     
@@ -488,7 +489,8 @@ extension TRPRestKit {
     ///   - type: type of request. You can use Profile when opening add place in localy mode. You have to use Profile and Trip when creating a trip.
     private func questionServices(cityId:Int? = nil,
                                   questionId: Int? = nil,
-                                  type: TPRTripQuestionType? = nil) {
+                                  type: TPRTripQuestionType? = nil,
+                                  language: String? = nil) {
         
         var t: TRPTripQuestion?
         if let cityId = cityId {
@@ -496,7 +498,9 @@ extension TRPRestKit {
         }else if let questionId = questionId  {
             t = TRPTripQuestion(questionId: questionId)
         }
+    
         guard let services = t else {return}
+        services.language = language
         services.tripType = type ?? .trip
         services.Completion = {   (result, error, pagination) in
             if let error = error {

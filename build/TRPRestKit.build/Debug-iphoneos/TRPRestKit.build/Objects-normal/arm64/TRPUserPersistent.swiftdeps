@@ -7,9 +7,12 @@ provides-member:
 - ["10TRPRestKit17TRPUserPersistentV", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "=="
+- "Bool"
 - "Int"
 - "String"
 - "TRPUserPersistent"
+- "TernaryPrecedence"
 - !private "UserDefaults"
 depends-member:
 - !private ["s7CVarArgP", "integer"]
@@ -47,9 +50,11 @@ depends-member:
 - !private ["So8NSObjectP", "set"]
 - !private ["So8NSObjectP", "standard"]
 - !private ["So8NSObjectP", "string"]
+- ["10TRPRestKit17TRPUserPersistentV", "Bool"]
 - ["10TRPRestKit17TRPUserPersistentV", "Int"]
 - ["10TRPRestKit17TRPUserPersistentV", "String"]
 - !private ["10TRPRestKit17TRPUserPersistentV", "UserDefaults"]
+- ["10TRPRestKit17TRPUserPersistentV", "didUserLoging"]
 - ["10TRPRestKit17TRPUserPersistentV", "fetchHash"]
 - ["10TRPRestKit17TRPUserPersistentV", "fetchId"]
 - ["10TRPRestKit17TRPUserPersistentV", "init"]
@@ -111,4 +116,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "3de410ea55893e76441ee04dbd4ecac8"
+interface-hash: "63ce3724fe8600ed3dd41e35b78b7416"
