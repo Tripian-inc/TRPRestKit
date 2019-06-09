@@ -1247,3 +1247,28 @@ extension TRPRestKit {
         t.connection()
     }
 }
+
+
+extension TRPRestKit {
+    
+    public func updateDailyPlanHour(dailyPlanId: Int, start:String, end:String, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        updateDailyPlanHourService(dailyPlanId: dailyPlanId, start: start, end: end)
+    }
+    
+    private func updateDailyPlanHourService(dailyPlanId: Int, start:String, end:String) {
+            let t = TRPDailyPlanServices(id: dailyPlanId, startTime: start, endTime: end)
+            t.Completion = {   (result, error, pagination) in
+                if let error = error {
+                    self.postError(error: error)
+                    return
+                }
+                if let r = result as? TRPDayPlanJsonModel {
+                    self.postData(result: r.data)
+                }
+            }
+            t.connection()
+    }
+    
+    
+}

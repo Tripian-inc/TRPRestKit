@@ -1,16 +1,16 @@
 version: "Apple Swift version 5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
-options: "150646d13756d2ad16515cfc3fdba9fc"
-build_time: [1559131047, 961780000]
+options: "c5f0993506050c6946db0620b3153c5e"
+build_time: [1559742456, 431821000]
 inputs:
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPDeleteProgram.swift": [1539863231, 404906236]
-  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPUserPersistent.swift": [1559130819, 826010353]
+  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPUserPersistent.swift": [1559294255, 412490911]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPCheckDataUpdates.swift": [1555068950, 39900294]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPTripQuestionInfoModel.swift": [1555498551, 21243365]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPCities.swift": [1555316178, 818795145]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/User/TRPUserRegister.swift": [1558524704, 170180900]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/Program/TRPGetProgram.swift": [1543564593, 96684483]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPImageResizer.swift": [1556116939, 582934249]
-  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift": [1558959281, 277019028]
+  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPConfig.swift": [1559221353, 374989625]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/User/TRPUserFavorite.swift": [1559112134, 373894893]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/City/TRPCityJsonModel.swift": [1555673807, 628085809]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPTime.swift": [1555582982, 886392851]
@@ -47,7 +47,7 @@ inputs:
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/User/TRPMyPrograms.swift": [1539697933, 568652958]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPPlace.swift": [1552306499, 886157214]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Place/TRPPoiInfoModel.swift": [1555498991, 638034965]
-  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPTripQuestion.swift": [1556103353, 709728561]
+  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPTripQuestion.swift": [1559220406, 399144729]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/TRPFeedback.swift": [1539698179, 56700877]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/UserTrips/TRPUserTripsJsonModel.swift": [1555061095, 802748694]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/NearBy/TRPPlanPointAlternativeJsonModel.swift": [1555061076, 339395279]
@@ -57,7 +57,7 @@ inputs:
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDayPlanJsonModel.swift": [1555061083, 346771677]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/ProblemCategories/TRPProblemCategoriesJsonModel.swift": [1556190791, 723086287]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Services/User/TRPMe.swift": [1555515986, 495170779]
-  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift": [1558965298, 652258783]
+  "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/TRPRestKit.swift": [1559220806, 298843760]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Questions/TRPQuestionOptionsJsonModel.swift": [1555499007, 407648925]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/TRPParentJsonModel.swift": [1555680186, 344985186]
   "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Model/Favorites/TRPFavoritesJsonModel.swift": [1555578492, 188528554]

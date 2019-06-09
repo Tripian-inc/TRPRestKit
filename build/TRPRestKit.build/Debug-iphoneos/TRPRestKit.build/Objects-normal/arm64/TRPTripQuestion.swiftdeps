@@ -35,11 +35,19 @@ depends-top-level:
 depends-member:
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "Questions"]
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "link"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["Sl", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
 - !private ["10Foundation13CustomNSErrorP", "wrongData"]
+- !private ["s17CustomReflectableP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "appendInterpolation"]
 - !private ["s23CustomStringConvertibleP", "appendLiteral"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["Se", "subscript"]
 - !private ["s26DefaultStringInterpolationV", "appendInterpolation"]
 - !private ["s26DefaultStringInterpolationV", "appendLiteral"]
+- !private ["SD", "subscript"]
+- !private ["SE", "subscript"]
 - ["SQ", "=="]
 - !private ["SQ", "Questions"]
 - ["SQ", "RawValue"]
@@ -52,8 +60,10 @@ depends-member:
 - ["SQ", "init"]
 - !private ["SQ", "link"]
 - ["SQ", "rawValue"]
+- !private ["SQ", "subscript"]
 - ["SQ", "trip"]
 - !private ["s5ErrorP", "wrongData"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
 - ["SH", "=="]
 - !private ["SH", "Questions"]
 - ["SH", "RawValue"]
@@ -66,6 +76,7 @@ depends-member:
 - ["SH", "init"]
 - !private ["SH", "link"]
 - ["SH", "rawValue"]
+- !private ["SH", "subscript"]
 - ["SH", "trip"]
 - !private ["10Foundation11JSONDecoderC", "decode"]
 - !private ["10Foundation11JSONDecoderC", "init"]
@@ -83,6 +94,7 @@ depends-member:
 - !private ["SY", "link"]
 - ["SY", "rawValue"]
 - ["SY", "trip"]
+- !private ["ST", "subscript"]
 - !private ["s27StringInterpolationProtocolP", "appendInterpolation"]
 - !private ["s27StringInterpolationProtocolP", "appendLiteral"]
 - ["10TRPRestKit19TPRTripQuestionTypeO", "=="]
@@ -113,6 +125,7 @@ depends-member:
 - ["10TRPRestKit0A8ServicesC", ""]
 - ["10TRPRestKit0A8ServicesC", "cityId"]
 - ["10TRPRestKit0A8ServicesC", "init"]
+- ["10TRPRestKit0A8ServicesC", "language"]
 - !private ["10TRPRestKit0A8ServicesC", "paginationController"]
 - ["10TRPRestKit0A8ServicesC", "parameters"]
 - ["10TRPRestKit0A8ServicesC", "path"]
@@ -132,6 +145,7 @@ depends-member:
 - !private ["10TRPRestKit15TRPTripQuestionC", "TRPTripQuestionJsonModel"]
 - !private ["10TRPRestKit15TRPTripQuestionC", "cityId"]
 - ["10TRPRestKit15TRPTripQuestionC", "init"]
+- ["10TRPRestKit15TRPTripQuestionC", "language"]
 - !private ["10TRPRestKit15TRPTripQuestionC", "paginationController"]
 - ["10TRPRestKit15TRPTripQuestionC", "parameters"]
 - ["10TRPRestKit15TRPTripQuestionC", "path"]
@@ -141,17 +155,28 @@ depends-member:
 - !private ["10TRPRestKit24TRPTripQuestionJsonModelC", "deinit"]
 - !private ["s16TextOutputStreamP", "appendInterpolation"]
 - !private ["s16TextOutputStreamP", "appendLiteral"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
 depends-nominal:
 - !private "10TRPRestKit9TRPConfigV7ApiCallO"
+- !private "s7CVarArgP"
+- !private "Sl"
+- !private "s28CustomDebugStringConvertibleP"
 - !private "10Foundation13CustomNSErrorP"
+- !private "s17CustomReflectableP"
 - !private "s23CustomStringConvertibleP"
+- !private "Se"
 - !private "s26DefaultStringInterpolationV"
+- !private "SD"
+- !private "SE"
 - "SQ"
 - !private "s5ErrorP"
+- !private "s30ExpressibleByDictionaryLiteralP"
 - "SH"
 - !private "10Foundation11JSONDecoderC"
 - !private "10Foundation14LocalizedErrorP"
 - "SY"
+- !private "ST"
 - !private "s27StringInterpolationProtocolP"
 - "10TRPRestKit19TPRTripQuestionTypeO"
 - !private "10TRPRestKit9TRPConfigV"
@@ -160,9 +185,11 @@ depends-nominal:
 - "10TRPRestKit15TRPTripQuestionC"
 - !private "10TRPRestKit24TRPTripQuestionJsonModelC"
 - !private "s16TextOutputStreamP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s21_ObjectiveCBridgeableP"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
@@ -175,11 +202,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
@@ -192,4 +219,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "9a5002c7dfd8b26d65843581a2930d96"
+interface-hash: "af1921d5d2b2007246e1b391c2085521"

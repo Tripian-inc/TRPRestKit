@@ -11,6 +11,7 @@ public struct TRPUserPersistent {
     
     private static let userHashCodeTag = "trpuserhash"
     private static let userIdCodeTag = "trpuserid"
+    private static let userEmailCodeTag = "trpuseremail"
     
     public static func didUserLoging() -> Bool {
         return fetchHash() == nil ? false : true
@@ -31,6 +32,14 @@ public struct TRPUserPersistent {
     
     public static func saveId(_ value: Int) {
         UserDefaults.standard.set(value, forKey: userIdCodeTag)
+    }
+    
+    public static func getUserEmail(_ mail: String) -> String?{
+        return UserDefaults.standard.string(forKey: userEmailCodeTag)
+    }
+    
+    public static func saveUserEmail(_ mail: String) {
+        UserDefaults.standard.set(mail, forKey: userEmailCodeTag)
     }
     
     public static func remove() {

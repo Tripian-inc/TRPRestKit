@@ -10,9 +10,17 @@ import Foundation
 internal class TRPDailyPlanServices: TRPRestServices {
     
     var dayId:Int?
+    var startTime: String?
+    var endTime: String?
     
     internal init(id:Int) {
         self.dayId = id
+    }
+    
+    internal init(id: Int, startTime:String, endTime: String) {
+        self.dayId = id
+        self.startTime = startTime
+        self.endTime = endTime
     }
     
     public override func servicesResult(data: Data?, error: NSError?) {
@@ -38,12 +46,31 @@ internal class TRPDailyPlanServices: TRPRestServices {
         return true
     }
     
+    override func requestMode() -> TRPRequestMode {
+        if startTime != nil && endTime != nil {
+            return .put
+        }
+        return .get
+        
+    }
+    
     public override func path() -> String {
         var path = TRPConfig.ApiCall.DailyPlan.link;
         if let id = dayId {
             path += "/\(id)"
         }
+        
         return path
     }
 
+    override func parameters() -> Dictionary<String, Any>? {
+        if let id = dayId, let startTime = startTime, let endTime = endTime {
+            var params : Dictionary<String, Any> = [:];
+            
+            params["start_time"] = startTime
+            params["end_time"] = endTime
+            return params
+        }
+        return nil
+    }
 }

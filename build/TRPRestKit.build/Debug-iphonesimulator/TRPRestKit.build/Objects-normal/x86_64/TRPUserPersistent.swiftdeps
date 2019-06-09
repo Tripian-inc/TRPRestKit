@@ -57,10 +57,13 @@ depends-member:
 - ["10TRPRestKit17TRPUserPersistentV", "didUserLoging"]
 - ["10TRPRestKit17TRPUserPersistentV", "fetchHash"]
 - ["10TRPRestKit17TRPUserPersistentV", "fetchId"]
+- ["10TRPRestKit17TRPUserPersistentV", "getUserEmail"]
 - ["10TRPRestKit17TRPUserPersistentV", "init"]
 - ["10TRPRestKit17TRPUserPersistentV", "remove"]
 - ["10TRPRestKit17TRPUserPersistentV", "saveHash"]
 - ["10TRPRestKit17TRPUserPersistentV", "saveId"]
+- ["10TRPRestKit17TRPUserPersistentV", "saveUserEmail"]
+- !private ["10TRPRestKit17TRPUserPersistentV", "userEmailCodeTag"]
 - !private ["10TRPRestKit17TRPUserPersistentV", "userHashCodeTag"]
 - !private ["10TRPRestKit17TRPUserPersistentV", "userIdCodeTag"]
 - !private ["So14NSUserDefaultsC", "integer"]
@@ -86,7 +89,7 @@ depends-nominal:
 - !private "10Foundation27_KeyValueCodingAndObservingP"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
@@ -99,11 +102,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
@@ -116,4 +119,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "63ce3724fe8600ed3dd41e35b78b7416"
+interface-hash: "cd9525c686b62633fb6acbfaf0719134"
