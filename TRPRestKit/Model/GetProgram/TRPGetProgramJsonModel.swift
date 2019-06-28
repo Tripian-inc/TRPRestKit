@@ -34,6 +34,8 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     public var hotelAddress: String?
     /// A String value. Answer of questions.You must convert to Array.
     public var answers = [Int]()
+    /// A String value. Companion of users for the selected trip.You must convert to Array.
+    public var companions = [Int]()
     
     
     private enum CodingKeys: String, CodingKey {
@@ -49,6 +51,7 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         case coordinate
         case answers
         case hotelAddress = "hotel_address"
+        case companions
     }
     
     
@@ -82,9 +85,17 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         self.coordinate = try values.decodeIfPresent(String.self, forKey: .coordinate)
         
         self.hotelAddress = try values.decodeIfPresent(String.self, forKey: .hotelAddress)
+        
         if let answersStr = try values.decodeIfPresent(String.self, forKey: .answers) {
             let ar = answersStr.components(separatedBy: ",")
             answers = ar.map { (s) -> Int in
+                return Int(s) ?? -1
+            }
+        }
+        
+        if let companionsStr = try values.decodeIfPresent(String.self, forKey: .companions) {
+            let ar = companionsStr.components(separatedBy: ",")
+            companions = ar.map { (s) -> Int in
                 return Int(s) ?? -1
             }
         }

@@ -57,6 +57,7 @@ internal struct TRPConfig {
         case DailyPlanPoi
         case Register
         case Favorite
+        case Companion
         var link: String {
             switch self {
             case .Cities:
@@ -103,6 +104,8 @@ internal struct TRPConfig {
                 return getNewLink() ?? "register"
             case .Favorite:
                 return getNewLink() ?? "user/favorites"
+            case .Companion:
+                return getNewLink() ?? "user/companion"
             }
         }
         

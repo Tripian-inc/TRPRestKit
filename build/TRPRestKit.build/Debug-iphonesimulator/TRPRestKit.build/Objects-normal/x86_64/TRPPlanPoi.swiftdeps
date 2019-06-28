@@ -1,6 +1,7 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
 - "TRPPlanPoi"
+- "=="
 provides-nominal:
 - "10TRPRestKit10TRPPlanPoiV"
 provides-member:
@@ -9,15 +10,21 @@ provides-dynamic-lookup:
 depends-top-level:
 - "=="
 - "AssignmentPrecedence"
+- "Bool"
 - "CodingKey"
 - "Decodable"
 - "Decoder"
+- "Equatable"
+- "Hashable"
 - "Int"
 - "String"
 - "TRPPlanPoi"
 - !private "_findStringSwitchCase"
 - !private "~="
 depends-member:
+- !private ["s18AdditiveArithmeticP", "hashValue"]
+- !private ["Sz", "hashValue"]
+- !private ["s7CVarArgP", "hashValue"]
 - ["s9CodingKeyP", "=="]
 - ["s9CodingKeyP", "RawValue"]
 - !private ["s9CodingKeyP", ""]
@@ -36,6 +43,7 @@ depends-member:
 - !private ["s9CodingKeyP", "poiId"]
 - ["s9CodingKeyP", "rawValue"]
 - ["s9CodingKeyP", "stringValue"]
+- !private ["SL", "hashValue"]
 - ["s28CustomDebugStringConvertibleP", "=="]
 - ["s28CustomDebugStringConvertibleP", "RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", ""]
@@ -54,6 +62,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "poiId"]
 - ["s28CustomDebugStringConvertibleP", "rawValue"]
 - ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s17CustomReflectableP", "hashValue"]
 - ["s23CustomStringConvertibleP", "=="]
 - ["s23CustomStringConvertibleP", "RawValue"]
 - !private ["s23CustomStringConvertibleP", ""]
@@ -72,20 +81,27 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "poiId"]
 - ["s23CustomStringConvertibleP", "rawValue"]
 - ["s23CustomStringConvertibleP", "stringValue"]
+- ["Se", "=="]
 - !private ["Se", "CodingKeys"]
 - !private ["Se", "Int"]
 - !private ["Se", "String"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
-- !private ["Se", "hash"]
+- ["Se", "_rawHashValue"]
+- ["Se", "hash"]
+- ["Se", "hashValue"]
 - !private ["Se", "id"]
 - ["Se", "init"]
 - !private ["Se", "order"]
 - !private ["Se", "poiId"]
 - !private ["s7DecoderP", "container"]
+- !private ["SE", "hashValue"]
 - ["SQ", "=="]
+- !private ["SQ", "CodingKeys"]
+- !private ["SQ", "Int"]
 - ["SQ", "RawValue"]
-- !private ["SQ", ""]
+- !private ["SQ", "String"]
+- ["SQ", ""]
 - ["SQ", "_Default_RawValue"]
 - !private ["SQ", "_findStringSwitchCase"]
 - ["SQ", "_rawHashValue"]
@@ -101,9 +117,14 @@ depends-member:
 - !private ["SQ", "poiId"]
 - ["SQ", "rawValue"]
 - ["SQ", "stringValue"]
+- !private ["s27ExpressibleByIntegerLiteralP", "hashValue"]
+- !private ["s17FixedWidthIntegerP", "hashValue"]
 - ["SH", "=="]
+- !private ["SH", "CodingKeys"]
+- !private ["SH", "Int"]
 - ["SH", "RawValue"]
-- !private ["SH", ""]
+- !private ["SH", "String"]
+- ["SH", ""]
 - ["SH", "_Default_RawValue"]
 - !private ["SH", "_findStringSwitchCase"]
 - ["SH", "_rawHashValue"]
@@ -119,10 +140,15 @@ depends-member:
 - !private ["SH", "poiId"]
 - ["SH", "rawValue"]
 - ["SH", "stringValue"]
+- !private ["s6HasherV", "combine"]
+- !private ["Si", "hashValue"]
 - !private ["s22KeyedDecodingContainerV", "decode"]
 - !private ["s22KeyedDecodingContainerV", "decodeIfPresent"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decode"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decodeIfPresent"]
+- !private ["s25LosslessStringConvertibleP", "hashValue"]
+- !private ["s10MirrorPathP", "hashValue"]
+- !private ["Sj", "hashValue"]
 - ["SY", "=="]
 - ["SY", "RawValue"]
 - !private ["SY", ""]
@@ -141,33 +167,67 @@ depends-member:
 - !private ["SY", "poiId"]
 - ["SY", "rawValue"]
 - ["SY", "stringValue"]
+- !private ["s10SIMDScalarP", "hashValue"]
+- !private ["SZ", "hashValue"]
+- !private ["s13SignedNumericP", "hashValue"]
+- !private ["Sx", "hashValue"]
+- ["10TRPRestKit10TRPPlanPoiV", "=="]
+- ["10TRPRestKit10TRPPlanPoiV", "Bool"]
 - ["10TRPRestKit10TRPPlanPoiV", "CodingKey"]
 - !private ["10TRPRestKit10TRPPlanPoiV", "CodingKeys"]
 - ["10TRPRestKit10TRPPlanPoiV", "Decoder"]
 - ["10TRPRestKit10TRPPlanPoiV", "Int"]
 - ["10TRPRestKit10TRPPlanPoiV", "String"]
+- ["10TRPRestKit10TRPPlanPoiV", "TRPPlanPoi"]
 - !private ["10TRPRestKit10TRPPlanPoiV", "_findStringSwitchCase"]
+- ["10TRPRestKit10TRPPlanPoiV", "_rawHashValue"]
 - ["10TRPRestKit10TRPPlanPoiV", "deinit"]
 - ["10TRPRestKit10TRPPlanPoiV", "hash"]
+- ["10TRPRestKit10TRPPlanPoiV", "hashValue"]
 - ["10TRPRestKit10TRPPlanPoiV", "id"]
 - ["10TRPRestKit10TRPPlanPoiV", "init"]
 - ["10TRPRestKit10TRPPlanPoiV", "order"]
 - ["10TRPRestKit10TRPPlanPoiV", "poiId"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "hashValue"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "hashValue"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "hashValue"]
+- !private ["s21_ObjectiveCBridgeableP", "hashValue"]
 depends-nominal:
+- !private "s18AdditiveArithmeticP"
+- !private "Sz"
+- !private "s7CVarArgP"
 - "s9CodingKeyP"
+- !private "SL"
 - "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
 - "Se"
 - !private "s7DecoderP"
+- !private "SE"
 - "SQ"
+- !private "s27ExpressibleByIntegerLiteralP"
+- !private "s17FixedWidthIntegerP"
 - "SH"
+- !private "s6HasherV"
+- !private "Si"
 - !private "s22KeyedDecodingContainerV"
 - !private "s30KeyedDecodingContainerProtocolP"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "Sj"
 - "SY"
+- !private "s10SIMDScalarP"
+- !private "SZ"
+- !private "s13SignedNumericP"
+- !private "Sx"
 - "10TRPRestKit10TRPPlanPoiV"
+- !private "s30_CustomPlaygroundQuickLookableP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s21_ObjectiveCBridgeableP"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
@@ -180,11 +240,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
+- "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/unextended-module.modulemap"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
@@ -197,4 +257,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "ce30d319d16cc65b71b8fb76eae74263"
+interface-hash: "fc99b1e5c142ee919e73b4fb6ee9086c"

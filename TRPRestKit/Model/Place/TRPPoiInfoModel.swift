@@ -46,6 +46,10 @@ public struct TRPPoiInfoModel: Decodable {
     
     public var mainCuisines: String?
     
+    public var cuisines: String?
+    public var features: String?
+    public var narrativeTags: String?
+    
     /// A TRPImageOwner object. Indicates who took the photo.
     public var imageOwner: TRPImageOwner?
     
@@ -68,6 +72,9 @@ public struct TRPPoiInfoModel: Decodable {
         case description
         case subCategory = "sub_category"
         case mainCuisisnes = "main_cuisines"
+        case cuisines
+        case features
+        case narrativeTags = "narrative_tags"
         case imageOwner = "image_owner"
     }
     
@@ -100,6 +107,9 @@ public struct TRPPoiInfoModel: Decodable {
         }
         self.subCategory = try values.decodeIfPresent(String.self, forKey: .subCategory)
         self.mainCuisines = try values.decodeIfPresent(String.self, forKey: .mainCuisisnes)
+        self.cuisines = try values.decodeIfPresent(String.self, forKey: .cuisines)
+        self.features = try values.decodeIfPresent(String.self, forKey: .features)
+        self.narrativeTags = try values.decodeIfPresent(String.self, forKey: .narrativeTags)
         
         self.imageOwner = try values.decodeIfPresent(TRPImageOwner.self, forKey: .imageOwner)
     }

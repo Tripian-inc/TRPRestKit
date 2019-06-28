@@ -17,6 +17,8 @@ public enum TPRTripQuestionType: String {
     case trip = "trip"
     // Question about user profile.
     case profile = "profile"
+    //Question about companion.
+    case companion = "companion"
 }
 
 internal class TRPTripQuestion: TRPRestServices{
@@ -33,6 +35,10 @@ internal class TRPTripQuestion: TRPRestServices{
     
     internal init(questionId: Int){
         self.questionId = questionId;
+    }
+    
+    internal init(tripType: TPRTripQuestionType){
+        self.tripType = tripType;
     }
     
     

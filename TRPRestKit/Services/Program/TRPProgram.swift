@@ -51,7 +51,7 @@ internal class TRPProgram: TRPRestServices{
         }
         return TRPRequestMode.post
     }
- 
+    
     override func userOAuth() -> Bool {
         return true
     }
@@ -103,6 +103,11 @@ internal class TRPProgram: TRPRestServices{
         if let doNotGenerate = setting.doNotGenerate {
             params["do_not_generate"] = doNotGenerate
         }
+        
+        if let companions = setting.selectedCompanionIds{
+            params["companions"] = companions.map{"\($0)"}.joined(separator: ",")
+        }
+        
         return params;
     }
     

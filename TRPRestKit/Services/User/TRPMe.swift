@@ -9,7 +9,7 @@
 import Foundation
 //TODO - TOKEN I Bİ YERE KAYDET VE ORADAN KULLAN
 internal class TRPUserInfoServices: TRPRestServices {
-
+    
     enum ServiceType {
         case getInfo, updateInfo, updateAnswer
     }
@@ -17,7 +17,9 @@ internal class TRPUserInfoServices: TRPRestServices {
     let serviceType: ServiceType
     var password: String?
     var answers: [Int]?
-    
+    var firstName: String?
+    var lastName: String?
+    var age: String?
     
     init(type: ServiceType) {
         self.serviceType = type
@@ -28,11 +30,13 @@ internal class TRPUserInfoServices: TRPRestServices {
         self.answers = answers
     }
     
-    init(password: String? = nil,
-         answers: [Int]? = nil) {
+    init(firstName: String? = nil, lastName:String? = nil, password: String? = nil, age: String? = nil, answers: [Int]? = nil) {
         self.serviceType = .updateInfo
         self.password = password
         self.answers = answers
+        self.firstName = firstName
+        self.lastName = lastName
+        self.age = age
     }
     
     public override func servicesResult(data: Data?, error: NSError?) {
@@ -65,7 +69,18 @@ internal class TRPUserInfoServices: TRPRestServices {
                 params["password"] = password
             }
             if let answers = answers {
-                params["answers"] = answers.toString()
+                if answers.toString().count > 0{
+                    params["answers"] = answers.toString()
+                }
+            }
+            if let firstName = firstName {
+                params["first_name"] = firstName
+            }
+            if let lastName = lastName {
+                params["last_name"] = lastName
+            }
+            if let age = age {
+                params["age"] = age
             }
         }
         return params

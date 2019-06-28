@@ -43,6 +43,7 @@ depends-member:
 - !private ["s9CodingKeyP", "childAgeRange"]
 - !private ["s9CodingKeyP", "children"]
 - !private ["s9CodingKeyP", "cityId"]
+- !private ["s9CodingKeyP", "companions"]
 - !private ["s9CodingKeyP", "coordinate"]
 - ["s9CodingKeyP", "debugDescription"]
 - !private ["s9CodingKeyP", "departureDate"]
@@ -77,6 +78,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "childAgeRange"]
 - !private ["s28CustomDebugStringConvertibleP", "children"]
 - !private ["s28CustomDebugStringConvertibleP", "cityId"]
+- !private ["s28CustomDebugStringConvertibleP", "companions"]
 - !private ["s28CustomDebugStringConvertibleP", "components"]
 - !private ["s28CustomDebugStringConvertibleP", "coordinate"]
 - ["s28CustomDebugStringConvertibleP", "debugDescription"]
@@ -109,6 +111,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "childAgeRange"]
 - !private ["s23CustomStringConvertibleP", "children"]
 - !private ["s23CustomStringConvertibleP", "cityId"]
+- !private ["s23CustomStringConvertibleP", "companions"]
 - !private ["s23CustomStringConvertibleP", "components"]
 - !private ["s23CustomStringConvertibleP", "coordinate"]
 - ["s23CustomStringConvertibleP", "debugDescription"]
@@ -139,6 +142,7 @@ depends-member:
 - !private ["Se", "children"]
 - !private ["Se", "childrenAgeRange"]
 - !private ["Se", "cityId"]
+- !private ["Se", "companions"]
 - !private ["Se", "components"]
 - !private ["Se", "coordinate"]
 - !private ["Se", "departureDate"]
@@ -164,6 +168,7 @@ depends-member:
 - !private ["SQ", "childAgeRange"]
 - !private ["SQ", "children"]
 - !private ["SQ", "cityId"]
+- !private ["SQ", "companions"]
 - !private ["SQ", "components"]
 - !private ["SQ", "coordinate"]
 - ["SQ", "debugDescription"]
@@ -201,6 +206,7 @@ depends-member:
 - !private ["SH", "childAgeRange"]
 - !private ["SH", "children"]
 - !private ["SH", "cityId"]
+- !private ["SH", "companions"]
 - !private ["SH", "components"]
 - !private ["SH", "coordinate"]
 - ["SH", "debugDescription"]
@@ -256,6 +262,7 @@ depends-member:
 - !private ["SY", "childAgeRange"]
 - !private ["SY", "children"]
 - !private ["SY", "cityId"]
+- !private ["SY", "companions"]
 - !private ["SY", "coordinate"]
 - ["SY", "debugDescription"]
 - !private ["SY", "departureDate"]
@@ -292,6 +299,7 @@ depends-member:
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "children"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "childrenAgeRange"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "cityId"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "companions"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "coordinate"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "deinit"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "departureDate"]
@@ -389,7 +397,7 @@ depends-nominal:
 - "s21_ObjectiveCBridgeableP"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
@@ -402,11 +410,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
+- "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
@@ -419,4 +427,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "4dca698172b7a4b90524a88106f58f95"
+interface-hash: "29de08fb5dfb0f903c4520345b804cfa"

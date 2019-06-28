@@ -32,9 +32,11 @@ depends-member:
 - ["s9CodingKeyP", "_Default_RawValue"]
 - !private ["s9CodingKeyP", "_findStringSwitchCase"]
 - ["s9CodingKeyP", "_rawHashValue"]
+- !private ["s9CodingKeyP", "age"]
 - ["s9CodingKeyP", "debugDescription"]
 - ["s9CodingKeyP", "description"]
 - !private ["s9CodingKeyP", "email"]
+- !private ["s9CodingKeyP", "firstName"]
 - ["s9CodingKeyP", "hash"]
 - ["s9CodingKeyP", "hashValue"]
 - !private ["s9CodingKeyP", "id"]
@@ -43,6 +45,9 @@ depends-member:
 - !private ["s9CodingKeyP", "init"]
 - ["s9CodingKeyP", "intValue"]
 - !private ["s9CodingKeyP", "key"]
+- !private ["s9CodingKeyP", "lastName"]
+- !private ["s9CodingKeyP", "password"]
+- !private ["s9CodingKeyP", "paymentStatus"]
 - ["s9CodingKeyP", "rawValue"]
 - ["s9CodingKeyP", "stringValue"]
 - !private ["s9CodingKeyP", "userName"]
@@ -53,9 +58,11 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
 - ["s28CustomDebugStringConvertibleP", "_rawHashValue"]
+- !private ["s28CustomDebugStringConvertibleP", "age"]
 - ["s28CustomDebugStringConvertibleP", "debugDescription"]
 - ["s28CustomDebugStringConvertibleP", "description"]
 - !private ["s28CustomDebugStringConvertibleP", "email"]
+- !private ["s28CustomDebugStringConvertibleP", "firstName"]
 - ["s28CustomDebugStringConvertibleP", "hash"]
 - ["s28CustomDebugStringConvertibleP", "hashValue"]
 - !private ["s28CustomDebugStringConvertibleP", "id"]
@@ -64,6 +71,9 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - ["s28CustomDebugStringConvertibleP", "intValue"]
 - !private ["s28CustomDebugStringConvertibleP", "key"]
+- !private ["s28CustomDebugStringConvertibleP", "lastName"]
+- !private ["s28CustomDebugStringConvertibleP", "password"]
+- !private ["s28CustomDebugStringConvertibleP", "paymentStatus"]
 - ["s28CustomDebugStringConvertibleP", "rawValue"]
 - ["s28CustomDebugStringConvertibleP", "stringValue"]
 - !private ["s28CustomDebugStringConvertibleP", "userName"]
@@ -74,9 +84,11 @@ depends-member:
 - ["s23CustomStringConvertibleP", "_Default_RawValue"]
 - !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
 - ["s23CustomStringConvertibleP", "_rawHashValue"]
+- !private ["s23CustomStringConvertibleP", "age"]
 - ["s23CustomStringConvertibleP", "debugDescription"]
 - ["s23CustomStringConvertibleP", "description"]
 - !private ["s23CustomStringConvertibleP", "email"]
+- !private ["s23CustomStringConvertibleP", "firstName"]
 - ["s23CustomStringConvertibleP", "hash"]
 - ["s23CustomStringConvertibleP", "hashValue"]
 - !private ["s23CustomStringConvertibleP", "id"]
@@ -85,6 +97,9 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "init"]
 - ["s23CustomStringConvertibleP", "intValue"]
 - !private ["s23CustomStringConvertibleP", "key"]
+- !private ["s23CustomStringConvertibleP", "lastName"]
+- !private ["s23CustomStringConvertibleP", "password"]
+- !private ["s23CustomStringConvertibleP", "paymentStatus"]
 - ["s23CustomStringConvertibleP", "rawValue"]
 - ["s23CustomStringConvertibleP", "stringValue"]
 - !private ["s23CustomStringConvertibleP", "userName"]
@@ -95,11 +110,16 @@ depends-member:
 - !private ["Se", "TRPUserPreferencesInfoModel"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
+- !private ["Se", "age"]
 - !private ["Se", "email"]
+- !private ["Se", "firstName"]
 - !private ["Se", "id"]
 - !private ["Se", "info"]
 - ["Se", "init"]
 - !private ["Se", "key"]
+- !private ["Se", "lastName"]
+- !private ["Se", "password"]
+- !private ["Se", "paymentStatus"]
 - !private ["Se", "userName"]
 - !private ["Se", "value"]
 - !private ["s7DecoderP", "container"]
@@ -109,9 +129,11 @@ depends-member:
 - ["SQ", "_Default_RawValue"]
 - !private ["SQ", "_findStringSwitchCase"]
 - ["SQ", "_rawHashValue"]
+- !private ["SQ", "age"]
 - ["SQ", "debugDescription"]
 - ["SQ", "description"]
 - !private ["SQ", "email"]
+- !private ["SQ", "firstName"]
 - ["SQ", "hash"]
 - ["SQ", "hashValue"]
 - !private ["SQ", "id"]
@@ -120,6 +142,9 @@ depends-member:
 - !private ["SQ", "init"]
 - ["SQ", "intValue"]
 - !private ["SQ", "key"]
+- !private ["SQ", "lastName"]
+- !private ["SQ", "password"]
+- !private ["SQ", "paymentStatus"]
 - ["SQ", "rawValue"]
 - ["SQ", "stringValue"]
 - !private ["SQ", "userName"]
@@ -130,9 +155,11 @@ depends-member:
 - ["SH", "_Default_RawValue"]
 - !private ["SH", "_findStringSwitchCase"]
 - ["SH", "_rawHashValue"]
+- !private ["SH", "age"]
 - ["SH", "debugDescription"]
 - ["SH", "description"]
 - !private ["SH", "email"]
+- !private ["SH", "firstName"]
 - ["SH", "hash"]
 - ["SH", "hashValue"]
 - !private ["SH", "id"]
@@ -141,6 +168,9 @@ depends-member:
 - !private ["SH", "init"]
 - ["SH", "intValue"]
 - !private ["SH", "key"]
+- !private ["SH", "lastName"]
+- !private ["SH", "password"]
+- !private ["SH", "paymentStatus"]
 - ["SH", "rawValue"]
 - ["SH", "stringValue"]
 - !private ["SH", "userName"]
@@ -155,9 +185,11 @@ depends-member:
 - ["SY", "_Default_RawValue"]
 - !private ["SY", "_findStringSwitchCase"]
 - ["SY", "_rawHashValue"]
+- !private ["SY", "age"]
 - ["SY", "debugDescription"]
 - ["SY", "description"]
 - !private ["SY", "email"]
+- !private ["SY", "firstName"]
 - ["SY", "hash"]
 - ["SY", "hashValue"]
 - !private ["SY", "id"]
@@ -166,6 +198,9 @@ depends-member:
 - !private ["SY", "init"]
 - ["SY", "intValue"]
 - !private ["SY", "key"]
+- !private ["SY", "lastName"]
+- !private ["SY", "password"]
+- !private ["SY", "paymentStatus"]
 - ["SY", "rawValue"]
 - ["SY", "stringValue"]
 - !private ["SY", "userName"]
@@ -183,13 +218,19 @@ depends-member:
 - ["10TRPRestKit16TRPUserInfoModelV", "CodingKey"]
 - !private ["10TRPRestKit16TRPUserInfoModelV", "CodingKeys"]
 - ["10TRPRestKit16TRPUserInfoModelV", "Decoder"]
+- ["10TRPRestKit16TRPUserInfoModelV", "Int"]
 - ["10TRPRestKit16TRPUserInfoModelV", "String"]
 - ["10TRPRestKit16TRPUserInfoModelV", "TRPUserPreferencesInfoModel"]
 - !private ["10TRPRestKit16TRPUserInfoModelV", "_findStringSwitchCase"]
+- ["10TRPRestKit16TRPUserInfoModelV", "age"]
 - ["10TRPRestKit16TRPUserInfoModelV", "deinit"]
 - ["10TRPRestKit16TRPUserInfoModelV", "email"]
+- ["10TRPRestKit16TRPUserInfoModelV", "firstName"]
 - ["10TRPRestKit16TRPUserInfoModelV", "info"]
 - ["10TRPRestKit16TRPUserInfoModelV", "init"]
+- ["10TRPRestKit16TRPUserInfoModelV", "lastName"]
+- ["10TRPRestKit16TRPUserInfoModelV", "password"]
+- ["10TRPRestKit16TRPUserInfoModelV", "paymentStatus"]
 - ["10TRPRestKit27TRPUserPreferencesInfoModelV", "CodingKey"]
 - !private ["10TRPRestKit27TRPUserPreferencesInfoModelV", "CodingKeys"]
 - ["10TRPRestKit27TRPUserPreferencesInfoModelV", "Decoder"]
@@ -217,7 +258,7 @@ depends-nominal:
 - "10TRPRestKit27TRPUserPreferencesInfoModelV"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
@@ -230,11 +271,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
+- "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
@@ -247,4 +288,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "da690447bd9113a1a11166f7375c2255"
+interface-hash: "89603621476f49aeb65c002f6e83f4c4"
