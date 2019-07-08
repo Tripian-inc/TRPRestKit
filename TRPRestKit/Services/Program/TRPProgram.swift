@@ -100,6 +100,7 @@ internal class TRPProgram: TRPRestServices{
             params["hotel_address"] = hodelAddreess
         }
         
+        
         if let doNotGenerate = setting.doNotGenerate {
             params["do_not_generate"] = doNotGenerate
         }
