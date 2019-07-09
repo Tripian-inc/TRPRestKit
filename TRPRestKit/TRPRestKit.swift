@@ -713,9 +713,9 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - answers: User answers of Trip
     ///   - completion: Any objects needs to be converted to **TRPUserInfoModel** object.
-    public func updateUserInfo(firstName:String?, lastName: String?, age: String?, password:String? = nil, answers: [Int], completion: @escaping CompletionHandler) {
+    public func updateUserInfo(firstName:String?, lastName: String?, age: String?, password:String? = nil, language: String? = nil,answers: [Int], completion: @escaping CompletionHandler) {
         completionHandler = completion
-        userInfoServices(firstName: firstName,lastName: lastName, age: age, password: password, answers: answers, type: .updateInfo)
+        userInfoServices(firstName: firstName,lastName: lastName, age: age, password: password, language: language, answers: answers, type: .updateInfo)
     }
     
     public func updateUserAnswer(answers: [Int], completion: @escaping CompletionHandler) {
@@ -728,6 +728,7 @@ extension TRPRestKit {
                                   lastName: String? = nil,
                                   age: String? = nil,
                                   password: String? = nil,
+                                  language: String? = nil,
                                   answers: [Int]? = nil,
                                   type: TRPUserInfoServices.ServiceType) {
         var t: TRPUserInfoServices?

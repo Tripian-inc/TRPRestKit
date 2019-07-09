@@ -1,6 +1,6 @@
 version: "Apple Swift version 5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
 options: "b29f312cf2cf588b1ccc9e828416adfe"
-build_time: [1561741475, 539050000]
+build_time: [1562675031, 904738000]
 inputs:
   "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Services/Program/TRPDeleteProgram.swift": [1560148370, 944883456]
   "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/TRPUserPersistent.swift": [1560148370, 956077146]
@@ -58,7 +58,7 @@ inputs:
   "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Model/DayPlan/TRPDayPlanJsonModel.swift": [1560148370, 919234812]
   "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Model/ProblemCategories/TRPProblemCategoriesJsonModel.swift": [1560148370, 925674317]
   "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Services/User/TRPMe.swift": [1561462106, 245283273]
-  "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/TRPRestKit.swift": [1561630564, 640391801]
+  "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/TRPRestKit.swift": [1562674636, 21125333]
   "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Model/Questions/TRPQuestionOptionsJsonModel.swift": [1560148370, 926592867]
   "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Model/TRPParentJsonModel.swift": [1560148370, 932698752]
   "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Model/Favorites/TRPFavoritesJsonModel.swift": [1560148370, 919938990]
