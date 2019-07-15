@@ -91,14 +91,14 @@ internal class TRPProgram: TRPRestServices{
         if let answer = setting.answer {
             params["answers"] = answer.map{"\($0)"}.joined(separator: ",")
         }
-        
-        if let coordinate = setting.coordinate {
-            params["coordinate"] = coordinate
-        }
-        
-        if let hodelAddreess = setting.hotelAddress {
-            params["hotel_address"] = hodelAddreess
-        }
+        params["coordinate"] = setting.coordinate ?? ""
+        /*if let coordinate = setting.coordinate {
+            
+        }*/
+        params["hotel_address"] = setting.hotelAddress ?? ""
+/*        if let hodelAddreess = setting.hotelAddress {
+            
+        }**/
         
         if let doNotGenerate = setting.doNotGenerate {
             params["do_not_generate"] = doNotGenerate
