@@ -9,7 +9,7 @@
 import Foundation
 
 /// Infomation of Plan Poi.
-public struct TRPPlanPoi: Decodable {
+public struct TRPPlanPoi: Decodable,Equatable, Hashable {
     /// An Int value. Id of PlanPoi
     public var id: Int
     /// An Int value. Id of Poi
@@ -18,6 +18,14 @@ public struct TRPPlanPoi: Decodable {
     public var order: Int
     /// A String value. Hash of Trip
     public var hash: String?
+    
+    public var hashValue: Int{
+        return poiId.hashValue
+    }
+    
+    public static func ==(lhs: TRPPlanPoi, rhs: TRPPlanPoi) -> Bool {
+        return lhs.poiId == rhs.poiId
+    }
     
     private enum CodingKeys: String, CodingKey {
         case id

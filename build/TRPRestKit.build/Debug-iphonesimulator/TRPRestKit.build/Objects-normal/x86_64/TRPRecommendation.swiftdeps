@@ -23,6 +23,7 @@ depends-top-level:
 - !private "TRPRecommendationJsonModel"
 - "TRPRecommendationSettings"
 - "TRPRestServices"
+- !private "UnicodeScalarType"
 depends-member:
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "Recommendations"]
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "link"]

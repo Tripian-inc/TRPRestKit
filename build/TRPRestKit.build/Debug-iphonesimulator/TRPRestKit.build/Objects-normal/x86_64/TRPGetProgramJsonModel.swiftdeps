@@ -16,6 +16,7 @@ depends-top-level:
 - "Int"
 - "String"
 - "TRPGetProgramParamsInfoModel"
+- !private "UnicodeScalarType"
 - !private "_findStringSwitchCase"
 - !private "~="
 depends-member:
@@ -43,6 +44,7 @@ depends-member:
 - !private ["s9CodingKeyP", "childAgeRange"]
 - !private ["s9CodingKeyP", "children"]
 - !private ["s9CodingKeyP", "cityId"]
+- !private ["s9CodingKeyP", "companions"]
 - !private ["s9CodingKeyP", "coordinate"]
 - ["s9CodingKeyP", "debugDescription"]
 - !private ["s9CodingKeyP", "departureDate"]
@@ -77,6 +79,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "childAgeRange"]
 - !private ["s28CustomDebugStringConvertibleP", "children"]
 - !private ["s28CustomDebugStringConvertibleP", "cityId"]
+- !private ["s28CustomDebugStringConvertibleP", "companions"]
 - !private ["s28CustomDebugStringConvertibleP", "components"]
 - !private ["s28CustomDebugStringConvertibleP", "coordinate"]
 - ["s28CustomDebugStringConvertibleP", "debugDescription"]
@@ -109,6 +112,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "childAgeRange"]
 - !private ["s23CustomStringConvertibleP", "children"]
 - !private ["s23CustomStringConvertibleP", "cityId"]
+- !private ["s23CustomStringConvertibleP", "companions"]
 - !private ["s23CustomStringConvertibleP", "components"]
 - !private ["s23CustomStringConvertibleP", "coordinate"]
 - ["s23CustomStringConvertibleP", "debugDescription"]
@@ -139,6 +143,7 @@ depends-member:
 - !private ["Se", "children"]
 - !private ["Se", "childrenAgeRange"]
 - !private ["Se", "cityId"]
+- !private ["Se", "companions"]
 - !private ["Se", "components"]
 - !private ["Se", "coordinate"]
 - !private ["Se", "departureDate"]
@@ -164,6 +169,7 @@ depends-member:
 - !private ["SQ", "childAgeRange"]
 - !private ["SQ", "children"]
 - !private ["SQ", "cityId"]
+- !private ["SQ", "companions"]
 - !private ["SQ", "components"]
 - !private ["SQ", "coordinate"]
 - ["SQ", "debugDescription"]
@@ -201,6 +207,7 @@ depends-member:
 - !private ["SH", "childAgeRange"]
 - !private ["SH", "children"]
 - !private ["SH", "cityId"]
+- !private ["SH", "companions"]
 - !private ["SH", "components"]
 - !private ["SH", "coordinate"]
 - ["SH", "debugDescription"]
@@ -256,6 +263,7 @@ depends-member:
 - !private ["SY", "childAgeRange"]
 - !private ["SY", "children"]
 - !private ["SY", "cityId"]
+- !private ["SY", "companions"]
 - !private ["SY", "coordinate"]
 - ["SY", "debugDescription"]
 - !private ["SY", "departureDate"]
@@ -292,6 +300,7 @@ depends-member:
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "children"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "childrenAgeRange"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "cityId"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "companions"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "coordinate"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "deinit"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "departureDate"]
@@ -419,4 +428,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "4dca698172b7a4b90524a88106f58f95"
+interface-hash: "29de08fb5dfb0f903c4520345b804cfa"

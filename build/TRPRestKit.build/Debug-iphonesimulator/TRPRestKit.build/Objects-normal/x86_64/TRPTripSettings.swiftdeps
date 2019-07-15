@@ -15,7 +15,6 @@ depends-top-level:
 - "String"
 - "TRPTime"
 - "TRPTripSettings"
-- !private "UnicodeScalarType"
 depends-member:
 - !private ["SK", "init"]
 - !private ["s7CVarArgP", "init"]
@@ -56,6 +55,7 @@ depends-member:
 - ["10TRPRestKit15TRPTripSettingsC", "hash"]
 - ["10TRPRestKit15TRPTripSettingsC", "hotelAddress"]
 - ["10TRPRestKit15TRPTripSettingsC", "init"]
+- ["10TRPRestKit15TRPTripSettingsC", "selectedCompanionIds"]
 - ["10TRPRestKit15TRPTripSettingsC", "setCoordinateWithAddress"]
 - !private ["s16TextOutputStreamP", "init"]
 - !private ["s20TextOutputStreamableP", "init"]
@@ -128,4 +128,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "420666f8019fbfac9c49bab5a7df7e96"
+interface-hash: "dbb90fcb35054a2b20f8890f71a2757b"

@@ -12,6 +12,7 @@ depends-top-level:
 - "CodingKey"
 - "Decoder"
 - "String"
+- "StringLiteralType"
 - "TRPParentJsonModel"
 - "TRPUserTripInfoModel"
 - "TRPUserTripsJsonModel"

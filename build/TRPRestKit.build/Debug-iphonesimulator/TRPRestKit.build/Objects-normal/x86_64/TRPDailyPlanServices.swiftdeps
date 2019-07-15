@@ -7,11 +7,15 @@ provides-member:
 - ["10TRPRestKit20TRPDailyPlanServicesC", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "!="
+- !private "&&"
 - !private "+="
 - "AssignmentPrecedence"
 - "Bool"
+- !private "BooleanLiteralType"
 - "CastingPrecedence"
 - "Data"
+- "Dictionary"
 - "Int"
 - !private "JSONDecoder"
 - "NSError"
@@ -20,31 +24,51 @@ depends-top-level:
 - "TRPDailyPlanServices"
 - !private "TRPDayPlanJsonModel"
 - !private "TRPErrors"
+- "TRPRequestMode"
 - "TRPRestServices"
 depends-member:
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "DailyPlan"]
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "link"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["Sl", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
 - !private ["10Foundation13CustomNSErrorP", "wrongData"]
+- !private ["s17CustomReflectableP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "appendInterpolation"]
 - !private ["s23CustomStringConvertibleP", "appendLiteral"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["Se", "subscript"]
 - !private ["s26DefaultStringInterpolationV", "appendInterpolation"]
 - !private ["s26DefaultStringInterpolationV", "appendLiteral"]
+- !private ["SD", "subscript"]
+- !private ["SE", "subscript"]
 - !private ["SQ", "DailyPlan"]
+- !private ["SQ", "get"]
 - !private ["SQ", "link"]
+- !private ["SQ", "put"]
+- !private ["SQ", "subscript"]
 - !private ["s5ErrorP", "wrongData"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
 - !private ["SH", "DailyPlan"]
+- !private ["SH", "get"]
 - !private ["SH", "link"]
+- !private ["SH", "put"]
+- !private ["SH", "subscript"]
 - !private ["10Foundation11JSONDecoderC", "decode"]
 - !private ["10Foundation11JSONDecoderC", "init"]
 - !private ["10Foundation14LocalizedErrorP", "wrongData"]
 - !private ["SY", "DailyPlan"]
+- !private ["SY", "get"]
 - !private ["SY", "link"]
+- !private ["SY", "put"]
+- !private ["ST", "subscript"]
 - !private ["s27StringInterpolationProtocolP", "appendInterpolation"]
 - !private ["s27StringInterpolationProtocolP", "appendLiteral"]
 - !private ["10TRPRestKit9TRPConfigV", "ApiCall"]
 - ["10TRPRestKit20TRPDailyPlanServicesC", "Bool"]
 - !private ["10TRPRestKit20TRPDailyPlanServicesC", "Completion"]
 - ["10TRPRestKit20TRPDailyPlanServicesC", "Data"]
+- ["10TRPRestKit20TRPDailyPlanServicesC", "Dictionary"]
 - ["10TRPRestKit20TRPDailyPlanServicesC", "Int"]
 - !private ["10TRPRestKit20TRPDailyPlanServicesC", "JSONDecoder"]
 - ["10TRPRestKit20TRPDailyPlanServicesC", "NSError"]
@@ -52,16 +76,24 @@ depends-member:
 - !private ["10TRPRestKit20TRPDailyPlanServicesC", "TRPConfig"]
 - !private ["10TRPRestKit20TRPDailyPlanServicesC", "TRPDayPlanJsonModel"]
 - !private ["10TRPRestKit20TRPDailyPlanServicesC", "TRPErrors"]
+- ["10TRPRestKit20TRPDailyPlanServicesC", "TRPRequestMode"]
 - ["10TRPRestKit20TRPDailyPlanServicesC", "dayId"]
+- ["10TRPRestKit20TRPDailyPlanServicesC", "endTime"]
 - ["10TRPRestKit20TRPDailyPlanServicesC", "init"]
+- ["10TRPRestKit20TRPDailyPlanServicesC", "parameters"]
 - ["10TRPRestKit20TRPDailyPlanServicesC", "path"]
+- ["10TRPRestKit20TRPDailyPlanServicesC", "requestMode"]
 - ["10TRPRestKit20TRPDailyPlanServicesC", "servicesResult"]
+- ["10TRPRestKit20TRPDailyPlanServicesC", "startTime"]
 - ["10TRPRestKit20TRPDailyPlanServicesC", "userOAuth"]
 - !private ["10TRPRestKit19TRPDayPlanJsonModelC", "deinit"]
 - !private ["10TRPRestKit9TRPErrorsO", "wrongData"]
+- !private ["10TRPRestKit14TRPRequestModeO", "get"]
+- !private ["10TRPRestKit14TRPRequestModeO", "put"]
 - ["10TRPRestKit0A8ServicesC", "Bool"]
 - !private ["10TRPRestKit0A8ServicesC", "Completion"]
 - ["10TRPRestKit0A8ServicesC", "Data"]
+- ["10TRPRestKit0A8ServicesC", "Dictionary"]
 - ["10TRPRestKit0A8ServicesC", "Int"]
 - !private ["10TRPRestKit0A8ServicesC", "JSONDecoder"]
 - ["10TRPRestKit0A8ServicesC", "NSError"]
@@ -69,32 +101,51 @@ depends-member:
 - !private ["10TRPRestKit0A8ServicesC", "TRPConfig"]
 - !private ["10TRPRestKit0A8ServicesC", "TRPDayPlanJsonModel"]
 - !private ["10TRPRestKit0A8ServicesC", "TRPErrors"]
+- ["10TRPRestKit0A8ServicesC", "TRPRequestMode"]
 - ["10TRPRestKit0A8ServicesC", ""]
 - ["10TRPRestKit0A8ServicesC", "dayId"]
+- ["10TRPRestKit0A8ServicesC", "endTime"]
 - ["10TRPRestKit0A8ServicesC", "init"]
+- ["10TRPRestKit0A8ServicesC", "parameters"]
 - ["10TRPRestKit0A8ServicesC", "path"]
+- ["10TRPRestKit0A8ServicesC", "requestMode"]
 - ["10TRPRestKit0A8ServicesC", "servicesResult"]
+- ["10TRPRestKit0A8ServicesC", "startTime"]
 - ["10TRPRestKit0A8ServicesC", "userOAuth"]
 - !private ["s16TextOutputStreamP", "appendInterpolation"]
 - !private ["s16TextOutputStreamP", "appendLiteral"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
 depends-nominal:
 - !private "10TRPRestKit9TRPConfigV7ApiCallO"
+- !private "s7CVarArgP"
+- !private "Sl"
+- !private "s28CustomDebugStringConvertibleP"
 - !private "10Foundation13CustomNSErrorP"
+- !private "s17CustomReflectableP"
 - !private "s23CustomStringConvertibleP"
+- !private "Se"
 - !private "s26DefaultStringInterpolationV"
+- !private "SD"
+- !private "SE"
 - !private "SQ"
 - !private "s5ErrorP"
+- !private "s30ExpressibleByDictionaryLiteralP"
 - !private "SH"
 - !private "10Foundation11JSONDecoderC"
 - !private "10Foundation14LocalizedErrorP"
 - !private "SY"
+- !private "ST"
 - !private "s27StringInterpolationProtocolP"
 - !private "10TRPRestKit9TRPConfigV"
 - "10TRPRestKit20TRPDailyPlanServicesC"
 - !private "10TRPRestKit19TRPDayPlanJsonModelC"
 - !private "10TRPRestKit9TRPErrorsO"
+- !private "10TRPRestKit14TRPRequestModeO"
 - "10TRPRestKit0A8ServicesC"
 - !private "s16TextOutputStreamP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s21_ObjectiveCBridgeableP"
 depends-dynamic-lookup:
 depends-external:
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
@@ -127,4 +178,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "d689471527670858630b938a2b776af2"
+interface-hash: "c75de0bb413672a653fb05016a37f15d"

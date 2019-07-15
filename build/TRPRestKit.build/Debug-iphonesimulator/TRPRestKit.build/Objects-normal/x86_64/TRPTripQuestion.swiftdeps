@@ -16,20 +16,16 @@ depends-top-level:
 - "CastingPrecedence"
 - "Data"
 - "Dictionary"
-- !private "FloatLiteralType"
 - "Int"
-- !private "IntegerLiteralType"
 - !private "JSONDecoder"
 - "NSError"
 - "String"
-- "StringLiteralType"
 - "TPRTripQuestionType"
 - !private "TRPConfig"
 - !private "TRPErrors"
 - "TRPRestServices"
 - "TRPTripQuestion"
 - !private "TRPTripQuestionJsonModel"
-- !private "UnicodeScalarType"
 - !private "_findStringSwitchCase"
 - !private "~="
 depends-member:
@@ -102,6 +98,7 @@ depends-member:
 - ["10TRPRestKit19TPRTripQuestionTypeO", "_Default_RawValue"]
 - !private ["10TRPRestKit19TPRTripQuestionTypeO", "_findStringSwitchCase"]
 - ["10TRPRestKit19TPRTripQuestionTypeO", "_rawHashValue"]
+- ["10TRPRestKit19TPRTripQuestionTypeO", "companion"]
 - ["10TRPRestKit19TPRTripQuestionTypeO", "deinit"]
 - ["10TRPRestKit19TPRTripQuestionTypeO", "hash"]
 - ["10TRPRestKit19TPRTripQuestionTypeO", "hashValue"]
@@ -219,4 +216,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "af1921d5d2b2007246e1b391c2085521"
+interface-hash: "f6292efc99e5370d8a7594afd2e0f082"

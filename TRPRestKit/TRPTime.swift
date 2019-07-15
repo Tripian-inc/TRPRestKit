@@ -16,8 +16,11 @@ public struct TRPTime {
     
     /// A Date value. Closer uses a `yyyy-MM-dd HH:mm`style to convert.
     public var formated: Date? {
-        let formatter = DateFormatter()
+        var formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        if let tz = TimeZone(identifier: "UTC") {
+            formatter.timeZone = tz
+        }
         return  formatter.date(from: "\(date) \(time)")
     }
     
@@ -57,8 +60,12 @@ public struct TRPTime {
     ///
     /// - Parameter date: Date object will be parsed Date/Time.
     public init(date: Date) {
-        let calendar = Calendar.current
-        let year = calendar.component(.year, from: date)
+        var calendar = Calendar.current
+        if let tz = TimeZone(identifier: "UTC") {
+            calendar.timeZone = tz
+        }
+        let year =
+            calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
         let hour = calendar.component(.hour, from: date)

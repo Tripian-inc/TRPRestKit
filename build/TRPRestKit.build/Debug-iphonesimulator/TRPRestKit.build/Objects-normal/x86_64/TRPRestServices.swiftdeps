@@ -96,7 +96,6 @@ depends-member:
 - ["10TRPRestKit0A8ServicesC", "bodyParameters"]
 - ["10TRPRestKit0A8ServicesC", "connection"]
 - !private ["10TRPRestKit0A8ServicesC", "createParams"]
-- ["10TRPRestKit0A8ServicesC", "deinit"]
 - ["10TRPRestKit0A8ServicesC", "init"]
 - ["10TRPRestKit0A8ServicesC", "isAutoPagination"]
 - ["10TRPRestKit0A8ServicesC", "oauth"]

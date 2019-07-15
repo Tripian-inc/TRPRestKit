@@ -36,8 +36,10 @@ depends-member:
 - !private ["s9CodingKeyP", "category"]
 - !private ["s9CodingKeyP", "cityId"]
 - !private ["s9CodingKeyP", "coordinate"]
+- !private ["s9CodingKeyP", "cuisines"]
 - ["s9CodingKeyP", "debugDescription"]
 - ["s9CodingKeyP", "description"]
+- !private ["s9CodingKeyP", "features"]
 - ["s9CodingKeyP", "hash"]
 - ["s9CodingKeyP", "hashValue"]
 - !private ["s9CodingKeyP", "hours"]
@@ -50,6 +52,7 @@ depends-member:
 - ["s9CodingKeyP", "intValue"]
 - !private ["s9CodingKeyP", "mainCuisisnes"]
 - !private ["s9CodingKeyP", "name"]
+- !private ["s9CodingKeyP", "narrativeTags"]
 - !private ["s9CodingKeyP", "phone"]
 - !private ["s9CodingKeyP", "price"]
 - !private ["s9CodingKeyP", "rating"]
@@ -70,8 +73,10 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "category"]
 - !private ["s28CustomDebugStringConvertibleP", "cityId"]
 - !private ["s28CustomDebugStringConvertibleP", "coordinate"]
+- !private ["s28CustomDebugStringConvertibleP", "cuisines"]
 - ["s28CustomDebugStringConvertibleP", "debugDescription"]
 - ["s28CustomDebugStringConvertibleP", "description"]
+- !private ["s28CustomDebugStringConvertibleP", "features"]
 - ["s28CustomDebugStringConvertibleP", "hash"]
 - ["s28CustomDebugStringConvertibleP", "hashValue"]
 - !private ["s28CustomDebugStringConvertibleP", "hours"]
@@ -84,6 +89,7 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "intValue"]
 - !private ["s28CustomDebugStringConvertibleP", "mainCuisisnes"]
 - !private ["s28CustomDebugStringConvertibleP", "name"]
+- !private ["s28CustomDebugStringConvertibleP", "narrativeTags"]
 - !private ["s28CustomDebugStringConvertibleP", "phone"]
 - !private ["s28CustomDebugStringConvertibleP", "price"]
 - !private ["s28CustomDebugStringConvertibleP", "rating"]
@@ -103,8 +109,10 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "category"]
 - !private ["s23CustomStringConvertibleP", "cityId"]
 - !private ["s23CustomStringConvertibleP", "coordinate"]
+- !private ["s23CustomStringConvertibleP", "cuisines"]
 - ["s23CustomStringConvertibleP", "debugDescription"]
 - ["s23CustomStringConvertibleP", "description"]
+- !private ["s23CustomStringConvertibleP", "features"]
 - ["s23CustomStringConvertibleP", "hash"]
 - ["s23CustomStringConvertibleP", "hashValue"]
 - !private ["s23CustomStringConvertibleP", "hours"]
@@ -117,6 +125,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "intValue"]
 - !private ["s23CustomStringConvertibleP", "mainCuisisnes"]
 - !private ["s23CustomStringConvertibleP", "name"]
+- !private ["s23CustomStringConvertibleP", "narrativeTags"]
 - !private ["s23CustomStringConvertibleP", "phone"]
 - !private ["s23CustomStringConvertibleP", "price"]
 - !private ["s23CustomStringConvertibleP", "rating"]
@@ -139,7 +148,9 @@ depends-member:
 - !private ["Se", "category"]
 - !private ["Se", "cityId"]
 - !private ["Se", "coordinate"]
+- !private ["Se", "cuisines"]
 - !private ["Se", "description"]
+- !private ["Se", "features"]
 - !private ["Se", "hours"]
 - !private ["Se", "icon"]
 - !private ["Se", "id"]
@@ -148,6 +159,7 @@ depends-member:
 - ["Se", "init"]
 - !private ["Se", "mainCuisines"]
 - !private ["Se", "name"]
+- !private ["Se", "narrativeTags"]
 - !private ["Se", "phone"]
 - !private ["Se", "price"]
 - !private ["Se", "rating"]
@@ -166,8 +178,10 @@ depends-member:
 - !private ["SQ", "category"]
 - !private ["SQ", "cityId"]
 - !private ["SQ", "coordinate"]
+- !private ["SQ", "cuisines"]
 - ["SQ", "debugDescription"]
 - ["SQ", "description"]
+- !private ["SQ", "features"]
 - ["SQ", "hash"]
 - ["SQ", "hashValue"]
 - !private ["SQ", "hours"]
@@ -180,6 +194,7 @@ depends-member:
 - ["SQ", "intValue"]
 - !private ["SQ", "mainCuisisnes"]
 - !private ["SQ", "name"]
+- !private ["SQ", "narrativeTags"]
 - !private ["SQ", "phone"]
 - !private ["SQ", "price"]
 - !private ["SQ", "rating"]
@@ -199,8 +214,10 @@ depends-member:
 - !private ["SH", "category"]
 - !private ["SH", "cityId"]
 - !private ["SH", "coordinate"]
+- !private ["SH", "cuisines"]
 - ["SH", "debugDescription"]
 - ["SH", "description"]
+- !private ["SH", "features"]
 - ["SH", "hash"]
 - ["SH", "hashValue"]
 - !private ["SH", "hours"]
@@ -213,6 +230,7 @@ depends-member:
 - ["SH", "intValue"]
 - !private ["SH", "mainCuisisnes"]
 - !private ["SH", "name"]
+- !private ["SH", "narrativeTags"]
 - !private ["SH", "phone"]
 - !private ["SH", "price"]
 - !private ["SH", "rating"]
@@ -239,8 +257,10 @@ depends-member:
 - !private ["SY", "category"]
 - !private ["SY", "cityId"]
 - !private ["SY", "coordinate"]
+- !private ["SY", "cuisines"]
 - ["SY", "debugDescription"]
 - ["SY", "description"]
+- !private ["SY", "features"]
 - ["SY", "hash"]
 - ["SY", "hashValue"]
 - !private ["SY", "hours"]
@@ -253,6 +273,7 @@ depends-member:
 - ["SY", "intValue"]
 - !private ["SY", "mainCuisisnes"]
 - !private ["SY", "name"]
+- !private ["SY", "narrativeTags"]
 - !private ["SY", "phone"]
 - !private ["SY", "price"]
 - !private ["SY", "rating"]
@@ -279,8 +300,10 @@ depends-member:
 - ["10TRPRestKit15TRPPoiInfoModelV", "category"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "cityId"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "coordinate"]
+- ["10TRPRestKit15TRPPoiInfoModelV", "cuisines"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "deinit"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "description"]
+- ["10TRPRestKit15TRPPoiInfoModelV", "features"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "hours"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "icon"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "id"]
@@ -289,6 +312,7 @@ depends-member:
 - ["10TRPRestKit15TRPPoiInfoModelV", "init"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "mainCuisines"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "name"]
+- ["10TRPRestKit15TRPPoiInfoModelV", "narrativeTags"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "phone"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "price"]
 - ["10TRPRestKit15TRPPoiInfoModelV", "rating"]
@@ -336,7 +360,7 @@ depends-nominal:
 - "s21_ObjectiveCBridgeableP"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
@@ -349,11 +373,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
@@ -366,4 +390,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "a11095493c7dc8b397f50239f49dd270"
+interface-hash: "8b03754d3d8f73042d034a8e88ce4cba"

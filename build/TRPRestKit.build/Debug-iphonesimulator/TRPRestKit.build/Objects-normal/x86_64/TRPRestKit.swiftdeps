@@ -20,6 +20,7 @@ provides-member:
 - ["10TRPRestKitAAC", "poi"]
 - ["10TRPRestKitAAC", "tripQuestions"]
 - ["10TRPRestKitAAC", "tripQuestions"]
+- ["10TRPRestKitAAC", "tripQuestions"]
 - ["10TRPRestKitAAC", "quickRecommendation"]
 - ["10TRPRestKitAAC", "login"]
 - ["10TRPRestKitAAC", "loginTestServer"]
@@ -27,7 +28,12 @@ provides-member:
 - ["10TRPRestKitAAC", "register"]
 - ["10TRPRestKitAAC", "registerOnTestServer"]
 - ["10TRPRestKitAAC", "userInfo"]
+- ["10TRPRestKitAAC", "updateUserInfo"]
 - ["10TRPRestKitAAC", "updateUserAnswer"]
+- ["10TRPRestKitAAC", "addCompanion"]
+- ["10TRPRestKitAAC", "updateCompanion"]
+- ["10TRPRestKitAAC", "removeCompanion"]
+- ["10TRPRestKitAAC", "getUsersCompanions"]
 - ["10TRPRestKitAAC", "addUserFavorite"]
 - ["10TRPRestKitAAC", "getUserFavorite"]
 - ["10TRPRestKitAAC", "deleteUserFavorite"]
@@ -48,6 +54,7 @@ provides-member:
 - ["10TRPRestKitAAC", "googlePlace"]
 - ["10TRPRestKitAAC", "problemCategories"]
 - ["10TRPRestKitAAC", "reportaProblem"]
+- ["10TRPRestKitAAC", "updateDailyPlanHour"]
 provides-dynamic-lookup:
 depends-top-level:
 - !private "!="
@@ -56,17 +63,25 @@ depends-top-level:
 - !private "??"
 - "AssignmentPrecedence"
 - "Bool"
+- "BooleanLiteralType"
 - "CastingPrecedence"
+- "CompanionServiceType"
 - "Double"
+- "FloatLiteralType"
 - "Int"
+- "IntegerLiteralType"
 - "NSError"
 - "NSObject"
 - "Pagination"
 - !private "PoiCategories"
 - "String"
+- !private "StringLiteralType"
 - "TPRTripQuestionType"
 - !private "TRPCities"
 - !private "TRPCityJsonModel"
+- !private "TRPCompanionModel"
+- !private "TRPCompanionServices"
+- !private "TRPCompanionsJsonModel"
 - !private "TRPDailyPlanServices"
 - !private "TRPDayPlanJsonModel"
 - !private "TRPDeleteProgram"
@@ -115,10 +130,12 @@ depends-top-level:
 depends-member:
 - !private ["Sa", "first"]
 - !private ["SK", "first"]
+- !private ["s7CVarArgP", "CompanionServiceType"]
 - !private ["s7CVarArgP", "Pagination"]
 - !private ["s7CVarArgP", "PoiCategories"]
 - !private ["s7CVarArgP", "TPRTripQuestionType"]
 - !private ["s7CVarArgP", "TRPCities"]
+- !private ["s7CVarArgP", "TRPCompanionServices"]
 - !private ["s7CVarArgP", "TRPDailyPlanServices"]
 - !private ["s7CVarArgP", "TRPDeleteProgram"]
 - !private ["s7CVarArgP", "TRPErrors"]
@@ -141,6 +158,7 @@ depends-member:
 - !private ["s7CVarArgP", "TRPUserTrips"]
 - ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "citiesServices"]
+- !private ["s7CVarArgP", "companionServices"]
 - !private ["s7CVarArgP", "completionHandler"]
 - !private ["s7CVarArgP", "completionHandlerWithPagination"]
 - !private ["s7CVarArgP", "createOrEditTripServices"]
@@ -164,16 +182,24 @@ depends-member:
 - !private ["s7CVarArgP", "recommendationServices"]
 - !private ["s7CVarArgP", "reportaProblemService"]
 - !private ["s7CVarArgP", "sleep"]
+- !private ["s7CVarArgP", "updateDailyPlanHourService"]
 - !private ["s7CVarArgP", "userFavoriteServices"]
 - !private ["s7CVarArgP", "userInfoServices"]
 - !private ["s7CVarArgP", "userRegisterServices"]
 - !private ["s7CVarArgP", "userTripsServices"]
 - !private ["Sl", "first"]
+- !private ["10TRPRestKit20CompanionServiceTypeO", "add"]
+- !private ["10TRPRestKit20CompanionServiceTypeO", "deinit"]
+- !private ["10TRPRestKit20CompanionServiceTypeO", "delete"]
+- !private ["10TRPRestKit20CompanionServiceTypeO", "get"]
+- !private ["10TRPRestKit20CompanionServiceTypeO", "update"]
 - !private ["10Foundation15ContiguousBytesP", "first"]
+- !private ["s28CustomDebugStringConvertibleP", "CompanionServiceType"]
 - !private ["s28CustomDebugStringConvertibleP", "Pagination"]
 - !private ["s28CustomDebugStringConvertibleP", "PoiCategories"]
 - !private ["s28CustomDebugStringConvertibleP", "TPRTripQuestionType"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPCities"]
+- !private ["s28CustomDebugStringConvertibleP", "TRPCompanionServices"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPDailyPlanServices"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPDeleteProgram"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPErrors"]
@@ -196,6 +222,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "TRPUserTrips"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "citiesServices"]
+- !private ["s28CustomDebugStringConvertibleP", "companionServices"]
 - !private ["s28CustomDebugStringConvertibleP", "completionHandler"]
 - !private ["s28CustomDebugStringConvertibleP", "completionHandlerWithPagination"]
 - !private ["s28CustomDebugStringConvertibleP", "createOrEditTripServices"]
@@ -219,6 +246,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "recommendationServices"]
 - !private ["s28CustomDebugStringConvertibleP", "reportaProblemService"]
 - !private ["s28CustomDebugStringConvertibleP", "sleep"]
+- !private ["s28CustomDebugStringConvertibleP", "updateDailyPlanHourService"]
 - !private ["s28CustomDebugStringConvertibleP", "userFavoriteServices"]
 - !private ["s28CustomDebugStringConvertibleP", "userInfoServices"]
 - !private ["s28CustomDebugStringConvertibleP", "userRegisterServices"]
@@ -227,10 +255,12 @@ depends-member:
 - !private ["10Foundation13CustomNSErrorP", "objectIsNil"]
 - !private ["10Foundation13CustomNSErrorP", "wrongData"]
 - !private ["s17CustomReflectableP", "first"]
+- !private ["s23CustomStringConvertibleP", "CompanionServiceType"]
 - !private ["s23CustomStringConvertibleP", "Pagination"]
 - !private ["s23CustomStringConvertibleP", "PoiCategories"]
 - !private ["s23CustomStringConvertibleP", "TPRTripQuestionType"]
 - !private ["s23CustomStringConvertibleP", "TRPCities"]
+- !private ["s23CustomStringConvertibleP", "TRPCompanionServices"]
 - !private ["s23CustomStringConvertibleP", "TRPDailyPlanServices"]
 - !private ["s23CustomStringConvertibleP", "TRPDeleteProgram"]
 - !private ["s23CustomStringConvertibleP", "TRPErrors"]
@@ -253,6 +283,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "TRPUserTrips"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "citiesServices"]
+- !private ["s23CustomStringConvertibleP", "companionServices"]
 - !private ["s23CustomStringConvertibleP", "completionHandler"]
 - !private ["s23CustomStringConvertibleP", "completionHandlerWithPagination"]
 - !private ["s23CustomStringConvertibleP", "createOrEditTripServices"]
@@ -276,6 +307,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "recommendationServices"]
 - !private ["s23CustomStringConvertibleP", "reportaProblemService"]
 - !private ["s23CustomStringConvertibleP", "sleep"]
+- !private ["s23CustomStringConvertibleP", "updateDailyPlanHourService"]
 - !private ["s23CustomStringConvertibleP", "userFavoriteServices"]
 - !private ["s23CustomStringConvertibleP", "userInfoServices"]
 - !private ["s23CustomStringConvertibleP", "userRegisterServices"]
@@ -286,10 +318,12 @@ depends-member:
 - !private ["Se", "datas"]
 - !private ["Se", "first"]
 - !private ["SE", "first"]
+- !private ["SQ", "CompanionServiceType"]
 - !private ["SQ", "Pagination"]
 - !private ["SQ", "PoiCategories"]
 - !private ["SQ", "TPRTripQuestionType"]
 - !private ["SQ", "TRPCities"]
+- !private ["SQ", "TRPCompanionServices"]
 - !private ["SQ", "TRPDailyPlanServices"]
 - !private ["SQ", "TRPDeleteProgram"]
 - !private ["SQ", "TRPErrors"]
@@ -313,6 +347,7 @@ depends-member:
 - ["SQ", ""]
 - !private ["SQ", "add"]
 - !private ["SQ", "citiesServices"]
+- !private ["SQ", "companionServices"]
 - !private ["SQ", "completed"]
 - !private ["SQ", "completionHandler"]
 - !private ["SQ", "completionHandlerWithPagination"]
@@ -336,6 +371,7 @@ depends-member:
 - !private ["SQ", "postData"]
 - !private ["SQ", "postError"]
 - !private ["SQ", "problemCategoriesService"]
+- !private ["SQ", "profile"]
 - !private ["SQ", "questionServices"]
 - !private ["SQ", "recommendationServices"]
 - !private ["SQ", "reportaProblemService"]
@@ -343,6 +379,7 @@ depends-member:
 - !private ["SQ", "trip"]
 - !private ["SQ", "update"]
 - !private ["SQ", "updateAnswer"]
+- !private ["SQ", "updateDailyPlanHourService"]
 - !private ["SQ", "updateInfo"]
 - !private ["SQ", "userFavoriteServices"]
 - !private ["SQ", "userInfoServices"]
@@ -352,10 +389,12 @@ depends-member:
 - !private ["s5ErrorP", "objectIsNil"]
 - !private ["s5ErrorP", "wrongData"]
 - !private ["s25ExpressibleByArrayLiteralP", "first"]
+- !private ["SH", "CompanionServiceType"]
 - !private ["SH", "Pagination"]
 - !private ["SH", "PoiCategories"]
 - !private ["SH", "TPRTripQuestionType"]
 - !private ["SH", "TRPCities"]
+- !private ["SH", "TRPCompanionServices"]
 - !private ["SH", "TRPDailyPlanServices"]
 - !private ["SH", "TRPDeleteProgram"]
 - !private ["SH", "TRPErrors"]
@@ -379,6 +418,7 @@ depends-member:
 - ["SH", ""]
 - !private ["SH", "add"]
 - !private ["SH", "citiesServices"]
+- !private ["SH", "companionServices"]
 - !private ["SH", "completionHandler"]
 - !private ["SH", "completionHandlerWithPagination"]
 - !private ["SH", "createOrEditTripServices"]
@@ -401,6 +441,7 @@ depends-member:
 - !private ["SH", "postData"]
 - !private ["SH", "postError"]
 - !private ["SH", "problemCategoriesService"]
+- !private ["SH", "profile"]
 - !private ["SH", "questionServices"]
 - !private ["SH", "recommendationServices"]
 - !private ["SH", "reportaProblemService"]
@@ -408,6 +449,7 @@ depends-member:
 - !private ["SH", "trip"]
 - !private ["SH", "update"]
 - !private ["SH", "updateAnswer"]
+- !private ["SH", "updateDailyPlanHourService"]
 - !private ["SH", "updateInfo"]
 - !private ["SH", "userFavoriteServices"]
 - !private ["SH", "userInfoServices"]
@@ -423,6 +465,7 @@ depends-member:
 - !private ["SM", "first"]
 - !private ["10Foundation19MutableDataProtocolP", "first"]
 - ["So8NSObjectC", "Bool"]
+- ["So8NSObjectC", "CompanionServiceType"]
 - ["So8NSObjectC", "CompletionHandler"]
 - ["So8NSObjectC", "CompletionHandlerWithPagination"]
 - ["So8NSObjectC", "Double"]
@@ -434,6 +477,9 @@ depends-member:
 - ["So8NSObjectC", "TPRTripQuestionType"]
 - !private ["So8NSObjectC", "TRPCities"]
 - !private ["So8NSObjectC", "TRPCityJsonModel"]
+- !private ["So8NSObjectC", "TRPCompanionModel"]
+- !private ["So8NSObjectC", "TRPCompanionServices"]
+- !private ["So8NSObjectC", "TRPCompanionsJsonModel"]
 - !private ["So8NSObjectC", "TRPDailyPlanServices"]
 - !private ["So8NSObjectC", "TRPDayPlanJsonModel"]
 - !private ["So8NSObjectC", "TRPDeleteProgram"]
@@ -477,11 +523,13 @@ depends-member:
 - !private ["So8NSObjectC", "TRPUserTripsJsonModel"]
 - ["So8NSObjectC", "Void"]
 - ["So8NSObjectC", ""]
+- ["So8NSObjectC", "addCompanion"]
 - ["So8NSObjectC", "addPlanPoints"]
 - ["So8NSObjectC", "addUserFavorite"]
 - ["So8NSObjectC", "cities"]
 - ["So8NSObjectC", "citiesServices"]
 - ["So8NSObjectC", "city"]
+- ["So8NSObjectC", "companionServices"]
 - ["So8NSObjectC", "completionHandler"]
 - ["So8NSObjectC", "completionHandlerWithPagination"]
 - ["So8NSObjectC", "createOrEditTripServices"]
@@ -496,6 +544,7 @@ depends-member:
 - ["So8NSObjectC", "getTrip"]
 - ["So8NSObjectC", "getTripServices"]
 - ["So8NSObjectC", "getUserFavorite"]
+- ["So8NSObjectC", "getUsersCompanions"]
 - ["So8NSObjectC", "googleAutoComplete"]
 - ["So8NSObjectC", "googlePlace"]
 - ["So8NSObjectC", "googlePlaceAutoCompleteService"]
@@ -523,22 +572,29 @@ depends-member:
 - ["So8NSObjectC", "recommendationServices"]
 - ["So8NSObjectC", "register"]
 - ["So8NSObjectC", "registerOnTestServer"]
+- ["So8NSObjectC", "removeCompanion"]
 - ["So8NSObjectC", "replacePlanPoiFrom"]
 - ["So8NSObjectC", "reportaProblem"]
 - ["So8NSObjectC", "reportaProblemService"]
 - !private ["So8NSObjectC", "sleep"]
 - ["So8NSObjectC", "tripQuestions"]
+- ["So8NSObjectC", "updateCompanion"]
+- ["So8NSObjectC", "updateDailyPlanHour"]
+- ["So8NSObjectC", "updateDailyPlanHourService"]
 - ["So8NSObjectC", "updateUserAnswer"]
+- ["So8NSObjectC", "updateUserInfo"]
 - ["So8NSObjectC", "userFavoriteServices"]
 - ["So8NSObjectC", "userInfo"]
 - ["So8NSObjectC", "userInfoServices"]
 - ["So8NSObjectC", "userRegisterServices"]
 - ["So8NSObjectC", "userTrips"]
 - ["So8NSObjectC", "userTripsServices"]
+- !private ["So8NSObjectP", "CompanionServiceType"]
 - !private ["So8NSObjectP", "Pagination"]
 - !private ["So8NSObjectP", "PoiCategories"]
 - !private ["So8NSObjectP", "TPRTripQuestionType"]
 - !private ["So8NSObjectP", "TRPCities"]
+- !private ["So8NSObjectP", "TRPCompanionServices"]
 - !private ["So8NSObjectP", "TRPDailyPlanServices"]
 - !private ["So8NSObjectP", "TRPDeleteProgram"]
 - !private ["So8NSObjectP", "TRPErrors"]
@@ -561,6 +617,7 @@ depends-member:
 - !private ["So8NSObjectP", "TRPUserTrips"]
 - ["So8NSObjectP", ""]
 - !private ["So8NSObjectP", "citiesServices"]
+- !private ["So8NSObjectP", "companionServices"]
 - !private ["So8NSObjectP", "completionHandler"]
 - !private ["So8NSObjectP", "completionHandlerWithPagination"]
 - !private ["So8NSObjectP", "createOrEditTripServices"]
@@ -583,6 +640,7 @@ depends-member:
 - !private ["So8NSObjectP", "recommendationServices"]
 - !private ["So8NSObjectP", "reportaProblemService"]
 - !private ["So8NSObjectP", "sleep"]
+- !private ["So8NSObjectP", "updateDailyPlanHourService"]
 - !private ["So8NSObjectP", "userFavoriteServices"]
 - !private ["So8NSObjectP", "userInfoServices"]
 - !private ["So8NSObjectP", "userRegisterServices"]
@@ -593,6 +651,7 @@ depends-member:
 - !private ["10TRPRestKit13PoiCategoriesC", "init"]
 - !private ["Sk", "first"]
 - !private ["Sm", "first"]
+- !private ["SY", "profile"]
 - !private ["SY", "trip"]
 - !private ["ST", "first"]
 - !private ["10TRPRestKit19TRPUserInfoServicesC11ServiceTypeO", "deinit"]
@@ -603,12 +662,17 @@ depends-member:
 - !private ["10TRPRestKit13TRPPlanPointsC6StatusO", "deinit"]
 - !private ["10TRPRestKit13TRPPlanPointsC6StatusO", "delete"]
 - !private ["10TRPRestKit13TRPPlanPointsC6StatusO", "update"]
+- !private ["10TRPRestKit19TPRTripQuestionTypeO", "profile"]
 - !private ["10TRPRestKit19TPRTripQuestionTypeO", "trip"]
 - !private ["10TRPRestKit9TRPCitiesC", "Completion"]
 - !private ["10TRPRestKit9TRPCitiesC", "connection"]
 - !private ["10TRPRestKit9TRPCitiesC", "init"]
 - !private ["10TRPRestKit9TRPCitiesC", "limit"]
 - !private ["10TRPRestKit16TRPCityJsonModelC", "data"]
+- !private ["10TRPRestKit20TRPCompanionServicesC", "Completion"]
+- !private ["10TRPRestKit20TRPCompanionServicesC", "connection"]
+- !private ["10TRPRestKit20TRPCompanionServicesC", "init"]
+- !private ["10TRPRestKit22TRPCompanionsJsonModelC", "data"]
 - !private ["10TRPRestKit20TRPDailyPlanServicesC", "Completion"]
 - !private ["10TRPRestKit20TRPDailyPlanServicesC", "connection"]
 - !private ["10TRPRestKit20TRPDailyPlanServicesC", "init"]
@@ -672,6 +736,7 @@ depends-member:
 - !private ["10TRPRestKit25TRPReportAProblemServicesC", "connection"]
 - !private ["10TRPRestKit25TRPReportAProblemServicesC", "init"]
 - ["10TRPRestKitAAC", "Bool"]
+- ["10TRPRestKitAAC", "CompanionServiceType"]
 - ["10TRPRestKitAAC", "CompletionHandler"]
 - ["10TRPRestKitAAC", "CompletionHandlerWithPagination"]
 - ["10TRPRestKitAAC", "Double"]
@@ -683,6 +748,9 @@ depends-member:
 - ["10TRPRestKitAAC", "TPRTripQuestionType"]
 - !private ["10TRPRestKitAAC", "TRPCities"]
 - !private ["10TRPRestKitAAC", "TRPCityJsonModel"]
+- !private ["10TRPRestKitAAC", "TRPCompanionModel"]
+- !private ["10TRPRestKitAAC", "TRPCompanionServices"]
+- !private ["10TRPRestKitAAC", "TRPCompanionsJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPDailyPlanServices"]
 - !private ["10TRPRestKitAAC", "TRPDayPlanJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPDeleteProgram"]
@@ -725,11 +793,13 @@ depends-member:
 - !private ["10TRPRestKitAAC", "TRPUserTrips"]
 - !private ["10TRPRestKitAAC", "TRPUserTripsJsonModel"]
 - ["10TRPRestKitAAC", "Void"]
+- ["10TRPRestKitAAC", "addCompanion"]
 - ["10TRPRestKitAAC", "addPlanPoints"]
 - ["10TRPRestKitAAC", "addUserFavorite"]
 - ["10TRPRestKitAAC", "cities"]
 - !private ["10TRPRestKitAAC", "citiesServices"]
 - ["10TRPRestKitAAC", "city"]
+- !private ["10TRPRestKitAAC", "companionServices"]
 - !private ["10TRPRestKitAAC", "completionHandler"]
 - !private ["10TRPRestKitAAC", "completionHandlerWithPagination"]
 - !private ["10TRPRestKitAAC", "createOrEditTripServices"]
@@ -745,6 +815,7 @@ depends-member:
 - ["10TRPRestKitAAC", "getTrip"]
 - !private ["10TRPRestKitAAC", "getTripServices"]
 - ["10TRPRestKitAAC", "getUserFavorite"]
+- ["10TRPRestKitAAC", "getUsersCompanions"]
 - ["10TRPRestKitAAC", "googleAutoComplete"]
 - ["10TRPRestKitAAC", "googlePlace"]
 - !private ["10TRPRestKitAAC", "googlePlaceAutoCompleteService"]
@@ -771,12 +842,17 @@ depends-member:
 - !private ["10TRPRestKitAAC", "recommendationServices"]
 - ["10TRPRestKitAAC", "register"]
 - ["10TRPRestKitAAC", "registerOnTestServer"]
+- ["10TRPRestKitAAC", "removeCompanion"]
 - ["10TRPRestKitAAC", "replacePlanPoiFrom"]
 - ["10TRPRestKitAAC", "reportaProblem"]
 - !private ["10TRPRestKitAAC", "reportaProblemService"]
 - !private ["10TRPRestKitAAC", "sleep"]
 - ["10TRPRestKitAAC", "tripQuestions"]
+- ["10TRPRestKitAAC", "updateCompanion"]
+- ["10TRPRestKitAAC", "updateDailyPlanHour"]
+- !private ["10TRPRestKitAAC", "updateDailyPlanHourService"]
 - ["10TRPRestKitAAC", "updateUserAnswer"]
+- ["10TRPRestKitAAC", "updateUserInfo"]
 - !private ["10TRPRestKitAAC", "userFavoriteServices"]
 - ["10TRPRestKitAAC", "userInfo"]
 - !private ["10TRPRestKitAAC", "userInfoServices"]
@@ -826,10 +902,12 @@ depends-member:
 - !private ["s24_DestructorSafeContainerP", "first"]
 - !private ["s19_HasContiguousBytesP", "first"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "first"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CompanionServiceType"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Pagination"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "PoiCategories"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TPRTripQuestionType"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPCities"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPCompanionServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPDailyPlanServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPDeleteProgram"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPErrors"]
@@ -852,6 +930,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPUserTrips"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "citiesServices"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "companionServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "completionHandler"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "completionHandlerWithPagination"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "createOrEditTripServices"]
@@ -874,6 +953,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "recommendationServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "reportaProblemService"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "sleep"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "updateDailyPlanHourService"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "userFavoriteServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "userInfoServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "userRegisterServices"]
@@ -884,6 +964,7 @@ depends-nominal:
 - !private "SK"
 - "s7CVarArgP"
 - !private "Sl"
+- !private "10TRPRestKit20CompanionServiceTypeO"
 - !private "10Foundation15ContiguousBytesP"
 - "s28CustomDebugStringConvertibleP"
 - !private "10Foundation13CustomNSErrorP"
@@ -913,6 +994,8 @@ depends-nominal:
 - !private "10TRPRestKit19TPRTripQuestionTypeO"
 - !private "10TRPRestKit9TRPCitiesC"
 - !private "10TRPRestKit16TRPCityJsonModelC"
+- !private "10TRPRestKit20TRPCompanionServicesC"
+- !private "10TRPRestKit22TRPCompanionsJsonModelC"
 - !private "10TRPRestKit20TRPDailyPlanServicesC"
 - !private "10TRPRestKit19TRPDayPlanJsonModelC"
 - !private "10TRPRestKit16TRPDeleteProgramC"
@@ -990,4 +1073,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "21b87492232f8a080b3f66a43001cb2c"
+interface-hash: "3a14de07802c9c5659daed64069d513a"

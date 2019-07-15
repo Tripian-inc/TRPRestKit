@@ -10,19 +10,16 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "=="
+- !private ">"
 - "AssignmentPrecedence"
 - "Bool"
-- !private "BooleanLiteralType"
 - "CastingPrecedence"
 - "Data"
 - "Dictionary"
-- !private "FloatLiteralType"
 - "Int"
-- !private "IntegerLiteralType"
 - !private "JSONDecoder"
 - "NSError"
 - "String"
-- !private "StringLiteralType"
 - !private "TRPConfig"
 - !private "TRPErrors"
 - "TRPRequestMode"
@@ -34,28 +31,38 @@ depends-member:
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "link"]
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "user"]
 - !private ["Sa", "toString"]
+- !private ["SK", "count"]
 - !private ["SK", "toString"]
+- !private ["s7CVarArgP", "count"]
 - !private ["s7CVarArgP", "subscript"]
 - !private ["s7CVarArgP", "toString"]
+- !private ["Sl", "count"]
 - !private ["Sl", "subscript"]
 - !private ["Sl", "toString"]
+- !private ["SL", "count"]
 - !private ["10Foundation15ContiguousBytesP", "toString"]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
 - !private ["s28CustomDebugStringConvertibleP", "toString"]
 - !private ["10Foundation13CustomNSErrorP", "wrongData"]
+- !private ["s17CustomReflectableP", "count"]
 - !private ["s17CustomReflectableP", "subscript"]
 - !private ["s17CustomReflectableP", "toString"]
+- !private ["s23CustomStringConvertibleP", "count"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "toString"]
 - !private ["10Foundation12DataProtocolP", "toString"]
+- !private ["Se", "count"]
 - !private ["Se", "subscript"]
 - !private ["Se", "toString"]
 - !private ["SD", "subscript"]
+- !private ["SE", "count"]
 - !private ["SE", "subscript"]
 - !private ["SE", "toString"]
 - ["SQ", "=="]
 - ["SQ", ""]
 - ["SQ", "_rawHashValue"]
+- !private ["SQ", "count"]
 - !private ["SQ", "get"]
 - ["SQ", "hash"]
 - ["SQ", "hashValue"]
@@ -69,9 +76,14 @@ depends-member:
 - !private ["s5ErrorP", "wrongData"]
 - !private ["s25ExpressibleByArrayLiteralP", "toString"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "count"]
+- !private ["s32ExpressibleByStringInterpolationP", "count"]
+- !private ["s26ExpressibleByStringLiteralP", "count"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "count"]
 - ["SH", "=="]
 - ["SH", ""]
 - ["SH", "_rawHashValue"]
+- !private ["SH", "count"]
 - !private ["SH", "get"]
 - ["SH", "hash"]
 - ["SH", "hashValue"]
@@ -86,14 +98,27 @@ depends-member:
 - !private ["10Foundation11JSONDecoderC", "decode"]
 - !private ["10Foundation11JSONDecoderC", "init"]
 - !private ["10Foundation14LocalizedErrorP", "wrongData"]
+- !private ["s25LosslessStringConvertibleP", "count"]
+- !private ["s10MirrorPathP", "count"]
 - !private ["SM", "toString"]
 - !private ["10Foundation19MutableDataProtocolP", "toString"]
+- !private ["So8NSCodingP", "count"]
+- !private ["So9NSCopyingP", "count"]
+- !private ["So21NSItemProviderReadingP", "count"]
+- !private ["So21NSItemProviderWritingP", "count"]
+- !private ["So16NSMutableCopyingP", "count"]
+- !private ["So8NSObjectC", "count"]
+- !private ["So8NSObjectP", "count"]
+- !private ["So14NSSecureCodingP", "count"]
+- !private ["So8NSStringC", "count"]
 - !private ["Sk", "toString"]
+- !private ["Sm", "count"]
 - !private ["Sm", "toString"]
 - !private ["SY", "get"]
 - !private ["SY", "link"]
 - !private ["SY", "put"]
 - !private ["SY", "user"]
+- !private ["ST", "count"]
 - !private ["ST", "subscript"]
 - !private ["ST", "toString"]
 - ["10TRPRestKit19TRPUserInfoServicesC11ServiceTypeO", "=="]
@@ -105,6 +130,8 @@ depends-member:
 - ["10TRPRestKit19TRPUserInfoServicesC11ServiceTypeO", "hashValue"]
 - ["10TRPRestKit19TRPUserInfoServicesC11ServiceTypeO", "updateAnswer"]
 - ["10TRPRestKit19TRPUserInfoServicesC11ServiceTypeO", "updateInfo"]
+- !private ["SS", "count"]
+- !private ["Sy", "count"]
 - !private ["10TRPRestKit9TRPConfigV", "ApiCall"]
 - !private ["10TRPRestKit9TRPErrorsO", "wrongData"]
 - !private ["10TRPRestKit14TRPRequestModeO", "get"]
@@ -123,8 +150,11 @@ depends-member:
 - ["10TRPRestKit0A8ServicesC", "TRPRequestMode"]
 - !private ["10TRPRestKit0A8ServicesC", "TRPUserInfoJsonModel"]
 - ["10TRPRestKit0A8ServicesC", ""]
+- ["10TRPRestKit0A8ServicesC", "age"]
 - ["10TRPRestKit0A8ServicesC", "answers"]
+- ["10TRPRestKit0A8ServicesC", "firstName"]
 - ["10TRPRestKit0A8ServicesC", "init"]
+- ["10TRPRestKit0A8ServicesC", "lastName"]
 - ["10TRPRestKit0A8ServicesC", "parameters"]
 - ["10TRPRestKit0A8ServicesC", "password"]
 - ["10TRPRestKit0A8ServicesC", "path"]
@@ -146,8 +176,11 @@ depends-member:
 - !private ["10TRPRestKit19TRPUserInfoServicesC", "TRPErrors"]
 - ["10TRPRestKit19TRPUserInfoServicesC", "TRPRequestMode"]
 - !private ["10TRPRestKit19TRPUserInfoServicesC", "TRPUserInfoJsonModel"]
+- ["10TRPRestKit19TRPUserInfoServicesC", "age"]
 - ["10TRPRestKit19TRPUserInfoServicesC", "answers"]
+- ["10TRPRestKit19TRPUserInfoServicesC", "firstName"]
 - ["10TRPRestKit19TRPUserInfoServicesC", "init"]
+- ["10TRPRestKit19TRPUserInfoServicesC", "lastName"]
 - ["10TRPRestKit19TRPUserInfoServicesC", "parameters"]
 - ["10TRPRestKit19TRPUserInfoServicesC", "password"]
 - ["10TRPRestKit19TRPUserInfoServicesC", "path"]
@@ -155,11 +188,21 @@ depends-member:
 - ["10TRPRestKit19TRPUserInfoServicesC", "serviceType"]
 - ["10TRPRestKit19TRPUserInfoServicesC", "servicesResult"]
 - ["10TRPRestKit19TRPUserInfoServicesC", "userOAuth"]
+- !private ["s16TextOutputStreamP", "count"]
+- !private ["s20TextOutputStreamableP", "count"]
 - !private ["s14_ArrayProtocolP", "toString"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "count"]
 - !private ["s24_DestructorSafeContainerP", "toString"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "count"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "count"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "count"]
+- !private ["s19_HasContiguousBytesP", "count"]
 - !private ["s19_HasContiguousBytesP", "toString"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "count"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "toString"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "count"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
 - !private ["s21_ObjectiveCBridgeableP", "toString"]
 depends-nominal:
@@ -168,6 +211,7 @@ depends-nominal:
 - !private "SK"
 - !private "s7CVarArgP"
 - !private "Sl"
+- !private "SL"
 - !private "10Foundation15ContiguousBytesP"
 - !private "s28CustomDebugStringConvertibleP"
 - !private "10Foundation13CustomNSErrorP"
@@ -181,27 +225,51 @@ depends-nominal:
 - !private "s5ErrorP"
 - !private "s25ExpressibleByArrayLiteralP"
 - !private "s30ExpressibleByDictionaryLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s32ExpressibleByStringInterpolationP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
 - "SH"
 - !private "s6HasherV"
 - !private "10Foundation11JSONDecoderC"
 - !private "10Foundation14LocalizedErrorP"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
 - !private "SM"
 - !private "10Foundation19MutableDataProtocolP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- !private "So8NSObjectC"
+- !private "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
 - !private "Sk"
 - !private "Sm"
 - !private "SY"
 - !private "ST"
 - "10TRPRestKit19TRPUserInfoServicesC11ServiceTypeO"
+- !private "SS"
+- !private "Sy"
 - !private "10TRPRestKit9TRPConfigV"
 - !private "10TRPRestKit9TRPErrorsO"
 - !private "10TRPRestKit14TRPRequestModeO"
 - "10TRPRestKit0A8ServicesC"
 - !private "10TRPRestKit20TRPUserInfoJsonModelC"
 - "10TRPRestKit19TRPUserInfoServicesC"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
 - !private "s14_ArrayProtocolP"
+- !private "s30_CustomPlaygroundQuickLookableP"
 - !private "s24_DestructorSafeContainerP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - !private "s19_HasContiguousBytesP"
 - !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
 - !private "s21_ObjectiveCBridgeableP"
 depends-dynamic-lookup:
 depends-external:
@@ -235,4 +303,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "fb693da583486abba1493f8300baa247"
+interface-hash: "8f277dbd83f61213df5e1e8f0404a82b"

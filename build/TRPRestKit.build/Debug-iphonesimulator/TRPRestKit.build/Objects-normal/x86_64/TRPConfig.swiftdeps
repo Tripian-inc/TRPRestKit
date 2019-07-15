@@ -19,6 +19,7 @@ depends-member:
 - ["10TRPRestKit9TRPConfigV7ApiCallO", "=="]
 - ["10TRPRestKit9TRPConfigV7ApiCallO", "CheckDataUpdates"]
 - ["10TRPRestKit9TRPConfigV7ApiCallO", "Cities"]
+- ["10TRPRestKit9TRPConfigV7ApiCallO", "Companion"]
 - ["10TRPRestKit9TRPConfigV7ApiCallO", "DailyPlan"]
 - ["10TRPRestKit9TRPConfigV7ApiCallO", "DailyPlanPoi"]
 - ["10TRPRestKit9TRPConfigV7ApiCallO", "Favorite"]
@@ -58,6 +59,7 @@ depends-member:
 - ["SQ", "=="]
 - ["SQ", "CheckDataUpdates"]
 - ["SQ", "Cities"]
+- ["SQ", "Companion"]
 - ["SQ", "DailyPlan"]
 - ["SQ", "DailyPlanPoi"]
 - ["SQ", "Favorite"]
@@ -91,6 +93,7 @@ depends-member:
 - ["SH", "=="]
 - ["SH", "CheckDataUpdates"]
 - ["SH", "Cities"]
+- ["SH", "Companion"]
 - ["SH", "DailyPlan"]
 - ["SH", "DailyPlanPoi"]
 - ["SH", "Favorite"]
@@ -124,6 +127,7 @@ depends-member:
 - ["SY", "=="]
 - ["SY", "CheckDataUpdates"]
 - ["SY", "Cities"]
+- ["SY", "Companion"]
 - ["SY", "DailyPlan"]
 - ["SY", "DailyPlanPoi"]
 - ["SY", "Favorite"]
@@ -207,4 +211,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "5a48414078ce11682e90a211829ac57f"
+interface-hash: "6cf4a481254d874a1af3921529db3d6e"

@@ -21,7 +21,6 @@ depends-top-level:
 - !private "TRPGooglePlace"
 - "TRPLocation"
 - !private "TRPNetwork"
-- !private "UnicodeScalarType"
 - "Void"
 depends-member:
 - !private ["Sa", "map"]

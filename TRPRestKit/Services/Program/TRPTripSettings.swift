@@ -31,6 +31,8 @@ public class TRPTripSettings {
     private(set) var hotelAddress: String?;
     /// An Int array. Answer of questions.
     public var answer: [Int]?;
+    /// An Int array. Selected companion ids.
+    public var selectedCompanionIds: [Int]?
     /// A Bool value. If you set true, trip is not going to generate.
     public var doNotGenerate:Bool?
     

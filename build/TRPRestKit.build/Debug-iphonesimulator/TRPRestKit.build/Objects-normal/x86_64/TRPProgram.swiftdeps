@@ -181,6 +181,7 @@ depends-member:
 - !private ["10TRPRestKit15TRPTripSettingsC", "doNotGenerate"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "hash"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "hotelAddress"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "selectedCompanionIds"]
 - !private ["s16TextOutputStreamP", "appendInterpolation"]
 - !private ["s16TextOutputStreamP", "appendLiteral"]
 - !private ["s16TextOutputStreamP", "init"]
