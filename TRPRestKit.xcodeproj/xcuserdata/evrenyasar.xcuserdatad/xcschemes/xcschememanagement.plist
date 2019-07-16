@@ -6,62 +6,33 @@
 	<dict>
 		<key>HostApp.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>4</integer>
 		</dict>
 		<key>TRPRestKit(TestServer).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>6</integer>
 		</dict>
 		<key>TRPRestKit.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>5</integer>
 		</dict>
 		<key>TRPRestKitTests.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>7</integer>
 		</dict>
 		<key>TRPRestKitTests2.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>9</integer>
 		</dict>
 		<key>UniversalRestKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>B20BBAAC212F20E500DEAA3E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B20BBABB212F20F200DEAA3E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B258870922316B9100BD6930</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B29B462420F607F90009E711</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<integer>8</integer>
 		</dict>
 	</dict>
 </dict>

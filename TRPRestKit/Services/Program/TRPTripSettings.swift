@@ -34,7 +34,7 @@ public class TRPTripSettings {
     /// An Int array. Selected companion ids.
     public var selectedCompanionIds: [Int]?
     /// A Bool value. If you set true, trip is not going to generate.
-    public var doNotGenerate:Bool?
+    public var doNotGenerate:Bool = false
     
     public var hash: String?
     
@@ -55,8 +55,6 @@ public class TRPTripSettings {
         self.arrivalTime = arrivalTime
         self.departureTime = departureTime;
     }
-    
-    
     
     /// Address of Hotel. The hotel is going to be First step in trip.
     ///

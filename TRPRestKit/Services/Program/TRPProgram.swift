@@ -100,9 +100,11 @@ internal class TRPProgram: TRPRestServices{
             
         }**/
         
-        if let doNotGenerate = setting.doNotGenerate {
-            params["do_not_generate"] = doNotGenerate
-        }
+        
+        
+        let gen = setting.doNotGenerate == true ? 1 : 0
+        
+        params["do_not_generate"] = gen
         
         if let companions = setting.selectedCompanionIds{
             params["companions"] = companions.map{"\($0)"}.joined(separator: ",")
