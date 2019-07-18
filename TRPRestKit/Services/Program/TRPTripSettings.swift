@@ -29,8 +29,10 @@ public class TRPTripSettings {
     private(set) var coordinate: String?;
     /// A String value. Address of hotel.
     private(set) var hotelAddress: String?;
-    /// An Int array. Answer of questions.
-    public var answer: [Int]?;
+    /// An Int array. Answer of trip questions.
+    public var tripAnswer: [Int] = []
+    /// An Int array. Answer of profile questions.
+    public var profileAnswer: [Int] = []
     /// An Int array. Selected companion ids.
     public var selectedCompanionIds: [Int]?
     /// A Bool value. If you set true, trip is not going to generate.
@@ -67,5 +69,12 @@ public class TRPTripSettings {
         self.hotelAddress  = hotelAddress
     }
     
+    
+    public func getAllAnswers() -> [Int] {
+        var tempAns = [Int]()
+        tempAns.append(contentsOf: tripAnswer)
+        tempAns.append(contentsOf: profileAnswer)
+        return tempAns
+    }
 }
 

@@ -88,9 +88,8 @@ internal class TRPProgram: TRPRestServices{
             params["children_age_average"] = ageRange;
         }
         
-        if let answer = setting.answer {
-            params["answers"] = answer.map{"\($0)"}.joined(separator: ",")
-        }
+        params["answers"] = setting.getAllAnswers().map{"\($0)"}.joined(separator: ",")
+        
         params["coordinate"] = setting.coordinate ?? ""
         /*if let coordinate = setting.coordinate {
             

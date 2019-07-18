@@ -9,6 +9,8 @@ provides-dynamic-lookup:
 depends-top-level:
 - !private "!="
 - !private "+="
+- !private "=="
+- !private "??"
 - "AssignmentPrecedence"
 - "Bool"
 - "CastingPrecedence"
@@ -24,6 +26,7 @@ depends-top-level:
 - "TRPRestServices"
 - !private "TRPTripJsonModel"
 - "TRPTripSettings"
+- "TernaryPrecedence"
 depends-member:
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "Trip"]
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "link"]
@@ -171,7 +174,6 @@ depends-member:
 - !private ["10TRPRestKit16TRPTripJsonModelC", "deinit"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "adultAgeRange"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "adultsCount"]
-- !private ["10TRPRestKit15TRPTripSettingsC", "answer"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "arrivalTime"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "childrenAgeRange"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "childrenCount"]
@@ -179,6 +181,7 @@ depends-member:
 - !private ["10TRPRestKit15TRPTripSettingsC", "coordinate"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "departureTime"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "doNotGenerate"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "getAllAnswers"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "hash"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "hotelAddress"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "selectedCompanionIds"]

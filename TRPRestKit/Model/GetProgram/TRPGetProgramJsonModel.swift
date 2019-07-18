@@ -37,6 +37,7 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     /// A String value. Companion of users for the selected trip.You must convert to Array.
     public var companions = [Int]()
     
+    public var tripAnswers = [Int]()
     
     private enum CodingKeys: String, CodingKey {
         case cityId = "city_id";
@@ -48,6 +49,7 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         case adultAgeRange = "adult_age_average"
         case children
         case childAgeRange = "children_age_average"
+        case tripAnswers = "trip_answers"
         case coordinate
         case answers
         case hotelAddress = "hotel_address"
@@ -92,6 +94,16 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
             for value in ar {
                 if let deger = Int(value) {
                     answers.append(deger)
+                }
+            }
+        }
+        
+        if let tripAnswersStr = try values.decodeIfPresent(String.self, forKey: .tripAnswers) {
+            let ar = tripAnswersStr.components(separatedBy: ",")
+            tripAnswers = []
+            for value in ar {
+                if let deger = Int(value) {
+                    tripAnswers.append(deger)
                 }
             }
         }
