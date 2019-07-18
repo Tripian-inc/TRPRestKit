@@ -34,7 +34,10 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     public var hotelAddress: String?
     /// A String value. Answer of questions.You must convert to Array.
     public var answers = [Int]()
+    /// A String value. Companion of users for the selected trip.You must convert to Array.
+    public var companions = [Int]()
     
+    public var tripAnswers = [Int]()
     
     private enum CodingKeys: String, CodingKey {
         case cityId = "city_id";
@@ -46,9 +49,11 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         case adultAgeRange = "adult_age_average"
         case children
         case childAgeRange = "children_age_average"
+        case tripAnswers = "trip_answers"
         case coordinate
         case answers
         case hotelAddress = "hotel_address"
+        case companions
     }
     
     
@@ -82,12 +87,37 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         self.coordinate = try values.decodeIfPresent(String.self, forKey: .coordinate)
         
         self.hotelAddress = try values.decodeIfPresent(String.self, forKey: .hotelAddress)
+        
         if let answersStr = try values.decodeIfPresent(String.self, forKey: .answers) {
             let ar = answersStr.components(separatedBy: ",")
-            answers = ar.map { (s) -> Int in
-                return Int(s) ?? -1
+            answers = []
+            for value in ar {
+                if let deger = Int(value) {
+                    answers.append(deger)
+                }
             }
         }
+        
+        if let tripAnswersStr = try values.decodeIfPresent(String.self, forKey: .tripAnswers) {
+            let ar = tripAnswersStr.components(separatedBy: ",")
+            tripAnswers = []
+            for value in ar {
+                if let deger = Int(value) {
+                    tripAnswers.append(deger)
+                }
+            }
+        }
+        
+        if let companionsStr = try values.decodeIfPresent(String.self, forKey: .companions) {
+            let ar = companionsStr.components(separatedBy: ",")
+            companions = []
+            for value in ar {
+                if let deger = Int(value) {
+                    companions.append(deger)
+                }
+            }
+        }
+        
     }
 
 }

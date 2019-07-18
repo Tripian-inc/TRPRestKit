@@ -51,7 +51,7 @@ internal class TRPProgram: TRPRestServices{
         }
         return TRPRequestMode.post
     }
- 
+    
     override func userOAuth() -> Bool {
         return true
     }
@@ -88,21 +88,27 @@ internal class TRPProgram: TRPRestServices{
             params["children_age_average"] = ageRange;
         }
         
-        if let answer = setting.answer {
-            params["answers"] = answer.map{"\($0)"}.joined(separator: ",")
+        params["answers"] = setting.getAllAnswers().map{"\($0)"}.joined(separator: ",")
+        
+        params["coordinate"] = setting.coordinate ?? ""
+        /*if let coordinate = setting.coordinate {
+            
+        }*/
+        params["hotel_address"] = setting.hotelAddress ?? ""
+/*        if let hodelAddreess = setting.hotelAddress {
+            
+        }**/
+        
+        
+        
+        let gen = setting.doNotGenerate == true ? 1 : 0
+        
+        params["do_not_generate"] = gen
+        
+        if let companions = setting.selectedCompanionIds{
+            params["companions"] = companions.map{"\($0)"}.joined(separator: ",")
         }
         
-        if let coordinate = setting.coordinate {
-            params["coordinate"] = coordinate
-        }
-        
-        if let hodelAddreess = setting.hotelAddress {
-            params["hotel_address"] = hodelAddreess
-        }
-        
-        if let doNotGenerate = setting.doNotGenerate {
-            params["do_not_generate"] = doNotGenerate
-        }
         return params;
     }
     

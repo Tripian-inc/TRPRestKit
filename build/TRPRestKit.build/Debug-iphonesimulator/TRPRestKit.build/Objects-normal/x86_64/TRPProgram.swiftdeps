@@ -9,6 +9,8 @@ provides-dynamic-lookup:
 depends-top-level:
 - !private "!="
 - !private "+="
+- !private "=="
+- !private "??"
 - "AssignmentPrecedence"
 - "Bool"
 - "CastingPrecedence"
@@ -24,6 +26,7 @@ depends-top-level:
 - "TRPRestServices"
 - !private "TRPTripJsonModel"
 - "TRPTripSettings"
+- "TernaryPrecedence"
 depends-member:
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "Trip"]
 - !private ["10TRPRestKit9TRPConfigV7ApiCallO", "link"]
@@ -171,7 +174,6 @@ depends-member:
 - !private ["10TRPRestKit16TRPTripJsonModelC", "deinit"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "adultAgeRange"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "adultsCount"]
-- !private ["10TRPRestKit15TRPTripSettingsC", "answer"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "arrivalTime"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "childrenAgeRange"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "childrenCount"]
@@ -179,8 +181,10 @@ depends-member:
 - !private ["10TRPRestKit15TRPTripSettingsC", "coordinate"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "departureTime"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "doNotGenerate"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "getAllAnswers"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "hash"]
 - !private ["10TRPRestKit15TRPTripSettingsC", "hotelAddress"]
+- !private ["10TRPRestKit15TRPTripSettingsC", "selectedCompanionIds"]
 - !private ["s16TextOutputStreamP", "appendInterpolation"]
 - !private ["s16TextOutputStreamP", "appendLiteral"]
 - !private ["s16TextOutputStreamP", "init"]
@@ -263,7 +267,7 @@ depends-nominal:
 - !private "s21_ObjectiveCBridgeableP"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
@@ -276,11 +280,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphonesimulator/TRPFoundationKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"

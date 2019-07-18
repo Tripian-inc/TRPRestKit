@@ -8,7 +8,6 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "=="
-- !private "??"
 - "AssignmentPrecedence"
 - "CodingKey"
 - "Decodable"
@@ -16,19 +15,20 @@ depends-top-level:
 - "Int"
 - "String"
 - "TRPGetProgramParamsInfoModel"
+- !private "UnicodeScalarType"
 - !private "_findStringSwitchCase"
 - !private "~="
 depends-member:
 - !private ["s18AdditiveArithmeticP", "init"]
+- !private ["Sa", "append"]
 - ["Sa", "init"]
-- !private ["Sa", "map"]
+- !private ["SK", "append"]
 - !private ["SK", "components"]
 - ["SK", "init"]
-- !private ["SK", "map"]
 - !private ["Sz", "init"]
+- !private ["s7CVarArgP", "append"]
 - !private ["s7CVarArgP", "components"]
 - ["s7CVarArgP", "init"]
-- !private ["s7CVarArgP", "map"]
 - ["s9CodingKeyP", "=="]
 - ["s9CodingKeyP", "RawValue"]
 - !private ["s9CodingKeyP", ""]
@@ -43,6 +43,7 @@ depends-member:
 - !private ["s9CodingKeyP", "childAgeRange"]
 - !private ["s9CodingKeyP", "children"]
 - !private ["s9CodingKeyP", "cityId"]
+- !private ["s9CodingKeyP", "companions"]
 - !private ["s9CodingKeyP", "coordinate"]
 - ["s9CodingKeyP", "debugDescription"]
 - !private ["s9CodingKeyP", "departureDate"]
@@ -56,13 +57,14 @@ depends-member:
 - ["s9CodingKeyP", "intValue"]
 - ["s9CodingKeyP", "rawValue"]
 - ["s9CodingKeyP", "stringValue"]
+- !private ["s9CodingKeyP", "tripAnswers"]
+- !private ["Sl", "append"]
 - !private ["Sl", "components"]
 - ["Sl", "init"]
-- !private ["Sl", "map"]
 - !private ["SL", "components"]
 - !private ["SL", "init"]
+- !private ["10Foundation15ContiguousBytesP", "append"]
 - ["10Foundation15ContiguousBytesP", "init"]
-- !private ["10Foundation15ContiguousBytesP", "map"]
 - ["s28CustomDebugStringConvertibleP", "=="]
 - ["s28CustomDebugStringConvertibleP", "RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", ""]
@@ -72,11 +74,13 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "adultAgeRange"]
 - !private ["s28CustomDebugStringConvertibleP", "adults"]
 - !private ["s28CustomDebugStringConvertibleP", "answers"]
+- !private ["s28CustomDebugStringConvertibleP", "append"]
 - !private ["s28CustomDebugStringConvertibleP", "arrivalDate"]
 - !private ["s28CustomDebugStringConvertibleP", "arrivalTime"]
 - !private ["s28CustomDebugStringConvertibleP", "childAgeRange"]
 - !private ["s28CustomDebugStringConvertibleP", "children"]
 - !private ["s28CustomDebugStringConvertibleP", "cityId"]
+- !private ["s28CustomDebugStringConvertibleP", "companions"]
 - !private ["s28CustomDebugStringConvertibleP", "components"]
 - !private ["s28CustomDebugStringConvertibleP", "coordinate"]
 - ["s28CustomDebugStringConvertibleP", "debugDescription"]
@@ -89,12 +93,12 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - ["s28CustomDebugStringConvertibleP", "intValue"]
-- !private ["s28CustomDebugStringConvertibleP", "map"]
 - ["s28CustomDebugStringConvertibleP", "rawValue"]
 - ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s28CustomDebugStringConvertibleP", "tripAnswers"]
+- !private ["s17CustomReflectableP", "append"]
 - !private ["s17CustomReflectableP", "components"]
 - ["s17CustomReflectableP", "init"]
-- !private ["s17CustomReflectableP", "map"]
 - ["s23CustomStringConvertibleP", "=="]
 - ["s23CustomStringConvertibleP", "RawValue"]
 - !private ["s23CustomStringConvertibleP", ""]
@@ -104,11 +108,13 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "adultAgeRange"]
 - !private ["s23CustomStringConvertibleP", "adults"]
 - !private ["s23CustomStringConvertibleP", "answers"]
+- !private ["s23CustomStringConvertibleP", "append"]
 - !private ["s23CustomStringConvertibleP", "arrivalDate"]
 - !private ["s23CustomStringConvertibleP", "arrivalTime"]
 - !private ["s23CustomStringConvertibleP", "childAgeRange"]
 - !private ["s23CustomStringConvertibleP", "children"]
 - !private ["s23CustomStringConvertibleP", "cityId"]
+- !private ["s23CustomStringConvertibleP", "companions"]
 - !private ["s23CustomStringConvertibleP", "components"]
 - !private ["s23CustomStringConvertibleP", "coordinate"]
 - ["s23CustomStringConvertibleP", "debugDescription"]
@@ -121,11 +127,11 @@ depends-member:
 - ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "init"]
 - ["s23CustomStringConvertibleP", "intValue"]
-- !private ["s23CustomStringConvertibleP", "map"]
 - ["s23CustomStringConvertibleP", "rawValue"]
 - ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["s23CustomStringConvertibleP", "tripAnswers"]
+- !private ["10Foundation12DataProtocolP", "append"]
 - ["10Foundation12DataProtocolP", "init"]
-- !private ["10Foundation12DataProtocolP", "map"]
 - !private ["Se", "CodingKeys"]
 - ["Se", "Int"]
 - !private ["Se", "String"]
@@ -134,22 +140,24 @@ depends-member:
 - !private ["Se", "adultAgeRange"]
 - !private ["Se", "adults"]
 - !private ["Se", "answers"]
+- !private ["Se", "append"]
 - !private ["Se", "arrivalDate"]
 - !private ["Se", "arrivalTime"]
 - !private ["Se", "children"]
 - !private ["Se", "childrenAgeRange"]
 - !private ["Se", "cityId"]
+- !private ["Se", "companions"]
 - !private ["Se", "components"]
 - !private ["Se", "coordinate"]
 - !private ["Se", "departureDate"]
 - !private ["Se", "departureTime"]
 - !private ["Se", "hotelAddress"]
 - ["Se", "init"]
-- !private ["Se", "map"]
+- !private ["Se", "tripAnswers"]
 - !private ["s7DecoderP", "container"]
+- !private ["SE", "append"]
 - !private ["SE", "components"]
 - ["SE", "init"]
-- !private ["SE", "map"]
 - ["SQ", "=="]
 - ["SQ", "RawValue"]
 - !private ["SQ", ""]
@@ -159,11 +167,13 @@ depends-member:
 - !private ["SQ", "adultAgeRange"]
 - !private ["SQ", "adults"]
 - !private ["SQ", "answers"]
+- !private ["SQ", "append"]
 - !private ["SQ", "arrivalDate"]
 - !private ["SQ", "arrivalTime"]
 - !private ["SQ", "childAgeRange"]
 - !private ["SQ", "children"]
 - !private ["SQ", "cityId"]
+- !private ["SQ", "companions"]
 - !private ["SQ", "components"]
 - !private ["SQ", "coordinate"]
 - ["SQ", "debugDescription"]
@@ -176,11 +186,11 @@ depends-member:
 - ["SQ", "init"]
 - !private ["SQ", "init"]
 - ["SQ", "intValue"]
-- !private ["SQ", "map"]
 - ["SQ", "rawValue"]
 - ["SQ", "stringValue"]
+- !private ["SQ", "tripAnswers"]
+- !private ["s25ExpressibleByArrayLiteralP", "append"]
 - ["s25ExpressibleByArrayLiteralP", "init"]
-- !private ["s25ExpressibleByArrayLiteralP", "map"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "components"]
 - !private ["s27ExpressibleByIntegerLiteralP", "init"]
 - !private ["s32ExpressibleByStringInterpolationP", "components"]
@@ -196,11 +206,13 @@ depends-member:
 - !private ["SH", "adultAgeRange"]
 - !private ["SH", "adults"]
 - !private ["SH", "answers"]
+- !private ["SH", "append"]
 - !private ["SH", "arrivalDate"]
 - !private ["SH", "arrivalTime"]
 - !private ["SH", "childAgeRange"]
 - !private ["SH", "children"]
 - !private ["SH", "cityId"]
+- !private ["SH", "companions"]
 - !private ["SH", "components"]
 - !private ["SH", "coordinate"]
 - ["SH", "debugDescription"]
@@ -213,9 +225,9 @@ depends-member:
 - ["SH", "init"]
 - !private ["SH", "init"]
 - ["SH", "intValue"]
-- !private ["SH", "map"]
 - ["SH", "rawValue"]
 - ["SH", "stringValue"]
+- !private ["SH", "tripAnswers"]
 - !private ["Si", "init"]
 - !private ["s22KeyedDecodingContainerV", "decodeIfPresent"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decodeIfPresent"]
@@ -223,10 +235,10 @@ depends-member:
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s10MirrorPathP", "components"]
 - !private ["s10MirrorPathP", "init"]
+- !private ["SM", "append"]
 - ["SM", "init"]
-- !private ["SM", "map"]
+- !private ["10Foundation19MutableDataProtocolP", "append"]
 - ["10Foundation19MutableDataProtocolP", "init"]
-- !private ["10Foundation19MutableDataProtocolP", "map"]
 - !private ["So8NSCodingP", "components"]
 - !private ["So9NSCopyingP", "components"]
 - !private ["So21NSItemProviderReadingP", "components"]
@@ -237,11 +249,11 @@ depends-member:
 - !private ["So14NSSecureCodingP", "components"]
 - !private ["So8NSStringC", "components"]
 - !private ["Sj", "init"]
+- !private ["Sk", "append"]
 - ["Sk", "init"]
-- !private ["Sk", "map"]
+- !private ["Sm", "append"]
 - !private ["Sm", "components"]
 - ["Sm", "init"]
-- !private ["Sm", "map"]
 - ["SY", "=="]
 - ["SY", "RawValue"]
 - !private ["SY", ""]
@@ -256,6 +268,7 @@ depends-member:
 - !private ["SY", "childAgeRange"]
 - !private ["SY", "children"]
 - !private ["SY", "cityId"]
+- !private ["SY", "companions"]
 - !private ["SY", "coordinate"]
 - ["SY", "debugDescription"]
 - !private ["SY", "departureDate"]
@@ -269,10 +282,11 @@ depends-member:
 - ["SY", "intValue"]
 - ["SY", "rawValue"]
 - ["SY", "stringValue"]
+- !private ["SY", "tripAnswers"]
 - !private ["s10SIMDScalarP", "init"]
+- !private ["ST", "append"]
 - !private ["ST", "components"]
 - ["ST", "init"]
-- !private ["ST", "map"]
 - !private ["SZ", "init"]
 - !private ["s13SignedNumericP", "init"]
 - !private ["Sx", "init"]
@@ -292,34 +306,36 @@ depends-member:
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "children"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "childrenAgeRange"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "cityId"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "companions"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "coordinate"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "deinit"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "departureDate"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "departureTime"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "hotelAddress"]
 - ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "init"]
+- ["10TRPRestKit28TRPGetProgramParamsInfoModelV", "tripAnswers"]
 - !private ["s16TextOutputStreamP", "components"]
 - !private ["s20TextOutputStreamableP", "components"]
+- !private ["s14_ArrayProtocolP", "append"]
 - ["s14_ArrayProtocolP", "init"]
-- !private ["s14_ArrayProtocolP", "map"]
 - !private ["s30_CustomPlaygroundQuickLookableP", "components"]
 - !private ["s30_CustomPlaygroundQuickLookableP", "init"]
+- !private ["s24_DestructorSafeContainerP", "append"]
 - ["s24_DestructorSafeContainerP", "init"]
-- !private ["s24_DestructorSafeContainerP", "map"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "components"]
 - !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "components"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "components"]
+- !private ["s19_HasContiguousBytesP", "append"]
 - !private ["s19_HasContiguousBytesP", "components"]
 - ["s19_HasContiguousBytesP", "init"]
-- !private ["s19_HasContiguousBytesP", "map"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "append"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "components"]
 - ["s35_HasCustomAnyHashableRepresentationP", "init"]
-- !private ["s35_HasCustomAnyHashableRepresentationP", "map"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "components"]
+- !private ["s21_ObjectiveCBridgeableP", "append"]
 - !private ["s21_ObjectiveCBridgeableP", "components"]
 - ["s21_ObjectiveCBridgeableP", "init"]
-- !private ["s21_ObjectiveCBridgeableP", "map"]
 depends-nominal:
 - !private "s18AdditiveArithmeticP"
 - "Sa"
@@ -389,7 +405,7 @@ depends-nominal:
 - "s21_ObjectiveCBridgeableP"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
@@ -402,11 +418,11 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
 - "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
@@ -419,4 +435,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "4dca698172b7a4b90524a88106f58f95"
+interface-hash: "52ddb431817ca55d1b9220d5a367869c"

@@ -27,6 +27,7 @@
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPGetProgramJsonModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPReportAProblemServices.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPTripSettings.o
+/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPCompanionModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPRequestMode.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPUserInfoModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPTripJsonModel.o
@@ -61,12 +62,14 @@
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPTripInfoModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPCoordinateModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPPlanPointAlternatives.o
+/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPCompanionServices.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/PoiCategories.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPPlanPoints.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPLoginJsonModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPGooglePlaceService.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPRecommendationJsonModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPLogin.o
+/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPCompanionsJsonModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPProgram.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPCheckUpdateJsonModel.o
 /Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/Objects-normal/arm64/TRPRestKit_vers.o
