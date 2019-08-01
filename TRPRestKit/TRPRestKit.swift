@@ -974,6 +974,66 @@ extension TRPRestKit {
     
 }
 
+// MARK: - Constants
+extension TRPRestKit {
+    
+    /// Returns all constants.
+    ///
+    /// - Parameters:
+    ///   - completion: Any objects needs to be converted to **TRPUserTripInfoModels** object.
+    public func getConstants(completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        constantServices()
+    }
+    
+    /// A services that manage all task to connecting remote server
+    private func constantServices() {
+        let t = TRPConstantsServices()
+        t.Completion = {   (result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            
+            if let r = result as? TRPPlatformJsonModel {
+                self.postData(result: r.ios.constants)
+            }
+        }
+        t.connection()
+    }
+    
+}
+
+// MARK: - Version
+extension TRPRestKit {
+    
+    /// Return version detail.
+    ///
+    /// - Parameters:
+    ///   - completion: Any objects needs to be converted to **TRPUserTripInfoModels** object.
+    public func getVersion(completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        versionServices()
+    }
+    
+    /// A services that manage all task to connecting remote server
+    private func versionServices() {
+        let t = TRPConstantsServices()
+        t.Completion = {   (result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            
+            if let r = result as? TRPPlatformJsonModel {
+                self.postData(result: r.ios.version)
+            }
+        }
+        t.connection()
+    }
+    
+}
+
 // MARK: - Trip
 extension TRPRestKit {
     
