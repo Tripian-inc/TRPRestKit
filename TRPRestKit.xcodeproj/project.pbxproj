@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		783A137F22F0339D00952CA2 /* TRPConstantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */; };
+		783A138222F039FC00952CA2 /* TRPConstantsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A138122F039FC00952CA2 /* TRPConstantsServices.swift */; };
 		784BAB9422C3505D00BBDB0F /* TRPCompanionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784BAB9322C3505C00BBDB0F /* TRPCompanionModel.swift */; };
 		784BAB9A22C354FA00BBDB0F /* TRPCompanionServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784BAB9922C354FA00BBDB0F /* TRPCompanionServices.swift */; };
 		784BABA122C3F57B00BBDB0F /* TRPCompanionsJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784BABA022C3F57B00BBDB0F /* TRPCompanionsJsonModel.swift */; };
@@ -145,6 +147,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsModel.swift; sourceTree = "<group>"; };
+		783A138122F039FC00952CA2 /* TRPConstantsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsServices.swift; sourceTree = "<group>"; };
 		784BAB9322C3505C00BBDB0F /* TRPCompanionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCompanionModel.swift; sourceTree = "<group>"; };
 		784BAB9922C354FA00BBDB0F /* TRPCompanionServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCompanionServices.swift; sourceTree = "<group>"; };
 		784BABA022C3F57B00BBDB0F /* TRPCompanionsJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCompanionsJsonModel.swift; sourceTree = "<group>"; };
@@ -278,6 +282,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		783A137D22F032CA00952CA2 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		783A138022F039DE00952CA2 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				783A138122F039FC00952CA2 /* TRPConstantsServices.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		784BAB9222C3502B00BBDB0F /* Companion */ = {
 			isa = PBXGroup;
 			children = (
@@ -535,6 +555,7 @@
 		B29B463220F60A1F0009E711 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				783A138022F039DE00952CA2 /* Constants */,
 				784BAB9822C354AB00BBDB0F /* Companion */,
 				B261A71E22490DCA00D31558 /* ReportAProblem */,
 				B21E1A87220A27CF00EF471F /* Google Place */,
@@ -577,6 +598,7 @@
 		B29B463520F60A390009E711 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				783A137D22F032CA00952CA2 /* Constants */,
 				784BAB9222C3502B00BBDB0F /* Companion */,
 				B25251662269E76200C0EBAA /* ReportAProblem */,
 				B261A731224B7E3500D31558 /* ProblemCategories */,
@@ -892,6 +914,7 @@
 				B236885F216BAE0800920DA7 /* TRPUserFavorite.swift in Sources */,
 				B29B469020F60FEB0009E711 /* TRPCityJsonModel.swift in Sources */,
 				B29B463D20F60AAB0009E711 /* TRPTime.swift in Sources */,
+				783A138222F039FC00952CA2 /* TRPConstantsServices.swift in Sources */,
 				B22372242131151900E21532 /* TRPOAuthJsonModel.swift in Sources */,
 				B20CD9D42135DC5700497ED3 /* TRPDailyPlanServices.swift in Sources */,
 				B261A72222490E4C00D31558 /* TRPProblemCategories.swift in Sources */,
@@ -952,6 +975,7 @@
 				B29B467820F60F220009E711 /* TRPRecommendationJsonModel.swift in Sources */,
 				B20BBAEB213046CB00DEAA3E /* TRPLogin.swift in Sources */,
 				784BABA122C3F57B00BBDB0F /* TRPCompanionsJsonModel.swift in Sources */,
+				783A137F22F0339D00952CA2 /* TRPConstantsModel.swift in Sources */,
 				B215BEFF2131765B00659818 /* TRPProgram.swift in Sources */,
 				B29B469C20F6104F0009E711 /* TRPCheckUpdateJsonModel.swift in Sources */,
 			);

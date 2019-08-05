@@ -8,31 +8,23 @@
 
 import Foundation
 
-/// Parent Json parser model for TRPConstant model.
-internal class TRPPlatformJsonModel:  TRPParentJsonModel {
+internal class TRPConstantsParentJsonModel: TRPParentJsonModel {
     
-    /// Version model
-    public var ios: TRPConstantsJsonModel
-    public var android: TRPConstantsJsonModel
+    public var data: TRPConstantsJsonModel?
     
     private enum CodingKeys: String, CodingKey {
-        case ios
-        case android
+        case data
     }
     
-    required init(from decoder: Decoder) throws {
+    required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        ios = try values.decode(TRPConstantsJsonModel.self
-            , forKey: .ios)
-        android = try values.decode(TRPConstantsJsonModel.self
-            , forKey: .android)
-        try super.init(from: decoder)
+        self.data = try values.decodeIfPresent(TRPConstantsJsonModel.self, forKey: .data)
+        try super.init(from: decoder);
     }
-    
 }
 
 /// Parent Json parser model for TRPConstants & TRPVersion model.
-internal class TRPConstantsJsonModel:  TRPParentJsonModel {
+internal class TRPConstantsJsonModel: Decodable {
     
     /// Version model
     public var version: TRPVersionInfoModel?
@@ -49,9 +41,7 @@ internal class TRPConstantsJsonModel:  TRPParentJsonModel {
             , forKey: .version)
         constants = try values.decodeIfPresent(TRPConstantsInfoModel.self
             , forKey: .constants)
-        try super.init(from: decoder)
     }
-    
 }
 
 /// This model provides you to use full information of version details.
