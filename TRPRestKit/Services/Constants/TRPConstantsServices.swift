@@ -26,7 +26,7 @@ internal class TRPConstantsServices: TRPRestServices {
         
         let jsonDecode = JSONDecoder()
         do {
-            let result = try jsonDecode.decode(TRPPlatformJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPConstantsParentJsonModel.self, from: data)
             self.Completion?(result,nil,nil)
         }catch(let tryError) {
             self.Completion?(nil, tryError as NSError, nil);
@@ -38,6 +38,11 @@ internal class TRPConstantsServices: TRPRestServices {
         return "sdk-constants"
     }
     
+    override func parameters() -> Dictionary<String, Any>? {
+        var params : Dictionary<String, Any> = [:];
+        params["platform"] = "ios"
+        return params
+    }
     override func userOAuth() -> Bool {
         return true
     }
