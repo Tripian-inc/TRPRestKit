@@ -1,0 +1,333 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "TRPConstantsParentJsonModel"
+- "TRPConstantsJsonModel"
+- "TRPVersionInfoModel"
+- "TRPConstantsInfoModel"
+- "TRPLocalizableMessageInfoModel"
+provides-nominal:
+- "10TRPRestKit27TRPConstantsParentJsonModelC"
+- "10TRPRestKit21TRPConstantsJsonModelC"
+- "10TRPRestKit19TRPVersionInfoModelV"
+- "10TRPRestKit21TRPConstantsInfoModelV"
+- "10TRPRestKit30TRPLocalizableMessageInfoModelV"
+provides-member:
+- ["10TRPRestKit27TRPConstantsParentJsonModelC", ""]
+- ["10TRPRestKit21TRPConstantsJsonModelC", ""]
+- ["10TRPRestKit19TRPVersionInfoModelV", ""]
+- ["10TRPRestKit21TRPConstantsInfoModelV", ""]
+- ["10TRPRestKit30TRPLocalizableMessageInfoModelV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- "AssignmentPrecedence"
+- "Bool"
+- "CodingKey"
+- "Decodable"
+- "Decoder"
+- "Int"
+- "String"
+- "TRPConstantsInfoModel"
+- "TRPConstantsJsonModel"
+- "TRPConstantsParentJsonModel"
+- "TRPLocalizableMessageInfoModel"
+- "TRPParentJsonModel"
+- "TRPVersionInfoModel"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["s9CodingKeyP", "=="]
+- ["s9CodingKeyP", "RawValue"]
+- !private ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_Default_RawValue"]
+- !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- ["s9CodingKeyP", "_rawHashValue"]
+- !private ["s9CodingKeyP", "constants"]
+- !private ["s9CodingKeyP", "data"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- !private ["s9CodingKeyP", "en"]
+- !private ["s9CodingKeyP", "forceUpdateMessage"]
+- !private ["s9CodingKeyP", "forceUpdateRequired"]
+- !private ["s9CodingKeyP", "forceUpdateStoreUrl"]
+- !private ["s9CodingKeyP", "forceUpdateVersion"]
+- !private ["s9CodingKeyP", "fr"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- !private ["s9CodingKeyP", "maxDayBetweenTrips"]
+- ["s9CodingKeyP", "rawValue"]
+- !private ["s9CodingKeyP", "readMe"]
+- ["s9CodingKeyP", "stringValue"]
+- !private ["s9CodingKeyP", "version"]
+- ["s28CustomDebugStringConvertibleP", "=="]
+- ["s28CustomDebugStringConvertibleP", "RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- ["s28CustomDebugStringConvertibleP", "_rawHashValue"]
+- !private ["s28CustomDebugStringConvertibleP", "constants"]
+- !private ["s28CustomDebugStringConvertibleP", "data"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- !private ["s28CustomDebugStringConvertibleP", "en"]
+- !private ["s28CustomDebugStringConvertibleP", "forceUpdateMessage"]
+- !private ["s28CustomDebugStringConvertibleP", "forceUpdateRequired"]
+- !private ["s28CustomDebugStringConvertibleP", "forceUpdateStoreUrl"]
+- !private ["s28CustomDebugStringConvertibleP", "forceUpdateVersion"]
+- !private ["s28CustomDebugStringConvertibleP", "fr"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- !private ["s28CustomDebugStringConvertibleP", "maxDayBetweenTrips"]
+- ["s28CustomDebugStringConvertibleP", "rawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "readMe"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s28CustomDebugStringConvertibleP", "version"]
+- ["s23CustomStringConvertibleP", "=="]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- !private ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
+- ["s23CustomStringConvertibleP", "_rawHashValue"]
+- !private ["s23CustomStringConvertibleP", "constants"]
+- !private ["s23CustomStringConvertibleP", "data"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- !private ["s23CustomStringConvertibleP", "en"]
+- !private ["s23CustomStringConvertibleP", "forceUpdateMessage"]
+- !private ["s23CustomStringConvertibleP", "forceUpdateRequired"]
+- !private ["s23CustomStringConvertibleP", "forceUpdateStoreUrl"]
+- !private ["s23CustomStringConvertibleP", "forceUpdateVersion"]
+- !private ["s23CustomStringConvertibleP", "fr"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- !private ["s23CustomStringConvertibleP", "maxDayBetweenTrips"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- !private ["s23CustomStringConvertibleP", "readMe"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["s23CustomStringConvertibleP", "version"]
+- !private ["Se", "Bool"]
+- !private ["Se", "CodingKeys"]
+- !private ["Se", "Int"]
+- !private ["Se", "String"]
+- !private ["Se", "TRPConstantsInfoModel"]
+- !private ["Se", "TRPConstantsJsonModel"]
+- !private ["Se", "TRPLocalizableMessageInfoModel"]
+- !private ["Se", "TRPVersionInfoModel"]
+- ["Se", ""]
+- !private ["Se", "_findStringSwitchCase"]
+- !private ["Se", "constants"]
+- !private ["Se", "data"]
+- !private ["Se", "en"]
+- !private ["Se", "forceUpdateMessage"]
+- !private ["Se", "forceUpdateRequired"]
+- !private ["Se", "forceUpdateStroreUrl"]
+- !private ["Se", "forceUpdateVersion"]
+- !private ["Se", "fr"]
+- ["Se", "init"]
+- !private ["Se", "maxDayBetweenTrips"]
+- !private ["Se", "readMe"]
+- !private ["Se", "version"]
+- !private ["s7DecoderP", "container"]
+- ["SQ", "=="]
+- ["SQ", "RawValue"]
+- !private ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- ["SQ", "_rawHashValue"]
+- !private ["SQ", "constants"]
+- !private ["SQ", "data"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- !private ["SQ", "en"]
+- !private ["SQ", "forceUpdateMessage"]
+- !private ["SQ", "forceUpdateRequired"]
+- !private ["SQ", "forceUpdateStoreUrl"]
+- !private ["SQ", "forceUpdateVersion"]
+- !private ["SQ", "fr"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- !private ["SQ", "init"]
+- ["SQ", "intValue"]
+- !private ["SQ", "maxDayBetweenTrips"]
+- ["SQ", "rawValue"]
+- !private ["SQ", "readMe"]
+- ["SQ", "stringValue"]
+- !private ["SQ", "version"]
+- ["SH", "=="]
+- ["SH", "RawValue"]
+- !private ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- ["SH", "_rawHashValue"]
+- !private ["SH", "constants"]
+- !private ["SH", "data"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- !private ["SH", "en"]
+- !private ["SH", "forceUpdateMessage"]
+- !private ["SH", "forceUpdateRequired"]
+- !private ["SH", "forceUpdateStoreUrl"]
+- !private ["SH", "forceUpdateVersion"]
+- !private ["SH", "fr"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- !private ["SH", "init"]
+- ["SH", "intValue"]
+- !private ["SH", "maxDayBetweenTrips"]
+- ["SH", "rawValue"]
+- !private ["SH", "readMe"]
+- ["SH", "stringValue"]
+- !private ["SH", "version"]
+- !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s22KeyedDecodingContainerV", "decodeIfPresent"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decodeIfPresent"]
+- ["SY", "=="]
+- ["SY", "RawValue"]
+- !private ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- ["SY", "_rawHashValue"]
+- !private ["SY", "constants"]
+- !private ["SY", "data"]
+- ["SY", "debugDescription"]
+- ["SY", "description"]
+- !private ["SY", "en"]
+- !private ["SY", "forceUpdateMessage"]
+- !private ["SY", "forceUpdateRequired"]
+- !private ["SY", "forceUpdateStoreUrl"]
+- !private ["SY", "forceUpdateVersion"]
+- !private ["SY", "fr"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- ["SY", "init"]
+- !private ["SY", "init"]
+- ["SY", "intValue"]
+- !private ["SY", "maxDayBetweenTrips"]
+- ["SY", "rawValue"]
+- !private ["SY", "readMe"]
+- ["SY", "stringValue"]
+- !private ["SY", "version"]
+- ["10TRPRestKit21TRPConstantsInfoModelV", "CodingKey"]
+- !private ["10TRPRestKit21TRPConstantsInfoModelV", "CodingKeys"]
+- ["10TRPRestKit21TRPConstantsInfoModelV", "Decoder"]
+- ["10TRPRestKit21TRPConstantsInfoModelV", "Int"]
+- ["10TRPRestKit21TRPConstantsInfoModelV", "String"]
+- !private ["10TRPRestKit21TRPConstantsInfoModelV", "_findStringSwitchCase"]
+- ["10TRPRestKit21TRPConstantsInfoModelV", "deinit"]
+- ["10TRPRestKit21TRPConstantsInfoModelV", "init"]
+- ["10TRPRestKit21TRPConstantsInfoModelV", "maxDayBetweenTrips"]
+- ["10TRPRestKit21TRPConstantsInfoModelV", "readMe"]
+- ["10TRPRestKit21TRPConstantsJsonModelC", "CodingKey"]
+- !private ["10TRPRestKit21TRPConstantsJsonModelC", "CodingKeys"]
+- ["10TRPRestKit21TRPConstantsJsonModelC", "Decoder"]
+- ["10TRPRestKit21TRPConstantsJsonModelC", "String"]
+- ["10TRPRestKit21TRPConstantsJsonModelC", "TRPConstantsInfoModel"]
+- ["10TRPRestKit21TRPConstantsJsonModelC", "TRPVersionInfoModel"]
+- !private ["10TRPRestKit21TRPConstantsJsonModelC", "_findStringSwitchCase"]
+- ["10TRPRestKit21TRPConstantsJsonModelC", "constants"]
+- ["10TRPRestKit21TRPConstantsJsonModelC", "deinit"]
+- ["10TRPRestKit21TRPConstantsJsonModelC", "init"]
+- ["10TRPRestKit21TRPConstantsJsonModelC", "version"]
+- ["10TRPRestKit27TRPConstantsParentJsonModelC", "CodingKey"]
+- !private ["10TRPRestKit27TRPConstantsParentJsonModelC", "CodingKeys"]
+- ["10TRPRestKit27TRPConstantsParentJsonModelC", "Decoder"]
+- ["10TRPRestKit27TRPConstantsParentJsonModelC", "String"]
+- ["10TRPRestKit27TRPConstantsParentJsonModelC", "TRPConstantsJsonModel"]
+- !private ["10TRPRestKit27TRPConstantsParentJsonModelC", "_findStringSwitchCase"]
+- ["10TRPRestKit27TRPConstantsParentJsonModelC", "data"]
+- ["10TRPRestKit27TRPConstantsParentJsonModelC", "deinit"]
+- ["10TRPRestKit27TRPConstantsParentJsonModelC", "init"]
+- ["10TRPRestKit30TRPLocalizableMessageInfoModelV", "CodingKey"]
+- !private ["10TRPRestKit30TRPLocalizableMessageInfoModelV", "CodingKeys"]
+- ["10TRPRestKit30TRPLocalizableMessageInfoModelV", "Decoder"]
+- ["10TRPRestKit30TRPLocalizableMessageInfoModelV", "String"]
+- !private ["10TRPRestKit30TRPLocalizableMessageInfoModelV", "_findStringSwitchCase"]
+- ["10TRPRestKit30TRPLocalizableMessageInfoModelV", "deinit"]
+- ["10TRPRestKit30TRPLocalizableMessageInfoModelV", "en"]
+- ["10TRPRestKit30TRPLocalizableMessageInfoModelV", "fr"]
+- ["10TRPRestKit30TRPLocalizableMessageInfoModelV", "init"]
+- ["10TRPRestKit18TRPParentJsonModelC", "CodingKey"]
+- !private ["10TRPRestKit18TRPParentJsonModelC", "CodingKeys"]
+- ["10TRPRestKit18TRPParentJsonModelC", "Decoder"]
+- ["10TRPRestKit18TRPParentJsonModelC", "String"]
+- ["10TRPRestKit18TRPParentJsonModelC", "TRPConstantsJsonModel"]
+- ["10TRPRestKit18TRPParentJsonModelC", ""]
+- !private ["10TRPRestKit18TRPParentJsonModelC", "_findStringSwitchCase"]
+- ["10TRPRestKit18TRPParentJsonModelC", "data"]
+- !private ["10TRPRestKit18TRPParentJsonModelC", "deinit"]
+- ["10TRPRestKit18TRPParentJsonModelC", "init"]
+- ["10TRPRestKit19TRPVersionInfoModelV", "Bool"]
+- ["10TRPRestKit19TRPVersionInfoModelV", "CodingKey"]
+- !private ["10TRPRestKit19TRPVersionInfoModelV", "CodingKeys"]
+- ["10TRPRestKit19TRPVersionInfoModelV", "Decoder"]
+- ["10TRPRestKit19TRPVersionInfoModelV", "String"]
+- ["10TRPRestKit19TRPVersionInfoModelV", "TRPLocalizableMessageInfoModel"]
+- !private ["10TRPRestKit19TRPVersionInfoModelV", "_findStringSwitchCase"]
+- ["10TRPRestKit19TRPVersionInfoModelV", "deinit"]
+- ["10TRPRestKit19TRPVersionInfoModelV", "forceUpdateMessage"]
+- ["10TRPRestKit19TRPVersionInfoModelV", "forceUpdateRequired"]
+- ["10TRPRestKit19TRPVersionInfoModelV", "forceUpdateStroreUrl"]
+- ["10TRPRestKit19TRPVersionInfoModelV", "forceUpdateVersion"]
+- ["10TRPRestKit19TRPVersionInfoModelV", "init"]
+depends-nominal:
+- "s9CodingKeyP"
+- "s28CustomDebugStringConvertibleP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "s7DecoderP"
+- "SQ"
+- "SH"
+- !private "s22KeyedDecodingContainerV"
+- !private "s30KeyedDecodingContainerProtocolP"
+- "SY"
+- "10TRPRestKit21TRPConstantsInfoModelV"
+- "10TRPRestKit21TRPConstantsJsonModelC"
+- "10TRPRestKit27TRPConstantsParentJsonModelC"
+- "10TRPRestKit30TRPLocalizableMessageInfoModelV"
+- "10TRPRestKit18TRPParentJsonModelC"
+- "10TRPRestKit19TRPVersionInfoModelV"
+depends-dynamic-lookup:
+depends-external:
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
+- "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "54c2647dac540d0f8a6fac7cb827adcb"

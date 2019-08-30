@@ -84,6 +84,8 @@ depends-top-level:
 - !private "TRPCompanionModel"
 - !private "TRPCompanionServices"
 - !private "TRPCompanionsJsonModel"
+- !private "TRPConstantsParentJsonModel"
+- !private "TRPConstantsServices"
 - !private "TRPDailyPlanServices"
 - !private "TRPDayPlanJsonModel"
 - !private "TRPDeleteProgram"
@@ -138,6 +140,7 @@ depends-member:
 - !private ["s7CVarArgP", "TPRTripQuestionType"]
 - !private ["s7CVarArgP", "TRPCities"]
 - !private ["s7CVarArgP", "TRPCompanionServices"]
+- !private ["s7CVarArgP", "TRPConstantsServices"]
 - !private ["s7CVarArgP", "TRPDailyPlanServices"]
 - !private ["s7CVarArgP", "TRPDeleteProgram"]
 - !private ["s7CVarArgP", "TRPErrors"]
@@ -204,6 +207,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "TPRTripQuestionType"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPCities"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPCompanionServices"]
+- !private ["s28CustomDebugStringConvertibleP", "TRPConstantsServices"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPDailyPlanServices"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPDeleteProgram"]
 - !private ["s28CustomDebugStringConvertibleP", "TRPErrors"]
@@ -267,6 +271,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "TPRTripQuestionType"]
 - !private ["s23CustomStringConvertibleP", "TRPCities"]
 - !private ["s23CustomStringConvertibleP", "TRPCompanionServices"]
+- !private ["s23CustomStringConvertibleP", "TRPConstantsServices"]
 - !private ["s23CustomStringConvertibleP", "TRPDailyPlanServices"]
 - !private ["s23CustomStringConvertibleP", "TRPDeleteProgram"]
 - !private ["s23CustomStringConvertibleP", "TRPErrors"]
@@ -322,9 +327,11 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "versionServices"]
 - !private ["10Foundation12DataProtocolP", "first"]
 - !private ["Se", "accessToken"]
+- !private ["Se", "constants"]
 - !private ["Se", "data"]
 - !private ["Se", "datas"]
 - !private ["Se", "first"]
+- !private ["Se", "version"]
 - !private ["SE", "first"]
 - !private ["SQ", "CompanionServiceType"]
 - !private ["SQ", "Pagination"]
@@ -332,6 +339,7 @@ depends-member:
 - !private ["SQ", "TPRTripQuestionType"]
 - !private ["SQ", "TRPCities"]
 - !private ["SQ", "TRPCompanionServices"]
+- !private ["SQ", "TRPConstantsServices"]
 - !private ["SQ", "TRPDailyPlanServices"]
 - !private ["SQ", "TRPDeleteProgram"]
 - !private ["SQ", "TRPErrors"]
@@ -405,6 +413,7 @@ depends-member:
 - !private ["SH", "TPRTripQuestionType"]
 - !private ["SH", "TRPCities"]
 - !private ["SH", "TRPCompanionServices"]
+- !private ["SH", "TRPConstantsServices"]
 - !private ["SH", "TRPDailyPlanServices"]
 - !private ["SH", "TRPDeleteProgram"]
 - !private ["SH", "TRPErrors"]
@@ -492,6 +501,8 @@ depends-member:
 - !private ["So8NSObjectC", "TRPCompanionModel"]
 - !private ["So8NSObjectC", "TRPCompanionServices"]
 - !private ["So8NSObjectC", "TRPCompanionsJsonModel"]
+- !private ["So8NSObjectC", "TRPConstantsParentJsonModel"]
+- !private ["So8NSObjectC", "TRPConstantsServices"]
 - !private ["So8NSObjectC", "TRPDailyPlanServices"]
 - !private ["So8NSObjectC", "TRPDayPlanJsonModel"]
 - !private ["So8NSObjectC", "TRPDeleteProgram"]
@@ -611,6 +622,7 @@ depends-member:
 - !private ["So8NSObjectP", "TPRTripQuestionType"]
 - !private ["So8NSObjectP", "TRPCities"]
 - !private ["So8NSObjectP", "TRPCompanionServices"]
+- !private ["So8NSObjectP", "TRPConstantsServices"]
 - !private ["So8NSObjectP", "TRPDailyPlanServices"]
 - !private ["So8NSObjectP", "TRPDeleteProgram"]
 - !private ["So8NSObjectP", "TRPErrors"]
@@ -691,6 +703,12 @@ depends-member:
 - !private ["10TRPRestKit20TRPCompanionServicesC", "connection"]
 - !private ["10TRPRestKit20TRPCompanionServicesC", "init"]
 - !private ["10TRPRestKit22TRPCompanionsJsonModelC", "data"]
+- !private ["10TRPRestKit21TRPConstantsJsonModelC", "constants"]
+- !private ["10TRPRestKit21TRPConstantsJsonModelC", "version"]
+- !private ["10TRPRestKit27TRPConstantsParentJsonModelC", "data"]
+- !private ["10TRPRestKit20TRPConstantsServicesC", "Completion"]
+- !private ["10TRPRestKit20TRPConstantsServicesC", "connection"]
+- !private ["10TRPRestKit20TRPConstantsServicesC", "init"]
 - !private ["10TRPRestKit20TRPDailyPlanServicesC", "Completion"]
 - !private ["10TRPRestKit20TRPDailyPlanServicesC", "connection"]
 - !private ["10TRPRestKit20TRPDailyPlanServicesC", "init"]
@@ -769,6 +787,8 @@ depends-member:
 - !private ["10TRPRestKitAAC", "TRPCompanionModel"]
 - !private ["10TRPRestKitAAC", "TRPCompanionServices"]
 - !private ["10TRPRestKitAAC", "TRPCompanionsJsonModel"]
+- !private ["10TRPRestKitAAC", "TRPConstantsParentJsonModel"]
+- !private ["10TRPRestKitAAC", "TRPConstantsServices"]
 - !private ["10TRPRestKitAAC", "TRPDailyPlanServices"]
 - !private ["10TRPRestKitAAC", "TRPDayPlanJsonModel"]
 - !private ["10TRPRestKitAAC", "TRPDeleteProgram"]
@@ -930,6 +950,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TPRTripQuestionType"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPCities"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPCompanionServices"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPConstantsServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPDailyPlanServices"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPDeleteProgram"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "TRPErrors"]
@@ -1020,6 +1041,9 @@ depends-nominal:
 - !private "10TRPRestKit16TRPCityJsonModelC"
 - !private "10TRPRestKit20TRPCompanionServicesC"
 - !private "10TRPRestKit22TRPCompanionsJsonModelC"
+- !private "10TRPRestKit21TRPConstantsJsonModelC"
+- !private "10TRPRestKit27TRPConstantsParentJsonModelC"
+- !private "10TRPRestKit20TRPConstantsServicesC"
 - !private "10TRPRestKit20TRPDailyPlanServicesC"
 - !private "10TRPRestKit19TRPDayPlanJsonModelC"
 - !private "10TRPRestKit16TRPDeleteProgramC"
@@ -1067,7 +1091,7 @@ depends-nominal:
 - !private "s21_ObjectiveCBridgeableP"
 depends-dynamic-lookup:
 depends-external:
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/TRPFoundationKit.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
@@ -1080,16 +1104,17 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
-- "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
-- "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPTestApp-gvhwooczxgmxxfguawbihchrehlg/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit-Swift.h"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Headers/TRPFoundationKit.h"
+- "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
+- "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/build/TRPRestKit.build/Debug-iphoneos/TRPRestKit.build/unextended-module.modulemap"
+- "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphoneos/TRPFoundationKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotes"
+<<<<<<< HEAD
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/usr/include/Darwin.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
@@ -1097,4 +1122,13 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+=======
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.4.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+>>>>>>> 8e62532fdc78ad193c6c465b0fef866fbf8d0b5a
 interface-hash: "ef0f39a7862427170dbb0ea8ad5d649f"

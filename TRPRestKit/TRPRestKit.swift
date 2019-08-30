@@ -988,15 +988,20 @@ extension TRPRestKit {
     
     /// A services that manage all task to connecting remote server
     private func constantServices() {
+<<<<<<< HEAD
        /* let t = TRPConstantsServices()
         t.Completion = {   (result, error, pagination) in
+=======
+        let t = TRPConstantsServices()
+        t.Completion = {(result, error, _) in
+>>>>>>> 8e62532fdc78ad193c6c465b0fef866fbf8d0b5a
             if let error = error {
                 self.postError(error: error)
                 return
             }
             
-            if let r = result as? TRPPlatformJsonModel {
-                self.postData(result: r.ios.constants)
+            if let r = result as? TRPConstantsParentJsonModel {
+                self.postData(result: r.data?.constants)
             }
         }
         t.connection() */
@@ -1018,15 +1023,20 @@ extension TRPRestKit {
     
     /// A services that manage all task to connecting remote server
     private func versionServices() {
+<<<<<<< HEAD
        /* let t = TRPConstantsServices()
         t.Completion = {   (result, error, pagination) in
+=======
+        let t = TRPConstantsServices()
+        t.Completion = {(result, error, _) in
+>>>>>>> 8e62532fdc78ad193c6c465b0fef866fbf8d0b5a
             if let error = error {
                 self.postError(error: error)
                 return
             }
             
-            if let r = result as? TRPPlatformJsonModel {
-                self.postData(result: r.ios.version)
+            if let r = result as? TRPConstantsParentJsonModel {
+                self.postData(result: r.data?.version)
             }
         }
         t.connection() */
