@@ -60,6 +60,7 @@
 		B22372242131151900E21532 /* TRPOAuthJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22372232131151900E21532 /* TRPOAuthJsonModel.swift */; };
 		B227F45C216CA2BA00591C70 /* TRPFavoritesJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B227F45B216CA2BA00591C70 /* TRPFavoritesJsonModel.swift */; };
 		B22C8F7522316F5600D18633 /* TRPFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B258872222316F2D00BD6930 /* TRPFoundationKit.framework */; };
+		B2341D6223143939007EAF80 /* RestKitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2341D6123143939007EAF80 /* RestKitInfo.swift */; };
 		B236885F216BAE0800920DA7 /* TRPUserFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236885E216BAE0800920DA7 /* TRPUserFavorite.swift */; };
 		B24AEAE521463530003BB0B3 /* TRPCitiesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24AEAE421463530003BB0B3 /* TRPCitiesTest.swift */; };
 		B24AEAF221469B94003BB0B3 /* TRPPlaceTypesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24AEAF121469B94003BB0B3 /* TRPPlaceTypesTest.swift */; };
@@ -187,6 +188,7 @@
 		B22372232131151900E21532 /* TRPOAuthJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOAuthJsonModel.swift; sourceTree = "<group>"; };
 		B227F45B216CA2BA00591C70 /* TRPFavoritesJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPFavoritesJsonModel.swift; sourceTree = "<group>"; };
 		B22C8F7922316FF100D18633 /* TRPFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = "<group>"; };
+		B2341D6123143939007EAF80 /* RestKitInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestKitInfo.swift; sourceTree = "<group>"; };
 		B236885E216BAE0800920DA7 /* TRPUserFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserFavorite.swift; sourceTree = "<group>"; };
 		B24AEAE421463530003BB0B3 /* TRPCitiesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCitiesTest.swift; sourceTree = "<group>"; };
 		B24AEAF121469B94003BB0B3 /* TRPPlaceTypesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPlaceTypesTest.swift; sourceTree = "<group>"; };
@@ -528,6 +530,7 @@
 				B29B464020F60ADF0009E711 /* Pagination.swift */,
 				B2179D252133EF87004954A4 /* TRPUserPersistent.swift */,
 				B210988D2188AD8F0070946C /* TRPImageResizer.swift */,
+				B2341D6123143939007EAF80 /* RestKitInfo.swift */,
 			);
 			path = TRPRestKit;
 			sourceTree = "<group>";
@@ -947,6 +950,7 @@
 				784BAB9A22C354FA00BBDB0F /* TRPCompanionServices.swift in Sources */,
 				B29B46A620F6137C0009E711 /* PoiCategories.swift in Sources */,
 				B20CD9F321368CF800497ED3 /* TRPPlanPoints.swift in Sources */,
+				B2341D6223143939007EAF80 /* RestKitInfo.swift in Sources */,
 				B2FDCFB92147EE41000C9387 /* TRPLoginJsonModel.swift in Sources */,
 				B21E1A89220A27DF00EF471F /* TRPGooglePlaceService.swift in Sources */,
 				B29B467820F60F220009E711 /* TRPRecommendationJsonModel.swift in Sources */,

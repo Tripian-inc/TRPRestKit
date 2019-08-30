@@ -988,7 +988,7 @@ extension TRPRestKit {
     
     /// A services that manage all task to connecting remote server
     private func constantServices() {
-        let t = TRPConstantsServices()
+       /* let t = TRPConstantsServices()
         t.Completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
@@ -999,7 +999,7 @@ extension TRPRestKit {
                 self.postData(result: r.ios.constants)
             }
         }
-        t.connection()
+        t.connection() */
     }
     
 }
@@ -1018,7 +1018,7 @@ extension TRPRestKit {
     
     /// A services that manage all task to connecting remote server
     private func versionServices() {
-        let t = TRPConstantsServices()
+       /* let t = TRPConstantsServices()
         t.Completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
@@ -1029,7 +1029,7 @@ extension TRPRestKit {
                 self.postData(result: r.ios.version)
             }
         }
-        t.connection()
+        t.connection() */
     }
     
 }
