@@ -9,6 +9,8 @@
 import Foundation
 internal class TRPUserTrips: TRPRestServices {
     
+    public var limit: Int = 50
+    
     public override func servicesResult(data: Data?, error: NSError?) {
         
         if let error = error {
@@ -32,6 +34,10 @@ internal class TRPUserTrips: TRPRestServices {
     
     public override func userOAuth() -> Bool {
         return true
+    }
+    
+    override func parameters() -> Dictionary<String, Any>? {
+        return ["limit":limit]
     }
     
     public override func path() -> String {

@@ -959,6 +959,7 @@ extension TRPRestKit {
     /// A services that manage all task to connecting remote server
     private func userTripsServices(limit:Int) {
         let t = TRPUserTrips()
+        t.limit = limit
         t.Completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
@@ -988,23 +989,17 @@ extension TRPRestKit {
     
     /// A services that manage all task to connecting remote server
     private func constantServices() {
-<<<<<<< HEAD
-       /* let t = TRPConstantsServices()
-        t.Completion = {   (result, error, pagination) in
-=======
         let t = TRPConstantsServices()
-        t.Completion = {(result, error, _) in
->>>>>>> 8e62532fdc78ad193c6c465b0fef866fbf8d0b5a
+        t.Completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            
             if let r = result as? TRPConstantsParentJsonModel {
                 self.postData(result: r.data?.constants)
             }
         }
-        t.connection() */
+        t.connection()
     }
     
 }
@@ -1023,23 +1018,18 @@ extension TRPRestKit {
     
     /// A services that manage all task to connecting remote server
     private func versionServices() {
-<<<<<<< HEAD
-       /* let t = TRPConstantsServices()
-        t.Completion = {   (result, error, pagination) in
-=======
+
         let t = TRPConstantsServices()
-        t.Completion = {(result, error, _) in
->>>>>>> 8e62532fdc78ad193c6c465b0fef866fbf8d0b5a
+        t.Completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            
             if let r = result as? TRPConstantsParentJsonModel {
                 self.postData(result: r.data?.version)
             }
         }
-        t.connection() */
+        t.connection()
     }
     
 }
