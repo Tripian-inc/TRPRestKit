@@ -1,31 +1,23 @@
 //
-//  EvrenTest.swift
-//  TRPRestKitTests
+//  TRPRestKitiOS_Tests.swift
+//  TRPRestKitiOS.Tests
 //
-//  Created by Evren Yaşar on 2.04.2019.
+//  Created by Evren Yaşar on 11.10.2019.
 //  Copyright © 2019 Evren Yaşar. All rights reserved.
 //
 
 import XCTest
-import TRPRestKit
 
-class EvrenTest: XCTestCase {
+class TRPRestKitiOS_Tests: XCTestCase {
 
     override func setUp() {
-        super.setUp()
-        TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
-    override func tearDown() {}
-
-    func testCity() {
-        TRPRestKit().city(with: 1) { (result, error) in
-            
-        }
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
-    
-    
+
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -33,7 +25,7 @@ class EvrenTest: XCTestCase {
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
