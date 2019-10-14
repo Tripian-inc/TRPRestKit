@@ -308,35 +308,6 @@ extension TRPRestKit {
     }
     
     
-    /// Obtain information of pois using location. You can use this method to `Nearby` in Add Place.
-    /// The poi that nearest the coordinate is at the top.
-    /// If you want obtain all poi, we suggest that categoryIds is nil.
-    ///
-    /// - Parameters:
-    ///   - location: Center coordinate.
-    ///   - distance: Defines the distance(in km) within which to return poi results.Default value: 50(km)
-    ///   - cityId: City Id
-    ///   - categoryId: Poi category id. You can use this method like `Nearby` in `Add Place`.
-    ///   - autoPagination: if you set a `true`, next link will be continued automatically. If you set a `false`, next link will not be continued automatically. You must call **poi(link:complation:)** using `pagination.nextlink`.
-    ///   - limit: number of record to display
-    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
-    public func poi(withLocation location: TRPLocation,
-                    distance: Double? = nil,
-                    cityId: Int? = nil,
-                    categoryId: Int,
-                    autoPagination: Bool? = false,
-                    limit: Int? = 25,
-                    completion: @escaping CompletionHandlerWithPagination) {
-        self.completionHandlerWithPagination = completion;
-        poiServices(limit: limit,
-                    location: location,
-                    distance: distance,
-                    typeId: categoryId,
-                    cityId: cityId,
-                    autoPagination: autoPagination ?? false)
-    }
-    
-    
     /// Obtain information of pois using location. You can use this method to `Search This Area` button on the map view.
     /// The poi that nearest the coordinate is at the top.
     /// If you want obtain all poi, we suggest that categoryIds is nil.
