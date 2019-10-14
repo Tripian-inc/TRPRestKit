@@ -4,28 +4,28 @@
   'roots': [
     {
       'type': 'directory',
-      'name': "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphonesimulator/TRPRestKit.framework/Headers",
+      'name': "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPRestKit-hjbizwhymxhqrxccsyuqtnkhpmqz/Build/Products/Debug-iphonesimulator/TRPRestKit.framework/Headers",
       'contents': [
         {
           'type': 'file',
           'name': "TRPRestKit-Swift.h",
-          'external-contents': "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphonesimulator/TRPRestKit.framework/Headers/TRPRestKit-Swift.h"
+          'external-contents': "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPRestKit-hjbizwhymxhqrxccsyuqtnkhpmqz/Build/Products/Debug-iphonesimulator/TRPRestKit.framework/Headers/TRPRestKit-Swift.h"
         },
         {
           'type': 'file',
           'name': "TRPRestKit.h",
-          'external-contents': "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
+          'external-contents': "/Users/evrenyasar/Xcode/TRPRestKit/TRPRestKit/Resource/TRPRestKit.h"
         }
       ]
     },
     {
       'type': 'directory',
-      'name': "/Users/rozeridilar/Library/Developer/Xcode/DerivedData/TripianDevApp-faovwsydknhegqflylboxujnuckb/Build/Products/Debug-iphonesimulator/TRPRestKit.framework/Modules",
+      'name': "/Users/evrenyasar/Library/Developer/Xcode/DerivedData/TRPRestKit-hjbizwhymxhqrxccsyuqtnkhpmqz/Build/Products/Debug-iphonesimulator/TRPRestKit.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/rozeridilar/Desktop/Tripian/IOS Sdks/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/module.modulemap"
+          'external-contents': "/Users/evrenyasar/Xcode/TRPRestKit/build/TRPRestKit.build/Debug-iphonesimulator/TRPRestKit.build/module.modulemap"
         }
       ]
     }

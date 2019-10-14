@@ -13,12 +13,13 @@ internal struct TRPConfig {
         get {
             //TestServer return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
             //return "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
-            
+            //us-west geliştirme sandbox
             //return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com" //TestServer
+            //Airmiles - ca-cemtral
             return "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com" // AirMiles
         }
     }
-    
+    //buda tanımlanıcak. Versiyon
     internal static var BaseUrlPath: String {
         get {
             return "v2"

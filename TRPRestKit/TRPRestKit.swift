@@ -73,9 +73,10 @@ extension TRPRestKit {
     /// Obtain all city information.
     ///
     /// - Parameter completionHandler: Any objects needs to be converted to **[TRPCityInfoModel]** object.
-    public func cities(completionHandler: @escaping CompletionHandlerWithPagination){
+    public func cities(limit: Int? = 25, isAutoPagination: Bool? = true, completionHandler: @escaping CompletionHandlerWithPagination){
+        //Fixme: - autoPagination eklenebilir.
         self.completionHandlerWithPagination = completionHandler;
-        citiesServices(id: nil);
+        citiesServices(id: nil, limit: limit,autoPagination: isAutoPagination)
     }
     
     
@@ -92,7 +93,6 @@ extension TRPRestKit {
     }
     
     
-    
     /// #deneme#
     ///
     /// Obtain information of a city using user location.
@@ -106,12 +106,12 @@ extension TRPRestKit {
     }
     
     
-    /// Obtain information of cities using link which returned from Pagination
+    /// Obtain information of  cities using link which returned from Pagination
     ///
     /// - Parameters:
     ///   - link: link that returned from Pagination
     ///   - completion: Any objects needs to be converted to **[TRPCityInfoModel]** object.
-    public func city(link: String, completion: @escaping CompletionHandlerWithPagination) {
+    public func cities(link: String, completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion;
         citiesServices(id: nil,link: link);
     }
@@ -126,7 +126,9 @@ extension TRPRestKit {
     ///   - limit: number of record to display
     private func citiesServices(id:Int? = nil,
                                 link:String? = nil,
-                                location: TRPLocation? = nil, limit: Int? = 25) -> Void {
+                                location: TRPLocation? = nil,
+                                limit: Int? = 25,
+                                autoPagination: Bool? = true) -> Void {
         var t: TRPCities?;
         if id == nil && location == nil && link == nil{
             t = TRPCities();
@@ -134,11 +136,16 @@ extension TRPRestKit {
             t = TRPCities(cityId: id);
         }else if let location = location {
             t = TRPCities(location: location)
+        }else if limit != nil {
+            t = TRPCities();
         }
+        
         
         guard let service = t else {return}
         service.limit = limit ?? 50
-        
+        if let aP = autoPagination {
+            service.isAutoPagination = aP
+        }
         service.Completion = { (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
@@ -148,7 +155,6 @@ extension TRPRestKit {
                 if let cities = r.data {
                     if id != nil || location != nil {
                         if let city = cities.first {
-                            sleep(4)
                             self.postData(result: city, pagination: pagination)
                             return
                         }
@@ -705,7 +711,7 @@ extension TRPRestKit {
     }
     
 }
-
+ 
 // MARK: Update User Info
 extension TRPRestKit {
     /// Updates the user's answers. The answers change Recommendation Engine's working.
