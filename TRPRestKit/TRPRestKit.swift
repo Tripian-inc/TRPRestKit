@@ -204,7 +204,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - withId: Category id
     ///   - completion: Any objects needs to be converted to **TRPCategoryInfoModel** object.
-    public func poiCategories(withId:Int, completion: @escaping CompletionHandler){
+    public func poiCategory(withId:Int, completion: @escaping CompletionHandler){
         self.completionHandler = completion;
         poiCategoriesServices(id: withId);
     }
@@ -1287,6 +1287,7 @@ extension TRPRestKit {
     
 }
 
+// MARK: - Google Auto Complete
 extension TRPRestKit {
     
     ///  Find
@@ -1330,6 +1331,7 @@ extension TRPRestKit {
     
 }
 
+// MARK: - Google Place
 extension TRPRestKit {
     
     /// Returns information of a place from Google Server with place's id.
@@ -1390,7 +1392,7 @@ extension TRPRestKit {
     
 }
 
-//Send a problem
+// MARK: - Report A problem
 extension TRPRestKit {
     
     
@@ -1427,7 +1429,7 @@ extension TRPRestKit {
     }
 }
 
-
+// MARK: - Update Daily Plan Hour
 extension TRPRestKit {
     
     public func updateDailyPlanHour(dailyPlanId: Int, start:String, end:String, completion: @escaping CompletionHandler) {
