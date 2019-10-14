@@ -249,17 +249,6 @@ extension TRPRestKit {
 // MARK: - Poi Services
 extension TRPRestKit {
     
-    /// Obtain information of a poi using Poi Id.
-    ///
-    /// - Parameters:
-    ///   - withId: unique poi id
-    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object.
-    ///
-    /// - Postcondition: Result array must be converted to single **(ar.first!)** object.
-    public func poi(withId:Int, completion: @escaping CompletionHandler){
-        self.completionHandler = completion;
-        poiServices(placeIds: [withId], cities: nil)
-    }
     
     
     /// Obtain information of pois using both poi ids and city id.
@@ -289,9 +278,13 @@ extension TRPRestKit {
     ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
     public func poi(withCityId cityId:Int,
                     limit:Int? = 100,
+                    autoPagination: Bool? = false,
                     completion: @escaping CompletionHandlerWithPagination){
         self.completionHandlerWithPagination = completion;
-        poiServices(placeIds: nil, cities: [cityId],limit: limit)
+        
+        poiServices(placeIds: nil,
+                    cities: [cityId],limit: limit,
+                    autoPagination:autoPagination ?? false)
     }
     
     

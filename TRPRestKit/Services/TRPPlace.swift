@@ -15,6 +15,8 @@ internal class TRPPlace: TRPRestServices {
         case withPlacesId
         case withLocation
         case withSearchText
+        
+        
     }
     
     var placeIds: [Int]?;
@@ -37,6 +39,7 @@ internal class TRPPlace: TRPRestServices {
         status = .withPlacesId
     }
     
+   
     internal init(cities:[Int]){
         self.cities = cities;
         status = .withCityId
