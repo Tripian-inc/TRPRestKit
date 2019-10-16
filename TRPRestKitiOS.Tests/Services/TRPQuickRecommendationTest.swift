@@ -56,8 +56,6 @@ class TRPQuickRecommendationTest: XCTestCase {
                     XCTFail("\(nameSpace) Json model couldn't converted to  [TRPRecommendationInfoJsonModel]")
                 }
             }
-            
-            
         }
         
         wait(for: [expectation,expectationFetchPlace], timeout: 10.0)

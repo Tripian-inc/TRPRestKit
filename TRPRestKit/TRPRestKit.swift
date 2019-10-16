@@ -608,7 +608,7 @@ extension TRPRestKit {
             
             //TODO: - SAVE USER ID
             if let r = result as? TRPLoginJsonModel{
-                TRPUserPersistent.saveHash(r.data.accessToken)
+                TRPUserPersistent.saveHashToken(r.data.accessToken)
                 self.postData(result: r.data, pagination: pagination)
             }else  {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
@@ -701,9 +701,19 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - answers: User answers of Trip
     ///   - completion: Any objects needs to be converted to **TRPUserInfoModel** object.
-    public func updateUserInfo(firstName:String?, lastName: String?, age: String?, password:String? = nil, answers: [Int], completion: @escaping CompletionHandler) {
+    public func updateUserInfo(firstName:String?,
+                               lastName: String?,
+                               age:Int? = nil,
+                               password:String? = nil,
+                               answers: [Int]? = nil,
+                               completion: @escaping CompletionHandler) {
         completionHandler = completion
-        userInfoServices(firstName: firstName,lastName: lastName, age: age, password: password, answers: answers, type: .updateInfo)
+        userInfoServices(firstName: firstName,
+                         lastName: lastName,
+                         age:age,
+                         password: password,
+                         answers: answers,
+                         type: .updateInfo)
     }
     
     public func updateUserAnswer(answers: [Int], completion: @escaping CompletionHandler) {
@@ -714,7 +724,7 @@ extension TRPRestKit {
     /// A services that manage all task to connecting remote server
     private func userInfoServices(firstName: String? = nil,
                                   lastName: String? = nil,
-                                  age: String? = nil,
+                                  age:Int? = nil,
                                   password: String? = nil,
                                   answers: [Int]? = nil,
                                   type: TRPUserInfoServices.ServiceType) {
@@ -727,7 +737,11 @@ extension TRPRestKit {
                 t = TRPUserInfoServices(answers: answers)
             }
         }else if type == .updateInfo {
-            t = TRPUserInfoServices(firstName: firstName, lastName: lastName, password: password, age: age, answers: answers)
+            t = TRPUserInfoServices(firstName: firstName,
+                                    lastName: lastName,
+                                    age: age,
+                                    password: password,
+                                    answers: answers)
         }
         
         guard let services = t else {return}

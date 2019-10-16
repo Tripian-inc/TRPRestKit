@@ -14,16 +14,18 @@ public struct TRPUserPersistent {
     private static let userEmailCodeTag = "trpuseremail"
     
     public static func didUserLoging() -> Bool {
-        return fetchHash() == nil ? false : true
+        return fetchHashToken() == nil ? false : true
     }
     
-    
-    public static func fetchHash() -> String? {
-        return UserDefaults.standard.string(forKey: userHashCodeTag)
-    }
-    
-    public static func saveHash(_ value: String) {
+    /// When user login in system, token code is saved
+    /// - Parameter value: token code
+    internal static func saveHashToken(_ value: String) {
         UserDefaults.standard.set(value, forKey: userHashCodeTag)
+    }
+    
+    /// To Fetch user Token code
+    internal static func fetchHashToken() -> String? {
+        return UserDefaults.standard.string(forKey: userHashCodeTag)
     }
     
     public static func fetchId() -> Int? {
@@ -45,5 +47,6 @@ public struct TRPUserPersistent {
     public static func remove() {
         UserDefaults.standard.removeObject(forKey: userIdCodeTag)
         UserDefaults.standard.removeObject(forKey: userHashCodeTag)
+        UserDefaults.standard.removeObject(forKey: userEmailCodeTag)
     }
 }

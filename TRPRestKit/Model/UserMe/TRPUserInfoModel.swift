@@ -14,8 +14,7 @@ public struct TRPUserInfoModel: Decodable {
     public var email: String
     /// A String value. First name of the user.
     public var firstName: String?
-    /// A String value. Age of the user.
-    public var age: String?
+    //public var age:String?
     /// A String value. Last name of the user.
     public var lastName: String?
     /// A String value. Password of the user.
@@ -46,7 +45,8 @@ public struct TRPUserInfoModel: Decodable {
         self.firstName = try values.decodeIfPresent(String.self, forKey: .firstName)
         self.lastName = try values.decodeIfPresent(String.self, forKey: .lastName)
         self.password = try values.decodeIfPresent(String.self, forKey: .password)
-        self.age = try values.decodeIfPresent(String.self, forKey: .age)
+        //Fixme: Infodan alınacak
+       // self.age = try values.decodeIfPresent(String.self, forKey: .age)
         self.paymentStatus = try values.decodeIfPresent(Int.self, forKey: .paymentStatus)
         self.info = try values.decodeIfPresent([TRPUserPreferencesInfoModel].self, forKey: .info)
     }

@@ -151,8 +151,8 @@ public class TRPRestServices {
     /// Returns user hash using `DataHolder`
     ///
     /// - Returns: User hash for oauth
-    public func oauth() -> String? {
-        return TRPUserPersistent.fetchHash()
+    internal func oauth() -> String? {
+        return TRPUserPersistent.fetchHashToken()
     }
     
 }

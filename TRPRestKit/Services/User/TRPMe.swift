@@ -19,7 +19,7 @@ internal class TRPUserInfoServices: TRPRestServices {
     var answers: [Int]?
     var firstName: String?
     var lastName: String?
-    var age: String?
+    var age: Int?
     
     init(type: ServiceType) {
         self.serviceType = type
@@ -30,7 +30,7 @@ internal class TRPUserInfoServices: TRPRestServices {
         self.answers = answers
     }
     
-    init(firstName: String? = nil, lastName:String? = nil, password: String? = nil, age: String? = nil, answers: [Int]? = nil) {
+    init(firstName: String? = nil, lastName:String? = nil, age:Int? = nil, password: String? = nil, answers: [Int]? = nil) {
         self.serviceType = .updateInfo
         self.password = password
         self.answers = answers
@@ -80,7 +80,7 @@ internal class TRPUserInfoServices: TRPRestServices {
                 params["last_name"] = lastName
             }
             if let age = age {
-                params["age"] = age
+                params["age"] = "\(age)"
             }
         }
         return params
