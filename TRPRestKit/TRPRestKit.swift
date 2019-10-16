@@ -759,7 +759,7 @@ extension TRPRestKit {
     }
 }
 
-// MARK: - Companion
+//
 extension TRPRestKit {
     
     /// This method can be used to create a new companion.
@@ -769,7 +769,10 @@ extension TRPRestKit {
     ///   - answers: preferences of the companion.
     ///   - age: age of the companion.
     ///   - completion: Any objects needs to be converted to **TRPCompanionModel** object.
-    public func addCompanion(name: String?, age:String?, answers:String?,  completion: @escaping CompletionHandler) {
+    public func addCompanion(name: String?,
+                             age:Int?,
+                             answers:[Int]?,
+                             completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         let serviceType = CompanionServiceType.add
         companionServices(name: name, age:age, answers:answers, serviceType: serviceType)
@@ -783,10 +786,17 @@ extension TRPRestKit {
     ///   - answers: preferences of the companion.
     ///   - age: age of the companion.
     ///   - completion: Any objects needs to be converted to **TRPCompanionModel** object.
-    public func updateCompanion(id:Int, name: String?, age:String?, answers:String?,  completion: @escaping CompletionHandler) {
+    public func updateCompanion(id:Int,
+                                name: String?,
+                                age: Int?,
+                                answers: [Int]?, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         let serviceType = CompanionServiceType.update
-        companionServices(id: id, name: name, age:age, answers:answers, serviceType: serviceType)
+        companionServices(id: id,
+                          name: name,
+                          age:age,
+                          answers:answers,
+                          serviceType: serviceType)
     }
     
     /// This method can be used to remove the selected companion.
@@ -803,28 +813,37 @@ extension TRPRestKit {
     /// This method can be used to create a new companion.
     ///
     /// - Parameters:
-    ///   - completion: Any objects needs to be converted to **TRPCompanionModel** object.
+    ///   - completion: Any objects needs to be converted to **[TRPCompanionModel]** object.
     public func getUsersCompanions(completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         let serviceType = CompanionServiceType.get
         companionServices(serviceType: serviceType)
     }
     
-    private func companionServices(id:Int? = 0, name:String? = nil,
-                                      age: String? = nil,
-                                      answers: String? = nil, serviceType: CompanionServiceType) {
+    private func companionServices(id:Int? = 0,
+                                   name:String? = nil,
+                                   age: Int? = nil,
+                                   answers: [Int]? = nil,
+                                   serviceType: CompanionServiceType) {
         
         var t: TRPCompanionServices?
         
         if serviceType == CompanionServiceType.add{
-            t = TRPCompanionServices(serviceType: serviceType, name: name, answers: answers, age: age)
+            t = TRPCompanionServices(serviceType: serviceType,
+                                     name: name,
+                                     answers: answers,
+                                     age: age)
         }else if serviceType == CompanionServiceType.get{
             t = TRPCompanionServices(serviceType: serviceType)
         }else if serviceType == CompanionServiceType.delete, let id = id {
             t = TRPCompanionServices(id:id, serviceType: serviceType)
         }else {
             guard let id = id else {return}
-            t = TRPCompanionServices(serviceType: serviceType, id: id, name: name, answers: answers, age: age)
+            t = TRPCompanionServices(serviceType: serviceType,
+                                     id: id,
+                                     name: name,
+                                     answers: answers,
+                                     age: age)
         }
         
         guard let service = t else {

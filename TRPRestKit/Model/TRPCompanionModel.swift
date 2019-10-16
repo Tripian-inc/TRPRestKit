@@ -18,7 +18,7 @@ public struct TRPCompanionModel: Decodable {
     /// A String value. Last name of the companion.
     public var answers: String?
     /// A String value. Age of the companion.
-    public var age: String?
+    public var age: Int?
 
     private enum CodingKeys: String, CodingKey {case id,name,answers,age}
     
@@ -31,10 +31,8 @@ public struct TRPCompanionModel: Decodable {
         self.id = try values.decodeIfPresent(Int.self, forKey: .id)
         self.name = try values.decodeIfPresent(String.self, forKey: .name)
         self.answers = try values.decodeIfPresent(String.self, forKey: .answers)
-        let ageInt = try values.decodeIfPresent(Int.self, forKey: .age)
-        if let ageInt = ageInt{
-            self.age = "\(ageInt)"
-        }
+        self.age = try values.decodeIfPresent(Int.self, forKey: .age)
+        
     }
     
 }

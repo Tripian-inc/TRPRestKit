@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TRPFoundationKit
 public enum CompanionServiceType {
     case get, add, update, delete
 }
@@ -14,11 +15,14 @@ internal class TRPCompanionServices: TRPRestServices {
     let serviceType: CompanionServiceType
     var id: Int?
     var name: String?
-    var answers: String?
-    var age: String?
+    var answers: [Int]?
+    var age: Int?
     
     //service constructor to - add - companion.
-    public init(serviceType: CompanionServiceType, name:String? = nil, answers: String? = nil, age: String? = nil) {
+    public init(serviceType: CompanionServiceType,
+                name:String? = nil,
+                answers: [Int]? = nil,
+                age: Int? = nil) {
         self.serviceType = serviceType
         self.name = name
         self.answers = answers
@@ -26,7 +30,10 @@ internal class TRPCompanionServices: TRPRestServices {
     }
     
     //service constructor to - update - user's companions.
-    public init(serviceType: CompanionServiceType, id: Int, name:String? = nil, answers: String? = nil, age: String? = nil) {
+    public init(serviceType: CompanionServiceType,
+                id: Int, name:String? = nil,
+                answers: [Int]? = nil,
+                age: Int? = nil) {
         self.serviceType = serviceType
         self.id = id
         self.name = name
@@ -35,7 +42,7 @@ internal class TRPCompanionServices: TRPRestServices {
     }
     
     //service constructor to - delete - user's companion.
-    public init(id: Int,serviceType: CompanionServiceType) {
+    public init(id: Int, serviceType: CompanionServiceType) {
         self.serviceType = serviceType
         self.id = id
     }
@@ -77,7 +84,7 @@ internal class TRPCompanionServices: TRPRestServices {
         var params: Dictionary<String, Any> = [:]
         if let answers = answers {
             if answers.count > 0{
-                params["answers"] = answers
+                params["answers"] = answers.toString()
             }
         }
         if let name = name {
