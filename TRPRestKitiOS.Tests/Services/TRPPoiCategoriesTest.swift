@@ -19,7 +19,7 @@ class TRPPoiCategoriesTest: XCTestCase {
     
     func testPoiCategories() {
         let nameSpace = #function
-        let expectation = XCTestExpectation(description: "\(nameSpace) expect")
+        let expectation = XCTestExpectation(description: "\(nameSpace) expect6677788899")
         
         TRPRestKit().poiCategories { (result, error, pagination) in
             if let error = error {
@@ -62,7 +62,7 @@ class TRPPoiCategoriesTest: XCTestCase {
             XCTAssertNotEqual(data.name.count, 0)
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: 20)
     }
     
 }

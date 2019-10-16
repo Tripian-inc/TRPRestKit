@@ -15,8 +15,7 @@ internal class TRPPlace: TRPRestServices {
         case withPlacesId
         case withLocation
         case withSearchText
-        
-        
+        case withCityType
     }
     
     var placeIds: [Int]?;
@@ -65,6 +64,11 @@ internal class TRPPlace: TRPRestServices {
         status = .withSearchText
     }
     
+    internal init(cityId: Int?,typeIds: [Int]?) {
+           self.typeIds = typeIds
+           self.cityId = cityId
+           status = .withCityType
+       }
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
@@ -127,6 +131,13 @@ internal class TRPPlace: TRPRestServices {
             }
             if let location = location {
                 params["coordinate"] = "\(location.lat),\(location.lon)"
+            }
+        }else if status == .withCityType {
+            if let cityId = cityId {
+                params["city_id"] = cityId
+            }
+            if let typeIds = typeIds {
+                params["poi_categories"] = typeIds.toString()
             }
         }
         

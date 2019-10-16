@@ -11,7 +11,7 @@ import XCTest
 @testable import TRPRestKit
 
 class TRPTripTest: XCTestCase {
-    
+  /*
     override func setUp() {
         super.setUp()
        TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
@@ -72,6 +72,6 @@ class TRPTripTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
   
-    
+    */
     
 }

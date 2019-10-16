@@ -46,6 +46,9 @@ import TRPFoundationKit
     private var completionHandler: CompletionHandler?;
     private var completionHandlerWithPagination: CompletionHandlerWithPagination?;
     
+    public override init() {
+        print("***************************")
+    }
     
     fileprivate func postData(result: Any?, pagination: Pagination? = Pagination.completed){
         if let comp = completionHandler {
@@ -329,6 +332,18 @@ extension TRPRestKit {
                     autoPagination: autoPagination ?? false)
     }
     
+    public func poi(withCityId: Int,
+                    categoryIds: [Int]? = nil,
+                    autoPagination: Bool? = false,
+                    limit: Int? = 25,
+                    completion: @escaping CompletionHandlerWithPagination) {
+        self.completionHandlerWithPagination = completion;
+        poiServices(limit: limit,
+                    typeIds: categoryIds,
+                    cityId: withCityId,
+                    autoPagination: autoPagination ?? false)
+    }
+    
     
     /// Obtain information of pois using search text such as tags(for example "restaurant", "museum", "bar" etc.), name of poi.
     ///
@@ -391,6 +406,8 @@ extension TRPRestKit {
             t = TRPPlace(cities: cities)
         }else if link != nil {
             t = TRPPlace()
+        }else if let cityId = cityId, let types = typeIds {
+            t = TRPPlace(cityId: cityId, typeIds: types)
         }
         
         guard let services = t else {return}
@@ -494,6 +511,7 @@ extension TRPRestKit {
                     if questionId != nil {
                         if let quesion = questions.first {
                             self.postData(result: quesion)
+                            return
                         }
                     }else {
                         self.postData(result: questions, pagination: pagination)
