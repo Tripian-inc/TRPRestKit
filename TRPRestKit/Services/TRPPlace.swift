@@ -148,7 +148,7 @@ internal class TRPPlace: TRPRestServices {
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.Poi.link;
+        return TRPConfig.ApiCall.poi.link;
     }
     
 }

@@ -444,7 +444,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - questionId: Id of question
     ///   - completion: Any objects needs to be converted to **TRPTripQuestionInfoModel** object.
-    public func tripQuestions(withQuestionId questionId: Int, completion: @escaping CompletionHandler){
+    public func tripQuestion(withId questionId: Int, completion: @escaping CompletionHandler){
         self.completionHandler = completion;
         questionServices(questionId: questionId)
     }
@@ -1453,8 +1453,8 @@ extension TRPRestKit {
     }
     
     private func updateDailyPlanHourService(dailyPlanId: Int, start:String, end:String) {
-        let t = TRPDailyPlanServices(id: dailyPlanId, startTime: start, endTime: end)
-        t.Completion = {   (result, error, pagination) in
+        let service = TRPDailyPlanServices(id: dailyPlanId, startTime: start, endTime: end)
+        service.Completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1463,8 +1463,7 @@ extension TRPRestKit {
                 self.postData(result: r.data)
             }
         }
-        t.connection()
+        service.connection()
     }
-    
     
 }

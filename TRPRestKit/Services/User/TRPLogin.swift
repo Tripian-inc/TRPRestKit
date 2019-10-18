@@ -57,7 +57,7 @@ internal class TRPLogin: TRPRestServices{
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.Login.link
+        return TRPConfig.ApiCall.login.link
     }
     
     public override func bodyParameters() -> Dictionary<String, Any>? {

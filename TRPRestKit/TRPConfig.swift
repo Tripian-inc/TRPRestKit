@@ -36,22 +36,21 @@ internal struct TRPConfig {
     }
     
     internal enum ApiCall: String {
-        case Cities
-        case GetcityByCoordinates
-        case PoiCategories
-        case Poi
-        case Questions
-        case Recommendations
-        case Routes
-        case RoutesResult
-        case GRouteReuslt
-        case PlanPointAlternative
-        case Tags
-        case CheckDataUpdates
-        case User
-        case Login
+        case cities
+        case getCityByCoordinates
+        case poiCategories
+        case poi
+        case questions
+        case recommendations
+        case routes
+        case routesResult
+        case googleRouteReuslt
+        case planPointAlternative
+        case tags
+        case checkDataUpdates
         case user
-        case UserTrips
+        case login
+        case userTrips
         case Trip
         case DailyPlan
         case UserPreferences
@@ -59,39 +58,40 @@ internal struct TRPConfig {
         case Register
         case Favorite
         case Companion
+        
         var link: String {
             switch self {
-            case .Cities:
+            case .cities:
                 return getNewLink() ?? "cities"
-            case .GetcityByCoordinates:
+            case .getCityByCoordinates:
                 return getNewLink() ?? "getcitybycoordinate"
-            case .PoiCategories:
+            case .poiCategories:
                 return getNewLink() ?? "poi-categories"
-            case .Poi:
+            case .poi:
                 return getNewLink() ?? "poi"
-            case .Questions:
+            case .questions:
                 return getNewLink() ?? "trip-questions"
-            case .Recommendations:
+            case .recommendations:
                 return getNewLink() ?? "recommendation"
-            case .Routes:
+            case .routes:
                 return getNewLink() ?? "routes"
-            case .RoutesResult:
+            case .routesResult:
                 return getNewLink() ?? "routeresult"
-            case .GRouteReuslt:
+            case .googleRouteReuslt:
                 return getNewLink() ?? "grouteresult"
-            case .PlanPointAlternative:
+            case .planPointAlternative:
                 return getNewLink() ?? "dailyplanpoi-alternatives"
-            case .Tags:
+            case .tags:
                 return getNewLink() ?? "tags"
-            case .CheckDataUpdates:
+            case .checkDataUpdates:
                 return getNewLink() ?? "check-data-updates"
-            case .User:
+            case .user:
                 return getNewLink() ?? "user"
-            case .Login:
+            case .login:
                 return getNewLink() ?? "login"
             case .user:
                 return getNewLink() ?? "user"
-            case .UserTrips:
+            case .userTrips:
                 return getNewLink() ?? "user/trips"
             case .Trip:
                 return getNewLink() ?? "trip"

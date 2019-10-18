@@ -55,7 +55,24 @@ class TRPCompanionTest: XCTestCase {
         let expectation = XCTestExpectation(description: name)
         let randomName = randomString(length: 9)
         let randomAge = Int.random(in: 20..<80)
-        TRPRestKit().addCompanion(name: name, age: <#T##String?#>, answers: <#T##String?#>, completion: <#T##TRPRestKit.CompletionHandler##TRPRestKit.CompletionHandler##(Any?, NSError?) -> Void#>)
+        
+        TRPRestKit().addCompanion(name: randomName, age: randomAge, answers: [1,2,3]) { (result, error) in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Resutl is nil")
+                expectation.fulfill()
+                return
+            }
+            guard let models = result as? [TRPCompanionModel]  else {
+                XCTFail("\(nameSpace) Json model couldn't converted")
+                expectation.fulfill()
+                return
+            }
+        }
         
         TRPRestKit().getUsersCompanions { (result, error) in
             if let error = error {
