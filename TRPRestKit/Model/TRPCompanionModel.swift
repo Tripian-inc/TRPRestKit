@@ -20,13 +20,13 @@ public struct TRPCompanionModel: Decodable {
     /// A String value. Age of the companion.
     public var age: Int?
 
-    private enum CodingKeys: String, CodingKey {case id,name,answers,age}
+    private enum CodingKeys: String, CodingKey {case id, name, answers, age}
     
     /// Json to Object converter
     ///
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try values.decodeIfPresent(Int.self, forKey: .id)
         self.name = try values.decodeIfPresent(String.self, forKey: .name)

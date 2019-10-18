@@ -11,19 +11,19 @@ import Foundation
 public struct TRPCountryJsonModel: Decodable {
     
     /// Code of Country such as us
-    public var code: String?;
+    public var code: String?
     /// Name of Country such as USA
-    public var name: String?;
+    public var name: String?
     /// Continient of County
-    public var continient: String?;
+    public var continient: String?
     
-    private enum CodingKeys: String, CodingKey{
+    private enum CodingKeys: String, CodingKey {
         case code
         case name
         case continent
     }
     
-    private enum ContinientKeys:String, CodingKey {
+    private enum ContinientKeys: String, CodingKey {
         case name
     }
     

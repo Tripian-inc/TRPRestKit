@@ -12,6 +12,6 @@ import Foundation
 public struct TRPRecommendationInfoJsonModel: Decodable {
     
     /// An Int value. Unique id of poi.
-    public var id: Int;
+    public var id: Int
     
 }

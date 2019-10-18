@@ -7,7 +7,6 @@
 //
 
 import Foundation
-//TODO - TOKEN I Bİ YERE KAYDET VE ORADAN KULLAN
 internal class TRPUserInfoServices: TRPRestServices {
     
     enum ServiceType {
@@ -30,7 +29,7 @@ internal class TRPUserInfoServices: TRPRestServices {
         self.answers = answers
     }
     
-    init(firstName: String? = nil, lastName:String? = nil, age:Int? = nil, password: String? = nil, answers: [Int]? = nil) {
+    init(firstName: String? = nil, lastName: String? = nil, age: Int? = nil, password: String? = nil, answers: [Int]? = nil) {
         self.serviceType = .updateInfo
         self.password = password
         self.answers = answers
@@ -41,35 +40,35 @@ internal class TRPUserInfoServices: TRPRestServices {
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.Completion?(nil,error, nil);
+            self.completion?(nil, error, nil)
             return
         }
         guard let data = data else {
-            self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
         
-        let jsonDecode = JSONDecoder();
+        let jsonDecode = JSONDecoder()
         do {
             let result = try jsonDecode.decode(TRPUserInfoJsonModel.self, from: data)
-            self.Completion?(result, nil, nil);
-        }catch(let tryError) {
-            self.Completion?(nil, tryError as NSError, nil);
+            self.completion?(result, nil, nil)
+        } catch let tryError {
+            self.completion?(nil, tryError as NSError, nil)
         }
     }
     
-    public override func parameters() -> Dictionary<String, Any>? {
-        var params: Dictionary<String, Any> = [:]
+    public override func parameters() -> [String: Any]? {
+        var params: [String: Any] = [:]
         if serviceType == .updateAnswer {
             if let answers = answers {
                 params["answers"] = answers.toString()
             }
-        }else if serviceType == .updateInfo {
+        } else if serviceType == .updateInfo {
             if let password = password {
                 params["password"] = password
             }
             if let answers = answers {
-                if answers.toString().count > 0{
+                if answers.toString().count > 0 {
                     params["answers"] = answers.toString()
                 }
             }
@@ -91,11 +90,11 @@ internal class TRPUserInfoServices: TRPRestServices {
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.user.link;
+        return TRPConfig.ApiCall.user.link
     }
     
     public override func requestMode() -> TRPRequestMode {
-        if serviceType == .updateAnswer || serviceType == .updateInfo{
+        if serviceType == .updateAnswer || serviceType == .updateInfo {
             return TRPRequestMode.put
         }
         return TRPRequestMode.get

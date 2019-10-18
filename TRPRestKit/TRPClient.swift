@@ -17,10 +17,10 @@ import Foundation
 ///  ````
 ///   TRPClient.provideApiKey(#<YourApiKey>#)
 ///  ````
-@objc public class TRPClient:NSObject {
+@objc public class TRPClient: NSObject {
     
-    internal static var shared = TRPClient();
-    private var ApiKey = "";
+    internal static var shared = TRPClient()
+    private var apiKey = ""
     
     /// Allows link to be shown
     public var showLink = false
@@ -29,30 +29,28 @@ import Foundation
     
     private override init() {}
     
-    
     /// An api key must be setted
     ///
     /// - Parameter key: Your api key
-    @objc public static func provideApiKey(_ key: String) ->Void {
-        TRPClient.shared.ApiKey = key;
+    @objc public static func provideApiKey(_ key: String) {
+        TRPClient.shared.apiKey = key
     }
     
     internal static func getKey() -> String {
-        return TRPClient.shared.ApiKey;
+        return TRPClient.shared.apiKey
     }
-    
     
     /// Allows link to be shown
     ///
     /// - Parameter status: status
-    public static func printLink(_ status:Bool) -> Void {
+    public static func printLink(_ status: Bool) {
         TRPClient.shared.showLink = status
     }
     
     /// Allows Data to be shown
     ///
     /// - Parameter status: status
-    public static func printData(_ status: Bool) -> Void {
+    public static func printData(_ status: Bool) {
         TRPClient.shared.showData = status
     }
 }

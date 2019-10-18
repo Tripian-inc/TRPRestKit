@@ -37,7 +37,7 @@ public struct TRPUserTripInfoModel: Decodable {
     ///
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
         self.hash = try values.decode(String.self, forKey: .hash)
         let arrivalDate = try values.decode(String.self, forKey: .arrivalDate)

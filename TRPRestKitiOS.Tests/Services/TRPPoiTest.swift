@@ -9,13 +9,12 @@
 import XCTest
 @testable import TRPRestKit
 @testable import TRPFoundationKit
-class TRPPoiTest: XCTestCase{
+class TRPPoiTest: XCTestCase {
     
     let cityId = 107 //Istanbul
     let placeId = 516733  //David M. Arslantas istanbul
     let location = TRPLocation(lat: 41, lon: 29)
     let category = 3
-    
     
     override func setUp() {
         super.setUp()
@@ -28,7 +27,7 @@ class TRPPoiTest: XCTestCase{
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation4567890*09876")
         var loopCounter = 0
-        TRPRestKit().poi(withCityId: cityId, autoPagination: false) { (result, error, pagination) in
+        TRPRestKit().poi(withCityId: cityId, autoPagination: false) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
@@ -48,7 +47,7 @@ class TRPPoiTest: XCTestCase{
             XCTAssertNotNil(firstPlace!.cityId)
             XCTAssertEqual(firstPlace!.cityId, self.cityId)
             
-            loopCounter = loopCounter + 1
+            loopCounter += 1
             expectation.fulfill()
             
         }
@@ -60,7 +59,7 @@ class TRPPoiTest: XCTestCase{
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         var loopCounter = 0
-        TRPRestKit().poi(withCityId: cityId, autoPagination: true) { (result, error, pagination) in
+        TRPRestKit().poi(withCityId: cityId, autoPagination: true) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
@@ -80,7 +79,7 @@ class TRPPoiTest: XCTestCase{
             XCTAssertNotNil(firstPlace!.cityId)
             XCTAssertEqual(firstPlace!.cityId, self.cityId)
             
-            loopCounter = loopCounter + 1
+            loopCounter += 1
             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 if loopCounter > 1 {
                     expectation.fulfill()
@@ -120,7 +119,6 @@ class TRPPoiTest: XCTestCase{
         
         wait(for: [expectation], timeout: 10.0)
     }
-    
     
     func testPoiWithLink() {
         let nameSpace = #function
@@ -211,12 +209,11 @@ class TRPPoiTest: XCTestCase{
                 }
                 return false
             }
-            XCTAssertNotEqual(mType.count,0)
+            XCTAssertNotEqual(mType.count, 0)
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10.0)
     }
-    
 
     func testPoiWithLocationDistance() {
         let nameSpace = #function
@@ -246,6 +243,5 @@ class TRPPoiTest: XCTestCase{
         }
         wait(for: [expectation], timeout: 10.0)
     }
-    
     
 }

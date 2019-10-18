@@ -19,14 +19,14 @@ class TRPGooglePlaceService {
         self.id = placeId
     }
     
-    func start(completion: @escaping (_ result: Any?, _ error: NSError?)-> Void) {
+    func start(completion: @escaping (_ result: Any?, _ error: NSError?) -> Void) {
         let network = TRPNetwork(link: "https://maps.googleapis.com/maps/api/place/details/json")
-        network.add(params: ["placeid":id, "key":key])
+        network.add(params: ["placeid": id, "key": key])
         network.add(mode: .post)
         network.build { (error, data) in
             
             if let error = error {
-                completion(nil,error)
+                completion(nil, error)
                 return
             }
             
@@ -40,7 +40,7 @@ class TRPGooglePlaceService {
                     return
                 }
                 if let errorMessage = object?["error_message"] as? String {
-                    completion(nil,TRPErrors.someThingWronk(errorMessage) as NSError)
+                    completion(nil, TRPErrors.someThingWronk(errorMessage) as NSError)
                     return
                 }
                 guard let result = object?["result"] as? [String: Any],
@@ -49,7 +49,7 @@ class TRPGooglePlaceService {
                     let lat = location["lat"] as? Double,
                     let lon = location["lng"] as? Double
                     else {
-                        completion(nil,TRPErrors.wrongData as NSError)
+                        completion(nil, TRPErrors.wrongData as NSError)
                         return
                 }
                 //todo: otel adress aktif hale getirilecek
@@ -64,7 +64,7 @@ class TRPGooglePlaceService {
                 }
                 
                 let model = TRPGooglePlaceLocation(id: self.id, location: TRPLocation(lat: lat, lon: lon), hotelAddress: address)
-                completion(model,nil)
+                completion(model, nil)
             }
         }
         

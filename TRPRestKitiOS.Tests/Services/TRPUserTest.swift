@@ -45,7 +45,6 @@ class TRPUserTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    
     func testUserInfo() {
         let nameSpace = "TRPUserInfo"
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
@@ -73,12 +72,11 @@ class TRPUserTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    
     func testUserTrip() {
         let nameSpace = "TRPUserTrips"
         
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        TRPRestKit().userTrips { (result, error, paging) in
+        TRPRestKit().userTrips { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 expectation.fulfill()

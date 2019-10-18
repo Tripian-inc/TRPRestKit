@@ -10,7 +10,7 @@ import Foundation
 /// Parent Json parser model for City
 internal class TRPRecommendationJsonModel: TRPParentJsonModel {
     /// Cities data
-    public var data: [TRPRecommendationInfoJsonModel]?;
+    public var data: [TRPRecommendationInfoJsonModel]?
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -19,6 +19,6 @@ internal class TRPRecommendationJsonModel: TRPParentJsonModel {
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.data = try values.decodeIfPresent([TRPRecommendationInfoJsonModel].self, forKey: .data)
-        try super.init(from: decoder);
+        try super.init(from: decoder)
     }
 }

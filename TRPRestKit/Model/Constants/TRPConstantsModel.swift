@@ -19,7 +19,7 @@ internal class TRPConstantsParentJsonModel: TRPParentJsonModel {
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.data = try values.decodeIfPresent(TRPConstantsJsonModel.self, forKey: .data)
-        try super.init(from: decoder);
+        try super.init(from: decoder)
     }
 }
 
@@ -37,10 +37,8 @@ internal class TRPConstantsJsonModel: Decodable {
     
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        version = try values.decodeIfPresent(TRPVersionInfoModel.self
-            , forKey: .version)
-        constants = try values.decodeIfPresent(TRPConstantsInfoModel.self
-            , forKey: .constants)
+        version = try values.decodeIfPresent(TRPVersionInfoModel.self, forKey: .version)
+        constants = try values.decodeIfPresent(TRPConstantsInfoModel.self, forKey: .constants)
     }
 }
 
@@ -102,13 +100,13 @@ public struct TRPConstantsInfoModel: Decodable {
 public struct TRPLocalizableMessageInfoModel: Decodable {
     
     /// A String value. Shows english version of message.
-    public var en: String?
+    public var english: String?
     /// A String value. Shows french version of message.
-    public var fr: String?
+    public var french: String?
     
     private enum CodingKeys: String, CodingKey {
-        case en = "en"
-        case fr = "fr"
+        case english = "en"
+        case french = "fr"
     }
     
     /// Initializes a new object with decoder
@@ -116,8 +114,7 @@ public struct TRPLocalizableMessageInfoModel: Decodable {
     /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.en = try values.decodeIfPresent(String.self, forKey: .en)
-        self.fr = try values.decodeIfPresent(String.self, forKey: .fr)
+        self.english = try values.decodeIfPresent(String.self, forKey: .english)
+        self.french = try values.decodeIfPresent(String.self, forKey: .french)
     }
 }
-

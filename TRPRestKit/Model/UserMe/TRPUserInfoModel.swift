@@ -24,7 +24,6 @@ public struct TRPUserInfoModel: Decodable {
     /// A array of TRPUserPreferencesInfoModel objects.
     public var info: [TRPUserPreferencesInfoModel]?
     
-    //TODO: - preferences eklenecek
     private enum CodingKeys: String, CodingKey {
         case email
         case info
@@ -39,7 +38,7 @@ public struct TRPUserInfoModel: Decodable {
     ///
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
        
         self.email = try values.decode(String.self, forKey: .email)
         self.firstName = try values.decodeIfPresent(String.self, forKey: .firstName)
@@ -60,7 +59,6 @@ public struct TRPTestUserInfoModel: Decodable {
     /// A array of TRPUserPreferencesInfoModel objects.
     public var info: [TRPUserPreferencesInfoModel]?
     
-    //TODO: - preferences eklenecek
     private enum CodingKeys: String, CodingKey {
         case userName = "username"
         case info
@@ -70,7 +68,7 @@ public struct TRPTestUserInfoModel: Decodable {
     ///
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.userName = try values.decode(String.self, forKey: .userName)
         self.info = try values.decodeIfPresent([TRPUserPreferencesInfoModel].self, forKey: .info)
@@ -78,17 +76,15 @@ public struct TRPTestUserInfoModel: Decodable {
     
 }
 
-
-
 /// Indicate preferences of user with Key/Value.
 public struct TRPUserPreferencesInfoModel: Decodable {
     
     /// An Int value. Unique id of User Preferences.
-    public var id: Int;
+    public var id: Int
     /// A String value.
-    public var key: String;
+    public var key: String
     /// A String value.
-    public var value: String;
+    public var value: String
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -96,12 +92,11 @@ public struct TRPUserPreferencesInfoModel: Decodable {
         case value
     }
     
-    
     /// Json to Object converter
     ///
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
         key = try values.decode(String.self, forKey: .key)
         value = try values.decode(String.self, forKey: .value)

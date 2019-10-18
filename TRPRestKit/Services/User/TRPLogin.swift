@@ -8,10 +8,10 @@
 
 import Foundation
 
-internal class TRPLogin: TRPRestServices{
+internal class TRPLogin: TRPRestServices {
     
     //Airmiles
-    private var email:String?
+    private var email: String?
     private var password: String?
     //Test server
     private var userName: String?
@@ -21,7 +21,7 @@ internal class TRPLogin: TRPRestServices{
     /// - Parameters:
     ///   - email: email address
     ///   - password: user password
-    init(email:String, password:String) {
+    init(email: String, password: String) {
         self.email = email
         self.password = password
     }
@@ -35,20 +35,20 @@ internal class TRPLogin: TRPRestServices{
     
     override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.Completion?(nil,error, nil);
+            self.completion?(nil, error, nil)
             return
         }
         guard let data = data else {
-            self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
         
-        let jsonDecode = JSONDecoder();
+        let jsonDecode = JSONDecoder()
         do {
             let result = try jsonDecode.decode(TRPLoginJsonModel.self, from: data)
-            self.Completion?(result, nil, nil);
-        }catch(let tryError) {
-            self.Completion?(nil, tryError as NSError, nil);
+            self.completion?(result, nil, nil)
+        } catch let tryError {
+            self.completion?(nil, tryError as NSError, nil)
         }
     }
     
@@ -60,12 +60,12 @@ internal class TRPLogin: TRPRestServices{
         return TRPConfig.ApiCall.login.link
     }
     
-    public override func bodyParameters() -> Dictionary<String, Any>? {
+    public override func bodyParameters() -> [String: Any]? {
         if let email = email, let password = password {
-            return ["email":email, "password":password]
+            return ["email": email, "password": password]
         }
         if let userName = userName {
-            return ["username":userName]
+            return ["username": userName]
         }
         return nil
     }

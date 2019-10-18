@@ -8,7 +8,7 @@
 
 import Foundation
 /// Parent Json parser model for Problem
-internal class TRPReportAProblemJsonModel:  TRPParentJsonModel {
+internal class TRPReportAProblemJsonModel: TRPParentJsonModel {
     
     /// Problem model
     public var data: TRPReportAProblemInfoModel?
@@ -19,8 +19,7 @@ internal class TRPReportAProblemJsonModel:  TRPParentJsonModel {
     
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        data = try values.decodeIfPresent(TRPReportAProblemInfoModel.self
-            , forKey: .data)
+        data = try values.decodeIfPresent(TRPReportAProblemInfoModel.self, forKey: .data)
         try super.init(from: decoder)
     }
     

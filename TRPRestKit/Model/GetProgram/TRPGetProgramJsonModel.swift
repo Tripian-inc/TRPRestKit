@@ -11,17 +11,17 @@ import Foundation
 public struct TRPGetProgramParamsInfoModel: Decodable {
     
     /// An Int value. Id of city.
-    public var cityId: String?;
+    public var cityId: String?
     /// A String value. Arrival date of trip.
-    public var arrivalDate: String?;
+    public var arrivalDate: String?
     /// A String value. Departure date of trip.
-    public var departureDate: String?;
+    public var departureDate: String?
     /// A String value. Arrival time of trip.
-    public var arrivalTime:String?;
+    public var arrivalTime: String?
     /// A String value. Departure time of trip.
-    public var departureTime: String?;
+    public var departureTime: String?
     /// An Int value. Adult count.
-    public var adults: Int?;
+    public var adults: Int?
     /// An Int value. Adults age range such as 32
     public var adultAgeRange: Int?
     /// An Int value. Count of Children
@@ -40,11 +40,11 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     public var tripAnswers = [Int]()
     
     private enum CodingKeys: String, CodingKey {
-        case cityId = "city_id";
-        case arrivalDate = "arrival_date";
-        case departureDate = "departure_date";
-        case arrivalTime = "arrival_time";
-        case departureTime = "departure_time";
+        case cityId = "city_id"
+        case arrivalDate = "arrival_date"
+        case departureDate = "departure_date"
+        case arrivalTime = "arrival_time"
+        case departureTime = "departure_time"
         case adults
         case adultAgeRange = "adult_age_average"
         case children
@@ -56,17 +56,16 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         case companions
     }
     
-    
     /// Initializes a new object with decoder
     ///
     /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
-        cityId = try values.decodeIfPresent(String.self, forKey: .cityId);
-        arrivalDate = try values.decodeIfPresent(String.self, forKey: .arrivalDate);
-        departureDate = try values.decodeIfPresent(String.self, forKey: .departureDate);
-        arrivalTime = try values.decodeIfPresent(String.self, forKey: .arrivalTime);
-        departureTime = try values.decodeIfPresent(String.self, forKey: .departureTime);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        cityId = try values.decodeIfPresent(String.self, forKey: .cityId)
+        arrivalDate = try values.decodeIfPresent(String.self, forKey: .arrivalDate)
+        departureDate = try values.decodeIfPresent(String.self, forKey: .departureDate)
+        arrivalTime = try values.decodeIfPresent(String.self, forKey: .arrivalTime)
+        departureTime = try values.decodeIfPresent(String.self, forKey: .departureTime)
         
         if let adults = try values.decodeIfPresent(String.self, forKey: .adults), let adultsCount = Int(adults) {
             self.adults = adultsCount
@@ -103,5 +102,3 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     }
 
 }
-
-

@@ -7,41 +7,41 @@
 //
 
 import Foundation
-internal class TRPDeleteProgram: TRPRestServices{
+internal class TRPDeleteProgram: TRPRestServices {
     
-    var hash:String?;
+    var hash: String?
     
     internal override init() {}
     
-    internal init(hash:String) {
+    internal init(hash: String) {
         self.hash = hash
     }
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.Completion?(nil,error, nil);
+            self.completion?(nil, error, nil)
             return
         }
         guard let data = data else {
-            self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
-        let jsonDecode = JSONDecoder();
+        let jsonDecode = JSONDecoder()
         do {
             let result = try jsonDecode.decode(TRPParentJsonModel.self, from: data)
-            self.Completion?(result, nil, nil);
-        }catch(let tryError) {
-            self.Completion?(nil, tryError as NSError, nil);
+            self.completion?(result, nil, nil)
+        } catch let tryError {
+            self.completion?(nil, tryError as NSError, nil)
         }
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.Trip.link;
+        var path = TRPConfig.ApiCall.trip.link
         if let hash = hash {
             path += "/\(hash)"
         }
         
-        return path;
+        return path
     }
     
     override func userOAuth() -> Bool {
@@ -51,6 +51,5 @@ internal class TRPDeleteProgram: TRPRestServices{
     override func requestMode() -> TRPRequestMode {
         return .delete
     }
-    
     
 }

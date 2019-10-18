@@ -16,12 +16,11 @@ class TRPPoiCategoriesTest: XCTestCase {
         TRPClient.printData(true)
     }
     
-    
     func testPoiCategories() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expect6677788899")
         
-        TRPRestKit().poiCategories { (result, error, pagination) in
+        TRPRestKit().poiCategories { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
@@ -40,8 +39,7 @@ class TRPPoiCategoriesTest: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    
-    func testPoiCateforyWithId(){
+    func testPoiCateforyWithId() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expect")
         let poiType = 3

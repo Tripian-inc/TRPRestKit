@@ -16,7 +16,7 @@ class TRPQuestionTest: XCTestCase {
         
     }
     
-    func testTripQuestionsWithQuestionId(){
+    func testTripQuestionsWithQuestionId() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         let questionID = 1
@@ -43,11 +43,10 @@ class TRPQuestionTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    
     func testTripQuestionsWithCityId() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        TRPRestKit().tripQuestions(withCityId: 107) { (result, error, pagination) in
+        TRPRestKit().tripQuestions(withCityId: 107) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
@@ -69,10 +68,10 @@ class TRPQuestionTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    func testTripQuestionsType()  {
+    func testTripQuestionsType() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        TRPRestKit().tripQuestions(type: TPRTripQuestionType.profile) { (result, error, pagination) in
+        TRPRestKit().tripQuestions(type: TPRTripQuestionType.profile) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return

@@ -11,3 +11,10 @@ line_length:
  ignores_function_declarations: true
  ### works up until this config rule
  ignores_interpolated_strings: true
+file_length:
+ warning: 1000
+ error: 2000
+identifier_name:
+ excluded: # excluded via string array
+  - id
+

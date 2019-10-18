@@ -55,47 +55,46 @@ class TRPCityJsonModelTest: XCTestCase {
             XCTAssertEqual(berlin.coordinate.lat, 52.5200066)
             XCTAssertEqual(berlin.coordinate.lon, 13.404953999999975)
             
-        }catch(let tryError) {
+        } catch let tryError {
             XCTFail(tryError.localizedDescription)
         }
     }
-    
-    
-    func testFullCityData() {
+    private func getFullCityData() -> String {
         let rawJson = """
-        {
-            "status": 200,
-            "success": true,
-            "data": [
-                   {
-                       "id": 10,
-                       "name": "Los Angeles",
-                       "featured": "https://poi-pics.s3-eu-west-1.amazonaws.com/City/10/featured.jpg",
-                       "boundary": [33.70362, 34.47327, -118.66819, -117.9493],
-                       "coordinate": {
-                           "lat": 34.0522342,
-                           "lng": -118.2436849
-                       },
-                       "country": {
-                           "code": "us",
-                           "name": "USA",
-                           "continent": {
-                               "name": "North America"
+                {
+                    "status": 200,
+                    "success": true,
+                    "data": [
+                           {
+                               "id": 10,
+                               "name": "Los Angeles",
+                               "featured": "https://poi-pics.s3-eu-west-1.amazonaws.com/City/10/featured.jpg",
+                               "boundary": [33.70362, 34.47327, -118.66819, -117.9493],
+                               "coordinate": {
+                                   "lat": 34.0522342,
+                                   "lng": -118.2436849
+                               },
+                               "country": {
+                                   "code": "us",
+                                   "name": "USA",
+                                   "continent": {
+                                       "name": "North America"
+                                   }
+                               }
                            }
-                       }
-                   }
-            ]
-        }
-"""
+                    ]
+                }
+        """
+        return rawJson
+    }
+    func testFullCityData() {
+         let rawJson = getFullCityData()
         
         do {
             let result = try jsonDecoder!.decode(TRPCityJsonModel.self, from: rawJson.data(using: String.Encoding.utf8)!)
             XCTAssertNotNil(result.data)
-            
             let losAngeles = result.data?.first
             XCTAssertNotNil(losAngeles)
-            
-            
             XCTAssertEqual(losAngeles!.id, 10)
             XCTAssertEqual(losAngeles!.name, "Los Angeles")
             XCTAssertNotNil(losAngeles!.image)
@@ -109,10 +108,9 @@ class TRPCityJsonModelTest: XCTestCase {
             XCTAssertEqual(losAngeles!.country!.code, "us")
             XCTAssertEqual(losAngeles!.country!.name, "USA")
             
-        }catch(let tryError) {
+        } catch let tryError {
             XCTFail(tryError.localizedDescription)
         }
     }
-    
    
 }

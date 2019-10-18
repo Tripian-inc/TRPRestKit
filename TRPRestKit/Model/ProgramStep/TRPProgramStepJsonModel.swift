@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPProgramStepJsonModel: TRPParentJsonModel{
+internal class TRPProgramStepJsonModel: TRPParentJsonModel {
     
     internal var data: TRPPlanPoi?
     
@@ -20,6 +20,6 @@ internal class TRPProgramStepJsonModel: TRPParentJsonModel{
         if let data = try? values.decodeIfPresent(TRPPlanPoi.self, forKey: .data) {
             self.data = data
         }
-        try super.init(from: decoder);
+        try super.init(from: decoder)
     }
 }

@@ -25,7 +25,7 @@ public struct TRPCoordinateModel: Decodable {
     ///
     /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         lat = try values.decode(Double.self, forKey: .lat)
         lon = try values.decode(Double.self, forKey: .lon)
     }

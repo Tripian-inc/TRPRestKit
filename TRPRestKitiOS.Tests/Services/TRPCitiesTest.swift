@@ -16,7 +16,6 @@ class TRPCitiesTest: XCTestCase {
         super.setUp()
         TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
     }
-    
 
     func testCities() {
         let nameSpace = #function
@@ -39,7 +38,7 @@ class TRPCitiesTest: XCTestCase {
             XCTAssertNotNil(pagination)
             XCTAssertNotEqual(pagination!, Pagination.completed)
             XCTAssertTrue(cities.count != 0)
-            loopCount = loopCount + 1
+            loopCount += 1
             
             print("Loop count \(loopCount)")
             //AutoCompleted true olduğu için birken fazla kez dönüyor
@@ -56,7 +55,7 @@ class TRPCitiesTest: XCTestCase {
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         var loopCount = 0
         
-        TRPRestKit().cities (isAutoPagination: false) {(result, error, pagination) in
+        TRPRestKit().cities(isAutoPagination: false) {(result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
@@ -73,7 +72,7 @@ class TRPCitiesTest: XCTestCase {
             XCTAssertNotNil(pagination)
             XCTAssertNotEqual(pagination!, Pagination.completed)
             XCTAssertTrue(cities.count != 0)
-            loopCount = loopCount + 1
+            loopCount += 1
             
             print("Loop count \(loopCount)")
             //AutoCompleted true olduğu için birken fazla kez dönüyor
@@ -84,7 +83,6 @@ class TRPCitiesTest: XCTestCase {
         }
         wait(for: [expectation], timeout: 10.0)
     }
-    
     
     func testCitiesLimit100() {
         let nameSpace = #function

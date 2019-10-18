@@ -11,7 +11,6 @@ import Foundation
 /// Google Place Model that provides use information
 open class TRPGooglePlace: NSObject {
     
-    
     /// A String value. Id of place
     public let id: String
     /// A String value. Address of place.
@@ -45,4 +44,3 @@ open class TRPGooglePlace: NSObject {
         )
     }
 }
-

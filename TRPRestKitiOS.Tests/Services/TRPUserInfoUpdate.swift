@@ -19,7 +19,7 @@ class TRPUserInfoUpdate: XCTestCase {
     
     func randomString(length: Int) -> String {
       let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-      return String((0..<length).map{ _ in letters.randomElement()! })
+      return String((0..<length).map { _ in letters.randomElement()! })
     }
     
     func testUserInfoUpdate() {
@@ -30,7 +30,7 @@ class TRPUserInfoUpdate: XCTestCase {
         let randomLastName = randomString(length: 7)
         let randomAge = Int.random(in: 22..<40)
         
-        TRPRestKit().updateUserInfo(firstName: randomName, lastName: randomLastName,age:randomAge) { (result, error) in
+        TRPRestKit().updateUserInfo(firstName: randomName, lastName: randomLastName, age: randomAge) { (result, error) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 expectation.fulfill()
@@ -47,18 +47,16 @@ class TRPUserInfoUpdate: XCTestCase {
                 return
             }
             
-            
             XCTAssertNotNil(model.lastName)
             XCTAssertNotNil(model.firstName)
             
             XCTAssertNotNil(model.info)
             var ageFromServer: String?
             
-            for child in model.info! {
-                if child.key == "age" {
-                    ageFromServer = child.value
-                }
+            for child in model.info! where child.key == "age" {
+                ageFromServer = child.value
             }
+            
             XCTAssertNotNil(ageFromServer)
             let ageFromServerInt = Int(ageFromServer!)
             XCTAssertNotNil(ageFromServerInt)

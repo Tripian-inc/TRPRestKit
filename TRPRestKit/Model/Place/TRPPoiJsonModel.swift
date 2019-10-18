@@ -8,10 +8,10 @@
 
 import Foundation
 /// Parent Json parser model for Poi
-internal class TRPPoiJsonModel:TRPParentJsonModel {
+internal class TRPPoiJsonModel: TRPParentJsonModel {
     
     /// Pois data
-    internal var data: [TRPPoiInfoModel]?;
+    internal var data: [TRPPoiInfoModel]?
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -21,9 +21,9 @@ internal class TRPPoiJsonModel:TRPParentJsonModel {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         if let models = try? values.decodeIfPresent([TRPPoiInfoModel].self, forKey: .data) {
             self.data = models
-        }else if let model = try? values.decodeIfPresent(TRPPoiInfoModel.self, forKey: .data), let data = [model] as? [TRPPoiInfoModel]{
-            self.data = data;
+        } else if let model = try? values.decodeIfPresent(TRPPoiInfoModel.self, forKey: .data), let data = [model] as? [TRPPoiInfoModel] {
+            self.data = data
         }
-        try super.init(from: decoder);
+        try super.init(from: decoder)
     }
 }

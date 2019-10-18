@@ -14,10 +14,10 @@ public struct TRPTime {
     
     /// A Date value. Closer uses a `yyyy-MM-dd HH:mm`style to convert.
     public var formated: Date? {
-        var formatter = DateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        if let tz = TimeZone(identifier: "UTC") {
-            formatter.timeZone = tz
+        if let timeZone = TimeZone(identifier: "UTC") {
+            formatter.timeZone = timeZone
         }
         return  formatter.date(from: "\(date) \(time)")
     }
@@ -27,7 +27,6 @@ public struct TRPTime {
     /// A String value. Readable value of time
     public var time: String = ""
     
-    
     /// Initilizes a new TRPTime with Int values.
     ///
     /// - Parameters:
@@ -36,10 +35,10 @@ public struct TRPTime {
     ///   - day: day such as 29
     ///   - hours: hours such as 14
     ///   - min: min such as 00
-    public init(year:Int, month:Int, day:Int, hours:Int, min:Int) {
+    public init(year: Int, month: Int, day: Int, hours: Int, min: Int) {
         let formatedMonth = String(format: "%02d", month)
         let formatedDay = String(format: "%02d", day)
-        date = String(year) + "-" + formatedMonth + "-" + formatedDay;
+        date = String(year) + "-" + formatedMonth + "-" + formatedDay
         time = String(format: "%02i:%02i", hours, min)
     }
     
@@ -58,8 +57,8 @@ public struct TRPTime {
     /// - Parameter date: Date object will be parsed Date/Time.
     public init(date: Date) {
         var calendar = Calendar.current
-        if let tz = TimeZone(identifier: "UTC") {
-            calendar.timeZone = tz
+        if let timeZone = TimeZone(identifier: "UTC") {
+            calendar.timeZone = timeZone
         }
         let year =
             calendar.component(.year, from: date)

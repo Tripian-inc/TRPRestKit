@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPCompanionsJsonModel:TRPParentJsonModel {
+internal class TRPCompanionsJsonModel: TRPParentJsonModel {
     
     public var data: [TRPCompanionModel]?
     
@@ -18,6 +18,6 @@ internal class TRPCompanionsJsonModel:TRPParentJsonModel {
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.data = try values.decodeIfPresent([TRPCompanionModel].self, forKey: .data)
-        try super.init(from: decoder);
+        try super.init(from: decoder)
     }
 }

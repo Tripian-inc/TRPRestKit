@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPPlanPointAlternativeJsonModel: TRPParentJsonModel{
+internal class TRPPlanPointAlternativeJsonModel: TRPParentJsonModel {
     
     internal var data: [TRPPlanPointAlternativeInfoModel]?
     
@@ -19,10 +19,10 @@ internal class TRPPlanPointAlternativeJsonModel: TRPParentJsonModel{
         let values = try decoder.container(keyedBy: CodingKeys.self)
         if let datas = try? values.decodeIfPresent([TRPPlanPointAlternativeInfoModel].self, forKey: .data) {
             self.data = datas
-        }else if let infoModel = try? values.decodeIfPresent(TRPPlanPointAlternativeInfoModel.self, forKey: .data) {
+        } else if let infoModel = try? values.decodeIfPresent(TRPPlanPointAlternativeInfoModel.self, forKey: .data) {
             self.data = [infoModel] as? [TRPPlanPointAlternativeInfoModel]
         }
         
-        try super.init(from: decoder);
+        try super.init(from: decoder)
     }
 }

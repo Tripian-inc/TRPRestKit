@@ -12,7 +12,7 @@ import Foundation
 internal class TRPFavoritesJsonModel: TRPParentJsonModel {
     
     ///Favorite's list
-    internal var data: [TRPFavoritesInfoModel]?;
+    internal var data: [TRPFavoritesInfoModel]?
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -23,17 +23,16 @@ internal class TRPFavoritesJsonModel: TRPParentJsonModel {
         
         if let data = try? values.decodeIfPresent(TRPFavoritesInfoModel.self, forKey: .data) {
             self.data = [data] as? [TRPFavoritesInfoModel]
-        }else if let datas = try? values.decodeIfPresent([TRPFavoritesInfoModel].self, forKey: .data) {
+        } else if let datas = try? values.decodeIfPresent([TRPFavoritesInfoModel].self, forKey: .data) {
             self.data = datas
         }
-        try super.init(from: decoder);
+        try super.init(from: decoder)
     }
     
 }
 
-
 /// This model provides you information of Favorites Poi.
-public struct TRPFavoritesInfoModel: Decodable{
+public struct TRPFavoritesInfoModel: Decodable {
     
     /// An Int value. Unique id of a poi.
     public var poiId: Int
@@ -55,4 +54,3 @@ public struct TRPFavoritesInfoModel: Decodable{
         self.cityId = try values.decode(Int.self, forKey: .cityId)
     }
 }
-

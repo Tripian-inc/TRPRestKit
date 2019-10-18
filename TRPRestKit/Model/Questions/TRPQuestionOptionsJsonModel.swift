@@ -9,7 +9,7 @@
 import Foundation
 
 /// Options of a Question.
-public struct TRPQuestionOptionsJsonModel: Decodable{
+public struct TRPQuestionOptionsJsonModel: Decodable {
     
     /// An Int value. Unique Id of option.
     public var id: Int
@@ -24,9 +24,9 @@ public struct TRPQuestionOptionsJsonModel: Decodable{
     /// Json to Object converter
     ///
     /// - Parameter decoder: Json Decoder Object
-    public init(from decoder: Decoder) throws{
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try values.decode(Int.self, forKey: .id);
-        self.name = try values.decode(String.self, forKey: .name);
+        self.id = try values.decode(Int.self, forKey: .id)
+        self.name = try values.decode(String.self, forKey: .name)
     }
 }

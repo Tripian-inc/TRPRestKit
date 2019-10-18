@@ -7,7 +7,6 @@
 //
 
 import Foundation
-// TODO: - ORDER KALDIRILABİLİR
 internal class TRPPlanPoints: TRPRestServices {
     
     enum Status {
@@ -23,9 +22,8 @@ internal class TRPPlanPoints: TRPRestServices {
     var placeId: Int?
     var order: Int?
     
-    
     /// Add new ProgramStep
-    internal init(hash:String, dailyPlanId: Int, placeId:Int, order:Int?) {
+    internal init(hash: String, dailyPlanId: Int, placeId: Int, order: Int?) {
         type = Status.add
         self.hash = hash
         self.dailyPlanId = dailyPlanId
@@ -41,7 +39,7 @@ internal class TRPPlanPoints: TRPRestServices {
     }
     
     /// ProgramStep Update
-    internal init(id:Int, placeId: Int?, order:Int?) {
+    internal init(id: Int, placeId: Int?, order: Int?) {
         self.programStepId = id
         
         self.placeId = placeId
@@ -49,29 +47,28 @@ internal class TRPPlanPoints: TRPRestServices {
         type = .update
     }
     
-    
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.Completion?(nil,error, nil);
+            self.completion?(nil, error, nil)
             return
         }
         guard let data = data else {
-            self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
         
-        let jsonDecode = JSONDecoder();
+        let jsonDecode = JSONDecoder()
         do {
             if type == .add {
                 let result = try jsonDecode.decode(TRPProgramStepJsonModel.self, from: data)
-                self.Completion?(result, nil, nil);
-            }else  {
+                self.completion?(result, nil, nil)
+            } else {
                 let result = try jsonDecode.decode(TRPProgramStepJsonModel.self, from: data)
-                self.Completion?(result, nil, nil);
+                self.completion?(result, nil, nil)
             }
             
-        }catch(let tryError) {
-            self.Completion?(nil, tryError as NSError, nil);
+        } catch let tryError {
+            self.completion?(nil, tryError as NSError, nil)
         }
     }
     
@@ -80,7 +77,7 @@ internal class TRPPlanPoints: TRPRestServices {
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.DailyPlanPoi.link
+        var path = TRPConfig.ApiCall.dailyPlanPoi.link
         if type != .add {
             if let id = programStepId {
                 path += "/\(id)"
@@ -92,16 +89,16 @@ internal class TRPPlanPoints: TRPRestServices {
     override func requestMode() -> TRPRequestMode {
         if type == Status.add {
             return TRPRequestMode.post
-        }else if type == Status.update {
+        } else if type == Status.update {
             return TRPRequestMode.put
-        }else if type == Status.delete {
+        } else if type == Status.delete {
             return TRPRequestMode.delete
         }
         return TRPRequestMode.get
     }
     
-    override func parameters() -> Dictionary<String, Any>? {
-        var params : Dictionary<String, Any> = [:];
+    override func parameters() -> [String: Any]? {
+        var params: [String: Any] = [:]
         if type == .add {
             if let dailyPlanId = dailyPlanId,
                 let placeId = placeId,
@@ -113,8 +110,8 @@ internal class TRPPlanPoints: TRPRestServices {
                     params["order"] = order
                 }
             }
-        }else if type == .update {
-            guard let _ = programStepId else {
+        } else if type == .update {
+            if programStepId != nil {
                 return params
             }
             
@@ -127,6 +124,5 @@ internal class TRPPlanPoints: TRPRestServices {
         }
         return params
     }
-    
     
 }

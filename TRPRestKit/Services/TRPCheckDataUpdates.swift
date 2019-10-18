@@ -35,7 +35,7 @@ internal class TRPCheckDataUpdates: TRPRestServices{
             let result = try jsonDecode.decode(TRPCheckUpdateJsonModel.self, from: data)
             let pag = paginationController(parentJson: result)
             self.Completion?(result, nil, pag);
-        }catch(let tryError) {
+        }catch let tryError {
             self.Completion?(nil, tryError as NSError, nil);
         }
     }

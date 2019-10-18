@@ -9,30 +9,16 @@
 import Foundation
 internal struct TRPConfig {
     
-    internal static var BaseUrl: String {
-        get {
-            //TestServer return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
-            //return "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
-            //us-west geliştirme sandbox
-            //return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com" //TestServer
-            //Airmiles - ca-cemtral
-            return "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com" // AirMiles
-        }
-    }
+    internal static var BaseUrl: String = "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com"
+        
     //buda tanımlanıcak. Versiyon
-    internal static var BaseUrlPath: String {
-        get {
-            return "v2"
-        }
-    }
-    
+    internal static var BaseUrlPath: String = "v2"
+
     //public static let BaseUrl: String = "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
     //public static let BaseUrlPath: String = "v02"
     
-    internal static var apiLink: String {
-        get {
-            return "https://\(BaseUrl)/\(BaseUrlPath)/"
-        }
+    internal static func apiLink() -> String {
+        return "https://\(BaseUrl)/\(BaseUrlPath)/"
     }
     
     internal enum ApiCall: String {
@@ -51,13 +37,13 @@ internal struct TRPConfig {
         case user
         case login
         case userTrips
-        case Trip
-        case DailyPlan
-        case UserPreferences
-        case DailyPlanPoi
-        case Register
-        case Favorite
-        case Companion
+        case trip
+        case dailyPlan
+        case userPreferences
+        case dailyPlanPoi
+        case register
+        case favorite
+        case companion
         
         var link: String {
             switch self {
@@ -89,23 +75,21 @@ internal struct TRPConfig {
                 return getNewLink() ?? "user"
             case .login:
                 return getNewLink() ?? "login"
-            case .user:
-                return getNewLink() ?? "user"
             case .userTrips:
                 return getNewLink() ?? "user/trips"
-            case .Trip:
+            case .trip:
                 return getNewLink() ?? "trip"
-            case .DailyPlan:
+            case .dailyPlan:
                 return getNewLink() ?? "dailyplan"
-            case .UserPreferences:
+            case .userPreferences:
                 return getNewLink() ?? "user/preferences"
-            case .DailyPlanPoi:
+            case .dailyPlanPoi:
                 return getNewLink() ?? "dailyplanpoi"
-            case .Register:
+            case .register:
                 return getNewLink() ?? "register"
-            case .Favorite:
+            case .favorite:
                 return getNewLink() ?? "user/favorites"
-            case .Companion:
+            case .companion:
                 return getNewLink() ?? "user/companion"
             }
         }

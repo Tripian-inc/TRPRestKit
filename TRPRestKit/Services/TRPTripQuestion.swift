@@ -14,50 +14,48 @@ import Foundation
 /// - profile: question about user profile.
 public enum TPRTripQuestionType: String {
     // Question about Trip.
-    case trip = "trip"
+    case trip
     // Question about user profile.
-    case profile = "profile"
+    case profile
     //Question about companion.
-    case companion = "companion"
+    case companion
 }
 
-internal class TRPTripQuestion: TRPRestServices{
+internal class TRPTripQuestion: TRPRestServices {
     
-    private var cityId: Int?;
+    private var cityId: Int?
     private var questionId: Int?
     public var tripType = TPRTripQuestionType.trip
-    public var language: String?;
+    public var language: String?
     
-    
-    internal init(cityId: Int){
-        self.cityId = cityId;
+    internal init(cityId: Int) {
+        self.cityId = cityId
     }
     
-    internal init(questionId: Int){
-        self.questionId = questionId;
+    internal init(questionId: Int) {
+        self.questionId = questionId
     }
     
-    internal init(tripType: TPRTripQuestionType){
-        self.tripType = tripType;
+    internal init(tripType: TPRTripQuestionType) {
+        self.tripType = tripType
     }
-    
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.Completion?(nil,error, nil);
+            self.completion?(nil, error, nil)
             return
         }
         guard let data = data else {
-            self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
-        let jsonDecode = JSONDecoder();
+        let jsonDecode = JSONDecoder()
         do {
             let result = try jsonDecode.decode(TRPTripQuestionJsonModel.self, from: data)
             let pag = paginationController(parentJson: result)
-            self.Completion?(result, nil, pag);
-        }catch(let tryError) {
-            self.Completion?(nil, tryError as NSError, nil);
+            self.completion?(result, nil, pag)
+        } catch let tryError {
+            self.completion?(nil, tryError as NSError, nil)
         }
     }
     
@@ -69,10 +67,10 @@ internal class TRPTripQuestion: TRPRestServices{
         return link
     }
     
-    public override func parameters() -> Dictionary<String, Any>? {
+    public override func parameters() -> [String: Any]? {
         
         if let cityId = cityId {
-            var dic: Dictionary<String, Any> = [:]
+            var dic: [String: Any] = [:]
             dic["city_id"] = "\(cityId)"
             dic["category"] = "\(tripType.rawValue)"
             

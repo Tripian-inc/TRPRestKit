@@ -9,7 +9,7 @@
 import Foundation
 
 /// Indicates information of a trip.
-public struct TRPTripInfoModel: Decodable{
+public struct TRPTripInfoModel: Decodable {
     
     /// An Int value. Id of trip.
     public var id: Int
@@ -25,8 +25,6 @@ public struct TRPTripInfoModel: Decodable{
     public var dailyPlans: [TRPDailyPlanInfoModel]?
     /// A TRPCityInfoModel objects.
     public var city: TRPCityInfoModel
-    
-    
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -44,10 +42,9 @@ public struct TRPTripInfoModel: Decodable{
     ///
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
         self.hash = try values.decode(String.self, forKey: .hash)
-        
         
         if let days = try? values.decodeIfPresent([TRPDailyPlanInfoModel].self, forKey: .dailyplans) {
             self.dailyPlans = days

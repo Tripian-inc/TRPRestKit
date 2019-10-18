@@ -15,21 +15,21 @@ internal class TRPConstantsServices: TRPRestServices {
     override func servicesResult(data: Data?, error: NSError?) {
         
         if let error = error {
-            self.Completion?(nil,error, nil)
+            self.completion?(nil, error, nil)
             return
         }
         
         guard let data = data else {
-            self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
         
         let jsonDecode = JSONDecoder()
         do {
             let result = try jsonDecode.decode(TRPConstantsParentJsonModel.self, from: data)
-            self.Completion?(result,nil,nil)
-        }catch(let tryError) {
-            self.Completion?(nil, tryError as NSError, nil);
+            self.completion?(result, nil, nil)
+        } catch let tryError {
+            self.completion?(nil, tryError as NSError, nil)
         }
         
     }
@@ -38,8 +38,8 @@ internal class TRPConstantsServices: TRPRestServices {
         return "sdk-constants"
     }
     
-    override func parameters() -> Dictionary<String, Any>? {
-        var params : Dictionary<String, Any> = [:];
+    override func parameters() -> [String: Any]? {
+        var params: [String: Any] = [:]
         params["platform"] = "ios"
         return params
     }

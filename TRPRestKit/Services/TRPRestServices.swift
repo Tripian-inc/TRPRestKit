@@ -8,20 +8,19 @@
 
 import Foundation
 
-
 /// This is a high-level class to connectiong with remote server.
 /// If you want to generate a new servise, new servise must be extended TRPRestServices.
 public class TRPRestServices {
     
     /// A Closer. Completion handler
-    public var Completion:((_ result:Any?, _ error:NSError?, _ pagination: Pagination?) -> Void)?
+    public var completion:((_ result: Any?, _ error: NSError?, _ pagination: Pagination?) -> Void)?
     
     /// Sets automatic loading of Pages
     public var isAutoPagination = true
     
     /// To start connection
     public func connection() {
-        let network = TRPNetwork(path: path());
+        let network = TRPNetwork(path: path())
         network.add(params: createParams())
         network.add(mode: requestMode())
         
@@ -41,11 +40,10 @@ public class TRPRestServices {
         }
     }
     
-    
     /// To start connection using link
     ///
     /// - Parameter link: Raw link
-    public func connection(link:String) {
+    public func connection(link: String) {
         
         let network = TRPNetwork(link: link)
         network.addValue(TRPClient.getKey(), forHTTPHeaderField: "x-api-key")
@@ -64,31 +62,28 @@ public class TRPRestServices {
         }
     }
     
-    private func createParams() -> Dictionary<String, Any> {
-        var params : Dictionary<String, Any> = [:];
+    private func createParams() -> [String: Any] {
+        var params: [String: Any] = [:]
         if let additionalParams = parameters() {
-            params.merge(additionalParams, uniquingKeysWith: {(old, new) in new});
+            params.merge(additionalParams, uniquingKeysWith: {(_, new) in new})
         }
         return params
     }
     
-    private func bodyDataToJson(_ data: Dictionary<String, Any>?) -> Data? {
+    private func bodyDataToJson(_ data: [String: Any]?) -> Data? {
         guard let bodyData = data else {
             return nil
         }
-        var jsonData:Data?
+        var jsonData: Data?
         do {
             jsonData = try JSONSerialization.data(withJSONObject: bodyData, options: [])
-        }catch(let error) {
+        } catch let error {
             print("HttpBody data: \(error.localizedDescription)")
         }
         return jsonData
     }
     
-    
-    
     // MARK: - Overriter Funstions
-    
     
     /// HTTP request mode
     ///
@@ -97,29 +92,26 @@ public class TRPRestServices {
         return TRPRequestMode.get
     }
     
-    
     /// This method must be overrided to parse json
     ///
     /// - Parameters:
     ///   - data: returns from remote server
     ///   - error: nsError
-    public func servicesResult(data:Data?, error:NSError?) {}
-    
+    public func servicesResult(data: Data?, error: NSError?) {}
     
     /// Returns HTTP body parameters
     ///
     /// - Returns: Body params
-    public func bodyParameters() -> Dictionary<String, Any>? {
+    public func bodyParameters() -> [String: Any]? {
         return nil
     }
     
     /// Returns HTTP parameters
     ///
     /// - Returns: params
-    public func parameters() -> Dictionary<String, Any>? {
+    public func parameters() -> [String: Any]? {
         return nil
     }
-    
     
     /// Sets custom path such as /trip etc...
     ///
@@ -134,11 +126,10 @@ public class TRPRestServices {
                 connection(link: nextPage)
             }
             return .continues(nextPage)
-        }else {
+        } else {
             return .completed
         }
     }
-
     
     /// To use user oauth
     ///
@@ -146,7 +137,6 @@ public class TRPRestServices {
     public func userOAuth() -> Bool {
         return false
     }
-    
     
     /// Returns user hash using `DataHolder`
     ///
