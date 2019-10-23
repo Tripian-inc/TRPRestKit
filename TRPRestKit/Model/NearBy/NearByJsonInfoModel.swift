@@ -36,7 +36,7 @@ public struct TRPPlanPointAlternativeInfoModel: Decodable {
         self.hash = try values.decode(String.self, forKey: .hash)
         self.alternativePoiId = try values.decode(Int.self, forKey: .poiId)
         
-        if let points = try? values.decodeIfPresent(TRPPlanPoi.self, forKey: .planPoint) {
+        if let points = ((try? values.decodeIfPresent(TRPPlanPoi.self, forKey: .planPoint)) as TRPPlanPoi??) {
             self.dailyPlanPoi = points
         }
     }

@@ -56,7 +56,7 @@ public struct TRPDailyPlanInfoModel: Decodable {
         self.startTime = try values.decodeIfPresent(String.self, forKey: .startTime)
         self.endTime = try values.decodeIfPresent(String.self, forKey: .endTime)
         //todo:- alk kod açılacak test için yapıldı
-        if let planPoints = try? values.decodeIfPresent([TRPPlanPoi].self, forKey: .planPoints) {
+        if let planPoints = ((try? values.decodeIfPresent([TRPPlanPoi].self, forKey: .planPoints)) as [TRPPlanPoi]??) {
             self.planPois = planPoints ?? []
         } else {
             self.planPois = []

@@ -17,7 +17,7 @@ internal class TRPProgramStepJsonModel: TRPParentJsonModel {
     
     required internal init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        if let data = try? values.decodeIfPresent(TRPPlanPoi.self, forKey: .data) {
+        if let data = ((try? values.decodeIfPresent(TRPPlanPoi.self, forKey: .data)) as TRPPlanPoi??) {
             self.data = data
         }
         try super.init(from: decoder)

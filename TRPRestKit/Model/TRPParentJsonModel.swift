@@ -37,7 +37,7 @@ public class TRPParentJsonModel: Decodable {
         success = try values.decode(Bool.self, forKey: TRPParentJsonModel.ParentCodingKeys.success)
         message = try values.decodeIfPresent(String.self, forKey: .message)
         
-        if let pagination = try? values.decodeIfPresent(TRPPaginationJsonModel.self, forKey: .pagination) {
+        if let pagination = ((try? values.decodeIfPresent(TRPPaginationJsonModel.self, forKey: .pagination)) as TRPPaginationJsonModel??) {
             self.pagination = pagination
         }
     }
@@ -73,7 +73,7 @@ struct TRPPaginationJsonModel: Decodable {
         self.count = try values.decodeIfPresent(Int.self, forKey: .count) ?? 0
         self.totalPages = try values.decodeIfPresent(Int.self, forKey: .totalPages) ?? 0
         
-        if let links = try? values.decodeIfPresent(TRPPaginationLinkJsonModel.self, forKey: .links) {
+        if let links = ((try? values.decodeIfPresent(TRPPaginationLinkJsonModel.self, forKey: .links)) as TRPPaginationLinkJsonModel??) {
             self.links = links
         }
     }
@@ -92,10 +92,10 @@ struct TRPPaginationLinkJsonModel: Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        if let next = try? values.decodeIfPresent(String.self, forKey: .next) {
+        if let next = ((try? values.decodeIfPresent(String.self, forKey: .next)) as String??) {
             self.next = next
         }
-        if let previous = try? values.decodeIfPresent(String.self, forKey: .previous) {
+        if let previous = ((try? values.decodeIfPresent(String.self, forKey: .previous)) as String??) {
             self.previous = previous
         }
     }

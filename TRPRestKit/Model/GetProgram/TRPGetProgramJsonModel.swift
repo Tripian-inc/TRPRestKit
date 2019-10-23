@@ -88,15 +88,15 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         self.hotelAddress = try values.decodeIfPresent(String.self, forKey: .hotelAddress)
         
         if let answersStr = try values.decodeIfPresent(String.self, forKey: .answers) {
-           // answers = answersStr.toIntArray()
+            answers = answersStr.toIntArray()
         }
         
         if let tripAnswersStr = try values.decodeIfPresent(String.self, forKey: .tripAnswers) {
-            //tripAnswers = tripAnswersStr.toIntArray()
+           tripAnswers = tripAnswersStr.toIntArray()
         }
         
         if let companionsStr = try values.decodeIfPresent(String.self, forKey: .companions) {
-            //companions = companionsStr.toIntArray()
+           companions = companionsStr.toIntArray()
         }
         
     }

@@ -20,9 +20,9 @@ internal class TRPPoiCategories: TRPParentJsonModel {
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        if let datas = try? values.decodeIfPresent([TRPCategoryInfoModel].self, forKey: .data) {
+        if let datas = ((try? values.decodeIfPresent([TRPCategoryInfoModel].self, forKey: .data)) as [TRPCategoryInfoModel]??) {
             self.data = datas
-        } else if let data = try? values.decodeIfPresent(TRPCategoryInfoModel.self, forKey: .data), let newAr = [data] as? [TRPCategoryInfoModel] {
+        } else if let data = ((try? values.decodeIfPresent(TRPCategoryInfoModel.self, forKey: .data)) as TRPCategoryInfoModel??), let newAr = [data] as? [TRPCategoryInfoModel] {
             self.data = newAr
         }
         

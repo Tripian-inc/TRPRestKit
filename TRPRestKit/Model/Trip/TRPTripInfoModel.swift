@@ -46,7 +46,7 @@ public struct TRPTripInfoModel: Decodable {
         self.id = try values.decode(Int.self, forKey: .id)
         self.hash = try values.decode(String.self, forKey: .hash)
         
-        if let days = try? values.decodeIfPresent([TRPDailyPlanInfoModel].self, forKey: .dailyplans) {
+        if let days = ((try? values.decodeIfPresent([TRPDailyPlanInfoModel].self, forKey: .dailyplans)) as [TRPDailyPlanInfoModel]??) {
             self.dailyPlans = days
         }
         
@@ -60,7 +60,7 @@ public struct TRPTripInfoModel: Decodable {
         
         city = try values.decode(TRPCityInfoModel.self, forKey: .city)
         
-        if let programParams = try? values.decodeIfPresent(TRPGetProgramParamsInfoModel.self, forKey: .params) {
+        if let programParams = ((try? values.decodeIfPresent(TRPGetProgramParamsInfoModel.self, forKey: .params)) as TRPGetProgramParamsInfoModel??) {
             self.params = programParams
         }
     }
