@@ -91,10 +91,10 @@ public class TRPNetwork {
             urlComponents = URLComponents(string: url)
         }
         if urlComponents == nil {
-            var urlComponents = URLComponents()
-            urlComponents.scheme = "https"
-            urlComponents.host = baseUrl
-            urlComponents.path = "/" + path
+            urlComponents = URLComponents()
+            urlComponents!.scheme = "https"
+            urlComponents!.host = baseUrl
+            urlComponents!.path = "/" + path
         }
         if let urlQueryItems = getItems(params: params) {
             urlComponents!.queryItems = urlQueryItems
