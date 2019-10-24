@@ -54,7 +54,7 @@ internal class TRPFeedback: TRPRestServices {
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.UserTrips.link;
+        return TRPConfig.ApiCall.userTrips.link;
     }
     
 }

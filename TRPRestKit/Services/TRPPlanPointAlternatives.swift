@@ -46,7 +46,7 @@ internal class TRPPlanPointAlternatives: TRPRestServices{
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.PlanPointAlternative.link
+        return TRPConfig.ApiCall.planPointAlternative.link
     }
     
     public override func userOAuth() -> Bool {

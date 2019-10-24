@@ -80,7 +80,7 @@ internal class TRPPlanPoints: TRPRestServices {
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.DailyPlanPoi.link
+        var path = TRPConfig.ApiCall.dailyPlanPoi.link
         if type != .add {
             if let id = programStepId {
                 path += "/\(id)"

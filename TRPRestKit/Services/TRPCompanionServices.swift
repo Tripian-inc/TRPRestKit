@@ -109,9 +109,9 @@ internal class TRPCompanionServices: TRPRestServices {
     
     public override func path() -> String {
         if serviceType == .delete || serviceType == .update, let id = id {
-            return TRPConfig.ApiCall.Companion.link + "/\(id)"
+            return TRPConfig.ApiCall.companion.link + "/\(id)"
         }
-        return TRPConfig.ApiCall.Companion.link;
+        return TRPConfig.ApiCall.companion.link;
     }
     
     public override func requestMode() -> TRPRequestMode {

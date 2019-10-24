@@ -55,7 +55,7 @@ internal class TRPDailyPlanServices: TRPRestServices {
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.DailyPlan.link;
+        var path = TRPConfig.ApiCall.dailyPlan.link;
         if let id = dayId {
             path += "/\(id)"
         }

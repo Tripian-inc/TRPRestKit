@@ -40,7 +40,7 @@ internal class TRPRecommendation: TRPRestServices{
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.Recommendations.link;
+        return TRPConfig.ApiCall.recommendations.link;
     }
     
     public override func parameters() -> Dictionary<String, Any>? {

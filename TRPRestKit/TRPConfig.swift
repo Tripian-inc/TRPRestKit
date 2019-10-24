@@ -36,76 +36,74 @@ internal struct TRPConfig {
     }
     
     internal enum ApiCall: String {
-        case Cities
-        case GetcityByCoordinates
-        case PoiCategories
-        case Poi
-        case Questions
-        case Recommendations
-        case Routes
-        case RoutesResult
-        case GRouteReuslt
-        case PlanPointAlternative
-        case Tags
-        case CheckDataUpdates
-        case User
-        case Login
+        case cities
+        case getcityByCoordinates
+        case poiCategories
+        case poi
+        case questions
+        case recommendations
+        case routes
+        case routesResult
+        case gRouteReuslt
+        case planPointAlternative
+        case tags
+        case checkDataUpdates
+        
+        case login
         case user
-        case UserTrips
-        case Trip
-        case DailyPlan
-        case UserPreferences
-        case DailyPlanPoi
-        case Register
-        case Favorite
-        case Companion
+        case userTrips
+        case trip
+        case dailyPlan
+        case userPreferences
+        case dailyPlanPoi
+        case register
+        case favorite
+        case companion
         var link: String {
             switch self {
-            case .Cities:
+            case .cities:
                 return getNewLink() ?? "cities"
-            case .GetcityByCoordinates:
+            case .getcityByCoordinates:
                 return getNewLink() ?? "getcitybycoordinate"
-            case .PoiCategories:
+            case .poiCategories:
                 return getNewLink() ?? "poi-categories"
-            case .Poi:
+            case .poi:
                 return getNewLink() ?? "poi"
-            case .Questions:
+            case .questions:
                 return getNewLink() ?? "trip-questions"
-            case .Recommendations:
+            case .recommendations:
                 return getNewLink() ?? "recommendation"
-            case .Routes:
+            case .routes:
                 return getNewLink() ?? "routes"
-            case .RoutesResult:
+            case .routesResult:
                 return getNewLink() ?? "routeresult"
-            case .GRouteReuslt:
+            case .gRouteReuslt:
                 return getNewLink() ?? "grouteresult"
-            case .PlanPointAlternative:
+            case .planPointAlternative:
                 return getNewLink() ?? "dailyplanpoi-alternatives"
-            case .Tags:
+            case .tags:
                 return getNewLink() ?? "tags"
-            case .CheckDataUpdates:
+            case .checkDataUpdates:
                 return getNewLink() ?? "check-data-updates"
-            case .User:
-                return getNewLink() ?? "user"
-            case .Login:
+            case .login:
                 return getNewLink() ?? "login"
             case .user:
                 return getNewLink() ?? "user"
-            case .UserTrips:
+            case .userTrips:
                 return getNewLink() ?? "user/trips"
-            case .Trip:
+            case .trip:
                 return getNewLink() ?? "trip"
-            case .DailyPlan:
+            case .dailyPlan:
                 return getNewLink() ?? "dailyplan"
-            case .UserPreferences:
+            case .userPreferences:
                 return getNewLink() ?? "user/preferences"
-            case .DailyPlanPoi:
+            case .dailyPlanPoi:
                 return getNewLink() ?? "dailyplanpoi"
-            case .Register:
+            case .register:
                 return getNewLink() ?? "register"
-            case .Favorite:
+            case .favorite:
                 return getNewLink() ?? "user/favorites"
-            case .Companion:
+            case .companion:
                 return getNewLink() ?? "user/companion"
             }
         }

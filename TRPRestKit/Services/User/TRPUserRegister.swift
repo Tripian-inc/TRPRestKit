@@ -73,6 +73,6 @@ internal class TRPUserRegister: TRPRestServices{
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.Register.link;
+        return TRPConfig.ApiCall.register.link;
     }
 }

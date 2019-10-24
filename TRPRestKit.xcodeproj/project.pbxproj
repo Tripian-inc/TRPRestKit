@@ -88,7 +88,7 @@
 		B29B46A020F613300009E711 /* TRPNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B469F20F613300009E711 /* TRPNetworkError.swift */; };
 		B29B46A220F613430009E711 /* TRPRequestMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46A120F613430009E711 /* TRPRequestMode.swift */; };
 		B29B46A420F613690009E711 /* TRPCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46A320F613690009E711 /* TRPCities.swift */; };
-		B29B46A620F6137C0009E711 /* PoiCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46A520F6137C0009E711 /* PoiCategories.swift */; };
+		B29B46A620F6137C0009E711 /* poiCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46A520F6137C0009E711 /* poiCategories.swift */; };
 		B29B46A820F6138D0009E711 /* TRPPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46A720F6138D0009E711 /* TRPPlace.swift */; };
 		B29B46AA20F613A00009E711 /* TRPTripQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46A920F613A00009E711 /* TRPTripQuestion.swift */; };
 		B29B46AC20F613B30009E711 /* TRPRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46AB20F613B30009E711 /* TRPRecommendation.swift */; };
@@ -228,7 +228,7 @@
 		B29B469F20F613300009E711 /* TRPNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPNetworkError.swift; sourceTree = "<group>"; };
 		B29B46A120F613430009E711 /* TRPRequestMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRequestMode.swift; sourceTree = "<group>"; };
 		B29B46A320F613690009E711 /* TRPCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCities.swift; sourceTree = "<group>"; };
-		B29B46A520F6137C0009E711 /* PoiCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiCategories.swift; sourceTree = "<group>"; };
+		B29B46A520F6137C0009E711 /* poiCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = poiCategories.swift; sourceTree = "<group>"; };
 		B29B46A720F6138D0009E711 /* TRPPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPlace.swift; sourceTree = "<group>"; };
 		B29B46A920F613A00009E711 /* TRPTripQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripQuestion.swift; sourceTree = "<group>"; };
 		B29B46AB20F613B30009E711 /* TRPRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRecommendation.swift; sourceTree = "<group>"; };
@@ -516,7 +516,7 @@
 				B215BEFB2131754B00659818 /* Program */,
 				B29B46A320F613690009E711 /* TRPCities.swift */,
 				B29B46C020F6146D0009E711 /* TRPPlanPointAlternatives.swift */,
-				B29B46A520F6137C0009E711 /* PoiCategories.swift */,
+				B29B46A520F6137C0009E711 /* poiCategories.swift */,
 				B29B46A720F6138D0009E711 /* TRPPlace.swift */,
 				B29B46A920F613A00009E711 /* TRPTripQuestion.swift */,
 				B29B46AB20F613B30009E711 /* TRPRecommendation.swift */,
@@ -720,6 +720,7 @@
 				B29B462220F607F90009E711 /* Frameworks */,
 				B29B462320F607F90009E711 /* Resources */,
 				B2B500C7235076F20006D406 /* Embed Frameworks */,
+				18B84BED23617C61008B374D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -810,6 +811,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		18B84BED23617C61008B374D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+		};
 		B258871122316BCC00BD6930 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -900,7 +919,7 @@
 				B29B464920F60BF80009E711 /* TRPCoordinateModel.swift in Sources */,
 				B29B46C120F6146D0009E711 /* TRPPlanPointAlternatives.swift in Sources */,
 				784BAB9A22C354FA00BBDB0F /* TRPCompanionServices.swift in Sources */,
-				B29B46A620F6137C0009E711 /* PoiCategories.swift in Sources */,
+				B29B46A620F6137C0009E711 /* poiCategories.swift in Sources */,
 				B20CD9F321368CF800497ED3 /* TRPPlanPoints.swift in Sources */,
 				B2341D6223143939007EAF80 /* RestKitInfo.swift in Sources */,
 				B2FDCFB92147EE41000C9387 /* TRPLoginJsonModel.swift in Sources */,

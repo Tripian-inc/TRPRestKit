@@ -62,7 +62,7 @@ internal class TRPTripQuestion: TRPRestServices{
     }
     
     public override func path() -> String {
-        var link = TRPConfig.ApiCall.Questions.link
+        var link = TRPConfig.ApiCall.questions.link
         if let questionId = questionId {
             link += "/\(questionId)"
         }

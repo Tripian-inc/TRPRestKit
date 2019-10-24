@@ -38,7 +38,7 @@ internal class PoiCategories: TRPRestServices {
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.PoiCategories.link;
+        var path = TRPConfig.ApiCall.poiCategories.link;
         if let id = typeId {
             path += "/\(id)"
         }

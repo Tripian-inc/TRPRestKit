@@ -60,7 +60,7 @@ internal class TRPUserFavorite: TRPRestServices{
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.Favorite.link
+        return TRPConfig.ApiCall.favorite.link
     }
     
     public override func userOAuth() -> Bool {

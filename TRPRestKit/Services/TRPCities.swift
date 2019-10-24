@@ -56,12 +56,12 @@ internal class TRPCities: TRPRestServices{
         var path = ""
         
         if requestType == .allCities || requestType == .cityWithId {
-            path = TRPConfig.ApiCall.Cities.link;
+            path = TRPConfig.ApiCall.cities.link;
             if let id = cityId {
                 path += "/\(id)"
             }
         }else if requestType == .cityWithLocation {
-            path = TRPConfig.ApiCall.GetcityByCoordinates.link;
+            path = TRPConfig.ApiCall.getcityByCoordinates.link;
         }
         return path;
     }

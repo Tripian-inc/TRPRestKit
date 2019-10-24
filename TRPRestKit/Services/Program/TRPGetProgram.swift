@@ -37,7 +37,7 @@ internal class TRPGetProgram: TRPRestServices{
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.Trip.link;
+        var path = TRPConfig.ApiCall.trip.link;
         if let hash = hash {
             path += "/\(hash)"
         }
