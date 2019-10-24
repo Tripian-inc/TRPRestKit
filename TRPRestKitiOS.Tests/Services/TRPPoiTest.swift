@@ -48,7 +48,7 @@ class TRPPoiTest: XCTestCase{
             XCTAssertNotNil(firstPlace!.cityId)
             XCTAssertEqual(firstPlace!.cityId, self.cityId)
             
-            loopCounter = loopCounter + 1
+            loopCounter += 1
             expectation.fulfill()
             
         }
@@ -80,7 +80,7 @@ class TRPPoiTest: XCTestCase{
             XCTAssertNotNil(firstPlace!.cityId)
             XCTAssertEqual(firstPlace!.cityId, self.cityId)
             
-            loopCounter = loopCounter + 1
+            loopCounter += 1
             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 if loopCounter > 1 {
                     expectation.fulfill()

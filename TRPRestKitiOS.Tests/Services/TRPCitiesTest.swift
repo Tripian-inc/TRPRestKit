@@ -39,7 +39,7 @@ class TRPCitiesTest: XCTestCase {
             XCTAssertNotNil(pagination)
             XCTAssertNotEqual(pagination!, Pagination.completed)
             XCTAssertTrue(cities.count != 0)
-            loopCount = loopCount + 1
+            loopCount += 1
             
             print("Loop count \(loopCount)")
             //AutoCompleted true olduğu için birken fazla kez dönüyor
@@ -73,7 +73,7 @@ class TRPCitiesTest: XCTestCase {
             XCTAssertNotNil(pagination)
             XCTAssertNotEqual(pagination!, Pagination.completed)
             XCTAssertTrue(cities.count != 0)
-            loopCount = loopCount + 1
+            loopCount += 1
             
             print("Loop count \(loopCount)")
             //AutoCompleted true olduğu için birken fazla kez dönüyor
