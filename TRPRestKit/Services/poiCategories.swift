@@ -19,11 +19,11 @@ internal class PoiCategories: TRPRestServices {
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.Completion?(nil,error, nil);
+            self.completion?(nil,error, nil);
             return
         }
         guard let data = data else {
-            self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
         
@@ -31,9 +31,9 @@ internal class PoiCategories: TRPRestServices {
         do {
             let result = try jsonDecode.decode(TRPPoiCategories.self, from: data)
             let pag = paginationController(parentJson: result)
-            self.Completion?(result, nil, pag);
+            self.completion?(result, nil, pag);
         }catch(let tryError) {
-            self.Completion?(nil, tryError as NSError, nil);
+            self.completion?(nil, tryError as NSError, nil);
         }
     }
     

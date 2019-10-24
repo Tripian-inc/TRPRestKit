@@ -54,11 +54,11 @@ internal class TRPCompanionServices: TRPRestServices {
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.Completion?(nil,error, nil);
+            self.completion?(nil,error, nil);
             return
         }
         guard let data = data else {
-            self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
         
@@ -67,16 +67,16 @@ internal class TRPCompanionServices: TRPRestServices {
         do {
             if serviceType == .get{
                 let result = try jsonDecode.decode(TRPCompanionsJsonModel.self, from: data)
-                self.Completion?(result, nil, nil)
+                self.completion?(result, nil, nil)
             }else if serviceType == .delete || serviceType == .update{
                 let result = try jsonDecode.decode(TRPParentJsonModel.self, from: data)
-                self.Completion?(result, nil, nil)
+                self.completion?(result, nil, nil)
             }else{
                 let result = try jsonDecode.decode(TRPCompanionModel.self, from: data)
-                self.Completion?(result, nil, nil)
+                self.completion?(result, nil, nil)
             }
         }catch(let tryError) {
-            self.Completion?(nil, tryError as NSError, nil);
+            self.completion?(nil, tryError as NSError, nil);
         }
     }
     

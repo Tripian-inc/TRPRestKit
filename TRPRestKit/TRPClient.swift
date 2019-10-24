@@ -20,7 +20,7 @@ import Foundation
 @objc public class TRPClient:NSObject {
     
     internal static var shared = TRPClient();
-    private var ApiKey = "";
+    private var apiKey = "";
     
     /// Allows link to be shown
     public var showLink = false
@@ -34,11 +34,11 @@ import Foundation
     ///
     /// - Parameter key: Your api key
     @objc public static func provideApiKey(_ key: String) ->Void {
-        TRPClient.shared.ApiKey = key;
+        TRPClient.shared.apiKey = key;
     }
     
     internal static func getKey() -> String {
-        return TRPClient.shared.ApiKey;
+        return TRPClient.shared.apiKey;
     }
     
     

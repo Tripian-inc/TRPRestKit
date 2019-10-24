@@ -26,11 +26,11 @@ internal class TRPUserRegister: TRPRestServices{
 
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.Completion?(nil,error, nil);
+            self.completion?(nil,error, nil);
             return
         }
         guard let data = data else {
-            self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
         let json = String(data: data, encoding: .utf8)
@@ -40,15 +40,15 @@ internal class TRPUserRegister: TRPRestServices{
             if password != nil && email != nil {
                 let result = try jsonDecode.decode(TRPUserInfoJsonModel.self, from: data)
                 let pag = paginationController(parentJson: result)
-                self.Completion?(result, nil, pag);
+                self.completion?(result, nil, pag);
             }else if userName != nil {
                 let result = try jsonDecode.decode(TRPTestUserInfoJsonModel.self, from: data)
                 let pag = paginationController(parentJson: result)
-                self.Completion?(result, nil, pag);
+                self.completion?(result, nil, pag);
             }
             
         }catch(let tryError) {
-            self.Completion?(nil, tryError as NSError, nil);
+            self.completion?(nil, tryError as NSError, nil);
         }
     }
 

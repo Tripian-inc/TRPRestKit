@@ -14,7 +14,7 @@ import Foundation
 public class TRPRestServices {
     
     /// A Closer. Completion handler
-    public var Completion:((_ result:Any?, _ error:NSError?, _ pagination: Pagination?) -> Void)?
+    public var completion:((_ result:Any?, _ error:NSError?, _ pagination: Pagination?) -> Void)?
     
     /// Sets automatic loading of Pages
     public var isAutoPagination = true

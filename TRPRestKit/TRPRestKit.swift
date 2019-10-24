@@ -149,7 +149,7 @@ extension TRPRestKit {
         if let aP = autoPagination {
             service.isAutoPagination = aP
         }
-        service.Completion = { (result, error, pagination) in
+        service.completion = { (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -223,7 +223,7 @@ extension TRPRestKit {
         }else {
             poiService = PoiCategories(typeId: id!);
         }
-        poiService?.Completion = {   (result, error, pagination) in
+        poiService?.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -413,7 +413,7 @@ extension TRPRestKit {
         guard let services = placeService else {return}
         services.isAutoPagination = autoPagination
         services.limit = limit ?? 25
-        services.Completion = {    (result, error, pagination) in
+        services.completion = {    (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -501,7 +501,7 @@ extension TRPRestKit {
         guard let services = questionService else {return}
         services.language = language
         services.tripType = type ?? .trip
-        services.Completion = {   (result, error, pagination) in
+        services.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -547,7 +547,7 @@ extension TRPRestKit {
     private func recommendationServices(settings: TRPRecommendationSettings, autoPagination: Bool) {
         let recommendationService = TRPRecommendation(settings: settings);
         recommendationService.isAutoPagination = autoPagination
-        recommendationService.Completion = {   (result, error, pagination) in
+        recommendationService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -600,7 +600,7 @@ extension TRPRestKit {
             loginService = TRPLogin(userName: userName)
         }
         guard let service = loginService else {return}
-        service.Completion = {    (result, error, pagination) in
+        service.completion = {    (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -667,7 +667,7 @@ extension TRPRestKit {
             services = TRPUserRegister(userName: userName)
         }
         guard let mServices = services else { return }
-        mServices.Completion = {   (result, error,_) in
+        mServices.completion = {   (result, error,_) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -746,7 +746,7 @@ extension TRPRestKit {
         
         guard let services = infoService else {return}
         
-        services.Completion = {   (result, error, pagination) in
+        services.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -851,7 +851,7 @@ extension TRPRestKit {
             return
         }
         
-        service.Completion = {(result, error, _) in
+        service.completion = {(result, error, _) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -931,7 +931,7 @@ extension TRPRestKit {
         }
         
         guard let services = favoriteService else {return}
-        services.Completion = {   (result, error, pagination) in
+        services.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -981,7 +981,7 @@ extension TRPRestKit {
     private func userTripsServices(limit:Int) {
         let tripService = TRPUserTrips()
         tripService.limit = limit
-        tripService.Completion = {   (result, error, pagination) in
+        tripService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1011,7 +1011,7 @@ extension TRPRestKit {
     /// A services that manage all task to connecting remote server
     private func constantServices() {
         let constantsService = TRPConstantsServices()
-        constantsService.Completion = {   (result, error, pagination) in
+        constantsService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1041,7 +1041,7 @@ extension TRPRestKit {
     private func versionServices() {
 
         let constantsService = TRPConstantsServices()
-        constantsService.Completion = {   (result, error, pagination) in
+        constantsService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1076,7 +1076,7 @@ extension TRPRestKit {
     /// A services that manage all task to connecting remote server
     private func createOrEditTripServices(settings: TRPTripSettings) {
         let programService = TRPProgram(setting: settings)
-        programService.Completion = {   (result, error, pagination) in
+        programService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1102,7 +1102,7 @@ extension TRPRestKit {
     /// A services that manage all task to connecting remote server
     private func getTripServices(hash: String) {
         let getProgramService = TRPGetProgram(hash: hash)
-        getProgramService.Completion = {  (result, error, pagination) in
+        getProgramService.completion = {  (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1122,7 +1122,7 @@ extension TRPRestKit {
     /// A services that manage all task to connecting remote server
     private func deleteTripServices(hash:String) {
         let deleteService = TRPDeleteProgram(hash: hash)
-        deleteService.Completion = { (result, error, pagination) in
+        deleteService.completion = { (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1152,7 +1152,7 @@ extension TRPRestKit {
     /// A services that manage all task to connecting remote server
     private func dailyPlanServices(id:Int) {
         let dailyPlanServices = TRPDailyPlanServices(id: id)
-        dailyPlanServices.Completion = {   (result, error, pagination) in
+        dailyPlanServices.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1227,7 +1227,7 @@ extension TRPRestKit {
             return
         }
         
-        service.Completion = {   (result, error, pagination) in
+        service.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1286,7 +1286,7 @@ extension TRPRestKit {
         }
         
         guard let service = poiAlternativeService else {return}
-        service.Completion = {   (result, error, pagination) in
+        service.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1393,7 +1393,7 @@ extension TRPRestKit {
     /// A services that manage all task to connecting remote server
     private func problemCategoriesService() {
         let categoryService = TRPProblemCategories()
-        categoryService.Completion = { (result, error, _) in
+        categoryService.completion = { (result, error, _) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1431,7 +1431,7 @@ extension TRPRestKit {
         let reportAProblemService = TRPReportAProblemServices(categoryName : categoryName,
                                           message: message,
                                           poiId: poiId)
-        reportAProblemService.Completion = { result, error, _ in
+        reportAProblemService.completion = { result, error, _ in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1454,7 +1454,7 @@ extension TRPRestKit {
     
     private func updateDailyPlanHourService(dailyPlanId: Int, start:String, end:String) {
         let dailyplanService = TRPDailyPlanServices(id: dailyPlanId, startTime: start, endTime: end)
-        dailyplanService.Completion = {   (result, error, pagination) in
+        dailyplanService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return

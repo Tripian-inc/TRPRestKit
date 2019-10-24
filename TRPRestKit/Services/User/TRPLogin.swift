@@ -35,20 +35,20 @@ internal class TRPLogin: TRPRestServices{
     
     override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.Completion?(nil,error, nil);
+            self.completion?(nil,error, nil);
             return
         }
         guard let data = data else {
-            self.Completion?(nil, TRPErrors.wrongData as NSError, nil)
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
         
         let jsonDecode = JSONDecoder();
         do {
             let result = try jsonDecode.decode(TRPLoginJsonModel.self, from: data)
-            self.Completion?(result, nil, nil);
+            self.completion?(result, nil, nil);
         }catch(let tryError) {
-            self.Completion?(nil, tryError as NSError, nil);
+            self.completion?(nil, tryError as NSError, nil);
         }
     }
     
