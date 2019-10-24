@@ -14,7 +14,7 @@ class MockLogin {
     static func testUserLogin( copleted: @escaping (Bool) -> Void) {
         
         TRPRestKit().login(email: "necatievren@gmail.com", password: "123456") { (result, error) in
-            if let _ = error {
+            if error != nil {
                 copleted(false)
                 return
             }

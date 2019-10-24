@@ -14,8 +14,8 @@ internal class TRPReportAProblemServices: TRPRestServices {
     var poiId: Int?
     
     internal init(categoryName: String,
-                           message msg: String? = nil,
-                           poiId poi: Int? = nil) {
+                  message msg: String? = nil,
+                  poiId poi: Int? = nil) {
         self.categoryName = categoryName
         self.message = msg
         self.poiId = poi

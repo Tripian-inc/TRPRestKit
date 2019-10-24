@@ -92,56 +92,85 @@ internal class TRPPlace: TRPRestServices {
     override func parameters() -> [String: Any]? {
         var params: [String: Any] = [:]
         if status == .withCityId {
-            if let cities = cities {
-                let citiesList = cities.toString()
-                params["city_id"] = citiesList
-                params["limit"] = String(limit)
-            }
+            params = getParamsWithCityId()
         } else if status == .withPlacesId {
-            if let places = placeIds, let cities = cities, let city = cities.first {
-                let placesList = places.toString()
-                params["city_id"] = city
-                params["q"] = "id:" + placesList
-            }
+            params = getParamsWithPlacesId()
         } else if status == .withLocation {
-            if let location = location {
-                params["coordinate"] = "\(location.lat),\(location.lon)"
-                
-                if let distance = distance {
-                    params["distance"] = distance
-                }
-                // TODO: typeid eklenecek
-                if let typeId = typeId {
-                    params["poi_categories"] = typeId
-                }
-                if let typeIds = typeIds {
-                    params["poi_categories"] = typeIds.toString()
-                }
-                if let cityId = cityId {
-                    params["city_id"] = cityId
-                }
-            }
+            params = getParamsWithLocation()
         } else if status == .withSearchText {
-            if let cityId = cityId {
-                params["city_id"] = cityId
-            }
-            if let searchText = searchText {
-                params["search"] = searchText
-            }
-            if let location = location {
-                params["coordinate"] = "\(location.lat),\(location.lon)"
-            }
+            params = getParamsWithSearchText()
         } else if status == .withCityType {
-            if let cityId = cityId {
-                params["city_id"] = cityId
-            }
-            if let typeIds = typeIds {
-                params["poi_categories"] = typeIds.toString()
-            }
+            params = getParamsWithCityType()
         }
         
         if params.count > 0 {
             params["limit"] = limit
+        }
+        return params
+    }
+    
+    private func getParamsWithCityId() -> [String: Any] {
+        var params: [String: Any] = [:]
+        if let cities = cities {
+            let citiesList = cities.toString()
+            params["city_id"] = citiesList
+            params["limit"] = String(limit)
+        }
+        return params
+    }
+    
+    private func getParamsWithPlacesId() -> [String: Any] {
+        var params: [String: Any] = [:]
+        if let places = placeIds, let cities = cities, let city = cities.first {
+            let placesList = places.toString()
+            params["city_id"] = city
+            params["q"] = "id:" + placesList
+        }
+        return params
+    }
+    
+    private func getParamsWithLocation() -> [String: Any] {
+        var params: [String: Any] = [:]
+        if let location = location {
+            params["coordinate"] = "\(location.lat),\(location.lon)"
+            
+            if let distance = distance {
+                params["distance"] = distance
+            }
+            if let typeId = typeId {
+                params["poi_categories"] = typeId
+            }
+            if let typeIds = typeIds {
+                params["poi_categories"] = typeIds.toString()
+            }
+            if let cityId = cityId {
+                params["city_id"] = cityId
+            }
+        }
+        return params
+    }
+    
+    private func getParamsWithSearchText() -> [String: Any] {
+        var params: [String: Any] = [:]
+        if let cityId = cityId {
+            params["city_id"] = cityId
+        }
+        if let searchText = searchText {
+            params["search"] = searchText
+        }
+        if let location = location {
+            params["coordinate"] = "\(location.lat),\(location.lon)"
+        }
+        return params
+    }
+    
+    private func getParamsWithCityType() -> [String: Any] {
+        var params: [String: Any] = [:]
+        if let cityId = cityId {
+            params["city_id"] = cityId
+        }
+        if let typeIds = typeIds {
+            params["poi_categories"] = typeIds.toString()
         }
         return params
     }

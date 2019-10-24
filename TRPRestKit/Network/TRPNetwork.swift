@@ -73,44 +73,47 @@ public class TRPNetwork {
     /// - Parameter completion: Completion handler
     public func build(_ completion: @escaping Completion) {
         self.completionHandler = completion
-        if rawLink != nil {
-            //generateSession(URL(string: rawLink!));
-            var urlComponents = URLComponents(string: rawLink!)
-            if let urlQueryItems = getItems(params: params) {
-                urlComponents!.queryItems = urlQueryItems
-            }
-            generateSession(urlComponents!.url)
-        } else {
+        let urlComponents = createComponents(url: rawLink)
+        
+        guard let url = urlComponents.url else {
+            completionHandler?(TRPErrors.undefined as NSError, nil)
+            return
+        }
+        if TRPClient.shared.showLink {
+            print("Current URl: \(url)")
+        }
+        generateSession(url)
+    }
+    
+    private func createComponents(url: String?) -> URLComponents {
+        var urlComponents: URLComponents?
+        if let url = url {
+            urlComponents = URLComponents(string: url)
+        }
+        if urlComponents == nil {
             var urlComponents = URLComponents()
             urlComponents.scheme = "https"
             urlComponents.host = baseUrl
             urlComponents.path = "/" + path
-            
-            if let urlQueryItems = getItems(params: params) {
-                urlComponents.queryItems = urlQueryItems
-            }
-            generateSession(urlComponents.url)
         }
+        if let urlQueryItems = getItems(params: params) {
+            urlComponents!.queryItems = urlQueryItems
+        }
+        return urlComponents!
     }
     
     /// To start connection with server using Url
     ///
     /// - Parameter completion: Completion handler
-    public func generateSession(_ url: URL?) {
-        guard let mUrl = url else {
-            completionHandler?(TRPErrors.undefined as NSError, nil)
-            return
-        }
-        if TRPClient.shared.showLink {
-            print("Current URl: \(mUrl)")
-        }
-        let request = NSMutableURLRequest(url: mUrl)
+    public func generateSession(_ url: URL) {
+        
+        let request = NSMutableURLRequest(url: url)
         request.httpMethod = mode.rawValue
         
         for headerValues in headerValues {
             request.addValue(headerValues.value, forHTTPHeaderField: headerValues.key)
         }
-    
+        
         if let bodyData = bodyData {
             request.httpBody = bodyData
         }
@@ -120,13 +123,7 @@ public class TRPNetwork {
             
             if let data = data {
                 object = try? JSONSerialization.jsonObject(with: data, options: [])
-                if let strData = String(data: data, encoding: String.Encoding.utf8) {
-                    if TRPClient.shared.showData {
-                        print("Request Link \(url!.absoluteString)")
-                        print("Request Result \(strData)")
-                        print(" ")
-                    }
-                }
+                self.logger(data: data, url: url)
             }
             
             if let httpResponse = response as? HTTPURLResponse {
@@ -136,7 +133,7 @@ public class TRPNetwork {
                         self.completionHandler?(TRPErrors.wrongData as NSError, nil)
                         return
                     }
-                    if let trpError = TRPErrors(json: json, link: "\(mUrl)") {
+                    if let trpError = TRPErrors(json: json, link: "\(url)") {
                         self.completionHandler?(trpError as NSError, nil)
                         return
                     }
@@ -147,7 +144,7 @@ public class TRPNetwork {
                         self.completionHandler?(TRPErrors.wrongData as NSError, nil)
                         return
                     }
-                    let trpError = TRPErrors(json: json, link: "\(mUrl)") ?? TRPErrors.undefined
+                    let trpError = TRPErrors(json: json, link: "\(url)") ?? TRPErrors.undefined
                     self.completionHandler?(trpError as NSError, nil)
                 }
             }
@@ -165,13 +162,20 @@ public class TRPNetwork {
         for (key, value) in params {
             // İKİ KERE DECODE EDİLMİŞ OLUYOR.
             // Bu yüzden türkçe karakter bozulması oluyor. Kod ileride bozulmaya neden olabiir.
-           /* if let mKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-                let mValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-                queryItems.append(URLQueryItem(name: mKey, value: mValue));
-            } */
+            /* if let mKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+             let mValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+             queryItems.append(URLQueryItem(name: mKey, value: mValue));
+             } */
             queryItems.append(URLQueryItem(name: key, value: "\(value)"))
         }
         return queryItems
     }
     
+    private func logger(data: Data, url: URL) {
+        if !TRPClient.shared.showData {return}
+        guard let strData = String(data: data, encoding: String.Encoding.utf8) else {return}
+        print("Request Link \(url.absoluteString)")
+        print("Request Result \(strData)")
+        print(" ")
+    }
 }
