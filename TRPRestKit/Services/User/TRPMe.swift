@@ -7,7 +7,6 @@
 //
 
 import Foundation
-//TODO - TOKEN I Bİ YERE KAYDET VE ORADAN KULLAN
 internal class TRPUserInfoServices: TRPRestServices {
     
     enum ServiceType {

@@ -61,32 +61,7 @@ class TRPCityJsonModelTest: XCTestCase {
     }
     
     func testFullCityData() {
-        let rawJson = """
-        {
-            "status": 200,
-            "success": true,
-            "data": [
-                   {
-                       "id": 10,
-                       "name": "Los Angeles",
-                       "featured": "https://poi-pics.s3-eu-west-1.amazonaws.com/City/10/featured.jpg",
-                       "boundary": [33.70362, 34.47327, -118.66819, -117.9493],
-                       "coordinate": {
-                           "lat": 34.0522342,
-                           "lng": -118.2436849
-                       },
-                       "country": {
-                           "code": "us",
-                           "name": "USA",
-                           "continent": {
-                               "name": "North America"
-                           }
-                       }
-                   }
-            ]
-        }
-"""
-        
+        let rawJson = getCityData()
         do {
             let result = try jsonDecoder!.decode(TRPCityJsonModel.self, from: rawJson.data(using: String.Encoding.utf8)!)
             XCTAssertNotNil(result.data)
@@ -111,5 +86,34 @@ class TRPCityJsonModelTest: XCTestCase {
             XCTFail(tryError.localizedDescription)
         }
     }
-   
+ 
+    private func getCityData() -> String {
+        let rawJson = """
+                {
+                    "status": 200,
+                    "success": true,
+                    "data": [
+                           {
+                               "id": 10,
+                               "name": "Los Angeles",
+                               "featured": "https://poi-pics.s3-eu-west-1.amazonaws.com/City/10/featured.jpg",
+                               "boundary": [33.70362, 34.47327, -118.66819, -117.9493],
+                               "coordinate": {
+                                   "lat": 34.0522342,
+                                   "lng": -118.2436849
+                               },
+                               "country": {
+                                   "code": "us",
+                                   "name": "USA",
+                                   "continent": {
+                                       "name": "North America"
+                                   }
+                               }
+                           }
+                    ]
+                }
+        """
+        return rawJson
+    }
+    
 }

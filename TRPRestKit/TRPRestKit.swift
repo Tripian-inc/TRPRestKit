@@ -124,21 +124,12 @@ extension TRPRestKit {
                                 location: TRPLocation? = nil,
                                 limit: Int? = 25,
                                 autoPagination: Bool? = true) {
-        var cityService: TRPCities?
-        if id == nil && location == nil && link == nil {
-            cityService = TRPCities()
-        } else if let id = id {
-            cityService = TRPCities(cityId: id)
-        } else if let location = location {
-            cityService = TRPCities(location: location)
-        } else if limit != nil {
-            cityService = TRPCities()
-        }
         
+        let cityService = createCitiesServices(id: id, link: link, location: location, limit: limit, autoPagination: autoPagination)
         guard let service = cityService else {return}
         service.limit = limit ?? 50
-        if let aP = autoPagination {
-            service.isAutoPagination = aP
+        if let autoPagination = autoPagination {
+            service.isAutoPagination = autoPagination
         }
         service.completion = { (result, error, pagination) in
             if let error = error {
@@ -166,6 +157,24 @@ extension TRPRestKit {
         } else {
             service.connection()
         }
+    }
+    
+    private func createCitiesServices(id: Int? = nil,
+                                      link: String? = nil,
+                                      location: TRPLocation? = nil,
+                                      limit: Int? = 25,
+                                      autoPagination: Bool? = true) -> TRPCities? {
+        var cityService: TRPCities?
+        if id == nil && location == nil && link == nil {
+            cityService = TRPCities()
+        } else if let id = id {
+            cityService = TRPCities(cityId: id)
+        } else if let location = location {
+            cityService = TRPCities(location: location)
+        } else if limit != nil {
+            cityService = TRPCities()
+        }
+        return cityService
     }
     
 }
@@ -365,29 +374,18 @@ extension TRPRestKit {
                              searchText: String? = nil,
                              cityId: Int? = nil,
                              autoPagination: Bool = true) {
-        var placeService: TRPPlace?
-        if let places = placeIds, let cities = cities, let city = cities.first {
-            placeService = TRPPlace(ids: places, cityId: city)
-        } else if let search = searchText {
-            placeService = TRPPlace(location: location,
-                         searchText: search,
-                         cityId: cityId)
-        } else if let location = location {
-            placeService = TRPPlace(location: location, distance: distance)
-            if let id = typeId {
-                placeService?.typeId = id
-            }
-            if let ids = typeIds {
-                placeService?.typeIds = ids
-            }
-            placeService?.cityId = cityId
-        } else if let cities = cities {
-            placeService = TRPPlace(cities: cities)
-        } else if link != nil {
-            placeService = TRPPlace()
-        } else if let cityId = cityId, let types = typeIds {
-            placeService = TRPPlace(cityId: cityId, typeIds: types)
-        }
+        
+        let placeService = createPoiService(placeIds: placeIds,
+                                            cities: cities,
+                                            limit: limit,
+                                            location: location,
+                                            distance: distance,
+                                            typeId: typeId,
+                                            typeIds: typeIds,
+                                            link: link,
+                                            searchText: searchText,
+                                            cityId: cityId,
+                                            autoPagination: autoPagination)
         
         guard let services = placeService else {return}
         services.isAutoPagination = autoPagination
@@ -413,10 +411,48 @@ extension TRPRestKit {
         }
     }
     
+    private func createPoiService(placeIds: [Int]? = nil,
+                                  cities: [Int]? = nil,
+                                  limit: Int? = 25,
+                                  location: TRPLocation? = nil,
+                                  distance: Double? = nil,
+                                  typeId: Int? = nil,
+                                  typeIds: [Int]? = nil,
+                                  link: String? = nil,
+                                  searchText: String? = nil,
+                                  cityId: Int? = nil,
+                                  autoPagination: Bool = true) -> TRPPlace? {
+        var placeService: TRPPlace?
+        if let places = placeIds, let cities = cities, let city = cities.first {
+            placeService = TRPPlace(ids: places, cityId: city)
+        } else if let search = searchText {
+            placeService = TRPPlace(location: location,
+                                    searchText: search,
+                                    cityId: cityId)
+        } else if let location = location {
+            placeService = TRPPlace(location: location, distance: distance)
+            if let id = typeId {
+                placeService?.typeId = id
+            }
+            if let ids = typeIds {
+                placeService?.typeIds = ids
+            }
+            placeService?.cityId = cityId
+        } else if let cities = cities {
+            placeService = TRPPlace(cities: cities)
+        } else if link != nil {
+            placeService = TRPPlace()
+        } else if let cityId = cityId, let types = typeIds {
+            placeService = TRPPlace(cityId: cityId, typeIds: types)
+        }
+        return placeService
+    }
+    
 }
 
 // MARK: - Question Services
 extension TRPRestKit {
+    
     /// Return a question which can be used when creating a trip by Question Id.
     ///
     /// - Parameters:
@@ -578,8 +614,6 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            
-            //TODO: - SAVE USER ID
             if let serviceResult = result as? TRPLoginJsonModel {
                 TRPUserPersistent.saveHashToken(serviceResult.data.accessToken)
                 self.postData(result: serviceResult.data, pagination: pagination)
@@ -664,7 +698,7 @@ extension TRPRestKit {
     }
     
 }
- 
+
 // MARK: Update User Info
 extension TRPRestKit {
     /// Updates the user's answers. The answers change Recommendation Engine's working.
@@ -709,10 +743,10 @@ extension TRPRestKit {
             }
         } else if type == .updateInfo {
             infoService = TRPUserInfoServices(firstName: firstName,
-                                    lastName: lastName,
-                                    age: age,
-                                    password: password,
-                                    answers: answers)
+                                              lastName: lastName,
+                                              age: age,
+                                              password: password,
+                                              answers: answers)
         }
         
         guard let services = infoService else {return}
@@ -791,32 +825,36 @@ extension TRPRestKit {
         companionServices(serviceType: serviceType)
     }
     
+    private func createCompanionServices(id: Int? = 0, name: String? = nil, age: Int? = nil, answers: [Int]? = nil, serviceType: CompanionServiceType) -> TRPCompanionServices? {
+        var companionService: TRPCompanionServices?
+        
+        if serviceType == CompanionServiceType.add {
+            companionService = TRPCompanionServices(serviceType: serviceType,
+                                                    name: name,
+                                                    answers: answers,
+                                                    age: age)
+        } else if serviceType == CompanionServiceType.get {
+            companionService = TRPCompanionServices(serviceType: serviceType)
+        } else if serviceType == CompanionServiceType.delete, let id = id {
+            companionService = TRPCompanionServices(id: id, serviceType: serviceType)
+        } else {
+            guard let id = id else {return nil}
+            companionService = TRPCompanionServices(serviceType: serviceType,
+                                                    id: id,
+                                                    name: name,
+                                                    answers: answers,
+                                                    age: age)
+        }
+        return companionService
+    }
+    
     private func companionServices(id: Int? = 0,
                                    name: String? = nil,
                                    age: Int? = nil,
                                    answers: [Int]? = nil,
                                    serviceType: CompanionServiceType) {
         
-        var companionService: TRPCompanionServices?
-        
-        if serviceType == CompanionServiceType.add {
-            companionService = TRPCompanionServices(serviceType: serviceType,
-                                     name: name,
-                                     answers: answers,
-                                     age: age)
-        } else if serviceType == CompanionServiceType.get {
-            companionService = TRPCompanionServices(serviceType: serviceType)
-        } else if serviceType == CompanionServiceType.delete, let id = id {
-            companionService = TRPCompanionServices(id: id, serviceType: serviceType)
-        } else {
-            guard let id = id else {return}
-            companionService = TRPCompanionServices(serviceType: serviceType,
-                                     id: id,
-                                     name: name,
-                                     answers: answers,
-                                     age: age)
-        }
-        
+        let companionService = createCompanionServices(id: id, name: name, age: age, answers: answers, serviceType: serviceType)
         guard let service = companionService else {
             self.postError(error: TRPErrors.objectIsNil(name: "TRPCompanionServices") as NSError)
             return
@@ -1005,7 +1043,7 @@ extension TRPRestKit {
     
     /// A services that manage all task to connecting remote server
     private func versionServices() {
-
+        
         let constantsService = TRPConstantsServices()
         constantsService.completion = {   (result, error, pagination) in
             if let error = error {
@@ -1389,8 +1427,8 @@ extension TRPRestKit {
     /// A services that manage all task to connecting remote server
     private func reportaProblemService(categoryName: String, message: String?, poiId: Int?) {
         let reportAProblemService = TRPReportAProblemServices(categoryName: categoryName,
-                                          message: message,
-                                          poiId: poiId)
+                                                              message: message,
+                                                              poiId: poiId)
         reportAProblemService.completion = { result, error, _ in
             if let error = error {
                 self.postError(error: error)

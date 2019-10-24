@@ -24,7 +24,6 @@ public struct TRPUserInfoModel: Decodable {
     /// A array of TRPUserPreferencesInfoModel objects.
     public var info: [TRPUserPreferencesInfoModel]?
     
-    //TODO: - preferences eklenecek
     private enum CodingKeys: String, CodingKey {
         case email
         case info
@@ -60,7 +59,6 @@ public struct TRPTestUserInfoModel: Decodable {
     /// A array of TRPUserPreferencesInfoModel objects.
     public var info: [TRPUserPreferencesInfoModel]?
     
-    //TODO: - preferences eklenecek
     private enum CodingKeys: String, CodingKey {
         case userName = "username"
         case info

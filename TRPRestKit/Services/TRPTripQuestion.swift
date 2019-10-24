@@ -14,11 +14,11 @@ import Foundation
 /// - profile: question about user profile.
 public enum TPRTripQuestionType: String {
     // Question about Trip.
-    case trip = "trip"
+    case trip
     // Question about user profile.
-    case profile = "profile"
+    case profile
     //Question about companion.
-    case companion = "companion"
+    case companion
 }
 
 internal class TRPTripQuestion: TRPRestServices {

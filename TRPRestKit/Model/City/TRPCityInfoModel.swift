@@ -43,7 +43,6 @@ public class TRPCityInfoModel: NSObject, Decodable {
         self.id = try values.decode(Int.self, forKey: .id)
         self.name = try values.decode(String.self, forKey: .name)
         self.image = try values.decodeIfPresent(String.self, forKey: .image)
-        // TODO: open coordinate method
         self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coord)
         self.country = try values.decodeIfPresent(TRPCountryJsonModel.self, forKey: .country)
         self.boundary = try values.decodeIfPresent([Double].self, forKey: .boundary) ?? []

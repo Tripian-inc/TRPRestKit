@@ -86,8 +86,8 @@ struct TRPPaginationLinkJsonModel: Decodable {
     var previous: String?
     
     private enum CodingKeys: String, CodingKey {
-        case next = "next"
-        case previous = "previous"
+        case next
+        case previous
     }
     
     init(from decoder: Decoder) throws {

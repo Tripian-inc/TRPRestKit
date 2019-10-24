@@ -26,7 +26,7 @@ extension Pagination: Equatable {
     
     /// Compare to pagination object
     ///
-    public static func ==(lhs: Pagination, rhs: Pagination) -> Bool {
+    public static func == (lhs: Pagination, rhs: Pagination) -> Bool {
         
         switch (lhs, rhs) {
         case (.completed, .completed):

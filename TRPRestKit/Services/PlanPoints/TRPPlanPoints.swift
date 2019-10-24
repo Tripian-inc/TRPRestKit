@@ -112,7 +112,7 @@ internal class TRPPlanPoints: TRPRestServices {
                 }
             }
         } else if type == .update {
-            guard let _ = programStepId else {
+            if programStepId == nil {
                 return params
             }
             
