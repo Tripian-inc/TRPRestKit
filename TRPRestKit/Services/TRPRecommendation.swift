@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TRPFoundationKit
 
 internal class TRPRecommendation: TRPRestServices {
     
@@ -59,9 +60,7 @@ internal class TRPRecommendation: TRPRestServices {
         }
         
         if let typeIds = setting.poiCategoryIds {
-            //TODO: - FOUNDATİON DAN AL
-            let typeIdList = typeIds.map {"\($0)"}.joined(separator: ",")
-            params["poi_categories"] = typeIdList
+            params["poi_categories"] = typeIds.toString()
         }
         if let adults = setting.adultsCount {
             params["adults"] = adults
@@ -80,9 +79,7 @@ internal class TRPRecommendation: TRPRestServices {
         }
         
         if let answer = setting.answer {
-            // TODO FOUNDATİON KİT DEN GÜNCELLE
-            let answersMap = answer.map {"\($0)"}.joined(separator: ",")
-            params["answers"] = answersMap
+            params["answers"] = answer.toString()
         }
         
         return params

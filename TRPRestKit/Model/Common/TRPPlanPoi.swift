@@ -23,7 +23,7 @@ public struct TRPPlanPoi: Decodable, Equatable, Hashable {
         return poiId.hashValue
     }
     
-    public static func ==(lhs: TRPPlanPoi, rhs: TRPPlanPoi) -> Bool {
+    public static func == (lhs: TRPPlanPoi, rhs: TRPPlanPoi) -> Bool {
         return lhs.poiId == rhs.poiId
     }
     

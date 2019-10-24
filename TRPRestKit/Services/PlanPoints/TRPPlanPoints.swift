@@ -7,7 +7,6 @@
 //
 
 import Foundation
-// TODO: - ORDER KALDIRILABİLİR
 internal class TRPPlanPoints: TRPRestServices {
     
     enum Status {
