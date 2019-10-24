@@ -62,15 +62,15 @@ public class TRPRestServices {
         }
     }
     
-    private func createParams() -> Dictionary<String, Any> {
-        var params: Dictionary<String, Any> = [:]
+    private func createParams() -> [String: Any] {
+        var params: [String: Any] = [:]
         if let additionalParams = parameters() {
             params.merge(additionalParams, uniquingKeysWith: {(_, new) in new})
         }
         return params
     }
     
-    private func bodyDataToJson(_ data: Dictionary<String, Any>?) -> Data? {
+    private func bodyDataToJson(_ data: [String: Any]?) -> Data? {
         guard let bodyData = data else {
             return nil
         }
@@ -102,14 +102,14 @@ public class TRPRestServices {
     /// Returns HTTP body parameters
     ///
     /// - Returns: Body params
-    public func bodyParameters() -> Dictionary<String, Any>? {
+    public func bodyParameters() -> [String: Any]? {
         return nil
     }
     
     /// Returns HTTP parameters
     ///
     /// - Returns: params
-    public func parameters() -> Dictionary<String, Any>? {
+    public func parameters() -> [String: Any]? {
         return nil
     }
     

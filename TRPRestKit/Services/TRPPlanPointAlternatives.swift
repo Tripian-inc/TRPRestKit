@@ -52,8 +52,8 @@ internal class TRPPlanPointAlternatives: TRPRestServices {
         return true
     }
     
-    public override func parameters() -> Dictionary<String, Any>? {
-        var params: Dictionary<String, Any> = [:]
+    public override func parameters() -> [String: Any]? {
+        var params: [String: Any] = [:]
         if let hash = hash {
             params["hash"] = hash
         } else if let planPointId = planPointId {

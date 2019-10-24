@@ -56,8 +56,8 @@ internal class TRPProgram: TRPRestServices {
         return true
     }
     
-    public override func parameters() -> Dictionary<String, Any>? {
-        var params: Dictionary<String, Any> = [:]
+    public override func parameters() -> [String: Any]? {
+        var params: [String: Any] = [:]
         
         guard let setting = setting else {
             return params

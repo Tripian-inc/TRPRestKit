@@ -67,10 +67,10 @@ internal class TRPTripQuestion: TRPRestServices {
         return link
     }
     
-    public override func parameters() -> Dictionary<String, Any>? {
+    public override func parameters() -> [String: Any]? {
         
         if let cityId = cityId {
-            var dic: Dictionary<String, Any> = [:]
+            var dic: [String: Any] = [:]
             dic["city_id"] = "\(cityId)"
             dic["category"] = "\(tripType.rawValue)"
             

@@ -89,7 +89,7 @@ internal class TRPPlace: TRPRestServices {
         }
     }
     
-    override func parameters() -> Dictionary<String, Any>? {
+    override func parameters() -> [String: Any]? {
         var params: [String: Any] = [:]
         if status == .withCityId {
             if let cities = cities {

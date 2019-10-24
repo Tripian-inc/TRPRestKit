@@ -43,8 +43,8 @@ internal class TRPRecommendation: TRPRestServices {
         return TRPConfig.ApiCall.recommendations.link
     }
     
-    public override func parameters() -> Dictionary<String, Any>? {
-        var params: Dictionary<String, Any> = [:]
+    public override func parameters() -> [String: Any]? {
+        var params: [String: Any] = [:]
 
         if setting.cityId == nil && setting.hash == nil {
             return [:]

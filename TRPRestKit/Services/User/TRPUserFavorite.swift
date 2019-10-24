@@ -66,7 +66,7 @@ internal class TRPUserFavorite: TRPRestServices {
         return true
     }
  
-    public override func parameters() -> Dictionary<String, Any>? {
+    public override func parameters() -> [String: Any]? {
         if type == .get {
             if let cityId = cityId {
                 return ["city_id": "\(cityId)"]

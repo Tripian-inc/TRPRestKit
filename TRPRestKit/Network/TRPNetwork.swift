@@ -16,7 +16,7 @@ public class TRPNetwork {
     public typealias Completion = (_ error: NSError?, _ data: Data?) -> Void
     private var baseUrl: String
     private var path: String
-    private var params: Dictionary<String, Any>?
+    private var params: [String: Any]?
     private var mode: TRPRequestMode = TRPRequestMode.get
     private var rawLink: String?
     private var completionHandler: Completion?
