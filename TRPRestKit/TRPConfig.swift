@@ -9,30 +9,22 @@
 import Foundation
 internal struct TRPConfig {
     
-    internal static var BaseUrl: String {
-        get {
-            //TestServer return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
-            //return "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
-            //us-west geliştirme sandbox
-            //return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com" //TestServer
-            //Airmiles - ca-cemtral
-            return "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com" // AirMiles
-        }
-    }
-    //buda tanımlanıcak. Versiyon
-    internal static var BaseUrlPath: String {
-        get {
-            return "v2"
-        }
+    //TestServer return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
+    //return "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
+    //us-west geliştirme sandbox
+    //return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com" //TestServer
+    //Airmiles - ca-cemtral
+    
+    internal static func getBaseUrl() -> String {
+        return "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com"
     }
     
-    //public static let BaseUrl: String = "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
-    //public static let BaseUrlPath: String = "v02"
+    internal static func getBaseUrlPath() -> String {
+        return "v2"
+    }
     
-    internal static var apiLink: String {
-        get {
-            return "https://\(BaseUrl)/\(BaseUrlPath)/"
-        }
+    internal static func getApiLink() -> String {
+        return "https://\(TRPConfig.getBaseUrl())/\(TRPConfig.getBaseUrlPath())/"
     }
     
     internal enum ApiCall: String {
