@@ -38,8 +38,8 @@ internal class TRPConstantsServices: TRPRestServices {
         return "sdk-constants"
     }
     
-    override func parameters() -> Dictionary<String, Any>? {
-        var params: Dictionary<String, Any> = [:]
+    override func parameters() -> [String: Any]? {
+        var params: [String: Any] = [:]
         params["platform"] = "ios"
         return params
     }

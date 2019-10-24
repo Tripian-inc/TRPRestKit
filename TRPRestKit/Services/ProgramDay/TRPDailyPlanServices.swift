@@ -63,9 +63,9 @@ internal class TRPDailyPlanServices: TRPRestServices {
         return path
     }
 
-    override func parameters() -> Dictionary<String, Any>? {
+    override func parameters() -> [String: Any]? {
         if let id = dayId, let startTime = startTime, let endTime = endTime {
-            var params: Dictionary<String, Any> = [:]
+            var params: [String: Any] = [:]
             
             params["start_time"] = startTime
             params["end_time"] = endTime

@@ -98,8 +98,8 @@ internal class TRPPlanPoints: TRPRestServices {
         return TRPRequestMode.get
     }
     
-    override func parameters() -> Dictionary<String, Any>? {
-        var params: Dictionary<String, Any> = [:]
+    override func parameters() -> [String: Any]? {
+        var params: [String: Any] = [:]
         if type == .add {
             if let dailyPlanId = dailyPlanId,
                 let placeId = placeId,

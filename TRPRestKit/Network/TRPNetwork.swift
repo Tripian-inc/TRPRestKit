@@ -49,7 +49,7 @@ public class TRPNetwork {
         self.init(baseUrl: TRPConfig.getBaseUrl(), path: TRPConfig.getBaseUrlPath() + "/" + path)
     }
     
-    internal func add(params: Dictionary<String, Any>) {
+    internal func add(params: [String: Any]) {
         self.params = params
     }
     
@@ -159,7 +159,7 @@ public class TRPNetwork {
         task.resume()
     }
     
-    private func getItems(params: Dictionary<String, Any>?) -> [URLQueryItem]? {
+    private func getItems(params: [String: Any]?) -> [URLQueryItem]? {
         guard let params = params else {return nil}
         var queryItems = [URLQueryItem]()
         for (key, value) in params {

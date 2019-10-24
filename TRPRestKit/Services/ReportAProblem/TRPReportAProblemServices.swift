@@ -47,8 +47,8 @@ internal class TRPReportAProblemServices: TRPRestServices {
         return "reportaproblem"
     }
     
-    override func parameters() -> Dictionary<String, Any>? {
-        var params: Dictionary<String, Any> = [:]
+    override func parameters() -> [String: Any]? {
+        var params: [String: Any] = [:]
         params["problem_category"] = categoryName
         
         if let message = message {

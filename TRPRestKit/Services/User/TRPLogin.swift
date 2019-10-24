@@ -60,7 +60,7 @@ internal class TRPLogin: TRPRestServices {
         return TRPConfig.ApiCall.login.link
     }
     
-    public override func bodyParameters() -> Dictionary<String, Any>? {
+    public override func bodyParameters() -> [String: Any]? {
         if let email = email, let password = password {
             return ["email": email, "password": password]
         }

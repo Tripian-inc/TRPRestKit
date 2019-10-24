@@ -51,7 +51,7 @@ internal class TRPUserRegister: TRPRestServices {
         }
     }
 
-    public override func parameters() -> Dictionary<String, Any>? {
+    public override func parameters() -> [String: Any]? {
         
         if let email = email, let password = password {
             return ["email": email, "password": password]

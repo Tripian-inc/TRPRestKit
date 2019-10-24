@@ -80,8 +80,8 @@ internal class TRPCompanionServices: TRPRestServices {
         }
     }
     
-    public override func parameters() -> Dictionary<String, Any>? {
-        var params: Dictionary<String, Any> = [:]
+    public override func parameters() -> [String: Any]? {
+        var params: [String: Any] = [:]
         if let answers = answers {
             if answers.count > 0 {
                 params["answers"] = answers.toString()

@@ -58,8 +58,8 @@ internal class TRPUserInfoServices: TRPRestServices {
         }
     }
     
-    public override func parameters() -> Dictionary<String, Any>? {
-        var params: Dictionary<String, Any> = [:]
+    public override func parameters() -> [String: Any]? {
+        var params: [String: Any] = [:]
         if serviceType == .updateAnswer {
             if let answers = answers {
                 params["answers"] = answers.toString()

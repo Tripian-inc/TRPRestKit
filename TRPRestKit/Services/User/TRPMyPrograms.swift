@@ -36,7 +36,7 @@ internal class TRPUserTrips: TRPRestServices {
         return true
     }
     
-    override func parameters() -> Dictionary<String, Any>? {
+    override func parameters() -> [String: Any]? {
         return ["limit": limit]
     }
     
