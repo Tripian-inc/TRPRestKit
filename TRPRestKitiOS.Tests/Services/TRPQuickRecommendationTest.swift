@@ -24,7 +24,7 @@ class TRPQuickRecommendationTest: XCTestCase {
         var setting = TRPRecommendationSettings(cityId: cityId)
         setting.poiCategoryIds = [poiCategoryType]
         
-        TRPRestKit().quickRecommendation(settings: setting) { (result, error, pagination) in
+        TRPRestKit().quickRecommendation(settings: setting) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
@@ -41,7 +41,7 @@ class TRPQuickRecommendationTest: XCTestCase {
             XCTAssertNotEqual(poisId.count, 0)
             expectation.fulfill()
             
-            TRPRestKit().poi(withIds: [poisId.first!.id], cityId: self.cityId) { (result, error, pagination) in
+            TRPRestKit().poi(withIds: [poisId.first!.id], cityId: self.cityId) { (result, error, _) in
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                     return
@@ -49,16 +49,16 @@ class TRPQuickRecommendationTest: XCTestCase {
                 if let places = result as? [TRPPoiInfoModel], let place = places.first {
                     if place.cityId == self.cityId {
                         expectationFetchPlace.fulfill()
-                    }else {
+                    } else {
                         XCTFail("\(nameSpace) cityId not equal")
                     }
-                }else {
+                } else {
                     XCTFail("\(nameSpace) Json model couldn't converted to  [TRPRecommendationInfoJsonModel]")
                 }
             }
         }
         
-        wait(for: [expectation,expectationFetchPlace], timeout: 10.0)
+        wait(for: [expectation, expectationFetchPlace], timeout: 10.0)
     }
     
 }

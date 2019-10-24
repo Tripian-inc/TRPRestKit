@@ -6,7 +6,6 @@
 //  Copyright © 2019 Evren Yaşar. All rights reserved.
 //
 
-
 import XCTest
 @testable import TRPRestKit
 

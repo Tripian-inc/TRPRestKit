@@ -13,7 +13,7 @@ internal class TRPReportAProblemServices: TRPRestServices {
     var message: String?
     var poiId: Int?
     
-    internal init(categoryName : String,
+    internal init(categoryName: String,
                            message msg: String? = nil,
                            poiId poi: Int? = nil) {
         self.categoryName = categoryName
@@ -24,7 +24,7 @@ internal class TRPReportAProblemServices: TRPRestServices {
     override func servicesResult(data: Data?, error: NSError?) {
         
         if let error = error {
-            self.completion?(nil,error, nil)
+            self.completion?(nil, error, nil)
             return
         }
         
@@ -36,9 +36,9 @@ internal class TRPReportAProblemServices: TRPRestServices {
         let jsonDecode = JSONDecoder()
         do {
             let result = try jsonDecode.decode(TRPReportAProblemJsonModel.self, from: data)
-            self.completion?(result,nil,nil)
-        }catch(let tryError) {
-            self.completion?(nil, tryError as NSError, nil);
+            self.completion?(result, nil, nil)
+        } catch(let tryError) {
+            self.completion?(nil, tryError as NSError, nil)
         }
         
     }
@@ -48,7 +48,7 @@ internal class TRPReportAProblemServices: TRPRestServices {
     }
     
     override func parameters() -> Dictionary<String, Any>? {
-        var params : Dictionary<String, Any> = [:]
+        var params: Dictionary<String, Any> = [:]
         params["problem_category"] = categoryName
         
         if let message = message {

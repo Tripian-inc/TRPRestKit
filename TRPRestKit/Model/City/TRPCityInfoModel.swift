@@ -9,7 +9,7 @@
 import Foundation
 
 /// This model provide you to use full information of City to creating a trip
-public class TRPCityInfoModel:NSObject, Decodable {
+public class TRPCityInfoModel: NSObject, Decodable {
     
     /// An Int value. Unique id of a city.
     public var id: Int
@@ -39,13 +39,13 @@ public class TRPCityInfoModel:NSObject, Decodable {
     ///
     /// - Parameter decoder: Json Decoder Object
     public required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
-        self.id = try values.decode(Int.self, forKey: .id);
-        self.name = try values.decode(String.self, forKey: .name);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try values.decode(Int.self, forKey: .id)
+        self.name = try values.decode(String.self, forKey: .name)
         self.image = try values.decodeIfPresent(String.self, forKey: .image)
         // TODO: open coordinate method
         self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coord)
-        self.country = try values.decodeIfPresent(TRPCountryJsonModel.self, forKey: .country);
+        self.country = try values.decodeIfPresent(TRPCountryJsonModel.self, forKey: .country)
         self.boundary = try values.decodeIfPresent([Double].self, forKey: .boundary) ?? []
     }
     

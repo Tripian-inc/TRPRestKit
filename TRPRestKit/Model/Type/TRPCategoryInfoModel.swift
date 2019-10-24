@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /// This model provide you to use full information of poi category.
 public struct TRPCategoryInfoModel: Decodable {
     
@@ -19,7 +18,7 @@ public struct TRPCategoryInfoModel: Decodable {
     public var name: String
     
     /// A String value. Description of a poi category. Description can be used in search bar that is in AddPlace.
-    public var description: String?;
+    public var description: String?
     
     /// Tag matcher
     private enum CodingKeys: String, CodingKey {
@@ -32,10 +31,10 @@ public struct TRPCategoryInfoModel: Decodable {
     ///
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
-        self.id = try values.decode(Int.self, forKey: .id);
-        self.name = try values.decode(String.self, forKey: .name);
-        self.description = try values.decodeIfPresent(String.self, forKey: .description);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try values.decode(Int.self, forKey: .id)
+        self.name = try values.decode(String.self, forKey: .name)
+        self.description = try values.decodeIfPresent(String.self, forKey: .description)
     }
     
 }

@@ -7,9 +7,9 @@
 //
 
 import Foundation
-internal class TRPDayPlanJsonModel: TRPParentJsonModel{
+internal class TRPDayPlanJsonModel: TRPParentJsonModel {
     
-    public var data: TRPDailyPlanInfoModel;
+    public var data: TRPDailyPlanInfoModel
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -18,6 +18,6 @@ internal class TRPDayPlanJsonModel: TRPParentJsonModel{
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.data = try values.decode(TRPDailyPlanInfoModel.self, forKey: .data)
-        try super.init(from: decoder);
+        try super.init(from: decoder)
     }
 }

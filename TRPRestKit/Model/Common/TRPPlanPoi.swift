@@ -9,7 +9,7 @@
 import Foundation
 
 /// Infomation of Plan Poi.
-public struct TRPPlanPoi: Decodable,Equatable, Hashable {
+public struct TRPPlanPoi: Decodable, Equatable, Hashable {
     /// An Int value. Id of PlanPoi
     public var id: Int
     /// An Int value. Id of Poi
@@ -19,7 +19,7 @@ public struct TRPPlanPoi: Decodable,Equatable, Hashable {
     /// A String value. Hash of Trip
     public var hash: String?
     
-    public var hashValue: Int{
+    public var hashValue: Int {
         return poiId.hashValue
     }
     
@@ -38,7 +38,7 @@ public struct TRPPlanPoi: Decodable,Equatable, Hashable {
     ///
     /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
         poiId = try values.decode(Int.self, forKey: .poiId)
         order = try values.decode(Int.self, forKey: .order)

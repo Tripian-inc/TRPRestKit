@@ -11,14 +11,13 @@ import Foundation
 /// TRPParentJsonModel is can be parsed all json models of Tripian.
 /// You must be implemented data model.
 public class TRPParentJsonModel: Decodable {
-
     
     /// An Int value. Http response status codes such as 200, 400 etc...
     public var status: Int
     /// A Bool value. Indicates a request status.
     public var success: Bool
     /// A String value. Message is dependent on `Success` variable.
-    public var message: String?;
+    public var message: String?
     /// A TRPPaginationJsonModel object. If request has a page more then one, You can control with pagination.
     var pagination: TRPPaginationJsonModel?
     
@@ -33,10 +32,10 @@ public class TRPParentJsonModel: Decodable {
     ///
     /// - Parameter decoder: Json decoder
     public required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: ParentCodingKeys.self);
-        status = try values.decode(Int.self, forKey: .status);
+        let values = try decoder.container(keyedBy: ParentCodingKeys.self)
+        status = try values.decode(Int.self, forKey: .status)
         success = try values.decode(Bool.self, forKey: TRPParentJsonModel.ParentCodingKeys.success)
-        message = try values.decodeIfPresent(String.self, forKey: .message);
+        message = try values.decodeIfPresent(String.self, forKey: .message)
         
         if let pagination = try? values.decodeIfPresent(TRPPaginationJsonModel.self, forKey: .pagination) {
             self.pagination = pagination
@@ -46,23 +45,22 @@ public class TRPParentJsonModel: Decodable {
 }
 
 /// Controls how many pages the request has.
-struct TRPPaginationJsonModel: Decodable{
+struct TRPPaginationJsonModel: Decodable {
     
-    
-    var total: Int = 0;
-    var count: Int = 0;
+    var total: Int = 0
+    var count: Int = 0
     var perPage: Int = 0
-    var currentPage: Int = 0;
-    var totalPages: Int = 0;
+    var currentPage: Int = 0
+    var totalPages: Int = 0
     var links: TRPPaginationLinkJsonModel?
     
-    private enum CodingKeys: String, CodingKey{
+    private enum CodingKeys: String, CodingKey {
         case total = "total"
         case count = "count"
-        case perPage = "per_page";
-        case currentPage = "current_page";
-        case totalPages = "total_pages";
-        case links = "links";
+        case perPage = "per_page"
+        case currentPage = "current_page"
+        case totalPages = "total_pages"
+        case links = "links"
     }
     
     init(from decoder: Decoder) throws {
@@ -75,8 +73,8 @@ struct TRPPaginationJsonModel: Decodable{
         self.count = try values.decodeIfPresent(Int.self, forKey: .count) ?? 0
         self.totalPages = try values.decodeIfPresent(Int.self, forKey: .totalPages) ?? 0
         
-        if let links = try? values.decodeIfPresent(TRPPaginationLinkJsonModel.self, forKey: .links){
-            self.links = links;
+        if let links = try? values.decodeIfPresent(TRPPaginationLinkJsonModel.self, forKey: .links) {
+            self.links = links
         }
     }
     
@@ -87,7 +85,7 @@ struct TRPPaginationLinkJsonModel: Decodable {
     var next: String?
     var previous: String?
     
-    private enum CodingKeys: String, CodingKey{
+    private enum CodingKeys: String, CodingKey {
         case next = "next"
         case previous = "previous"
     }
@@ -102,4 +100,3 @@ struct TRPPaginationLinkJsonModel: Decodable {
         }
     }
 }
-

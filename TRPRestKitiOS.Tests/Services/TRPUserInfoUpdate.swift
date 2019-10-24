@@ -19,7 +19,7 @@ class TRPUserInfoUpdate: XCTestCase {
     
     func randomString(length: Int) -> String {
       let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-      return String((0..<length).map{ _ in letters.randomElement()! })
+      return String((0..<length).map { _ in letters.randomElement()! })
     }
     
     func testUserInfoUpdate() {
@@ -30,7 +30,7 @@ class TRPUserInfoUpdate: XCTestCase {
         let randomLastName = randomString(length: 7)
         let randomAge = Int.random(in: 22..<40)
         
-        TRPRestKit().updateUserInfo(firstName: randomName, lastName: randomLastName,age:randomAge) { (result, error) in
+        TRPRestKit().updateUserInfo(firstName: randomName, lastName: randomLastName, age: randomAge) { (result, error) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 expectation.fulfill()
@@ -46,7 +46,6 @@ class TRPUserInfoUpdate: XCTestCase {
                 expectation.fulfill()
                 return
             }
-            
             
             XCTAssertNotNil(model.lastName)
             XCTAssertNotNil(model.firstName)

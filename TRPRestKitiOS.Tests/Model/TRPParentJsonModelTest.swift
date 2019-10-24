@@ -10,7 +10,7 @@ import XCTest
 @testable import TRPRestKit
 
 class TRPParentJsonModelTest: XCTestCase {
-    var jsonDecoder: JSONDecoder?;
+    var jsonDecoder: JSONDecoder?
     
     override func setUp() {
         super.setUp()
@@ -29,7 +29,7 @@ class TRPParentJsonModelTest: XCTestCase {
             XCTAssertEqual(result.status, 200, "Status not equeal 200")
             XCTAssertEqual(result.success, true, "Status isn't true")
             
-        }catch(let tryError) {
+        } catch(let tryError) {
             XCTFail(tryError.localizedDescription)
         }
     }
@@ -46,12 +46,10 @@ class TRPParentJsonModelTest: XCTestCase {
             let result = try jsonDecoder!.decode(TRPParentJsonModel.self, from: rawJson.data(using: String.Encoding.utf8)!)
             XCTAssertTrue(result.success, "Status isn't true")
             XCTAssertNil(result.pagination)
-        }catch(let tryError) {
+        } catch(let tryError) {
             XCTFail(tryError.localizedDescription)
         }
     }
-    
-    
     
     func testWithoutDataAndPagination() {
         let rawJson = """
@@ -74,17 +72,14 @@ class TRPParentJsonModelTest: XCTestCase {
             XCTAssertEqual(result.status, 200)
             XCTAssertEqual(result.success, true)
             XCTAssertNotNil(result.pagination)
-            XCTAssertNotEqual(result.pagination?.count,0)
-            XCTAssertNotEqual(result.pagination?.total,0)
-            XCTAssertNotEqual(result.pagination?.currentPage,0)
-            XCTAssertEqual(result.pagination?.currentPage,1)
+            XCTAssertNotEqual(result.pagination?.count, 0)
+            XCTAssertNotEqual(result.pagination?.total, 0)
+            XCTAssertNotEqual(result.pagination?.currentPage, 0)
+            XCTAssertEqual(result.pagination?.currentPage, 1)
             
-        }catch(let tryError) {
+        } catch(let tryError) {
             XCTFail(tryError.localizedDescription)
         }
     }
-    
-    
-  
     
 }

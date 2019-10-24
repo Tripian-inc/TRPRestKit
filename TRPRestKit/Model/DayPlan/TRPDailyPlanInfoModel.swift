@@ -44,12 +44,11 @@ public struct TRPDailyPlanInfoModel: Decodable {
         case generate
     }
     
-    
     /// Initializes a new object with decoder
     ///
     /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
         self.hash = try values.decode(String.self, forKey: .hash)
         self.date = try values.decode(String.self, forKey: .date)
@@ -59,7 +58,7 @@ public struct TRPDailyPlanInfoModel: Decodable {
         //todo:- alk kod açılacak test için yapıldı
         if let planPoints = try? values.decodeIfPresent([TRPPlanPoi].self, forKey: .planPoints) {
             self.planPois = planPoints ?? []
-        }else {
+        } else {
             self.planPois = []
         }
         

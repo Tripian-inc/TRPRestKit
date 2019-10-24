@@ -8,7 +8,7 @@
 
 import Foundation
 import TRPFoundationKit
-internal class TRPCities: TRPRestServices{
+internal class TRPCities: TRPRestServices {
     
     private enum RequestType {
         case allCities
@@ -16,16 +16,16 @@ internal class TRPCities: TRPRestServices{
         case cityWithLocation
     }
     
-    private var cityId:Int?;
+    private var cityId: Int?
     private var requestType: RequestType = RequestType.allCities
     private var location: TRPLocation?
     public var limit = 50
     
     internal override init() {}
     
-    internal init(cityId:Int) {
+    internal init(cityId: Int) {
         self.requestType = .cityWithId
-        self.cityId = cityId;
+        self.cityId = cityId
     }
     
     internal init(location: TRPLocation) {
@@ -35,20 +35,20 @@ internal class TRPCities: TRPRestServices{
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.completion?(nil,error, nil);
+            self.completion?(nil, error, nil)
             return
         }
         guard let data = data else {
             self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
-        let jsonDecode = JSONDecoder();
+        let jsonDecode = JSONDecoder()
         do {
             let result = try jsonDecode.decode(TRPCityJsonModel.self, from: data)
             let pag = paginationController(parentJson: result)
-            self.completion?(result, nil, pag);
-        }catch(let tryError) {
-            self.completion?(nil, tryError as NSError, nil);
+            self.completion?(result, nil, pag)
+        } catch(let tryError) {
+            self.completion?(nil, tryError as NSError, nil)
         }
     }
     
@@ -56,14 +56,14 @@ internal class TRPCities: TRPRestServices{
         var path = ""
         
         if requestType == .allCities || requestType == .cityWithId {
-            path = TRPConfig.ApiCall.cities.link;
+            path = TRPConfig.ApiCall.cities.link
             if let id = cityId {
                 path += "/\(id)"
             }
-        }else if requestType == .cityWithLocation {
-            path = TRPConfig.ApiCall.getcityByCoordinates.link;
+        } else if requestType == .cityWithLocation {
+            path = TRPConfig.ApiCall.getcityByCoordinates.link
         }
-        return path;
+        return path
     }
     
     override func parameters() -> Dictionary<String, Any>? {

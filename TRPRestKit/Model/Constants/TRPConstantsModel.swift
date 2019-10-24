@@ -19,7 +19,7 @@ internal class TRPConstantsParentJsonModel: TRPParentJsonModel {
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.data = try values.decodeIfPresent(TRPConstantsJsonModel.self, forKey: .data)
-        try super.init(from: decoder);
+        try super.init(from: decoder)
     }
 }
 
@@ -37,10 +37,8 @@ internal class TRPConstantsJsonModel: Decodable {
     
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        version = try values.decodeIfPresent(TRPVersionInfoModel.self
-            , forKey: .version)
-        constants = try values.decodeIfPresent(TRPConstantsInfoModel.self
-            , forKey: .constants)
+        version = try values.decodeIfPresent(TRPVersionInfoModel.self, forKey: .version)
+        constants = try values.decodeIfPresent(TRPConstantsInfoModel.self, forKey: .constants)
     }
 }
 
@@ -120,4 +118,3 @@ public struct TRPLocalizableMessageInfoModel: Decodable {
         self.fr = try values.decodeIfPresent(String.self, forKey: .fr)
     }
 }
-

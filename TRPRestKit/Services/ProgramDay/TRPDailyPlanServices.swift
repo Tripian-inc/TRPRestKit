@@ -9,15 +9,15 @@
 import Foundation
 internal class TRPDailyPlanServices: TRPRestServices {
     
-    var dayId:Int?
+    var dayId: Int?
     var startTime: String?
     var endTime: String?
     
-    internal init(id:Int) {
+    internal init(id: Int) {
         self.dayId = id
     }
     
-    internal init(id: Int, startTime:String, endTime: String) {
+    internal init(id: Int, startTime: String, endTime: String) {
         self.dayId = id
         self.startTime = startTime
         self.endTime = endTime
@@ -25,7 +25,7 @@ internal class TRPDailyPlanServices: TRPRestServices {
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.completion?(nil,error, nil);
+            self.completion?(nil, error, nil)
             return
         }
         guard let data = data else {
@@ -33,12 +33,12 @@ internal class TRPDailyPlanServices: TRPRestServices {
             return
         }
         
-        let jsonDecode = JSONDecoder();
+        let jsonDecode = JSONDecoder()
         do {
             let result = try jsonDecode.decode(TRPDayPlanJsonModel.self, from: data)
-            self.completion?(result, nil, nil);
-        }catch(let tryError) {
-            self.completion?(nil, tryError as NSError, nil);
+            self.completion?(result, nil, nil)
+        } catch(let tryError) {
+            self.completion?(nil, tryError as NSError, nil)
         }
     }
     
@@ -55,7 +55,7 @@ internal class TRPDailyPlanServices: TRPRestServices {
     }
     
     public override func path() -> String {
-        var path = TRPConfig.ApiCall.dailyPlan.link;
+        var path = TRPConfig.ApiCall.dailyPlan.link
         if let id = dayId {
             path += "/\(id)"
         }
@@ -65,7 +65,7 @@ internal class TRPDailyPlanServices: TRPRestServices {
 
     override func parameters() -> Dictionary<String, Any>? {
         if let id = dayId, let startTime = startTime, let endTime = endTime {
-            var params : Dictionary<String, Any> = [:];
+            var params: Dictionary<String, Any> = [:]
             
             params["start_time"] = startTime
             params["end_time"] = endTime

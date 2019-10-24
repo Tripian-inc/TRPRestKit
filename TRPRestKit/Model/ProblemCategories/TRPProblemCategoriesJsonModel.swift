@@ -9,7 +9,7 @@
 import Foundation
 internal class TRPProblemCategoriesJsonModel: TRPParentJsonModel {
     
-    internal var datas: [TRPProblemCategoriesInfoModel]?;
+    internal var datas: [TRPProblemCategoriesInfoModel]?
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -22,7 +22,6 @@ internal class TRPProblemCategoriesJsonModel: TRPParentJsonModel {
     }
     
 }
-
 
 /// Indicates categories that used to report a error
 public struct TRPProblemCategoriesInfoModel: Decodable {

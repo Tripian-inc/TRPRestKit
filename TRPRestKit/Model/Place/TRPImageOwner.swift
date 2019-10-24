@@ -9,7 +9,7 @@
 import Foundation
 
 /// Indicates information of person who photographed.
-public struct TRPImageOwner: Decodable  {
+public struct TRPImageOwner: Decodable {
     /// A String value. The name of person who photographed.
     public var title: String
     /// A String value. Url of a image

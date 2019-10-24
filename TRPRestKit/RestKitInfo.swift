@@ -11,7 +11,7 @@ public class RestKitInfo: NSObject {
     
     public override init() {}
     
-    public func version()  -> String? {
+    public func version() -> String? {
         return Bundle(for: type(of: self)).infoDictionary?["CFBundleShortVersionString"] as? String
     }
     

@@ -8,25 +8,24 @@
 
 import Foundation
 
-internal class TRPUserRegister: TRPRestServices{
+internal class TRPUserRegister: TRPRestServices {
 
     var password: String?
     var userName: String?
     var email: String?
-    
     
     public init(email: String, password: String) {
         self.password = password
         self.email = email
     }
 
-    public init(userName:String) {
+    public init(userName: String) {
         self.userName = userName
     }
 
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.completion?(nil,error, nil);
+            self.completion?(nil, error, nil)
             return
         }
         guard let data = data else {
@@ -34,31 +33,31 @@ internal class TRPUserRegister: TRPRestServices{
             return
         }
         let json = String(data: data, encoding: .utf8)
-        print("UserJsonResult: \(json!)");
-        let jsonDecode = JSONDecoder();
+        print("UserJsonResult: \(json!)")
+        let jsonDecode = JSONDecoder()
         do {
             if password != nil && email != nil {
                 let result = try jsonDecode.decode(TRPUserInfoJsonModel.self, from: data)
                 let pag = paginationController(parentJson: result)
-                self.completion?(result, nil, pag);
-            }else if userName != nil {
+                self.completion?(result, nil, pag)
+            } else if userName != nil {
                 let result = try jsonDecode.decode(TRPTestUserInfoJsonModel.self, from: data)
                 let pag = paginationController(parentJson: result)
-                self.completion?(result, nil, pag);
+                self.completion?(result, nil, pag)
             }
             
-        }catch(let tryError) {
-            self.completion?(nil, tryError as NSError, nil);
+        } catch(let tryError) {
+            self.completion?(nil, tryError as NSError, nil)
         }
     }
 
     public override func parameters() -> Dictionary<String, Any>? {
         
         if let email = email, let password = password {
-            return ["email":email, "password":password]
+            return ["email": email, "password": password]
         }
         if let userName = userName {
-            return ["username":userName]
+            return ["username": userName]
         }
         
         return [:]
@@ -73,6 +72,6 @@ internal class TRPUserRegister: TRPRestServices{
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.register.link;
+        return TRPConfig.ApiCall.register.link
     }
 }

@@ -31,7 +31,7 @@ public struct TRPPlanPointAlternativeInfoModel: Decodable {
     ///
     /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
         self.hash = try values.decode(String.self, forKey: .hash)
         self.alternativePoiId = try values.decode(Int.self, forKey: .poiId)

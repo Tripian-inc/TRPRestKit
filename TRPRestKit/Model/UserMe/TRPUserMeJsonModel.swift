@@ -8,10 +8,10 @@
 
 import Foundation
 /// Parent Json parser model for UserInfo
-internal class TRPUserInfoJsonModel: TRPParentJsonModel{
+internal class TRPUserInfoJsonModel: TRPParentJsonModel {
     
     /// User data
-    public var data: TRPUserInfoModel;
+    public var data: TRPUserInfoModel
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -20,15 +20,14 @@ internal class TRPUserInfoJsonModel: TRPParentJsonModel{
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.data = try values.decode(TRPUserInfoModel.self, forKey: .data)
-        try super.init(from: decoder);
+        try super.init(from: decoder)
     }
 }
 
-
-internal class TRPTestUserInfoJsonModel: TRPParentJsonModel{
+internal class TRPTestUserInfoJsonModel: TRPParentJsonModel {
     
     /// User data
-    public var data: TRPTestUserInfoModel;
+    public var data: TRPTestUserInfoModel
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -37,6 +36,6 @@ internal class TRPTestUserInfoJsonModel: TRPParentJsonModel{
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.data = try values.decode(TRPTestUserInfoModel.self, forKey: .data)
-        try super.init(from: decoder);
+        try super.init(from: decoder)
     }
 }

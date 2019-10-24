@@ -19,7 +19,6 @@ internal class TRPFeedback: TRPRestServices {
     var message: String?
     var placeId: Int?
     
-    
 //    internal init(setting: TRPProgramSettings) {
 //        self.setting = setting
 //    }
@@ -31,7 +30,7 @@ internal class TRPFeedback: TRPRestServices {
     public override func servicesResult(data: Data?, error: NSError?) {
         
         if let error = error {
-            self.completion?(nil,error, nil);
+            self.completion?(nil, error, nil)
             return
         }
         
@@ -40,12 +39,12 @@ internal class TRPFeedback: TRPRestServices {
             return
         }
         
-        let jsonDecode = JSONDecoder();
+        let jsonDecode = JSONDecoder()
         do {
             let result = try jsonDecode.decode(TRPUserTripsJsonModel.self, from: data)
-            self.completion?(result, nil, nil);
-        }catch(let tryError) {
-            self.completion?(nil, tryError as NSError, nil);
+            self.completion?(result, nil, nil)
+        } catch(let tryError) {
+            self.completion?(nil, tryError as NSError, nil)
         }
     }
     
@@ -54,7 +53,7 @@ internal class TRPFeedback: TRPRestServices {
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.userTrips.link;
+        return TRPConfig.ApiCall.userTrips.link
     }
     
 }

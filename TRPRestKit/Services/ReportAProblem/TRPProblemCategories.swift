@@ -14,7 +14,7 @@ internal class TRPProblemCategories: TRPRestServices {
     override func servicesResult(data: Data?, error: NSError?) {
         
         if let error = error {
-            self.completion?(nil,error, nil)
+            self.completion?(nil, error, nil)
             return
         }
         
@@ -26,9 +26,9 @@ internal class TRPProblemCategories: TRPRestServices {
         let jsonDecode = JSONDecoder()
         do {
             let result = try jsonDecode.decode(TRPProblemCategoriesJsonModel.self, from: data)
-            self.completion?(result,nil,nil)
-        }catch(let tryError) {
-            self.completion?(nil, tryError as NSError, nil);
+            self.completion?(result, nil, nil)
+        } catch(let tryError) {
+            self.completion?(nil, tryError as NSError, nil)
         }
         
     }

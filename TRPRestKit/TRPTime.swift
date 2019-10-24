@@ -7,7 +7,6 @@
 //
 import Foundation
 
-
 /// This struct has Date and Time formats.
 /// To convert string to Date/Time.
 /// Date is `yyyy-mm-dd`
@@ -29,7 +28,6 @@ public struct TRPTime {
     /// A String value. Readable value of time
     public var time: String = ""
     
-    
     /// Initilizes a new TRPTime with Int values.
     ///
     /// - Parameters:
@@ -38,10 +36,10 @@ public struct TRPTime {
     ///   - day: day such as 29
     ///   - hours: hours such as 14
     ///   - min: min such as 00
-    public init(year:Int, month:Int, day:Int, hours:Int, min:Int) {
+    public init(year: Int, month: Int, day: Int, hours: Int, min: Int) {
         let formatedMonth = String(format: "%02d", month)
         let formatedDay = String(format: "%02d", day)
-        date = String(year) + "-" + formatedMonth + "-" + formatedDay;
+        date = String(year) + "-" + formatedMonth + "-" + formatedDay
         time = String(format: "%02i:%02i", hours, min)
     }
     
@@ -54,7 +52,6 @@ public struct TRPTime {
         self.date = date
         self.time = time
     }
-    
     
     /// Initilizes a new TRPTime with date
     ///

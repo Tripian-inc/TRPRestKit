@@ -20,7 +20,7 @@ class TRPGoogleAutoComplete {
         self.text = text
     }
     
-    func start(completion: @escaping (_ result:Any?, _ error:NSError?) -> Void) {
+    func start(completion: @escaping (_ result: Any?, _ error: NSError?) -> Void) {
         
         guard let escapedAddress = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {return}
         
@@ -32,7 +32,7 @@ class TRPGoogleAutoComplete {
         network.add(mode: .post)
         network.build { (error, data) in
             if let error = error {
-                completion(nil,error)
+                completion(nil, error)
                 return
             }
             if let data = data {
@@ -45,15 +45,14 @@ class TRPGoogleAutoComplete {
                     return
                 }
                 if let errorMessage = object?["error_message"] as? String {
-                    completion(nil,TRPErrors.someThingWronk(errorMessage) as NSError)
+                    completion(nil, TRPErrors.someThingWronk(errorMessage) as NSError)
                     return
                 }
                 
                 guard let predictions = object?["predictions"] as? [[String: Any]] else { return }
                 let sonuc = predictions.map { TRPGooglePlace(prediction: $0) }
-                completion(sonuc,nil)
+                completion(sonuc, nil)
             }
         }
     }
 }
-

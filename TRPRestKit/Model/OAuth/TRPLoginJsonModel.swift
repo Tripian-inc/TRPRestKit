@@ -12,10 +12,10 @@ import Foundation
 public struct TRPLoginInfoModel: Decodable {
     
     /// Type of token
-    public var tokenType: String?;
+    public var tokenType: String?
     
     /// Token access key
-    public var accessToken: String;
+    public var accessToken: String
     
     private enum CodingKeys: String, CodingKey {
         case tokenType = "token_type"
@@ -26,7 +26,7 @@ public struct TRPLoginInfoModel: Decodable {
     ///
     /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self);
+        let values = try decoder.container(keyedBy: CodingKeys.self)
         self.tokenType = try values.decodeIfPresent(String.self, forKey: .tokenType)
         self.accessToken = try values.decode(String.self, forKey: .accessToken)
     }

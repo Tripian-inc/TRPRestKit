@@ -18,11 +18,11 @@ internal class TRPPlace: TRPRestServices {
         case withCityType
     }
     
-    var placeIds: [Int]?;
-    var cities: [Int]?;
-    var limit: Int = 25;
-    var typeId: Int? = nil
-    var typeIds: [Int]? = nil
+    var placeIds: [Int]?
+    var cities: [Int]?
+    var limit: Int = 25
+    var typeId: Int?
+    var typeIds: [Int]?
     
     private var location: TRPLocation?
     private var distance: Double?
@@ -33,19 +33,18 @@ internal class TRPPlace: TRPRestServices {
     internal override init() {}
     
     internal init(ids: [Int], cityId: Int) {
-        self.placeIds = ids;
+        self.placeIds = ids
         self.cities = [cityId]
         status = .withPlacesId
     }
-    
    
-    internal init(cities:[Int]){
-        self.cities = cities;
+    internal init(cities: [Int]) {
+        self.cities = cities
         status = .withCityId
     }
     
     internal init(location: TRPLocation,
-                  distance:Double? = nil,
+                  distance: Double? = nil,
                   typeId: Int? = nil,
                   typeIds: [Int]? = nil) {
         self.location = location
@@ -64,7 +63,7 @@ internal class TRPPlace: TRPRestServices {
         status = .withSearchText
     }
     
-    internal init(cityId: Int?,typeIds: [Int]?) {
+    internal init(cityId: Int?, typeIds: [Int]?) {
            self.typeIds = typeIds
            self.cityId = cityId
            status = .withCityType
@@ -72,7 +71,7 @@ internal class TRPPlace: TRPRestServices {
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
-            self.completion?(nil,error, nil);
+            self.completion?(nil, error, nil)
             return
         }
         guard let data = data else {
@@ -80,13 +79,13 @@ internal class TRPPlace: TRPRestServices {
             return
         }
         
-        let jsonDecode = JSONDecoder();
+        let jsonDecode = JSONDecoder()
         do {
             let result = try jsonDecode.decode(TRPPoiJsonModel.self, from: data)
             let pag = paginationController(parentJson: result)
-            self.completion?(result, nil, pag);
-        }catch(let tryError) {
-            self.completion?(nil, tryError as NSError, nil);
+            self.completion?(result, nil, pag)
+        } catch(let tryError) {
+            self.completion?(nil, tryError as NSError, nil)
         }
     }
     
@@ -98,13 +97,13 @@ internal class TRPPlace: TRPRestServices {
                 params["city_id"] = citiesList
                 params["limit"] = String(limit)
             }
-        }else if status == .withPlacesId {
+        } else if status == .withPlacesId {
             if let places = placeIds, let cities = cities, let city = cities.first {
                 let placesList = places.toString()
                 params["city_id"] = city
                 params["q"] = "id:" + placesList
             }
-        }else if status == .withLocation {
+        } else if status == .withLocation {
             if let location = location {
                 params["coordinate"] = "\(location.lat),\(location.lon)"
                 
@@ -122,7 +121,7 @@ internal class TRPPlace: TRPRestServices {
                     params["city_id"] = cityId
                 }
             }
-        }else if status == .withSearchText {
+        } else if status == .withSearchText {
             if let cityId = cityId {
                 params["city_id"] = cityId
             }
@@ -132,7 +131,7 @@ internal class TRPPlace: TRPRestServices {
             if let location = location {
                 params["coordinate"] = "\(location.lat),\(location.lon)"
             }
-        }else if status == .withCityType {
+        } else if status == .withCityType {
             if let cityId = cityId {
                 params["city_id"] = cityId
             }
@@ -148,7 +147,7 @@ internal class TRPPlace: TRPRestServices {
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.poi.link;
+        return TRPConfig.ApiCall.poi.link
     }
     
 }
