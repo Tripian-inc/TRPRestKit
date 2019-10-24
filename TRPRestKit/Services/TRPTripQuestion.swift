@@ -54,7 +54,7 @@ internal class TRPTripQuestion: TRPRestServices {
             let result = try jsonDecode.decode(TRPTripQuestionJsonModel.self, from: data)
             let pag = paginationController(parentJson: result)
             self.completion?(result, nil, pag)
-        } catch(let tryError) {
+        } catch let tryError {
             self.completion?(nil, tryError as NSError, nil)
         }
     }

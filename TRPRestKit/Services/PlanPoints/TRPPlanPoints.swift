@@ -68,7 +68,7 @@ internal class TRPPlanPoints: TRPRestServices {
                 self.completion?(result, nil, nil)
             }
             
-        } catch(let tryError) {
+        } catch let tryError {
             self.completion?(nil, tryError as NSError, nil)
         }
     }

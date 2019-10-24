@@ -31,7 +31,7 @@ internal class TRPGetProgram: TRPRestServices {
         do {
             let result = try jsonDecode.decode(TRPTripJsonModel.self, from: data)
             self.completion?(result, nil, nil)
-        } catch(let tryError) {
+        } catch let tryError {
             self.completion?(nil, tryError as NSError, nil)
         }
     }

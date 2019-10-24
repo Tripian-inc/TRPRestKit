@@ -53,10 +53,8 @@ class TRPUserInfoUpdate: XCTestCase {
             XCTAssertNotNil(model.info)
             var ageFromServer: String?
             
-            for child in model.info! {
-                if child.key == "age" {
-                    ageFromServer = child.value
-                }
+            for child in model.info! where child.key == "age" {
+                ageFromServer = child.value
             }
             XCTAssertNotNil(ageFromServer)
             let ageFromServerInt = Int(ageFromServer!)

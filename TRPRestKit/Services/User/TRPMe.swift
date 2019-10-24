@@ -53,7 +53,7 @@ internal class TRPUserInfoServices: TRPRestServices {
         do {
             let result = try jsonDecode.decode(TRPUserInfoJsonModel.self, from: data)
             self.completion?(result, nil, nil)
-        } catch(let tryError) {
+        } catch let tryError {
             self.completion?(nil, tryError as NSError, nil)
         }
     }

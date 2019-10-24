@@ -46,7 +46,7 @@ internal class TRPUserRegister: TRPRestServices {
                 self.completion?(result, nil, pag)
             }
             
-        } catch(let tryError) {
+        } catch let tryError {
             self.completion?(nil, tryError as NSError, nil)
         }
     }

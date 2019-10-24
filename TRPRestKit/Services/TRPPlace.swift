@@ -84,7 +84,7 @@ internal class TRPPlace: TRPRestServices {
             let result = try jsonDecode.decode(TRPPoiJsonModel.self, from: data)
             let pag = paginationController(parentJson: result)
             self.completion?(result, nil, pag)
-        } catch(let tryError) {
+        } catch let tryError {
             self.completion?(nil, tryError as NSError, nil)
         }
     }
