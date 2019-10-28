@@ -9,43 +9,53 @@
 import XCTest
 import TRPRestKit
 
+class LoginMock {
+    
+    private let userName: String = "necatievren@gmail.com"
+    private let password: String = "123456"
+    
+    public static let shared: LoginMock = LoginMock()
+    
+    func isUserLogedIn() -> Bool {
+        return TRPUserPersistent.didUserLoging()
+    }
+    
+    func login( completed: @escaping (_ status: Bool) -> Void) {
+        TRPRestKit().login(email: userName, password: password) { (result, error) in
+            if error != nil {
+                completed(false)
+                fatalError("Couldn't be loged in assert")
+            }
+            if result != nil {
+                completed(false)
+                fatalError("Couldn't be loged in assert")
+            }
+            completed(true)
+        }
+    }
+    
+}
+
 class TRPUserTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
         TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
-    }
-    
-    func testUserLogin() {
-        let nameSpace = "TRPUserLogin"
-        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        
-        TRPRestKit().login(email: "necatievren@gmail.com", password: "123456") { (result, error) in
-            if let error = error {
-                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+        if !LoginMock.shared.isUserLogedIn() {
+            let nameSpace = "Login"
+            let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+            LoginMock.shared.login { (status) in
+                XCTAssert(status)
                 expectation.fulfill()
-                return
             }
-            guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
-                expectation.fulfill()
-                return
-            }
-            guard let loginInfo = result as? TRPLoginInfoModel  else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripQuestionInfoModel")
-                expectation.fulfill()
-                return
-            }
-            
-            XCTAssertNotNil(loginInfo.tokenType)
-            XCTAssertNotEqual(loginInfo.accessToken.count, 0)
-            XCTAssertTrue(TRPUserPersistent.didUserLoging())
-            expectation.fulfill()
+            wait(for: [expectation], timeout: 10.0)
         }
-        wait(for: [expectation], timeout: 10.0)
     }
     
-    func testUserInfo() {
+    func testCCCUserInfo() {
+        print("")
+        print("2 - TRPUserInfo")
+        print("")
         let nameSpace = "TRPUserInfo"
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         TRPRestKit().userInfo { (result, error) in
@@ -72,7 +82,10 @@ class TRPUserTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    func testUserTrip() {
+    func testBBUserTrip() {
+        print("")
+        print("3 - testUserTrip")
+        print("")
         let nameSpace = "TRPUserTrips"
         
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")

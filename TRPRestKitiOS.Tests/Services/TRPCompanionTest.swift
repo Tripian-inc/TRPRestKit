@@ -14,7 +14,6 @@ class TRPCompanionTest: XCTestCase {
     override func setUp() {
         super.setUp()
         TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
-        
     }
     
     func randomString(length: Int) -> String {
@@ -53,7 +52,6 @@ class TRPCompanionTest: XCTestCase {
         let expectation = XCTestExpectation(description: name)
         let randomName = randomString(length: 9)
         let randomAge = Int.random(in: 20..<80)
-        TRPRestKit().addCompanion(name: name, age: <#T##String?#>, answers: <#T##String?#>, completion: <#T##TRPRestKit.CompletionHandler##TRPRestKit.CompletionHandler##(Any?, NSError?) -> Void#>)
         
         TRPRestKit().getUsersCompanions { (result, error) in
             if let error = error {
