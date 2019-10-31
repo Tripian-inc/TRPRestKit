@@ -14,11 +14,12 @@ class TRPCompanionTest: XCTestCase {
     override func setUp() {
         super.setUp()
         TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
+        TRPClient.printData(true)
     }
     
     func randomString(length: Int) -> String {
-      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-      return String((0..<length).map { _ in letters.randomElement()! })
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map { _ in letters.randomElement()! })
     }
     
     func testGetCompanions() {
@@ -90,6 +91,36 @@ class TRPCompanionTest: XCTestCase {
         
         wait(for: [expectation], timeout: 10)
     }
+    
+    func testAddCompaniona() {
+        
+        let nameSpace = #function
+        let expectation = XCTestExpectation(description: name)
+        let randomName = randomString(length: 7)
+        let randomAge = Int.random(in: 20..<80)
+        let answers = [42, 43]
+        
+        TRPRestKit().addCompanion(name: randomName, age: randomAge, answers: answers) { [weak self] (result, error) in
+            guard self != nil else {return}
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
+                return
+            }
+            
+            XCTAssertNotNil(result)
+            
+            if (result as? TRPCompanionModel) != nil {
+                XCTFail("\(nameSpace) Result is nil")
+                expectation.fulfill()
+            }
+            
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 10)
+    }
+    
     
     func testUserInfoUpdate() {
         let nameSpace = "TRPUserLogin"

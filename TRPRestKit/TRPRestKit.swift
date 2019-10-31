@@ -45,10 +45,6 @@ import TRPFoundationKit
     private var completionHandler: CompletionHandler?
     private var completionHandlerWithPagination: CompletionHandlerWithPagination?
     
-    public override init() {
-        print("***************************")
-    }
-    
     fileprivate func postData(result: Any?, pagination: Pagination? = Pagination.completed) {
         if let comp = completionHandler {
             comp(result, nil)
@@ -701,6 +697,7 @@ extension TRPRestKit {
 
 // MARK: Update User Info
 extension TRPRestKit {
+    
     /// Updates the user's answers. The answers change Recommendation Engine's working.
     ///
     /// - Parameters:
@@ -762,6 +759,7 @@ extension TRPRestKit {
         }
         services.connection()
     }
+    
 }
 
 //
@@ -872,8 +870,11 @@ extension TRPRestKit {
                     return
                 }
             } else if serviceType == .add {
-                if let serviceResult = result as? TRPCompanionModel {
-                    self.postData(result: serviceResult)
+                if let serviceResult = result as? TRPCompanionsJsonModel {
+                    if let model = serviceResult.data?.first {
+                        self.postData(result: model)
+                    }
+                    
                     return
                 }
             } else if serviceType == .get {
