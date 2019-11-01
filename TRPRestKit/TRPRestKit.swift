@@ -1228,6 +1228,9 @@ extension TRPRestKit {
             return
         }
         
+        
+        
+        
         service.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
