@@ -146,8 +146,8 @@ extension TRPRestKit {
                         return
                     }
                 }
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
         
         if let link = link {
@@ -235,8 +235,9 @@ extension TRPRestKit {
                         }
                     }
                 }
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+                
             }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
         poiService?.connection()
     }
@@ -398,8 +399,8 @@ extension TRPRestKit {
                     self.postData(result: places, pagination: pagination)
                     return
                 }
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
         
         if let link = link {
@@ -526,10 +527,9 @@ extension TRPRestKit {
                         self.postData(result: questions, pagination: pagination)
                         return
                     }
-                    
                 }
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
         services.connection()
     }
@@ -757,6 +757,8 @@ extension TRPRestKit {
             }
             if let serviceResult = result as? TRPUserInfoJsonModel {
                 self.postData(result: serviceResult.data, pagination: pagination)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
         services.connection()
@@ -996,6 +998,8 @@ extension TRPRestKit {
             
             if let serviceResult = result as? TRPUserTripsJsonModel {
                 self.postData(result: serviceResult.data)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
         tripService.connection()
@@ -1025,6 +1029,8 @@ extension TRPRestKit {
             }
             if let serviceReuslt = result as? TRPConstantsParentJsonModel {
                 self.postData(result: serviceReuslt.data?.constants)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
         constantsService.connection()
@@ -1055,6 +1061,8 @@ extension TRPRestKit {
             }
             if let serviceResult = result as? TRPConstantsParentJsonModel {
                 self.postData(result: serviceResult.data?.version)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
         constantsService.connection()
@@ -1090,6 +1098,8 @@ extension TRPRestKit {
             }
             if let data = result as? TRPTripJsonModel, let serviceResult = data.data {
                 self.postData(result: serviceResult)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
         programService.connection()
@@ -1165,6 +1175,8 @@ extension TRPRestKit {
             }
             if let serviceResult = result as? TRPDayPlanJsonModel {
                 self.postData(result: serviceResult.data)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
         dailyPlanServices.connection()
@@ -1343,6 +1355,8 @@ extension TRPRestKit {
             }
             if let data = data as? [TRPGooglePlace] {
                 self.postData(result: data)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
     }
@@ -1375,6 +1389,8 @@ extension TRPRestKit {
             
             if let result = data as? TRPGooglePlaceLocation {
                 self.postData(result: result)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
     }
@@ -1402,6 +1418,8 @@ extension TRPRestKit {
             }
             if let serviceResult = result as? TRPProblemCategoriesJsonModel {
                 self.postData(result: serviceResult.datas)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
         categoryService.connection()
@@ -1439,6 +1457,8 @@ extension TRPRestKit {
             }
             if let serviceResult = result as? TRPReportAProblemJsonModel {
                 self.postData(result: serviceResult.data ?? nil)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
         reportAProblemService.connection()
@@ -1462,6 +1482,8 @@ extension TRPRestKit {
             }
             if let serviceResult = result as? TRPDayPlanJsonModel {
                 self.postData(result: serviceResult.data)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
         dailyplanService.connection()
