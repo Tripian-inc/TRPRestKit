@@ -9,6 +9,8 @@
 import Foundation
 import TRPFoundationKit
 
+let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
+
 /// The TRPRestKit is a framework of Tripian Api that allows you to create a trip and take information about places.
 ///
 ///  Framework provide you;
@@ -1227,9 +1229,6 @@ extension TRPRestKit {
             self.postError(error: TRPErrors.objectIsNil(name: "TRPPlanPoints") as NSError)
             return
         }
-        
-        
-        
         
         service.completion = {   (result, error, pagination) in
             if let error = error {
