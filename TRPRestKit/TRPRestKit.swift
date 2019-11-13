@@ -408,7 +408,7 @@ extension TRPRestKit {
                     autoPagination: autoPagination ?? false)
     }
     
-   
+    
     /// Obtain information of pois using search text such as tags(for example "restaurant", "museum", "bar" etc.), name of poi.
     ///
     ///
@@ -531,7 +531,7 @@ extension TRPRestKit {
 
 // MARK: - Question Services
 extension TRPRestKit {
-
+    
     /// Returns a question which will be used when creating a trip by requested Question Id.
     ///
     /// - Parameters:
@@ -562,7 +562,7 @@ extension TRPRestKit {
         self.completionHandlerWithPagination = completion
         questionServices(cityId: cityId, type: type, language: language)
     }
-
+    
     /// Returns question array with type, language and completion handler parameters which will be used during creating trips.
     ///
     /// - Parameters:
@@ -755,7 +755,7 @@ extension TRPRestKit {
         self.completionHandler = completion
         userRegisterServices(userName: userName)
     }
-
+    
     /// Obtain personal user information (must be logged in with access token), such as user id, e-mail, and preferences.
     ///
     /// - Parameters:
@@ -856,7 +856,7 @@ extension TRPRestKit {
         userInfoServices(answers: answers, type: .updateAnswer)
     }
     
-  
+    
     /// A services which will be used in user info services, manages all task connecting to remote server.
     private func userInfoServices(firstName: String? = nil,
                                   lastName: String? = nil,
@@ -1047,37 +1047,41 @@ extension TRPRestKit {
     ///
     /// - Parameters:
     ///   - cityId: An Integer that refers to Id of city where the poi is located.
-    ///   - poiId: Id of Place.
+    ///   - poiId: An Integer that refers to Id of the given place.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Any Object needs to be converted to **TRPFavoritesInfoModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-get-user-favorites)
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-delete-favorite)
     public func addUserFavorite(cityId: Int, poiId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         userFavoriteServices(cityId: cityId, poiId: poiId, mode: .add)
     }
     
-    /// Returns Poi ids of user's favorite poi list.
+    /// Get user all favorite place of interests list
     ///
     /// - Parameters:
-    ///   - cityId: Id of city where the poi is located.
-    ///   - completion: Any Object needs to be converted to **[TRPFavoritesInfoModel]** object.
+    ///   - cityId: An Integer that refers to Id of city where the poi is located.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **[TRPFavoritesInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-get-user-favorites)
     public func getUserFavorite(cityId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         userFavoriteServices(cityId: cityId, mode: .get)
     }
     
-    /// This method is used to delete poi to user's favorite list.
+    /// Delete user's favorite Place of Interest.
     ///
     /// - Parameters:
-    ///   - cityId: Id of city where the poi is located.
-    ///   - poiId: Id of Poi
-    ///   - completion: Any Object needs to be converted to **TRPParentJsonModel** object.
+    ///   - cityId: An Integer that refers to Id of city where the poi is located.
+    ///   - poiId: An Integer that refers to Id of the given place.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPParentJsonModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-delete-favorite)
     public func deleteUserFavorite(cityId: Int, poiId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         userFavoriteServices(cityId: cityId, poiId: poiId, mode: .delete)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in users favorite place of interests, manages all task connecting to remote server.
     private func userFavoriteServices(cityId: Int, poiId: Int? = nil, mode: TRPUserFavorite.Mode) {
         
         var favoriteService: TRPUserFavorite?
@@ -1124,17 +1128,23 @@ extension TRPRestKit {
 // MARK: - User Trips
 extension TRPRestKit {
     
-    /// Returns all trips created by User.
+    /// Obtain the list of user trips with given limit, and completionHandler parameters.
     ///
     /// - Parameters:
-    ///   - limit: number of record to display
-    ///   - completion: Any Object needs to be converted to **TRPUserTripInfoModels** object.
+    ///   - limit: An Integer value that refers to the number of trips which will be presented(Optional, default value is 100).
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **[TRPUserTripInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func userTrips(limit: Int? = 100, completion: @escaping CompletionHandlerWithPagination) {
         completionHandlerWithPagination = completion
-        userTripsServices(limit: 100)
+        guard let limit = limit else{
+            userTripsServices(limit: 100)
+            return
+        }
+        userTripsServices(limit: limit)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in users trips, manages all task connecting to remote server.
     private func userTripsServices(limit: Int) {
         let tripService = TRPUserTrips()
         tripService.limit = limit
@@ -1158,16 +1168,16 @@ extension TRPRestKit {
 // MARK: - Constants
 extension TRPRestKit {
     
-    /// Returns all constants.
+    /// Obtain the list of constants that are used in Tripian Mobile Apps such as required max day between trips.
     ///
     /// - Parameters:
-    ///   - completion: Any Object needs to be converted to **TRPUserTripInfoModels** object.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     public func getConstants(completion: @escaping CompletionHandler) {
         completionHandler = completion
         constantServices()
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in constant services, manages all task connecting to remote server.
     private func constantServices() {
         let constantsService = TRPConstantsServices()
         constantsService.completion = {   (result, error, pagination) in
@@ -1189,16 +1199,16 @@ extension TRPRestKit {
 // MARK: - Version
 extension TRPRestKit {
     
-    /// Return version detail.
+    /// Obtain the list of versions that are used in Tripian Mobile Apps such as required min frameworks.
     ///
     /// - Parameters:
-    ///   - completion: Any Object needs to be converted to **TRPUserTripInfoModels** object.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     public func getVersion(completion: @escaping CompletionHandler) {
         completionHandler = completion
         versionServices()
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in version services, manages all task connecting to remote server.
     private func versionServices() {
         
         let constantsService = TRPConstantsServices()
@@ -1221,22 +1231,33 @@ extension TRPRestKit {
 // MARK: - Trip
 extension TRPRestKit {
     
-    /// To create a new trip for user.
+    /// Create a trip with given settings and completion handler parameters.
+    ///
+    /// Values and meanings of generate attribute in of dayplans; 0=not generated yet, 1=generated and recommended, -1=generated but not recommended.
     ///
     /// - Parameters:
-    ///   - settings: Includes settings about a trip to create.
-    ///   - completion: Any Object needs to be converted to **TRPTripInfoModel** object.
+    ///   - settings: TRPTripSettings object that includes settings for the trip.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func createTrip(settings: TRPTripSettings, completion: @escaping CompletionHandler) {
         completionHandler = completion
         createOrEditTripServices(settings: settings)
     }
     
+    /// Update trip with given settings and completion handler parameters.
+    ///
+    /// - Parameters:
+    ///   - settings: TRPTripSettings object that includes settings for the updating trip.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#update-a-trip)
     public func editTrip(settings: TRPTripSettings, completion: @escaping CompletionHandler) {
         completionHandler = completion
         createOrEditTripServices(settings: settings)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used for both creating and editing services, manages all task connecting to remote server.
     private func createOrEditTripServices(settings: TRPTripSettings) {
         let programService = TRPProgram(setting: settings)
         programService.completion = {   (result, error, pagination) in
@@ -1253,17 +1274,21 @@ extension TRPRestKit {
         programService.connection()
     }
     
-    /// Returns foundation information about trip using hash.
+    /// Get trip info with given trip hash and completion handler parameters.
     ///
     /// - Parameters:
-    ///   - hash: hash of trip
-    ///   - completion: Any Object needs to be converted to **TRPTripInfoModel** object.
+    ///   - hash: A String value that refers to trip hash.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPTripInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func getTrip(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
         getTripServices(hash: hash)
     }
     
-    /// A services that manage all task to connecting remote server
+    //TODO:Rozeri Completion ve important in formatini duzenle yeniden.
+    
+    /// A services which will be used forgetting trip info services, manages all task connecting to remote server.
     private func getTripServices(hash: String) {
         let getProgramService = TRPGetProgram(hash: hash)
         getProgramService.completion = {  (result, error, pagination) in
@@ -1278,12 +1303,19 @@ extension TRPRestKit {
         getProgramService.connection()
     }
     
+    /// Delete trip info with given trip hash and completion handler parameters.
+    ///
+    /// - Parameters:
+    ///   - hash: A String value that refers to foretold deleting trip hash.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPParentJsonModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#delete-a-trip)
     public func deleteTrip(hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
         deleteTripServices(hash: hash)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in delete trip services, manages all task connecting to remote server.
     private func deleteTripServices(hash: String) {
         let deleteService = TRPDeleteProgram(hash: hash)
         deleteService.completion = { (result, error, pagination) in
@@ -1303,17 +1335,21 @@ extension TRPRestKit {
 // MARK: - Daily Plan
 extension TRPRestKit {
     
-    /// Return a day plan.
+    /// Obtain daily plan with given daily plan id, and completion parameters.
+    ///
+    /// Values and meanings of generate attribute in of dayplans; 0=not generated yet, 1=generated and recommended, -1=generated but not recommended.
     ///
     /// - Parameters:
-    ///   - id: id of plan
-    ///   - completion: Any Object needs to be converted to **TRPDailyPlanInfoModel** object.
+    ///   - id: An Integer value that refers to id of the daily plan.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPDailyPlanInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#day-plans-of-a-trip)
     public func dailyPlan(id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         dailyPlanServices(id: id)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in daily plan services, manages all task connecting to remote server.
     private func dailyPlanServices(id: Int) {
         let dailyPlanServices = TRPDailyPlanServices(id: id)
         dailyPlanServices.completion = {   (result, error, pagination) in
@@ -1335,41 +1371,70 @@ extension TRPRestKit {
 // MARK: - PlanPoints
 extension TRPRestKit {
     
-    /// Provides adding a poi to the plan
+    /// Add Plan POI to the daily plan.
     ///
     /// - Parameters:
-    ///   - hash: hash of trip
-    ///   - dailyPlanId: id of Plan
-    ///   - poiId: new poi id
-    ///   - order: pois order
-    ///   - completion: Any Object needs to be converted to **TRPPlanPointInfoModel** object.
+    ///    - hash: A String value that refers to foretold trip hash.
+    ///    - dailyPlanId: An Integer that refers to Id of the daily plan.
+    ///    - poiId: An Integer that refers to Id of the given place.
+    ///    - order: An Integer that refers to order number of the given place.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPPlanPoi** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#adding-a-place-to-trip)
     public func addPlanPoints(hash: String, dailyPlanId: Int, poiId: Int, order: Int? = nil, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointsServices(hash: hash, dailyPlanId: dailyPlanId, placeId: poiId, order: order, type: TRPPlanPoints.Status.add)
     }
     
     ///TODO: BU KISIM İYİ ANLATILMALI. GÖRSEL OLARAK HAZIRLANMALI.
+    
+    /// Replace plan POI in trip.
+    ///
+    /// This function is used during changing place with it's alternative, in trips.
+    ///
+    /// - Parameters:
+    ///    - dailyPlanPoiId: An Integer that refers to Id of the daily plan POI.
+    ///    - poiId: An Integer that refers to Id of the given place.
+    ///    - order: An Integer that refers to order number of the given place.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPPlanPoi** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func replacePlanPoiFrom(dailyPlanPoiId: Int, poiId: Int? = nil, order: Int? = nil, completion: @escaping CompletionHandler ) {
         completionHandler = completion
         planPointsServices(id: dailyPlanPoiId, placeId: poiId, order: order, type: .update)
     }
     
+    /// Reorder plan POI in trip.
+    ///
+    /// This function is used during manuel sort on the map view.
+    ///
+    /// - Parameters:
+    ///    - dailyPlanPoiId: An Integer that refers to Id of the daily plan POI.
+    ///    - poiId: An Integer that refers to Id of the given place.
+    ///    - order: An Integer that refers to order number of the given place.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPPlanPoi** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#changing-a-place-in-a-trip)
     public func reOrderPlanPoiFrom(dailyPlanPoiId: Int, poiId: Int, order: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointsServices(id: dailyPlanPoiId, placeId: poiId, order: order, type: .update)
     }
     
-    /// Provides deleting a poi to the plan
+    /// Delete plan POI in trip.
+    ///
+    /// This function is used during manuel sort on the map view.
     ///
     /// - Parameters:
-    ///   - id: id of poi
-    ///   - completion: Any Object needs to be converted to **TRPParentJsonModel** object.
+    ///    - planPoiId: An Integer that refers to Id of the daily plan POI.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPParentJsonModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#deleting-a-place-from-a-trip)
     public func deleteDailyPlanPoi(planPoiId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointsServices(id: id, type: .delete)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in plan poi services, manages all task connecting to remote server.
     private func planPointsServices(hash: String? = nil,
                                     id: Int? = nil,
                                     dailyPlanId: Int? = nil,
@@ -1421,22 +1486,45 @@ extension TRPRestKit {
 // MARK: - NearBy Services
 extension TRPRestKit {
     
+    //TODO: withPlanPointId -> withPlanPoiId olucak
+    
+    /// Obtain plan poi alternative list with given plan POI Id and completion parameters.
+    ///
+    /// - Parameters:
+    ///    - withPlanPointId: An Integer that refers to Id of the plan POI.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func planPoiAlternatives(withPlanPointId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointAlternative(planPointId: id)
     }
     
+    /// Obtain plan poi alternative list with given trip hash and completion parameters.
+    ///
+    /// - Parameters:
+    ///    - withHash: A String value that refers to foretold trip hash.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func planPoiAlternatives(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointAlternative(hash: hash)
     }
     
+    /// Obtain plan poi alternative list with given trip hash and completion parameters.
+    ///
+    /// - Parameters:
+    ///    - withDailyPlanId: An Integer that refers to Id of the daily plan.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func planPoiAlternatives(withDailyPlanId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointAlternative(dailyPlanId: id)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in plan poi alternative services, manages all task connecting to remote server.
     private func planPointAlternative(planPointId: Int? = nil, hash: String? = nil, dailyPlanId: Int? = nil) {
         var poiAlternativeService: TRPPlanPointAlternatives?
         
@@ -1468,14 +1556,14 @@ extension TRPRestKit {
 // MARK: - Google Auto Complete
 extension TRPRestKit {
     
-    ///  Find
+    /// Obtain google place list with given key, text, centerForBoundary,  radiusForBoundary and completion parameters.
     ///
     /// - Parameters:
-    ///   - key: Api key of Google
-    ///   - text: Name of place to search.
-    ///   - center: Boundary of City.
-    ///   - radius: Search radius for limit.
-    ///   - completion: Any Object needs to be converted to **[TRPGooglePlace]** object.
+    ///    - key: A String value that refers to the API Key of Google.
+    ///    - text: A String value that refers to search term.
+    ///    - center: A TRPLocation object that refers to boundary of City.
+    ///    - radius: A Double value which refers to radius for the search area limit.
+    /// - Important: Any Object needs to be converted to **[TRPGooglePlace]** object.
     public func googleAutoComplete(key: String,
                                    text: String,
                                    centerForBoundary center: TRPLocation? = nil,
@@ -1488,7 +1576,7 @@ extension TRPRestKit {
                                        radiusForBoundary: radius)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in google place auto complete services, manages all task connecting to remote server.
     private func googlePlaceAutoCompleteService(key: String,
                                                 text: String,
                                                 centerForBoundary center: TRPLocation? = nil,
@@ -1514,19 +1602,21 @@ extension TRPRestKit {
 // MARK: - Google Place
 extension TRPRestKit {
     
-    /// Returns information of a place from Google Server with place's id.
-    /// This method doesn't use Tripian Server.
+    ///  Obtain infromation of a place from Google Server with given key, placeId and completion parameters.
+    ///
+    ///  This function does not require to use Tripian Server. //TODO: Bunu yazmak dogrumu?
     ///
     /// - Parameters:
-    ///   - key: Google Place Api key
-    ///   - id: id of Place that registered in Google
-    ///   - completion: Any Object needs to be converted to **TRPGooglePlaceLocation** object.
+    ///    - key: A String value that refers to the API Key of Google.
+    ///    - id: An Integer value which refers to the Id of Place that registered in Google.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPGooglePlaceLocation** object.
     public func googlePlace(key: String, id: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         googlePlaceServices(key: key, placeId: id)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in google place services, manages all task connecting to remote server.
     private func googlePlaceServices(key: String, placeId: String) {
         let googlePlaceService = TRPGooglePlaceService(key: key, placeId: placeId)
         googlePlaceService.start { (data, error) in
@@ -1548,15 +1638,18 @@ extension TRPRestKit {
 // MARK: - Problem Categories
 extension TRPRestKit {
     
-    /// Returns categories of problem such as incorrect location, incorrect name etc...
+    /// Obtain problem categories, such as incorrect location, incorrect name etc..., with completion handler parameter.
     ///
-    /// - Parameter completion: Any Object needs to be converted to **[TRPProblemCategoriesInfoModel]** object.
+    /// - Parameters:
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **[TRPProblemCategoriesInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#problem-categories)
     public func problemCategories(completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         problemCategoriesService()
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in problem categories services, manages all task connecting to remote server.
     private func problemCategoriesService() {
         let categoryService = TRPProblemCategories()
         categoryService.completion = { (result, error, _) in
@@ -1578,13 +1671,15 @@ extension TRPRestKit {
 // MARK: - Report A problem
 extension TRPRestKit {
     
-    /// Report a problem about poi.
+    /// Obtain problem categories, such as incorrect location, incorrect name etc..., with completion handler parameter.
     ///
     /// - Parameters:
-    ///   - id: id of category
-    ///   - msg: mesage
-    ///   - poi: id of poi
-    ///   - completion: Any Object needs to be converted to **TRPReportAProblemInfoModel** object.
+    ///    - category: A String value which refers to the category name of the place.
+    ///    - message: A String value which refers to the message for the problem of the place.
+    ///    - poiId: An Integer value which refers to the id of the given place.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPReportAProblemInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#report-a-problem)
     public func reportaProblem(category name: String,
                                message msg: String?,
                                poiId poi: Int?,
@@ -1593,7 +1688,7 @@ extension TRPRestKit {
         reportaProblemService(categoryName: name, message: msg, poiId: poi)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in report a problem services, manages all task connecting to remote server.
     private func reportaProblemService(categoryName: String, message: String?, poiId: Int?) {
         let reportAProblemService = TRPReportAProblemServices(categoryName: categoryName,
                                                               message: message,
@@ -1616,11 +1711,21 @@ extension TRPRestKit {
 // MARK: - Update Daily Plan Hour
 extension TRPRestKit {
     
+    /// Update daily plan hour with given daily plan Id, start time, end time and completion parameters.
+    ///
+    /// - Parameters:
+    ///    - dailyPlanId: An Integer value that refers to the daily plan Id.
+    ///    - start: A String value which refers to start time of the daily plan.
+    ///    - end: A String value which refers to end time of the daily plan.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPDailyPlanInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#update-daily-plan)
     public func updateDailyPlanHour(dailyPlanId: Int, start: String, end: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         updateDailyPlanHourService(dailyPlanId: dailyPlanId, start: start, end: end)
     }
     
+    /// A services which will be used in daily plan hour services, manages all task connecting to remote server.
     private func updateDailyPlanHourService(dailyPlanId: Int, start: String, end: String) {
         let dailyplanService = TRPDailyPlanServices(id: dailyPlanId, startTime: start, endTime: end)
         dailyplanService.completion = {   (result, error, pagination) in
