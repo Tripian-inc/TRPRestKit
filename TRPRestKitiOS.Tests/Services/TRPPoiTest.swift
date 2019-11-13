@@ -6,26 +6,36 @@
 //  Copyright © 2019 Evren Yaşar. All rights reserved.
 //
 
+/// # TRPCitiesTest class which tests cities functions operated by Rest - Kit.
+
 import XCTest
 @testable import TRPRestKit
 @testable import TRPFoundationKit
+// swiftlint:disable all
 class TRPPoiTest: XCTestCase {
     
-    let cityId = 107 //Istanbul
-    let placeId = 516733  //David M. Arslantas istanbul
-    let location = TRPLocation(lat: 41, lon: 29)
-    let category = 3
+    // MARK: Variables
+    private let cityId = TestUtilConstants.MockCityConstants.IstanbulCityId
+    private let placeId = TestUtilConstants.MockPlaceConstants.PlaceId
+    private let location = TestUtilConstants.MockCityConstants.Istanbullocation
+    private let category = TestUtilConstants.MockPoiCategoryConstants.PoiCategoryId
+    private let categoryIds = TestUtilConstants.MockPoiCategoryConstants.CategoryIds
     
+    // MARK: Set Up
     override func setUp() {
         super.setUp()
-        TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
-        TRPClient.printData(true)
+        UserMockSession.shared.doLogin()
     }
     
+    // MARK: - Test Functions
+    
+    /**
+     * Test place of interest with given city id.
+     */
     func testPoiWithCityId() {
         
         let nameSpace = #function
-        let expectation = XCTestExpectation(description: "\(nameSpace) expectation4567890*09876")
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         var loopCounter = 0
         TRPRestKit().poi(withCityId: cityId, autoPagination: false) { (result, error, _) in
             if let error = error {
@@ -33,11 +43,11 @@ class TRPPoiTest: XCTestCase {
                 return
             }
             guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
+                XCTFail("\(nameSpace) Result is nil")
                 return
             }
             guard let places = result as? [TRPPoiInfoModel]  else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                XCTFail("\(nameSpace) Json model Resultcoundn't converted.")
                 return
             }
             
@@ -53,11 +63,16 @@ class TRPPoiTest: XCTestCase {
         }
         
         wait(for: [expectation], timeout: 10.0)
+        XCTAssertEqual(loopCounter, 1)
     }
     
+    /**
+     * Test place of interest with given city id and true autoPagination params.
+     */
     func testPoiWithCityIdAutoPagination() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+        expectation.expectedFulfillmentCount = 2
         var loopCounter = 0
         TRPRestKit().poi(withCityId: cityId, autoPagination: true) { (result, error, _) in
             if let error = error {
@@ -65,11 +80,11 @@ class TRPPoiTest: XCTestCase {
                 return
             }
             guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
+                XCTFail("\(nameSpace) Result is nil")
                 return
             }
             guard let places = result as? [TRPPoiInfoModel]  else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                XCTFail("\(nameSpace) Json model Resultcoundn't converted.")
                 return
             }
             
@@ -80,30 +95,30 @@ class TRPPoiTest: XCTestCase {
             XCTAssertEqual(firstPlace!.cityId, self.cityId)
             
             loopCounter += 1
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                if loopCounter > 1 {
-                    expectation.fulfill()
-                }
-            }
+            expectation.fulfill()
         }
         
         wait(for: [expectation], timeout: 10.0)
+        XCTAssertGreaterThan(loopCounter, 1)
     }
     
-    func testPoiWithIdCity() {
+    /**
+     * Test place of interest with given city id and placeId params.
+     */
+    func testPoiWithPlaceIdAndCityId() {
         let nameSpace = #function
-        let expectation = XCTestExpectation(description: "\(nameSpace) expection")
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         TRPRestKit().poi(withIds: [placeId], cityId: cityId) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
             }
             guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
+                XCTFail("\(nameSpace) Result is nil")
                 return
             }
             guard let places = result as? [TRPPoiInfoModel] else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                XCTFail("\(nameSpace) Json model Resultcoundn't converted.")
                 return
             }
             XCTAssertNotNil(pagination)
@@ -120,21 +135,25 @@ class TRPPoiTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
+    /**
+     * Test place of interest with given url link.
+     */
     func testPoiWithLink() {
         let nameSpace = #function
-        let expectation = XCTestExpectation(description: "\(nameSpace) expection")
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         let url = "https://0swjhnxnqd.execute-api.ca-central-1.amazonaws.com/v2/poi?city_id=107&limit=100&page=2"
+        
         TRPRestKit().poi(link: url) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
             }
             guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
+                XCTFail("\(nameSpace) Result is nil")
                 return
             }
             guard let places = result as? [TRPPoiInfoModel] else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                XCTFail("\(nameSpace) Json model Resultcoundn't converted.")
                 return
             }
             XCTAssertNotNil(pagination)
@@ -151,9 +170,12 @@ class TRPPoiTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
+    /**
+     * Test place of interest with given location.
+     */
     func testPoiWithLocation() {
         let nameSpace = #function
-        let expectation = XCTestExpectation(description: "\(nameSpace) expection")
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
         TRPRestKit().poi(withLocation: location) { (result, error, pagination) in
             if let error = error {
@@ -161,11 +183,11 @@ class TRPPoiTest: XCTestCase {
                 return
             }
             guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
+                XCTFail("\(nameSpace) Result is nil")
                 return
             }
             guard let places = result as? [TRPPoiInfoModel] else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                XCTFail("\(nameSpace) Json model Resultcoundn't converted.")
                 return
             }
             XCTAssertNotNil(pagination)
@@ -179,61 +201,65 @@ class TRPPoiTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    func testPoiWithCategory() {
+    /**
+     * Test place of interest with given cityId, far location, distance and limit.
+     */
+    func testPoiWithLocationAndLongDistance() {
         let nameSpace = #function
-        let expectation = XCTestExpectation(description: "\(nameSpace) expection")
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+        expectation.expectedFulfillmentCount = 2
+        var loopCounter = 0
+        let distance: Double = 90.0
         
-        TRPRestKit().poi(withLocation: location, categoryIds: [category]) { (result, error, pagination) in
+        TRPRestKit().poi(withLocation: location, distance: distance, cityId: cityId, categoryIds: categoryIds, autoPagination: true, limit: 20) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
             }
             guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
+                XCTFail("\(nameSpace) Result is nil")
                 return
             }
             guard let places = result as? [TRPPoiInfoModel] else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                XCTFail("\(nameSpace) Json model coundn't converted.")
                 return
             }
-            XCTAssertNotNil(pagination)
             
+            loopCounter += 1
+            XCTAssertNotNil(pagination)
             XCTAssertNotEqual(places.count, 0)
+            XCTAssertEqual(places.count, 20)
             let firstPlace = places.first
             XCTAssertNotNil(firstPlace)
             XCTAssertNotNil(firstPlace!.cityId)
             XCTAssertEqual(firstPlace!.cityId, self.cityId)
-            let mType = firstPlace!.category.filter { (restType) -> Bool in
-                if restType.id == self.category {
-                    return true
-                }
-                return false
-            }
-            XCTAssertNotEqual(mType.count, 0)
             expectation.fulfill()
         }
+        
         wait(for: [expectation], timeout: 10.0)
+        XCTAssertGreaterThan(loopCounter, 1)
     }
-
-    func testPoiWithLocationDistance() {
+    
+    /**
+     * Test place of interest with given city Id and poiCategory Ids.
+     */
+    func testPoiWithCityIdPoiCategory() {
         let nameSpace = #function
-        let expectation = XCTestExpectation(description: "\(nameSpace) expection")
-         
-        TRPRestKit().poi(withCityId: cityId, categoryIds: [category], autoPagination: true) { (result, error, pagination) in
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+        TRPRestKit().poi(withCityId: cityId, categoryIds: categoryIds) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
             }
             guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
+                XCTFail("\(nameSpace) Result is nil")
                 return
             }
             guard let places = result as? [TRPPoiInfoModel] else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                XCTFail("\(nameSpace) Json model Resultcoundn't converted.")
                 return
             }
             XCTAssertNotNil(pagination)
-            
             XCTAssertNotEqual(places.count, 0)
             let firstPlace = places.first
             XCTAssertNotNil(firstPlace)
@@ -244,4 +270,65 @@ class TRPPoiTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
+    /**
+     * Test place of interest search with given cityId and location.
+     */
+    func testPoiSearch() {
+        let nameSpace = #function
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+        TRPRestKit().poi(search: "hot", cityId: cityId, location: location) { (result, error, pagination) in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Result is nil")
+                return
+            }
+            guard let places = result as? [TRPPoiInfoModel] else {
+                XCTFail("\(nameSpace) Json model coundn't converted.")
+                return
+            }
+            XCTAssertNotNil(pagination)
+            XCTAssertNotEqual(places.count, 0)
+            let firstPlace = places.first
+            XCTAssertNotNil(firstPlace)
+            XCTAssertNotNil(firstPlace!.cityId)
+            XCTAssertEqual(firstPlace!.cityId, self.cityId)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    /**
+     * Test place of interest information with given placeId, cityId.
+     */
+    func testPoiInfo() {
+        let nameSpace = #function
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+        TRPRestKit().poi(withIds: [placeId], cityId: cityId) { (result, error, pagination) in
+            if let error = error {
+                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("\(nameSpace) Result is nil")
+                return
+            }
+            guard let places = result as? [TRPPoiInfoModel] else {
+                XCTFail("\(nameSpace) Json model coundn't converted.")
+                return
+            }
+            XCTAssertNotNil(pagination)
+            XCTAssertNotEqual(places.count, 0)
+            let firstPlace = places.first
+            XCTAssertNotNil(firstPlace)
+            XCTAssertNotNil(firstPlace!.cityId)
+            XCTAssertEqual(firstPlace!.cityId, self.cityId)
+            XCTAssertEqual(firstPlace!.id, self.placeId)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 10.0)
+    }
 }

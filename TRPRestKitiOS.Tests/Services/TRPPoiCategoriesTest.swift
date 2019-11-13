@@ -6,19 +6,25 @@
 //  Copyright © 2019 Evren Yaşar. All rights reserved.
 //
 
+/// # TRPPoiCategoriesTest that tests poi categories functions operated by Rest - Kit.
+
 import XCTest
 @testable import TRPRestKit
+
 class TRPPoiCategoriesTest: XCTestCase {
     
+    // MARK: Set Up
     override func setUp() {
         super.setUp()
-        TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
-        TRPClient.printData(true)
+        UserMockSession.shared.doLogin()
     }
     
+    /**
+     * Test Place Of Interest Categories with no parameter given.
+     */
     func testPoiCategories() {
         let nameSpace = #function
-        let expectation = XCTestExpectation(description: "\(nameSpace) expect6677788899")
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
         TRPRestKit().poiCategories { (result, error, _) in
             if let error = error {
@@ -26,7 +32,7 @@ class TRPPoiCategoriesTest: XCTestCase {
                 return
             }
             guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
+                XCTFail("\(nameSpace) Result is nil")
                 return
             }
             guard let data = result as? [TRPCategoryInfoModel]  else {
@@ -39,28 +45,31 @@ class TRPPoiCategoriesTest: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    func testPoiCateforyWithId() {
+    /**
+     * Test Place Of Interest Categories with given poiCategoryId.
+     */
+    func testPoiCategoriesWithId() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expect")
-        let poiType = 3
-        TRPRestKit().poiCategory(withId: poiType) { (result, error) in
+        
+        TRPRestKit().poiCategory(withId: TestUtilConstants.MockPoiCategoryConstants.PoiCategoryId) { (result, error) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
             }
             guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
+                XCTFail("\(nameSpace) Result is nil")
                 return
             }
             guard let data = result as? TRPCategoryInfoModel  else {
                 XCTFail("\(nameSpace) Json model couldn't converted to  TRPCategoryInfoModel")
                 return
             }
-            XCTAssertEqual(data.id, poiType)
+            XCTAssertEqual(data.id, TestUtilConstants.MockPoiCategoryConstants.PoiCategoryId)
             XCTAssertNotEqual(data.name.count, 0)
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 20)
+        wait(for: [expectation], timeout: 10)
     }
     
 }

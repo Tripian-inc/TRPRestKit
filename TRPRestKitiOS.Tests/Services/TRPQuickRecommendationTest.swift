@@ -6,25 +6,38 @@
 //  Copyright © 2019 Evren Yaşar. All rights reserved.
 //
 
+/// # TRPQuickRecommendationTest that tests recommendation functions which is used among trip operations by Rest - Kit.
+
 import XCTest
 @testable import TRPRestKit
+
 class TRPQuickRecommendationTest: XCTestCase {
     
-    let cityId = 107
-    let poiCategoryType = 3
+    // MARK: Variables
+    let cityId = TestUtilConstants.MockCityConstants.IstanbulCityId
+    let poiCategoryType = TestUtilConstants.MockPoiCategoryConstants.PoiCategoryType
     
+    // MARK: Set Up
     override class func setUp() {
-        TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
+        super.setUp()
+        UserMockSession.shared.doLogin()
     }
     
+    // MARK: Test Functions
+    
+    /**
+     * Tests Recommendation with only given cityId parameter,
+     * then checks the given recommendation id matches with the places of interest
+     * in the foretold city.
+     */
     func testQuickRecommendation() {
         let nameSpace = #function
-        let expectation = XCTestExpectation(description: "\(nameSpace)ExpectationStartRE")
-        let expectationFetchPlace = XCTestExpectation(description: "\(nameSpace)ExpectationFetchPlace")
-        var setting = TRPRecommendationSettings(cityId: cityId)
-        setting.poiCategoryIds = [poiCategoryType]
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
-        TRPRestKit().quickRecommendation(settings: setting) { (result, error, _) in
+        var settings = TRPRecommendationSettings(cityId: cityId)
+        settings.poiCategoryIds = [poiCategoryType]
+        
+        TRPRestKit().quickRecommendation(settings: settings) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
@@ -39,7 +52,6 @@ class TRPQuickRecommendationTest: XCTestCase {
             }
             
             XCTAssertNotEqual(poisId.count, 0)
-            expectation.fulfill()
             
             TRPRestKit().poi(withIds: [poisId.first!.id], cityId: self.cityId) { (result, error, _) in
                 if let error = error {
@@ -48,7 +60,7 @@ class TRPQuickRecommendationTest: XCTestCase {
                 }
                 if let places = result as? [TRPPoiInfoModel], let place = places.first {
                     if place.cityId == self.cityId {
-                        expectationFetchPlace.fulfill()
+                        expectation.fulfill()
                     } else {
                         XCTFail("\(nameSpace) cityId not equal")
                     }
@@ -58,7 +70,7 @@ class TRPQuickRecommendationTest: XCTestCase {
             }
         }
         
-        wait(for: [expectation, expectationFetchPlace], timeout: 10.0)
+        wait(for: [expectation], timeout: 30.0)
     }
     
 }
