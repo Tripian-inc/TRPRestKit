@@ -11,9 +11,10 @@ import TRPFoundationKit
 
 let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
 
-/// The TRPRestKit is a framework of Tripian Api that allows you to create a trip and take information about places.
+/// The TRPRestKit is a framework that provides access Tripian Api.
 ///
 ///  Framework provide you;
+///  * Retrieve personal infromation of the given user
 ///  * Information of City
 ///  * Type of Cİty
 ///  * Information of Place
@@ -23,9 +24,10 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
 ///  * User's trip
 ///  * Daily Plan
 ///  * Plan's place
-///  * NearBy services
+///  * Travel details
+///  * NearBy services, and more.
 ///
-/// - seealso: [asda](https://www.tripian.com/apidocs/)
+/// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine)
 ///
 ///
 /// - precondition:
@@ -83,7 +85,7 @@ extension TRPRestKit {
     ///     - limit: Number of city that will be given.
     ///     - isAutoPagination: Boolean value whether pagination is required, default value is true.
     ///     - completionHandler: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **[TRPCityInfoModel]** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-all-available-cities)
     public func cities(limit: Int? = 25, isAutoPagination: Bool? = true, completionHandler: @escaping CompletionHandlerWithPagination) {
         //Fixme: - autoPagination eklenebilir.
@@ -98,7 +100,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///     - id: City Id that will be the id of required city.
     ///     - completionHandler: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPCityInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCityInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-details-of-a-city)
     public func city(with id: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -112,7 +114,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - location: TRLocation object that will be given.
     ///   - completionHandler: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPCityInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCityInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#find-city-by-coordinates)
     public func city(with location: TRPLocation, completionHandler: @escaping CompletionHandler) {
         self.completionHandler = completionHandler
@@ -126,7 +128,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - link: link that returned from Pagination
     ///   - completionHandler: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **[TRPCityInfoModel]** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-all-available-cities)
     public func cities(link: String, completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
@@ -212,7 +214,7 @@ extension TRPRestKit {
     ///
     /// - Parameters:
     ///     - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **[TRPCategoryInfoModel]** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCategoryInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-places-of-interest)
     public func poiCategories(completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
@@ -227,7 +229,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///     - withId: id of the Category that will be requested.
     ///     - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any object needs to be converted to **TRPCategoryInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCategoryInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-details-of-a-place)
     public func poiCategory(withId: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -290,7 +292,7 @@ extension TRPRestKit {
     ///   If autopagination is set to `false`, next link will not be continued.
     ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Any object needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
     ///  Pagination value also must be checked.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(withIds ids: [Int],
@@ -312,7 +314,7 @@ extension TRPRestKit {
     ///   If autopagination is set to `false`, next link will not be continued.
     ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Any object needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
     ///  Pagination value also must be checked.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(withCityId cityId: Int,
@@ -336,7 +338,7 @@ extension TRPRestKit {
     ///   If autopagination is set to `false`, next link will not be continued.
     ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Any object needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
     ///  Pagination value also must be checked.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(link: String, limit: Int? = 100, autoPagination: Bool = true, completion: @escaping CompletionHandlerWithPagination) {
@@ -362,7 +364,7 @@ extension TRPRestKit {
     ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
     ///   - limit: number of pois to display (Optional).
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Any object needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
     ///  Pagination value also must be checked.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(withLocation location: TRPLocation,
@@ -393,7 +395,7 @@ extension TRPRestKit {
     ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
     ///   - limit: number of pois to display (Optional).
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Any object needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
     ///  Pagination value also must be checked.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(withCityId: Int,
@@ -417,7 +419,7 @@ extension TRPRestKit {
     ///   - cityId: Id of City(Optional). If user is not in the referanced city, city id should not be sent. When city id is sent, pois are sorted by distance.
     ///   - userLoc: TRPLocation object that refers to user's coordinate. If userLocation is sent, pois are sorted by distance, in that case, CityId is not needed.
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Any object needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
     ///  Pagination value also must be checked.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(search: String,
@@ -537,7 +539,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - questionId: Id of the requested question.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    ///  - Important: Any object needs to be converted to **TRPTripQuestionInfoModel** object.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **TRPTripQuestionInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-trip-planner)
     public func tripQuestions(withQuestionId questionId: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -553,7 +555,7 @@ extension TRPRestKit {
     ///   - language: language is a String value to declare returned questions language (Optional).
     ///   Currently `French` and `English` are available.
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Any Object needs to be converted to **[TRPTripQuestionInfoModel]** object.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPTripQuestionInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-trip-planner)
     public func tripQuestions(withCityId cityId: Int,
                               type: TPRTripQuestionType? = TPRTripQuestionType.trip,
@@ -572,7 +574,7 @@ extension TRPRestKit {
     ///   - language: language is a String value to declare returned questions language (Optional).
     ///   Currently `French` and `English` are available.
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Any Object needs to be converted to **[TRPTripQuestionInfoModel]** object.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPTripQuestionInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-trip-planner)
     public func tripQuestions(type: TPRTripQuestionType? = TPRTripQuestionType.profile,
                               language: String? = nil,
@@ -644,7 +646,7 @@ extension TRPRestKit {
     ///      If autopagination is set to `false`, next link will not be continued.
     ///      To call **poi(link:complation:)**, `pagination.nextlink` must be used.
     ///      - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **[TRPRecommendationInfoJsonModel]** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPRecommendationInfoJsonModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-quick-recommendations)
     public func quickRecommendation(settings: TRPRecommendationSettings, autoPagination: Bool = true, completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
@@ -681,7 +683,7 @@ extension TRPRestKit {
     ///   - email: Username of the user which usually refers to email address of the user.
     ///   - password: Password of the user.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPLoginInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPLoginInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-login-as-a-user-)
     public func login(email eMail: String, password: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -743,7 +745,7 @@ extension TRPRestKit {
     ///   - email: Username of the user which usually refers to email address of the user.
     ///   - password: Password of the user.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPUserInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPUserInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-register-a-user-)
     public func register(email: String, password: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -760,7 +762,7 @@ extension TRPRestKit {
     ///
     /// - Parameters:
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPUserInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPUserInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-get-current-user-information)
     public func userInfo(completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -823,7 +825,7 @@ extension TRPRestKit {
     ///   - age: An Integer which refers to age of the user (Optional).
     ///   - answers: An Integer array which refers to User preferences (Optional).
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPUserInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPUserInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-current-user-information)
     public func updateUserInfo(firstName: String?,
                                lastName: String?,
@@ -849,7 +851,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - answers: An Integer array which refers to User preferences.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPUserInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPUserInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-current-user-information)
     public func updateUserAnswer(answers: [Int], completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -912,7 +914,7 @@ extension TRPRestKit {
     ///   - age: An Integer that refers to age of the companion (Optional).
     ///   - answers: An Integer array that refers to preferences of the companion (Optional).
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPCompanionModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCompanionModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-companion)
     public func addCompanion(name: String?,
                              age: Int?,
@@ -931,7 +933,7 @@ extension TRPRestKit {
     ///   - age: An Integer that refers to age of the given companion (Optional).
     ///   - answers: An Integer array that refers to preferences of the given companion (Optional).
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPCompanionModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCompanionModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-companion)
     public func updateCompanion(id: Int,
                                 name: String?,
@@ -951,7 +953,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - companionId: An Integer that refers to id of the given companion that is going to be deleted.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPCompanionModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCompanionModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-companion)
     public func removeCompanion(companionId: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -963,7 +965,7 @@ extension TRPRestKit {
     ///
     /// - Parameters:
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important:Any Object needs to be converted to **[TRPCompanionModel]** object.
+    /// - Important:Completion Handler is an any object which needs to be converted to **[TRPCompanionModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-get-companions)
     public func getUsersCompanions(completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -1049,7 +1051,7 @@ extension TRPRestKit {
     ///   - cityId: An Integer that refers to Id of city where the poi is located.
     ///   - poiId: An Integer that refers to Id of the given place.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPFavoritesInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPFavoritesInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-delete-favorite)
     public func addUserFavorite(cityId: Int, poiId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1061,7 +1063,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - cityId: An Integer that refers to Id of city where the poi is located.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **[TRPFavoritesInfoModel]** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPFavoritesInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-get-user-favorites)
     public func getUserFavorite(cityId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1074,7 +1076,7 @@ extension TRPRestKit {
     ///   - cityId: An Integer that refers to Id of city where the poi is located.
     ///   - poiId: An Integer that refers to Id of the given place.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPParentJsonModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-delete-favorite)
     public func deleteUserFavorite(cityId: Int, poiId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1133,7 +1135,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - limit: An Integer value that refers to the number of trips which will be presented(Optional, default value is 100).
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **[TRPUserTripInfoModel]** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPUserTripInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func userTrips(limit: Int? = 100, completion: @escaping CompletionHandlerWithPagination) {
         completionHandlerWithPagination = completion
@@ -1238,7 +1240,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - settings: TRPTripSettings object that includes settings for the trip.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func createTrip(settings: TRPTripSettings, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1250,7 +1252,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - settings: TRPTripSettings object that includes settings for the updating trip.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#update-a-trip)
     public func editTrip(settings: TRPTripSettings, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1279,14 +1281,12 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - hash: A String value that refers to trip hash.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPTripInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func getTrip(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
         getTripServices(hash: hash)
     }
-    
-    //TODO:Rozeri Completion ve important in formatini duzenle yeniden.
     
     /// A services which will be used forgetting trip info services, manages all task connecting to remote server.
     private func getTripServices(hash: String) {
@@ -1308,7 +1308,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - hash: A String value that refers to foretold deleting trip hash.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPParentJsonModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#delete-a-trip)
     public func deleteTrip(hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1342,7 +1342,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - id: An Integer value that refers to id of the daily plan.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPDailyPlanInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPDailyPlanInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#day-plans-of-a-trip)
     public func dailyPlan(id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1379,7 +1379,7 @@ extension TRPRestKit {
     ///    - poiId: An Integer that refers to Id of the given place.
     ///    - order: An Integer that refers to order number of the given place.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPPlanPoi** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPPlanPoi** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#adding-a-place-to-trip)
     public func addPlanPoints(hash: String, dailyPlanId: Int, poiId: Int, order: Int? = nil, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1397,7 +1397,7 @@ extension TRPRestKit {
     ///    - poiId: An Integer that refers to Id of the given place.
     ///    - order: An Integer that refers to order number of the given place.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPPlanPoi** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPPlanPoi** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func replacePlanPoiFrom(dailyPlanPoiId: Int, poiId: Int? = nil, order: Int? = nil, completion: @escaping CompletionHandler ) {
         completionHandler = completion
@@ -1413,7 +1413,7 @@ extension TRPRestKit {
     ///    - poiId: An Integer that refers to Id of the given place.
     ///    - order: An Integer that refers to order number of the given place.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPPlanPoi** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPPlanPoi** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#changing-a-place-in-a-trip)
     public func reOrderPlanPoiFrom(dailyPlanPoiId: Int, poiId: Int, order: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1427,7 +1427,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///    - planPoiId: An Integer that refers to Id of the daily plan POI.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPParentJsonModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#deleting-a-place-from-a-trip)
     public func deleteDailyPlanPoi(planPoiId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1493,7 +1493,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///    - withPlanPointId: An Integer that refers to Id of the plan POI.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func planPoiAlternatives(withPlanPointId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1505,7 +1505,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///    - withHash: A String value that refers to foretold trip hash.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func planPoiAlternatives(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1517,7 +1517,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///    - withDailyPlanId: An Integer that refers to Id of the daily plan.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func planPoiAlternatives(withDailyPlanId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1563,7 +1563,7 @@ extension TRPRestKit {
     ///    - text: A String value that refers to search term.
     ///    - center: A TRPLocation object that refers to boundary of City.
     ///    - radius: A Double value which refers to radius for the search area limit.
-    /// - Important: Any Object needs to be converted to **[TRPGooglePlace]** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPGooglePlace]** object.
     public func googleAutoComplete(key: String,
                                    text: String,
                                    centerForBoundary center: TRPLocation? = nil,
@@ -1610,7 +1610,7 @@ extension TRPRestKit {
     ///    - key: A String value that refers to the API Key of Google.
     ///    - id: An Integer value which refers to the Id of Place that registered in Google.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPGooglePlaceLocation** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPGooglePlaceLocation** object.
     public func googlePlace(key: String, id: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         googlePlaceServices(key: key, placeId: id)
@@ -1642,7 +1642,7 @@ extension TRPRestKit {
     ///
     /// - Parameters:
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **[TRPProblemCategoriesInfoModel]** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPProblemCategoriesInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#problem-categories)
     public func problemCategories(completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -1678,7 +1678,7 @@ extension TRPRestKit {
     ///    - message: A String value which refers to the message for the problem of the place.
     ///    - poiId: An Integer value which refers to the id of the given place.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPReportAProblemInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPReportAProblemInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#report-a-problem)
     public func reportaProblem(category name: String,
                                message msg: String?,
@@ -1718,7 +1718,7 @@ extension TRPRestKit {
     ///    - start: A String value which refers to start time of the daily plan.
     ///    - end: A String value which refers to end time of the daily plan.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Any Object needs to be converted to **TRPDailyPlanInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPDailyPlanInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#update-daily-plan)
     public func updateDailyPlanHour(dailyPlanId: Int, start: String, end: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
