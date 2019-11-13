@@ -1043,12 +1043,14 @@ extension TRPRestKit {
 // MARK: - Favorites of User's Poi.
 extension TRPRestKit {
     
-    /// This method is used to add poi to user's favorite list.
+    /// Add user's favorite Place of Interest.
     ///
     /// - Parameters:
-    ///   - cityId: Id of city where the poi is located.
-    ///   - poiId: Id of Poi
-    ///   - completion: Any Object needs to be converted to **TRPFavoritesInfoModel** object.
+    ///   - cityId: An Integer that refers to Id of city where the poi is located.
+    ///   - poiId: Id of Place.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Any Object needs to be converted to **TRPFavoritesInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-get-user-favorites)
     public func addUserFavorite(cityId: Int, poiId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         userFavoriteServices(cityId: cityId, poiId: poiId, mode: .add)
