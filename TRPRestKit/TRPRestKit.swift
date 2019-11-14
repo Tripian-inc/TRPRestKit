@@ -39,6 +39,11 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
 ///
 /// ```
 ///
+/// A `TRPRestKit()` object  defines a single object that user can follow to operate below functions.
+/// Typically you do not create instances of this class directly,
+/// instead you receive object in completion handler form when you request a call
+/// such as `TRPRestKit().city(withId:completionHandler:)` method. However assure that you have provided tripian api key first.
+///
 @objc public class TRPRestKit: NSObject {
     
     /// **CompletionHandler** is a typealias that provides result and error when the request is completed.
