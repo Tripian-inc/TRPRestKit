@@ -29,7 +29,7 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
 ///
 /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine)
 ///
-///
+/// //TODO: Buradaki preconditioni degistir.
 /// - precondition:
 /// ```
 ///
