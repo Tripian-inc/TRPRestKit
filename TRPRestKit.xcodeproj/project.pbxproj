@@ -164,8 +164,6 @@
 		B20CD9F52136A8E600497ED3 /* TRPProgramStepJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProgramStepJsonModel.swift; sourceTree = "<group>"; };
 		B20CD9FB2136E23200497ED3 /* TRPFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPFeedback.swift; sourceTree = "<group>"; };
 		B20F298621C256970041957B /* TRPFoundationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TestServerConfig.xcconfig; sourceTree = "<group>"; };
-		B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MainConfig.xcconfig; sourceTree = "<group>"; };
 		B20F29AD21C25B9B0041957B /* TestServerInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestServerInfo.plist; sourceTree = "<group>"; };
 		B210988D2188AD8F0070946C /* TRPImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageResizer.swift; sourceTree = "<group>"; };
 		B215BEFC2131756700659818 /* TRPTripSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripSettings.swift; sourceTree = "<group>"; };
@@ -466,8 +464,6 @@
 		B29B461B20F607F90009E711 = {
 			isa = PBXGroup;
 			children = (
-				B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */,
-				B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */,
 				B29B462720F607F90009E711 /* TRPRestKit */,
 				B2B500B6235073860006D406 /* TRPRestKitiOS.Tests */,
 				B29B462620F607F90009E711 /* Products */,
@@ -983,7 +979,6 @@
 /* Begin XCBuildConfiguration section */
 		B20F29A421C259DD0041957B /* Debug(TestServer) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1051,7 +1046,6 @@
 		};
 		B20F29A521C259DD0041957B /* Debug(TestServer) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1085,7 +1079,6 @@
 		};
 		B20F29A821C259F90041957B /* Release(TestServer) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1147,7 +1140,6 @@
 		};
 		B20F29A921C259F90041957B /* Release(TestServer) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1216,7 +1208,6 @@
 		};
 		B29B462B20F607F90009E711 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1284,7 +1275,6 @@
 		};
 		B29B462C20F607F90009E711 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1346,7 +1336,6 @@
 		};
 		B29B462E20F607F90009E711 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1380,7 +1369,6 @@
 		};
 		B29B462F20F607F90009E711 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
