@@ -1,6 +1,10 @@
 name: CI
 
-on: [push]
+on: 
+  push:
+    branches: 
+      - master
+      - documentation_rest_kit_in_rest_kit_swift
 
 jobs:
   build:
