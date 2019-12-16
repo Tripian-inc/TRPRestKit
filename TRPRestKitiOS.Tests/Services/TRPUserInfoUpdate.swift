@@ -7,14 +7,16 @@
 //
 
 import XCTest
-import TRPRestKit
+@testable import TRPRestKit
 
 class TRPUserInfoUpdate: XCTestCase {
     
+    private let apiKey: String = "oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn"
+    
     override func setUp() {
         super.setUp()
+        TRPApiKey.setApiKey(apiKey)
         TRPClient.start()
-        
     }
     
     override func randomString(length: Int) -> String {

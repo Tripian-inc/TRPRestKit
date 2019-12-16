@@ -21,7 +21,6 @@ import Foundation
 @objc public class TRPClient: NSObject {
     
     internal static var shared = TRPClient()
-    private var apiKey = ""
     
     /// Allows link to be shown
     public var monitorUrl = false
@@ -39,9 +38,7 @@ import Foundation
         TRPClient.shared.monitorData = data ?? false
     }
     
-    internal static func getKey() -> String {
-        return TRPClient.shared.apiKey
-    }
+    
     
     /// Allows link to be shown
     ///
