@@ -80,7 +80,7 @@ public class TRPNetwork {
             return
         }
         if TRPClient.shared.showLink {
-            print("Current URl: \(url)")
+            log.i("CurrentUrl: \(url)")
         }
         generateSession(url)
     }
@@ -174,8 +174,6 @@ public class TRPNetwork {
     private func logger(data: Data, url: URL) {
         if !TRPClient.shared.showData {return}
         guard let strData = String(data: data, encoding: String.Encoding.utf8) else {return}
-        print("Request Link \(url.absoluteString)")
-        print("Request Result \(strData)")
-        print(" ")
+        log.i("Request Result: \(strData)")
     }
 }

@@ -33,7 +33,6 @@ internal class TRPUserRegister: TRPRestServices {
             return
         }
         let json = String(data: data, encoding: .utf8)
-        print("UserJsonResult: \(json!)")
         let jsonDecode = JSONDecoder()
         do {
             if password != nil && email != nil {

@@ -78,7 +78,7 @@ public class TRPRestServices {
         do {
             jsonData = try JSONSerialization.data(withJSONObject: bodyData, options: [])
         } catch let error {
-            print("HttpBody data: \(error.localizedDescription)")
+            log.e("HttpBody data: \(error.localizedDescription)")
         }
         return jsonData
     }
