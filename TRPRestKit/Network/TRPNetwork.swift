@@ -79,7 +79,7 @@ public class TRPNetwork {
             completionHandler?(TRPErrors.undefined as NSError, nil)
             return
         }
-        if TRPClient.shared.showLink {
+        if TRPClient.shared.monitorUrl {
             log.i("CurrentUrl: \(url)")
         }
         generateSession(url)
@@ -172,7 +172,7 @@ public class TRPNetwork {
     }
     
     private func logger(data: Data, url: URL) {
-        if !TRPClient.shared.showData {return}
+        if !TRPClient.shared.monitorData {return}
         guard let strData = String(data: data, encoding: String.Encoding.utf8) else {return}
         log.i("Request Result: \(strData)")
     }

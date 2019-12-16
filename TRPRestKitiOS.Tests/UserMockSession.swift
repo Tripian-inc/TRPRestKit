@@ -20,8 +20,8 @@ class UserMockSession: XCTestCase {
     //Saves the user login details that contains the user's access token, token type, email
     func doLogin() {
         
-        TRPClient.provideApiKey(apiKey)
-        TRPClient.printData(true)
+        TRPClient.monitor(data: true, url: true)
+        
         guard TRPUserPersistent.didUserLoging() == true else {
             return
         }

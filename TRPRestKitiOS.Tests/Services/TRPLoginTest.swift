@@ -20,7 +20,8 @@ class TRPLoginTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
-        TRPClient.provideApiKey(apiKey)
+    
+        TRPClient.start()
     }
     
     // MARK: - Test Functions

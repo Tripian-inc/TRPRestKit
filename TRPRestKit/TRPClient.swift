@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 /// This class provide you to start TRPRestKit.
 /// Class was written with Observer Dessing pattern
 ///
@@ -23,17 +24,19 @@ import Foundation
     private var apiKey = ""
     
     /// Allows link to be shown
-    public var showLink = false
+    public var monitorUrl = false
     /// Allows Data to be shown
-    public var showData = false
+    public var monitorData = false
     
     private override init() {}
     
-    /// An api key must be setted
-    ///
-    /// - Parameter key: Your api key
-    @objc public static func provideApiKey(_ key: String) {
-        TRPClient.shared.apiKey = key
+    @objc public static func start() {
+        
+    }
+    
+    public static func monitor(data: Bool? = false, url: Bool? = false) {
+        TRPClient.shared.monitorUrl = url ?? false
+        TRPClient.shared.monitorData = data ?? false
     }
     
     internal static func getKey() -> String {
@@ -43,14 +46,14 @@ import Foundation
     /// Allows link to be shown
     ///
     /// - Parameter status: status
-    public static func printLink(_ status: Bool) {
+   /* public static func printLink(_ status: Bool) {
         TRPClient.shared.showLink = status
-    }
+    } */
     
     /// Allows Data to be shown
     ///
     /// - Parameter status: status
-    public static func printData(_ status: Bool) {
+   /* public static func printData(_ status: Bool) {
         TRPClient.shared.showData = status
-    }
+    } */
 }

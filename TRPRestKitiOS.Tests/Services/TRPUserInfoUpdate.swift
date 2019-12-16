@@ -13,11 +13,11 @@ class TRPUserInfoUpdate: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
-        TRPClient.printData(true)
+        TRPClient.start()
+        
     }
     
-    func randomString(length: Int) -> String {
+    override func randomString(length: Int) -> String {
       let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
       return String((0..<length).map { _ in letters.randomElement()! })
     }
