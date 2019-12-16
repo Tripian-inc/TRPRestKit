@@ -111,7 +111,7 @@ internal class TRPPlanPoints: TRPRestServices {
                 }
             }
         } else if type == .update {
-            if programStepId != nil {
+            if programStepId == nil {
                 return params
             }
             

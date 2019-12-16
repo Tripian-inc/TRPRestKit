@@ -20,7 +20,7 @@ open class TRPGooglePlace: NSObject {
     
     /// An String value. Readable address format.
     override open var description: String {
-        get { return "\(mainAddress), \(secondaryAddress)" }
+        return "\(mainAddress), \(secondaryAddress)"
     }
     
     /// Initializes a new object with id, mainAdress and secondaryAddress.

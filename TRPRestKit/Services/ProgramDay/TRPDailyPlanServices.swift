@@ -56,16 +56,17 @@ internal class TRPDailyPlanServices: TRPRestServices {
     
     public override func path() -> String {
         var path = TRPConfig.ApiCall.dailyPlan.link
-        if let dId = dayId {
-            path += "/\(dId)"
+        if let id = dayId {
+            path += "/\(id)"
         }
         
         return path
     }
 
     override func parameters() -> [String: Any]? {
-        if let startTime = startTime, let endTime = endTime {
-            var params = [String: Any]()
+        if let id = dayId, let startTime = startTime, let endTime = endTime {
+            var params: [String: Any] = [:]
+            
             params["start_time"] = startTime
             params["end_time"] = endTime
             return params

@@ -91,49 +91,66 @@ internal class TRPPlace: TRPRestServices {
     
     override func parameters() -> [String: Any]? {
         var params: [String: Any] = [:]
-        if status == .withCityId, let cities = cities {
-            let citiesList = cities.toString()
-            params["city_id"] = citiesList
-            params["limit"] = String(limit)
+        if status == .withCityId {
+            params = getParamsWithCityId()
         } else if status == .withPlacesId {
-            if let places = placeIds, let cities = cities, let city = cities.first {
-                let placesList = places.toString()
-                params["city_id"] = city
-                params["q"] = "id:" + placesList
-            }
-        } else if status == .withLocation, let location = location {
-            params = createLocationParams(location: location)
+            params = getParamsWithPlacesId()
+        } else if status == .withLocation {
+            params = getParamsWithLocation()
         } else if status == .withSearchText {
-            params = createSearchText()
+            params = getParamsWithSearchText()
         } else if status == .withCityType {
-            params = createWithCityType()
+            params = getParamsWithCityType()
         }
+        
         if params.count > 0 {
             params["limit"] = limit
         }
         return params
     }
     
-    private func createLocationParams(location: TRPLocation) -> [String: Any] {
+    private func getParamsWithCityId() -> [String: Any] {
         var params: [String: Any] = [:]
-        params["coordinate"] = "\(location.lat),\(location.lon)"
-        
-        if let distance = distance {
-            params["distance"] = distance
-        }
-        if let typeId = typeId {
-            params["poi_categories"] = typeId
-        }
-        if let typeIds = typeIds {
-            params["poi_categories"] = typeIds.toString()
-        }
-        if let cityId = cityId {
-            params["city_id"] = cityId
+        if let cities = cities {
+            let citiesList = cities.toString()
+            params["city_id"] = citiesList
+            params["limit"] = String(limit)
         }
         return params
     }
     
-    private func createSearchText() -> [String: Any] {
+    private func getParamsWithPlacesId() -> [String: Any] {
+        var params: [String: Any] = [:]
+        if let places = placeIds, let cities = cities, let city = cities.first {
+            let placesList = places.toString()
+            params["city_id"] = city
+            params["q"] = "id:" + placesList
+        }
+        return params
+    }
+    
+    private func getParamsWithLocation() -> [String: Any] {
+        var params: [String: Any] = [:]
+        if let location = location {
+            params["coordinate"] = "\(location.lat),\(location.lon)"
+            
+            if let distance = distance {
+                params["distance"] = distance
+            }
+            if let typeId = typeId {
+                params["poi_categories"] = typeId
+            }
+            if let typeIds = typeIds {
+                params["poi_categories"] = typeIds.toString()
+            }
+            if let cityId = cityId {
+                params["city_id"] = cityId
+            }
+        }
+        return params
+    }
+    
+    private func getParamsWithSearchText() -> [String: Any] {
         var params: [String: Any] = [:]
         if let cityId = cityId {
             params["city_id"] = cityId
@@ -147,7 +164,7 @@ internal class TRPPlace: TRPRestServices {
         return params
     }
     
-    private func createWithCityType() -> [String: Any] {
+    private func getParamsWithCityType() -> [String: Any] {
         var params: [String: Any] = [:]
         if let cityId = cityId {
             params["city_id"] = cityId

@@ -20,9 +20,9 @@ internal class TRPCityJsonModel: TRPParentJsonModel {
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        if let datas = ((try? values.decodeIfPresent([TRPCityInfoModel].self, forKey: .data)) as [TRPCityInfoModel]??) {
+        if let datas = try? values.decodeIfPresent([TRPCityInfoModel].self, forKey: .data) {
             self.data = datas
-        } else if let data = ((try? values.decodeIfPresent(TRPCityInfoModel.self, forKey: .data)) as TRPCityInfoModel??), let datas =  [data] as? [TRPCityInfoModel] {
+        } else if let data = try? values.decodeIfPresent(TRPCityInfoModel.self, forKey: .data), let datas =  [data] as? [TRPCityInfoModel] {
             self.data = datas
         }
         try super.init(from: decoder)

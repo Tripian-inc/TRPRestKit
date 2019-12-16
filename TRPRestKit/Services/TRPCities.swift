@@ -61,7 +61,7 @@ internal class TRPCities: TRPRestServices {
                 path += "/\(id)"
             }
         } else if requestType == .cityWithLocation {
-            path = TRPConfig.ApiCall.getCityByCoordinates.link
+            path = TRPConfig.ApiCall.getcityByCoordinates.link
         }
         return path
     }

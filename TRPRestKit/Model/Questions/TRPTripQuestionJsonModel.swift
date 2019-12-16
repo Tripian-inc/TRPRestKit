@@ -18,9 +18,9 @@ internal class TRPTripQuestionJsonModel: TRPParentJsonModel {
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        if let datas = ((try? values.decodeIfPresent([TRPTripQuestionInfoModel].self, forKey: .data)) as [TRPTripQuestionInfoModel]??) {
+        if let datas = try? values.decodeIfPresent([TRPTripQuestionInfoModel].self, forKey: .data) {
             self.data = datas
-        } else if let mdata = ((try? values.decodeIfPresent(TRPTripQuestionInfoModel.self, forKey: .data)) as TRPTripQuestionInfoModel??), let convertedData = [mdata] as? [TRPTripQuestionInfoModel] {
+        } else if let mdata = try? values.decodeIfPresent(TRPTripQuestionInfoModel.self, forKey: .data), let convertedData = [mdata] as? [TRPTripQuestionInfoModel] {
             self.data = convertedData
         }
         

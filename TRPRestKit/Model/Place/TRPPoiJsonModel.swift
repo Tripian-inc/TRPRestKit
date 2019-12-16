@@ -19,9 +19,9 @@ internal class TRPPoiJsonModel: TRPParentJsonModel {
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        if let models = ((try? values.decodeIfPresent([TRPPoiInfoModel].self, forKey: .data)) as [TRPPoiInfoModel]??) {
+        if let models = try? values.decodeIfPresent([TRPPoiInfoModel].self, forKey: .data) {
             self.data = models
-        } else if let model = ((try? values.decodeIfPresent(TRPPoiInfoModel.self, forKey: .data)) as TRPPoiInfoModel??), let data = [model] as? [TRPPoiInfoModel] {
+        } else if let model = try? values.decodeIfPresent(TRPPoiInfoModel.self, forKey: .data), let data = [model] as? [TRPPoiInfoModel] {
             self.data = data
         }
         try super.init(from: decoder)

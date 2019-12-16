@@ -31,8 +31,15 @@ public struct TRPCompanionModel: Decodable {
         self.id = try values.decodeIfPresent(Int.self, forKey: .id)
         self.name = try values.decodeIfPresent(String.self, forKey: .name)
         self.answers = try values.decodeIfPresent(String.self, forKey: .answers)
-        self.age = try values.decodeIfPresent(Int.self, forKey: .age)
-        
+        if let age = try? values.decodeIfPresent(Int.self, forKey: .age) {
+            self.age = age
+        }
+        if let strAge = try? values.decodeIfPresent(String.self, forKey: .age) {
+            if let strAge = strAge, let intAge = Int(strAge) {
+                self.age = intAge
+            }
+        }
+    
     }
     
 }

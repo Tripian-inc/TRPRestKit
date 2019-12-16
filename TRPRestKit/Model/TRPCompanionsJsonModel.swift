@@ -17,7 +17,13 @@ internal class TRPCompanionsJsonModel: TRPParentJsonModel {
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.data = try values.decodeIfPresent([TRPCompanionModel].self, forKey: .data)
+        if let datas = try? values.decodeIfPresent([TRPCompanionModel].self, forKey: .data) {
+            self.data = datas
+        }
+        if let data = try? values.decodeIfPresent(TRPCompanionModel.self, forKey: .data) {
+            self.data = [data] as? [TRPCompanionModel]
+        }
+        
         try super.init(from: decoder)
     }
 }

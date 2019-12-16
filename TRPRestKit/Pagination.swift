@@ -13,19 +13,15 @@ import Foundation
 /// - continues: pages have shown yet.
 /// - completed: request is completed. Pages were showed.
 public enum Pagination {
-    
     // Pages have shown yet. Value is a link
     case continues(String)
-    
     // request is completed. Pages were showed.
     case completed
-    
 }
 
 extension Pagination: Equatable {
-    
-    /// Compare to pagination object
-    ///
+
+    /// Compare to pagination objec
     public static func == (lhs: Pagination, rhs: Pagination) -> Bool {
         
         switch (lhs, rhs) {

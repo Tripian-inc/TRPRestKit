@@ -21,9 +21,9 @@ internal class TRPFavoritesJsonModel: TRPParentJsonModel {
     required internal init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        if let data = ((try? values.decodeIfPresent(TRPFavoritesInfoModel.self, forKey: .data)) as TRPFavoritesInfoModel??) {
+        if let data = try? values.decodeIfPresent(TRPFavoritesInfoModel.self, forKey: .data) {
             self.data = [data] as? [TRPFavoritesInfoModel]
-        } else if let datas = ((try? values.decodeIfPresent([TRPFavoritesInfoModel].self, forKey: .data)) as [TRPFavoritesInfoModel]??) {
+        } else if let datas = try? values.decodeIfPresent([TRPFavoritesInfoModel].self, forKey: .data) {
             self.data = datas
         }
         try super.init(from: decoder)

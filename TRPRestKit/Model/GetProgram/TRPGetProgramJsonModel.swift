@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TRPFoundationKit
 /// Indicates parameters used when creating a trip.
 public struct TRPGetProgramParamsInfoModel: Decodable {
     
@@ -92,11 +93,11 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         }
         
         if let tripAnswersStr = try values.decodeIfPresent(String.self, forKey: .tripAnswers) {
-           tripAnswers = tripAnswersStr.toIntArray()
+            tripAnswers = tripAnswersStr.toIntArray()
         }
         
         if let companionsStr = try values.decodeIfPresent(String.self, forKey: .companions) {
-           companions = companionsStr.toIntArray()
+            companions = companionsStr.toIntArray()
         }
         
     }

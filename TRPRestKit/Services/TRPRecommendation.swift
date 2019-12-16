@@ -62,23 +62,18 @@ internal class TRPRecommendation: TRPRestServices {
         if let typeIds = setting.poiCategoryIds {
             params["poi_categories"] = typeIds.toString()
         }
-        
         if let adults = setting.adultsCount {
             params["adults"] = adults
         }
-        
         if let adultAgeRange = setting.adultAgeRange {
             params["adult_age_range"] = adultAgeRange
         }
-        
         if let childrenCount = setting.childrenCount {
             params["children"] = childrenCount
         }
-        
         if let childrenAgeRange = setting.childrenAgeRange {
             params["children_age_range"] = childrenAgeRange
         }
-        
         if let coord = setting.currentCoordinate {
             params["coordinate"] = coord // int
         }

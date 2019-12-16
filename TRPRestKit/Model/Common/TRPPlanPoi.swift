@@ -20,9 +20,7 @@ public struct TRPPlanPoi: Decodable, Equatable, Hashable {
     public var hash: String?
     
     public var hashValue: Int {
-        get {
-            return poiId.hashValue
-        }
+        return poiId.hashValue
     }
     
     public static func == (lhs: TRPPlanPoi, rhs: TRPPlanPoi) -> Bool {

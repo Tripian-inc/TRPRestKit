@@ -46,7 +46,7 @@ public class TRPNetwork {
     /// Base url is taken from TRPConfig classes.
     /// - Parameter link: url
     convenience init(path: String) {
-        self.init(baseUrl: TRPConfig.BaseUrl, path: TRPConfig.BaseUrlPath + "/" + path)
+        self.init(baseUrl: TRPConfig.getBaseUrl(), path: TRPConfig.getBaseUrlPath() + "/" + path)
     }
     
     internal func add(params: [String: Any]) {
@@ -73,38 +73,33 @@ public class TRPNetwork {
     /// - Parameter completion: Completion handler
     public func build(_ completion: @escaping Completion) {
         self.completionHandler = completion
-        guard var urlComponents = getURLComponents(rawLink) else {return}
-        if let urlQueryItems = getItems(params: params) {
-            urlComponents.queryItems = urlQueryItems
-        }
-        if let url = urlComponents.url {
-            generateSession(url)
-        }
-    }
-    
-    private func getURLComponents(_ rawUrl: String?) -> URLComponents? {
-        if let url = rawUrl {
-            return URLComponents(string: url)
-        }
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = baseUrl
-        urlComponents.path = "/" + path
-        return urlComponents
-    }
-    
-    private func createMutableUrl(url: URL) -> NSMutableURLRequest {
-        let request = NSMutableURLRequest(url: url)
-        request.httpMethod = mode.rawValue
-            
-        for headerValues in headerValues {
-            request.addValue(headerValues.value, forHTTPHeaderField: headerValues.key)
-        }
+        let urlComponents = createComponents(url: rawLink)
         
-        if let bodyData = bodyData {
-            request.httpBody = bodyData
+        guard let url = urlComponents.url else {
+            completionHandler?(TRPErrors.undefined as NSError, nil)
+            return
         }
-        return request
+        if TRPClient.shared.showLink {
+            print("Current URl: \(url)")
+        }
+        generateSession(url)
+    }
+    
+    private func createComponents(url: String?) -> URLComponents {
+        var urlComponents: URLComponents?
+        if let url = url {
+            urlComponents = URLComponents(string: url)
+        }
+        if urlComponents == nil {
+            urlComponents = URLComponents()
+            urlComponents!.scheme = "https"
+            urlComponents!.host = baseUrl
+            urlComponents!.path = "/" + path
+        }
+        if let urlQueryItems = getItems(params: params) {
+            urlComponents!.queryItems = urlQueryItems
+        }
+        return urlComponents!
     }
     
     /// To start connection with server using Url
@@ -112,17 +107,23 @@ public class TRPNetwork {
     /// - Parameter completion: Completion handler
     public func generateSession(_ url: URL) {
         
-        if TRPClient.shared.showLink {
-            print("Current URl: \(url)")
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = mode.rawValue
+        
+        for headerValues in headerValues {
+            request.addValue(headerValues.value, forHTTPHeaderField: headerValues.key)
         }
-        let request = createMutableUrl(url: url)
+        
+        if let bodyData = bodyData {
+            request.httpBody = bodyData
+        }
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             var object: Any?
             
             if let data = data {
                 object = try? JSONSerialization.jsonObject(with: data, options: [])
-                self.log(with: data, url: url)
+                self.logger(data: data, url: url)
             }
             
             if let httpResponse = response as? HTTPURLResponse {
@@ -159,18 +160,22 @@ public class TRPNetwork {
         guard let params = params else {return nil}
         var queryItems = [URLQueryItem]()
         for (key, value) in params {
+            // İKİ KERE DECODE EDİLMİŞ OLUYOR.
+            // Bu yüzden türkçe karakter bozulması oluyor. Kod ileride bozulmaya neden olabiir.
+            /* if let mKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+             let mValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+             queryItems.append(URLQueryItem(name: mKey, value: mValue));
+             } */
             queryItems.append(URLQueryItem(name: key, value: "\(value)"))
         }
         return queryItems
     }
     
-    private func log(with data: Data, url: URL) {
-        if let strData = String(data: data, encoding: String.Encoding.utf8) {
-            if TRPClient.shared.showData {
-                print("Request Link \(url.absoluteString)")
-                print("Request Result \(strData)")
-            }
-        }
+    private func logger(data: Data, url: URL) {
+        if !TRPClient.shared.showData {return}
+        guard let strData = String(data: data, encoding: String.Encoding.utf8) else {return}
+        print("Request Link \(url.absoluteString)")
+        print("Request Result \(strData)")
+        print(" ")
     }
-    
 }

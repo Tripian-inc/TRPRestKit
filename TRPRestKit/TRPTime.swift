@@ -6,6 +6,7 @@
 //  Copyright © 2018 Evren Yaşar. All rights reserved.
 //
 import Foundation
+
 /// This struct has Date and Time formats.
 /// To convert string to Date/Time.
 /// Date is `yyyy-mm-dd`

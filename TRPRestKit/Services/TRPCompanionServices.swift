@@ -72,7 +72,7 @@ internal class TRPCompanionServices: TRPRestServices {
                 let result = try jsonDecode.decode(TRPParentJsonModel.self, from: data)
                 self.completion?(result, nil, nil)
             } else {
-                let result = try jsonDecode.decode(TRPCompanionModel.self, from: data)
+                let result = try jsonDecode.decode(TRPCompanionsJsonModel.self, from: data)
                 self.completion?(result, nil, nil)
             }
         } catch let tryError {

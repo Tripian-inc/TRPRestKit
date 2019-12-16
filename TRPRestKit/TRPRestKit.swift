@@ -8,9 +8,13 @@
 //
 import Foundation
 import TRPFoundationKit
-/// The TRPRestKit is a framework of Tripian Api that allows you to create a trip and take information about places.
+
+let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
+
+/// The TRPRestKit is a framework that provides access Tripian Api.
 ///
 ///  Framework provide you;
+///  * Retrieve personal infromation of the given user
 ///  * Information of City
 ///  * Type of Cİty
 ///  * Information of Place
@@ -20,11 +24,12 @@ import TRPFoundationKit
 ///  * User's trip
 ///  * Daily Plan
 ///  * Plan's place
-///  * NearBy services
+///  * Travel details
+///  * NearBy services, and more.
 ///
-/// - seealso: [asda](https://www.tripian.com/apidocs/)
+/// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine)
 ///
-///
+/// //TODO: Buradaki preconditioni degistir.
 /// - precondition:
 /// ```
 ///
@@ -34,18 +39,28 @@ import TRPFoundationKit
 ///
 /// ```
 ///
+/// A `TRPRestKit()` object  defines a single object that user can follow to operate below functions.
+/// Typically you do not create instances of this class directly,
+/// instead you receive object in completion handler form when you request a call
+/// such as `TRPRestKit().city(withId:completionHandler:)` method. However assure that you have provided tripian api key first.
+///
 @objc public class TRPRestKit: NSObject {
     
-    /// This method hold a Result and Error object when the request is completed.
+    /// **CompletionHandler** is a typealias that provides result and error when the request is completed.
+    /// - Parameters:
+    ///   - result: Any Object that will be returned when the result comes.
+    ///   - error: NSError that will be returned when there is an error.
     public typealias CompletionHandler = (_ result: Any?, _ error: NSError?) -> Void
-    /// This method hold a Result, Error and Pagination object when the request is completed.
+    
+    /// **CompletionHandlerWithPagination** is a typealias that provides result and error and pagination when the request is completed.
+    /// - Parameters:
+    ///   - result: Any Object that will be returned when the result comes.
+    ///   - error: NSError that will be returned when there is an error.
+    ///   - pagination: Pagination object that will be returned to give whether requested operation is completed or continued.
     public typealias CompletionHandlerWithPagination = (_ result: Any?, _ error: NSError?, _ pagination: Pagination?) -> Void
+    
     private var completionHandler: CompletionHandler?
     private var completionHandlerWithPagination: CompletionHandlerWithPagination?
-    
-    public override init() {
-        print("***************************")
-    }
     
     fileprivate func postData(result: Any?, pagination: Pagination? = Pagination.completed) {
         if let comp = completionHandler {
@@ -67,77 +82,91 @@ import TRPFoundationKit
 
 // MARK: - Cities Services
 extension TRPRestKit {
+    //TODO: Cities -> Burada completion handler larin isminin hep ayni olmasi lazim
     
-    /// Obtain all city information.
+    /// Obtain the list of all available cities with given limit, isAutoPagination(Optional) and completionHandler parameters.
     ///
-    /// - Parameter completionHandler: Any objects needs to be converted to **[TRPCityInfoModel]** object.
+    /// - Parameters:
+    ///     - limit: Number of city that will be given.
+    ///     - isAutoPagination: Boolean value whether pagination is required, default value is true.
+    ///     - completionHandler: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-all-available-cities)
     public func cities(limit: Int? = 25, isAutoPagination: Bool? = true, completionHandler: @escaping CompletionHandlerWithPagination) {
         //Fixme: - autoPagination eklenebilir.
         self.completionHandlerWithPagination = completionHandler
         citiesServices(id: nil, limit: limit, autoPagination: isAutoPagination)
     }
     
-    /// Obtain information of a city using City Id.
+    /// Obtain the requested city with given cityId and completion parameters.
+    ///
+    /// Obtain information (such as ) on a specific city. Returned results include city_id, featured image, coordinates, country and continent.
     ///
     /// - Parameters:
-    ///   - id: City Id
-    ///   - completion: A closer which will be called after request completes.
-    /// - Important: Any objects needs to be converted to **TRPCityInfoModel** object.
+    ///     - id: City Id that will be the id of required city.
+    ///     - completionHandler: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCityInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-details-of-a-city)
     public func city(with id: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         citiesServices(id: id)
     }
-
-    /// Obtain information of a city using user location.
-    /// The nearest city is found by user location
+    
+    /// Obtain the requested city with given user location and completionHandler parameters.
+    ///
+    /// The nearest city is found by requested location will be returned. Returned results include city_id, featured image, coordinates, country and continent.
+    ///
     /// - Parameters:
-    ///   - location: user's current location
-    ///   - completionHandler: Any objects needs to be converted to **TRPCityInfoModel** object.
+    ///   - location: TRLocation object that will be given.
+    ///   - completionHandler: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCityInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#find-city-by-coordinates)
     public func city(with location: TRPLocation, completionHandler: @escaping CompletionHandler) {
         self.completionHandler = completionHandler
         citiesServices(location: location)
     }
     
-    /// Obtain information of  cities using link which returned from Pagination
+    /// Obtain the list of all available cities with given url link and completion parameters.
+    ///
+    /// All the available cities from the requested url link will be given in the form of CompletionHandlerWithPagination.
     ///
     /// - Parameters:
     ///   - link: link that returned from Pagination
-    ///   - completion: Any objects needs to be converted to **[TRPCityInfoModel]** object.
+    ///   - completionHandler: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-all-available-cities)
     public func cities(link: String, completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
         citiesServices(id: nil, link: link)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in cities services, manages all task connecting to remote server.
     ///
     /// - Parameters:
-    ///   - id: city Id
-    ///   - link: Link that returened from Pagination
-    ///   - location: User current location
-    ///   - limit: number of record to display
+    ///   - id: Id of the city (Optional).
+    ///   - link: Link that will be returned from Pagination (Optional).
+    ///   - location: User's current location (Optional).
+    ///   - limit: number of city list to display (Optional).
+    ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional).
     private func citiesServices(id: Int? = nil,
                                 link: String? = nil,
                                 location: TRPLocation? = nil,
                                 limit: Int? = 25,
                                 autoPagination: Bool? = true) {
-        let service: TRPCities? = createTripCityService(id: id,
-                                                        link: link,
-                                                        location: location,
-                                                        limit: limit,
-                                                        autoPagination: autoPagination)
         
-        guard let strongService = service else {return}
-        strongService.limit = limit ?? 50
-        if let autoPagi = autoPagination {
-            strongService.isAutoPagination = autoPagi
+        let cityService = createCitiesServices(id: id, link: link, location: location, limit: limit, autoPagination: autoPagination)
+        guard let service = cityService else {return}
+        service.limit = limit ?? 50
+        if let autoPagination = autoPagination {
+            service.isAutoPagination = autoPagination
         }
-        strongService.completion = { (result, error, pagination) in
+        service.completion = { (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPCityJsonModel {
-                if let cities = result.data {
+            if let serviceResult = result as? TRPCityJsonModel {
+                if let cities = serviceResult.data {
                     if id != nil || location != nil {
                         if let city = cities.first {
                             self.postData(result: city, pagination: pagination)
@@ -148,84 +177,89 @@ extension TRPRestKit {
                         return
                     }
                 }
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
         
         if let link = link {
-            strongService.connection(link: link)
+            service.connection(link: link)
         } else {
-            strongService.connection()
+            service.connection()
         }
     }
     
-    private func createTripCityService(id: Int? = nil,
-                                       link: String? = nil,
-                                       location: TRPLocation? = nil,
-                                       limit: Int? = 25,
-                                       autoPagination: Bool? = true) -> TRPCities? {
-        var service: TRPCities?
+    private func createCitiesServices(id: Int? = nil,
+                                      link: String? = nil,
+                                      location: TRPLocation? = nil,
+                                      limit: Int? = 25,
+                                      autoPagination: Bool? = true) -> TRPCities? {
+        var cityService: TRPCities?
         if id == nil && location == nil && link == nil {
-            service = TRPCities()
+            cityService = TRPCities()
         } else if let id = id {
-            service = TRPCities(cityId: id)
+            cityService = TRPCities(cityId: id)
         } else if let location = location {
-            service = TRPCities(location: location)
+            cityService = TRPCities(location: location)
         } else if limit != nil {
-            service = TRPCities()
+            cityService = TRPCities()
         }
-        return service
+        return cityService
     }
+    
 }
 
 // MARK: - Poi Categories Services
 extension TRPRestKit {
     
-    /// Obtain the list of all categories, such as attractions, restaurants, cafes,
-    /// bars, religious places, cool finds, shopping centers, museums, bakeries and art galleries.
+    /// Obtain the list of all categories, such as attractions, restaurants, cafes, bars,
+    /// religious places, cool finds, shopping centers, museums, bakeries and art galleries. Returned results include category ids.
     ///
-    /// When you craete a Add Place List View(Eat&Drink, Attractions), you can use poi categories.
-    /// PoiCategories can be matched **Place.categories**.
+    /// Poi Categories is used during Add Place List operations (such as: Eat&Drink, Attractions, ...etc.).
+    /// PoiCategories can be matched with **Place.categories**.
     ///
-    /// - SeeAlso: [Api Doc](https://www.tripian.com/apidocs/#get-all-place-types)
-    ///
-    /// - Parameter completion: Any objects needs to be converted to **[TRPCategoryInfoModel]** object.
+    /// - Parameters:
+    ///     - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCategoryInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-places-of-interest)
     public func poiCategories(completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
         poiCategoriesServices(id: nil)
     }
     
-    /// Obtain information of a pois categories using Category id.
-    ///
-    /// When you craete a Add Place List View(Eat&Drink, Attractions), you can use poi categories.
-    /// PoiCategories can be matched **Place.categories**.
+    /// Obtain information on a specific Place of Interest by using POI id.
+    /// Returned results include, POI id, city id, category id, name, address, coordinates,
+    /// phone number, website, opening/closing times, tags, icon,
+    /// description (if available), price range and images.
     ///
     /// - Parameters:
-    ///   - withId: Category id
-    ///   - completion: Any objects needs to be converted to **TRPCategoryInfoModel** object.
+    ///     - withId: id of the Category that will be requested.
+    ///     - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCategoryInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-details-of-a-place)
     public func poiCategory(withId: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         poiCategoriesServices(id: withId)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in place of interests category services, manages all task connecting to remote server.
     ///
-    /// - Parameter id: if id is no nil, service take a object.
+    /// - Parameters:
+    ///     - id: id of the Category (Optional).
     private func poiCategoriesServices(id: Int?) {
-        var service: PoiCategories?
+        var poiService: PoiCategories?
         if id == nil {
-            service = PoiCategories()
+            poiService = PoiCategories()
         } else {
-            service = PoiCategories(typeId: id!)
+            poiService = PoiCategories(typeId: id!)
         }
-        service?.completion = {   (result, error, pagination) in
+        poiService?.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
             
-            if let result = result as? TRPPoiCategories {
-                if let types = result.data {
+            if let serviceResult = result as? TRPPoiCategories {
+                if let types = serviceResult.data {
                     if id == nil {
                         self.postData(result: types, pagination: pagination)
                         return
@@ -236,26 +270,36 @@ extension TRPRestKit {
                         }
                     }
                 }
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+                
             }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
-        service?.connection()
+        poiService?.connection()
     }
 }
 
 // MARK: - Poi Services
 extension TRPRestKit {
     
-    /// Obtain information of pois using both poi ids and city id.
-    /// All pois have to be in same city.
+    /// Obtain the list of all Place of interests.
+    /// Returned results include, POI id, city id, category id, name, address,
+    /// coordinates, phone number, website, opening/closing times, tags, icon, description (if available), price range and images.
+    /// Use city id to obtain Places of interests of a specific city.
+    /// Use coordinates to obtain nearby POIs (use category or distance parameters to filter)
     ///
-    /// - SeeAlso: [Api Doc](https://www.tripian.com/apidocs/#get-places)
+    /// All pois must be in the same city.
     ///
     /// - Parameters:
-    ///   - ids: poi ids
-    ///   - cityId: city id
-    ///   - autoPagination: if you set a `true`, next link will be continued automatically. If you set a `false`, next link will not be continued automatically. You must call **poi(link:complation:)** using `pagination.nextlink`.
-    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
+    ///   - withIds: Places of Interests in a form of array.
+    ///   - cityId: Id of the requested city.
+    ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
+    ///   if the autopagination is set to `true`, next link will be continued.
+    ///   If autopagination is set to `false`, next link will not be continued.
+    ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  Pagination value also must be checked.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(withIds ids: [Int],
                     cityId: Int,
                     autoPagination: Bool = true,
@@ -264,12 +308,20 @@ extension TRPRestKit {
         poiServices(placeIds: ids, cities: [cityId], autoPagination: autoPagination)
     }
     
+    
     /// Obtain all information of pois using city id.
     ///
     /// - Parameters:
     ///   - cityId: City Id
-    ///   - limit: number of record to display
-    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
+    ///   - limit: number of poi list to display (Optional).
+    ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
+    ///   if the autopagination is set to `true`, next link will be continued.
+    ///   If autopagination is set to `false`, next link will not be continued.
+    ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  Pagination value also must be checked.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(withCityId cityId: Int,
                     limit: Int? = 100,
                     autoPagination: Bool? = false,
@@ -281,30 +333,45 @@ extension TRPRestKit {
                     autoPagination: autoPagination ?? false)
     }
     
-    /// Obtain information of pois using link which returned from Pagination
+    /// Obtain information of pois using url link which will be returned from Pagination
     ///
     /// - Parameters:
-    ///   - link: Link that returened from Pagination
-    ///   - limit: number of record to display
-    ///   - autoPagination: if you set a `true`, next link will be continued automatically. If you set a `false`, next link will not be continued automatically. You must call **poi(link:complation:)** using `pagination.nextlink`.
-    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
+    ///   - link: Link that returned from Pagination
+    ///   - limit: number of poi list to display (Optional).
+    ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
+    ///   if the autopagination is set to `true`, next link will be continued.
+    ///   If autopagination is set to `false`, next link will not be continued.
+    ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  Pagination value also must be checked.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(link: String, limit: Int? = 100, autoPagination: Bool = true, completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
         poiServices(placeIds: nil, cities: nil, limit: limit, link: link, autoPagination: autoPagination)
     }
     
-    /// Obtain information of pois using location. You can use this method to `Search This Area` button on the map view.
-    /// The poi that nearest the coordinate is at the top.
-    /// If you want obtain all poi, we suggest that categoryIds is nil.
+    /// Obtain information of pois using location.
+    ///
+    /// This method is used when tapped in `Search This Area` button on the map view.
+    /// The pois are ordered by the nearest cordinate,
+    /// so that the first poi will be the closest one to the requested location.
+    /// If all the pois are requested in the call, categoryIds parameter must be nil.
     ///
     /// - Parameters:
-    ///   - location: Center coordinate.
-    ///   - distance: Defines the distance(in km) within which to return poi results.Default value: 50(km)
-    ///   - cityId: City Id
-    ///   - categoryIds: Poi category ids. You can use this method like `Search This Area` button on `Map View`.
-    ///   - autoPagination: if you set a `true`, next link will be continued automatically. If you set a `false`, next link will not be continued automatically. You must call **poi(link:complation:)** using `pagination.nextlink`.
-    ///   - limit: number of record to display
-    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
+    ///   - location: TRLocation object that will be given.
+    ///   - distance: Double value which will return pois in requested distance km. (Optional, default value is 50(km)).
+    ///   - cityId: Id of the requested city.
+    ///   - categoryIds: Poi category ids. This parameter is used in `Search This Area` button action on `Map View`.
+    ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
+    ///   if the autopagination is set to `true`, next link will be continued.
+    ///   If autopagination is set to `false`, next link will not be continued.
+    ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///   - limit: number of pois to display (Optional).
+    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  Pagination value also must be checked.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(withLocation location: TRPLocation,
                     distance: Double? = nil,
                     cityId: Int? = nil,
@@ -321,6 +388,21 @@ extension TRPRestKit {
                     autoPagination: autoPagination ?? false)
     }
     
+    /// Obtain information of pois using city Id.
+    ///
+    ///
+    /// - Parameters:
+    ///   - withCityId: Id of the requested city.
+    ///   - categoryIds: Poi category ids. This parameter is used in `Search This Area` button action on `Map View`.
+    ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
+    ///   if the autopagination is set to `true`, next link will be continued.
+    ///   If autopagination is set to `false`, next link will not be continued.
+    ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///   - limit: number of pois to display (Optional).
+    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  Pagination value also must be checked.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(withCityId: Int,
                     categoryIds: [Int]? = nil,
                     autoPagination: Bool? = false,
@@ -333,13 +415,18 @@ extension TRPRestKit {
                     autoPagination: autoPagination ?? false)
     }
     
+    
     /// Obtain information of pois using search text such as tags(for example "restaurant", "museum", "bar" etc.), name of poi.
     ///
+    ///
     /// - Parameters:
-    ///   - search: Text
-    ///   - cityId: City Id. If user is not in referans city, city id should be sent. When city id is sent, pois are sorted by distance.
-    ///   - userLoc: User's coordinate. If userLocation is sent, pois are sorted by distance. CityId is not needed.
-    ///   - completion: Any objects needs to be converted to **[TRPPoiInfoModel]** object. You must check Pagination value.
+    ///   - search: Text such as tags(for example "restaurant", "museum", "bar" etc.), name of poi.
+    ///   - cityId: Id of City(Optional). If user is not in the referanced city, city id should not be sent. When city id is sent, pois are sorted by distance.
+    ///   - userLoc: TRPLocation object that refers to user's coordinate. If userLocation is sent, pois are sorted by distance, in that case, CityId is not needed.
+    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
+    ///  Pagination value also must be checked.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(search: String,
                     cityId: Int? = nil,
                     location userLoc: TRPLocation? = nil,
@@ -348,7 +435,7 @@ extension TRPRestKit {
         poiServices(location: userLoc, searchText: search, cityId: cityId, autoPagination: false)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in place of interests services, manages all task connecting to remote server.
     ///
     /// - Parameters:
     ///   - placeIds: Place id
@@ -373,18 +460,20 @@ extension TRPRestKit {
                              searchText: String? = nil,
                              cityId: Int? = nil,
                              autoPagination: Bool = true) {
-        let service: TRPPlace? = createTrpPlaceService(placeIds: placeIds,
-                                                       cities: cities,
-                                                       limit: limit,
-                                                       location: location,
-                                                       distance: distance,
-                                                       typeId: typeId,
-                                                       typeIds: typeIds,
-                                                       link: link,
-                                                       searchText: searchText,
-                                                       cityId: cityId,
-                                                       autoPagination: autoPagination)
-        guard let services = service else {return}
+        
+        let placeService = createPoiService(placeIds: placeIds,
+                                            cities: cities,
+                                            limit: limit,
+                                            location: location,
+                                            distance: distance,
+                                            typeId: typeId,
+                                            typeIds: typeIds,
+                                            link: link,
+                                            searchText: searchText,
+                                            cityId: cityId,
+                                            autoPagination: autoPagination)
+        
+        guard let services = placeService else {return}
         services.isAutoPagination = autoPagination
         services.limit = limit ?? 25
         services.completion = {    (result, error, pagination) in
@@ -392,13 +481,13 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPPoiJsonModel {
-                if let places = result.data {
+            if let serviceResult = result as? TRPPoiJsonModel {
+                if let places = serviceResult.data {
                     self.postData(result: places, pagination: pagination)
                     return
                 }
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
         
         if let link = link {
@@ -408,63 +497,71 @@ extension TRPRestKit {
         }
     }
     
-    private func createTrpPlaceService(placeIds: [Int]? = nil,
-                                       cities: [Int]? = nil,
-                                       limit: Int? = 25,
-                                       location: TRPLocation? = nil,
-                                       distance: Double? = nil,
-                                       typeId: Int? = nil,
-                                       typeIds: [Int]? = nil,
-                                       link: String? = nil,
-                                       searchText: String? = nil,
-                                       cityId: Int? = nil,
-                                       autoPagination: Bool = true) -> TRPPlace? {
-        var service: TRPPlace?
+    private func createPoiService(placeIds: [Int]? = nil,
+                                  cities: [Int]? = nil,
+                                  limit: Int? = 25,
+                                  location: TRPLocation? = nil,
+                                  distance: Double? = nil,
+                                  typeId: Int? = nil,
+                                  typeIds: [Int]? = nil,
+                                  link: String? = nil,
+                                  searchText: String? = nil,
+                                  cityId: Int? = nil,
+                                  autoPagination: Bool = true) -> TRPPlace? {
+        var placeService: TRPPlace?
         if let places = placeIds, let cities = cities, let city = cities.first {
-            service = TRPPlace(ids: places, cityId: city)
+            placeService = TRPPlace(ids: places, cityId: city)
         } else if let search = searchText {
-            service = TRPPlace(location: location,
-                         searchText: search,
-                         cityId: cityId)
+            placeService = TRPPlace(location: location,
+                                    searchText: search,
+                                    cityId: cityId)
         } else if let location = location {
-            service = TRPPlace(location: location, distance: distance)
+            placeService = TRPPlace(location: location, distance: distance)
             if let id = typeId {
-                service?.typeId = id
+                placeService?.typeId = id
             }
             if let ids = typeIds {
-                service?.typeIds = ids
+                placeService?.typeIds = ids
             }
-            service?.cityId = cityId
+            placeService?.cityId = cityId
         } else if let cities = cities {
-            service = TRPPlace(cities: cities)
+            placeService = TRPPlace(cities: cities)
         } else if link != nil {
-            service = TRPPlace()
+            placeService = TRPPlace()
         } else if let cityId = cityId, let types = typeIds {
-            service = TRPPlace(cityId: cityId, typeIds: types)
+            placeService = TRPPlace(cityId: cityId, typeIds: types)
         }
-        return service
+        return placeService
     }
     
 }
 
 // MARK: - Question Services
 extension TRPRestKit {
-    /// Return a question which can be used when creating a trip by Question Id.
+    
+    /// Returns a question which will be used when creating a trip by requested Question Id.
     ///
     /// - Parameters:
-    ///   - questionId: Id of question
-    ///   - completion: Any objects needs to be converted to **TRPTripQuestionInfoModel** object.
-    public func tripQuestion(withId questionId: Int, completion: @escaping CompletionHandler) {
+    ///   - questionId: Id of the requested question.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **TRPTripQuestionInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-trip-planner)
+    public func tripQuestions(withQuestionId questionId: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         questionServices(questionId: questionId)
     }
     
-    /// Return questions which can be used when creating a trip by city Id.
+    /// Returns question array which will be used when creating a trip by requested city Id.
     ///
     /// - Parameters:
-    ///   - cityId: City Id
-    ///   - type: type of Question such as `trip` and `profile`. Both `trip` and `profile` have be used when creating a trip. Profile can be used in `Localy Mode`.
-    ///   - completion: Any objects needs to be converted to **[TRPTripQuestionInfoModel]** object.
+    ///   - cityId: Id of the requested City.
+    ///   - type: type is an enumaration value that can be `trip` or `profile`.
+    ///   Both `trip` and `profile` types are used when creating a trip. `profile` type  is used in user's profile questions.
+    ///   - language: language is a String value to declare returned questions language (Optional).
+    ///   Currently `French` and `English` are available.
+    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPTripQuestionInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-trip-planner)
     public func tripQuestions(withCityId cityId: Int,
                               type: TPRTripQuestionType? = TPRTripQuestionType.trip,
                               language: String? = nil,
@@ -473,11 +570,17 @@ extension TRPRestKit {
         questionServices(cityId: cityId, type: type, language: language)
     }
     
-    /// Return questions which can be used when creating a trip by city Id.
+    /// Returns question array with type, language and completion handler parameters which will be used during creating trips.
     ///
     /// - Parameters:
-    ///   - type: type of Question such as `trip` and `profile`. Both `trip` and `profile` have be used when creating a trip. Profile can be used in `Localy Mode`.
-    ///   - completion: Any objects needs to be converted to **[TRPTripQuestionInfoModel]** object.
+    ///   - cityId: Id of the requested City.
+    ///   - type: type is an enumaration value that can be `trip` or `profile`.
+    ///   Both `trip` and `profile` types are used when creating a trip. `profile` type  is used in user's profile questions.
+    ///   - language: language is a String value to declare returned questions language (Optional).
+    ///   Currently `French` and `English` are available.
+    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPTripQuestionInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-trip-planner)
     public func tripQuestions(type: TPRTripQuestionType? = TPRTripQuestionType.profile,
                               language: String? = nil,
                               completion: @escaping CompletionHandlerWithPagination) {
@@ -485,7 +588,7 @@ extension TRPRestKit {
         questionServices(type: type, language: language)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in question services, manages all task connecting to remote server.
     ///
     /// - Parameters:
     ///   - cityId: id of city
@@ -496,16 +599,16 @@ extension TRPRestKit {
                                   type: TPRTripQuestionType? = nil,
                                   language: String? = nil) {
         
-        var service: TRPTripQuestion?
+        var questionService: TRPTripQuestion?
         if let cityId = cityId {
-            service = TRPTripQuestion(cityId: cityId)
+            questionService = TRPTripQuestion(cityId: cityId)
         } else if let questionId = questionId {
-            service = TRPTripQuestion(questionId: questionId)
+            questionService = TRPTripQuestion(questionId: questionId)
         } else {
-            service = TRPTripQuestion(tripType: type ?? .trip)
+            questionService = TRPTripQuestion(tripType: type ?? .trip)
         }
         
-        guard let services = service else {return}
+        guard let services = questionService else {return}
         services.language = language
         services.tripType = type ?? .trip
         services.completion = {   (result, error, pagination) in
@@ -513,8 +616,8 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPTripQuestionJsonModel {
-                if let questions = result.data {
+            if let serviceResult = result as? TRPTripQuestionJsonModel {
+                if let questions = serviceResult.data {
                     if questionId != nil {
                         if let quesion = questions.first {
                             self.postData(result: quesion)
@@ -524,10 +627,9 @@ extension TRPRestKit {
                         self.postData(result: questions, pagination: pagination)
                         return
                     }
-                    
                 }
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
         services.connection()
     }
@@ -537,88 +639,98 @@ extension TRPRestKit {
 // MARK: - Quick Recommendation
 extension TRPRestKit {
     
-    /// Returns list of pois ids generated using TRPRecommendationSettings by Recommendation Engine.
-    /// You can use `TRPRecommendationSettings(cityId:)`in `Localy Mode` but we suggest that uses `TRPRecommendationSettings(hash:)` in `Trip Mode`
+    /// Returns TRPRecommendationInfoJsonModel list generated by requested TRPRecommendationSettings object.
+    ///
+    /// `TRPRecommendationSettings(cityId:)` declaration can be used in `Localy Mode`.
+    ///  However, in `Trip Mode`,  usage with `TRPRecommendationSettings(hash:)` declaration is suggested.
     ///
     /// - Parameters:
-    ///   - settings: A TRPRecommendationSettings object.
-    ///   - autoPagination: if you set a `true`, next link will be continued automatically. If you set a `false`, next link will not be continued automatically. You must call **poi(link:complation:)** using `pagination.nextlink`.
-    ///   - completion: Any objects needs to be converted to **[TRPRecommendationInfoJsonModel]** object.
+    ///      - settings: A TRPRecommendationSettings object which is retrieved by Recommendation Engine.
+    ///      - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
+    ///      if the autopagination is set to `true`, next link will be continued.
+    ///      If autopagination is set to `false`, next link will not be continued.
+    ///      To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///      - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPRecommendationInfoJsonModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-quick-recommendations)
     public func quickRecommendation(settings: TRPRecommendationSettings, autoPagination: Bool = true, completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
         recommendationServices(settings: settings, autoPagination: autoPagination)
     }
     
-    /// Recommendation service
+    /// A services which will be used in recommendation services, manages all task connecting to remote server.
     private func recommendationServices(settings: TRPRecommendationSettings, autoPagination: Bool) {
-        let service = TRPRecommendation(settings: settings)
-        service.isAutoPagination = autoPagination
-        service.completion = {   (result, error, pagination) in
+        let recommendationService = TRPRecommendation(settings: settings)
+        recommendationService.isAutoPagination = autoPagination
+        recommendationService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPRecommendationJsonModel, let recommendationPlaces = result.data {
+            if let serviceResult = result as? TRPRecommendationJsonModel, let recommendationPlaces = serviceResult.data {
                 self.postData(result: recommendationPlaces, pagination: pagination)
             } else {
                 self.postData(result: [], pagination: pagination)
             }
         }
-        service.connection()
+        recommendationService.connection()
     }
     
 }
 
 // MARK: - USER LOGIN
 extension TRPRestKit {
+    
     /// Obtain the access token for API calls that require user identification.
-    ///
-    /// If user login is successful, TRPUserPersistent object saves user accessToken.
+    /// When login operation is successful, TRPUserPersistent object is saved in user accessToken.
     ///
     /// - Parameters:
-    ///   - name: Name of User. The name parameters is automatically generated by Tripian.
-    ///   - password: Password of User
-    ///   - completion: Any objects needs to be converted to **TRPLoginInfoModel** object.
+    ///   - email: Username of the user which usually refers to email address of the user.
+    ///   - password: Password of the user.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPLoginInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-login-as-a-user-)
     public func login(email eMail: String, password: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         loginServices(email: eMail, password: password)
     }
     
+    //TODO: Bu methodu public yapmak gerekiyor mu?
     public func loginTestServer(userName name: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         loginServices(userName: name)
     }
     
-    /// User Login service
+    /// A services which will be used in login services, manages all task connecting to remote server.
     ///
     /// - Parameters:
     ///   - name: User name
     ///   - password: user password
+    ///   - userName: user name //TODO: Burada bir sorun var hem name hem username ayni sey degilmi? Yukaridaki login testserviceden dolayi geldiyse, name i tamamen kaldirip user name i birakmak mumkunmu?
     private func loginServices(email: String? = nil,
                                password: String? = nil,
                                userName: String? = nil) {
-        var service: TRPLogin?
+        var loginService: TRPLogin?
         
         if let email = email, let password = password {
-            service = TRPLogin(email: email, password: password)
+            loginService = TRPLogin(email: email, password: password)
         } else if let userName = userName {
-            service = TRPLogin(userName: userName)
+            loginService = TRPLogin(userName: userName)
         }
-        guard let loginService = service else {return}
-        loginService.completion = {    (result, error, pagination) in
+        guard let service = loginService else {return}
+        service.completion = {    (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            
-            if let result = result as? TRPLoginJsonModel {
-                TRPUserPersistent.saveHashToken(result.data.accessToken)
-                self.postData(result: result.data, pagination: pagination)
+            if let serviceResult = result as? TRPLoginJsonModel {
+                TRPUserPersistent.saveHashToken(serviceResult.data.accessToken)
+                self.postData(result: serviceResult.data, pagination: pagination)
             } else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        loginService.connection()
+        service.connection()
     }
     
     /// User logout. TRPUserPersistent removes all accessToken.
@@ -631,32 +743,38 @@ extension TRPRestKit {
 // MARK: - User Register
 extension TRPRestKit {
     
-    /// This method can be used to create a new User.
-    /// Tripian Api generates a `userName` automatically.
+    /// Create a new user (customer) by posting the required parameters indicated below. No extra step needed to active the new user.
+    /// Tripian Api generates a `userName` automatically refer to user's email address.
     ///
     /// - Parameters:
-    ///   - password: Password of user.
-    ///   - completion: Any objects needs to be converted to **TRPUserInfoModel** object.
+    ///   - email: Username of the user which usually refers to email address of the user.
+    ///   - password: Password of the user.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPUserInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-register-a-user-)
     public func register(email: String, password: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         userRegisterServices(email: email, password: password)
     }
     
-    // returned TRPTestUserInfoModel
+    // Below function is used in registering user on the test server.
     public func registerOnTestServer(userName: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         userRegisterServices(userName: userName)
     }
     
-    /// Return information about user such as eat and drink preferences
+    /// Obtain personal user information (must be logged in with access token), such as user id, e-mail, and preferences.
     ///
-    /// - Parameter completion:  Any objects needs to be converted to **TRPUserInfoModel** object.
+    /// - Parameters:
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPUserInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-get-current-user-information)
     public func userInfo(completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         userInfoServices(type: .getInfo)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in user register services, manages all task connecting to remote server.
     private func userRegisterServices(email: String? = nil,
                                       password: String? = nil,
                                       userName: String? = nil) {
@@ -677,14 +795,14 @@ extension TRPRestKit {
             }
             
             if serverType == "AirMiles" {
-                if let result = result as? TRPUserInfoJsonModel {
-                    self.postData(result: result.data)
+                if let resultService = result as? TRPUserInfoJsonModel {
+                    self.postData(result: resultService.data)
                 } else {
                     self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
                 }
             } else if serverType == "Test" {
-                if let result = result as? TRPTestUserInfoJsonModel {
-                    self.postData(result: result.data)
+                if let serviceResult = result as? TRPTestUserInfoJsonModel {
+                    self.postData(result: serviceResult.data)
                 } else {
                     self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
                 }
@@ -695,14 +813,25 @@ extension TRPRestKit {
     }
     
 }
- 
+
 // MARK: Update User Info
 extension TRPRestKit {
-    /// Updates the user's answers. The answers change Recommendation Engine's working.
+    
+    //TODO: Mobilde kullanicinin adini tamamen silip kaydet deyince kullanicinin adinin ilk harfini sadece kayitli birakiyor. Burada butun adin eskisi gibi kalmasi dogru degilmi?
+    //TODO: Appde user preferences degisince bu sizin future triplerinizi etkileyecek diyoruz ama tam anlamiyla future tripleri etkilemiyor?
+    
+    /// Update user information (must be logged in with access token), such as user id, e-mail, and preferences.
+    /// So that, the updated answers will effect the recommendation engine's work upon user's preferences.
+    /// After updating user info, future trips of the user will be affected.
     ///
     /// - Parameters:
-    ///   - answers: User answers of Trip
-    ///   - completion: Any objects needs to be converted to **TRPUserInfoModel** object.
+    ///   - firstName: A String which refers to first name of the user (Optional).
+    ///   - lastName: A String which refers to last name of the user (Optional).
+    ///   - age: An Integer which refers to age of the user (Optional).
+    ///   - answers: An Integer array which refers to User preferences (Optional).
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPUserInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-current-user-information)
     public func updateUserInfo(firstName: String?,
                                lastName: String?,
                                age: Int? = nil,
@@ -718,59 +847,80 @@ extension TRPRestKit {
                          type: .updateInfo)
     }
     
+    /// Update user preferences (must be logged in with access token).
+    /// So that, the updated answers will effect the recommendation engine's work upon user's preferences.
+    /// After updating user info, future trips of the user will be affected.
+    ///
+    /// This method is used in editing only user preferences, first name and last name of the user will not be affected.
+    ///
+    /// - Parameters:
+    ///   - answers: An Integer array which refers to User preferences.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPUserInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-current-user-information)
     public func updateUserAnswer(answers: [Int], completion: @escaping CompletionHandler) {
         completionHandler = completion
         userInfoServices(answers: answers, type: .updateAnswer)
     }
     
-    /// A services that manage all task to connecting remote server
+    
+    /// A services which will be used in user info services, manages all task connecting to remote server.
     private func userInfoServices(firstName: String? = nil,
                                   lastName: String? = nil,
                                   age: Int? = nil,
                                   password: String? = nil,
                                   answers: [Int]? = nil,
                                   type: TRPUserInfoServices.ServiceType) {
-        var service: TRPUserInfoServices?
+        var infoService: TRPUserInfoServices?
         
         if type == .getInfo {
-            service = TRPUserInfoServices(type: .getInfo)
+            infoService = TRPUserInfoServices(type: .getInfo)
         } else if type == .updateAnswer {
             if let answers = answers {
-                service = TRPUserInfoServices(answers: answers)
+                infoService = TRPUserInfoServices(answers: answers)
             }
         } else if type == .updateInfo {
-            service = TRPUserInfoServices(firstName: firstName,
-                                    lastName: lastName,
-                                    age: age,
-                                    password: password,
-                                    answers: answers)
+            infoService = TRPUserInfoServices(firstName: firstName,
+                                              lastName: lastName,
+                                              age: age,
+                                              password: password,
+                                              answers: answers)
         }
         
-        guard let userInfoService = service else {return}
+        guard let services = infoService else {return}
         
-        userInfoService.completion = {   (result, error, pagination) in
+        services.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPUserInfoJsonModel {
-                self.postData(result: result.data, pagination: pagination)
+            if let serviceResult = result as? TRPUserInfoJsonModel {
+                self.postData(result: serviceResult.data, pagination: pagination)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        userInfoService.connection()
+        services.connection()
     }
+    
 }
 
-//
+// MARK: - Companions.
 extension TRPRestKit {
     
-    /// This method can be used to create a new companion.
+    //TODO: Asagidaki companion servislerinde update de (id:) parametresi var, removeda (companionId:) parametresi var ikisinin ayni olmasi daha guzel olur
+    //TODO: Api de delete companion burada remove companion ismi kullaniliyor.
+    
+    /// Add companion by adding name(Optional), age(Optional), Answers(Optional) and completion parameters.
+    ///
     ///
     /// - Parameters:
-    ///   - name: name of the companion.
-    ///   - answers: preferences of the companion.
-    ///   - age: age of the companion.
-    ///   - completion: Any objects needs to be converted to **TRPCompanionModel** object.
+    ///   - name: A String that refers to name of the companion (Optional).
+    ///   - age: An Integer that refers to age of the companion (Optional).
+    ///   - answers: An Integer array that refers to preferences of the companion (Optional).
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCompanionModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-companion)
     public func addCompanion(name: String?,
                              age: Int?,
                              answers: [Int]?,
@@ -780,14 +930,16 @@ extension TRPRestKit {
         companionServices(name: name, age: age, answers: answers, serviceType: serviceType)
     }
     
-    /// This method can be used to update the selected companion.
+    /// Update companion information (must be logged in with access token), such as name and answers
     ///
     /// - Parameters:
-    ///   - id: id of the companion.
-    ///   - name: name of the companion.
-    ///   - answers: preferences of the companion.
-    ///   - age: age of the companion.
-    ///   - completion: Any objects needs to be converted to **TRPCompanionModel** object.
+    ///   - id: An Integer that refers to id of the given companion.
+    ///   - name: A String that refers to name of the given companion (Optional).
+    ///   - age: An Integer that refers to age of the given companion (Optional).
+    ///   - answers: An Integer array that refers to preferences of the given companion (Optional).
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCompanionModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-companion)
     public func updateCompanion(id: Int,
                                 name: String?,
                                 age: Int?,
@@ -801,144 +953,154 @@ extension TRPRestKit {
                           serviceType: serviceType)
     }
     
-    /// This method can be used to remove the selected companion.
+    /// Delete companion by adding companionId and completion parameters.
     ///
     /// - Parameters:
-    ///   - companionId: id of the companion.
-    ///   - completion: Any objects needs to be converted to **TRPCompanionModel** object.
+    ///   - companionId: An Integer that refers to id of the given companion that is going to be deleted.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCompanionModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-companion)
     public func removeCompanion(companionId: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         let serviceType = CompanionServiceType.delete
         companionServices(id: companionId, serviceType: serviceType)
     }
     
-    /// This method can be used to create a new companion.
+    /// Obtain user companions (must be logged in with access token), such as companion name, answers.
     ///
     /// - Parameters:
-    ///   - completion: Any objects needs to be converted to **[TRPCompanionModel]** object.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important:Completion Handler is an any object which needs to be converted to **[TRPCompanionModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-get-companions)
     public func getUsersCompanions(completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         let serviceType = CompanionServiceType.get
         companionServices(serviceType: serviceType)
     }
     
+    /// A services which will be used in creating companion services, manages all task connecting to remote server.
+    private func createCompanionServices(id: Int? = 0, name: String? = nil, age: Int? = nil, answers: [Int]? = nil, serviceType: CompanionServiceType) -> TRPCompanionServices? {
+        var companionService: TRPCompanionServices?
+        
+        if serviceType == CompanionServiceType.add {
+            companionService = TRPCompanionServices(serviceType: serviceType,
+                                                    name: name,
+                                                    answers: answers,
+                                                    age: age)
+        } else if serviceType == CompanionServiceType.get {
+            companionService = TRPCompanionServices(serviceType: serviceType)
+        } else if serviceType == CompanionServiceType.delete, let id = id {
+            companionService = TRPCompanionServices(id: id, serviceType: serviceType)
+        } else {
+            guard let id = id else {return nil}
+            companionService = TRPCompanionServices(serviceType: serviceType,
+                                                    id: id,
+                                                    name: name,
+                                                    answers: answers,
+                                                    age: age)
+        }
+        return companionService
+    }
+    
+    /// A services which will be used in getting all companions, manages all task connecting to remote server.
     private func companionServices(id: Int? = 0,
                                    name: String? = nil,
                                    age: Int? = nil,
                                    answers: [Int]? = nil,
                                    serviceType: CompanionServiceType) {
         
-        let service = createTrpCompanionServices(id: id, name: name, age: age, answers: answers, serviceType: serviceType)
-        
-        guard let companionServices = service else {
+        let companionService = createCompanionServices(id: id, name: name, age: age, answers: answers, serviceType: serviceType)
+        guard let service = companionService else {
             self.postError(error: TRPErrors.objectIsNil(name: "TRPCompanionServices") as NSError)
             return
         }
         
-        companionServices.completion = {(result, error, _) in
+        service.completion = {(result, error, _) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
             
             if serviceType == .delete || serviceType == .update {
-                if let result = result as? TRPParentJsonModel {
-                    self.postData(result: result)
+                if let serviceResult = result as? TRPParentJsonModel {
+                    self.postData(result: serviceResult)
                     return
                 }
             } else if serviceType == .add {
-                if let result = result as? TRPCompanionModel {
-                    self.postData(result: result)
+                if let serviceResult = result as? TRPCompanionsJsonModel {
+                    if let model = serviceResult.data?.first {
+                        self.postData(result: model)
+                    }
+                    
                     return
                 }
             } else if serviceType == .get {
-                if let result = result as? TRPCompanionsJsonModel {
-                    self.postData(result: result.data)
+                if let serviceResult = result as? TRPCompanionsJsonModel {
+                    self.postData(result: serviceResult.data)
                     return
                 }
             }
             
             self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
-        companionServices.connection()
-    }
-    
-    private func createTrpCompanionServices(id: Int? = 0,
-                                            name: String? = nil,
-                                            age: Int? = nil,
-                                            answers: [Int]? = nil,
-                                            serviceType: CompanionServiceType) -> TRPCompanionServices? {
-        var service: TRPCompanionServices?
-        
-        if serviceType == CompanionServiceType.add {
-            service = TRPCompanionServices(serviceType: serviceType,
-                                     name: name,
-                                     answers: answers,
-                                     age: age)
-        } else if serviceType == CompanionServiceType.get {
-            service = TRPCompanionServices(serviceType: serviceType)
-        } else if serviceType == CompanionServiceType.delete, let id = id {
-            service = TRPCompanionServices(id: id, serviceType: serviceType)
-        } else {
-            guard let id = id else {return nil}
-            service = TRPCompanionServices(serviceType: serviceType,
-                                     id: id,
-                                     name: name,
-                                     answers: answers,
-                                     age: age)
-        }
-        return service
+        service.connection()
     }
 }
 
 // MARK: - Favorites of User's Poi.
 extension TRPRestKit {
     
-    /// This method is used to add poi to user's favorite list.
+    /// Add user's favorite Place of Interest.
     ///
     /// - Parameters:
-    ///   - cityId: Id of city where the poi is located.
-    ///   - poiId: Id of Poi
-    ///   - completion: Any objects needs to be converted to **TRPFavoritesInfoModel** object.
+    ///   - cityId: An Integer that refers to Id of city where the poi is located.
+    ///   - poiId: An Integer that refers to Id of the given place.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPFavoritesInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-delete-favorite)
     public func addUserFavorite(cityId: Int, poiId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         userFavoriteServices(cityId: cityId, poiId: poiId, mode: .add)
     }
     
-    /// Returns Poi ids of user's favorite poi list.
+    /// Get user all favorite place of interests list
     ///
     /// - Parameters:
-    ///   - cityId: Id of city where the poi is located.
-    ///   - completion: Any objects needs to be converted to **[TRPFavoritesInfoModel]** object.
+    ///   - cityId: An Integer that refers to Id of city where the poi is located.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPFavoritesInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-get-user-favorites)
     public func getUserFavorite(cityId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         userFavoriteServices(cityId: cityId, mode: .get)
     }
     
-    /// This method is used to delete poi to user's favorite list.
+    /// Delete user's favorite Place of Interest.
     ///
     /// - Parameters:
-    ///   - cityId: Id of city where the poi is located.
-    ///   - poiId: Id of Poi
-    ///   - completion: Any objects needs to be converted to **TRPParentJsonModel** object.
+    ///   - cityId: An Integer that refers to Id of city where the poi is located.
+    ///   - poiId: An Integer that refers to Id of the given place.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-delete-favorite)
     public func deleteUserFavorite(cityId: Int, poiId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         userFavoriteServices(cityId: cityId, poiId: poiId, mode: .delete)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in users favorite place of interests, manages all task connecting to remote server.
     private func userFavoriteServices(cityId: Int, poiId: Int? = nil, mode: TRPUserFavorite.Mode) {
         
-        var service: TRPUserFavorite?
+        var favoriteService: TRPUserFavorite?
         if mode == .add || mode == .delete {
             if let poi = poiId {
-                service = TRPUserFavorite(cityId: cityId, poiId: poi, type: mode)
+                favoriteService = TRPUserFavorite(cityId: cityId, poiId: poi, type: mode)
             }
         } else if mode == .get {
-            service = TRPUserFavorite(cityId: cityId)
+            favoriteService = TRPUserFavorite(cityId: cityId)
         }
         
-        guard let services = service else {return}
+        guard let services = favoriteService else {return}
         services.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
@@ -946,19 +1108,19 @@ extension TRPRestKit {
             }
             
             if mode == .delete {
-                if let result = result as? TRPParentJsonModel {
-                    self.postData(result: result)
+                if let resultService = result as? TRPParentJsonModel {
+                    self.postData(result: resultService)
                     return
                 }
             } else {
-                if let result = result as? TRPFavoritesJsonModel {
+                if let resultService = result as? TRPFavoritesJsonModel {
                     if mode == .add {
-                        if let first = result.data?.first {
+                        if let first = resultService.data?.first {
                             self.postData(result: first)
                             return
                         }
                     } else {
-                        self.postData(result: result.data, pagination: pagination)
+                        self.postData(result: resultService.data, pagination: pagination)
                         return
                     }
                 }
@@ -973,31 +1135,39 @@ extension TRPRestKit {
 // MARK: - User Trips
 extension TRPRestKit {
     
-    /// Returns all trips created by User.
+    /// Obtain the list of user trips with given limit, and completionHandler parameters.
     ///
     /// - Parameters:
-    ///   - limit: number of record to display
-    ///   - completion: Any objects needs to be converted to **TRPUserTripInfoModels** object.
+    ///   - limit: An Integer value that refers to the number of trips which will be presented(Optional, default value is 100).
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPUserTripInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func userTrips(limit: Int? = 100, completion: @escaping CompletionHandlerWithPagination) {
         completionHandlerWithPagination = completion
-        userTripsServices(limit: 100)
+        guard let limit = limit else{
+            userTripsServices(limit: 100)
+            return
+        }
+        userTripsServices(limit: limit)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in users trips, manages all task connecting to remote server.
     private func userTripsServices(limit: Int) {
-        let service = TRPUserTrips()
-        service.limit = limit
-        service.completion = { (result, error, pagination) in
+        let tripService = TRPUserTrips()
+        tripService.limit = limit
+        tripService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
             
-            if let result = result as? TRPUserTripsJsonModel {
-                self.postData(result: result.data)
+            if let serviceResult = result as? TRPUserTripsJsonModel {
+                self.postData(result: serviceResult.data)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        service.connection()
+        tripService.connection()
     }
     
 }
@@ -1005,28 +1175,30 @@ extension TRPRestKit {
 // MARK: - Constants
 extension TRPRestKit {
     
-    /// Returns all constants.
+    /// Obtain the list of constants that are used in Tripian Mobile Apps such as required max day between trips.
     ///
     /// - Parameters:
-    ///   - completion: Any objects needs to be converted to **TRPUserTripInfoModels** object.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     public func getConstants(completion: @escaping CompletionHandler) {
         completionHandler = completion
         constantServices()
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in constant services, manages all task connecting to remote server.
     private func constantServices() {
-        let service = TRPConstantsServices()
-        service.completion = {   (result, error, pagination) in
+        let constantsService = TRPConstantsServices()
+        constantsService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPConstantsParentJsonModel {
-                self.postData(result: result.data?.constants)
+            if let serviceReuslt = result as? TRPConstantsParentJsonModel {
+                self.postData(result: serviceReuslt.data?.constants)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        service.connection()
+        constantsService.connection()
     }
     
 }
@@ -1034,29 +1206,31 @@ extension TRPRestKit {
 // MARK: - Version
 extension TRPRestKit {
     
-    /// Return version detail.
+    /// Obtain the list of versions that are used in Tripian Mobile Apps such as required min frameworks.
     ///
     /// - Parameters:
-    ///   - completion: Any objects needs to be converted to **TRPUserTripInfoModels** object.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     public func getVersion(completion: @escaping CompletionHandler) {
         completionHandler = completion
         versionServices()
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in version services, manages all task connecting to remote server.
     private func versionServices() {
-
-        let services = TRPConstantsServices()
-        services.completion = {   (result, error, pagination) in
+        
+        let constantsService = TRPConstantsServices()
+        constantsService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPConstantsParentJsonModel {
-                self.postData(result: result.data?.version)
+            if let serviceResult = result as? TRPConstantsParentJsonModel {
+                self.postData(result: serviceResult.data?.version)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        services.connection()
+        constantsService.connection()
     }
     
 }
@@ -1064,79 +1238,101 @@ extension TRPRestKit {
 // MARK: - Trip
 extension TRPRestKit {
     
-    /// To create a new trip for user.
+    /// Create a trip with given settings and completion handler parameters.
+    ///
+    /// Values and meanings of generate attribute in of dayplans; 0=not generated yet, 1=generated and recommended, -1=generated but not recommended.
     ///
     /// - Parameters:
-    ///   - settings: Includes settings about a trip to create.
-    ///   - completion: Any objects needs to be converted to **TRPTripInfoModel** object.
+    ///   - settings: TRPTripSettings object that includes settings for the trip.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func createTrip(settings: TRPTripSettings, completion: @escaping CompletionHandler) {
         completionHandler = completion
         createOrEditTripServices(settings: settings)
     }
     
+    /// Update trip with given settings and completion handler parameters.
+    ///
+    /// - Parameters:
+    ///   - settings: TRPTripSettings object that includes settings for the updating trip.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#update-a-trip)
     public func editTrip(settings: TRPTripSettings, completion: @escaping CompletionHandler) {
         completionHandler = completion
         createOrEditTripServices(settings: settings)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used for both creating and editing services, manages all task connecting to remote server.
     private func createOrEditTripServices(settings: TRPTripSettings) {
-        let service = TRPProgram(setting: settings)
-        service.completion = {   (result, error, pagination) in
+        let programService = TRPProgram(setting: settings)
+        programService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let data = result as? TRPTripJsonModel, let result = data.data {
-                self.postData(result: result)
+            if let data = result as? TRPTripJsonModel, let serviceResult = data.data {
+                self.postData(result: serviceResult)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        service.connection()
+        programService.connection()
     }
     
-    /// Returns foundation information about trip using hash.
+    /// Get trip info with given trip hash and completion handler parameters.
     ///
     /// - Parameters:
-    ///   - hash: hash of trip
-    ///   - completion: Any objects needs to be converted to **TRPTripInfoModel** object.
+    ///   - hash: A String value that refers to trip hash.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func getTrip(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
         getTripServices(hash: hash)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used forgetting trip info services, manages all task connecting to remote server.
     private func getTripServices(hash: String) {
-        let service = TRPGetProgram(hash: hash)
-        service.completion = {  (result, error, pagination) in
+        let getProgramService = TRPGetProgram(hash: hash)
+        getProgramService.completion = {  (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPTripJsonModel, let info = result.data {
+            if let serviceResult = result as? TRPTripJsonModel, let info = serviceResult.data {
                 self.postData(result: info)
             }
         }
-        service.connection()
+        getProgramService.connection()
     }
     
+    /// Delete trip info with given trip hash and completion handler parameters.
+    ///
+    /// - Parameters:
+    ///   - hash: A String value that refers to foretold deleting trip hash.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#delete-a-trip)
     public func deleteTrip(hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
         deleteTripServices(hash: hash)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in delete trip services, manages all task connecting to remote server.
     private func deleteTripServices(hash: String) {
-        let service = TRPDeleteProgram(hash: hash)
-        service.completion = { (result, error, pagination) in
+        let deleteService = TRPDeleteProgram(hash: hash)
+        deleteService.completion = { (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPParentJsonModel {
-                self.postData(result: result)
+            if let serviceResult = result as? TRPParentJsonModel {
+                self.postData(result: serviceResult)
             }
         }
-        service.connection()
+        deleteService.connection()
     }
     
 }
@@ -1144,29 +1340,35 @@ extension TRPRestKit {
 // MARK: - Daily Plan
 extension TRPRestKit {
     
-    /// Return a day plan.
+    /// Obtain daily plan with given daily plan id, and completion parameters.
+    ///
+    /// Values and meanings of generate attribute in of dayplans; 0=not generated yet, 1=generated and recommended, -1=generated but not recommended.
     ///
     /// - Parameters:
-    ///   - id: id of plan
-    ///   - completion: Any objects needs to be converted to **TRPDailyPlanInfoModel** object.
+    ///   - id: An Integer value that refers to id of the daily plan.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPDailyPlanInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#day-plans-of-a-trip)
     public func dailyPlan(id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         dailyPlanServices(id: id)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in daily plan services, manages all task connecting to remote server.
     private func dailyPlanServices(id: Int) {
-        let service = TRPDailyPlanServices(id: id)
-        service.completion = {   (result, error, pagination) in
+        let dailyPlanServices = TRPDailyPlanServices(id: id)
+        dailyPlanServices.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPDayPlanJsonModel {
-                self.postData(result: result.data)
+            if let serviceResult = result as? TRPDayPlanJsonModel {
+                self.postData(result: serviceResult.data)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        service.connection()
+        dailyPlanServices.connection()
     }
     
 }
@@ -1174,131 +1376,184 @@ extension TRPRestKit {
 // MARK: - PlanPoints
 extension TRPRestKit {
     
-    /// Provides adding a poi to the plan
+    /// Add Plan POI to the daily plan.
     ///
     /// - Parameters:
-    ///   - hash: hash of trip
-    ///   - dailyPlanId: id of Plan
-    ///   - poiId: new poi id
-    ///   - order: pois order
-    ///   - completion: Any objects needs to be converted to **TRPPlanPointInfoModel** object.
+    ///    - hash: A String value that refers to foretold trip hash.
+    ///    - dailyPlanId: An Integer that refers to Id of the daily plan.
+    ///    - poiId: An Integer that refers to Id of the given place.
+    ///    - order: An Integer that refers to order number of the given place.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPPlanPoi** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#adding-a-place-to-trip)
     public func addPlanPoints(hash: String, dailyPlanId: Int, poiId: Int, order: Int? = nil, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointsServices(hash: hash, dailyPlanId: dailyPlanId, placeId: poiId, order: order, type: TRPPlanPoints.Status.add)
     }
     
+    ///TODO: BU KISIM İYİ ANLATILMALI. GÖRSEL OLARAK HAZIRLANMALI.
+    
+    /// Replace plan POI in trip.
+    ///
+    /// This function is used during changing place with it's alternative, in trips.
+    ///
+    /// - Parameters:
+    ///    - dailyPlanPoiId: An Integer that refers to Id of the daily plan POI.
+    ///    - poiId: An Integer that refers to Id of the given place.
+    ///    - order: An Integer that refers to order number of the given place.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPPlanPoi** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func replacePlanPoiFrom(dailyPlanPoiId: Int, poiId: Int? = nil, order: Int? = nil, completion: @escaping CompletionHandler ) {
         completionHandler = completion
         planPointsServices(id: dailyPlanPoiId, placeId: poiId, order: order, type: .update)
     }
     
+    /// Reorder plan POI in trip.
+    ///
+    /// This function is used during manuel sort on the map view.
+    ///
+    /// - Parameters:
+    ///    - dailyPlanPoiId: An Integer that refers to Id of the daily plan POI.
+    ///    - poiId: An Integer that refers to Id of the given place.
+    ///    - order: An Integer that refers to order number of the given place.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPPlanPoi** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#changing-a-place-in-a-trip)
     public func reOrderPlanPoiFrom(dailyPlanPoiId: Int, poiId: Int, order: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointsServices(id: dailyPlanPoiId, placeId: poiId, order: order, type: .update)
     }
     
-    /// Provides deleting a poi to the plan
+    /// Delete plan POI in trip.
+    ///
+    /// This function is used during manuel sort on the map view.
     ///
     /// - Parameters:
-    ///   - id: id of poi
-    ///   - completion: Any objects needs to be converted to **TRPParentJsonModel** object.
+    ///    - planPoiId: An Integer that refers to Id of the daily plan POI.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#deleting-a-place-from-a-trip)
     public func deleteDailyPlanPoi(planPoiId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointsServices(id: id, type: .delete)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in plan poi services, manages all task connecting to remote server.
     private func planPointsServices(hash: String? = nil,
                                     id: Int? = nil,
                                     dailyPlanId: Int? = nil,
                                     placeId: Int? = nil,
                                     order: Int? = nil, type: TRPPlanPoints.Status) {
-        var service: TRPPlanPoints?
+        var planPointService: TRPPlanPoints?
         
         if type == TRPPlanPoints.Status.delete, let id = id {
-            service = TRPPlanPoints(id: id, type: type)
+            planPointService = TRPPlanPoints(id: id, type: type)
         } else if type == TRPPlanPoints.Status.add, let hash = hash, let dailyPlanId = dailyPlanId, let placeId = placeId {
-            service = TRPPlanPoints(hash: hash, dailyPlanId: dailyPlanId, placeId: placeId, order: order)
+            planPointService = TRPPlanPoints(hash: hash, dailyPlanId: dailyPlanId, placeId: placeId, order: order)
         } else if type == TRPPlanPoints.Status.update, let id = id {
-            service = TRPPlanPoints(id: id, placeId: placeId, order: order)
+            planPointService = TRPPlanPoints(id: id, placeId: placeId, order: order)
         }
         
-        guard let planPoiService = service else {
+        guard let service = planPointService else {
             self.postError(error: TRPErrors.objectIsNil(name: "TRPPlanPoints") as NSError)
             return
         }
         
-        planPoiService.completion = {   (result, error, pagination) in
+        service.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
             if type == .delete {
-                if let result = result as? TRPParentJsonModel {
-                    self.postData(result: result, pagination: pagination)
+                if let serviceResult = result as? TRPParentJsonModel {
+                    self.postData(result: serviceResult, pagination: pagination)
                     return
                 }
             } else if type == .add {
-                if let result = result as? TRPProgramStepJsonModel {
-                    self.postData(result: result.data, pagination: pagination)
+                if let serviceResult = result as? TRPProgramStepJsonModel {
+                    self.postData(result: serviceResult.data, pagination: pagination)
                     return
                 }
                 
             } else {
-                if let result = result as? TRPProgramStepJsonModel, let data = result.data {
+                if let serviceResult = result as? TRPProgramStepJsonModel, let data = serviceResult.data {
                     self.postData(result: data, pagination: pagination)
                     return
                 }
             }
             self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
-        planPoiService.connection()
+        service.connection()
     }
 }
 
 // MARK: - NearBy Services
 extension TRPRestKit {
     
+    //TODO: withPlanPointId -> withPlanPoiId olucak
+    
+    /// Obtain plan poi alternative list with given plan POI Id and completion parameters.
+    ///
+    /// - Parameters:
+    ///    - withPlanPointId: An Integer that refers to Id of the plan POI.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func planPoiAlternatives(withPlanPointId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointAlternative(planPointId: id)
     }
     
+    /// Obtain plan poi alternative list with given trip hash and completion parameters.
+    ///
+    /// - Parameters:
+    ///    - withHash: A String value that refers to foretold trip hash.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func planPoiAlternatives(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointAlternative(hash: hash)
     }
     
+    /// Obtain plan poi alternative list with given trip hash and completion parameters.
+    ///
+    /// - Parameters:
+    ///    - withDailyPlanId: An Integer that refers to Id of the daily plan.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func planPoiAlternatives(withDailyPlanId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointAlternative(dailyPlanId: id)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in plan poi alternative services, manages all task connecting to remote server.
     private func planPointAlternative(planPointId: Int? = nil, hash: String? = nil, dailyPlanId: Int? = nil) {
-        var service: TRPPlanPointAlternatives?
+        var poiAlternativeService: TRPPlanPointAlternatives?
         
         if let planPointId = planPointId {
-            service = TRPPlanPointAlternatives(planPointId: planPointId)
+            poiAlternativeService = TRPPlanPointAlternatives(planPointId: planPointId)
         } else if let hash = hash {
-            service = TRPPlanPointAlternatives(hash: hash)
+            poiAlternativeService = TRPPlanPointAlternatives(hash: hash)
         } else if let dailyPlanId = dailyPlanId {
-            service =  TRPPlanPointAlternatives(dailyPlanId: dailyPlanId)
+            poiAlternativeService =  TRPPlanPointAlternatives(dailyPlanId: dailyPlanId)
         }
         
-        guard let strongService = service else {return}
-        strongService.completion = {   (result, error, pagination) in
+        guard let service = poiAlternativeService else {return}
+        service.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPPlanPointAlternativeJsonModel, let data = result.data {
+            if let serviceResult = result as? TRPPlanPointAlternativeJsonModel, let data = serviceResult.data {
                 self.postData(result: data, pagination: pagination)
                 return
             }
             self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
-        strongService.connection()
+        service.connection()
     }
     
 }
@@ -1306,14 +1561,14 @@ extension TRPRestKit {
 // MARK: - Google Auto Complete
 extension TRPRestKit {
     
-    ///  Find
+    /// Obtain google place list with given key, text, centerForBoundary,  radiusForBoundary and completion parameters.
     ///
     /// - Parameters:
-    ///   - key: Api key of Google
-    ///   - text: Name of place to search.
-    ///   - center: Boundary of City.
-    ///   - radius: Search radius for limit.
-    ///   - completion: Any objects needs to be converted to **[TRPGooglePlace]** object.
+    ///    - key: A String value that refers to the API Key of Google.
+    ///    - text: A String value that refers to search term.
+    ///    - center: A TRPLocation object that refers to boundary of City.
+    ///    - radius: A Double value which refers to radius for the search area limit.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPGooglePlace]** object.
     public func googleAutoComplete(key: String,
                                    text: String,
                                    centerForBoundary center: TRPLocation? = nil,
@@ -1326,21 +1581,23 @@ extension TRPRestKit {
                                        radiusForBoundary: radius)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in google place auto complete services, manages all task connecting to remote server.
     private func googlePlaceAutoCompleteService(key: String,
                                                 text: String,
                                                 centerForBoundary center: TRPLocation? = nil,
                                                 radiusForBoundary radius: Double? = nil) {
-        let service = TRPGoogleAutoComplete(key: key, text: text)
-        service.centerLocationForBoundary = center
-        service.radiusForBoundary = radius
-        service.start { (data, error) in
+        let autoCOmpleteService = TRPGoogleAutoComplete(key: key, text: text)
+        autoCOmpleteService.centerLocationForBoundary = center
+        autoCOmpleteService.radiusForBoundary = radius
+        autoCOmpleteService.start { (data, error) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
             if let data = data as? [TRPGooglePlace] {
                 self.postData(result: data)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
     }
@@ -1350,22 +1607,24 @@ extension TRPRestKit {
 // MARK: - Google Place
 extension TRPRestKit {
     
-    /// Returns information of a place from Google Server with place's id.
-    /// This method doesn't use Tripian Server.
+    ///  Obtain infromation of a place from Google Server with given key, placeId and completion parameters.
+    ///
+    ///  This function does not require to use Tripian Server. //TODO: Bunu yazmak dogrumu?
     ///
     /// - Parameters:
-    ///   - key: Google Place Api key
-    ///   - id: id of Place that registered in Google
-    ///   - completion: Any objects needs to be converted to **TRPGooglePlaceLocation** object.
+    ///    - key: A String value that refers to the API Key of Google.
+    ///    - id: An Integer value which refers to the Id of Place that registered in Google.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPGooglePlaceLocation** object.
     public func googlePlace(key: String, id: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         googlePlaceServices(key: key, placeId: id)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in google place services, manages all task connecting to remote server.
     private func googlePlaceServices(key: String, placeId: String) {
-        let service = TRPGooglePlaceService(key: key, placeId: placeId)
-        service.start { (data, error) in
+        let googlePlaceService = TRPGooglePlaceService(key: key, placeId: placeId)
+        googlePlaceService.start { (data, error) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1373,6 +1632,8 @@ extension TRPRestKit {
             
             if let result = data as? TRPGooglePlaceLocation {
                 self.postData(result: result)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
     }
@@ -1382,27 +1643,32 @@ extension TRPRestKit {
 // MARK: - Problem Categories
 extension TRPRestKit {
     
-    /// Returns categories of problem such as incorrect location, incorrect name etc...
+    /// Obtain problem categories, such as incorrect location, incorrect name etc..., with completion handler parameter.
     ///
-    /// - Parameter completion: Any objects needs to be converted to **[TRPProblemCategoriesInfoModel]** object.
+    /// - Parameters:
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPProblemCategoriesInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#problem-categories)
     public func problemCategories(completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         problemCategoriesService()
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in problem categories services, manages all task connecting to remote server.
     private func problemCategoriesService() {
-        let service = TRPProblemCategories()
-        service.completion = { (result, error, _) in
+        let categoryService = TRPProblemCategories()
+        categoryService.completion = { (result, error, _) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPProblemCategoriesJsonModel {
-                self.postData(result: result.datas)
+            if let serviceResult = result as? TRPProblemCategoriesJsonModel {
+                self.postData(result: serviceResult.datas)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        service.connection()
+        categoryService.connection()
     }
     
 }
@@ -1410,13 +1676,15 @@ extension TRPRestKit {
 // MARK: - Report A problem
 extension TRPRestKit {
     
-    /// Report a problem about poi.
+    /// Obtain problem categories, such as incorrect location, incorrect name etc..., with completion handler parameter.
     ///
     /// - Parameters:
-    ///   - id: id of category
-    ///   - msg: mesage
-    ///   - poi: id of poi
-    ///   - completion: Any objects needs to be converted to **TRPReportAProblemInfoModel** object.
+    ///    - category: A String value which refers to the category name of the place.
+    ///    - message: A String value which refers to the message for the problem of the place.
+    ///    - poiId: An Integer value which refers to the id of the given place.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPReportAProblemInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#report-a-problem)
     public func reportaProblem(category name: String,
                                message msg: String?,
                                poiId poi: Int?,
@@ -1425,44 +1693,58 @@ extension TRPRestKit {
         reportaProblemService(categoryName: name, message: msg, poiId: poi)
     }
     
-    /// A services that manage all task to connecting remote server
+    /// A services which will be used in report a problem services, manages all task connecting to remote server.
     private func reportaProblemService(categoryName: String, message: String?, poiId: Int?) {
-        let service = TRPReportAProblemServices(categoryName: categoryName,
-                                          message: message,
-                                          poiId: poiId)
-        service.completion = { result, error, _ in
+        let reportAProblemService = TRPReportAProblemServices(categoryName: categoryName,
+                                                              message: message,
+                                                              poiId: poiId)
+        reportAProblemService.completion = { result, error, _ in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPReportAProblemJsonModel {
-                self.postData(result: result.data ?? nil)
+            if let serviceResult = result as? TRPReportAProblemJsonModel {
+                self.postData(result: serviceResult.data ?? nil)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        service.connection()
+        reportAProblemService.connection()
     }
 }
 
 // MARK: - Update Daily Plan Hour
 extension TRPRestKit {
     
+    /// Update daily plan hour with given daily plan Id, start time, end time and completion parameters.
+    ///
+    /// - Parameters:
+    ///    - dailyPlanId: An Integer value that refers to the daily plan Id.
+    ///    - start: A String value which refers to start time of the daily plan.
+    ///    - end: A String value which refers to end time of the daily plan.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPDailyPlanInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#update-daily-plan)
     public func updateDailyPlanHour(dailyPlanId: Int, start: String, end: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         updateDailyPlanHourService(dailyPlanId: dailyPlanId, start: start, end: end)
     }
     
+    /// A services which will be used in daily plan hour services, manages all task connecting to remote server.
     private func updateDailyPlanHourService(dailyPlanId: Int, start: String, end: String) {
-        let service = TRPDailyPlanServices(id: dailyPlanId, startTime: start, endTime: end)
-        service.completion = {   (result, error, pagination) in
+        let dailyplanService = TRPDailyPlanServices(id: dailyPlanId, startTime: start, endTime: end)
+        dailyplanService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let result = result as? TRPDayPlanJsonModel {
-                self.postData(result: result.data)
+            if let serviceResult = result as? TRPDayPlanJsonModel {
+                self.postData(result: serviceResult.data)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        service.connection()
+        dailyplanService.connection()
     }
     
 }

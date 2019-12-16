@@ -59,7 +59,35 @@ class TRPCityJsonModelTest: XCTestCase {
             XCTFail(tryError.localizedDescription)
         }
     }
-    private func getFullCityData() -> String {
+    
+    func testFullCityData() {
+        let rawJson = getCityData()
+        do {
+            let result = try jsonDecoder!.decode(TRPCityJsonModel.self, from: rawJson.data(using: String.Encoding.utf8)!)
+            XCTAssertNotNil(result.data)
+            
+            let losAngeles = result.data?.first
+            XCTAssertNotNil(losAngeles)
+            
+            XCTAssertEqual(losAngeles!.id, 10)
+            XCTAssertEqual(losAngeles!.name, "Los Angeles")
+            XCTAssertNotNil(losAngeles!.image)
+            XCTAssertEqual(losAngeles!.image, "https://poi-pics.s3-eu-west-1.amazonaws.com/City/10/featured.jpg")
+            XCTAssertEqual(losAngeles!.boundary.count, 4)
+            XCTAssertEqual(losAngeles!.coordinate.lat, 34.0522342)
+            XCTAssertEqual(losAngeles!.coordinate.lon, -118.2436849)
+            
+            XCTAssertNotNil(losAngeles!.country?.code)
+            XCTAssertNotNil(losAngeles!.country?.name)
+            XCTAssertEqual(losAngeles!.country!.code, "us")
+            XCTAssertEqual(losAngeles!.country!.name, "USA")
+            
+        } catch let tryError {
+            XCTFail(tryError.localizedDescription)
+        }
+    }
+ 
+    private func getCityData() -> String {
         let rawJson = """
                 {
                     "status": 200,
@@ -87,30 +115,5 @@ class TRPCityJsonModelTest: XCTestCase {
         """
         return rawJson
     }
-    func testFullCityData() {
-         let rawJson = getFullCityData()
-        
-        do {
-            let result = try jsonDecoder!.decode(TRPCityJsonModel.self, from: rawJson.data(using: String.Encoding.utf8)!)
-            XCTAssertNotNil(result.data)
-            let losAngeles = result.data?.first
-            XCTAssertNotNil(losAngeles)
-            XCTAssertEqual(losAngeles!.id, 10)
-            XCTAssertEqual(losAngeles!.name, "Los Angeles")
-            XCTAssertNotNil(losAngeles!.image)
-            XCTAssertEqual(losAngeles!.image, "https://poi-pics.s3-eu-west-1.amazonaws.com/City/10/featured.jpg")
-            XCTAssertEqual(losAngeles!.boundary.count, 4)
-            XCTAssertEqual(losAngeles!.coordinate.lat, 34.0522342)
-            XCTAssertEqual(losAngeles!.coordinate.lon, -118.2436849)
-            
-            XCTAssertNotNil(losAngeles!.country?.code)
-            XCTAssertNotNil(losAngeles!.country?.name)
-            XCTAssertEqual(losAngeles!.country!.code, "us")
-            XCTAssertEqual(losAngeles!.country!.name, "USA")
-            
-        } catch let tryError {
-            XCTFail(tryError.localizedDescription)
-        }
-    }
-   
+    
 }

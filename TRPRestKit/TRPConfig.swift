@@ -9,33 +9,40 @@
 import Foundation
 internal struct TRPConfig {
     
-    internal static var BaseUrl: String = "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com"
-        
-    //buda tanımlanıcak. Versiyon
-    internal static var BaseUrlPath: String = "v2"
-
-    //public static let BaseUrl: String = "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
-    //public static let BaseUrlPath: String = "v02"
+    //TestServer return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
+    //return "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
+    //us-west geliştirme sandbox
+    //return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com" //TestServer
+    //Airmiles - ca-cemtral
     
-    internal static func apiLink() -> String {
-        return "https://\(BaseUrl)/\(BaseUrlPath)/"
+    internal static func getBaseUrl() -> String {
+        return "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com"
+    }
+    
+    internal static func getBaseUrlPath() -> String {
+        return "v2"
+    }
+    
+    internal static func getApiLink() -> String {
+        return "https://\(TRPConfig.getBaseUrl())/\(TRPConfig.getBaseUrlPath())/"
     }
     
     internal enum ApiCall: String {
         case cities
-        case getCityByCoordinates
+        case getcityByCoordinates
         case poiCategories
         case poi
         case questions
         case recommendations
         case routes
         case routesResult
-        case googleRouteReuslt
+        case gRouteReuslt
         case planPointAlternative
         case tags
         case checkDataUpdates
-        case user
+        
         case login
+        case user
         case userTrips
         case trip
         case dailyPlan
@@ -44,12 +51,11 @@ internal struct TRPConfig {
         case register
         case favorite
         case companion
-        
         var link: String {
             switch self {
             case .cities:
                 return getNewLink() ?? "cities"
-            case .getCityByCoordinates:
+            case .getcityByCoordinates:
                 return getNewLink() ?? "getcitybycoordinate"
             case .poiCategories:
                 return getNewLink() ?? "poi-categories"
@@ -63,7 +69,7 @@ internal struct TRPConfig {
                 return getNewLink() ?? "routes"
             case .routesResult:
                 return getNewLink() ?? "routeresult"
-            case .googleRouteReuslt:
+            case .gRouteReuslt:
                 return getNewLink() ?? "grouteresult"
             case .planPointAlternative:
                 return getNewLink() ?? "dailyplanpoi-alternatives"
@@ -71,10 +77,10 @@ internal struct TRPConfig {
                 return getNewLink() ?? "tags"
             case .checkDataUpdates:
                 return getNewLink() ?? "check-data-updates"
-            case .user:
-                return getNewLink() ?? "user"
             case .login:
                 return getNewLink() ?? "login"
+            case .user:
+                return getNewLink() ?? "user"
             case .userTrips:
                 return getNewLink() ?? "user/trips"
             case .trip:

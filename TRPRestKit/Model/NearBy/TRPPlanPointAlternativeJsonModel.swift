@@ -17,9 +17,9 @@ internal class TRPPlanPointAlternativeJsonModel: TRPParentJsonModel {
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        if let datas = ((try? values.decodeIfPresent([TRPPlanPointAlternativeInfoModel].self, forKey: .data)) as [TRPPlanPointAlternativeInfoModel]??) {
+        if let datas = try? values.decodeIfPresent([TRPPlanPointAlternativeInfoModel].self, forKey: .data) {
             self.data = datas
-        } else if let infoModel = ((try? values.decodeIfPresent(TRPPlanPointAlternativeInfoModel.self, forKey: .data)) as TRPPlanPointAlternativeInfoModel??) {
+        } else if let infoModel = try? values.decodeIfPresent(TRPPlanPointAlternativeInfoModel.self, forKey: .data) {
             self.data = [infoModel] as? [TRPPlanPointAlternativeInfoModel]
         }
         
