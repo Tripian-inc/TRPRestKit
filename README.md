@@ -15,7 +15,7 @@ The key features are:
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Use Cases](#usecases)
+- [Use Cases](#use-cases)
 - [Examples](#examples)
 - [Communication](#communication)
 - [License](#license)
@@ -333,7 +333,9 @@ Consult the [Api Documentation](http://airmiles-api-1837638174.ca-central-1.elb.
 ## Use Cases
 
 ### Creating Trip
-![Creating Trip](https://github.com/Tripian-inc/TRPRestKit/blob/master/CreateTrip.png)
+<p align="center">
+  <img src="https://github.com/Tripian-inc/TRPRestKit/blob/master/CreateTrip.png" height="150" alt="Creating Trip">
+</p>
 
 ### Trip Info
 ![Trip Info](https://github.com/Tripian-inc/TRPRestKit/blob/master/OpenTrip.png)
