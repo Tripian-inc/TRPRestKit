@@ -15,6 +15,7 @@ The key features are:
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Use Cases](#usecases)
 - [Examples](#examples)
 - [Communication](#communication)
 - [License](#license)
@@ -221,8 +222,7 @@ TRPRestKit().dailyPlan(id: dailyPlanId) { [weak self] (dailyPlan, error) in
     }
 }
 ```
-[Some Thing] (OpenTrip.png)
-![Some Thing](https://github.com/Tripian-inc/TRPRestKit/blob/master/OpenTrip.png)
+
 + ### Updating Daily Plan
 #### Only start and end times of day plan can be updated. Day plan will be regenerated after update.
 ```swift
@@ -329,6 +329,18 @@ TRPRestKit().quickRecommendation(settings: settings) { (result, error, _) in
 </details>
 
 Consult the [Api Documentation](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine),[Unit and Integration Tests](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine) for further details.
+
+## Use Cases
+
+### Creating Trip
+![Creating Trip](https://github.com/Tripian-inc/TRPRestKit/blob/master/CreateTrip.png)
+
+### Trip Info
+![Trip Info](https://github.com/Tripian-inc/TRPRestKit/blob/master/OpenTrip.png)
+
+### Daily Plans
+![Creating Trip](https://github.com/Tripian-inc/TRPRestKit/blob/master/Undestand%20DailyPlans.png)
+
 
 ## Examples
 
