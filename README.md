@@ -184,7 +184,7 @@ TRPRestKit().deleteTrip(hash: tripHash) { deletedTripJson, error in
 <details>
 <summary>Places of Interest</summary>
 
-+ #### To reach over 1M places of interests, call `TRPRestKit().poi(..)` functions.
++ To reach over 1M places of interests, call `TRPRestKit().poi(..)` functions.
 
 ```swift
 let cityId:Int = 0 //To define city location, cityId parameter must be used in calling places of interests.
@@ -202,6 +202,69 @@ TRPRestKit().poi(withCityId: cityId, autoPagination: autoPagination) { (result, 
 ```
 </details>
 
+<details>
+<summary>Daily Plans</summary>
+
++ ### Getting Daily Plan
+#### Obtain daily plan information.
+```swift
+let dailyPlanId:Int = 0 // dailyPlanId variable refers to the requested daily plan id.
+TRPRestKit().dailyPlan(id: dailyPlanId) { [weak self] (dailyPlan, error) in
+    guard self != nil else {return}
+    if let error = error {
+        //TODO: Check whether there is an error.
+        return
+    }
+    guard let dailyPlan = dailyPlan as? TRPDailyPlanInfoModel else {
+        //TODO: Check the result.
+        return
+    }
+}
+```
+
++ ### Updating Daily Plan
+#### Only start and end times of day plan can be updated. Day plan will be regenerated after update.
+```swift
+//Below function updates daily plan starting and ending hours with given dailyPlanId, start and end times.
+let dailyPlanId:Int = 0 //dailyPlanId variable refers to the requested daily plan id.
+let startTime:String = "10:00" //startTime variable refers to daily plan's start time.
+let endTime:String = "21:00" //endTime variable refers to daily plan's end time.
+        
+//Update daily plan with requested times.
+TRPRestKit().updateDailyPlanHour(dailyPlanId: dailyPlanId, start: startTime, end: endTime) { [weak self] (dailyPlan, error) in
+    guard self != nil else {return}
+    if let error = error {
+        //TODO: Check whether there is an error.
+        return
+    }
+    guard let dailyPlan = dailyPlan as? TRPDailyPlanInfoModel else {
+        //TODO: Check the result.
+        return
+    }
+}
+```
+
++ ### Changing Daily Plan
+#### Updating daily plan place of interest with the requested place.
+
+```swift
+//Changing daily plan place of interest with the requested place.
+let oldDailyPlanID:Int = 0 //oldDailyPlanID variable refers to the place which will be replaced soon.
+let newDailyPlanPoiID:Int = 1 //newDailyPlanPoiID variable refers to the requested place.
+//oldDailyPlanID will be replaced by newDailyPlanPoiID.
+TRPRestKit().replacePlanPoiFrom(dailyPlanPoiId: oldDailyPlanID, poiId: newDailyPlanPoiID) {[weak self] (result, error) in
+    guard let strongSelf = self else {return}
+    if let error = error {
+        //TODO: Check whether there is an error.
+        return
+    }
+    guard let planPoi = result as? TRPPlanPoi else {
+        //TODO: Check the result.
+        return
+    }
+}
+```
+</details>
 <details>
 <summary>User Management</summary>
 
@@ -233,6 +296,30 @@ TRPRestKit().userInfo { (result, error) in
         return
     }
     guard let userInfo = result as? TRPUserInfoModel  else {
+        //TODO: Check the result.
+        return
+    }
+}
+```
+</details>
+
+<details>
+<summary>Quick Recommendations</summary>
+
++ Getting quick recommendation with a given `TRPRecommendationSettings` instance.
+
+```swift
+//Recommendation function used among trip operations.
+let cityId:Int = 0 //To define city location, cityId parameter must be used in getting recommendations.
+let recommendationSetting:TRPRecommendationSettings = TRPRecommendationSettings(cityId: cityId)//recommendationSetting variable refers to an TRPRecommendationSettings instance.
+        
+//Call quickRecommendation function with the created recommendationSetting variable.
+TRPRestKit().quickRecommendation(settings: settings) { (result, error, _) in
+    if let error = error {
+        //TODO: Check whether there is an error.
+        return
+    }
+    guard let poisId = result as? [TRPRecommendationInfoJsonModel]  else {
         //TODO: Check the result.
         return
     }
