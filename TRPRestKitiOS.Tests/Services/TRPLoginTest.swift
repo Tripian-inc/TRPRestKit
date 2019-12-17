@@ -16,12 +16,13 @@ class TRPLoginTest: XCTestCase {
     
     // MARK: Variables
     private let apiKey: String = "oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn"
-    
+     let airmiles =  BaseUrlCreater(baseUrl: "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com", basePath: "v2")
     // MARK: Set Up
     override func setUp() {
         super.setUp()
-        TRPApiKey.setApiKey(apiKey)
-        TRPClient.start()
+        
+        TRPClient.start(baseUrl: airmiles, apiKey:"")
+        TRPClient.monitor(data: true, url: false)
     }
     
     // MARK: - Test Functions

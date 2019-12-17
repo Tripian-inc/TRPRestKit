@@ -12,11 +12,11 @@ import XCTest
 class TRPUserInfoUpdate: XCTestCase {
     
     private let apiKey: String = "oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn"
-    
+     let airmiles =  BaseUrlCreater(baseUrl: "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com", basePath: "v2")
     override func setUp() {
         super.setUp()
         TRPApiKey.setApiKey(apiKey)
-        TRPClient.start()
+        TRPClient.start(baseUrl: airmiles, apiKey:"")
     }
     
     override func randomString(length: Int) -> String {

@@ -16,11 +16,11 @@ internal struct TRPConfig {
     //Airmiles - ca-cemtral
     
     internal static func getBaseUrl() -> String {
-        return "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com"
+        return TRPClient.shared.baseUrl.baseUrl
     }
     
     internal static func getBaseUrlPath() -> String {
-        return "v2"
+        return TRPClient.shared.baseUrl.basePath
     }
     
     internal static func getApiLink() -> String {

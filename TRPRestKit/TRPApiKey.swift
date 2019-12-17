@@ -13,12 +13,17 @@ class TRPApiKey {
     internal static var shared = TRPApiKey()
     private(set) var apiKey: String?
     
+    
+    /// Api keyi döndüren methodudur.
+    /// Eğer api key Info.Plist üzerinden döndürülürmesi gerekirse diye eklendi.
     static func getApiKey() -> String {
-        if TRPApiKey.shared.apiKey == nil {
-           TRPApiKey.shared.apiKey = TRPApiKeyController.getKey(.trpApiKey)
-        }
+        //if TRPApiKey.shared.apiKey == nil {
+        //   TRPApiKey.shared.apiKey = TRPApiKeyController.getKey(.trpApiKey)
+        //}
         
         if TRPApiKey.shared.apiKey == nil {
+            log.e("Api key mustn't be empty. Please add your api key in Info.Plist file.")
+        }else if TRPApiKey.shared.apiKey!.count == 0 {
             log.e("Api key mustn't be empty. Please add your api key in Info.Plist file.")
         }
         
