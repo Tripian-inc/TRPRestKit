@@ -334,15 +334,14 @@ Consult the [Api Documentation](http://airmiles-api-1837638174.ca-central-1.elb.
 
 ### Creating Trip
 <p align="center">
-  <img src="https://github.com/Tripian-inc/TRPRestKit/blob/master/CreateTrip.png" height="150" alt="Creating Trip">
+  <img src="https://github.com/Tripian-inc/TRPRestKit/blob/master/CreateTrip.png" height="300" alt="Creating Trip">
 </p>
 
 ### Trip Info
-![Trip Info](https://github.com/Tripian-inc/TRPRestKit/blob/master/OpenTrip.png)
+<img src="https://github.com/Tripian-inc/TRPRestKit/blob/master/OpenTrip.png" height="300" alt="Trip Info">
 
-### Daily Plans
-![Creating Trip](https://github.com/Tripian-inc/TRPRestKit/blob/master/Undestand%20DailyPlans.png)
-
+### Understanding Daily Plans
+<img src="https://github.com/Tripian-inc/TRPRestKit/blob/master/Undestand%20DailyPlans.png" height="300" alt="Daily Plans">
 
 ## Examples
 
