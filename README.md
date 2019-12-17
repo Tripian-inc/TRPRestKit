@@ -338,11 +338,13 @@ Consult the [Api Documentation](http://airmiles-api-1837638174.ca-central-1.elb.
 </p>
 
 ### Trip Info
+<p align="center">
 <img src="https://github.com/Tripian-inc/TRPRestKit/blob/master/OpenTrip.png" height="300" alt="Trip Info">
-
+</p>
 ### Understanding Daily Plans
+<p align="center">
 <img src="https://github.com/Tripian-inc/TRPRestKit/blob/master/Undestand%20DailyPlans.png" height="300" alt="Daily Plans">
-
+</p>
 ## Examples
 
 The [TRPRestKit-IOS-Examples](https://github/trprestkitiosexamples) includes example code for accomplishing common tasks that exercises a variety of Tripian Rest Kit SDK features:
