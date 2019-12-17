@@ -222,7 +222,7 @@ TRPRestKit().dailyPlan(id: dailyPlanId) { [weak self] (dailyPlan, error) in
 }
 ```
 [Some Thing] (OpenTrip.png)
-
+![Some Thing](https://github.com/Tripian-inc/TRPRestKit/blob/master/OpenTrip.png)
 + ### Updating Daily Plan
 #### Only start and end times of day plan can be updated. Day plan will be regenerated after update.
 ```swift
