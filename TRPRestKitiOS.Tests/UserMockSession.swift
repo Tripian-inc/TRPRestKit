@@ -29,7 +29,7 @@ class UserMockSession: XCTestCase {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
-        TRPRestKit().login(email: userName, password: password) { (result, error) in
+       /* TRPRestKit().login(email: userName, password: password) { (result, error) in
             if error != nil {
                 let errorMsg: String = "\(nameSpace) \(error?.localizedDescription ?? "")"
                 XCTFail(errorMsg)
@@ -42,7 +42,7 @@ class UserMockSession: XCTestCase {
             }
             
             expectation.fulfill()
-        }
+        } */
         wait(for: [expectation], timeout: 10.0)
     }
 }

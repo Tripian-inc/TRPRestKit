@@ -44,6 +44,7 @@ class TRPCompanionTest: XCTestCase {
             }
             guard let models = result as? [TRPCompanionModel]  else {
                 XCTFail("\(nameSpace) Json model couldn't converted")
+                
                 expectation.fulfill()
                 return
             }

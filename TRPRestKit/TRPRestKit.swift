@@ -684,21 +684,45 @@ extension TRPRestKit {
     /// Obtain the access token for API calls that require user identification.
     /// When login operation is successful, TRPUserPersistent object is saved in user accessToken.
     ///
+    ///
     /// - Parameters:
-    ///   - email: Username of the user which usually refers to email address of the user.
-    ///   - password: Password of the user.
+    ///   - userName: Username of the user
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPLoginInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-login-as-a-user-)
-    public func login(email eMail: String, password: String, completion: @escaping CompletionHandler) {
+    public func login(withUserName userName: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        loginServices(email: eMail, password: password)
+        let params = ["username": userName]
+        loginServices(parameters: params)
     }
     
-    //TODO: Bu methodu public yapmak gerekiyor mu?
-    public func loginTestServer(userName name: String, completion: @escaping CompletionHandler) {
+    /// Obtain the access token for API calls that require user identification.
+       /// When login operation is successful, TRPUserPersistent object is saved in user accessToken.
+       ///
+       ///
+       /// - Parameters:
+       ///   - parameters: Custom user parameters such as ["username": "abcd", "password":"1234"], it depend on server type.
+       ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+       /// - Important: Completion Handler is an any object which needs to be converted to **TRPLoginInfoModel** object.
+       /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-login-as-a-user-)
+       public func login(withTripHash hash: String, completion: @escaping CompletionHandler) {
+           self.completionHandler = completion
+           let params = ["trip_hash":hash]
+           loginServices(parameters: params)
+       }
+    
+    /// Obtain the access token for API calls that require user identification.
+    /// When login operation is successful, TRPUserPersistent object is saved in user accessToken.
+    ///
+    ///
+    /// - Parameters:
+    ///   - parameters: Custom user parameters such as ["username": "abcd", "password":"1234"], it depend on server type.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPLoginInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-login-as-a-user-)
+    public func login(with parameters: [String: String], completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        loginServices(userName: name)
+        loginServices(parameters: parameters)
     }
     
     /// A services which will be used in login services, manages all task connecting to remote server.
@@ -707,16 +731,8 @@ extension TRPRestKit {
     ///   - name: User name
     ///   - password: user password
     ///   - userName: user name //TODO: Burada bir sorun var hem name hem username ayni sey degilmi? Yukaridaki login testserviceden dolayi geldiyse, name i tamamen kaldirip user name i birakmak mumkunmu?
-    private func loginServices(email: String? = nil,
-                               password: String? = nil,
-                               userName: String? = nil) {
-        var loginService: TRPLogin?
-        
-        if let email = email, let password = password {
-            loginService = TRPLogin(email: email, password: password)
-        } else if let userName = userName {
-            loginService = TRPLogin(userName: userName)
-        }
+    private func loginServices(parameters: [String: String]) {
+        let loginService: TRPLogin? = TRPLogin(parameters: parameters)
         guard let service = loginService else {return}
         service.completion = {    (result, error, pagination) in
             if let error = error {

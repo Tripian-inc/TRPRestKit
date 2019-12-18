@@ -32,7 +32,7 @@ class TRPUserTest: XCTestCase {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
-        TRPRestKit().login(email: TestUtilConstants.MockUserConstants.Email, password: TestUtilConstants.MockUserConstants.Password) { (result, error) in
+        /*TRPRestKit().login(email: TestUtilConstants.MockUserConstants.Email, password: TestUtilConstants.MockUserConstants.Password) { (result, error) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 expectation.fulfill()
@@ -53,7 +53,7 @@ class TRPUserTest: XCTestCase {
             XCTAssertNotEqual(loginInfo.accessToken.count, 0)
             XCTAssertTrue(TRPUserPersistent.didUserLoging())
             expectation.fulfill()
-        }
+        }*/
         wait(for: [expectation], timeout: 10.0)
     }
     
@@ -84,6 +84,7 @@ class TRPUserTest: XCTestCase {
             XCTAssertNotNil(userInfo.email)
             XCTAssertNotNil(userInfo.firstName)
             XCTAssertNotNil(userInfo.paymentStatus)
+            
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10.0)

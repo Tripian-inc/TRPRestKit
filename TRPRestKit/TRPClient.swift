@@ -53,7 +53,6 @@ import Foundation
     
     //Versiyon Kontrol
     
-    
     /// Allows link to be shown
     ///
     /// - Parameter status: status

@@ -31,6 +31,7 @@ class TRPQuestionTest: XCTestCase {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         let questionID = questionId
+        
         TRPRestKit().tripQuestions(withQuestionId: questionID) { (result, error) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")

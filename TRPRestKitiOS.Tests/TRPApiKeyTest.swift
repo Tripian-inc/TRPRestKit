@@ -20,6 +20,7 @@ class TRPApiKeyTest: XCTestCase {
         log.w("MEASURE FUNCTİON CALLED")
         let sonuc = TRPApiKey.getApiKey()
         XCTAssertEqual(sonuc, "")
+        
     }
     
     func testSetApiKey() {

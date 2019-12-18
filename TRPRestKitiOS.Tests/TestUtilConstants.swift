@@ -10,9 +10,14 @@ import TRPFoundationKit
 
 struct TestUtilConstants {
     
-    
-    
+    struct ApiKeys {
+        static let Test = "Y6owtuGXyq7L8IeCenyZQ4gWIX3KSkeZ6KiMPamF"
+        static let SandBox = "p3AhT0190A2OAvFPKN98b9gfkbNh12HH6nofhKfM"
+        static let Product = "u18Yn5ckY5JvkLGptnNA1mLit19SmwS1O1f9UGGc"
+        static let AirMiles = "oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn"
+    }
     struct MockUserConstants {
+        static let TestUserName = "mobile-test"
         static let Email = "r@g.com"
         static let Password =  "111111"
     }
