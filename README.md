@@ -88,7 +88,7 @@ TRPRestKit() is an NSObject instance which monitors all the Tripian Rest Api cal
 + Call `cities` function to get all the cities.
 
 ```swift
-TRPRestKit().cities { (result, error, pagination) in
+TRPRestKit().cities {(result, error, pagination) in
     if let error = error {
         //TODO: Check whether there is an error.
         return
@@ -115,12 +115,11 @@ let departureTime: TRPTime = getTomorrow()//departureTime parameter refers to a 
 let tripSettings = TRPTripSettings(cityId: cityId, arrivalTime: arrivalTime, departureTime: departureTime)
          
 //Call create trip function with the tripSettings param.
-TRPRestKit().createTrip(settings: settings) { (result, error) in
+TRPRestKit().createTrip(settings: settings) {(result, error) in
     if let error = error {
         //TODO: Check whether there is an error.
         return
-    }
-            
+    }     
     guard let result = result as? TRPTripInfoModel else {
         //TODO: Check the result.
         return
@@ -155,13 +154,11 @@ let editedArrivalTime: TRPTime = getToday()
 let editedDepartureTime: TRPTime = getTomorrow()
 let editedTripSettings = TRPTripSettings(hash: editedTripHash, arrivalTime: editedArrivalTime, departureTime: editedDepartureTime)
 //Call edit trip function with the created editedTripSettings variable including with the selected trip hash.
-TRPRestKit().editTrip(settings: editedTripSettings) { (result, error) in
-            
+TRPRestKit().editTrip(settings: editedTripSettings) {(result, error) in    
     if let error = error {
         //TODO: Check whether there is an error.
         return
-    }
-            
+    }  
     guard let result = result as? TRPTripInfoModel else {
         //TODO: Check the result.
         return
@@ -175,12 +172,12 @@ TRPRestKit().editTrip(settings: editedTripSettings) { (result, error) in
 ```swift
 //Delete trip with a given trip hash.
 let tripHash = ""
-TRPRestKit().deleteTrip(hash: tripHash) { deletedTripJson, error in
+TRPRestKit().deleteTrip(hash: tripHash) {(result, error) in
     if let error = error {
         //TODO: Check whether there is an error.
         return
     }
-    guard let deletedTripJson = deletedTripJson as? TRPParentJsonModel else {
+    guard let result = result as? TRPParentJsonModel else {
         //TODO: Check the result.
         return
     }
@@ -196,12 +193,12 @@ TRPRestKit().deleteTrip(hash: tripHash) { deletedTripJson, error in
 ```swift
 let cityId:Int = 0 //To define city location, cityId parameter must be used in calling places of interests.
 let autoPagination:Bool = false //Autopagination param refers to disable auto pagination during the call.
-TRPRestKit().poi(withCityId: cityId, autoPagination: autoPagination) { (result, error, _) in
+TRPRestKit().poi(withCityId: cityId, autoPagination: autoPagination) {(result, error, pagination) in
     if let error = error {
         //TODO: Check whether there is an error.
         return
     }
-    guard let places = result as? [TRPPoiInfoModel]  else {
+    guard let result = result as? [TRPPoiInfoModel]  else {
         //TODO: Check the result.
         return
     }
@@ -216,13 +213,12 @@ TRPRestKit().poi(withCityId: cityId, autoPagination: autoPagination) { (result, 
 #### Obtain daily plan information.
 ```swift
 let dailyPlanId:Int = 0 // dailyPlanId variable refers to the requested daily plan id.
-TRPRestKit().dailyPlan(id: dailyPlanId) { [weak self] (dailyPlan, error) in
-    guard self != nil else {return}
+TRPRestKit().dailyPlan(id: dailyPlanId) {(result, error) in
     if let error = error {
         //TODO: Check whether there is an error.
         return
     }
-    guard let dailyPlan = dailyPlan as? TRPDailyPlanInfoModel else {
+    guard let result = dailyPlan as? TRPDailyPlanInfoModel else {
         //TODO: Check the result.
         return
     }
@@ -238,13 +234,12 @@ let startTime:String = "10:00" //startTime variable refers to daily plan's start
 let endTime:String = "21:00" //endTime variable refers to daily plan's end time.
         
 //Update daily plan with requested times.
-TRPRestKit().updateDailyPlanHour(dailyPlanId: dailyPlanId, start: startTime, end: endTime) { [weak self] (dailyPlan, error) in
-    guard self != nil else {return}
+TRPRestKit().updateDailyPlanHour(dailyPlanId: dailyPlanId, start: startTime, end: endTime) {(dailyPlan, error) in
     if let error = error {
         //TODO: Check whether there is an error.
         return
     }
-    guard let dailyPlan = dailyPlan as? TRPDailyPlanInfoModel else {
+    guard let result = dailyPlan as? TRPDailyPlanInfoModel else {
         //TODO: Check the result.
         return
     }
@@ -259,13 +254,12 @@ TRPRestKit().updateDailyPlanHour(dailyPlanId: dailyPlanId, start: startTime, end
 let oldDailyPlanID:Int = 0 //oldDailyPlanID variable refers to the place which will be replaced soon.
 let newDailyPlanPoiID:Int = 1 //newDailyPlanPoiID variable refers to the requested place.
 //oldDailyPlanID will be replaced by newDailyPlanPoiID.
-TRPRestKit().replacePlanPoiFrom(dailyPlanPoiId: oldDailyPlanID, poiId: newDailyPlanPoiID) {[weak self] (result, error) in
-    guard let strongSelf = self else {return}
+TRPRestKit().replacePlanPoiFrom(dailyPlanPoiId: oldDailyPlanID, poiId: newDailyPlanPoiID) {(result, error) in
     if let error = error {
         //TODO: Check whether there is an error.
         return
     }
-    guard let planPoi = result as? TRPPlanPoi else {
+    guard let result = result as? TRPPlanPoi else {
         //TODO: Check the result.
         return
     }
@@ -281,12 +275,12 @@ TRPRestKit().replacePlanPoiFrom(dailyPlanPoiId: oldDailyPlanID, poiId: newDailyP
 ```swift
 let email:String = "someEmail@example.com"
 let password:String = "somepassword"
-TRPRestKit().login(email: email, password: password) { (result, error) in
+TRPRestKit().login(email: email, password: password) {(result, error) in
     if error != nil {
         //TODO: Check whether there is an error.
         return
     }
-    guard let loginInfo = result as? TRPLoginInfoModel  else {
+    guard let result = result as? TRPLoginInfoModel  else {
         //TODO: Check the result.
         return
     }
@@ -297,12 +291,12 @@ TRPRestKit().login(email: email, password: password) { (result, error) in
 #### Obtain logged in user information.
 
 ```swift
-TRPRestKit().userInfo { (result, error) in
+TRPRestKit().userInfo {(result, error) in
     if let error = error {
         //TODO: Check whether there is an error.
         return
     }
-    guard let userInfo = result as? TRPUserInfoModel  else {
+    guard let result = result as? TRPUserInfoModel  else {
         //TODO: Check the result.
         return
     }
@@ -321,12 +315,12 @@ let cityId:Int = 0 //To define city location, cityId parameter must be used in g
 let recommendationSetting:TRPRecommendationSettings = TRPRecommendationSettings(cityId: cityId)//recommendationSetting variable refers to an TRPRecommendationSettings instance.
         
 //Call quickRecommendation function with the created recommendationSetting variable.
-TRPRestKit().quickRecommendation(settings: settings) { (result, error, _) in
+TRPRestKit().quickRecommendation(settings: settings) { (result, error, pagination) in
     if let error = error {
         //TODO: Check whether there is an error.
         return
     }
-    guard let poisId = result as? [TRPRecommendationInfoJsonModel]  else {
+    guard let result = result as? [TRPRecommendationInfoJsonModel]  else {
         //TODO: Check the result.
         return
     }
