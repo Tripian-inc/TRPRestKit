@@ -184,8 +184,7 @@ class TRPDailyPlanTest: XCTestCase {
                 return
             }
             
-            TRPRestKit().addPlanPoints(hash: currentTripHash, dailyPlanId: dailyPlanId, poiId: firstPlaceIdOfFirstDay) {[weak self] (planPoi, error) in
-                guard self != nil else {return}
+            TRPRestKit().addPlanPoints(hash: currentTripHash, dailyPlanId: dailyPlanId, poiId: firstPlaceIdOfFirstDay) { (planPoi, error) in
                 
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
@@ -406,6 +405,8 @@ class TRPDailyPlanTest: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + TestUtilConstants.MockTimeConstants.SecondsLong) {
             
             guard let mockTripHash = self.mockTripHash else{
+                XCTFail("mockTripHash not equal")
+                expectation.fulfill()
                 return
             }
             
@@ -447,6 +448,8 @@ class TRPDailyPlanTest: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + TestUtilConstants.MockTimeConstants.SecondsLong) {
             
             guard let firstDaysDailyPlanId = self.firstDayDailyPlan?.id else{
+                XCTFail("firstDayDailyPlan?.id not equal")
+                expectation.fulfill()
                 return
             }
             

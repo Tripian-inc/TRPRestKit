@@ -11,17 +11,14 @@ import XCTest
 
 class TRPUserInfoUpdate: XCTestCase {
     
-    private let apiKey: String = "oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn"
-
     override func setUp() {
         super.setUp()
-        TRPApiKey.setApiKey(apiKey)
-        TRPClient.start(baseUrl: TestUtilConstants.Server.airMiles.url, apiKey:"")
+        UserMockSession.shared.doLogin()
     }
     
     override func randomString(length: Int) -> String {
-      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-      return String((0..<length).map { _ in letters.randomElement()! })
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map { _ in letters.randomElement()! })
     }
     
     func testUserInfoUpdate() {

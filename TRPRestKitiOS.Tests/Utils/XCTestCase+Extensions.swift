@@ -44,11 +44,13 @@ extension XCTestCase {
             
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
                 return
             }
             
             guard let result = result as? TRPTripInfoModel else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripInfoModel")
+                expectation.fulfill()
                 return
             }
             expectation.fulfill()
@@ -66,11 +68,13 @@ extension XCTestCase {
             
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
                 return
             }
             
             guard let result = result as? TRPTripInfoModel else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripInfoModel")
+                expectation.fulfill()
                 return
             }
             expectation.fulfill()
@@ -85,16 +89,17 @@ extension XCTestCase {
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         DispatchQueue.main.asyncAfter(deadline: .now() + TestUtilConstants.MockTimeConstants.SecondsMedium) {
             
-            TRPRestKit().dailyPlan(id: dailyPlanId) { [weak self] (dailyPlan, error) in
-                guard self != nil else {return}
+            TRPRestKit().dailyPlan(id: dailyPlanId) { (dailyPlan, error) in
                 
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 
                 guard let dailyPlan = dailyPlan as? TRPDailyPlanInfoModel else {
                     XCTFail("\(nameSpace) Json model coundn't converted to  TRPDailyPlanInfoModel")
+                    expectation.fulfill()
                     return
                 }
                 
