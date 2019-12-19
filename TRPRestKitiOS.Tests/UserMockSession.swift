@@ -14,10 +14,20 @@ import TRPFoundationKit
 class UserMockSession: XCTestCase {
     static var shared = UserMockSession()
     
-    
     //Saves the user login details that contains the user's access token, token type, email
     func doLogin() {
-        TRPClient.start(enviroment: .test, apiKey: TestUtilConstants.ApiKeys.Test)
+        switch TestUtilConstants.targetServer {
+        case .airMiles:
+            TRPClient.start(baseUrl: TestUtilConstants.Server.airMiles.url, apiKey: TestUtilConstants.targetServer.apiKey)
+        case .product:
+            TRPClient.start(enviroment: .production, apiKey: TestUtilConstants.targetServer.apiKey)
+        case .sandBox:
+            TRPClient.start(enviroment: .sandbox, apiKey: TestUtilConstants.targetServer.apiKey)
+        case .test:
+            TRPClient.start(enviroment: .test, apiKey: TestUtilConstants.targetServer.apiKey)
+        
+        }
+        
         TRPClient.monitor(data: true, url: true)
         
         guard TRPUserPersistent.didUserLoging() == true else {
@@ -26,18 +36,37 @@ class UserMockSession: XCTestCase {
         
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        TRPRestKit().login(withUserName: TestUtilConstants.MockUserConstants.TestUserName) { (result, error) in
-            if error != nil {
-                let errorMsg: String = "\(nameSpace) \(error?.localizedDescription ?? "")"
-                XCTFail(errorMsg)
+        
+        if TestUtilConstants.targetServer == .airMiles {
+            let params = ["email": TestUtilConstants.MockUserConstants.Email,
+                          "password": TestUtilConstants.MockUserConstants.Password]
+            TRPRestKit().login(with: params) { (result, error) in
+                if error != nil {
+                    let errorMsg: String = "\(nameSpace) \(error?.localizedDescription ?? "")"
+                    XCTFail(errorMsg)
+                    expectation.fulfill()
+                    fatalError(errorMsg)
+                }
+                guard result != nil else {
+                    expectation.fulfill()
+                    fatalError("result comes nil")
+                }
                 expectation.fulfill()
-                fatalError(errorMsg)
             }
-            guard result != nil else {
+        }else {
+            TRPRestKit().login(withUserName: TestUtilConstants.MockUserConstants.TestUserName) { (result, error) in
+                if error != nil {
+                    let errorMsg: String = "\(nameSpace) \(error?.localizedDescription ?? "")"
+                    XCTFail(errorMsg)
+                    expectation.fulfill()
+                    fatalError(errorMsg)
+                }
+                guard result != nil else {
+                    expectation.fulfill()
+                    fatalError("result comes nil")
+                }
                 expectation.fulfill()
-                fatalError("result comes nil")
             }
-            expectation.fulfill()
         }
         
         wait(for: [expectation], timeout: 10.0)

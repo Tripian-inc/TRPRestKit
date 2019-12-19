@@ -8,6 +8,15 @@
 
 import Foundation
 public struct BaseUrlCreater {
-    var baseUrl: String
-    var basePath: String
+    public var baseUrl: String
+    public var basePath: String
+    
+    public init(baseUrl: String, basePath: String) {
+        self.baseUrl = baseUrl
+        self.basePath = basePath
+    }
+    
+    public var reableUrl: String {
+        return "https://\(self.baseUrl)/\(self.basePath)"
+    }
 }

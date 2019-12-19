@@ -142,7 +142,8 @@ class TRPPoiTest: XCTestCase {
     func testPoiWithLink() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        let url = "https://0swjhnxnqd.execute-api.ca-central-1.amazonaws.com/v2/poi?city_id=107&limit=100&page=2"
+        
+        let url = "\(TestUtilConstants.targetServer.url.reableUrl)/poi?city_id=107&limit=100&page=2"
         
         TRPRestKit().poi(link: url) { (result, error, pagination) in
             if let error = error {

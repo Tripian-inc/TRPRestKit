@@ -13,11 +13,9 @@ class TRPCityJsonModelTest: XCTestCase {
     
     var jsonDecoder: JSONDecoder?
     
-    let airmiles =  BaseUrlCreater(baseUrl: "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com", basePath: "v2")
-    
     override func setUp() {
         super.setUp()
-        TRPClient.start(baseUrl: airmiles, apiKey: "")
+        TRPClient.start(baseUrl: TestUtilConstants.Server.airMiles.url, apiKey: "")
         jsonDecoder = JSONDecoder()
     }
     

@@ -225,21 +225,25 @@ class TRPCitiesTest: XCTestCase {
      */
     func testCityWithUrlLink() {
         
-        let url = "https://0swjhnxnqd.execute-api.ca-central-1.amazonaws.com/v2/cities?limit=20&page=2"
+        let url = "\(TestUtilConstants.targetServer.url.reableUrl)/cities?limit=20&page=2"
+        print(url)
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
         TRPRestKit().cities(link: url) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
                 return
             }
             guard let result = result else {
                 XCTFail("\(nameSpace) Result is nil")
+                expectation.fulfill()
                 return
             }
             guard let cities = result as? [TRPCityInfoModel]  else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                expectation.fulfill()
                 return
             }
             

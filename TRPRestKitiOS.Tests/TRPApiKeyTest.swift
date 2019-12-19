@@ -11,10 +11,6 @@ import XCTest
 
 class TRPApiKeyTest: XCTestCase {
 
-    func testEmptyApiKey() {
-        let key = TRPApiKey.shared.apiKey
-        XCTAssertNil(key)
-    }
 
     func testFetchApiKey() {
         log.w("MEASURE FUNCTİON CALLED")

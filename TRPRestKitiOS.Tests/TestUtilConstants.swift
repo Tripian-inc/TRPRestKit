@@ -7,8 +7,39 @@
 //
 /// # TestUtilConstants global mock constants that are used by Rest - Kit.
 import TRPFoundationKit
-
+import TRPRestKit
 struct TestUtilConstants {
+    
+    static let targetServer: Server = .airMiles
+    
+    enum Server {
+        case test, sandBox, product, airMiles
+        var apiKey: String {
+            switch self {
+            case .test:
+                return ApiKeys.Test
+            case .sandBox:
+                return ApiKeys.Product
+            case .product:
+                return ApiKeys.Product
+            case .airMiles:
+                return ApiKeys.AirMiles
+            }
+        }
+        
+        var url: BaseUrlCreater {
+            switch self {
+            case .test:
+                return Environment.test.baseUrl
+            case .product:
+                return Environment.production.baseUrl
+            case .sandBox:
+                return Environment.sandbox.baseUrl
+            case .airMiles:
+                return BaseUrlCreater(baseUrl: "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com", basePath: "v2")
+            }
+        }
+    }
     
     struct ApiKeys {
         static let Test = "Y6owtuGXyq7L8IeCenyZQ4gWIX3KSkeZ6KiMPamF"

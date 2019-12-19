@@ -83,8 +83,8 @@ class TRPLoginTest: XCTestCase {
     func testUserLoginWithAirMiles() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        let airmiles =  BaseUrlCreater(baseUrl: "0swjhnxnqd.execute-api.ca-central-1.amazonaws.com", basePath: "v2")
-        TRPClient.start(baseUrl: airmiles, apiKey: TestUtilConstants.ApiKeys.AirMiles)
+        
+        TRPClient.start(baseUrl: TestUtilConstants.Server.airMiles.url, apiKey: TestUtilConstants.ApiKeys.AirMiles)
         
         let params = ["email": TestUtilConstants.MockUserConstants.Email,
                       "password": TestUtilConstants.MockUserConstants.Password]
