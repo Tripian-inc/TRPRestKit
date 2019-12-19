@@ -72,7 +72,10 @@ To install TRP Rest Kit using [CocoaPods](https://cocoapods.org/):
 
 ## Usage
 
-Tripian APIs require a Tripian account and API access token. In the project editor, select the application target, then go to the Info tab. Under the “Custom iOS Target Properties” section, set `TripianAccessToken` to your access token. You can obtain an access token from the [Tripian Recommendation API Page](https://www.tripian.com/travel-recommendation-api/).
+**Tripian APIs require a Tripian account and API access token.** In the project editor, select the application target, then go to the Info tab. Under the “Custom iOS Target Properties” section, set `TripianAccessToken` to your access token. You can obtain an access token from the [Tripian Recommendation API Page](https://www.tripian.com/travel-recommendation-api/).
+
+**Adding internet permission:** The TRPRestKit SDK requires internet permission to work properly. Under the “NSAppTransportSecurity” section, set `NSAllowsArbitraryLoads` to `NO`. //TODO: Buna gerek olmayabilir.
+
 
 ##### Now import the TRPRestKit module.
 
