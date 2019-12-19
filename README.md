@@ -93,7 +93,7 @@ TRPRestKit().cities { (result, error, pagination) in
         //TODO: Check whether there is an error.
         return
     }
-    guard let cities = result as? [TRPCityInfoModel]  else {
+    guard let result = result as? [TRPCityInfoModel]  else {
         //TODO: Check the result.
         return
     }
@@ -133,9 +133,15 @@ TRPRestKit().createTrip(settings: settings) { (result, error) in
 
 ```swift
 // Get Trip with a given trip hash.
-let tripHash: String = ""
-TRPRestKit().getTrip(withHash: tripHash) {[weak self] (result, error) in
-//TODO: Check error and do additional operations after getting given trip.
+TRPRestKit().getTrip(withHash: hash) {(result, error) in
+     if let error = error {
+         //TODO: Check whether there is an error.
+         return
+     }
+     if let result = result as? TRPTripInfoModel {
+         //TODO: Check the result.
+         return
+     }
 }
 ```
 
