@@ -7,19 +7,17 @@
 //
 import XCTest
 @testable import TRPRestKit
-@testable import TRPFoundationKit
+import TRPFoundationKit
 
 /// This class is a -thread safe- singleton class
 /// which is used in test classes and gives current user's authetication details.
 class UserMockSession: XCTestCase {
     static var shared = UserMockSession()
-    private let userName: String = "r@g.com"
-    private let password: String = "111111"
-    private let apiKey: String = "oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn"
+    
     
     //Saves the user login details that contains the user's access token, token type, email
     func doLogin() {
-        
+        TRPClient.start(enviroment: .test, apiKey: TestUtilConstants.ApiKeys.Test)
         TRPClient.monitor(data: true, url: true)
         
         guard TRPUserPersistent.didUserLoging() == true else {
@@ -28,8 +26,7 @@ class UserMockSession: XCTestCase {
         
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        
-       /* TRPRestKit().login(email: userName, password: password) { (result, error) in
+        TRPRestKit().login(withUserName: TestUtilConstants.MockUserConstants.TestUserName) { (result, error) in
             if error != nil {
                 let errorMsg: String = "\(nameSpace) \(error?.localizedDescription ?? "")"
                 XCTFail(errorMsg)
@@ -40,9 +37,9 @@ class UserMockSession: XCTestCase {
                 expectation.fulfill()
                 fatalError("result comes nil")
             }
-            
             expectation.fulfill()
-        } */
+        }
+        
         wait(for: [expectation], timeout: 10.0)
     }
 }

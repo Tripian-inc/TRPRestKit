@@ -7,7 +7,7 @@
 //
 import XCTest
 @testable import TRPRestKit
-@testable import TRPFoundationKit
+import TRPFoundationKit
 // swiftlint:disable all
 extension XCTestCase {
     

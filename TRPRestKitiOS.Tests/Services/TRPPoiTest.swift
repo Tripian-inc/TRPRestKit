@@ -10,7 +10,7 @@
 
 import XCTest
 @testable import TRPRestKit
-@testable import TRPFoundationKit
+import TRPFoundationKit
 // swiftlint:disable all
 class TRPPoiTest: XCTestCase {
     
@@ -37,6 +37,7 @@ class TRPPoiTest: XCTestCase {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         var loopCounter = 0
+    
         TRPRestKit().poi(withCityId: cityId, autoPagination: false) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
@@ -276,6 +277,8 @@ class TRPPoiTest: XCTestCase {
     func testPoiSearch() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+        
+        
         TRPRestKit().poi(search: "hot", cityId: cityId, location: location) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")

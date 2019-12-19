@@ -10,7 +10,7 @@
 
 import XCTest
 @testable import TRPRestKit
-@testable import TRPFoundationKit
+import TRPFoundationKit
 
 class TRPCitiesTest: XCTestCase {
     
@@ -53,7 +53,7 @@ class TRPCitiesTest: XCTestCase {
             loopCount += 1
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 1000.0)
         XCTAssertGreaterThan(loopCount, 1)
     }
     

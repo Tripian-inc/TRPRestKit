@@ -13,7 +13,6 @@ class TRPApiKey {
     internal static var shared = TRPApiKey()
     private(set) var apiKey: String?
     
-    
     /// Api keyi döndüren methodudur.
     /// Eğer api key Info.Plist üzerinden döndürülürmesi gerekirse diye eklendi.
     static func getApiKey() -> String {

@@ -697,19 +697,19 @@ extension TRPRestKit {
     }
     
     /// Obtain the access token for API calls that require user identification.
-       /// When login operation is successful, TRPUserPersistent object is saved in user accessToken.
-       ///
-       ///
-       /// - Parameters:
-       ///   - parameters: Custom user parameters such as ["username": "abcd", "password":"1234"], it depend on server type.
-       ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-       /// - Important: Completion Handler is an any object which needs to be converted to **TRPLoginInfoModel** object.
-       /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-login-as-a-user-)
-       public func login(withTripHash hash: String, completion: @escaping CompletionHandler) {
-           self.completionHandler = completion
-           let params = ["trip_hash":hash]
-           loginServices(parameters: params)
-       }
+    /// When login operation is successful, TRPUserPersistent object is saved in user accessToken.
+    ///
+    ///
+    /// - Parameters:
+    ///   - parameters: Custom user parameters such as ["username": "abcd", "password":"1234"], it depend on server type.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPLoginInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-login-as-a-user-)
+    public func login(withTripHash hash: String, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        let params = ["trip_hash": hash]
+        loginServices(parameters: params)
+    }
     
     /// Obtain the access token for API calls that require user identification.
     /// When login operation is successful, TRPUserPersistent object is saved in user accessToken.
@@ -759,6 +759,7 @@ extension TRPRestKit {
 // MARK: - User Register
 extension TRPRestKit {
     
+    
     /// Create a new user (customer) by posting the required parameters indicated below. No extra step needed to active the new user.
     /// Tripian Api generates a `userName` automatically refer to user's email address.
     ///
@@ -768,13 +769,7 @@ extension TRPRestKit {
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPUserInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-register-a-user-)
-    public func register(email: String, password: String, completion: @escaping CompletionHandler) {
-        self.completionHandler = completion
-        userRegisterServices(email: email, password: password)
-    }
-    
-    // Below function is used in registering user on the test server.
-    public func registerOnTestServer(userName: String, completion: @escaping CompletionHandler) {
+    public func register(userName: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         userRegisterServices(userName: userName)
     }
@@ -791,16 +786,10 @@ extension TRPRestKit {
     }
     
     /// A services which will be used in user register services, manages all task connecting to remote server.
-    private func userRegisterServices(email: String? = nil,
-                                      password: String? = nil,
-                                      userName: String? = nil) {
-        var serverType = ""
+    private func userRegisterServices(userName: String? = nil) {
+        
         var services: TRPUserRegister?
-        if let email = email, let password = password {
-            serverType = "AirMiles"
-            services = TRPUserRegister(email: email, password: password)
-        } else if let userName = userName {
-            serverType = "Test"
+        if let userName = userName {
             services = TRPUserRegister(userName: userName)
         }
         guard let mServices = services else { return }
@@ -810,18 +799,10 @@ extension TRPRestKit {
                 return
             }
             
-            if serverType == "AirMiles" {
-                if let resultService = result as? TRPUserInfoJsonModel {
-                    self.postData(result: resultService.data)
-                } else {
-                    self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-                }
-            } else if serverType == "Test" {
-                if let serviceResult = result as? TRPTestUserInfoJsonModel {
-                    self.postData(result: serviceResult.data)
-                } else {
-                    self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-                }
+            if let serviceResult = result as? TRPTestUserInfoJsonModel {
+                self.postData(result: serviceResult.data)
+            } else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
             
         }
