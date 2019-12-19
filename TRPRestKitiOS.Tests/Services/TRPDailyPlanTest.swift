@@ -58,11 +58,13 @@ class TRPDailyPlanTest: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + TestUtilConstants.MockTimeConstants.SecondsLong) {
             guard let dailyPlanId = self.firstDayDailyPlan?.id else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
             guard let currentTripHash = self.mockTripHash else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
@@ -71,11 +73,13 @@ class TRPDailyPlanTest: XCTestCase {
                 
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 
                 guard let dailyPlan = dailyPlan as? TRPDailyPlanInfoModel else {
                     XCTFail("\(nameSpace) Json model coundn't converted to  TRPDailyPlanInfoModel")
+                    expectation.fulfill()
                     return
                 }
                 
@@ -106,11 +110,13 @@ class TRPDailyPlanTest: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + TestUtilConstants.MockTimeConstants.SecondsLong) {
             guard let dailyPlanId = self.firstDayDailyPlan?.id else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
             guard let currentTripHash = self.mockTripHash else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
@@ -122,11 +128,13 @@ class TRPDailyPlanTest: XCTestCase {
                 
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 
                 guard let dailyPlan = dailyPlan as? TRPDailyPlanInfoModel else {
                     XCTFail("\(nameSpace) Json model coundn't converted to  TRPDailyPlanInfoModel")
+                    expectation.fulfill()
                     return
                 }
                 
@@ -160,16 +168,19 @@ class TRPDailyPlanTest: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + TestUtilConstants.MockTimeConstants.SecondsLong) {
             guard let dailyPlanId = self.lastDayDailyPlan?.id else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
             guard let currentTripHash = self.mockTripHash else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
             guard let firstPlaceIdOfFirstDay = self.firstDayDailyPlan?.planPois.first?.poiId else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
@@ -178,11 +189,13 @@ class TRPDailyPlanTest: XCTestCase {
                 
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 
                 guard let planPoi = planPoi as? TRPPlanPoi else {
                     XCTFail("\(nameSpace) Json model coundn't converted to  TRPDailyPlanInfoModel")
+                    expectation.fulfill()
                     return
                 }
                 XCTAssertNotNil(planPoi)
@@ -193,7 +206,7 @@ class TRPDailyPlanTest: XCTestCase {
             }
         }
         
-        wait(for: [expectation], timeout: 55.0)
+        wait(for: [expectation], timeout: 30.0)
     }
     
     
@@ -211,13 +224,16 @@ class TRPDailyPlanTest: XCTestCase {
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + TestUtilConstants.MockTimeConstants.SecondsLong) {
+            
             guard let dailyPlanId = self.firstDayDailyPlan?.id else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
             guard let firstPlaceOfFirstDay = self.firstDayDailyPlan?.planPois.first else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
@@ -226,17 +242,20 @@ class TRPDailyPlanTest: XCTestCase {
                 
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 
                 guard let planPoi = result as? TRPParentJsonModel else {
                     XCTFail("\(nameSpace) Json model coundn't converted to  TRPParentJsonModel")
+                    expectation.fulfill()
                     return
                 }
                 XCTAssertEqual(planPoi.status, 200)
                 strongSelf.refreshDailyPlan(dailyPlanId: dailyPlanId) { (dailyPlan, error) in
                     if(dailyPlan.planPois.contains(firstPlaceOfFirstDay)){
                         XCTFail("\(nameSpace) could not delete daily plan poi")
+                        expectation.fulfill()
                         return
                     }else{
                         expectation.fulfill()
@@ -245,7 +264,7 @@ class TRPDailyPlanTest: XCTestCase {
             }
         }
         
-        wait(for: [expectation], timeout: 100.0)
+        wait(for: [expectation], timeout: 30.0)
     }
     
     /**
@@ -268,16 +287,19 @@ class TRPDailyPlanTest: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + TestUtilConstants.MockTimeConstants.SecondsLong) {
             guard let dailyPlanId = self.firstDayDailyPlan?.id else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
             guard let firstPlaceOfFirstDay = self.firstDayDailyPlan?.planPois.first else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
             guard let firstPlaceOfLastDay = self.lastDayDailyPlan?.planPois.first else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
@@ -286,16 +308,19 @@ class TRPDailyPlanTest: XCTestCase {
                 
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 guard let planPoi = result as? TRPPlanPoi else {
                     XCTFail("\(nameSpace) Json model coundn't converted to  TRPParentJsonModel")
+                    expectation.fulfill()
                     return
                 }
                 XCTAssertNotNil(planPoi)
                 strongSelf.refreshDailyPlan(dailyPlanId: dailyPlanId) { (dailyPlan, error) in
                     if(dailyPlan.planPois.contains(firstPlaceOfFirstDay)){
                         XCTFail("\(nameSpace) could not delete daily plan poi")
+                        expectation.fulfill()
                         return
                     }else{
                         expectation.fulfill()
@@ -304,7 +329,7 @@ class TRPDailyPlanTest: XCTestCase {
             }
         }
         
-        wait(for: [expectation], timeout: 100.0)
+        wait(for: [expectation], timeout: 40.0)
     }
     
     /**
@@ -326,11 +351,13 @@ class TRPDailyPlanTest: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + TestUtilConstants.MockTimeConstants.SecondsLong) {
             guard let dailyPlanId = self.firstDayDailyPlan?.id else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
             guard let firstDaysDailyPlanPoiWhichWillBeReplaced = self.firstDayDailyPlan?.planPois.first else {
                 XCTFail("\(nameSpace) Daily plan is not generated yet.")
+                expectation.fulfill()
                 return
             }
             
@@ -342,10 +369,12 @@ class TRPDailyPlanTest: XCTestCase {
                 
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 guard let planPoi = result as? TRPPlanPoi else {
                     XCTFail("\(nameSpace) Json model coundn't converted to  TRPParentJsonModel")
+                    expectation.fulfill()
                     return
                 }
                 
@@ -359,7 +388,7 @@ class TRPDailyPlanTest: XCTestCase {
             }
         }
         
-        wait(for: [expectation], timeout: 100.0)
+        wait(for: [expectation], timeout: 40.0)
     }
     
     // MARK: Daily Plan Poi Alternative Tests
