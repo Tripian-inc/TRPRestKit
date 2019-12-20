@@ -10,7 +10,8 @@ import TRPFoundationKit
 import TRPRestKit
 struct TestUtilConstants {
     
-    static let targetServer: Server = .airMiles
+    //AStartTestSettingsTest den ayarlanır.
+    static var targetServer: Server = .airMiles
     
     enum Server {
         case test, sandBox, product, airMiles

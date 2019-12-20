@@ -25,7 +25,6 @@ class UserMockSession: XCTestCase {
             TRPClient.start(enviroment: .sandbox, apiKey: TestUtilConstants.targetServer.apiKey)
         case .test:
             TRPClient.start(enviroment: .test, apiKey: TestUtilConstants.targetServer.apiKey)
-        
         }
         
         TRPClient.monitor(data: true, url: true)

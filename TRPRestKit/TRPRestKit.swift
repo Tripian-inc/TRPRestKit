@@ -415,7 +415,6 @@ extension TRPRestKit {
                     autoPagination: autoPagination ?? false)
     }
     
-    
     /// Obtain information of pois using search text such as tags(for example "restaurant", "museum", "bar" etc.), name of poi.
     ///
     ///
@@ -758,7 +757,6 @@ extension TRPRestKit {
 
 // MARK: - User Register
 extension TRPRestKit {
-    
     
     /// Create a new user (customer) by posting the required parameters indicated below. No extra step needed to active the new user.
     /// Tripian Api generates a `userName` automatically refer to user's email address.
