@@ -23,7 +23,11 @@ class TRPDailyPlanTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
+        TestUtilConstants.targetServer = .airMiles
+        TRPRestKit().logout()
+        UserMockSession.shared.setServer()
         UserMockSession.shared.doLogin()
+        
         createMockTrip { (result, _ ) in
             
             self.mockTripHash = result.hash
@@ -514,36 +518,12 @@ class TRPDailyPlanTest: XCTestCase {
                     expectation.fulfill()
                     return
                 }
-                
-                guard let firstDaysDailyPlanPoiId = result.first?.dailyPlanPoi?.id else{
-                    return
-                }
-                TRPRestKit().planPoiAlternatives(withPlanPointId: firstDaysDailyPlanPoiId) {[weak self] (result, error) in
-                    guard self != nil else {return}
-                    
-                    if let error = error {
-                        XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
-                        expectation.fulfill()
-                        return
-                    }
-                    guard let _ = result else {
-                        XCTFail("\(nameSpace) Result is nil")
-                        expectation.fulfill()
-                        return
-                    }
-                    guard let result = result as? [TRPPlanPointAlternativeInfoModel] else {
-                        XCTFail("\(nameSpace) Json model coundn't converted to  TRPPlanPointAlternativeInfoModel")
-                        expectation.fulfill()
-                        return
-                    }
-                    XCTAssertNotNil(result)
-                    XCTAssertGreaterThan(result.count, 0)
-                    expectation.fulfill()
-                }
+        
+                expectation.fulfill()
             }
             
         }
         
-        wait(for: [expectation], timeout: 30.0)
+        wait(for: [expectation], timeout: 40.0)
     }
 }

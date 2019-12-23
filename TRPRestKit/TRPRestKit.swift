@@ -704,32 +704,16 @@ extension TRPRestKit {
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPLoginInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-login-as-a-user-)
-    public func login(withTripHash hash: String, completion: @escaping CompletionHandler) {
-        self.completionHandler = completion
-        let params = ["trip_hash": hash]
-        loginServices(parameters: params)
-    }
-    
-    /// Obtain the access token for API calls that require user identification.
-    /// When login operation is successful, TRPUserPersistent object is saved in user accessToken.
-    ///
-    ///
-    /// - Parameters:
-    ///   - parameters: Custom user parameters such as ["username": "abcd", "password":"1234"], it depend on server type.
-    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **TRPLoginInfoModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-login-as-a-user-)
     public func login(with parameters: [String: String], completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         loginServices(parameters: parameters)
     }
     
-    /// A services which will be used in login services, manages all task connecting to remote server.
-    ///
-    /// - Parameters:
-    ///   - name: User name
-    ///   - password: user password
-    ///   - userName: user name //TODO: Burada bir sorun var hem name hem username ayni sey degilmi? Yukaridaki login testserviceden dolayi geldiyse, name i tamamen kaldirip user name i birakmak mumkunmu?
+    public func login(withUsername userName:String, password: String, completion: @escaping CompletionHandler) {
+        let params = ["username": userName, "password": password]
+        loginServices(parameters: params)
+    }
+    
     private func loginServices(parameters: [String: String]) {
         let loginService: TRPLogin? = TRPLogin(parameters: parameters)
         guard let service = loginService else {return}
@@ -765,7 +749,7 @@ extension TRPRestKit {
     ///   - email: Username of the user which usually refers to email address of the user.
     ///   - password: Password of the user.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **TRPUserInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPRegisterUserInfo** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-register-a-user-)
     public func register(userName: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -902,8 +886,6 @@ extension TRPRestKit {
 // MARK: - Companions.
 extension TRPRestKit {
     
-    //TODO: Asagidaki companion servislerinde update de (id:) parametresi var, removeda (companionId:) parametresi var ikisinin ayni olmasi daha guzel olur
-    //TODO: Api de delete companion burada remove companion ismi kullaniliyor.
     
     /// Add companion by adding name(Optional), age(Optional), Answers(Optional) and completion parameters.
     ///
@@ -1154,7 +1136,6 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            
             if let serviceResult = result as? TRPUserTripsJsonModel {
                 self.postData(result: serviceResult.data)
             }else {
@@ -1211,7 +1192,6 @@ extension TRPRestKit {
     
     /// A services which will be used in version services, manages all task connecting to remote server.
     private func versionServices() {
-        
         let constantsService = TRPConstantsServices()
         constantsService.completion = {   (result, error, pagination) in
             if let error = error {
@@ -1385,8 +1365,6 @@ extension TRPRestKit {
         planPointsServices(hash: hash, dailyPlanId: dailyPlanId, placeId: poiId, order: order, type: TRPPlanPoints.Status.add)
     }
     
-    ///TODO: BU KISIM İYİ ANLATILMALI. GÖRSEL OLARAK HAZIRLANMALI.
-    
     /// Replace plan POI in trip.
     ///
     /// This function is used during changing place with it's alternative, in trips.
@@ -1485,19 +1463,7 @@ extension TRPRestKit {
 // MARK: - NearBy Services
 extension TRPRestKit {
     
-    //TODO: withPlanPointId -> withPlanPoiId olucak
     
-    /// Obtain plan poi alternative list with given plan POI Id and completion parameters.
-    ///
-    /// - Parameters:
-    ///    - withPlanPointId: An Integer that refers to Id of the plan POI.
-    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
-    public func planPoiAlternatives(withPlanPointId id: Int, completion: @escaping CompletionHandler) {
-        completionHandler = completion
-        planPointAlternative(planPointId: id)
-    }
     
     /// Obtain plan poi alternative list with given trip hash and completion parameters.
     ///

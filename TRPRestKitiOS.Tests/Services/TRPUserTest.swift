@@ -12,12 +12,15 @@ import XCTest
 import TRPRestKit
 
 // swiftlint:disable all
-class TRPUserTest: XCTestCase {
+class AeTRPUserTest: XCTestCase {
     
     // MARK: Set Up 
     override func setUp() {
         super.setUp()
-        UserMockSession.shared.doLogin()
+        /*TestUtilConstants.targetServer = .test
+        TRPRestKit().logout()
+        UserMockSession.shared.setServer()
+        UserMockSession.shared.doLogin() */
     }
     
     // MARK: User Info Tests
@@ -44,9 +47,14 @@ class TRPUserTest: XCTestCase {
                 expectation.fulfill()
                 return
             }
-            XCTAssertNotNil(userInfo.email)
-            XCTAssertNotNil(userInfo.firstName)
-            XCTAssertNotNil(userInfo.paymentStatus)
+            
+            if TestUtilConstants.targetServer == .airMiles {
+                XCTAssert(!userInfo.email.isEmpty)
+                XCTAssertNotNil(userInfo.firstName)
+                XCTAssertNotNil(userInfo.paymentStatus)
+            }else {
+                XCTAssert(!userInfo.username.isEmpty)
+            }
             
             expectation.fulfill()
         }
@@ -84,11 +92,16 @@ class TRPUserTest: XCTestCase {
                 return
             }
             
-            XCTAssertNotNil(userInfo.email)
-            XCTAssertNotNil(userInfo.firstName)
-            XCTAssertNotNil(userInfo.paymentStatus)
-            XCTAssertEqual(userInfo.firstName, randomFirstName)
-            XCTAssertEqual(userInfo.lastName, randomLastName)
+            
+            if TestUtilConstants.targetServer == .airMiles {
+                XCTAssertNotNil(userInfo.firstName)
+                XCTAssertNotNil(userInfo.paymentStatus)
+                XCTAssertEqual(userInfo.firstName, randomFirstName)
+                XCTAssertEqual(userInfo.lastName, randomLastName)
+            }else {
+                XCTAssertNotNil(userInfo.email)
+            }
+            
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10.0)
@@ -123,12 +136,26 @@ class TRPUserTest: XCTestCase {
                 return
             }
             
-            let userAnswers = userInfo.info!.filter { $0.id == 11 }.first
+            guard let infoData = userInfo.info else {
+                XCTFail("\(nameSpace) Info model is nil")
+                expectation.fulfill()
+                return
+            }
             
-            XCTAssertNotNil(userInfo.email)
-            XCTAssertNotNil(userInfo.firstName)
-            XCTAssertNotNil(userInfo.paymentStatus)
-            XCTAssertEqual(userAnswers?.value, self!.toString(array: mockAnswers))
+            var resultArray = [Int]()
+            for item in infoData {
+                if item.key == "answers" {
+                    resultArray = item.value.toIntArray()
+                }
+            }
+        
+            if TestUtilConstants.targetServer == .airMiles {
+                XCTAssertNotNil(userInfo.firstName)
+                XCTAssertNotNil(userInfo.paymentStatus)
+            }else {
+                XCTAssertNotNil(userInfo.email)
+            }
+            XCTAssertEqual(resultArray, mockAnswers)
             expectation.fulfill()
             
         }
@@ -142,6 +169,7 @@ class TRPUserTest: XCTestCase {
      * response should give all the trips of the user.
      */
     func testUserTrips() {
+        print("[debug]: \(TRPUserPersistent.didUserLoging())")
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         TRPRestKit().userTrips { (result, error, _) in

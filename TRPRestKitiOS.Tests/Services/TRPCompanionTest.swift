@@ -18,7 +18,6 @@ class TRPCompanionTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
-        UserMockSession.shared.doLogin()
     }
     
     // MARK: - Test Functions
@@ -81,14 +80,17 @@ class TRPCompanionTest: XCTestCase {
             TRPRestKit().getUsersCompanions { (result, error) in
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 guard let result = result else {
                     XCTFail("\(nameSpace) Result is nil")
+                    expectation.fulfill()
                     return
                 }
                 guard let models = result as? [TRPCompanionModel]  else {
                     XCTFail("\(nameSpace) Json model couldn't converted")
+                    expectation.fulfill()
                     return
                 }
                 
@@ -98,7 +100,6 @@ class TRPCompanionTest: XCTestCase {
                 XCTAssertGreaterThan(models.count, 0)
                 expectation.fulfill()
             }
-            
         }
         
         wait(for: [expectation], timeout: 20)
@@ -115,18 +116,22 @@ class TRPCompanionTest: XCTestCase {
         TRPRestKit().getUsersCompanions { (result, error) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
                 return
             }
             guard let result = result else {
                 XCTFail("\(nameSpace) Result is nil")
+                expectation.fulfill()
                 return
             }
             guard let models = result as? [TRPCompanionModel]  else {
                 XCTFail("\(nameSpace) Json model couldn't converted")
+                expectation.fulfill()
                 return
             }
             
             if models.count == 0 {
+                expectation.fulfill()
                 expectation.fulfill()
                 return
             }
@@ -140,14 +145,17 @@ class TRPCompanionTest: XCTestCase {
                 guard self != nil else {return}
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 guard let result = result else {
                     XCTFail("\(nameSpace) Result is nil")
+                    expectation.fulfill()
                     return
                 }
                 guard result is TRPParentJsonModel  else {
                     XCTFail("\(nameSpace) Json model couldn't converted")
+                    expectation.fulfill()
                     return
                 }
                 
@@ -156,14 +164,17 @@ class TRPCompanionTest: XCTestCase {
                 TRPRestKit().getUsersCompanions { (result, error) in
                     if let error = error {
                         XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                        expectation.fulfill()
                         return
                     }
                     guard let result = result else {
                         XCTFail("\(nameSpace) Result is nil")
+                        expectation.fulfill()
                         return
                     }
                     guard let models = result as? [TRPCompanionModel]  else {
                         XCTFail("\(nameSpace) Json model couldn't converted")
+                        expectation.fulfill()
                         return
                     }
                     let updatedCompanion = models.filter { $0.id == firstCompanion?.id }.first
@@ -192,14 +203,17 @@ class TRPCompanionTest: XCTestCase {
         TRPRestKit().getUsersCompanions { (result, error) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
                 return
             }
             guard let result = result else {
                 XCTFail("\(nameSpace) Result is nil")
+                expectation.fulfill()
                 return
             }
             guard let models = result as? [TRPCompanionModel]  else {
                 XCTFail("\(nameSpace) Json model couldn't converted")
+                expectation.fulfill()
                 return
             }
             
@@ -210,14 +224,17 @@ class TRPCompanionTest: XCTestCase {
                 guard self != nil else {return}
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 guard let result = result else {
                     XCTFail("\(nameSpace) Result is nil")
+                    expectation.fulfill()
                     return
                 }
                 guard result is TRPParentJsonModel  else {
                     XCTFail("\(nameSpace) Json model couldn't converted")
+                    expectation.fulfill()
                     return
                 }
                 
@@ -226,14 +243,17 @@ class TRPCompanionTest: XCTestCase {
                 TRPRestKit().getUsersCompanions { (result, error) in
                     if let error = error {
                         XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                        expectation.fulfill()
                         return
                     }
                     guard let result = result else {
                         XCTFail("\(nameSpace) Result is nil")
+                        expectation.fulfill()
                         return
                     }
                     guard let models = result as? [TRPCompanionModel]  else {
                         XCTFail("\(nameSpace) Json model couldn't converted")
+                        expectation.fulfill()
                         return
                     }
                     let deletedCompanion = models.filter { $0.id == firstCompanion?.id }.first
@@ -244,6 +264,6 @@ class TRPCompanionTest: XCTestCase {
             
         }
         
-        wait(for: [expectation], timeout: 30)
+        wait(for: [expectation], timeout: 20)
     }
 }

@@ -94,15 +94,18 @@ class TRPQuestionTest: XCTestCase {
         TRPRestKit().tripQuestions(type: TPRTripQuestionType.trip) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
                 return
             }
             guard let result = result else {
                 XCTFail("\(nameSpace) Resutl is nil")
+                expectation.fulfill()
                 return
             }
             
             guard let question = result as? [TRPTripQuestionInfoModel]  else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripQuestionInfoModel")
+                expectation.fulfill()
                 return
             }
             if question.count < 1 {

@@ -12,25 +12,18 @@ import XCTest
 @testable import TRPRestKit
 import TRPFoundationKit
 
-class TRPLoginTest: XCTestCase {
+class AcTRPLoginTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        TRPRestKit().logout()
+        
         changeServer(enviroment: .test)
         TRPClient.monitor(data: true, url: true)
     }
     
-    private func changeServer(enviroment: Environment) {
-        var apiKey = ""
-        switch enviroment {
-        case .production:
-            apiKey = TestUtilConstants.ApiKeys.Product
-        case .sandbox:
-            apiKey = TestUtilConstants.ApiKeys.SandBox
-        case .test:
-            apiKey = TestUtilConstants.ApiKeys.Test
-        }
-        TRPClient.start(enviroment: enviroment, apiKey: apiKey)
+    override func tearDown() {
+        TRPRestKit().logout()
     }
     
     private func resultController(result: Any?, error: Error?, testName: String, expectation: XCTestExpectation) {

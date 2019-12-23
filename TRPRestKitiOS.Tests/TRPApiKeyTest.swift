@@ -10,14 +10,6 @@ import XCTest
 @testable import TRPRestKit
 
 class TRPApiKeyTest: XCTestCase {
-
-
-    func testFetchApiKey() {
-        log.w("MEASURE FUNCTİON CALLED")
-        let sonuc = TRPApiKey.getApiKey()
-        XCTAssertEqual(sonuc, "")
-        
-    }
     
     func testSetApiKey() {
         let apiKey = "oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn"

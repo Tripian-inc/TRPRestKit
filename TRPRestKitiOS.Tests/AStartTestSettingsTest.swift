@@ -8,15 +8,21 @@
 
 import XCTest
 @testable import TRPRestKit
-class AStartTestSettingsTest: XCTestCase {
+class AdStartTestSettingsTest: XCTestCase {
 
-    var url = "gogole.com"
-    var path = "v2"
-    
-    func testPrepareSystem() {
+    override func setUp() {
         TRPRestKit().logout()
-        TestUtilConstants.targetServer = .airMiles
+    }
+    
+    override func tearDown() {
+        UserMockSession.shared.setServer()
         UserMockSession.shared.doLogin()
+    }
+    func testPrepareSystem() {
+        
+        TestUtilConstants.targetServer = .airMiles
+        TRPClient.monitor(data: true, url: true)
+        
     }
     
 }

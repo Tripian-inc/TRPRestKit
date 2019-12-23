@@ -14,6 +14,7 @@ class BaseUrlCreaterTest: XCTestCase {
     var path = "v2"
     
     func testBaseUrlInitValues() {
+        print("[DENEME] BBBBBBBB")
         let created = BaseUrlCreater(baseUrl: url, basePath: path)
         XCTAssertEqual(created.baseUrl, url)
         XCTAssertEqual(created.basePath, path)

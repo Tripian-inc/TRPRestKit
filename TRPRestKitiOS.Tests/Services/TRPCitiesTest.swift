@@ -20,7 +20,13 @@ class TRPCitiesTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
-        UserMockSession.shared.doLogin()
+        TestUtilConstants.targetServer = .test
+        
+        //TRPRestKit().logout()
+        //UserMockSession.shared.setServer()
+        //UserMockSession.shared.doLogin()
+        
+        TRPClient.monitor(data: true, url: true)
     }
     
     // MARK: Test Functions
@@ -36,14 +42,17 @@ class TRPCitiesTest: XCTestCase {
         TRPRestKit().cities { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
                 return
             }
             guard let result = result else {
                 XCTFail("\(nameSpace) Result is nil")
+                expectation.fulfill()
                 return
             }
             guard let cities = result as? [TRPCityInfoModel]  else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPProgramStep")
+                expectation.fulfill()
                 return
             }
             
@@ -53,7 +62,7 @@ class TRPCitiesTest: XCTestCase {
             loopCount += 1
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 1000.0)
+        wait(for: [expectation], timeout: 10.0)
         XCTAssertGreaterThan(loopCount, 1)
     }
     

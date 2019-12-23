@@ -14,8 +14,7 @@ import TRPFoundationKit
 class UserMockSession: XCTestCase {
     static var shared = UserMockSession()
     
-    //Saves the user login details that contains the user's access token, token type, email
-    func doLogin() {
+    func setServer() {
         switch TestUtilConstants.targetServer {
         case .airMiles:
             TRPClient.start(baseUrl: TestUtilConstants.Server.airMiles.url, apiKey: TestUtilConstants.targetServer.apiKey)
@@ -26,10 +25,13 @@ class UserMockSession: XCTestCase {
         case .test:
             TRPClient.start(enviroment: .test, apiKey: TestUtilConstants.targetServer.apiKey)
         }
-        
         TRPClient.monitor(data: true, url: true)
+    }
+
+    //Saves the user login details that contains the user's access token, token type, email
+    func doLogin() {
         
-        guard TRPUserPersistent.didUserLoging() == true else {
+        guard TRPUserPersistent.didUserLoging() == false else {
             return
         }
         
@@ -54,16 +56,15 @@ class UserMockSession: XCTestCase {
             }
         }else {
             TRPRestKit().login(withUserName: TestUtilConstants.MockUserConstants.TestUserName) { (result, error) in
-                if error != nil {
-                    let errorMsg: String = "\(nameSpace) \(error?.localizedDescription ?? "")"
-                    XCTFail(errorMsg)
+                XCTAssertNil(error, "\(error!.localizedDescription)")
+                XCTAssertNotNil(result, "Result is nil")
+                guard let result = result as? TRPLoginInfoModel else {
                     expectation.fulfill()
-                    fatalError(errorMsg)
+                    return
                 }
-                guard result != nil else {
-                    expectation.fulfill()
-                    fatalError("result comes nil")
-                }
+                XCTAssertNotNil(result)
+                XCTAssertNotNil(result.accessToken)
+                XCTAssertNotNil(result.tokenType)
                 expectation.fulfill()
             }
         }

@@ -10,6 +10,9 @@ import Foundation
 
 /// This model provide you to use information of user.
 public struct TRPUserInfoModel: Decodable {
+    
+    public var username: String
+    
     /// A String value. Email of the user.
     public var email: String
     /// A String value. First name of the user.
@@ -25,6 +28,7 @@ public struct TRPUserInfoModel: Decodable {
     public var info: [TRPUserPreferencesInfoModel]?
     
     private enum CodingKeys: String, CodingKey {
+        case userName = "username"
         case email
         case info
         case firstName = "first_name"
@@ -39,8 +43,18 @@ public struct TRPUserInfoModel: Decodable {
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-       
-        self.email = try values.decode(String.self, forKey: .email)
+        
+        if let email = try values.decodeIfPresent(String.self, forKey: .email) {
+            username = ""
+            self.email = email
+        }else if let uName = try values.decodeIfPresent(String.self, forKey: .userName){
+            username = uName 
+            self.email = ""
+        }else {
+            username = ""
+            self.email = ""
+        }
+        
         self.firstName = try values.decodeIfPresent(String.self, forKey: .firstName)
         self.lastName = try values.decodeIfPresent(String.self, forKey: .lastName)
         self.password = try values.decodeIfPresent(String.self, forKey: .password)
@@ -53,7 +67,7 @@ public struct TRPUserInfoModel: Decodable {
 }
 
 /// This model provide you to use information of user.
-public struct TRPTestUserInfoModel: Decodable {
+public struct TRPRegisterUserInfo: Decodable {
     /// A String value. Name of user.
     public var userName: String
     /// A array of TRPUserPreferencesInfoModel objects.

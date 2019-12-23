@@ -9,9 +9,10 @@
 import XCTest
 @testable import TRPRestKit
 
-class BaseUrlTest: XCTestCase {
+class AbBaseUrlTest: XCTestCase {
 
     func testInitValueEnviroment() {
+        print("[DENEME] CCCCCCCCC")
         TRPClient.start(enviroment: .test, apiKey: "")
         XCTAssertEqual(TRPClient.shared.enviroment, Environment.test)
     }

@@ -11,6 +11,19 @@ import TRPFoundationKit
 // swiftlint:disable all
 extension XCTestCase {
     
+    public func changeServer(enviroment: Environment) {
+        var apiKey = ""
+        switch enviroment {
+        case .production:
+            apiKey = TestUtilConstants.ApiKeys.Product
+        case .sandbox:
+            apiKey = TestUtilConstants.ApiKeys.SandBox
+        case .test:
+            apiKey = TestUtilConstants.ApiKeys.Test
+        }
+        TRPClient.start(enviroment: enviroment, apiKey: apiKey)
+    }
+    
     func randomString(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         return String((0..<length).map { _ in letters.randomElement()! })

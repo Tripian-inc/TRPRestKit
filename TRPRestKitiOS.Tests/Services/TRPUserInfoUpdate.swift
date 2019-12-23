@@ -9,11 +9,11 @@
 import XCTest
 @testable import TRPRestKit
 
-class TRPUserInfoUpdate: XCTestCase {
+class AfTRPUserInfoUpdate: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        UserMockSession.shared.doLogin()
+        
     }
     
     override func randomString(length: Int) -> String {
