@@ -14,7 +14,6 @@ public struct TRPUserPersistent {
     private static let userEmailCodeTag = "trpuseremail"
     
     public static func didUserLoging() -> Bool {
-        print("[Hash] \(fetchHashToken())")
         return fetchHashToken() == nil ? false : true
     }
     

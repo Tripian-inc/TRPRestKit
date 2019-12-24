@@ -144,7 +144,7 @@ class TRPPoiTest: XCTestCase {
         
         let url = "\(TestUtilConstants.targetServer.url.reableUrl)/poi?city_id=107&limit=100&page=2"
         
-        TRPRestKit().poi(link: url) { (result, error, pagination) in
+        TRPRestKit().poi(url: url) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return

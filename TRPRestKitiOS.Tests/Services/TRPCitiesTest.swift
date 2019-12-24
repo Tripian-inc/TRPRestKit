@@ -232,7 +232,7 @@ class BbTRPCitiesTest: XCTestCase {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
-        TRPRestKit().cities(link: url) { (result, error, pagination) in
+        TRPRestKit().cities(url: url) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 expectation.fulfill()

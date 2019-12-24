@@ -30,13 +30,12 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
 /// - See Also: [How to use](https://github.com/Tripian-inc/TRPRestKit)
 /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine)
 ///
-/// 
-/// - precondition:
+///
 /// ```
+/// 
+///     TRPClient.start(enviroment: .test, apiKey: <#yourApiKey>)
 ///
-/// TRPClient.start(enviroment: .test, apiKey: <#yourApiKey>)
-///
-/// TRPRestKit().city(withId:completion:)
+///     TRPRestKit().city(withId:completion:)
 ///
 /// ```
 ///
@@ -308,7 +307,6 @@ extension TRPRestKit {
         self.completionHandlerWithPagination = completion
         poiServices(placeIds: ids, cities: [cityId], autoPagination: autoPagination)
     }
-    
     
     /// Obtain all information of pois using city id.
     ///
