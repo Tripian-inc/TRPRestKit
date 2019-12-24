@@ -9,7 +9,7 @@
 import XCTest
 @testable import TRPRestKit
 
-class TRPApiKeyTest: XCTestCase {
+class AgTRPApiKeyTest: XCTestCase {
     
     func testSetApiKey() {
         let apiKey = "oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn"

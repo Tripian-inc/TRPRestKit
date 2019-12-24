@@ -78,4 +78,3 @@ class TRPUserRegisterTest: XCTestCase {
     }
 
 }
-

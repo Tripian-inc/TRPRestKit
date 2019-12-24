@@ -24,7 +24,6 @@ class TRPPoiTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
-        UserMockSession.shared.doLogin()
     }
     
     // MARK: - Test Functions
@@ -230,7 +229,7 @@ class TRPPoiTest: XCTestCase {
             loopCounter += 1
             XCTAssertNotNil(pagination)
             XCTAssertNotEqual(places.count, 0)
-            XCTAssertEqual(places.count, 20)
+            
             let firstPlace = places.first
             XCTAssertNotNil(firstPlace)
             XCTAssertNotNil(firstPlace!.cityId)

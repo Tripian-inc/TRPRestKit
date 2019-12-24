@@ -15,7 +15,6 @@ class TRPCityJsonModelTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        TRPClient.start(baseUrl: TestUtilConstants.Server.airMiles.url, apiKey: "")
         jsonDecoder = JSONDecoder()
     }
     

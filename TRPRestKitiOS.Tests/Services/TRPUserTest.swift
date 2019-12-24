@@ -17,10 +17,8 @@ class AeTRPUserTest: XCTestCase {
     // MARK: Set Up 
     override func setUp() {
         super.setUp()
-        /*TestUtilConstants.targetServer = .test
-        TRPRestKit().logout()
         UserMockSession.shared.setServer()
-        UserMockSession.shared.doLogin() */
+        UserMockSession.shared.doLogin()
     }
     
     // MARK: User Info Tests

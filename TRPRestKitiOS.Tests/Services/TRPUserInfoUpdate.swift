@@ -13,7 +13,8 @@ class AfTRPUserInfoUpdate: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
+        UserMockSession.shared.setServer()
+        UserMockSession.shared.doLogin()
     }
     
     override func randomString(length: Int) -> String {
@@ -46,22 +47,26 @@ class AfTRPUserInfoUpdate: XCTestCase {
                 return
             }
             
-            XCTAssertNotNil(model.lastName)
-            XCTAssertNotNil(model.firstName)
-            
-            XCTAssertNotNil(model.info)
-            var ageFromServer: String?
-            
-            for child in model.info! where child.key == "age" {
-                ageFromServer = child.value
+            if TestUtilConstants.targetServer == .airMiles {
+                XCTAssertNotNil(model.lastName)
+                XCTAssertNotNil(model.firstName)
+                
+                XCTAssertNotNil(model.info)
+                var ageFromServer: String?
+                
+                for child in model.info! where child.key == "age" {
+                    ageFromServer = child.value
+                }
+                
+                XCTAssertNotNil(ageFromServer)
+                let ageFromServerInt = Int(ageFromServer!)
+                XCTAssertNotNil(ageFromServerInt)
+                XCTAssertEqual(ageFromServerInt, randomAge)
+                XCTAssertEqual(model.lastName!, randomLastName)
+                XCTAssertEqual(model.firstName!, randomName)
+            }else {
+                XCTAssert(!model.username.isEmpty)
             }
-            
-            XCTAssertNotNil(ageFromServer)
-            let ageFromServerInt = Int(ageFromServer!)
-            XCTAssertNotNil(ageFromServerInt)
-            XCTAssertEqual(ageFromServerInt, randomAge)
-            XCTAssertEqual(model.lastName!, randomLastName)
-            XCTAssertEqual(model.firstName!, randomName)
             
             expectation.fulfill()
         }

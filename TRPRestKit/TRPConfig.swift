@@ -8,13 +8,7 @@
 
 import Foundation
 internal struct TRPConfig {
-    
-    //TestServer return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com"
-    //return "ybesi12ydk.execute-api.us-east-1.amazonaws.com"
-    //us-west geliştirme sandbox
-    //return "v2jvnaq3nl.execute-api.eu-west-1.amazonaws.com" //TestServer
-    //Airmiles - ca-cemtral
-    
+
     internal static func getBaseUrl() -> String {
         return TRPClient.shared.baseUrl.baseUrl
     }

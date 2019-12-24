@@ -27,22 +27,23 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
 ///  * Travel details
 ///  * NearBy services, and more.
 ///
+/// - See Also: [How to use](https://github.com/Tripian-inc/TRPRestKit)
 /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine)
 ///
-/// //TODO: Buradaki preconditioni degistir.
+/// 
 /// - precondition:
 /// ```
 ///
-/// TRPClient.provideApiKey(tripianApi)
+/// TRPClient.start(enviroment: .test, apiKey: <#yourApiKey>)
 ///
-/// TRPRestKit().city(withId:completionHandler:)
+/// TRPRestKit().city(withId:completion:)
 ///
 /// ```
 ///
 /// A `TRPRestKit()` object  defines a single object that user can follow to operate below functions.
 /// Typically you do not create instances of this class directly,
 /// instead you receive object in completion handler form when you request a call
-/// such as `TRPRestKit().city(withId:completionHandler:)` method. However assure that you have provided tripian api key first.
+/// such as `TRPRestKit().city(withId:completion:)` method. However assure that you have provided tripian api key first.
 ///
 @objc public class TRPRestKit: NSObject {
     
@@ -89,12 +90,12 @@ extension TRPRestKit {
     /// - Parameters:
     ///     - limit: Number of city that will be given.
     ///     - isAutoPagination: Boolean value whether pagination is required, default value is true.
-    ///     - completionHandler: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    ///     - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-all-available-cities)
-    public func cities(limit: Int? = 25, isAutoPagination: Bool? = true, completionHandler: @escaping CompletionHandlerWithPagination) {
+    public func cities(limit: Int? = 25, isAutoPagination: Bool? = true, completion: @escaping CompletionHandlerWithPagination) {
         //Fixme: - autoPagination eklenebilir.
-        self.completionHandlerWithPagination = completionHandler
+        self.completionHandlerWithPagination = completion
         citiesServices(id: nil, limit: limit, autoPagination: isAutoPagination)
     }
     
@@ -104,7 +105,7 @@ extension TRPRestKit {
     ///
     /// - Parameters:
     ///     - id: City Id that will be the id of required city.
-    ///     - completionHandler: A closer in the form of CompletionHandler will be called after request is completed.
+    ///     - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPCityInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-details-of-a-city)
     public func city(with id: Int, completion: @escaping CompletionHandler) {
@@ -118,43 +119,43 @@ extension TRPRestKit {
     ///
     /// - Parameters:
     ///   - location: TRLocation object that will be given.
-    ///   - completionHandler: A closer in the form of CompletionHandler will be called after request is completed.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPCityInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#find-city-by-coordinates)
-    public func city(with location: TRPLocation, completionHandler: @escaping CompletionHandler) {
-        self.completionHandler = completionHandler
+    public func city(with location: TRPLocation, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
         citiesServices(location: location)
     }
     
-    /// Obtain the list of all available cities with given url link and completion parameters.
+    /// Obtain the list of all available cities with given url and completion parameters.
     ///
-    /// All the available cities from the requested url link will be given in the form of CompletionHandlerWithPagination.
+    /// All the available cities from the requested url will be given in the form of CompletionHandlerWithPagination.
     ///
     /// - Parameters:
-    ///   - link: link that returned from Pagination
-    ///   - completionHandler: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    ///   - url: url that returned from Pagination
+    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-all-available-cities)
-    public func cities(link: String, completion: @escaping CompletionHandlerWithPagination) {
+    public func cities(url: String, completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
-        citiesServices(id: nil, link: link)
+        citiesServices(id: nil, url: url)
     }
     
     /// A services which will be used in cities services, manages all task connecting to remote server.
     ///
     /// - Parameters:
     ///   - id: Id of the city (Optional).
-    ///   - link: Link that will be returned from Pagination (Optional).
+    ///   - url: url that will be returned from Pagination (Optional).
     ///   - location: User's current location (Optional).
     ///   - limit: number of city list to display (Optional).
     ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional).
     private func citiesServices(id: Int? = nil,
-                                link: String? = nil,
+                                url: String? = nil,
                                 location: TRPLocation? = nil,
                                 limit: Int? = 25,
                                 autoPagination: Bool? = true) {
         
-        let cityService = createCitiesServices(id: id, link: link, location: location, limit: limit, autoPagination: autoPagination)
+        let cityService = createCitiesServices(id: id, link: url, location: location, limit: limit, autoPagination: autoPagination)
         guard let service = cityService else {return}
         service.limit = limit ?? 50
         if let autoPagination = autoPagination {
@@ -181,7 +182,7 @@ extension TRPRestKit {
             self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
         
-        if let link = link {
+        if let link = url {
             service.connection(link: link)
         } else {
             service.connection()
@@ -293,9 +294,9 @@ extension TRPRestKit {
     ///   - withIds: Places of Interests in a form of array.
     ///   - cityId: Id of the requested city.
     ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
-    ///   if the autopagination is set to `true`, next link will be continued.
-    ///   If autopagination is set to `false`, next link will not be continued.
-    ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///   if the autopagination is set to `true`, next url will be continued.
+    ///   If autopagination is set to `false`, next url will not be continued.
+    ///   To call **poi(url:complation:)**, `pagination.nextlink` must be used.
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
     ///  Pagination value also must be checked.
@@ -315,9 +316,9 @@ extension TRPRestKit {
     ///   - cityId: City Id
     ///   - limit: number of poi list to display (Optional).
     ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
-    ///   if the autopagination is set to `true`, next link will be continued.
-    ///   If autopagination is set to `false`, next link will not be continued.
-    ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///   if the autopagination is set to `true`, next url will be continued.
+    ///   If autopagination is set to `false`, next url will not be continued.
+    ///   To call **poi(url:complation:)**, `pagination.nextlink` must be used.
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
     ///  Pagination value also must be checked.
@@ -333,22 +334,22 @@ extension TRPRestKit {
                     autoPagination: autoPagination ?? false)
     }
     
-    /// Obtain information of pois using url link which will be returned from Pagination
+    /// Obtain information of pois using url which will be returned from Pagination
     ///
     /// - Parameters:
-    ///   - link: Link that returned from Pagination
+    ///   - url: url that returned from Pagination
     ///   - limit: number of poi list to display (Optional).
     ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
-    ///   if the autopagination is set to `true`, next link will be continued.
-    ///   If autopagination is set to `false`, next link will not be continued.
-    ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///   if the autopagination is set to `true`, next url will be continued.
+    ///   If autopagination is set to `false`, next url will not be continued.
+    ///   To call **poi(url:complation:)**, `pagination.nextlink` must be used.
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
     ///  Pagination value also must be checked.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
-    public func poi(link: String, limit: Int? = 100, autoPagination: Bool = true, completion: @escaping CompletionHandlerWithPagination) {
+    public func poi(url: String, limit: Int? = 100, autoPagination: Bool = true, completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
-        poiServices(placeIds: nil, cities: nil, limit: limit, link: link, autoPagination: autoPagination)
+        poiServices(placeIds: nil, cities: nil, limit: limit, url: url, autoPagination: autoPagination)
     }
     
     /// Obtain information of pois using location.
@@ -364,9 +365,9 @@ extension TRPRestKit {
     ///   - cityId: Id of the requested city.
     ///   - categoryIds: Poi category ids. This parameter is used in `Search This Area` button action on `Map View`.
     ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
-    ///   if the autopagination is set to `true`, next link will be continued.
-    ///   If autopagination is set to `false`, next link will not be continued.
-    ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///   if the autopagination is set to `true`, next url will be continued.
+    ///   If autopagination is set to `false`, next url will not be continued.
+    ///   To call **poi(url:complation:)**, `pagination.nextlink` must be used.
     ///   - limit: number of pois to display (Optional).
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
@@ -395,9 +396,9 @@ extension TRPRestKit {
     ///   - withCityId: Id of the requested city.
     ///   - categoryIds: Poi category ids. This parameter is used in `Search This Area` button action on `Map View`.
     ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
-    ///   if the autopagination is set to `true`, next link will be continued.
-    ///   If autopagination is set to `false`, next link will not be continued.
-    ///   To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///   if the autopagination is set to `true`, next url will be continued.
+    ///   If autopagination is set to `false`, next url will not be continued.
+    ///   To call **poi(url:complation:)**, `pagination.nextlink` must be used.
     ///   - limit: number of pois to display (Optional).
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
@@ -444,7 +445,7 @@ extension TRPRestKit {
     ///   - distance: limit that location and distance between
     ///   - typeId: CategoryId
     ///   - typeIds: CategoriesIds
-    ///   - link: Link for Pagination
+    ///   - url: url for Pagination
     ///   - searchText: Search text parameter for tags or places name
     ///   - cityId: CityId
     ///   - autoPagination: AutoCompletion patameter
@@ -455,7 +456,7 @@ extension TRPRestKit {
                              distance: Double? = nil,
                              typeId: Int? = nil,
                              typeIds: [Int]? = nil,
-                             link: String? = nil,
+                             url: String? = nil,
                              searchText: String? = nil,
                              cityId: Int? = nil,
                              autoPagination: Bool = true) {
@@ -467,7 +468,7 @@ extension TRPRestKit {
                                             distance: distance,
                                             typeId: typeId,
                                             typeIds: typeIds,
-                                            link: link,
+                                            link: url,
                                             searchText: searchText,
                                             cityId: cityId,
                                             autoPagination: autoPagination)
@@ -489,7 +490,7 @@ extension TRPRestKit {
             self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
         
-        if let link = link {
+        if let link = url {
             services.connection(link: link)
         } else {
             services.connection()
@@ -646,9 +647,9 @@ extension TRPRestKit {
     /// - Parameters:
     ///      - settings: A TRPRecommendationSettings object which is retrieved by Recommendation Engine.
     ///      - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
-    ///      if the autopagination is set to `true`, next link will be continued.
-    ///      If autopagination is set to `false`, next link will not be continued.
-    ///      To call **poi(link:complation:)**, `pagination.nextlink` must be used.
+    ///      if the autopagination is set to `true`, next url will be continued.
+    ///      If autopagination is set to `false`, next url will not be continued.
+    ///      To call **poi(url:complation:)**, `pagination.nextlink` must be used.
     ///      - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPRecommendationInfoJsonModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-quick-recommendations)

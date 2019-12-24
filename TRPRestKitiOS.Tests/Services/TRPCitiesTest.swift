@@ -12,7 +12,7 @@ import XCTest
 @testable import TRPRestKit
 import TRPFoundationKit
 
-class TRPCitiesTest: XCTestCase {
+class BbTRPCitiesTest: XCTestCase {
     
     // MARK: Variables
     private let fourSeconds: Double = 4.0
@@ -20,13 +20,6 @@ class TRPCitiesTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
-        TestUtilConstants.targetServer = .test
-        
-        //TRPRestKit().logout()
-        //UserMockSession.shared.setServer()
-        //UserMockSession.shared.doLogin()
-        
-        TRPClient.monitor(data: true, url: true)
     }
     
     // MARK: Test Functions

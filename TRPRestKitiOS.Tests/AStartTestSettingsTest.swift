@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import TRPRestKit
-class AdStartTestSettingsTest: XCTestCase {
+class BaAdStartTestSettingsTest: XCTestCase {
 
     override func setUp() {
         TRPRestKit().logout()
@@ -22,7 +22,8 @@ class AdStartTestSettingsTest: XCTestCase {
         
         TestUtilConstants.targetServer = .airMiles
         TRPClient.monitor(data: true, url: true)
-        
+        UserMockSession.shared.setServer()
+        UserMockSession.shared.doLogin()
     }
     
 }

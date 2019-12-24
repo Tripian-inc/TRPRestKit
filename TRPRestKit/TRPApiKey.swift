@@ -19,11 +19,11 @@ class TRPApiKey {
         //if TRPApiKey.shared.apiKey == nil {
         //   TRPApiKey.shared.apiKey = TRPApiKeyController.getKey(.trpApiKey)
         //}
-        
+        let errorMessage = "Api key must not be empty. Please add your api key to TRPClient.start(enviroment:,apiKey:)"
         if TRPApiKey.shared.apiKey == nil {
-            log.e("Api key mustn't be empty. Please add your api key in Info.Plist file.")
+            log.e(errorMessage)
         }else if TRPApiKey.shared.apiKey!.count == 0 {
-            log.e("Api key mustn't be empty. Please add your api key in Info.Plist file.")
+            log.e(errorMessage)
         }
         
         return TRPApiKey.shared.apiKey ?? ""
