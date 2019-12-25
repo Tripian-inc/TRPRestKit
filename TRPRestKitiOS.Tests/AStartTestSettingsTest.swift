@@ -20,7 +20,7 @@ class BaAdStartTestSettingsTest: XCTestCase {
     }
     func testPrepareSystem() {
         
-        TestUtilConstants.targetServer = .airMiles
+        TestUtilConstants.targetServer = .test
         TRPClient.monitor(data: true, url: true)
         UserMockSession.shared.setServer()
         UserMockSession.shared.doLogin()

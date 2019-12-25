@@ -708,8 +708,8 @@ extension TRPRestKit {
         loginServices(parameters: parameters)
     }
     
-    public func login(withUsername userName:String, password: String, completion: @escaping CompletionHandler) {
-        let params = ["username": userName, "password": password]
+    public func login(withEmail email:String, password: String, completion: @escaping CompletionHandler) {
+        let params = ["email": email, "password": password]
         loginServices(parameters: params)
     }
     
