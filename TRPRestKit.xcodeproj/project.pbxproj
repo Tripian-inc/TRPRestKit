@@ -80,6 +80,7 @@
 		B267BBA62357060500C25778 /* TRPUserInfoUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267BBA52357060500C25778 /* TRPUserInfoUpdate.swift */; };
 		B267BBBE23572BEF00C25778 /* TRPCompanionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267BBBD23572BEF00C25778 /* TRPCompanionTest.swift */; };
 		B267BBC02357396D00C25778 /* TRPTripsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267BBBF2357396D00C25778 /* TRPTripsTest.swift */; };
+		B27712AF23CCB3F10092EE69 /* TRPRestDeneme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27712AE23CCB3F10092EE69 /* TRPRestDeneme.swift */; };
 		B287616623A79DEC00951486 /* TRPApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B287616523A79DEC00951486 /* TRPApiKey.swift */; };
 		B287616823A7A10C00951486 /* TRPApiKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B287616723A7A10C00951486 /* TRPApiKeyTest.swift */; };
 		B29B462A20F607F90009E711 /* TRPRestKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B29B462820F607F90009E711 /* TRPRestKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -226,6 +227,7 @@
 		B267BBBD23572BEF00C25778 /* TRPCompanionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCompanionTest.swift; sourceTree = "<group>"; };
 		B267BBBF2357396D00C25778 /* TRPTripsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripsTest.swift; sourceTree = "<group>"; };
 		B2764A84218AE4EF0069B17E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B27712AE23CCB3F10092EE69 /* TRPRestDeneme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestDeneme.swift; sourceTree = "<group>"; };
 		B287616523A79DEC00951486 /* TRPApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPApiKey.swift; sourceTree = "<group>"; };
 		B287616723A7A10C00951486 /* TRPApiKeyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPApiKeyTest.swift; sourceTree = "<group>"; };
 		B29B462520F607F90009E711 /* TRPRestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TRPRestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -537,6 +539,7 @@
 				B210988D2188AD8F0070946C /* TRPImageResizer.swift */,
 				B2341D6123143939007EAF80 /* RestKitInfo.swift */,
 				B287616523A79DEC00951486 /* TRPApiKey.swift */,
+				B27712AE23CCB3F10092EE69 /* TRPRestDeneme.swift */,
 			);
 			path = TRPRestKit;
 			sourceTree = "<group>";
@@ -951,6 +954,7 @@
 				B21E1A8B220A27F500EF471F /* TRPGooglePlaceLocation.swift in Sources */,
 				B215BF0B2131D18A00659818 /* TRPMyPrograms.swift in Sources */,
 				B29B46A820F6138D0009E711 /* TRPPlace.swift in Sources */,
+				B27712AF23CCB3F10092EE69 /* TRPRestDeneme.swift in Sources */,
 				B29B468820F60FA70009E711 /* TRPPoiInfoModel.swift in Sources */,
 				B29B46AA20F613A00009E711 /* TRPTripQuestion.swift in Sources */,
 				B20CD9FC2136E23200497ED3 /* TRPFeedback.swift in Sources */,

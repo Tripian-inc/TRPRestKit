@@ -8,7 +8,7 @@
 
 import Foundation
 import TRPFoundationKit
-internal class TRPCities: TRPRestServices {
+public class TRPCities: TRPRestServices {
     
     private enum RequestType {
         case allCities
@@ -21,14 +21,14 @@ internal class TRPCities: TRPRestServices {
     private var location: TRPLocation?
     public var limit = 50
     
-    internal override init() {}
+    public override init() {}
     
-    internal init(cityId: Int) {
+    public init(cityId: Int) {
         self.requestType = .cityWithId
         self.cityId = cityId
     }
     
-    internal init(location: TRPLocation) {
+    public init(location: TRPLocation) {
         self.requestType = .cityWithLocation
         self.location = location
     }
@@ -66,7 +66,7 @@ internal class TRPCities: TRPRestServices {
         return path
     }
     
-    override func parameters() -> [String: Any]? {
+    override public func parameters() -> [String: Any]? {
         var params: [String: Any] = [:]
         if let location = location {
             params["coordinate"] = "\(location.lat),\(location.lon)"

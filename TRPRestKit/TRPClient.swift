@@ -28,6 +28,7 @@ import Foundation
     
     internal var enviroment: Environment = .test {
         didSet {
+            log.i("Enviroment was changed: \(self.enviroment)")
             self.baseUrl = self.enviroment.baseUrl
         }
     }
@@ -51,19 +52,4 @@ import Foundation
         TRPClient.shared.monitorData = data ?? false
     }
     
-    //Versiyon Kontrol
-    
-    /// Allows link to be shown
-    ///
-    /// - Parameter status: status
-   /* public static func printLink(_ status: Bool) {
-        TRPClient.shared.showLink = status
-    } */
-    
-    /// Allows Data to be shown
-    ///
-    /// - Parameter status: status
-   /* public static func printData(_ status: Bool) {
-        TRPClient.shared.showData = status
-    } */
 }
