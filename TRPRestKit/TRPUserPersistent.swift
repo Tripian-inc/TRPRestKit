@@ -36,7 +36,7 @@ public struct TRPUserPersistent {
         UserDefaults.standard.set(value, forKey: userIdCodeTag)
     }
     
-    public static func getUserEmail(_ mail: String) -> String? {
+    public static func getUserEmail() -> String? {
         return UserDefaults.standard.string(forKey: userEmailCodeTag)
     }
     

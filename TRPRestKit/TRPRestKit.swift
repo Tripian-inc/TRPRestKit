@@ -756,6 +756,16 @@ extension TRPRestKit {
         userRegisterServices(userName: userName)
     }
     
+    public func register(email: String,
+                         password: String,
+                         firstName: String? = nil,
+                         lastName: String? = nil,
+                         completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        userRegisterServices(email: email, password: password, firstName: firstName, lastName: lastName)
+    }
+    
+    
     /// Obtain personal user information (must be logged in with access token), such as user id, e-mail, and preferences.
     ///
     /// - Parameters:
@@ -768,12 +778,22 @@ extension TRPRestKit {
     }
     
     /// A services which will be used in user register services, manages all task connecting to remote server.
-    private func userRegisterServices(userName: String? = nil) {
-        
+    
+    private func userRegisterServices(userName: String? = nil,
+                                      email: String? = nil,
+                                      password: String? = nil,
+                                      firstName: String? = nil,
+                                      lastName: String? = nil) {
         var services: TRPUserRegister?
         if let userName = userName {
             services = TRPUserRegister(userName: userName)
+        }else if let email = email, let password = password {
+            services = TRPUserRegister(email: email,
+                                       password: password,
+                                       firstName: firstName,
+                                       lastName: lastName)
         }
+        
         guard let mServices = services else { return }
         mServices.completion = {   (result, error, _) in
             if let error = error {
@@ -1462,8 +1482,6 @@ extension TRPRestKit {
 
 // MARK: - NearBy Services
 extension TRPRestKit {
-    
-    
     
     /// Obtain plan poi alternative list with given trip hash and completion parameters.
     ///
