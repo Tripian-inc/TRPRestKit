@@ -724,6 +724,7 @@ extension TRPRestKit {
             }
             if let serviceResult = result as? TRPLoginJsonModel {
                 TRPUserPersistent.saveHashToken(serviceResult.data.accessToken)
+                
                 self.postData(result: serviceResult.data, pagination: pagination)
             } else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
@@ -756,6 +757,8 @@ extension TRPRestKit {
         userRegisterServices(userName: userName)
     }
     
+    
+    //RETURN TRPUserInfoModel
     public func register(email: String,
                          password: String,
                          firstName: String? = nil,
@@ -764,7 +767,6 @@ extension TRPRestKit {
         self.completionHandler = completion
         userRegisterServices(email: email, password: password, firstName: firstName, lastName: lastName)
     }
-    
     
     /// Obtain personal user information (must be logged in with access token), such as user id, e-mail, and preferences.
     ///
@@ -800,8 +802,9 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            
-            if let serviceResult = result as? TRPTestUserInfoJsonModel {
+            if let serviceResultForAirMiles = result as? TRPUserInfoJsonModel {
+                self.postData(result: serviceResultForAirMiles.data)
+            }else if let serviceResult = result as? TRPTestUserInfoJsonModel {
                 self.postData(result: serviceResult.data)
             } else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
@@ -893,11 +896,16 @@ extension TRPRestKit {
                 return
             }
             if let serviceResult = result as? TRPUserInfoJsonModel {
+                
+                TRPUserPersistent.saveUserEmail(serviceResult.data.email)
                 self.postData(result: serviceResult.data, pagination: pagination)
             }else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
+        
+        
+        
         services.connection()
     }
     
