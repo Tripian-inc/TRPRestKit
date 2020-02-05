@@ -58,14 +58,11 @@ internal class TRPUserRegister: TRPRestServices {
     public override func parameters() -> [String: Any]? {
         
         if let email = email, let password = password {
-            
             var parameters = ["email": email,
-            "password": password ]
-            
+                              "password": password ]
             if let firstName = firstName {
                 parameters["first_name"] = firstName
             }
-            
             if let lastName = lastName {
                 parameters["last_name"] = lastName
             }
