@@ -10,7 +10,7 @@
 
 import XCTest
 @testable import TRPRestKit
-@testable import TRPFoundationKit
+import TRPFoundationKit
 // swiftlint:disable all
 class TRPPoiTest: XCTestCase {
     
@@ -24,7 +24,6 @@ class TRPPoiTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
-        UserMockSession.shared.doLogin()
     }
     
     // MARK: - Test Functions
@@ -37,6 +36,7 @@ class TRPPoiTest: XCTestCase {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         var loopCounter = 0
+    
         TRPRestKit().poi(withCityId: cityId, autoPagination: false) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
@@ -141,9 +141,10 @@ class TRPPoiTest: XCTestCase {
     func testPoiWithLink() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        let url = "https://0swjhnxnqd.execute-api.ca-central-1.amazonaws.com/v2/poi?city_id=107&limit=100&page=2"
         
-        TRPRestKit().poi(link: url) { (result, error, pagination) in
+        let url = "\(TestUtilConstants.targetServer.url.reableUrl)/poi?city_id=107&limit=100&page=2"
+        
+        TRPRestKit().poi(url: url) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
@@ -228,7 +229,7 @@ class TRPPoiTest: XCTestCase {
             loopCounter += 1
             XCTAssertNotNil(pagination)
             XCTAssertNotEqual(places.count, 0)
-            XCTAssertEqual(places.count, 20)
+            
             let firstPlace = places.first
             XCTAssertNotNil(firstPlace)
             XCTAssertNotNil(firstPlace!.cityId)
@@ -276,6 +277,8 @@ class TRPPoiTest: XCTestCase {
     func testPoiSearch() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+        
+        
         TRPRestKit().poi(search: "hot", cityId: cityId, location: location) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")

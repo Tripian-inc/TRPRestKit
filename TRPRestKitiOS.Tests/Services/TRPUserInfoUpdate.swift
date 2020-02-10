@@ -7,19 +7,19 @@
 //
 
 import XCTest
-import TRPRestKit
+@testable import TRPRestKit
 
-class TRPUserInfoUpdate: XCTestCase {
+class AfTRPUserInfoUpdate: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        TRPClient.provideApiKey("oDlzmHfvrjaMUpJbIP7y55RuONbYGaNZ6iW4PMAn")
-        TRPClient.printData(true)
+        UserMockSession.shared.setServer()
+        UserMockSession.shared.doLogin()
     }
     
-    func randomString(length: Int) -> String {
-      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-      return String((0..<length).map { _ in letters.randomElement()! })
+    override func randomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map { _ in letters.randomElement()! })
     }
     
     func testUserInfoUpdate() {
@@ -47,22 +47,26 @@ class TRPUserInfoUpdate: XCTestCase {
                 return
             }
             
-            XCTAssertNotNil(model.lastName)
-            XCTAssertNotNil(model.firstName)
-            
-            XCTAssertNotNil(model.info)
-            var ageFromServer: String?
-            
-            for child in model.info! where child.key == "age" {
-                ageFromServer = child.value
+            if TestUtilConstants.targetServer == .airMiles {
+                XCTAssertNotNil(model.lastName)
+                XCTAssertNotNil(model.firstName)
+                
+                XCTAssertNotNil(model.info)
+                var ageFromServer: String?
+                
+                for child in model.info! where child.key == "age" {
+                    ageFromServer = child.value
+                }
+                
+                XCTAssertNotNil(ageFromServer)
+                let ageFromServerInt = Int(ageFromServer!)
+                XCTAssertNotNil(ageFromServerInt)
+                XCTAssertEqual(ageFromServerInt, randomAge)
+                XCTAssertEqual(model.lastName!, randomLastName)
+                XCTAssertEqual(model.firstName!, randomName)
+            }else {
+                XCTAssert(!model.username.isEmpty)
             }
-            
-            XCTAssertNotNil(ageFromServer)
-            let ageFromServerInt = Int(ageFromServer!)
-            XCTAssertNotNil(ageFromServerInt)
-            XCTAssertEqual(ageFromServerInt, randomAge)
-            XCTAssertEqual(model.lastName!, randomLastName)
-            XCTAssertEqual(model.firstName!, randomName)
             
             expectation.fulfill()
         }

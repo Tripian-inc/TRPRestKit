@@ -24,7 +24,7 @@ public class TRPRestServices {
         network.add(params: createParams())
         network.add(mode: requestMode())
         
-        network.addValue(TRPClient.getKey(), forHTTPHeaderField: "x-api-key")
+        network.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
         if let bodyData = bodyDataToJson(bodyParameters()) {
             network.addValue("application/json", forHTTPHeaderField: "Content-Type")
             network.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -46,7 +46,7 @@ public class TRPRestServices {
     public func connection(link: String) {
         
         let network = TRPNetwork(link: link)
-        network.addValue(TRPClient.getKey(), forHTTPHeaderField: "x-api-key")
+        network.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
         if let bodyData = bodyDataToJson(bodyParameters()) {
             network.addValue("application/json", forHTTPHeaderField: "Content-Type")
             network.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -78,7 +78,7 @@ public class TRPRestServices {
         do {
             jsonData = try JSONSerialization.data(withJSONObject: bodyData, options: [])
         } catch let error {
-            print("HttpBody data: \(error.localizedDescription)")
+            log.e("HttpBody data: \(error.localizedDescription)")
         }
         return jsonData
     }

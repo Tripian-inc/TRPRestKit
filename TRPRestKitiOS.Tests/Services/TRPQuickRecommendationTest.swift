@@ -20,7 +20,6 @@ class TRPQuickRecommendationTest: XCTestCase {
     // MARK: Set Up
     override class func setUp() {
         super.setUp()
-        UserMockSession.shared.doLogin()
     }
     
     // MARK: Test Functions
