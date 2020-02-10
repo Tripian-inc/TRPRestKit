@@ -205,7 +205,6 @@ extension TRPRestKit {
         }
         return cityService
     }
-    
 }
 
 // MARK: - Poi Categories Services
