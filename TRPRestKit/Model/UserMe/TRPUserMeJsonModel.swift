@@ -27,7 +27,7 @@ internal class TRPUserInfoJsonModel: TRPParentJsonModel {
 internal class TRPTestUserInfoJsonModel: TRPParentJsonModel {
     
     /// User data
-    public var data: TRPTestUserInfoModel
+    public var data: TRPRegisterUserInfo
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -35,7 +35,7 @@ internal class TRPTestUserInfoJsonModel: TRPParentJsonModel {
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.data = try values.decode(TRPTestUserInfoModel.self, forKey: .data)
+        self.data = try values.decode(TRPRegisterUserInfo.self, forKey: .data)
         try super.init(from: decoder)
     }
 }

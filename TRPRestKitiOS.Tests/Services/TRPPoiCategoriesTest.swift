@@ -16,7 +16,6 @@ class TRPPoiCategoriesTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
-        UserMockSession.shared.doLogin()
     }
     
     /**

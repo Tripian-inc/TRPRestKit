@@ -20,37 +20,36 @@ import Foundation
 @objc public class TRPClient: NSObject {
     
     internal static var shared = TRPClient()
-    private var apiKey = ""
     
     /// Allows link to be shown
-    public var showLink = false
+    public var monitorUrl = false
     /// Allows Data to be shown
-    public var showData = false
+    public var monitorData = false
+    
+    internal var enviroment: Environment = .test {
+        didSet {
+            log.i("Enviroment was changed: \(self.enviroment)")
+            self.baseUrl = self.enviroment.baseUrl
+        }
+    }
+    
+    internal var baseUrl: BaseUrlCreater = Environment.test.baseUrl
     
     private override init() {}
     
-    /// An api key must be setted
-    ///
-    /// - Parameter key: Your api key
-    @objc public static func provideApiKey(_ key: String) {
-        TRPClient.shared.apiKey = key
+    public static func start(enviroment: Environment, apiKey: String) {
+        TRPClient.shared.enviroment = enviroment
+        TRPApiKey.setApiKey(apiKey)
     }
     
-    internal static func getKey() -> String {
-        return TRPClient.shared.apiKey
+    public static func start(baseUrl: BaseUrlCreater, apiKey: String) {
+        TRPClient.shared.baseUrl = baseUrl
+        TRPApiKey.setApiKey(apiKey)
     }
     
-    /// Allows link to be shown
-    ///
-    /// - Parameter status: status
-    public static func printLink(_ status: Bool) {
-        TRPClient.shared.showLink = status
+    public static func monitor(data: Bool? = false, url: Bool? = false) {
+        TRPClient.shared.monitorUrl = url ?? false
+        TRPClient.shared.monitorData = data ?? false
     }
     
-    /// Allows Data to be shown
-    ///
-    /// - Parameter status: status
-    public static func printData(_ status: Bool) {
-        TRPClient.shared.showData = status
-    }
 }

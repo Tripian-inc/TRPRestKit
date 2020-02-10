@@ -48,7 +48,7 @@ public struct TRPUserTripInfoModel: Decodable {
         self.arrivalTime = TRPTime(date: arrivalDate, time: arrivalTime)
         self.depatureTime = TRPTime(date: departureDate, time: departureTime)
         
-        if let city = try? values.decodeIfPresent(TRPCityInfoModel.self, forKey: .city) {
+        if let city = ((try? values.decodeIfPresent(TRPCityInfoModel.self, forKey: .city)) as TRPCityInfoModel??) {
             self.city = city
         }
     }

@@ -1,0 +1,19 @@
+name: CI
+
+on: 
+  push:
+    branches: 
+      - master
+      - documentation_rest_kit_in_rest_kit_swift
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run Unit Test
+      run: xcodebuild -project 'TRPRestKit.xcodeproj' -scheme 'TRPRestKitiOS.Tests' -destination 'platform=iOS Simulator, name=iPhone 8' test | xcpretty
+    - name: Run a multi-line script
+      run: xcodebuild -project 'TRPRestKit.xcodeproj' -scheme 'TRPRestKit' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO | xcpretty

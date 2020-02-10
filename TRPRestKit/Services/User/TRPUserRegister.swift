@@ -9,12 +9,17 @@
 import Foundation
 
 internal class TRPUserRegister: TRPRestServices {
-
-    var password: String?
-    var userName: String?
-    var email: String?
     
-    public init(email: String, password: String) {
+    private var email: String?
+    private var password: String?
+    private var userName: String?
+    private var firstName: String?
+    private var lastName: String?
+    
+    public init(email: String,
+                password: String,
+                firstName: String?,
+                lastName: String?) {
         self.password = password
         self.email = email
     }
@@ -32,8 +37,7 @@ internal class TRPUserRegister: TRPRestServices {
             self.completion?(nil, TRPErrors.wrongData as NSError, nil)
             return
         }
-        let json = String(data: data, encoding: .utf8)
-        print("UserJsonResult: \(json!)")
+        
         let jsonDecode = JSONDecoder()
         do {
             if password != nil && email != nil {
@@ -54,7 +58,15 @@ internal class TRPUserRegister: TRPRestServices {
     public override func parameters() -> [String: Any]? {
         
         if let email = email, let password = password {
-            return ["email": email, "password": password]
+            var parameters = ["email": email,
+                              "password": password ]
+            if let firstName = firstName {
+                parameters["first_name"] = firstName
+            }
+            if let lastName = lastName {
+                parameters["last_name"] = lastName
+            }
+            return parameters
         }
         if let userName = userName {
             return ["username": userName]

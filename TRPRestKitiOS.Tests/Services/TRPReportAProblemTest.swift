@@ -20,7 +20,6 @@ class TRPReportAProblemTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
-        UserMockSession.shared.doLogin()
     }
     
     // MARK: Report A Problem Tests

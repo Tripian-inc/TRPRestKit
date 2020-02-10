@@ -19,7 +19,6 @@ class TRPTripsTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
-        UserMockSession.shared.doLogin()
     }
     
     // MARK: Trip Tests
@@ -77,11 +76,13 @@ class TRPTripsTest: XCTestCase {
             
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
                 return
             }
             
             guard let result = result as? TRPTripInfoModel else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripJsonModel")
+                expectation.fulfill()
                 return
             }
             

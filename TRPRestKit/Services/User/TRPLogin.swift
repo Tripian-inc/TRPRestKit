@@ -14,23 +14,19 @@ internal class TRPLogin: TRPRestServices {
     private var email: String?
     private var password: String?
     //Test server
-    private var userName: String?
+    private var loginParameters: [String: String]
     
-    /// Login in AirmilesServer
-    ///
-    /// - Parameters:
-    ///   - email: email address
-    ///   - password: user password
-    init(email: String, password: String) {
-        self.email = email
-        self.password = password
-    }
     
-    /// Login in Test Server
-    ///
-    /// - Parameter userName: User Name
-    init(userName: String) {
-        self.userName = userName
+    init?(parameters: [String: String]) {
+        if parameters.count == 0 {
+            return nil
+        }
+        for param in parameters {
+            if param.key.isEmpty || param.value.isEmpty {
+                return nil
+            }
+        }
+        loginParameters  = parameters
     }
     
     override func servicesResult(data: Data?, error: NSError?) {
@@ -61,13 +57,7 @@ internal class TRPLogin: TRPRestServices {
     }
     
     public override func bodyParameters() -> [String: Any]? {
-        if let email = email, let password = password {
-            return ["email": email, "password": password]
-        }
-        if let userName = userName {
-            return ["username": userName]
-        }
-        return nil
+        return loginParameters
     }
 
 }
