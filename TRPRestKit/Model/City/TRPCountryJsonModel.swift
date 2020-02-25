@@ -11,9 +11,9 @@ import Foundation
 public struct TRPCountryJsonModel: Decodable {
     
     /// Code of Country such as us
-    public var code: String?
+    public var code: String
     /// Name of Country such as USA
-    public var name: String?
+    public var name: String
     /// Continient of County
     public var continient: String?
     
@@ -32,8 +32,8 @@ public struct TRPCountryJsonModel: Decodable {
     /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.code = try values.decodeIfPresent(String.self, forKey: .code)
-        self.name = try values.decodeIfPresent(String.self, forKey: .name)
+        self.code = try values.decode(String.self, forKey: .code)
+        self.name = try values.decode(String.self, forKey: .name)
         //For continient
         let continientContainer = try values.nestedContainer(keyedBy: ContinientKeys.self, forKey: .continent)
         self.continient = try continientContainer.decodeIfPresent(String.self, forKey: .name)

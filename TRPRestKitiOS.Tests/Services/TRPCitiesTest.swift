@@ -20,6 +20,9 @@ class BbTRPCitiesTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
+        let urlCreater = BaseUrlCreater(baseUrl: "6ezq4jb2mk.execute-api.eu-west-1.amazonaws.com", basePath: "api")
+        TRPClient.start(baseUrl: urlCreater, apiKey: "")
+        TRPClient.monitor(data: true, url: true)
     }
     
     // MARK: Test Functions
@@ -227,7 +230,7 @@ class BbTRPCitiesTest: XCTestCase {
      */
     func testCityWithUrlLink() {
         
-        let url = "\(TestUtilConstants.targetServer.url.reableUrl)/cities?limit=20&page=2"
+        let url = "\(TestUtilConstants.targetServer.url.reableUrl)/city?limit=20&page=2"
         print(url)
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")

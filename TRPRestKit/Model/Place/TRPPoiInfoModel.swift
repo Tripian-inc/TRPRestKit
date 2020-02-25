@@ -45,7 +45,6 @@ public struct TRPPoiInfoModel: Decodable {
     public var description: String?
     
     public var mainCuisines: String?
-    
     public var cuisines: String?
     public var features: String?
     public var narrativeTags: String?

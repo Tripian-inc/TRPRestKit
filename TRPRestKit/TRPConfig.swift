@@ -22,7 +22,7 @@ internal struct TRPConfig {
     }
     
     internal enum ApiCall: String {
-        case cities
+        case city
         case getcityByCoordinates
         case poiCategories
         case poi
@@ -47,8 +47,8 @@ internal struct TRPConfig {
         case companion
         var link: String {
             switch self {
-            case .cities:
-                return getNewLink() ?? "cities"
+            case .city:
+                return getNewLink() ?? "city"
             case .getcityByCoordinates:
                 return getNewLink() ?? "getcitybycoordinate"
             case .poiCategories:

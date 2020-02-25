@@ -56,7 +56,7 @@ public class TRPCities: TRPRestServices {
         var path = ""
         
         if requestType == .allCities || requestType == .cityWithId {
-            path = TRPConfig.ApiCall.cities.link
+            path = TRPConfig.ApiCall.city.link
             if let id = cityId {
                 path += "/\(id)"
             }

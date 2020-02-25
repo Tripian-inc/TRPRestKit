@@ -76,10 +76,10 @@ class TRPCityJsonModelTest: XCTestCase {
             XCTAssertEqual(losAngeles!.coordinate.lat, 34.0522342)
             XCTAssertEqual(losAngeles!.coordinate.lon, -118.2436849)
             
-            XCTAssertNotNil(losAngeles!.country?.code)
-            XCTAssertNotNil(losAngeles!.country?.name)
-            XCTAssertEqual(losAngeles!.country!.code, "us")
-            XCTAssertEqual(losAngeles!.country!.name, "USA")
+            XCTAssertNotNil(losAngeles!.country.code)
+            XCTAssertNotNil(losAngeles!.country.name)
+            XCTAssertEqual(losAngeles!.country.code, "us")
+            XCTAssertEqual(losAngeles!.country.name, "USA")
             
         } catch let tryError {
             XCTFail(tryError.localizedDescription)

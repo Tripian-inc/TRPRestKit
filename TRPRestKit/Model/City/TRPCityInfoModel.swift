@@ -18,7 +18,7 @@ public class TRPCityInfoModel: NSObject, Decodable {
     /// A TRPCoordinateModel object that refers center coordinate(lat,lon) of a city.
     public var coordinate: TRPCoordinateModel
     /// A TRPCountryJsonModel object that indicates a country information that which the city is in.
-    public var country: TRPCountryJsonModel?
+    public var country: TRPCountryJsonModel
     /// A string value that indicate a featured image of City
     public var image: String?
     /// A double array that indicate a boundary of City
@@ -44,7 +44,7 @@ public class TRPCityInfoModel: NSObject, Decodable {
         self.name = try values.decode(String.self, forKey: .name)
         self.image = try values.decodeIfPresent(String.self, forKey: .image)
         self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coord)
-        self.country = try values.decodeIfPresent(TRPCountryJsonModel.self, forKey: .country)
+        self.country = try values.decode(TRPCountryJsonModel.self, forKey: .country)
         self.boundary = try values.decodeIfPresent([Double].self, forKey: .boundary) ?? []
     }
     
