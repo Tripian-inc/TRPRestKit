@@ -896,7 +896,6 @@ extension TRPRestKit {
                 return
             }
             if let serviceResult = result as? TRPUserInfoJsonModel {
-                
                 TRPUserPersistent.saveUserEmail(serviceResult.data.email)
                 self.postData(result: serviceResult.data, pagination: pagination)
             }else {

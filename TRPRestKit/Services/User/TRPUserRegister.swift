@@ -22,6 +22,8 @@ internal class TRPUserRegister: TRPRestServices {
                 lastName: String?) {
         self.password = password
         self.email = email
+        self.firstName = firstName
+        self.lastName = lastName
     }
 
     public init(userName: String) {

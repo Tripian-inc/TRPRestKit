@@ -27,8 +27,7 @@ public struct TRPCompanionModel: Decodable {
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.id = try values.decodeIfPresent(Int.self, forKey: .id)
+        self.id = try values.decode(Int.self, forKey: .id)
         self.name = try values.decodeIfPresent(String.self, forKey: .name)
         self.answers = try values.decodeIfPresent(String.self, forKey: .answers)
         if let age = try? values.decodeIfPresent(Int.self, forKey: .age) {
