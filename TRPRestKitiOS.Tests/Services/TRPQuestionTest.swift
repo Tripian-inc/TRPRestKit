@@ -19,40 +19,12 @@ class TRPQuestionTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
+        let urlCreater = BaseUrlCreater(baseUrl: "6ezq4jb2mk.execute-api.eu-west-1.amazonaws.com", basePath: "api")
+         TRPClient.start(baseUrl: urlCreater, apiKey: "")
+         TRPClient.monitor(data: true, url: true)
     }
     
     // MARK: Test Functions
-    
-    /**
-     * Tests Trip Question with given questionId.
-     */
-    func testTripQuestionsWithQuestionId() {
-        let nameSpace = #function
-        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        let questionID = questionId
-        
-        TRPRestKit().tripQuestions(withQuestionId: questionID) { (result, error) in
-            if let error = error {
-                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
-                return
-            }
-            guard let result = result else {
-                XCTFail("\(nameSpace) Resutl is nil")
-                return
-            }
-            guard let question = result as? TRPTripQuestionInfoModel  else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripQuestionInfoModel")
-                return
-            }
-            XCTAssertNotNil(question.id)
-            XCTAssertNotNil(question.name)
-            XCTAssertNotNil(question.options)
-            XCTAssertEqual(question.id, questionID)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 10.0)
-    }
     
     /**
      * Tests Trip Question with given cityId.
@@ -60,7 +32,7 @@ class TRPQuestionTest: XCTestCase {
     func testTripQuestionsWithCityId() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        TRPRestKit().tripQuestions(withCityId: cityId) { (result, error, _) in
+        TRPRestKit().questions(withCityId: cityId) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
@@ -69,7 +41,7 @@ class TRPQuestionTest: XCTestCase {
                 XCTFail("\(nameSpace) Resutl is nil")
                 return
             }
-            guard let question = result as? [TRPTripQuestionInfoModel]  else {
+            guard let question = result as? [TRPQuestionInfoModel]  else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripQuestionInfoModel")
                 return
             }
@@ -90,7 +62,7 @@ class TRPQuestionTest: XCTestCase {
     func testTripQuestions() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        TRPRestKit().tripQuestions(type: TPRTripQuestionType.trip) { (result, error, _) in
+        TRPRestKit().questions(type: .trip) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 expectation.fulfill()
@@ -102,7 +74,7 @@ class TRPQuestionTest: XCTestCase {
                 return
             }
             
-            guard let question = result as? [TRPTripQuestionInfoModel]  else {
+            guard let question = result as? [TRPQuestionInfoModel]  else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripQuestionInfoModel")
                 expectation.fulfill()
                 return
@@ -110,9 +82,12 @@ class TRPQuestionTest: XCTestCase {
             if question.count < 1 {
                 XCTFail("\(nameSpace) no exist data in array")
             }
+            
+            
             XCTAssertNotNil(question.first!.id)
             XCTAssertNotNil(question.first!.name)
             XCTAssertNotNil(question.first!.options)
+            XCTAssertEqual(question.first!.category, .trip)
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10.0)
@@ -126,7 +101,7 @@ class TRPQuestionTest: XCTestCase {
     func testProfileQuestions() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        TRPRestKit().tripQuestions(type: TPRTripQuestionType.profile) { (result, error, _) in
+        TRPRestKit().questions(type: .profile) { (result, error, _) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return
@@ -136,7 +111,7 @@ class TRPQuestionTest: XCTestCase {
                 return
             }
             
-            guard let question = result as? [TRPTripQuestionInfoModel]  else {
+            guard let question = result as? [TRPQuestionInfoModel]  else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripQuestionInfoModel")
                 return
             }
@@ -146,6 +121,7 @@ class TRPQuestionTest: XCTestCase {
             XCTAssertNotNil(question.first!.id)
             XCTAssertNotNil(question.first!.name)
             XCTAssertNotNil(question.first!.options)
+            XCTAssertEqual(question.first!.category, .profile)
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10.0)

@@ -480,8 +480,8 @@ extension TRPRestKit {
             placeService = TRPPoiService(ids: places, cityId: city)
         } else if let search = searchText {
             placeService = TRPPoiService(location: location,
-                                    searchText: search,
-                                    cityId: cityId)
+                                         searchText: search,
+                                         cityId: cityId)
         } else if let location = location {
             placeService = TRPPoiService(location: location, distance: distance)
             if let id = typeId {
@@ -506,18 +506,6 @@ extension TRPRestKit {
 // MARK: - Question Services
 extension TRPRestKit {
     
-    /// Returns a question which will be used when creating a trip by requested Question Id.
-    ///
-    /// - Parameters:
-    ///   - questionId: Id of the requested question.
-    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    ///  - Important: Completion Handler is an any object which needs to be converted to **TRPTripQuestionInfoModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-trip-planner)
-    public func tripQuestions(withQuestionId questionId: Int, completion: @escaping CompletionHandler) {
-        self.completionHandler = completion
-        questionServices(questionId: questionId)
-    }
-    
     /// Returns question array which will be used when creating a trip by requested city Id.
     ///
     /// - Parameters:
@@ -529,10 +517,10 @@ extension TRPRestKit {
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPTripQuestionInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-trip-planner)
-    public func tripQuestions(withCityId cityId: Int,
-                              type: TPRTripQuestionType? = TPRTripQuestionType.trip,
-                              language: String? = nil,
-                              completion: @escaping CompletionHandlerWithPagination) {
+    public func questions(withCityId cityId: Int,
+                          type: TRPQuestionCategory? = .trip,
+                          language: String? = nil,
+                          completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
         questionServices(cityId: cityId, type: type, language: language)
     }
@@ -548,9 +536,9 @@ extension TRPRestKit {
     ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPTripQuestionInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-trip-planner)
-    public func tripQuestions(type: TPRTripQuestionType? = TPRTripQuestionType.profile,
-                              language: String? = nil,
-                              completion: @escaping CompletionHandlerWithPagination) {
+    public func questions(type: TRPQuestionCategory? = .profile,
+                          language: String? = nil,
+                          completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
         questionServices(type: type, language: language)
     }
@@ -562,17 +550,14 @@ extension TRPRestKit {
     ///   - questionId: id of question
     ///   - type: type of request. You can use Profile when opening add place in localy mode. You have to use Profile and Trip when creating a trip.
     private func questionServices(cityId: Int? = nil,
-                                  questionId: Int? = nil,
-                                  type: TPRTripQuestionType? = nil,
+                                  type: TRPQuestionCategory? = nil,
                                   language: String? = nil) {
         
-        var questionService: TRPTripQuestion?
+        var questionService: TRPQuestionService?
         if let cityId = cityId {
-            questionService = TRPTripQuestion(cityId: cityId)
-        } else if let questionId = questionId {
-            questionService = TRPTripQuestion(questionId: questionId)
+            questionService = TRPQuestionService(cityId: cityId)
         } else {
-            questionService = TRPTripQuestion(tripType: type ?? .trip)
+            questionService = TRPQuestionService(tripType: type ?? .trip)
         }
         
         guard let services = questionService else {return}
@@ -583,20 +568,12 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let serviceResult = result as? TRPTripQuestionJsonModel {
-                if let questions = serviceResult.data {
-                    if questionId != nil {
-                        if let quesion = questions.first {
-                            self.postData(result: quesion)
-                            return
-                        }
-                    } else {
-                        self.postData(result: questions, pagination: pagination)
-                        return
-                    }
-                }
+            guard let serviceResult = result as? TRPQuestionJsonModel, let questions = serviceResult.data else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+                return
             }
-            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+
+            self.postData(result: questions, pagination: pagination)
         }
         services.connection()
     }

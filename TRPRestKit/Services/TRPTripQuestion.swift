@@ -12,31 +12,26 @@ import Foundation
 ///
 /// - trip: question about Trip.
 /// - profile: question about user profile.
-public enum TPRTripQuestionType: String {
+public enum TRPQuestionCategory: String {
     // Question about Trip.
     case trip
     // Question about user profile.
     case profile
     //Question about companion.
-    case companion
+    case companion 
 }
 
-internal class TRPTripQuestion: TRPRestServices {
+internal class TRPQuestionService: TRPRestServices {
     
     private var cityId: Int?
-    private var questionId: Int?
-    public var tripType = TPRTripQuestionType.trip
+    public var tripType = TRPQuestionCategory.trip
     public var language: String?
     
     internal init(cityId: Int) {
         self.cityId = cityId
     }
     
-    internal init(questionId: Int) {
-        self.questionId = questionId
-    }
-    
-    internal init(tripType: TPRTripQuestionType) {
+    internal init(tripType: TRPQuestionCategory) {
         self.tripType = tripType
     }
     
@@ -51,7 +46,7 @@ internal class TRPTripQuestion: TRPRestServices {
         }
         let jsonDecode = JSONDecoder()
         do {
-            let result = try jsonDecode.decode(TRPTripQuestionJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPQuestionJsonModel.self, from: data)
             let pag = paginationController(parentJson: result)
             self.completion?(result, nil, pag)
         } catch let tryError {
@@ -60,27 +55,22 @@ internal class TRPTripQuestion: TRPRestServices {
     }
     
     public override func path() -> String {
-        var link = TRPConfig.ApiCall.questions.link
-        if let questionId = questionId {
-            link += "/\(questionId)"
-        }
-        return link
+        return TRPConfig.ApiCall.questions.link
     }
     
     public override func parameters() -> [String: Any]? {
-        
+        var dic: [String: Any] = [:]
         if let cityId = cityId {
-            var dic: [String: Any] = [:]
             dic["city_id"] = "\(cityId)"
             dic["category"] = "\(tripType.rawValue)"
-            
             if let lang = language {
                 dic["language_code"] = "\(lang)"
             }
             
             return dic
         }
-        return nil
+        dic["category"] = "\(tripType.rawValue)"
+        return dic
     }
     
 }

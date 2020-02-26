@@ -8,19 +8,19 @@
 
 import Foundation
 /// Parent Json parser model for TripQuestion
-internal class TRPTripQuestionJsonModel: TRPParentJsonModel {
+internal class TRPQuestionJsonModel: TRPParentJsonModel {
     
     /// Question datas.
-    public var data: [TRPTripQuestionInfoModel]?
+    public var data: [TRPQuestionInfoModel]?
     
     private enum CodingKeys: String, CodingKey { case data }
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        if let datas = try? values.decodeIfPresent([TRPTripQuestionInfoModel].self, forKey: .data) {
+        if let datas = try? values.decodeIfPresent([TRPQuestionInfoModel].self, forKey: .data) {
             self.data = datas
-        } else if let mdata = try? values.decodeIfPresent(TRPTripQuestionInfoModel.self, forKey: .data), let convertedData = [mdata] as? [TRPTripQuestionInfoModel] {
+        } else if let mdata = try? values.decodeIfPresent(TRPQuestionInfoModel.self, forKey: .data), let convertedData = [mdata] as? [TRPQuestionInfoModel] {
             self.data = convertedData
         }
         

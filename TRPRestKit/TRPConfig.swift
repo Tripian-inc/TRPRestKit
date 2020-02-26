@@ -54,7 +54,7 @@ internal struct TRPConfig {
             case .poi:
                 return getNewLink() ?? "poi"
             case .questions:
-                return getNewLink() ?? "trip-questions"
+                return getNewLink() ?? "question"
             case .recommendations:
                 return getNewLink() ?? "recommendation"
             case .routes:
