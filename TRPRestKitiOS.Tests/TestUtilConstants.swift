@@ -58,6 +58,9 @@ struct TestUtilConstants {
         static let IstanbulCityId = 107
         static let IstanbulCityName = "Istanbul"
         static let Istanbullocation = TRPLocation(lat: 41, lon: 29)
+        
+        static let BogotaCityId = 41
+        static let Bogotalocation = TRPLocation(lat: 4.637, lon: -74.0)
     }
     
     struct MockPoiCategoryConstants {

@@ -341,7 +341,7 @@ extension TRPRestKit {
     ///  Pagination value also must be checked.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(withLocation location: TRPLocation,
-                    distance: Double? = nil,
+                    distance: Float? = nil,
                     cityId: Int? = nil,
                     categoryIds: [Int]? = nil,
                     autoPagination: Bool? = false,
@@ -420,7 +420,7 @@ extension TRPRestKit {
                              cities: [Int]? = nil,
                              limit: Int? = 25,
                              location: TRPLocation? = nil,
-                             distance: Double? = nil,
+                             distance: Float? = nil,
                              typeId: Int? = nil,
                              typeIds: [Int]? = nil,
                              url: String? = nil,
@@ -468,22 +468,22 @@ extension TRPRestKit {
                                   cities: [Int]? = nil,
                                   limit: Int? = 25,
                                   location: TRPLocation? = nil,
-                                  distance: Double? = nil,
+                                  distance: Float? = nil,
                                   typeId: Int? = nil,
                                   typeIds: [Int]? = nil,
                                   link: String? = nil,
                                   searchText: String? = nil,
                                   cityId: Int? = nil,
-                                  autoPagination: Bool = true) -> TRPPlace? {
-        var placeService: TRPPlace?
+                                  autoPagination: Bool = true) -> TRPPoiService? {
+        var placeService: TRPPoiService?
         if let places = placeIds, let cities = cities, let city = cities.first {
-            placeService = TRPPlace(ids: places, cityId: city)
+            placeService = TRPPoiService(ids: places, cityId: city)
         } else if let search = searchText {
-            placeService = TRPPlace(location: location,
+            placeService = TRPPoiService(location: location,
                                     searchText: search,
                                     cityId: cityId)
         } else if let location = location {
-            placeService = TRPPlace(location: location, distance: distance)
+            placeService = TRPPoiService(location: location, distance: distance)
             if let id = typeId {
                 placeService?.typeId = id
             }
@@ -492,11 +492,11 @@ extension TRPRestKit {
             }
             placeService?.cityId = cityId
         } else if let cities = cities {
-            placeService = TRPPlace(cities: cities)
+            placeService = TRPPoiService(cities: cities)
         } else if link != nil {
-            placeService = TRPPlace()
+            placeService = TRPPoiService()
         } else if let cityId = cityId, let types = typeIds {
-            placeService = TRPPlace(cityId: cityId, typeIds: types)
+            placeService = TRPPoiService(cityId: cityId, typeIds: types)
         }
         return placeService
     }

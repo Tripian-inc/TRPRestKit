@@ -17,40 +17,45 @@ public struct TRPPoiInfoModel: Decodable {
     public var cityId: Int
     /// A String value. Name of poi
     public var name: String
+    /// A String value. Featured image of poi
+    public var image: TRPImageModel
+    
+    public var gallery: [TRPImageModel]
+    /// An Int value. Indicates level of price between 0 and 4.
+    public var price: Int = 0
     /// A Float value. Indicates how many stars poi has.
     public var rating: Float?
     /// An Int value. Indicates how many review poi has.
     public var ratingCount: Int?
-    /// A String value. Address of poi.
-    public var address: String?
-    /// An Int value. Indicates level of price between 0 and 4.
-    public var price: Int = 0
-    /// A String value. Url of web site.
-    public var web: String?
-    /// A String value. Indicates the hours of operation.
-    public var hours: String?
-    /// A String value. Phone number of  poi.
-    public var phone: String?
-    /// A String value. Featured image of poi
-    public var image: String?
-    /// A String value. Icon name of poi.
-    public var icon: String
-    /// A TRPCategoryInfoModel array. A poi can have multiple categories.
-    public var category = [TRPCategoryInfoModel]()
-    /// A TRPCoordinateModel objects. Center coordinate of poi.
-    public var coordinate: TRPCoordinateModel
-    /// A String value. Sub category of poi such as vegetarian friendly, vegan options, gluten free options.
-    public var subCategory: String?
     /// A String value. Description of poi.
     public var description: String?
+    /// A String value. Url of web site.
+    public var web: String?
+    /// A String value. Phone number of  poi.
+    public var phone: String?
+    /// A String value. Indicates the hours of operation.
+    public var hours: String?
+    /// A String value. Address of poi.
+    public var address: String?
+    /// A String value. Icon name of poi.
+    public var icon: String
+    /// A TRPCoordinateModel objects. Center coordinate of poi.
+    public var coordinate: TRPCoordinateModel?
     
-    public var mainCuisines: String?
+    public var markerCoordinate: TRPCoordinateModel?
+    
+    public var booking: [TRPBookingInfoModel]?
+    
+    /// A TRPCategoryInfoModel array. A poi can have multiple categories.
+    public var category = [TRPCategoryInfoModel]()
+    public var tags: [String]
+    public var tastes: [TRPTastesInfoModel] = []
     public var cuisines: String?
-    public var features: String?
-    public var narrativeTags: String?
+    public var attention: String?
     
-    /// A TRPImageOwner object. Indicates who took the photo.
-    public var imageOwner: TRPImageOwner?
+    public var closed: [Int]
+    public var distance: Float?
+    public var status:Bool
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -68,12 +73,19 @@ public struct TRPPoiInfoModel: Decodable {
         case category
         case coordinate
         case description
-        case subCategory = "sub_category"
-        case mainCuisisnes = "main_cuisines"
         case cuisines
         case features
         case narrativeTags = "narrative_tags"
         case imageOwner = "image_owner"
+        case gallery
+        case markerCoordinate = "marker_coordinate"
+        case booking
+        case tags
+        case tastes
+        case attention
+        case closed
+        case distance
+        case status
     }
     
     /// Json to Object converter
@@ -91,9 +103,10 @@ public struct TRPPoiInfoModel: Decodable {
         self.web = try values.decodeIfPresent(String.self, forKey: .web)
         self.hours = try values.decodeIfPresent(String.self, forKey: .hours)
         self.phone = try values.decodeIfPresent(String.self, forKey: .phone)
-        self.image = try values.decodeIfPresent(String.self, forKey: .image)
+        self.image = try values.decode(TRPImageModel.self, forKey: .image)
         self.icon = try values.decode(String.self, forKey: .icon)
-        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
+        self.coordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .coordinate)
+        self.markerCoordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .markerCoordinate)
         
         if let categorys = try values.decodeIfPresent([TRPCategoryInfoModel].self, forKey: .category) {
             category = categorys
@@ -101,13 +114,16 @@ public struct TRPPoiInfoModel: Decodable {
         if let desk = try values.decodeIfPresent(String.self, forKey: .description) {
             description = desk
         }
-        self.subCategory = try values.decodeIfPresent(String.self, forKey: .subCategory)
-        self.mainCuisines = try values.decodeIfPresent(String.self, forKey: .mainCuisisnes)
+
         self.cuisines = try values.decodeIfPresent(String.self, forKey: .cuisines)
-        self.features = try values.decodeIfPresent(String.self, forKey: .features)
-        self.narrativeTags = try values.decodeIfPresent(String.self, forKey: .narrativeTags)
-        
-        self.imageOwner = try values.decodeIfPresent(TRPImageOwner.self, forKey: .imageOwner)
+        self.booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey:.booking)
+        self.gallery = try values.decodeIfPresent([TRPImageModel].self, forKey: .gallery) ?? []
+        self.tags = try values.decode([String].self, forKey: .tags)
+        self.tastes = try values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .tastes) ?? []
+        self.attention = try values.decodeIfPresent(String.self, forKey: .attention)
+        self.closed = try values.decodeIfPresent([Int].self, forKey: .closed) ?? []
+        self.distance = try values.decodeIfPresent(Float.self, forKey: .distance)
+        self.status = try values.decode(Bool.self, forKey: .status)
     }
     
 }

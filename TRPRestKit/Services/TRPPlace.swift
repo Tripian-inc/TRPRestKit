@@ -8,7 +8,7 @@
 
 import Foundation
 import TRPFoundationKit
-internal class TRPPlace: TRPRestServices {
+internal class TRPPoiService: TRPRestServices {
     
     private enum FetchType {
         case withCityId
@@ -25,7 +25,7 @@ internal class TRPPlace: TRPRestServices {
     var typeIds: [Int]?
     
     private var location: TRPLocation?
-    private var distance: Double?
+    private var distance: Float?
     private var status: FetchType = FetchType.withCityId
     private var searchText: String?
     public var cityId: Int?
@@ -44,7 +44,7 @@ internal class TRPPlace: TRPRestServices {
     }
     
     internal init(location: TRPLocation,
-                  distance: Double? = nil,
+                  distance: Float? = nil,
                   typeId: Int? = nil,
                   typeIds: [Int]? = nil) {
         self.location = location
@@ -124,7 +124,7 @@ internal class TRPPlace: TRPRestServices {
         if let places = placeIds, let cities = cities, let city = cities.first {
             let placesList = places.toString()
             params["city_id"] = city
-            params["q"] = "id:" + placesList
+            params["poi_ids"] = placesList
         }
         return params
     }

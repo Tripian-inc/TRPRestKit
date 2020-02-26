@@ -25,9 +25,8 @@ public class TRPImageModel: NSObject, Decodable {
     public required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.url = try values.decode(String.self, forKey: .url)
+        
         self.imageOwner = try values.decodeIfPresent(TRPImageOwner.self, forKey: .imageOwner)
     }
     
 }
-
-
