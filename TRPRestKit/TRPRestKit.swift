@@ -214,67 +214,36 @@ extension TRPRestKit {
     /// Obtain the list of all categories, such as attractions, restaurants, cafes, bars,
     /// religious places, cool finds, shopping centers, museums, bakeries and art galleries. Returned results include category ids.
     ///
-    /// Poi Categories is used during Add Place List operations (such as: Eat&Drink, Attractions, ...etc.).
-    /// PoiCategories can be matched with **Place.categories**.
+    /// Poi Category is used during Add Place List operations (such as: Eat&Drink, Attractions, ...etc.).
+    /// PoiCategory can be matched with **Place.categories**.
     ///
     /// - Parameters:
     ///     - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCategoryInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine-places-of-interest)
-    public func poiCategories(completion: @escaping CompletionHandlerWithPagination) {
+    public func poiCategory(completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
-        poiCategoriesServices(id: nil)
-    }
-    
-    /// Obtain information on a specific Place of Interest by using POI id.
-    /// Returned results include, POI id, city id, category id, name, address, coordinates,
-    /// phone number, website, opening/closing times, tags, icon,
-    /// description (if available), price range and images.
-    ///
-    /// - Parameters:
-    ///     - withId: id of the Category that will be requested.
-    ///     - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **TRPCategoryInfoModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-details-of-a-place)
-    public func poiCategory(withId: Int, completion: @escaping CompletionHandler) {
-        self.completionHandler = completion
-        poiCategoriesServices(id: withId)
+        poiCategoryServices(id: nil)
     }
     
     /// A services which will be used in place of interests category services, manages all task connecting to remote server.
     ///
     /// - Parameters:
     ///     - id: id of the Category (Optional).
-    private func poiCategoriesServices(id: Int?) {
-        var poiService: PoiCategories?
-        if id == nil {
-            poiService = PoiCategories()
-        } else {
-            poiService = PoiCategories(typeId: id!)
-        }
-        poiService?.completion = {   (result, error, pagination) in
+    private func poiCategoryServices(id: Int?) {
+        let poiService = TRPPoiCategoryService()
+        poiService.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            
-            if let serviceResult = result as? TRPPoiCategories {
-                if let types = serviceResult.data {
-                    if id == nil {
-                        self.postData(result: types, pagination: pagination)
-                        return
-                    } else {
-                        if let type = types.first {
-                            self.postData(result: type, pagination: pagination)
-                            return
-                        }
-                    }
-                }
-                
+            guard let serviceResult = result as? TRPPoiCategoryJsonModel, let types = serviceResult.data else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+                return
             }
-            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            self.postData(result: types, pagination: pagination)
         }
-        poiService?.connection()
+        poiService.connection()
     }
 }
 

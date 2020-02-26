@@ -12,15 +12,15 @@ import Foundation
 public struct TRPPoiInfoModel: Decodable {
     
     /// An Int value. Unique id of Poi
-    public var id: Int?
+    public var id: Int
     /// An Int value. City Id of Poi
-    public var cityId: Int?
+    public var cityId: Int
+    /// A String value. Name of poi
+    public var name: String
     /// A Float value. Indicates how many stars poi has.
     public var rating: Float?
     /// An Int value. Indicates how many review poi has.
     public var ratingCount: Int?
-    /// A String value. Name of poi
-    public var name: String
     /// A String value. Address of poi.
     public var address: String?
     /// An Int value. Indicates level of price between 0 and 4.
@@ -34,11 +34,11 @@ public struct TRPPoiInfoModel: Decodable {
     /// A String value. Featured image of poi
     public var image: String?
     /// A String value. Icon name of poi.
-    public var icon: String?
+    public var icon: String
     /// A TRPCategoryInfoModel array. A poi can have multiple categories.
     public var category = [TRPCategoryInfoModel]()
     /// A TRPCoordinateModel objects. Center coordinate of poi.
-    public var coordinate: TRPCoordinateModel?
+    public var coordinate: TRPCoordinateModel
     /// A String value. Sub category of poi such as vegetarian friendly, vegan options, gluten free options.
     public var subCategory: String?
     /// A String value. Description of poi.
@@ -81,9 +81,8 @@ public struct TRPPoiInfoModel: Decodable {
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try values.decodeIfPresent(Int.self, forKey: .id)
-        
-        self.cityId = try values.decodeIfPresent(Int.self, forKey: .cityId)
+        self.id = try values.decode(Int.self, forKey: .id)
+        self.cityId = try values.decode(Int.self, forKey: .cityId)
         self.rating = try values.decodeIfPresent(Float.self, forKey: .rating)
         self.ratingCount = try values.decodeIfPresent(Int.self, forKey: .ratingCount)
         self.name = try values.decode(String.self, forKey: .name)
@@ -93,8 +92,8 @@ public struct TRPPoiInfoModel: Decodable {
         self.hours = try values.decodeIfPresent(String.self, forKey: .hours)
         self.phone = try values.decodeIfPresent(String.self, forKey: .phone)
         self.image = try values.decodeIfPresent(String.self, forKey: .image)
-        self.icon = try values.decodeIfPresent(String.self, forKey: .icon)
-        self.coordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .coordinate)
+        self.icon = try values.decode(String.self, forKey: .icon)
+        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
         
         if let categorys = try values.decodeIfPresent([TRPCategoryInfoModel].self, forKey: .category) {
             category = categorys

@@ -312,9 +312,7 @@ class AeTRPUserTest: XCTestCase {
             
             guard let firstPlace = places.first else { return }
             
-            guard let firstPlaceId = firstPlace.id else { return }
-            
-            TRPRestKit().addUserFavorite(cityId: TestUtilConstants.MockCityConstants.IstanbulCityId, poiId: firstPlaceId) {[weak self] (result, error) in
+            TRPRestKit().addUserFavorite(cityId: TestUtilConstants.MockCityConstants.IstanbulCityId, poiId: firstPlace.id) {[weak self] (result, error) in
                 guard self != nil else {return}
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
@@ -329,7 +327,7 @@ class AeTRPUserTest: XCTestCase {
                     return
                 }
                 
-                XCTAssertEqual(fav.poiId, firstPlaceId)
+                XCTAssertEqual(fav.poiId, firstPlace.id)
                 XCTAssertEqual(fav.cityId, TestUtilConstants.MockCityConstants.IstanbulCityId)
                 
                 TRPRestKit().getUserFavorite(cityId: TestUtilConstants.MockCityConstants.IstanbulCityId) {[weak self](result, error) in
@@ -348,8 +346,8 @@ class AeTRPUserTest: XCTestCase {
                         return
                     }
                     
-                    let favOfFirstPlace = favs.filter { $0.poiId == firstPlaceId }.first
-                    XCTAssertEqual(favOfFirstPlace?.poiId, firstPlaceId)
+                    let favOfFirstPlace = favs.filter { $0.poiId == firstPlace.id }.first
+                    XCTAssertEqual(favOfFirstPlace?.poiId, firstPlace.id)
                     XCTAssertEqual(favOfFirstPlace?.cityId, TestUtilConstants.MockCityConstants.IstanbulCityId)
                     expectation.fulfill()
                 }

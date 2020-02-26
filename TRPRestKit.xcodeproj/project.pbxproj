@@ -83,6 +83,7 @@
 		B267BBBE23572BEF00C25778 /* TRPCompanionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267BBBD23572BEF00C25778 /* TRPCompanionTest.swift */; };
 		B267BBC02357396D00C25778 /* TRPTripsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267BBBF2357396D00C25778 /* TRPTripsTest.swift */; };
 		B27712AF23CCB3F10092EE69 /* TRPRestDeneme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27712AE23CCB3F10092EE69 /* TRPRestDeneme.swift */; };
+		B282653224065504004A4EDC /* TRPProblemCategoriesInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282653124065504004A4EDC /* TRPProblemCategoriesInfoModel.swift */; };
 		B287616623A79DEC00951486 /* TRPApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B287616523A79DEC00951486 /* TRPApiKey.swift */; };
 		B287616823A7A10C00951486 /* TRPApiKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B287616723A7A10C00951486 /* TRPApiKeyTest.swift */; };
 		B29B462A20F607F90009E711 /* TRPRestKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B29B462820F607F90009E711 /* TRPRestKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -232,6 +233,7 @@
 		B267BBBF2357396D00C25778 /* TRPTripsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripsTest.swift; sourceTree = "<group>"; };
 		B2764A84218AE4EF0069B17E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B27712AE23CCB3F10092EE69 /* TRPRestDeneme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestDeneme.swift; sourceTree = "<group>"; };
+		B282653124065504004A4EDC /* TRPProblemCategoriesInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProblemCategoriesInfoModel.swift; sourceTree = "<group>"; };
 		B287616523A79DEC00951486 /* TRPApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPApiKey.swift; sourceTree = "<group>"; };
 		B287616723A7A10C00951486 /* TRPApiKeyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPApiKeyTest.swift; sourceTree = "<group>"; };
 		B29B462520F607F90009E711 /* TRPRestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TRPRestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -499,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				B261A732224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift */,
+				B282653124065504004A4EDC /* TRPProblemCategoriesInfoModel.swift */,
 			);
 			path = ProblemCategories;
 			sourceTree = "<group>";
@@ -594,12 +597,14 @@
 		B29B463520F60A390009E711 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B2E0D1FB21491E7D00876D81 /* Common */,
+				B29B468E20F60FE10009E711 /* City */,
+				B29B468920F60FB80009E711 /* PoiCategory */,
+				B261A731224B7E3500D31558 /* ProblemCategories */,
 				783A137D22F032CA00952CA2 /* Constants */,
 				784BAB9222C3502B00BBDB0F /* Companion */,
 				B25251662269E76200C0EBAA /* ReportAProblem */,
-				B261A731224B7E3500D31558 /* ProblemCategories */,
 				B227F459216CA2A300591C70 /* Favorites */,
-				B2E0D1FB21491E7D00876D81 /* Common */,
 				B2E0D1F621491DE400876D81 /* Trip */,
 				B20CD9F42136A8D000497ED3 /* ProgramStep */,
 				B20CD9E421365B1500497ED3 /* NearBy */,
@@ -609,14 +614,11 @@
 				B215BF0521319C8300659818 /* UserMe */,
 				B2237222213114FE00E21532 /* OAuth */,
 				B29B469A20F610430009E711 /* Update */,
-				B29B468E20F60FE10009E711 /* City */,
-				B29B468920F60FB80009E711 /* Type */,
 				B29B468420F60F8D0009E711 /* Place */,
 				B29B467D20F60F500009E711 /* Questions */,
 				B29B467620F60F170009E711 /* Recommendation */,
 				B29B464820F60BF80009E711 /* TRPCoordinateModel.swift */,
 				B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */,
-				B259621824053B7000E98DF4 /* TRPImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -650,13 +652,13 @@
 			path = Place;
 			sourceTree = "<group>";
 		};
-		B29B468920F60FB80009E711 /* Type */ = {
+		B29B468920F60FB80009E711 /* PoiCategory */ = {
 			isa = PBXGroup;
 			children = (
 				B29B468A20F60FC20009E711 /* TRPPoiCategories.swift */,
 				B29B468C20F60FD30009E711 /* TRPCategoryInfoModel.swift */,
 			);
-			path = Type;
+			path = PoiCategory;
 			sourceTree = "<group>";
 		};
 		B29B468E20F60FE10009E711 /* City */ = {
@@ -741,6 +743,7 @@
 			isa = PBXGroup;
 			children = (
 				B2E0D1FE2149244A00876D81 /* TRPPlanPoi.swift */,
+				B259621824053B7000E98DF4 /* TRPImageModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -967,6 +970,7 @@
 				B20CD9FC2136E23200497ED3 /* TRPFeedback.swift in Sources */,
 				B215BF102131D31700659818 /* TRPUserTripsJsonModel.swift in Sources */,
 				B20CD9E621365B2700497ED3 /* TRPPlanPointAlternativeJsonModel.swift in Sources */,
+				B282653224065504004A4EDC /* TRPProblemCategoriesInfoModel.swift in Sources */,
 				B20CD9F62136A8E600497ED3 /* TRPProgramStepJsonModel.swift in Sources */,
 				B29B46AC20F613B30009E711 /* TRPRecommendation.swift in Sources */,
 				B2C365AC226727A300E7B4CA /* TRPImageOwner.swift in Sources */,

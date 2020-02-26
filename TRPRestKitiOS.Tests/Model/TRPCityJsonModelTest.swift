@@ -71,7 +71,7 @@ class TRPCityJsonModelTest: XCTestCase {
             XCTAssertEqual(losAngeles!.id, 10)
             XCTAssertEqual(losAngeles!.name, "Los Angeles")
             XCTAssertNotNil(losAngeles!.image)
-            XCTAssertEqual(losAngeles!.image, "https://poi-pics.s3-eu-west-1.amazonaws.com/City/10/featured.jpg")
+            XCTAssertEqual(losAngeles!.image.url, "https://poi-pics.s3-eu-west-1.amazonaws.com/City/10/featured.jpg")
             XCTAssertEqual(losAngeles!.boundary.count, 4)
             XCTAssertEqual(losAngeles!.coordinate.lat, 34.0522342)
             XCTAssertEqual(losAngeles!.coordinate.lon, -118.2436849)

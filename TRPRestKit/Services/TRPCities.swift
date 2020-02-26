@@ -8,6 +8,7 @@
 
 import Foundation
 import TRPFoundationKit
+
 public class TRPCities: TRPRestServices {
     
     private enum RequestType {
@@ -27,7 +28,7 @@ public class TRPCities: TRPRestServices {
         self.requestType = .cityWithId
         self.cityId = cityId
     }
-    
+    //Fixme: Lokasyon ile sehir arama aktif değil
     public init(location: TRPLocation) {
         self.requestType = .cityWithLocation
         self.location = location
@@ -61,7 +62,7 @@ public class TRPCities: TRPRestServices {
                 path += "/\(id)"
             }
         } else if requestType == .cityWithLocation {
-            path = TRPConfig.ApiCall.getcityByCoordinates.link
+            //path = TRPConfig.ApiCall.getcityByCoordinates.link
         }
         return path
     }

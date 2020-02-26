@@ -61,7 +61,7 @@ struct TestUtilConstants {
     }
     
     struct MockPoiCategoryConstants {
-        static let PoiCategoryId =  26
+        static let PoiCategoryId =  35
         static let PoiCategoryType =  3
         static let CategoryIds = [1, 4]
     }
