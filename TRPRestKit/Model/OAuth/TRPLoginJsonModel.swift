@@ -13,13 +13,17 @@ public struct TRPLoginInfoModel: Decodable {
     
     /// Type of token
     public var tokenType: String?
-    
     /// Token access key
     public var accessToken: String
+    
+    public var expiresIn: Int
+    public var refresthToken: String
     
     private enum CodingKeys: String, CodingKey {
         case tokenType = "token_type"
         case accessToken = "access_token"
+        case expiresIn = "expires_in"
+        case refreshToken = "refresh_token"
     }
     
     /// Initializes a new object with decoder
@@ -29,6 +33,8 @@ public struct TRPLoginInfoModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.tokenType = try values.decodeIfPresent(String.self, forKey: .tokenType)
         self.accessToken = try values.decode(String.self, forKey: .accessToken)
+        self.expiresIn = try values.decode(Int.self, forKey: .expiresIn)
+        self.refresthToken = try values.decode(String.self, forKey: .refreshToken)
     }
     
 }

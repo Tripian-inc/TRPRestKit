@@ -32,6 +32,22 @@ class ApiV3StartTest: XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
     
+    func testLogin() {
+        //silV3_9@fakemailxyz.com
+        //123456aA
+        let nameSpace = #function
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+        TRPRestKit().login(withEmail: "silV3_9@fakemailxyz.com", password: "123456aA") { (result, error) in
+            XCTAssertNil(error)
+            
+            if let result = result as? TRPLoginInfoModel {
+                print("SONUC \(result)")
+            }
+            expectation.fulfill()
+        }
+         wait(for: [expectation], timeout: 20.0)
+    }
+    
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
