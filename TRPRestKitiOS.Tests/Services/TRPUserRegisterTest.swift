@@ -14,8 +14,11 @@ class TRPUserRegisterTest: XCTestCase {
     public static var userName: String = "mobile_unit_test_user_"
     
     override class func setUp() {
-        TRPUserRegisterTest.userName += "\(Int.random(in: (100...500)))"
+        let urlCreater = BaseUrlCreater(baseUrl: "6ezq4jb2mk.execute-api.eu-west-1.amazonaws.com", basePath: "api")
+        TRPClient.start(baseUrl: urlCreater, apiKey: "")
         TRPClient.monitor(data: true, url: true)
+        TRPUserRegisterTest.userName += "\(Int.random(in: (100...500)))"
+        
     }
     
     private func loginServeci(expectation: XCTestExpectation, name: String) {

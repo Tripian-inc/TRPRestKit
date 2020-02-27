@@ -15,21 +15,27 @@ internal class TRPUserRegister: TRPRestServices {
     private var userName: String?
     private var firstName: String?
     private var lastName: String?
+    private var answers: [Int]?
+    private var age: Int?
     
     public init(email: String,
                 password: String,
                 firstName: String?,
-                lastName: String?) {
+                lastName: String?,
+                answers: [Int]?,
+                age: Int?) {
         self.password = password
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
+        self.answers = answers
+        self.age = age
     }
-
+    
     public init(userName: String) {
         self.userName = userName
     }
-
+    
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
             self.completion?(nil, error, nil)
@@ -51,22 +57,27 @@ internal class TRPUserRegister: TRPRestServices {
                 let pag = paginationController(parentJson: result)
                 self.completion?(result, nil, pag)
             }
-            
         } catch let tryError {
             self.completion?(nil, tryError as NSError, nil)
         }
     }
-
-    public override func parameters() -> [String: Any]? {
-        
-        if let email = email, let password = password {
-            var parameters = ["email": email,
-                              "password": password ]
+    
+    public override func bodyParameters() -> [String: Any]? {
+        if let email = email,
+            let password = password {
+            
+            var parameters: [String: Any] = [:]
+            parameters["email"] = email
+            parameters["password"] = password
+            
             if let firstName = firstName {
                 parameters["first_name"] = firstName
             }
             if let lastName = lastName {
                 parameters["last_name"] = lastName
+            }
+            if let profile = profileParams() {
+                parameters["profile"] = profile
             }
             return parameters
         }
@@ -76,7 +87,24 @@ internal class TRPUserRegister: TRPRestServices {
         
         return [:]
     }
-
+    
+    private func profileParams() ->  [String: Any]? {
+        if answers != nil || age != nil {
+            var profile: [String: Any] = [:]
+            if let answers = answers {
+                profile["answers"] = answers
+            }
+            if let age = age {
+                profile["age"] = age
+            }
+            return profile
+        }
+        return nil
+    }
+    
+    
+    
+    
     public override func userOAuth() -> Bool {
         return true
     }

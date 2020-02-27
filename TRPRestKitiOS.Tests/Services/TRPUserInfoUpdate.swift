@@ -51,12 +51,12 @@ class AfTRPUserInfoUpdate: XCTestCase {
                 XCTAssertNotNil(model.lastName)
                 XCTAssertNotNil(model.firstName)
                 
-                XCTAssertNotNil(model.info)
+                //XCTAssertNotNil(model.info)
                 var ageFromServer: String?
-                
-                for child in model.info! where child.key == "age" {
-                    ageFromServer = child.value
-                }
+                //FIXME: profile e dönüştürüldü
+                //for child in model.info! where child.key == "age" {
+                //    ageFromServer = child.value
+                //}
                 
                 XCTAssertNotNil(ageFromServer)
                 let ageFromServerInt = Int(ageFromServer!)

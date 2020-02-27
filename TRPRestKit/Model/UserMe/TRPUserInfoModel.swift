@@ -20,17 +20,16 @@ public struct TRPUserInfoModel: Decodable {
     //public var age:String?
     /// A String value. Last name of the user.
     public var lastName: String?
-    /// A String value. Password of the user.
-    public var password: String?
+   
     /// An Int value. Payment status of the user.
     public var paymentStatus: Int?
     /// A array of TRPUserPreferencesInfoModel objects.
-    public var info: [TRPUserPreferencesInfoModel]?
+    public var profile: TRPUserProfileInfoModel?
     
     private enum CodingKeys: String, CodingKey {
         case userName = "username"
         case email
-        case info
+        case profile
         case firstName = "first_name"
         case lastName = "last_name"
         case password
@@ -57,11 +56,11 @@ public struct TRPUserInfoModel: Decodable {
         
         self.firstName = try values.decodeIfPresent(String.self, forKey: .firstName)
         self.lastName = try values.decodeIfPresent(String.self, forKey: .lastName)
-        self.password = try values.decodeIfPresent(String.self, forKey: .password)
+        
         //Fixme: Infodan alınacak
        // self.age = try values.decodeIfPresent(String.self, forKey: .age)
         self.paymentStatus = try values.decodeIfPresent(Int.self, forKey: .paymentStatus)
-        self.info = try values.decodeIfPresent([TRPUserPreferencesInfoModel].self, forKey: .info)
+        self.profile = try values.decodeIfPresent(TRPUserProfileInfoModel.self, forKey: .profile)
     }
     
 }
@@ -71,7 +70,7 @@ public struct TRPRegisterUserInfo: Decodable {
     /// A String value. Name of user.
     public var userName: String
     /// A array of TRPUserPreferencesInfoModel objects.
-    public var info: [TRPUserPreferencesInfoModel]?
+    public var profile: TRPUserProfileInfoModel?
     
     private enum CodingKeys: String, CodingKey {
         case userName = "username"
@@ -85,35 +84,8 @@ public struct TRPRegisterUserInfo: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.userName = try values.decode(String.self, forKey: .userName)
-        self.info = try values.decodeIfPresent([TRPUserPreferencesInfoModel].self, forKey: .info)
+        self.profile = try values.decodeIfPresent(TRPUserProfileInfoModel.self, forKey: .info)
     }
     
 }
 
-/// Indicate preferences of user with Key/Value.
-public struct TRPUserPreferencesInfoModel: Decodable {
-    
-    /// An Int value. Unique id of User Preferences.
-    public var id: Int
-    /// A String value.
-    public var key: String
-    /// A String value.
-    public var value: String
-
-    private enum CodingKeys: String, CodingKey {
-        case id
-        case key
-        case value
-    }
-    
-    /// Json to Object converter
-    ///
-    /// - Parameter decoder: Json Decoder Object
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decode(Int.self, forKey: .id)
-        key = try values.decode(String.self, forKey: .key)
-        value = try values.decode(String.self, forKey: .value)
-    }
-    
-}

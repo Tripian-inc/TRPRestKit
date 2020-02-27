@@ -709,9 +709,11 @@ extension TRPRestKit {
                          password: String,
                          firstName: String? = nil,
                          lastName: String? = nil,
+                         age:Int? = nil,
+                         answers: [Int]? = nil,
                          completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        userRegisterServices(email: email, password: password, firstName: firstName, lastName: lastName)
+        userRegisterServices(email: email, password: password, firstName: firstName, lastName: lastName, age: age, answers: answers)
     }
     
     /// Obtain personal user information (must be logged in with access token), such as user id, e-mail, and preferences.
@@ -731,7 +733,9 @@ extension TRPRestKit {
                                       email: String? = nil,
                                       password: String? = nil,
                                       firstName: String? = nil,
-                                      lastName: String? = nil) {
+                                      lastName: String? = nil,
+                                      age: Int? = nil,
+                                      answers: [Int]? = nil) {
         var services: TRPUserRegister?
         if let userName = userName {
             services = TRPUserRegister(userName: userName)
@@ -739,7 +743,9 @@ extension TRPRestKit {
             services = TRPUserRegister(email: email,
                                        password: password,
                                        firstName: firstName,
-                                       lastName: lastName)
+                                       lastName: lastName,
+                                       answers: answers,
+                                       age: age)
         }
         
         guard let mServices = services else { return }
@@ -765,8 +771,6 @@ extension TRPRestKit {
 // MARK: Update User Info
 extension TRPRestKit {
     
-    //TODO: Mobilde kullanicinin adini tamamen silip kaydet deyince kullanicinin adinin ilk harfini sadece kayitli birakiyor. Burada butun adin eskisi gibi kalmasi dogru degilmi?
-    //TODO: Appde user preferences degisince bu sizin future triplerinizi etkileyecek diyoruz ama tam anlamiyla future tripleri etkilemiyor?
     
     /// Update user information (must be logged in with access token), such as user id, e-mail, and preferences.
     /// So that, the updated answers will effect the recommendation engine's work upon user's preferences.

@@ -16,14 +16,19 @@ class ApiV3StartTest: XCTestCase {
         TRPClient.monitor(data: true, url: true)
     }
 
-    func testCity() {
+    func testUserRegister() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        TRPRestKit().cities { (result, error, pagination) in
+         
+        TRPRestKit().register(email: "silV3_9@fakemailxyz.com", password: "123456aA", firstName: "Ali", lastName: "Veli", answers: [1,2,3,4]) { (result, error) in
             XCTAssertNil(error)
             
+            if let result = result as? TRPUserInfoModel {
+                print("SONUC \(result)")
+            }
             expectation.fulfill()
         }
+        
         wait(for: [expectation], timeout: 20.0)
     }
     
