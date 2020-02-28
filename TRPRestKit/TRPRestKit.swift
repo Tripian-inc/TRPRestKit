@@ -670,7 +670,7 @@ extension TRPRestKit {
             }
             if let serviceResult = result as? TRPGenericParser<TRPLoginTokenInfoModel> {
             //if let serviceResult = result as? TRPLoginJsonModel {
-                TRPUserPersistent.saveHashToken(serviceResult.data.accessToken)
+                TRPUserPersistent.saveHashToken(serviceResult.data!.accessToken)
                 
                 self.postData(result: serviceResult.data, pagination: pagination)
             } else {

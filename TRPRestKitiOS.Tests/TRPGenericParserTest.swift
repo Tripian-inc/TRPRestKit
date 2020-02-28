@@ -28,6 +28,14 @@ class TRPGenericParserTest: XCTestCase {
     }
 }
 """
+    private let emtyArray = """
+    {
+        "status": 200,
+        "success": true,
+        "message": "Success",
+        "data": []
+    }
+    """
     
     private let basicArray = """
     {
@@ -37,6 +45,24 @@ class TRPGenericParserTest: XCTestCase {
         "data": [1,2,3]
     }
     """
+    private let emptyArray = """
+    {
+        "status": 200,
+        "success": true,
+        "message": "Success",
+        "data": []
+    }
+    """
+    
+    private let basicObjectArray = """
+    {
+        "status": 200,
+        "success": true,
+        "message": "Success",
+        "data": [{"id":1}]
+    }
+    """
+    
     
     private var jsonDecoder: JSONDecoder?
     
@@ -49,21 +75,58 @@ class TRPGenericParserTest: XCTestCase {
     func testObjectParse() {
         do {
             let result  = try JsonParser.parse(TRPGenericParser<TRPUserInfoModel>.self, rawData: registerRawValue)
-            XCTAssertEqual(result.data.email, "silV3_10@fakemailxyz.com")
-            XCTAssertNotNil(result.data.firstName)
-            XCTAssertNotNil(result.data.lastName)
+            XCTAssertEqual(result.data!.email, "silV3_10@fakemailxyz.com")
+            XCTAssertNotNil(result.data!.firstName)
+            XCTAssertNotNil(result.data!.lastName)
         } catch let tryError {
             XCTFail(tryError.localizedDescription)
         }
     }
- 
-    func testArrayParser() {
+    
+    func testEmptyArrayParser() {
+        do {
+            
+            let result  = try JSONDecoder().decode(TRPGenericParser<[Int]>.self, from: emtyArray.data(using: String.Encoding.utf8)!)
+            XCTAssertEqual(result.data!.count, 0)
+        } catch let tryError {
+            XCTFail(tryError.localizedDescription)
+        }
+    }
+    
+    func testIntArrayParser() {
         do {
             
             let result  = try JSONDecoder().decode(TRPGenericParser<[Int]>.self, from: basicArray.data(using: String.Encoding.utf8)!)
-            XCTAssertEqual(result.data.count, 3)
+            XCTAssertEqual(result.data!.count, 3)
         } catch let tryError {
             XCTFail(tryError.localizedDescription)
         }
     }
+    
+    func testCityEmptyArrayParser() {
+        do {
+            
+            let result  = try JSONDecoder().decode(TRPGenericParser<[TRPCityInfoModel]>.self, from: emtyArray.data(using: String.Encoding.utf8)!)
+            XCTAssertEqual(result.data!.count, 0)
+        } catch let tryError {
+            XCTFail(tryError.localizedDescription)
+        }
+    }
+    
+    func testCityArrayParser() {
+        do {
+            
+            let result  = try JSONDecoder().decode(TRPGenericParser<[BasicDataModel]>.self, from: basicObjectArray.data(using: String.Encoding.utf8)!)
+            
+            XCTAssertNotNil(result.data)
+            XCTAssertEqual(result.data!.count, 1)
+            XCTAssertEqual(result.data!.first!.id, 1)
+        } catch let tryError {
+            XCTFail(tryError.localizedDescription)
+        }
+    }
+}
+
+public class BasicDataModel: Decodable {
+    var id: Int?
 }

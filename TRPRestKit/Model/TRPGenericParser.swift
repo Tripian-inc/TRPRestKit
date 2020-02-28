@@ -9,7 +9,7 @@
 import Foundation
 internal class TRPGenericParser<T: Decodable>: TRPParentJsonModel {
     
-    public var data: T
+    public var data: T?
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -18,7 +18,7 @@ internal class TRPGenericParser<T: Decodable>: TRPParentJsonModel {
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.data = try values.decode(T.self, forKey: .data)
+        self.data = try values.decodeIfPresent(T.self, forKey: .data)
         try super.init(from: decoder)
     }
     
