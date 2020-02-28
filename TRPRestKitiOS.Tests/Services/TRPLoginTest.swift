@@ -29,7 +29,7 @@ class AcTRPLoginTest: XCTestCase {
     private func resultController(result: Any?, error: Error?, testName: String, expectation: XCTestExpectation) {
         XCTAssertNil(error, "\(testName): \(error!.localizedDescription)")
         XCTAssertNotNil(result, "Result is nil: \(testName)")
-        guard let result = result as? TRPLoginInfoModel else {
+        guard let result = result as? TRPLoginTokenInfoModel else {
             expectation.fulfill()
             return
         }

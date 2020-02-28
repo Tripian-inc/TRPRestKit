@@ -58,7 +58,7 @@ class UserMockSession: XCTestCase {
             TRPRestKit().login(withUserName: TestUtilConstants.MockUserConstants.TestUserName) { (result, error) in
                 XCTAssertNil(error, "\(error!.localizedDescription)")
                 XCTAssertNotNil(result, "Result is nil")
-                guard let result = result as? TRPLoginInfoModel else {
+                guard let result = result as? TRPLoginTokenInfoModel else {
                     expectation.fulfill()
                     return
                 }

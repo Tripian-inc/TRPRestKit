@@ -606,7 +606,7 @@ extension TRPRestKit {
     private func recommendationServices(settings: TRPRecommendationSettings, autoPagination: Bool) {
         let recommendationService = TRPRecommendation(settings: settings)
         recommendationService.isAutoPagination = autoPagination
-        recommendationService.completion = {   (result, error, pagination) in
+        recommendationService.completion = { (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -668,7 +668,8 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let serviceResult = result as? TRPLoginJsonModel {
+            if let serviceResult = result as? TRPGenericParser<TRPLoginTokenInfoModel> {
+            //if let serviceResult = result as? TRPLoginJsonModel {
                 TRPUserPersistent.saveHashToken(serviceResult.data.accessToken)
                 
                 self.postData(result: serviceResult.data, pagination: pagination)
@@ -703,13 +704,12 @@ extension TRPRestKit {
         userRegisterServices(userName: userName)
     }
     
-    
     //RETURN TRPUserInfoModel
     public func register(email: String,
                          password: String,
                          firstName: String? = nil,
                          lastName: String? = nil,
-                         age:Int? = nil,
+                         age: Int? = nil,
                          answers: [Int]? = nil,
                          completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -767,6 +767,19 @@ extension TRPRestKit {
     }
     
 }
+
+// MARK: - Refresh Token
+extension TRPRestKit {
+    public func refreshToken(_ refreshToken: String, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        refreshTokenService(refreshToken)
+    }
+    
+    private func refreshTokenService(_ refreshToken: String) {
+        
+    }
+}
+
 
 // MARK: Update User Info
 extension TRPRestKit {

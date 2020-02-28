@@ -17,7 +17,27 @@ class TRPCityJsonModelTest: XCTestCase {
         super.setUp()
         jsonDecoder = JSONDecoder()
     }
-    
+    /*
+     {
+         "id": 102,
+         "name": "Cape Town",
+         "image": {
+             "url": "https://poi-pics.s3-eu-west-1.amazonaws.com/City/102/featured.jpg",
+             "image_owner": null
+         },
+         "boundary": [-34.08899, -33.74502, 18.2574, 18.59525],
+         "coordinate": {
+             "lat": -33.9248685,
+             "lng": 18.424055299999964
+         },
+         "country": {
+             "name": "South Africa",
+             "code": "za",
+             "continent": {
+                 "name": "Africa"
+             }
+         }
+     }*/
     func testBaseData() {
         let rawJson = """
         {
@@ -25,11 +45,20 @@ class TRPCityJsonModelTest: XCTestCase {
             "success": true,
             "data": [
                     {
-                        "id": 44,
-                        "name": "Berlin",
-                        "coordinate": {
-                            "lat": 52.5200066,
-                            "lng": 13.404953999999975
+                        "id": 107,
+                        "name": "Istanbul",
+                        "image": {
+                            "url": "https://poi-pics.s3-eu-west-1.amazonaws.com/City/107/featured.jpg",
+                            "image_owner": null
+                        },
+                        "boundary": [40.82158, 41.28015, 28.52227, 29.36824],
+                        "coordinate": null,
+                        "country": {
+                            "name": "Turkey",
+                            "code": "tr",
+                            "continent": {
+                                "name": "Europe"
+                            }
                         }
                     }
             ]
@@ -48,9 +77,9 @@ class TRPCityJsonModelTest: XCTestCase {
                 return
             }
             
-            XCTAssertEqual(berlin.id, 44)
-            XCTAssertEqual(berlin.name, "Berlin")
-            XCTAssertNotNil(berlin.coordinate)
+            XCTAssertEqual(berlin.id, 107)
+            XCTAssertEqual(berlin.name, "Istanbul")
+            XCTAssertNil(berlin.coordinate)
             XCTAssertEqual(berlin.coordinate.lat, 52.5200066)
             XCTAssertEqual(berlin.coordinate.lon, 13.404953999999975)
             

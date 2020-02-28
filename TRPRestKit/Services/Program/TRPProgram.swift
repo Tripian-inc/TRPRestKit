@@ -91,14 +91,9 @@ internal class TRPProgram: TRPRestServices {
         params["answers"] = setting.getAllAnswers().map {"\($0)"}.joined(separator: ",")
         
         params["coordinate"] = setting.coordinate ?? ""
-        /*if let coordinate = setting.coordinate {
-            
-        }*/
+     
         params["hotel_address"] = setting.hotelAddress ?? ""
-/*        if let hodelAddreess = setting.hotelAddress {
-            
-        }**/
-        
+
         let gen = setting.doNotGenerate == true ? 1 : 0
         
         params["do_not_generate"] = gen

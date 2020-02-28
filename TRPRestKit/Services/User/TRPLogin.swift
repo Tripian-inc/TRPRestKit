@@ -41,7 +41,8 @@ internal class TRPLogin: TRPRestServices {
         
         let jsonDecode = JSONDecoder()
         do {
-            let result = try jsonDecode.decode(TRPLoginJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPGenericParser<TRPLoginTokenInfoModel>.self, from: data)
+            //let result = try jsonDecode.decode(TRPLoginJsonModel.self, from: data)
             self.completion?(result, nil, nil)
         } catch let tryError {
             self.completion?(nil, tryError as NSError, nil)

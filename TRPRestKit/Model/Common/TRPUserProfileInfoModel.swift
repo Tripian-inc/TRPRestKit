@@ -26,5 +26,4 @@ public struct TRPUserProfileInfoModel: Decodable {
         self.answers = try values.decodeIfPresent([Int].self, forKey: .answers) ?? []
     }
     
-    
 }

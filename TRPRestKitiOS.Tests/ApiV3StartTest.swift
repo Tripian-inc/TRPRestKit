@@ -20,7 +20,7 @@ class ApiV3StartTest: XCTestCase {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
          
-        TRPRestKit().register(email: "silV3_9@fakemailxyz.com", password: "123456aA", firstName: "Ali", lastName: "Veli", answers: [1,2,3,4]) { (result, error) in
+        TRPRestKit().register(email: "silV3_10@fakemailxyz.com", password: "123456aA", firstName: "Ali", lastName: "Veli", answers: [1,2,3,4]) { (result, error) in
             XCTAssertNil(error)
             
             if let result = result as? TRPUserInfoModel {
@@ -40,7 +40,7 @@ class ApiV3StartTest: XCTestCase {
         TRPRestKit().login(withEmail: "silV3_9@fakemailxyz.com", password: "123456aA") { (result, error) in
             XCTAssertNil(error)
             
-            if let result = result as? TRPLoginInfoModel {
+            if let result = result as? TRPLoginTokenInfoModel {
                 print("SONUC \(result)")
             }
             expectation.fulfill()
