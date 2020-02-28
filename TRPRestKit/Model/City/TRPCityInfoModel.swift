@@ -28,10 +28,9 @@ public class TRPCityInfoModel: NSObject, Decodable {
     private enum CodingKeys: String, CodingKey {
         case id
         case name
-        case coord = "coordinate"
+        case coordinate
         case country
-        case updateType
-        case image = "featured"
+        case image
         case boundary
     }
     
@@ -43,9 +42,9 @@ public class TRPCityInfoModel: NSObject, Decodable {
         self.id = try values.decode(Int.self, forKey: .id)
         self.name = try values.decode(String.self, forKey: .name)
         self.image = try values.decode(TRPImageModel.self, forKey: .image)
-        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coord)
+        self.boundary = try values.decode([Double].self, forKey: .boundary)
+        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
         self.country = try values.decode(TRPCountryJsonModel.self, forKey: .country)
-        self.boundary = try values.decodeIfPresent([Double].self, forKey: .boundary) ?? []
     }
     
 }

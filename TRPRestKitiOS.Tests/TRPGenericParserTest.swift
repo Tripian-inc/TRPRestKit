@@ -63,7 +63,6 @@ class TRPGenericParserTest: XCTestCase {
     }
     """
     
-    
     private var jsonDecoder: JSONDecoder?
     
     override func setUp() {

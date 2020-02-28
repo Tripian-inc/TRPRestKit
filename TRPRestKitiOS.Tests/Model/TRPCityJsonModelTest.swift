@@ -17,27 +17,7 @@ class TRPCityJsonModelTest: XCTestCase {
         super.setUp()
         jsonDecoder = JSONDecoder()
     }
-    /*
-     {
-         "id": 102,
-         "name": "Cape Town",
-         "image": {
-             "url": "https://poi-pics.s3-eu-west-1.amazonaws.com/City/102/featured.jpg",
-             "image_owner": null
-         },
-         "boundary": [-34.08899, -33.74502, 18.2574, 18.59525],
-         "coordinate": {
-             "lat": -33.9248685,
-             "lng": 18.424055299999964
-         },
-         "country": {
-             "name": "South Africa",
-             "code": "za",
-             "continent": {
-                 "name": "Africa"
-             }
-         }
-     }*/
+ 
     func testBaseData() {
         let rawJson = """
         {
@@ -45,26 +25,29 @@ class TRPCityJsonModelTest: XCTestCase {
             "success": true,
             "data": [
                     {
-                        "id": 107,
-                        "name": "Istanbul",
+                        "id": 102,
+                        "name": "Cape Town",
                         "image": {
-                            "url": "https://poi-pics.s3-eu-west-1.amazonaws.com/City/107/featured.jpg",
+                            "url": "https://poi-pics.s3-eu-west-1.amazonaws.com/City/102/featured.jpg",
                             "image_owner": null
                         },
-                        "boundary": [40.82158, 41.28015, 28.52227, 29.36824],
-                        "coordinate": null,
+                        "boundary": [-34.08899, -33.74502, 18.2574, 18.59525],
+                        "coordinate": {
+                            "lat": -33.9248685,
+                            "lng": 18.424055299999964
+                        },
                         "country": {
-                            "name": "Turkey",
-                            "code": "tr",
+                            "name": "South Africa",
+                            "code": "za",
                             "continent": {
-                                "name": "Europe"
+                                "name": "Africa"
                             }
                         }
                     }
+
             ]
         }
 """
-
         do {
             let result = try jsonDecoder!.decode(TRPCityJsonModel.self, from: rawJson.data(using: String.Encoding.utf8)!)
             
@@ -72,17 +55,17 @@ class TRPCityJsonModelTest: XCTestCase {
                 XCTFail("TRPCity models is nil")
             }
             
-            guard let berlin = result.data?.first else {
+            guard let city = result.data?.first else {
                 XCTFail("TRPCity first data is nil")
                 return
             }
             
-            XCTAssertEqual(berlin.id, 107)
-            XCTAssertEqual(berlin.name, "Istanbul")
-            XCTAssertNil(berlin.coordinate)
-            XCTAssertEqual(berlin.coordinate.lat, 52.5200066)
-            XCTAssertEqual(berlin.coordinate.lon, 13.404953999999975)
-            
+            XCTAssertEqual(city.id, 102)
+            XCTAssertEqual(city.name, "Cape Town")
+            XCTAssertEqual(city.boundary.count, 4)
+            XCTAssertEqual(city.coordinate.lat, -33.9248685)
+            XCTAssertEqual(city.coordinate.lon, 18.424055299999964)
+            XCTAssertEqual(city.image.url, "https://poi-pics.s3-eu-west-1.amazonaws.com/City/102/featured.jpg")
         } catch let tryError {
             XCTFail(tryError.localizedDescription)
         }
