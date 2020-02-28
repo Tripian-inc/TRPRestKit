@@ -19,6 +19,9 @@ class TRPTripsTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
+        let urlCreater = BaseUrlCreater(baseUrl: "6ezq4jb2mk.execute-api.eu-west-1.amazonaws.com", basePath: "api")
+        TRPClient.start(baseUrl: urlCreater, apiKey: "")
+        TRPClient.monitor(data: true, url: true)
     }
     
     // MARK: Trip Tests
@@ -68,35 +71,46 @@ class TRPTripsTest: XCTestCase {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
-        let arrival = getToday()
+        let arrival = getDaysAfter(withDays: 1)
         let departure = getDaysAfter(withDays: 3)
         let settings = TRPTripSettings(cityId: cityId, arrivalTime: arrival, departureTime: departure)
-        
-        TRPRestKit().createTrip(settings: settings) { (result, error) in
+        settings.tripAnswer = [1,2,3]
+        settings.profileAnswer = [111111,222222,33333]
+        TRPRestKit().login(withEmail: "silV3_9@fakemailxyz.com", password: "123456aA") { (result, error) in
+            XCTAssertNil(error)
             
-            if let error = error {
-                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
-                expectation.fulfill()
-                return
+            if let result = result as? TRPLoginTokenInfoModel {
+                TRPRestKit().createTrip(settings: settings) { (result, error) in
+                    
+                    if let error = error {
+                        XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                        expectation.fulfill()
+                        return
+                    }
+                    
+                    guard let result = result as? TRPTripInfoModel else {
+                        XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripJsonModel")
+                        expectation.fulfill()
+                        return
+                    }
+                    
+                    XCTAssertNotNil(result)
+                    XCTAssertNotNil(result.id)
+                    XCTAssertGreaterThan(result.id, 0)
+                    XCTAssertNotNil(result.arrivalTime)
+                    XCTAssertNotNil(result.depatureTime)
+                    XCTAssertNotNil(result.hash)
+                    XCTAssertEqual(result.arrivalTime?.date, arrival.date)
+                    XCTAssertEqual(result.depatureTime?.date, departure.date)
+                    XCTAssertEqual(result.city.id, self.cityId)
+                    expectation.fulfill()
+                }
+                
             }
             
-            guard let result = result as? TRPTripInfoModel else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripJsonModel")
-                expectation.fulfill()
-                return
-            }
             
-            XCTAssertNotNil(result)
-            XCTAssertNotNil(result.id)
-            XCTAssertGreaterThan(result.id, 0)
-            XCTAssertNotNil(result.arrivalTime)
-            XCTAssertNotNil(result.depatureTime)
-            XCTAssertNotNil(result.hash)
-            XCTAssertEqual(result.arrivalTime?.date, arrival.date)
-            XCTAssertEqual(result.depatureTime?.date, departure.date)
-            XCTAssertEqual(result.city.id, self.cityId)
-            expectation.fulfill()
         }
+        
         
         wait(for: [expectation], timeout: 10.0)
     }

@@ -70,9 +70,13 @@ internal class TRPProgram: TRPRestServices {
             params["city_id"] = setting.cityId
         }
         //TODO: - birleşitirlecek
-        params["arrival_datetime"] = setting.arrivalTime.date
-        params["departure_datetime"] = setting.departureTime.date
-        
+        print("")
+        print("----")
+        print(createNewTime(setting.arrivalTime))
+        print("----")
+        print("")
+        params["arrival_datetime"] = createNewTime(setting.arrivalTime)
+        params["departure_datetime"] = createNewTime(setting.departureTime)
         params["number_of_adults"] = String(setting.adultsCount)
         
         
@@ -80,7 +84,7 @@ internal class TRPProgram: TRPRestServices {
             params["number_of_children"] = String(children)
         }
         
-        params["answers"] = setting.getAllAnswers().map {"\($0)"}.joined(separator: ",")
+        params["answers"] = setting.getAllAnswers()
         
         if let coord = setting.coordinate {
             params["coordinate"] = "{\"lat\":\(coord.lat),\"lng\"\(coord.lon)}"
@@ -102,6 +106,10 @@ internal class TRPProgram: TRPRestServices {
         params["do_not_generate"] = gen
         
         return params
+    }
+    
+    func createNewTime(_ time:TRPTime) -> String {
+        return "\(time.date)T\(time.time)Z"
     }
     
 }

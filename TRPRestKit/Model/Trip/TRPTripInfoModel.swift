@@ -14,7 +14,7 @@ public struct TRPTripInfoModel: Decodable {
     /// An Int value. Id of trip.
     public var id: Int
     /// A String value. Unique hash of trip.
-    public var hash: String
+    public var tripHash: String
     /// A TRPTime object. Arrival time of trip.
     public var arrivalTime: TRPTime?
     /// A TRPTime object. Departure time of trip.
@@ -28,7 +28,7 @@ public struct TRPTripInfoModel: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case id
-        case hash
+        case tripHash = "trip_hash"
         case arrivalDate = "arrival_date"
         case arrivalTime = "arrival_time"
         case departureDate = "departure_date"

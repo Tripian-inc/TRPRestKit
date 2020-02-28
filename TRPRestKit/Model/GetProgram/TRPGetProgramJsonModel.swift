@@ -14,47 +14,41 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     /// An Int value. Id of city.
     public var cityId: String?
     /// A String value. Arrival date of trip.
-    public var arrivalDate: String?
+    public var arrivalDateTime: String?
     /// A String value. Departure date of trip.
-    public var departureDate: String?
-    /// A String value. Arrival time of trip.
-    public var arrivalTime: String?
-    /// A String value. Departure time of trip.
-    public var departureTime: String?
+    public var departureDateTime: String?
+    
     /// An Int value. Adult count.
-    public var adults: Int?
-    /// An Int value. Adults age range such as 32
-    public var adultAgeRange: Int?
+    public var numberOfAdults: Int?
     /// An Int value. Count of Children
-    public var children: Int?
-    /// An Int value. Children age range such as 12
-    public var childrenAgeRange: Int?
-    /// A String value. Center coordinate of hotel (41.123,29.4532)
-    public var coordinate: String?
+    public var numberOfChildren: Int?
+    public var startCoordinate: TRPLocation?
     /// A String value. Address of hotel.
-    public var hotelAddress: String?
+    public var accommodation_address: String?
+    
     /// A String value. Answer of questions.You must convert to Array.
     public var answers = [Int]()
     /// A String value. Companion of users for the selected trip.You must convert to Array.
-    public var companions = [Int]()
-    
+    public var companionIds = [Int]()
     public var tripAnswers = [Int]()
+    public var owner: String?
+    public var doNotGenerate: Int
+    
+    
     
     private enum CodingKeys: String, CodingKey {
         case cityId = "city_id"
-        case arrivalDate = "arrival_date"
-        case departureDate = "departure_date"
-        case arrivalTime = "arrival_time"
-        case departureTime = "departure_time"
-        case adults
-        case adultAgeRange = "adult_age_average"
-        case children
-        case childAgeRange = "children_age_average"
-        case tripAnswers = "trip_answers"
-        case coordinate
+        case arrivalDateTime = "arrival_datetime"
+        case departureDateTime = "departure_datetime"
+        case numberOfAdults = "number_of_adults"
+        case numberOfChildren = "number_of_children"
+        case owner
         case answers
-        case hotelAddress = "hotel_address"
-        case companions
+        case tripAnswers
+        case companionIds = "companion_ids"
+        case pace
+        case accommodationAddress = "accommodation_address"
+        case doNotGenerate = "do_not_generate"
     }
     
     /// Initializes a new object with decoder
@@ -63,26 +57,12 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         cityId = try values.decodeIfPresent(String.self, forKey: .cityId)
-        arrivalDate = try values.decodeIfPresent(String.self, forKey: .arrivalDate)
-        departureDate = try values.decodeIfPresent(String.self, forKey: .departureDate)
-        arrivalTime = try values.decodeIfPresent(String.self, forKey: .arrivalTime)
-        departureTime = try values.decodeIfPresent(String.self, forKey: .departureTime)
+        arrivalDateTime = try values.decodeIfPresent(String.self, forKey: .arrivalDateTime)
+        departureDateTime = try values.decodeIfPresent(String.self, forKey: .departureDateTime)
         
-        if let adults = try values.decodeIfPresent(String.self, forKey: .adults), let adultsCount = Int(adults) {
-            self.adults = adultsCount
-        }
+        numberOfAdults = try values.decode(Int.self, forKey: .numberOfAdults)
+        numberOfChildren = try values.decodeIfPresent(Int.self,forKey: .numberOfChildren)
         
-        if let children = try values.decodeIfPresent(String.self, forKey: .children), let childrenCount = Int(children) {
-            self.children = childrenCount
-        }
-        
-        if let ageRange = try values.decodeIfPresent(String.self, forKey: .adultAgeRange), let range = Int(ageRange) {
-            self.adultAgeRange = range
-        }
-        
-        if let ageRange = try values.decodeIfPresent(String.self, forKey: .childAgeRange), let range = Int(ageRange) {
-            self.childrenAgeRange = range
-        }
         
         self.coordinate = try values.decodeIfPresent(String.self, forKey: .coordinate)
         

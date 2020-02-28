@@ -16,7 +16,7 @@ public struct TRPTime {
     /// A Date value. Closer uses a `yyyy-MM-dd HH:mm`style to convert.
     public var formated: Date? {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         if let timeZone = TimeZone(identifier: "UTC") {
             formatter.timeZone = timeZone
         }
@@ -40,7 +40,7 @@ public struct TRPTime {
         let formatedMonth = String(format: "%02d", month)
         let formatedDay = String(format: "%02d", day)
         date = String(year) + "-" + formatedMonth + "-" + formatedDay
-        time = String(format: "%02i:%02i", hours, min)
+        time = String(format: "%02i:%02i:%02i", hours, min, 00)
     }
     
     /// Initilizes a new TRPTime with string values.
@@ -67,6 +67,7 @@ public struct TRPTime {
         let day = calendar.component(.day, from: date)
         let hour = calendar.component(.hour, from: date)
         let min = calendar.component(.minute, from: date)
+        
         self.init(year: year, month: month, day: day, hours: hour, min: min)
     }
 }
