@@ -7,10 +7,10 @@
 //
 
 import Foundation
-
+import TRPFoundationKit
 /// This model provides you all setting to create trip.
 public class TRPTripSettings {
-    
+    //TODO: AGE RANGE
     /// An Int value. Id of city.
     public var cityId: Int?
     /// A TRPTime object. Arrival date of trip.
@@ -20,15 +20,15 @@ public class TRPTripSettings {
     /// An Int value. Adult count.
     public var adultsCount: Int = 1
     /// A String value. Adults age range such as 32
-    public var adultAgeRange: String?
+    //public var adultAgeRange: String?
     /// An Int value. Count of Children
     public var childrenCount: Int?
     /// A String value. Children age range such as 12
-    public var childrenAgeRange: String?
+    //public var childrenAgeRange: String?
     /// A String value. Center coordinate of hotel (41.123,29.4532)
-    private(set) var coordinate: String?
+    private(set) var coordinate: TRPLocation?
     /// A String value. Address of hotel.
-    private(set) var hotelAddress: String?
+    private(set) var accommodationAdress: String?
     /// An Int array. Answer of trip questions.
     public var tripAnswer: [Int] = []
     /// An Int array. Answer of profile questions.
@@ -37,7 +37,8 @@ public class TRPTripSettings {
     public var selectedCompanionIds: [Int]?
     /// A Bool value. If you set true, trip is not going to generate.
     public var doNotGenerate: Bool = false
-    
+    public var owner: String?
+    public var pace: String?
     public var hash: String?
     
     /// Initializes a new Settings with cityId, arrivalTime and departureTime
@@ -65,8 +66,8 @@ public class TRPTripSettings {
     ///   - lon: longitude
     ///   - hotelAddress: Hodel adress.
     public func setCoordinateWithAddress(lat: Double, lon: Double, hotelAddress: String) {
-        coordinate = String(lat) + "," + String(lon)
-        self.hotelAddress  = hotelAddress
+        coordinate = TRPLocation(lat: lat, lon: lon)
+        self.accommodationAdress  = hotelAddress
     }
     
     public func getAllAnswers() -> [Int] {

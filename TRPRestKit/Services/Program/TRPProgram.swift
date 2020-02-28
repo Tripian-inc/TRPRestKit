@@ -56,7 +56,7 @@ internal class TRPProgram: TRPRestServices {
         return true
     }
     
-    public override func parameters() -> [String: Any]? {
+    public override func bodyParameters() -> [String: Any]? {
         var params: [String: Any] = [:]
         
         guard let setting = setting else {
@@ -69,38 +69,37 @@ internal class TRPProgram: TRPRestServices {
         } else {//Create
             params["city_id"] = setting.cityId
         }
+        //TODO: - birleşitirlecek
+        params["arrival_datetime"] = setting.arrivalTime.date
+        params["departure_datetime"] = setting.departureTime.date
         
-        params["arrival_date"] = setting.arrivalTime.date
-        params["arrival_time"] = setting.arrivalTime.time
-        params["departure_date"] = setting.departureTime.date
-        params["departure_time"] = setting.departureTime.time
-        params["adults"] = String(setting.adultsCount)
+        params["number_of_adults"] = String(setting.adultsCount)
         
-        if let adultAgeRange = setting.adultAgeRange {
-            params["adult_age_average"] = adultAgeRange
-        }
         
         if let children = setting.childrenCount {
-            params["children"] = String(children)
-        }
-        
-        if let ageRange = setting.childrenAgeRange {
-            params["children_age_average"] = ageRange
+            params["number_of_children"] = String(children)
         }
         
         params["answers"] = setting.getAllAnswers().map {"\($0)"}.joined(separator: ",")
         
-        params["coordinate"] = setting.coordinate ?? ""
-     
-        params["hotel_address"] = setting.hotelAddress ?? ""
+        if let coord = setting.coordinate {
+            params["coordinate"] = "{\"lat\":\(coord.lat),\"lng\"\(coord.lon)}"
+        }
+        if let accommodationAddress = setting.accommodationAdress {
+            params["accommodation_address"] = accommodationAddress
+        }
+        
+        if let companions = setting.selectedCompanionIds {
+            params["companion_ids"] = companions.map {"\($0)"}.joined(separator: ",")
+        }
 
+        if let pace = setting.pace {
+            params["pace"] = pace
+        }
+        
         let gen = setting.doNotGenerate == true ? 1 : 0
         
         params["do_not_generate"] = gen
-        
-        if let companions = setting.selectedCompanionIds {
-            params["companions"] = companions.map {"\($0)"}.joined(separator: ",")
-        }
         
         return params
     }
