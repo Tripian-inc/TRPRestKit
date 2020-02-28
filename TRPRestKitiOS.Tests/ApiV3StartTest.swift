@@ -48,13 +48,54 @@ class ApiV3StartTest: XCTestCase {
          wait(for: [expectation], timeout: 20.0)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testRefreshToken() {
+        let nameSpace = #function
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+        TRPRestKit().login(withEmail: "silV3_9@fakemailxyz.com", password: "123456aA") { (result, error) in
+            XCTAssertNil(error)
+            
+            if let result = result as? TRPLoginTokenInfoModel {
+                
+                TRPRestKit().refreshToken(result.refresthToken) { (result, error) in
+                    XCTAssertNil(error)
+                    if  result is TRPRefreshTokenInfoModel {
+                        expectation.fulfill()
+                        return
+                    }
+                    XCTFail()
+                }
+                return
+            }
+            XCTFail()
+            expectation.fulfill()
+            
+        }
+         wait(for: [expectation], timeout: 20.0)
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testRefreshTokenBasic() {
+        let nameSpace = #function
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+        TRPRestKit().login(withEmail: "silV3_9@fakemailxyz.com", password: "123456aA") { (result, error) in
+            XCTAssertNil(error)
+            
+            if let result = result as? TRPLoginTokenInfoModel {
+                
+                TRPRestKit().refreshToken(result.refresthToken) { (result, error) in
+                    XCTAssertNil(error)
+                    if  result is TRPRefreshTokenInfoModel {
+                        expectation.fulfill()
+                    }else {
+                        XCTFail()
+                    }
+                }
+                return
+            }
+            XCTFail()
+            expectation.fulfill()
+            
+        }
+         wait(for: [expectation], timeout: 20.0)
     }
-
 }

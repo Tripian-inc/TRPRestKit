@@ -35,33 +35,5 @@ public struct TRPLoginTokenInfoModel: Decodable {
         self.accessToken = try values.decode(String.self, forKey: .accessToken)
         self.expiresIn = try values.decode(Int.self, forKey: .expiresIn)
         self.refresthToken = try values.decode(String.self, forKey: .refreshToken)
-    }
-    
-}
-
-public struct TRPRefreshTokenInfoModel: Decodable {
-       
-     /// Type of token
-     public var tokenType: String?
-     /// Token access key
-     public var accessToken: String
-     
-     public var expiresIn: Int
-     
-     private enum CodingKeys: String, CodingKey {
-         case tokenType = "token_type"
-         case accessToken = "access_token"
-         case expiresIn = "expires_in"
-     }
-     
-     /// Initializes a new object with decoder
-     ///
-     /// - Parameter decoder: Json decoder
-     public init(from decoder: Decoder) throws {
-         let values = try decoder.container(keyedBy: CodingKeys.self)
-         self.tokenType = try values.decodeIfPresent(String.self, forKey: .tokenType)
-         self.accessToken = try values.decode(String.self, forKey: .accessToken)
-         self.expiresIn = try values.decode(Int.self, forKey: .expiresIn)
-     }
-    
+    }    
 }

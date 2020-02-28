@@ -72,6 +72,7 @@
 		B253185B24092F31007F97C3 /* TRPGenericParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253185A24092F31007F97C3 /* TRPGenericParser.swift */; };
 		B253185D240934EA007F97C3 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253185C240934EA007F97C3 /* JsonParser.swift */; };
 		B253185F24096144007F97C3 /* TRPImageParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253185E24096144007F97C3 /* TRPImageParserTest.swift */; };
+		B253186224096D75007F97C3 /* TRPRefreshTokenInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253186124096D75007F97C3 /* TRPRefreshTokenInfoModel.swift */; };
 		B255661723B0CB1E00C8AAF2 /* BCCreateTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255661623B0CB1E00C8AAF2 /* BCCreateTrip.swift */; };
 		B255661923B0CE6800C8AAF2 /* TripHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255661823B0CE6800C8AAF2 /* TripHolder.swift */; };
 		B2557E9423ACB14400C5BF4D /* AAUserPersistentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2557E9323ACB14400C5BF4D /* AAUserPersistentTest.swift */; };
@@ -231,6 +232,7 @@
 		B253185A24092F31007F97C3 /* TRPGenericParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGenericParser.swift; sourceTree = "<group>"; };
 		B253185C240934EA007F97C3 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		B253185E24096144007F97C3 /* TRPImageParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageParserTest.swift; sourceTree = "<group>"; };
+		B253186124096D75007F97C3 /* TRPRefreshTokenInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRefreshTokenInfoModel.swift; sourceTree = "<group>"; };
 		B255661623B0CB1E00C8AAF2 /* BCCreateTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCCreateTrip.swift; sourceTree = "<group>"; };
 		B255661823B0CE6800C8AAF2 /* TripHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHolder.swift; sourceTree = "<group>"; };
 		B2557E9323ACB14400C5BF4D /* AAUserPersistentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAUserPersistentTest.swift; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 				B29B464820F60BF80009E711 /* TRPCoordinateModel.swift */,
 				B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */,
 				B253185A24092F31007F97C3 /* TRPGenericParser.swift */,
+				B253186124096D75007F97C3 /* TRPRefreshTokenInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1017,6 +1020,7 @@
 				B29B463F20F60AC30009E711 /* TRPRestKit.swift in Sources */,
 				B29B468320F60F7C0009E711 /* TRPQuestionOptionsJsonModel.swift in Sources */,
 				B29B464B20F60C0D0009E711 /* TRPParentJsonModel.swift in Sources */,
+				B253186224096D75007F97C3 /* TRPRefreshTokenInfoModel.swift in Sources */,
 				B227F45C216CA2BA00591C70 /* TRPFavoritesJsonModel.swift in Sources */,
 				B29B46AE20F613C70009E711 /* TRPRecommendationSettings.swift in Sources */,
 				B2E0D1FA21491E0000876D81 /* TRPTripInfoModel.swift in Sources */,

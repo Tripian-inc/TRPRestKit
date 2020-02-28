@@ -34,7 +34,7 @@ internal struct TRPConfig {
         case planPointAlternative
         case tags
         case checkDataUpdates
-        
+        case refresh
         case login
         case user
         case userTrips
@@ -89,6 +89,8 @@ internal struct TRPConfig {
                 return getNewLink() ?? "user/favorites"
             case .companion:
                 return getNewLink() ?? "user/companion"
+            case .refresh:
+                return getNewLink() ?? "refresh"
             }
         }
         

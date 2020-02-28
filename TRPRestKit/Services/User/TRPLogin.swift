@@ -16,7 +16,6 @@ internal class TRPLogin: TRPRestServices {
     //Test server
     private var loginParameters: [String: String]
     
-    
     init?(parameters: [String: String]) {
         if parameters.count == 0 {
             return nil

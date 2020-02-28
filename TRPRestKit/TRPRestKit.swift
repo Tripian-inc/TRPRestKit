@@ -572,7 +572,7 @@ extension TRPRestKit {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
                 return
             }
-
+            
             self.postData(result: questions, pagination: pagination)
         }
         services.connection()
@@ -669,7 +669,7 @@ extension TRPRestKit {
                 return
             }
             if let serviceResult = result as? TRPGenericParser<TRPLoginTokenInfoModel> {
-            //if let serviceResult = result as? TRPLoginJsonModel {
+                //if let serviceResult = result as? TRPLoginJsonModel {
                 TRPUserPersistent.saveHashToken(serviceResult.data!.accessToken)
                 
                 self.postData(result: serviceResult.data, pagination: pagination)
@@ -749,7 +749,7 @@ extension TRPRestKit {
         }
         
         guard let mServices = services else { return }
-        mServices.completion = {   (result, error, _) in
+        mServices.completion = { (result, error, _) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -761,7 +761,6 @@ extension TRPRestKit {
             } else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
-            
         }
         mServices.connection()
     }
@@ -774,16 +773,27 @@ extension TRPRestKit {
         self.completionHandler = completion
         refreshTokenService(refreshToken)
     }
-    
+    ///RETURN TRPRefreshTokenInfoModel
     private func refreshTokenService(_ refreshToken: String) {
-        
+        let service = TRPRefreshTokenService(refreshToken: refreshToken)
+        service.completion = {result, error, _ in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            
+            if let result = result as? TRPGenericParser<TRPRefreshTokenInfoModel>, let data = result.data {
+                self.postData(result: data)
+            } else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        service.connection()
     }
 }
 
-
 // MARK: Update User Info
 extension TRPRestKit {
-    
     
     /// Update user information (must be logged in with access token), such as user id, e-mail, and preferences.
     /// So that, the updated answers will effect the recommendation engine's work upon user's preferences.

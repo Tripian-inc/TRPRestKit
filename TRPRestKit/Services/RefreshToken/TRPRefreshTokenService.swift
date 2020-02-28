@@ -28,19 +28,22 @@ internal class TRPRefreshTokenService: TRPRestServices{
         let jsonDecode = JSONDecoder()
         do {
             
-            let result = try jsonDecode.decode(TRPGenericParser<TRPLoginTokenInfoModel>.self, from: data)
+            let result = try jsonDecode.decode(TRPGenericParser<TRPRefreshTokenInfoModel>.self, from: data)
             self.completion?(result, nil, nil)
         } catch let tryError {
             self.completion?(nil, tryError as NSError, nil)
         }
     }
     
+    public override func path() -> String {
+        return TRPConfig.ApiCall.refresh.link
+    }
+    
     override func requestMode() -> TRPRequestMode {
         return .post
     }
     
-    override func bodyParameters() -> [String : Any]? {
+    override func bodyParameters() -> [String: Any]? {
         return ["refresh_token": refreshToken]
     }
 }
-
