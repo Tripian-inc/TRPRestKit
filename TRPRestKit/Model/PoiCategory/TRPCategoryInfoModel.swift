@@ -22,7 +22,6 @@ public struct TRPCategoryInfoModel: Decodable {
     
     public var parentCategoryId: Int?
     
-    
     /// Tag matcher
     private enum CodingKeys: String, CodingKey {
         case id

@@ -611,7 +611,8 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let serviceResult = result as? TRPRecommendationJsonModel, let recommendationPlaces = serviceResult.data {
+            
+            if let serviceResult = result as? TRPGenericParser<[TRPRecommendationInfoJsonModel]>, let recommendationPlaces = serviceResult.data {
                 self.postData(result: recommendationPlaces, pagination: pagination)
             } else {
                 self.postData(result: [], pagination: pagination)

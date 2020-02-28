@@ -73,6 +73,7 @@
 		B253185D240934EA007F97C3 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253185C240934EA007F97C3 /* JsonParser.swift */; };
 		B253185F24096144007F97C3 /* TRPImageParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253185E24096144007F97C3 /* TRPImageParserTest.swift */; };
 		B253186224096D75007F97C3 /* TRPRefreshTokenInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253186124096D75007F97C3 /* TRPRefreshTokenInfoModel.swift */; };
+		B25318642409744A007F97C3 /* TRPPoiRefInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25318632409744A007F97C3 /* TRPPoiRefInfoModel.swift */; };
 		B255661723B0CB1E00C8AAF2 /* BCCreateTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255661623B0CB1E00C8AAF2 /* BCCreateTrip.swift */; };
 		B255661923B0CE6800C8AAF2 /* TripHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255661823B0CE6800C8AAF2 /* TripHolder.swift */; };
 		B2557E9423ACB14400C5BF4D /* AAUserPersistentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2557E9323ACB14400C5BF4D /* AAUserPersistentTest.swift */; };
@@ -103,7 +104,6 @@
 		B29B464120F60ADF0009E711 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464020F60ADF0009E711 /* Pagination.swift */; };
 		B29B464920F60BF80009E711 /* TRPCoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464820F60BF80009E711 /* TRPCoordinateModel.swift */; };
 		B29B464B20F60C0D0009E711 /* TRPParentJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */; };
-		B29B467820F60F220009E711 /* TRPRecommendationJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B467720F60F220009E711 /* TRPRecommendationJsonModel.swift */; };
 		B29B467A20F60F320009E711 /* TRPRecommendationInfoJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B467920F60F320009E711 /* TRPRecommendationInfoJsonModel.swift */; };
 		B29B467F20F60F5C0009E711 /* TRPTripQuestionJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B467E20F60F5C0009E711 /* TRPTripQuestionJsonModel.swift */; };
 		B29B468120F60F6A0009E711 /* TRPTripQuestionInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B468020F60F6A0009E711 /* TRPTripQuestionInfoModel.swift */; };
@@ -233,6 +233,7 @@
 		B253185C240934EA007F97C3 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		B253185E24096144007F97C3 /* TRPImageParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageParserTest.swift; sourceTree = "<group>"; };
 		B253186124096D75007F97C3 /* TRPRefreshTokenInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRefreshTokenInfoModel.swift; sourceTree = "<group>"; };
+		B25318632409744A007F97C3 /* TRPPoiRefInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPoiRefInfoModel.swift; sourceTree = "<group>"; };
 		B255661623B0CB1E00C8AAF2 /* BCCreateTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCCreateTrip.swift; sourceTree = "<group>"; };
 		B255661823B0CE6800C8AAF2 /* TripHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHolder.swift; sourceTree = "<group>"; };
 		B2557E9323ACB14400C5BF4D /* AAUserPersistentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAUserPersistentTest.swift; sourceTree = "<group>"; };
@@ -263,7 +264,6 @@
 		B29B464020F60ADF0009E711 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		B29B464820F60BF80009E711 /* TRPCoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCoordinateModel.swift; sourceTree = "<group>"; };
 		B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPParentJsonModel.swift; sourceTree = "<group>"; };
-		B29B467720F60F220009E711 /* TRPRecommendationJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRecommendationJsonModel.swift; sourceTree = "<group>"; };
 		B29B467920F60F320009E711 /* TRPRecommendationInfoJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRecommendationInfoJsonModel.swift; sourceTree = "<group>"; };
 		B29B467E20F60F5C0009E711 /* TRPTripQuestionJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripQuestionJsonModel.swift; sourceTree = "<group>"; };
 		B29B468020F60F6A0009E711 /* TRPTripQuestionInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripQuestionInfoModel.swift; sourceTree = "<group>"; };
@@ -656,7 +656,6 @@
 		B29B467620F60F170009E711 /* Recommendation */ = {
 			isa = PBXGroup;
 			children = (
-				B29B467720F60F220009E711 /* TRPRecommendationJsonModel.swift */,
 				B29B467920F60F320009E711 /* TRPRecommendationInfoJsonModel.swift */,
 			);
 			path = Recommendation;
@@ -779,6 +778,7 @@
 				B259621824053B7000E98DF4 /* TRPImageModel.swift */,
 				B2C365AB226727A300E7B4CA /* TRPImageOwner.swift */,
 				B25318532407E1D1007F97C3 /* TRPUserProfileInfoModel.swift */,
+				B25318632409744A007F97C3 /* TRPPoiRefInfoModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -968,6 +968,7 @@
 				B261A72222490E4C00D31558 /* TRPProblemCategories.swift in Sources */,
 				B29B46A020F613300009E711 /* TRPNetworkError.swift in Sources */,
 				B29B469220F60FFB0009E711 /* TRPCityInfoModel.swift in Sources */,
+				B25318642409744A007F97C3 /* TRPPoiRefInfoModel.swift in Sources */,
 				B29B469420F6100C0009E711 /* TRPCountryJsonModel.swift in Sources */,
 				B29B467A20F60F320009E711 /* TRPRecommendationInfoJsonModel.swift in Sources */,
 				B21E1A8D220A281200EF471F /* TRPGoogleAutoComplete.swift in Sources */,
@@ -1032,7 +1033,6 @@
 				B2341D6223143939007EAF80 /* RestKitInfo.swift in Sources */,
 				B2FDCFB92147EE41000C9387 /* TRPLoginJsonModel.swift in Sources */,
 				B21E1A89220A27DF00EF471F /* TRPGooglePlaceService.swift in Sources */,
-				B29B467820F60F220009E711 /* TRPRecommendationJsonModel.swift in Sources */,
 				B20BBAEB213046CB00DEAA3E /* TRPLogin.swift in Sources */,
 				784BABA122C3F57B00BBDB0F /* TRPCompanionsJsonModel.swift in Sources */,
 				783A137F22F0339D00952CA2 /* TRPConstantsModel.swift in Sources */,

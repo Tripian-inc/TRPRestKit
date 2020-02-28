@@ -32,7 +32,7 @@ internal class TRPRecommendation: TRPRestServices {
         
         let jsonDecode = JSONDecoder()
         do {
-            let result = try jsonDecode.decode(TRPRecommendationJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPGenericParser<[TRPRecommendationInfoJsonModel]>.self, from: data)
             let pag = paginationController(parentJson: result)
             self.completion?(result, nil, pag)
         } catch let tryError {
@@ -56,7 +56,7 @@ internal class TRPRecommendation: TRPRestServices {
         }
         
         if let hash = setting.hash {
-            params["hash"] = hash
+            params["trip_hash"] = hash
         }
         
         if let typeIds = setting.poiCategoryIds {
@@ -66,13 +66,13 @@ internal class TRPRecommendation: TRPRestServices {
             params["adults"] = adults
         }
         if let adultAgeRange = setting.adultAgeRange {
-            params["adult_age_range"] = adultAgeRange
+            params["adult_age_average"] = adultAgeRange
         }
         if let childrenCount = setting.childrenCount {
             params["children"] = childrenCount
         }
         if let childrenAgeRange = setting.childrenAgeRange {
-            params["children_age_range"] = childrenAgeRange
+            params["children_age_average"] = childrenAgeRange
         }
         if let coord = setting.currentCoordinate {
             params["coordinate"] = coord // int
