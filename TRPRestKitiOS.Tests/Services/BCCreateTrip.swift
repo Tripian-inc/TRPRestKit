@@ -33,7 +33,7 @@ class BcCreateTrip: XCTestCase {
                 expectation.fulfill()
                 return
             }
-            guard let tripInfo = result as? TRPTripInfoModel else {
+            guard let tripInfo = result as? TRPTripProfileModel else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripInfoModel")
                 expectation.fulfill()
                 return
@@ -60,7 +60,7 @@ class BcCreateTrip: XCTestCase {
                 return
             }
             
-            guard let currentTrip = currentTrip as? TRPTripInfoModel else {
+            guard let currentTrip = currentTrip as? TRPTripProfileModel else {
                 XCTFail(" Json model coundn't converted to  TRPTripJsonModel")
                 expectation.fulfill()
                 return

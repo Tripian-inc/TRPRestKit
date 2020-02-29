@@ -12,7 +12,7 @@ class TripHolder {
     
     static let shared: TripHolder = TripHolder()
     
-    var model: TRPTripInfoModel?
+    var model: TRPTripProfileModel?
     
     var cityId: Int? {
         return model?.city.id ?? nil
@@ -22,7 +22,7 @@ class TripHolder {
         return model?.hash ?? ""
     }
     
-    func getDay(order: Int) -> TRPDailyPlanInfoModel? {
+    func getDay(order: Int) -> TRPPlansInfoModel? {
         guard let plans = model?.dailyPlans else {
             return nil
         }

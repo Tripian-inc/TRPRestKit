@@ -18,7 +18,7 @@ public struct TRPPlanPointAlternativeInfoModel: Decodable {
     /// An Int value. Alternative poi Id.
     public var alternativePoiId: Int
     /// Referance plan poi
-    public var dailyPlanPoi: TRPPlanPoi?
+    public var dailyPlanPoi: TRPStepInfoModel?
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -36,7 +36,7 @@ public struct TRPPlanPointAlternativeInfoModel: Decodable {
         self.hash = try values.decode(String.self, forKey: .hash)
         self.alternativePoiId = try values.decode(Int.self, forKey: .poiId)
         
-        if let points = ((try? values.decodeIfPresent(TRPPlanPoi.self, forKey: .planPoint)) as TRPPlanPoi??) {
+        if let points = ((try? values.decodeIfPresent(TRPStepInfoModel.self, forKey: .planPoint)) as TRPStepInfoModel??) {
             self.dailyPlanPoi = points
         }
     }

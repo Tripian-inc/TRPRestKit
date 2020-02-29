@@ -46,7 +46,7 @@ class TRPTripsTest: XCTestCase {
                         return
                     }
                     
-                    guard let currentTrip = currentTrip as? TRPTripInfoModel else {
+                    guard let currentTrip = currentTrip as? TRPTripProfileModel else {
                         XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripJsonModel")
                         return
                     }
@@ -88,7 +88,7 @@ class TRPTripsTest: XCTestCase {
                         return
                     }
                     
-                    guard let result = result as? TRPTripInfoModel else {
+                    guard let result = result as? TRPTripProfileModel else {
                         XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripJsonModel")
                         expectation.fulfill()
                         return
@@ -135,7 +135,7 @@ class TRPTripsTest: XCTestCase {
                 return
             }
             
-            guard let result = result as? TRPTripInfoModel else {
+            guard let result = result as? TRPTripProfileModel else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripJsonModel")
                 return
             }
@@ -153,7 +153,7 @@ class TRPTripsTest: XCTestCase {
                         return
                     }
                     
-                    guard let result = result as? TRPTripInfoModel else {
+                    guard let result = result as? TRPTripProfileModel else {
                         XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripJsonModel")
                         return
                     }

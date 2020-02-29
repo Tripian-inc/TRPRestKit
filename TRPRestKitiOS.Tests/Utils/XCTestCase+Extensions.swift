@@ -45,7 +45,7 @@ extension XCTestCase {
         return TRPTime(year: calendar.component(.year, from: date), month: calendar.component(.month, from: date), day: calendar.component(.day, from: date), hours: 18, min: 00)
     }
     
-    func createMockTrip (completionHandler: @escaping(_ result: TRPTripInfoModel, _ error: Error?) -> Void) {
+    func createMockTrip (completionHandler: @escaping(_ result: TRPTripProfileModel, _ error: Error?) -> Void) {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
@@ -61,7 +61,7 @@ extension XCTestCase {
                 return
             }
             
-            guard let result = result as? TRPTripInfoModel else {
+            guard let result = result as? TRPTripProfileModel else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripInfoModel")
                 expectation.fulfill()
                 return
@@ -73,7 +73,7 @@ extension XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
     
-    func getMockTrip (tripHash: String, completionHandler: @escaping(_ result: TRPTripInfoModel, _ error: Error?) -> Void){
+    func getMockTrip (tripHash: String, completionHandler: @escaping(_ result: TRPTripProfileModel, _ error: Error?) -> Void){
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
@@ -85,7 +85,7 @@ extension XCTestCase {
                 return
             }
             
-            guard let result = result as? TRPTripInfoModel else {
+            guard let result = result as? TRPTripProfileModel else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripInfoModel")
                 expectation.fulfill()
                 return
@@ -97,7 +97,7 @@ extension XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
     
-    func refreshDailyPlan (dailyPlanId: Int, completionHandler: @escaping(_ result: TRPDailyPlanInfoModel, _ error: Error?) -> Void){
+    func refreshDailyPlan (dailyPlanId: Int, completionHandler: @escaping(_ result: TRPPlansInfoModel, _ error: Error?) -> Void){
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         DispatchQueue.main.asyncAfter(deadline: .now() + TestUtilConstants.MockTimeConstants.SecondsMedium) {
@@ -110,7 +110,7 @@ extension XCTestCase {
                     return
                 }
                 
-                guard let dailyPlan = dailyPlan as? TRPDailyPlanInfoModel else {
+                guard let dailyPlan = dailyPlan as? TRPPlansInfoModel else {
                     XCTFail("\(nameSpace) Json model coundn't converted to  TRPDailyPlanInfoModel")
                     expectation.fulfill()
                     return

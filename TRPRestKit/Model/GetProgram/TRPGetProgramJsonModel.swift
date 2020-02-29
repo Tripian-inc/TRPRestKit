@@ -9,7 +9,8 @@
 import Foundation
 import TRPFoundationKit
 /// Indicates parameters used when creating a trip.
-public struct TRPGetProgramParamsInfoModel: Decodable {
+//TODO:- adı değiştirilecek
+public struct TRPCreateTripParamsModel: Decodable {
     
     /// An Int value. Id of city.
     public var cityId: String?
@@ -22,7 +23,7 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     public var numberOfAdults: Int?
     /// An Int value. Count of Children
     public var numberOfChildren: Int?
-    public var startCoordinate: TRPLocation?
+    public var startCoordinate: TRPCoordinateModel?
     /// A String value. Address of hotel.
     public var accommodation_address: String?
     
@@ -33,7 +34,8 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     public var tripAnswers = [Int]()
     public var owner: String?
     public var doNotGenerate: Int
-    
+    //TODO: - Pace Enum haline getirilecek
+    public var pace: String?
     
     
     private enum CodingKeys: String, CodingKey {
@@ -42,12 +44,13 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         case departureDateTime = "departure_datetime"
         case numberOfAdults = "number_of_adults"
         case numberOfChildren = "number_of_children"
-        case owner
         case answers
         case tripAnswers
+        case owner
+        case startCoordinate = "start_coordinate"
+        case accommodationAddress = "accommodation_address"
         case companionIds = "companion_ids"
         case pace
-        case accommodationAddress = "accommodation_address"
         case doNotGenerate = "do_not_generate"
     }
     
@@ -62,24 +65,18 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
         
         numberOfAdults = try values.decode(Int.self, forKey: .numberOfAdults)
         numberOfChildren = try values.decodeIfPresent(Int.self,forKey: .numberOfChildren)
-        
-        
-        self.coordinate = try values.decodeIfPresent(String.self, forKey: .coordinate)
-        
-        self.hotelAddress = try values.decodeIfPresent(String.self, forKey: .hotelAddress)
-        
-        if let answersStr = try values.decodeIfPresent(String.self, forKey: .answers) {
-            answers = answersStr.toIntArray()
+    
+        if let startCoordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .startCoordinate) {
+            self.startCoordinate = startCoordinate
         }
         
-        if let tripAnswersStr = try values.decodeIfPresent(String.self, forKey: .tripAnswers) {
-            tripAnswers = tripAnswersStr.toIntArray()
-        }
-        
-        if let companionsStr = try values.decodeIfPresent(String.self, forKey: .companions) {
-            companions = companionsStr.toIntArray()
-        }
-        
+        self.accommodation_address = try values.decodeIfPresent(String.self, forKey: .accommodationAddress)
+        self.answers = try values.decode([Int].self, forKey: .answers)
+        self.tripAnswers = try values.decode([Int].self, forKey: .tripAnswers)
+        self.owner = try values.decodeIfPresent(String.self, forKey: .owner)
+        self.companionIds = try values.decode([Int].self, forKey: .companionIds)
+        self.pace = try values.decodeIfPresent(String.self, forKey: .pace)
+        self.doNotGenerate = try values.decode(Int.self, forKey: .doNotGenerate)
     }
 
 }

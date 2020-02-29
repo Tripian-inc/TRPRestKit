@@ -9,7 +9,7 @@
 import Foundation
 internal class TRPTripJsonModel: TRPParentJsonModel {
     
-    internal var data: TRPTripInfoModel?
+    internal var data: TRPTripProfileModel?
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -17,7 +17,7 @@ internal class TRPTripJsonModel: TRPParentJsonModel {
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.data = try values.decode(TRPTripInfoModel.self, forKey: .data)
+        self.data = try values.decode(TRPTripProfileModel.self, forKey: .data)
         try super.init(from: decoder)
     }
     

@@ -16,10 +16,10 @@ import TRPFoundationKit
 class BdTRPDailyPlanTest: XCTestCase {
     
     // MARK: Variables
-    private var firstDayDailyPlan: TRPDailyPlanInfoModel? {
+    private var firstDayDailyPlan: TRPPlansInfoModel? {
         return TripHolder.shared.getDay(order: 0)
     }
-    private var lastDayDailyPlan: TRPDailyPlanInfoModel? {
+    private var lastDayDailyPlan: TRPPlansInfoModel? {
         return TripHolder.shared.getDay(order: 1)
     }
     private var mockTripHash: String? {
@@ -66,7 +66,7 @@ class BdTRPDailyPlanTest: XCTestCase {
                 return
             }
             
-            guard let dailyPlan = dailyPlan as? TRPDailyPlanInfoModel else {
+            guard let dailyPlan = dailyPlan as? TRPPlansInfoModel else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPDailyPlanInfoModel")
                 expectation.fulfill()
                 return
@@ -121,7 +121,7 @@ class BdTRPDailyPlanTest: XCTestCase {
                 return
             }
             
-            guard let dailyPlan = dailyPlan as? TRPDailyPlanInfoModel else {
+            guard let dailyPlan = dailyPlan as? TRPPlansInfoModel else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPDailyPlanInfoModel")
                 expectation.fulfill()
                 return
