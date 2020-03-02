@@ -89,7 +89,6 @@ public class TRPRestServices<T: Decodable> {
         return false
     }
     
-    
     // MARK: - Overriter Funstions
     
     /// HTTP request mode

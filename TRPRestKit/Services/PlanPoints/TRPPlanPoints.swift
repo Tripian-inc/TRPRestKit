@@ -47,31 +47,6 @@ internal class TRPPlanPoints: TRPRestServices<TRPProgramStepJsonModel> {
         type = .update
     }
     
-    public override func servicesResult(data: Data?, error: NSError?) {
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
-        
-        let jsonDecode = JSONDecoder()
-        do {
-            if type == .add {
-                let result = try jsonDecode.decode(TRPProgramStepJsonModel.self, from: data)
-                self.completion?(result, nil, nil)
-            } else {
-                let result = try jsonDecode.decode(TRPProgramStepJsonModel.self, from: data)
-                self.completion?(result, nil, nil)
-            }
-            
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
-    }
-    
     public override func userOAuth() -> Bool {
         return true
     }

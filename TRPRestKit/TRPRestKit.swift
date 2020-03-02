@@ -678,7 +678,6 @@ extension TRPRestKit {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        
         service.connection()
     }
     

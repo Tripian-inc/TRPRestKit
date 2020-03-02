@@ -34,25 +34,6 @@ internal class TRPQuestionService: TRPRestServices<TRPQuestionJsonModel> {
     internal init(tripType: TRPQuestionCategory) {
         self.tripType = tripType
     }
-    
-    public override func servicesResult(data: Data?, error: NSError?) {
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
-        let jsonDecode = JSONDecoder()
-        do {
-            let result = try jsonDecode.decode(TRPQuestionJsonModel.self, from: data)
-            let pag = paginationController(parentJson: result)
-            self.completion?(result, nil, pag)
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
-    }
  
     public override func path() -> String {
         return TRPConfig.ApiCall.questions.link

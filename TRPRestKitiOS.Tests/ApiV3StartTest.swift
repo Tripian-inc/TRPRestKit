@@ -19,7 +19,6 @@ class ApiV3StartTest: XCTestCase {
     func testUserRegister() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-         
         TRPRestKit().register(email: "silV3_10@fakemailxyz.com", password: "123456aA", firstName: "Ali", lastName: "Veli", answers: [1,2,3,4]) { (result, error) in
             XCTAssertNil(error)
             
@@ -76,7 +75,6 @@ class ApiV3StartTest: XCTestCase {
          wait(for: [expectation], timeout: 20.0)
     }
 
-    
     func testRefreshTokenBasic() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
@@ -101,4 +99,5 @@ class ApiV3StartTest: XCTestCase {
         }
          wait(for: [expectation], timeout: 20.0)
     }
+    
 }

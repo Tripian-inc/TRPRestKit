@@ -30,25 +30,6 @@ internal class TRPUserFavorite: TRPRestServices<TRPFavoritesJsonModel> {
         self.cityId = cityId
     }
     
-    public override func servicesResult(data: Data?, error: NSError?) {
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
-        
-        let jsonDecode = JSONDecoder()
-        do {
-            let result = try jsonDecode.decode(TRPFavoritesJsonModel.self, from: data)
-            self.completion?(result, nil, nil)
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
-    }
-    
     override public func requestMode() -> TRPRequestMode {
         if type == .get {
             return .get

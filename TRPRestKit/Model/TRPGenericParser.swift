@@ -23,4 +23,3 @@ internal class TRPGenericParser<T: Decodable>: TRPParentJsonModel {
     }
     
 }
-
