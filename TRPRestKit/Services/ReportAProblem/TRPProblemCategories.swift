@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPProblemCategories: TRPRestServices {
+internal class TRPProblemCategories: TRPRestServices<TRPProblemCategoriesJsonModel> {
     
     internal override init() {}
     

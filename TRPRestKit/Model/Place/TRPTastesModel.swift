@@ -9,6 +9,6 @@
 import Foundation
 public struct TRPTastesInfoModel: Decodable {
     var name: String
-    var description: String
+    var description: String?
     var image: String
 }

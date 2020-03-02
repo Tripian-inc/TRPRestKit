@@ -12,18 +12,18 @@ class TripHolder {
     
     static let shared: TripHolder = TripHolder()
     
-    var model: TRPTripProfileModel?
+    var model: TRPTripModel?
     
     var cityId: Int? {
         return model?.city.id ?? nil
     }
     
     var hash: String {
-        return model?.hash ?? ""
+        return model?.tripHash ?? ""
     }
     
     func getDay(order: Int) -> TRPPlansInfoModel? {
-        guard let plans = model?.dailyPlans else {
+        guard let plans = model?.plans else {
             return nil
         }
         if plans.count < order {

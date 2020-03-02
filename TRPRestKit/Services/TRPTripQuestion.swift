@@ -21,7 +21,7 @@ public enum TRPQuestionCategory: String {
     case companion 
 }
 
-internal class TRPQuestionService: TRPRestServices {
+internal class TRPQuestionService: TRPRestServices<TRPQuestionJsonModel> {
     
     private var cityId: Int?
     public var tripType = TRPQuestionCategory.trip

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPReportAProblemServices: TRPRestServices {
+internal class TRPReportAProblemServices: TRPRestServices<TRPReportAProblemJsonModel> {
     
     let categoryName: String
     var message: String?

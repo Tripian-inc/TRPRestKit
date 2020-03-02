@@ -10,7 +10,9 @@ import Foundation
 
 /// This is a high-level class to connectiong with remote server.
 /// If you want to generate a new servise, new servise must be extended TRPRestServices.
-public class TRPRestServices {
+public class TRPRestServices<T: Decodable> {
+    
+    typealias JsonParserModel = T
     
     /// A Closer. Completion handler
     public var completion:((_ result: Any?, _ error: NSError?, _ pagination: Pagination?) -> Void)?
@@ -83,6 +85,11 @@ public class TRPRestServices {
         return jsonData
     }
     
+    var isPagination: Bool {
+        return false
+    }
+    
+    
     // MARK: - Overriter Funstions
     
     /// HTTP request mode
@@ -97,7 +104,30 @@ public class TRPRestServices {
     /// - Parameters:
     ///   - data: returns from remote server
     ///   - error: nsError
-    public func servicesResult(data: Data?, error: NSError?) {}
+    public func servicesResult(data: Data?, error: NSError?) {
+        if let error = error {
+            self.completion?(nil, error, nil)
+            return
+        }
+        guard let data = data else {
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
+            return
+        }
+        
+        let jsonDecode = JSONDecoder()
+        do {
+            let result = try jsonDecode.decode(JsonParserModel.self, from: data)
+            let pagination = checkPagination(result)
+            self.completion?(result, nil, pagination)
+        } catch let tryError {
+            self.completion?(nil, tryError as NSError, nil)
+        }
+    }
+    
+    private func checkPagination(_ result: Decodable) -> Pagination? {
+        guard let parent = result as? TRPParentJsonModel else {return nil}
+        return paginationController(parentJson: parent)
+    }
     
     /// Returns HTTP body parameters
     ///
@@ -120,8 +150,11 @@ public class TRPRestServices {
         return ""
     }
     
-    public func paginationController(parentJson: TRPParentJsonModel) -> Pagination {
-        if let nextPage = parentJson.pagination?.links?.next {
+    public func paginationController(parentJson: TRPParentJsonModel) -> Pagination? {
+        guard let pagination = parentJson.pagination else {
+            return nil
+        }
+        if let nextPage = pagination.links?.next {
             if isAutoPagination {
                 connection(link: nextPage)
             }

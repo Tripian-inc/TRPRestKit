@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPPoiCategoryService: TRPRestServices {
+internal class TRPPoiCategoryService: TRPRestServices<TRPPoiCategoryJsonModel> {
     
     internal override init() {}
    

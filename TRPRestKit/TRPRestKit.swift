@@ -678,6 +678,7 @@ extension TRPRestKit {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
+        
         service.connection()
     }
     
@@ -1247,7 +1248,7 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let data = result as? TRPTripJsonModel, let serviceResult = data.data {
+            if let data = result as? TRPGenericParser<TRPTripModel>, let serviceResult = data.data {
                 self.postData(result: serviceResult)
             }else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
@@ -1261,7 +1262,7 @@ extension TRPRestKit {
     /// - Parameters:
     ///   - hash: A String value that refers to trip hash.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func getTrip(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1270,13 +1271,14 @@ extension TRPRestKit {
     
     /// A services which will be used forgetting trip info services, manages all task connecting to remote server.
     private func getTripServices(hash: String) {
-        let getProgramService = TRPGetProgram(hash: hash)
+        
+        let getProgramService = TRPGetTripServices(hash: hash)
         getProgramService.completion = {  (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let serviceResult = result as? TRPTripJsonModel, let info = serviceResult.data {
+            if let serviceResult = result as? TRPGenericParser<TRPTripModel>, let info = serviceResult.data {
                 self.postData(result: info)
             }
         }

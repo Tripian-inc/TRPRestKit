@@ -9,7 +9,7 @@
 import Foundation
 import TRPFoundationKit
 
-internal class TRPRecommendation: TRPRestServices {
+internal class TRPRecommendation: TRPRestServices<TRPGenericParser<[TRPRecommendationInfoJsonModel]>> {
     
     var setting: TRPRecommendationSettings
     var limit: Int = 15

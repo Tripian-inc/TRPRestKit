@@ -33,7 +33,7 @@ class BcCreateTrip: XCTestCase {
                 expectation.fulfill()
                 return
             }
-            guard let tripInfo = result as? TRPTripProfileModel else {
+            guard let tripInfo = result as? TRPTripModel else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripInfoModel")
                 expectation.fulfill()
                 return
@@ -41,11 +41,11 @@ class BcCreateTrip: XCTestCase {
             // Wait 6 second for all trip created.
             
             XCTAssert(tripInfo.id != 0)
-            XCTAssert(!tripInfo.hash.isEmpty)
+            XCTAssert(!tripInfo.tripHash.isEmpty)
             XCTAssertEqual(tripInfo.city.id, TestUtilConstants.MockCityConstants.IstanbulCityId)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                self.fetchCurrentTripToUseOther(expectation: expectation, tripHash: tripInfo.hash)
+                self.fetchCurrentTripToUseOther(expectation: expectation, tripHash: tripInfo.tripHash)
                 
             }
         }
@@ -60,12 +60,14 @@ class BcCreateTrip: XCTestCase {
                 return
             }
             
-            guard let currentTrip = currentTrip as? TRPTripProfileModel else {
+            guard let currentTrip = currentTrip as? TRPTripModel else {
                 XCTFail(" Json model coundn't converted to  TRPTripJsonModel")
                 expectation.fulfill()
                 return
             }
-            if let firstDay = currentTrip.dailyPlans?.first, let second = currentTrip.dailyPlans?[1] {
+            
+            if let firstDay = currentTrip.plans.first {
+                let second = currentTrip.plans[1]
                 if firstDay.generate == 1 && second.generate == 1 {
                     TripHolder.shared.model = currentTrip
                     expectation.fulfill()

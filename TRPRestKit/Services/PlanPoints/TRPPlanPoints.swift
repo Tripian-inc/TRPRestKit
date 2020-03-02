@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPPlanPoints: TRPRestServices {
+internal class TRPPlanPoints: TRPRestServices<TRPProgramStepJsonModel> {
     
     enum Status {
         case add

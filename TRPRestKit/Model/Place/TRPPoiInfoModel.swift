@@ -22,7 +22,7 @@ public struct TRPPoiInfoModel: Decodable {
     
     public var gallery: [TRPImageModel]
     /// An Int value. Indicates level of price between 0 and 4.
-    public var price: Int = 0
+    public var price: Int?
     /// A Float value. Indicates how many stars poi has.
     public var rating: Float?
     /// An Int value. Indicates how many review poi has.
@@ -95,15 +95,19 @@ public struct TRPPoiInfoModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
         self.cityId = try values.decode(Int.self, forKey: .cityId)
+        self.name = try values.decode(String.self, forKey: .name)
+        self.image = try values.decode(TRPImageModel.self, forKey: .image)
+        self.gallery = try values.decodeIfPresent([TRPImageModel].self, forKey: .gallery) ?? []
+        self.price = try values.decodeIfPresent(Int.self, forKey: .price)
         self.rating = try values.decodeIfPresent(Float.self, forKey: .rating)
         self.ratingCount = try values.decodeIfPresent(Int.self, forKey: .ratingCount)
-        self.name = try values.decode(String.self, forKey: .name)
+        
         self.address = try values.decodeIfPresent(String.self, forKey: .address)
-        self.price = try values.decodeIfPresent(Int.self, forKey: .price) ?? 0
+        
         self.web = try values.decodeIfPresent(String.self, forKey: .web)
         self.hours = try values.decodeIfPresent(String.self, forKey: .hours)
         self.phone = try values.decodeIfPresent(String.self, forKey: .phone)
-        self.image = try values.decode(TRPImageModel.self, forKey: .image)
+        
         self.icon = try values.decode(String.self, forKey: .icon)
         self.coordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .coordinate)
         self.markerCoordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .markerCoordinate)
@@ -117,7 +121,7 @@ public struct TRPPoiInfoModel: Decodable {
 
         self.cuisines = try values.decodeIfPresent(String.self, forKey: .cuisines)
         self.booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey:.booking)
-        self.gallery = try values.decodeIfPresent([TRPImageModel].self, forKey: .gallery) ?? []
+        
         self.tags = try values.decode([String].self, forKey: .tags)
         self.tastes = try values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .tastes) ?? []
         self.attention = try values.decodeIfPresent(String.self, forKey: .attention)

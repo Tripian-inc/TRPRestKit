@@ -8,7 +8,7 @@
 
 import Foundation
 import TRPFoundationKit
-internal class TRPPoiService: TRPRestServices {
+internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
     
     private enum FetchType {
         case withCityId

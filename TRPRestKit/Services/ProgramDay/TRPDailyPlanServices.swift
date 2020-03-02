@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPDailyPlanServices: TRPRestServices {
+internal class TRPDailyPlanServices: TRPRestServices<TRPDayPlanJsonModel> {
     
     var dayId: Int?
     var startTime: String?

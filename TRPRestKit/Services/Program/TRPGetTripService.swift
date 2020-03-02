@@ -1,13 +1,14 @@
 //
-//  TRPDeleteProgram.swift
+//  TRPGetTripService.swift
 //  TRPRestKit
 //
-//  Created by Evren Yaşar on 28.08.2018.
-//  Copyright © 2018 Evren Yaşar. All rights reserved.
+//  Created by Evren Yaşar on 2.03.2020.
+//  Copyright © 2020 Evren Yaşar. All rights reserved.
 //
 
 import Foundation
-internal class TRPDeleteProgram: TRPRestServices<TRPParentJsonModel> {
+
+internal class TRPGetTripServices: TRPRestServices<TRPGenericParser<TRPTripModel>> {
     
     var hash: String?
     
@@ -28,7 +29,8 @@ internal class TRPDeleteProgram: TRPRestServices<TRPParentJsonModel> {
         }
         let jsonDecode = JSONDecoder()
         do {
-            let result = try jsonDecode.decode(TRPParentJsonModel.self, from: data)
+            
+            let result = try jsonDecode.decode(TRPGenericParser<TRPTripModel>.self, from: data)
             self.completion?(result, nil, nil)
         } catch let tryError {
             self.completion?(nil, tryError as NSError, nil)
@@ -48,8 +50,14 @@ internal class TRPDeleteProgram: TRPRestServices<TRPParentJsonModel> {
         return true
     }
     
-    override func requestMode() -> TRPRequestMode {
-        return .delete
-    }
+}
+
+
+
+
+class DenemeServiceA<T: Decodable> {
+    
+    var parserType: T?
+   
     
 }

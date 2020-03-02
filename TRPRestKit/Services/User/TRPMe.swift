@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPUserInfoServices: TRPRestServices {
+internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
     
     enum ServiceType {
         case getInfo, updateInfo, updateAnswer

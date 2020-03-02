@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPRefreshTokenService: TRPRestServices{
+internal class TRPRefreshTokenService: TRPRestServices<TRPGenericParser<TRPRefreshTokenInfoModel>>{
     
     private var refreshToken: String
     

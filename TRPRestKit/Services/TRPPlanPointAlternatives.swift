@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPPlanPointAlternatives: TRPRestServices {
+internal class TRPPlanPointAlternatives: TRPRestServices<TRPPlanPointAlternativeJsonModel> {
     
     var hash: String?
     var planPointId: Int?

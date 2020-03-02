@@ -11,7 +11,9 @@ import TRPFoundationKit
 public enum CompanionServiceType {
     case get, add, update, delete
 }
-internal class TRPCompanionServices: TRPRestServices {
+
+//TODO: - TRPCompanionsJsonModel - TRPParentJsonModel OLARAK GÜNCELLENECEK
+internal class TRPCompanionServices: TRPRestServices<TRPCompanionsJsonModel> {
     let serviceType: CompanionServiceType
     var id: Int?
     var name: String?

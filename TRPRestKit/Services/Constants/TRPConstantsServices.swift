@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class TRPConstantsServices: TRPRestServices {
+internal class TRPConstantsServices: TRPRestServices<TRPConstantsParentJsonModel> {
     
     internal override init() {}
     

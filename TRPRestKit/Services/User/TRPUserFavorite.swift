@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPUserFavorite: TRPRestServices {
+internal class TRPUserFavorite: TRPRestServices<TRPFavoritesJsonModel> {
     
     public enum Mode {
         case add, get, delete

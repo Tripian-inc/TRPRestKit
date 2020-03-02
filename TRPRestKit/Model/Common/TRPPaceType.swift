@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public TRPPaceType {
+public enum TRPPaceType {
     case slow
     case fast
     case normal

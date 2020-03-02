@@ -18,9 +18,9 @@ public struct TRPStepInfoModel: Decodable {
     public var order: Int
     
     public var score: Int?
-    public var alternatives: [Int]?
-    public var hours:TRPHourInfoModel?
     
+    public var hours:TRPHourInfoModel?
+    public var alternatives: [Int]
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -40,7 +40,7 @@ public struct TRPStepInfoModel: Decodable {
         poi = try values.decode(TRPPoiInfoModel.self, forKey: .poi)
         score = try values.decodeIfPresent(Int.self, forKey: .score)
         hours = try values.decodeIfPresent(TRPHourInfoModel.self, forKey: .hours)
-        alternatives = try values.decodeIfPresent([Int].self, forKey: .alternatives)
+        alternatives = try values.decode([Int].self, forKey: .alternatives)
         order = try values.decode(Int.self,forKey: .order)
     }
     

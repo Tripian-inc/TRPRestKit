@@ -45,7 +45,7 @@ extension XCTestCase {
         return TRPTime(year: calendar.component(.year, from: date), month: calendar.component(.month, from: date), day: calendar.component(.day, from: date), hours: 18, min: 00)
     }
     
-    func createMockTrip (completionHandler: @escaping(_ result: TRPTripProfileModel, _ error: Error?) -> Void) {
+    func createMockTrip (completionHandler: @escaping(_ result: TRPTripModel, _ error: Error?) -> Void) {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
@@ -61,7 +61,7 @@ extension XCTestCase {
                 return
             }
             
-            guard let result = result as? TRPTripProfileModel else {
+            guard let result = result as? TRPTripModel else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPTripInfoModel")
                 expectation.fulfill()
                 return

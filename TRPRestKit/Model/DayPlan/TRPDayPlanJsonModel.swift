@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//TODO: SİLİNECEK VE GENERİC YAPILACAK
 internal class TRPDayPlanJsonModel: TRPParentJsonModel {
     
     public var data: TRPPlansInfoModel

@@ -9,8 +9,8 @@
 import Foundation
 import TRPFoundationKit
 /// Indicates parameters used when creating a trip.
-//TODO:- adı değiştirilecek
-public struct TRPCreateTripParamsModel: Decodable {
+//TODO:- adı değiştirilecek //TRİP PRofile
+public struct TRPTripProfileModel: Decodable {
     
     /// An Int value. Id of city.
     public var cityId: String?
@@ -20,23 +20,23 @@ public struct TRPCreateTripParamsModel: Decodable {
     public var departureDateTime: String?
     
     /// An Int value. Adult count.
-    public var numberOfAdults: Int?
+    public var numberOfAdults: Int
     /// An Int value. Count of Children
     public var numberOfChildren: Int?
-    public var startCoordinate: TRPCoordinateModel?
-    /// A String value. Address of hotel.
-    public var accommodation_address: String?
-    
     /// A String value. Answer of questions.You must convert to Array.
     public var answers = [Int]()
-    /// A String value. Companion of users for the selected trip.You must convert to Array.
-    public var companionIds = [Int]()
     public var tripAnswers = [Int]()
     public var owner: String?
-    public var doNotGenerate: Int
+    public var startCoordinate: TRPCoordinateModel?
+    
+    /// A String value. Address of hotel.
+    public var accommodationAddress: String?
+    /// A String value. Companion of users for the selected trip.You must convert to Array.
+    public var companionIds = [Int]()
     //TODO: - Pace Enum haline getirilecek
     public var pace: String?
-    
+
+    public var doNotGenerate: Int
     
     private enum CodingKeys: String, CodingKey {
         case cityId = "city_id"
@@ -70,7 +70,7 @@ public struct TRPCreateTripParamsModel: Decodable {
             self.startCoordinate = startCoordinate
         }
         
-        self.accommodation_address = try values.decodeIfPresent(String.self, forKey: .accommodationAddress)
+        self.accommodationAddress = try values.decodeIfPresent(String.self, forKey: .accommodationAddress)
         self.answers = try values.decode([Int].self, forKey: .answers)
         self.tripAnswers = try values.decode([Int].self, forKey: .tripAnswers)
         self.owner = try values.decodeIfPresent(String.self, forKey: .owner)

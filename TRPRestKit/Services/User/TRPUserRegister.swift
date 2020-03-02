@@ -7,8 +7,8 @@
 //
 
 import Foundation
-
-internal class TRPUserRegister: TRPRestServices {
+//TODO: TRPUserInfoJsonModel VE TRPTestUserInfoJsonModel İÇİN YENİDEN YAZILACAK
+internal class TRPUserRegister: TRPRestServices<TRPUserInfoJsonModel> {
     
     private var email: String?
     private var password: String?

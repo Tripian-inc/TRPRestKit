@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPProgram: TRPRestServices {
+internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
     
     var setting: TRPTripSettings?
     
@@ -29,7 +29,7 @@ internal class TRPProgram: TRPRestServices {
         let jsonDecode = JSONDecoder()
         
         do {
-            let result = try jsonDecode.decode(TRPTripJsonModel.self, from: data)
+            let result = try jsonDecode.decode(TRPGenericParser<TRPTripModel>.self, from: data)
             let pag = paginationController(parentJson: result)
             self.completion?(result, nil, pag)
         } catch let tryError {

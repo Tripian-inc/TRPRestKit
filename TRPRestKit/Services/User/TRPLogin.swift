@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class TRPLogin: TRPRestServices {
+internal class TRPLogin: TRPRestServices<TRPGenericParser<TRPLoginTokenInfoModel>> {
     
     //Airmiles
     private var email: String?
@@ -26,26 +26,6 @@ internal class TRPLogin: TRPRestServices {
             }
         }
         loginParameters  = parameters
-    }
-    
-    override func servicesResult(data: Data?, error: NSError?) {
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
-        
-        let jsonDecode = JSONDecoder()
-        do {
-            let result = try jsonDecode.decode(TRPGenericParser<TRPLoginTokenInfoModel>.self, from: data)
-            //let result = try jsonDecode.decode(TRPLoginJsonModel.self, from: data)
-            self.completion?(result, nil, nil)
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
     }
     
     override public func requestMode() -> TRPRequestMode {

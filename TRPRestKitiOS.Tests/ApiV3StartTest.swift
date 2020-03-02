@@ -42,6 +42,9 @@ class ApiV3StartTest: XCTestCase {
             
             if let result = result as? TRPLoginTokenInfoModel {
                 print("SONUC \(result)")
+            }else {
+                XCTFail()
+                return
             }
             expectation.fulfill()
         }
