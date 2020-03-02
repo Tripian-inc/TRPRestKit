@@ -1130,7 +1130,7 @@ extension TRPRestKit {
     
     /// A services which will be used in users trips, manages all task connecting to remote server.
     private func userTripsServices(limit: Int) {
-        let tripService = TRPUserTrips()
+        let tripService = TRPUserTripsServices()
         tripService.limit = limit
         tripService.completion = {   (result, error, pagination) in
             if let error = error {

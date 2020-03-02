@@ -12,25 +12,21 @@ import Foundation
 /// This model can be used in `MyTip`
 public struct TRPUserTripInfoModel: Decodable {
     
-    /// An Int value. Id of a trip.
+    /// An Int value. Id of trip.
     public var id: Int
-    /// A TRPTime object. Arrival time of trip.
-    public var arrivalTime: TRPTime?
-    /// A TRPTime object. Departure time of trip.
-    public var depatureTime: TRPTime?
-    /// A TRPCityInfoModel object. The city where the trip is.
-    public var city: TRPCityInfoModel?
     /// A String value. Unique hash of trip.
-    public var hash: String
+    public var tripHash: String
+    
+    public var tripProfile: TRPTripProfileModel
+    public var city: TRPCityInfoModel
+    
+    //TODO: - unit testi yazılacak cünkü gelen modellerin eksik gelme ihtimali çok yüksek ve projenin en önemli kısımlarından biri.
     
     private enum CodingKeys: String, CodingKey {
         case id
-        case hash
+        case tripHash = "trip_hash"
+        case tripProfile = "trip_profile"
         case city
-        case arrivalDate = "arrival_date"
-        case arrivalTime = "arrival_time"
-        case departureDate = "departure_date"
-        case departureTime = "departure_time"
     }
     
     /// Json to Object converter
@@ -39,18 +35,11 @@ public struct TRPUserTripInfoModel: Decodable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
-        self.hash = try values.decode(String.self, forKey: .hash)
-        let arrivalDate = try values.decode(String.self, forKey: .arrivalDate)
-        let arrivalTime = try values.decode(String.self, forKey: .arrivalTime)
-        let departureDate = try values.decode(String.self, forKey: .departureDate)
-        let departureTime = try values.decode(String.self, forKey: .departureTime)
-        
-        self.arrivalTime = TRPTime(date: arrivalDate, time: arrivalTime)
-        self.depatureTime = TRPTime(date: departureDate, time: departureTime)
-        
-        if let city = ((try? values.decodeIfPresent(TRPCityInfoModel.self, forKey: .city)) as TRPCityInfoModel??) {
-            self.city = city
-        }
+        self.tripHash = try values.decode(String.self, forKey: .tripHash)
+        self.tripProfile = try values.decode(TRPTripProfileModel.self, forKey: .tripProfile)
+        self.city = try values.decode(TRPCityInfoModel.self, forKey: .city)
     }
     
 }
+
+

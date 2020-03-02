@@ -74,7 +74,7 @@ internal struct TRPConfig {
             case .user:
                 return getNewLink() ?? "user"
             case .userTrips:
-                return getNewLink() ?? "user/trips"
+                return getNewLink() ?? "user-trip"
             case .trip:
                 return getNewLink() ?? "trip"
             case .dailyPlan:
@@ -86,7 +86,7 @@ internal struct TRPConfig {
             case .register:
                 return getNewLink() ?? "register"
             case .favorite:
-                return getNewLink() ?? "user/favorites"
+                return getNewLink() ?? "user-favorite"
             case .companion:
                 return getNewLink() ?? "user/companion"
             case .refresh:

@@ -13,7 +13,7 @@ import TRPFoundationKit
 public struct TRPTripProfileModel: Decodable {
     
     /// An Int value. Id of city.
-    public var cityId: String?
+    public var cityId: Int
     /// A String value. Arrival date of trip.
     public var arrivalDateTime: String?
     /// A String value. Departure date of trip.
@@ -45,7 +45,7 @@ public struct TRPTripProfileModel: Decodable {
         case numberOfAdults = "number_of_adults"
         case numberOfChildren = "number_of_children"
         case answers
-        case tripAnswers
+        case tripAnswers = "trip_answers"
         case owner
         case startCoordinate = "start_coordinate"
         case accommodationAddress = "accommodation_address"
@@ -59,12 +59,12 @@ public struct TRPTripProfileModel: Decodable {
     /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        cityId = try values.decodeIfPresent(String.self, forKey: .cityId)
+        cityId = try values.decode(Int.self, forKey: .cityId)
         arrivalDateTime = try values.decodeIfPresent(String.self, forKey: .arrivalDateTime)
         departureDateTime = try values.decodeIfPresent(String.self, forKey: .departureDateTime)
         
         numberOfAdults = try values.decode(Int.self, forKey: .numberOfAdults)
-        numberOfChildren = try values.decodeIfPresent(Int.self,forKey: .numberOfChildren)
+        numberOfChildren = try values.decodeIfPresent(Int.self, forKey: .numberOfChildren)
     
         if let startCoordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .startCoordinate) {
             self.startCoordinate = startCoordinate
