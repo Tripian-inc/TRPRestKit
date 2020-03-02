@@ -182,7 +182,7 @@ extension TRPRestKit {
         }
         
         if let link = url {
-            service.connection(link: link)
+            service.connection(link)
         } else {
             service.connection()
         }
@@ -458,7 +458,7 @@ extension TRPRestKit {
         }
         
         if let link = url {
-            services.connection(link: link)
+            services.connection(link)
         } else {
             services.connection()
         }

@@ -21,48 +21,34 @@ public class TRPRestServices<T: Decodable> {
     public var isAutoPagination = true
     
     /// To start connection
-    public func connection() {
-        let network = TRPNetwork(path: path())
-        network.add(params: createParams())
-        network.add(mode: requestMode())
+    public func connection(_ url: String? = nil) {
+        var network: TRPNetwork?
+        if let url = url {
+            network = TRPNetwork(link: url)
+        }else {
+            network = TRPNetwork(path: path())
+            network!.add(params: createParams())
+            network!.add(mode: requestMode())
+        }
         
-        network.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
+        guard let networkService = network else {return}
+        
+        networkService.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
         if let bodyData = bodyDataToJson(bodyParameters()) {
-            network.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            network.addValue("application/json", forHTTPHeaderField: "Accept")
-            network.add(body: bodyData)
+            networkService.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            networkService.addValue("application/json", forHTTPHeaderField: "Accept")
+            networkService.add(body: bodyData)
         }
         if userOAuth() == true {
             if let token = oauth() {
-                network.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+                networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             }
         }
-        network.build { (error, data) in
+        networkService.build { (error, data) in
             self.servicesResult(data: data, error: error)
         }
     }
-    
-    /// To start connection using link
-    ///
-    /// - Parameter link: Raw link
-    public func connection(link: String) {
-        
-        let network = TRPNetwork(link: link)
-        network.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
-        if let bodyData = bodyDataToJson(bodyParameters()) {
-            network.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            network.addValue("application/json", forHTTPHeaderField: "Accept")
-            network.add(body: bodyData)
-        }
-        if userOAuth() == true {
-            if let token = oauth() {
-                network.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-            }
-        }
-        network.build { (error, data) in
-            self.servicesResult(data: data, error: error)
-        }
-    }
+   
     
     private func createParams() -> [String: Any] {
         var params: [String: Any] = [:]
@@ -155,7 +141,7 @@ public class TRPRestServices<T: Decodable> {
         }
         if let nextPage = pagination.links?.next {
             if isAutoPagination {
-                connection(link: nextPage)
+                connection(nextPage)
             }
             return .continues(nextPage)
         } else {
