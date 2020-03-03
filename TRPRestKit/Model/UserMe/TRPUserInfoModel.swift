@@ -21,8 +21,6 @@ public struct TRPUserInfoModel: Decodable {
     /// A String value. Last name of the user.
     public var lastName: String?
    
-    /// An Int value. Payment status of the user.
-    public var paymentStatus: Int?
     /// A array of TRPUserPreferencesInfoModel objects.
     public var profile: TRPUserProfileInfoModel?
     
@@ -32,9 +30,6 @@ public struct TRPUserInfoModel: Decodable {
         case profile
         case firstName = "first_name"
         case lastName = "last_name"
-        case password
-        case age
-        case paymentStatus = "payment_status"
     }
     
     /// Json to Object converter
@@ -56,10 +51,6 @@ public struct TRPUserInfoModel: Decodable {
         
         self.firstName = try values.decodeIfPresent(String.self, forKey: .firstName)
         self.lastName = try values.decodeIfPresent(String.self, forKey: .lastName)
-        
-        //Fixme: Infodan alınacak
-       // self.age = try values.decodeIfPresent(String.self, forKey: .age)
-        self.paymentStatus = try values.decodeIfPresent(Int.self, forKey: .paymentStatus)
         self.profile = try values.decodeIfPresent(TRPUserProfileInfoModel.self, forKey: .profile)
     }
     

@@ -17,8 +17,11 @@ class AeTRPUserTest: XCTestCase {
     // MARK: Set Up 
     override func setUp() {
         super.setUp()
-        UserMockSession.shared.setServer()
-        UserMockSession.shared.doLogin()
+        //UserMockSession.shared.setServer()
+        //UserMockSession.shared.doLogin()
+        let urlCreater = BaseUrlCreater(baseUrl: "6ezq4jb2mk.execute-api.eu-west-1.amazonaws.com", basePath: "api")
+           TRPClient.start(baseUrl: urlCreater, apiKey: "")
+           TRPClient.monitor(data: true, url: true)
     }
     
     // MARK: User Info Tests
@@ -49,7 +52,7 @@ class AeTRPUserTest: XCTestCase {
             if TestUtilConstants.targetServer == .airMiles {
                 XCTAssert(!userInfo.email.isEmpty)
                 XCTAssertNotNil(userInfo.firstName)
-                XCTAssertNotNil(userInfo.paymentStatus)
+                
             }else {
                 XCTAssert(!userInfo.username.isEmpty)
             }
@@ -93,7 +96,6 @@ class AeTRPUserTest: XCTestCase {
             
             if TestUtilConstants.targetServer == .airMiles {
                 XCTAssertNotNil(userInfo.firstName)
-                XCTAssertNotNil(userInfo.paymentStatus)
                 XCTAssertEqual(userInfo.firstName, randomFirstName)
                 XCTAssertEqual(userInfo.lastName, randomLastName)
             }else {
@@ -133,24 +135,13 @@ class AeTRPUserTest: XCTestCase {
                 expectation.fulfill()
                 return
             }
-            //FIXME: profile e dönüştürüldü
-            /*guard let infoData = userInfo.info else {
-                XCTFail("\(nameSpace) Info model is nil")
-                expectation.fulfill()
-                return
-            }*/
-            
-            var resultArray = [Int]()
-            //FIXME: profile e dönüştürüldü
-            /*for item in infoData {
-                if item.key == "answers" {
-                    resultArray = item.value.toIntArray()
-                }
-            }*/
+    
+            XCTAssertNotNil(userInfo.profile)
+            let resultArray = userInfo.profile!.answers
         
             if TestUtilConstants.targetServer == .airMiles {
                 XCTAssertNotNil(userInfo.firstName)
-                XCTAssertNotNil(userInfo.paymentStatus)
+                
             }else {
                 XCTAssertNotNil(userInfo.email)
             }
@@ -170,7 +161,7 @@ class AeTRPUserTest: XCTestCase {
     func testUserTrips() {
         //TODO: - USERTRİP E GÖRE YENİDEN AÇILACAK
         print("[debug]: \(TRPUserPersistent.didUserLoging())")
-       /* let nameSpace = #function
+        let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         TRPRestKit().userTrips { (result, error, _) in
             if let error = error {
@@ -201,7 +192,7 @@ class AeTRPUserTest: XCTestCase {
             
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 10.0) */
+        wait(for: [expectation], timeout: 10.0)
     }
     
     /**
@@ -272,6 +263,7 @@ class AeTRPUserTest: XCTestCase {
             }
             
             guard let firstFav = favs.first else {
+                expectation.fulfill()
                 return
             }
             
@@ -300,14 +292,17 @@ class AeTRPUserTest: XCTestCase {
             
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
                 return
             }
             guard let result = result else {
                 XCTFail("\(nameSpace) Result is nil")
+                expectation.fulfill()
                 return
             }
             guard let places = result as? [TRPPoiInfoModel]  else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPPoiInfoModel")
+                expectation.fulfill()
                 return
             }
             
@@ -317,19 +312,25 @@ class AeTRPUserTest: XCTestCase {
                 guard self != nil else {return}
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 guard let result = result else {
                     XCTFail("\(nameSpace) Result is nil")
+                    expectation.fulfill()
                     return
                 }
-                guard let fav = result as? TRPFavoritesInfoModel  else {
+                guard let fav = result as? [TRPFavoritesInfoModel]  else {
                     XCTFail("\(nameSpace) Json model coundn't converted to  TRPFavoritesInfoModel")
+                    expectation.fulfill()
                     return
                 }
                 
-                XCTAssertEqual(fav.poiId, firstPlace.id)
-                XCTAssertEqual(fav.cityId, TestUtilConstants.MockCityConstants.IstanbulCityId)
+                
+                let isExist = fav.contains{$0.poiId == firstPlace.id}
+                
+                XCTAssert(isExist)
+                //XCTAssertEqual(fav.cityId, TestUtilConstants.MockCityConstants.IstanbulCityId)
                 
                 TRPRestKit().getUserFavorite(cityId: TestUtilConstants.MockCityConstants.IstanbulCityId) {[weak self](result, error) in
                     guard self != nil else {return}
@@ -374,34 +375,41 @@ class AeTRPUserTest: XCTestCase {
             
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                expectation.fulfill()
                 return
             }
             guard let result = result else {
                 XCTFail("\(nameSpace) Result is nil")
+                expectation.fulfill()
                 return
             }
             
             guard let favs = result as? [TRPFavoritesInfoModel]  else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPFavoritesInfoModel")
+                expectation.fulfill()
                 return
             }
             
             guard let firstFav = favs.first else {
+                expectation.fulfill()
                 return
             }
             
-            TRPRestKit().deleteUserFavorite(cityId: TestUtilConstants.MockCityConstants.IstanbulCityId, poiId: firstFav.poiId) {[weak self] (result, error) in
+            TRPRestKit().deleteUserFavorite(cityId: TestUtilConstants.MockCityConstants.IstanbulCityId, favoriteId: firstFav.id) {[weak self] (result, error) in
                 guard self != nil else {return}
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                    expectation.fulfill()
                     return
                 }
                 guard let result = result else {
                     XCTFail("\(nameSpace) Result is nil")
+                    expectation.fulfill()
                     return
                 }
                 guard result is TRPParentJsonModel  else {
                     XCTFail("\(nameSpace) Json model coundn't converted to  TRPParentJsonModel")
+                    expectation.fulfill()
                     return
                 }
                 
@@ -410,14 +418,17 @@ class AeTRPUserTest: XCTestCase {
                     
                     if let error = error {
                         XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
+                        expectation.fulfill()
                         return
                     }
                     guard let result = result else {
                         XCTFail("\(nameSpace) Result is nil")
+                        expectation.fulfill()
                         return
                     }
                     guard let favs = result as? [TRPFavoritesInfoModel]  else {
                         XCTFail("\(nameSpace) Json model coundn't converted to  TRPFavoritesInfoModel")
+                        expectation.fulfill()
                         return
                     }
                     

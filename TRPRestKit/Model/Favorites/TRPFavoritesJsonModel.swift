@@ -34,15 +34,21 @@ internal class TRPFavoritesJsonModel: TRPParentJsonModel {
 /// This model provides you information of Favorites Poi.
 public struct TRPFavoritesInfoModel: Decodable {
     
+    public var id: Int
+    
     /// An Int value. Unique id of a poi.
     public var poiId: Int
     
     /// An Int value. Id of city where the poi is located.
     public var cityId: Int
     
+    public var tripHash: String?
+    
     private enum CodingKeys: String, CodingKey {
         case poiId = "poi_id"
         case cityId = "city_id"
+        case id
+        case tripHash = "trip_hash"
     }
     
     /// Json to Object converter
@@ -52,5 +58,7 @@ public struct TRPFavoritesInfoModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.poiId = try values.decode(Int.self, forKey: .poiId)
         self.cityId = try values.decode(Int.self, forKey: .cityId)
+        self.id = try values.decode(Int.self, forKey: .id)
+        self.tripHash = try values.decodeIfPresent(String.self, forKey: .tripHash)
     }
 }

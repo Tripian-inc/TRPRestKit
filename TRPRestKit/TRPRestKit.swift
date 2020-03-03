@@ -864,7 +864,7 @@ extension TRPRestKit {
         
         guard let services = infoService else {return}
         
-        services.completion = {   (result, error, pagination) in
+        services.completion = { (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -876,8 +876,6 @@ extension TRPRestKit {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        
-        
         
         services.connection()
     }
@@ -1033,7 +1031,7 @@ extension TRPRestKit {
     ///   - cityId: An Integer that refers to Id of city where the poi is located.
     ///   - poiId: An Integer that refers to Id of the given place.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **TRPFavoritesInfoModel** object.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPFavoritesInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-delete-favorite)
     public func addUserFavorite(cityId: Int, poiId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
@@ -1060,21 +1058,25 @@ extension TRPRestKit {
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-delete-favorite)
-    public func deleteUserFavorite(cityId: Int, poiId: Int, completion: @escaping CompletionHandler) {
+    public func deleteUserFavorite(cityId: Int, favoriteId: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
-        userFavoriteServices(cityId: cityId, poiId: poiId, mode: .delete)
+        userFavoriteServices(cityId: cityId, favoriteId: favoriteId, mode: .delete)
     }
     
     /// A services which will be used in users favorite place of interests, manages all task connecting to remote server.
-    private func userFavoriteServices(cityId: Int, poiId: Int? = nil, mode: TRPUserFavorite.Mode) {
+    private func userFavoriteServices(cityId: Int, poiId: Int? = nil, favoriteId: Int? = nil,mode: TRPUserFavorite.Mode) {
         
         var favoriteService: TRPUserFavorite?
-        if mode == .add || mode == .delete {
+        if mode == .add {
             if let poi = poiId {
                 favoriteService = TRPUserFavorite(cityId: cityId, poiId: poi, type: mode)
             }
         } else if mode == .get {
             favoriteService = TRPUserFavorite(cityId: cityId)
+        } else if mode == .delete {
+            if let fav = favoriteId {
+            favoriteService = TRPUserFavorite(favoriteId: fav)
+            }
         }
         
         guard let services = favoriteService else {return}
@@ -1092,10 +1094,10 @@ extension TRPRestKit {
             } else {
                 if let resultService = result as? TRPFavoritesJsonModel {
                     if mode == .add {
-                        if let first = resultService.data?.first {
-                            self.postData(result: first)
+                        
+                            self.postData(result: resultService.data)
                             return
-                        }
+                        
                     } else {
                         self.postData(result: resultService.data, pagination: pagination)
                         return

@@ -67,8 +67,7 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
            self.typeIds = typeIds
            self.cityId = cityId
            status = .withCityType
-       }
-    
+    }
     
     override func parameters() -> [String: Any]? {
         var params: [String: Any] = [:]

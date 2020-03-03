@@ -25,7 +25,6 @@ public struct TRPTripProfileModel: Decodable {
     public var numberOfChildren: Int?
     /// A String value. Answer of questions.You must convert to Array.
     public var answers = [Int]()
-    public var tripAnswers = [Int]()
     public var owner: String?
     public var startCoordinate: TRPCoordinateModel?
     
@@ -45,7 +44,6 @@ public struct TRPTripProfileModel: Decodable {
         case numberOfAdults = "number_of_adults"
         case numberOfChildren = "number_of_children"
         case answers
-        case tripAnswers = "trip_answers"
         case owner
         case startCoordinate = "start_coordinate"
         case accommodationAddress = "accommodation_address"
@@ -72,7 +70,6 @@ public struct TRPTripProfileModel: Decodable {
         
         self.accommodationAddress = try values.decodeIfPresent(String.self, forKey: .accommodationAddress)
         self.answers = try values.decode([Int].self, forKey: .answers)
-        self.tripAnswers = try values.decode([Int].self, forKey: .tripAnswers)
         self.owner = try values.decodeIfPresent(String.self, forKey: .owner)
         self.companionIds = try values.decode([Int].self, forKey: .companionIds)
         self.pace = try values.decodeIfPresent(String.self, forKey: .pace)

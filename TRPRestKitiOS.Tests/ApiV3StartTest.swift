@@ -201,7 +201,6 @@ class ApiV3StartTest: XCTestCase {
             }
         }
         
-        
         wait(for: [expectation], timeout: 20.0)
     }
     

@@ -158,8 +158,8 @@ class TRPTripsTest: XCTestCase {
                     XCTAssertNotNil(result.id)
                     XCTAssertGreaterThan(result.id, 0)
                     XCTAssertNotNil(result.tripHash)
-                    XCTAssertEqual(result.tripProfile.departureDateTime, departure.timeForServer)
-                    XCTAssertEqual(result.tripProfile.arrivalDateTime, arrival.timeForServer)
+                    XCTAssertEqual(result.tripProfile.departureDateTime, editedDeparture.timeForServer)
+                    XCTAssertEqual(result.tripProfile.arrivalDateTime, editedArrival.timeForServer)
                     XCTAssertEqual(result.city.id, self.cityId)
                     expectation.fulfill()
                     
