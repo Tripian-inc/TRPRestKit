@@ -74,8 +74,8 @@ class TRPTripsTest: XCTestCase {
         let arrival = getDaysAfter(withDays: 1)
         let departure = getDaysAfter(withDays: 3)
         let settings = TRPTripSettings(cityId: cityId, arrivalTime: arrival, departureTime: departure)
-        settings.tripAnswer = [1,2,3]
-        settings.profileAnswer = [111111,222222,33333]
+        settings.tripAnswer = [1, 2, 3]
+        settings.profileAnswer = [111111, 222222, 33333]
         TRPRestKit().login(withEmail: "silV3_9@fakemailxyz.com", password: "123456aA") { (result, error) in
             XCTAssertNil(error)
             
@@ -97,21 +97,16 @@ class TRPTripsTest: XCTestCase {
                     XCTAssertNotNil(result)
                     XCTAssertNotNil(result.id)
                     XCTAssertGreaterThan(result.id, 0)
-                    //TODO: TEST YENİDEN YAZILACAK CÜNKÜ TRPTRİPMODE FAKRLI
-                    //XCTAssertNotNil(result.arrivalTime)
-                    //XCTAssertNotNil(result.depatureTime)
-                    //XCTAssertNotNil(result.hash)
-                    //XCTAssertEqual(result.arrivalTime?.date, arrival.date)
-                    //XCTAssertEqual(result.depatureTime?.date, departure.date)
+                    XCTAssertEqual(result.tripProfile.departureDateTime, departure.timeForServer)
+                    XCTAssertEqual(result.tripProfile.arrivalDateTime, arrival.timeForServer)
+                    XCTAssertGreaterThan(result.tripHash.count, 10)
                     XCTAssertEqual(result.city.id, self.cityId)
                     expectation.fulfill()
                 }
                 
             }
             
-            
         }
-        
         
         wait(for: [expectation], timeout: 10.0)
     }
@@ -125,7 +120,7 @@ class TRPTripsTest: XCTestCase {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
-        let arrival = getToday()
+        let arrival = getNextDay()
         let departure = getDaysAfter(withDays: 3)
         let settings = TRPTripSettings(cityId: cityId, arrivalTime: arrival, departureTime: departure)
         
@@ -143,7 +138,7 @@ class TRPTripsTest: XCTestCase {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + TestUtilConstants.MockTimeConstants.SecondsMedium) {
                 let editedTripHash = result.tripHash
-                let editedArrival = self.getToday()
+                let editedArrival = self.getNextDay()
                 let editedDeparture = self.getDaysAfter(withDays: 8)
                 let editedTripSettings = TRPTripSettings(hash: editedTripHash, arrivalTime: editedArrival, departureTime: editedDeparture)
                 
@@ -162,13 +157,9 @@ class TRPTripsTest: XCTestCase {
                     XCTAssertNotNil(result)
                     XCTAssertNotNil(result.id)
                     XCTAssertGreaterThan(result.id, 0)
-                    //TODO: - UNİTTEST YENİ TRPTRİPMODEL E GÖRE YENİDEN YAZILACAK
-                    //XCTAssertNotNil(result.arrivalTime)
-                    //XCTAssertNotNil(result.depatureTime)
                     XCTAssertNotNil(result.tripHash)
-                    //XCTAssertEqual(result.hash, editedTripHash)
-                    //XCTAssertEqual(result.arrivalTime?.date, editedArrival.date)
-                    //XCTAssertEqual(result.depatureTime?.date, editedDeparture.date)
+                    XCTAssertEqual(result.tripProfile.departureDateTime, departure.timeForServer)
+                    XCTAssertEqual(result.tripProfile.arrivalDateTime, arrival.timeForServer)
                     XCTAssertEqual(result.city.id, self.cityId)
                     expectation.fulfill()
                     

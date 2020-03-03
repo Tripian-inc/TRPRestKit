@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F3FD8604-6EA5-4456-9FDE-8C746119A8B8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TRPRestKitiOS.Tests/Services/TRPTripsTest.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "testCreateTrip()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "24B196FB-4E7A-445A-B49E-7EE1AEE9AD5F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -55,32 +39,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1E2FFF17-B956-44BD-B543-4B68A1284471"
+            uuid = "CF6EFD10-94EC-48CF-8EEC-86A35DAE3034"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TRPRestKitiOS.Tests/ApiV3StartTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "testUserFavorite()"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "testUserTrip()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "473FC861-C22D-4875-8613-BA70E0BBF7EC"
+            uuid = "387EB834-8EC2-43E1-9566-EEE51FBB362C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TRPRestKitiOS.Tests/ApiV3StartTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "testUserTrip()"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "testGetTripWithParams()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

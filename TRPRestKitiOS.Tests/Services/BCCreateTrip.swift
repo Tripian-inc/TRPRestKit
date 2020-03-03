@@ -22,7 +22,7 @@ class BcCreateTrip: XCTestCase {
     func testCreateTripForIstanbul() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        let arrival = getToday()
+        let arrival = getNextDay()
         let departure = getDaysAfter(withDays: 1)
         let settings = TRPTripSettings(cityId: TestUtilConstants.MockCityConstants.IstanbulCityId,
                                        arrivalTime: arrival,
@@ -68,7 +68,7 @@ class BcCreateTrip: XCTestCase {
             
             if let firstDay = currentTrip.plans.first {
                 let second = currentTrip.plans[1]
-                if firstDay.generate == 1 && second.generate == 1 {
+                if firstDay.generatedStatus == 1 && second.generatedStatus == 1 {
                     TripHolder.shared.model = currentTrip
                     expectation.fulfill()
                 }else {

@@ -32,13 +32,3 @@ internal class TRPGetTripServices: TRPRestServices<TRPGenericParser<TRPTripModel
     }
     
 }
-
-
-
-
-class DenemeServiceA<T: Decodable> {
-    
-    var parserType: T?
-   
-    
-}

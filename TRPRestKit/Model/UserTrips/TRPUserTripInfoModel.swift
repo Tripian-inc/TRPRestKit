@@ -41,5 +41,3 @@ public struct TRPUserTripInfoModel: Decodable {
     }
     
 }
-
-

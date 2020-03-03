@@ -42,23 +42,10 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         guard let setting = setting else {
             return params
         }
-        
-        //Edit
-        if let hash = setting.hash {
-            params["hash"] = hash
-        } else {//Create
-            params["city_id"] = setting.cityId
-        }
-        //TODO: - birleşitirlecek
-        print("")
-        print("----")
-        print(createNewTime(setting.arrivalTime))
-        print("----")
-        print("")
-        params["arrival_datetime"] = createNewTime(setting.arrivalTime)
-        params["departure_datetime"] = createNewTime(setting.departureTime)
+        params["city_id"] = setting.cityId
+        params["arrival_datetime"] = setting.arrivalTime.timeForServer
+        params["departure_datetime"] = setting.departureTime.timeForServer
         params["number_of_adults"] = String(setting.adultsCount)
-        
         
         if let children = setting.childrenCount {
             params["number_of_children"] = String(children)
@@ -86,10 +73,6 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         params["do_not_generate"] = gen
         
         return params
-    }
-    
-    func createNewTime(_ time:TRPTime) -> String {
-        return "\(time.date)T\(time.time)Z"
     }
     
 }

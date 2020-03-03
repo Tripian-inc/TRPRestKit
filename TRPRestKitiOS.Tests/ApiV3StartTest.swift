@@ -19,7 +19,7 @@ class ApiV3StartTest: XCTestCase {
     func testUserRegister() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        TRPRestKit().register(email: "silV3_19@fakemailxyz.com", password: "123456aA", firstName: "Ali", lastName: "Veli", answers: [1,2,3,4]) { (result, error) in
+        TRPRestKit().register(email: "silV3_19@fakemailxyz.com", password: "123456aA", firstName: "Ali", lastName: "Veli", answers: [1, 2, 3, 4]) { (result, error) in
             XCTAssertNil(error)
             
             if let result = result as? TRPUserInfoModel {
@@ -105,14 +105,13 @@ class ApiV3StartTest: XCTestCase {
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         TRPRestKit().userTrips { (result, error, pag) in
             XCTAssertNil(error)
-            
             if let result = result as? [TRPUserTripInfoModel] {
                 print("RRRR \(result.count)")
                 expectation.fulfill()
                 return
+                
             }
             XCTFail()
-            
         }
         wait(for: [expectation], timeout: 20.0)
     }
@@ -121,8 +120,8 @@ class ApiV3StartTest: XCTestCase {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
-        let arrival = getDaysAfter(withDays: 1)
-        let departure = getDaysAfter(withDays: 3)
+        let arrival = getDaysAfter(withDays: 10)
+        let departure = getDaysAfter(withDays: 12)
         let settings = TRPTripSettings(cityId: 107, arrivalTime: arrival, departureTime: departure)
         settings.tripAnswer = [1, 2, 3]
         settings.profileAnswer = [111111, 222222, 33333]
@@ -154,9 +153,7 @@ class ApiV3StartTest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    
     func testUserFavorite() {
-        
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         TRPRestKit().login(withEmail: "silV3_19@fakemailxyz.com", password: "123456aA") { (result, error) in
@@ -173,6 +170,37 @@ class ApiV3StartTest: XCTestCase {
             }
             
         }
+        
+        wait(for: [expectation], timeout: 20.0)
+    }
+    
+    func testGetTripWithParams() {
+        let nameSpace = #function
+        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
+       /* TRPRestKit().userTrips { (result, error, _) in
+            XCTAssertNil(error)
+            
+            if let result = result as? [TRPUserTripInfoModel] {
+                
+                TRPRestKit().getTrip(withHash: result.first!.tripHash) { (resut, error) in
+                    XCTAssertNil(error)
+                    if let result = resut as? TRPTripModel {
+                        print(result.plans)
+                        expectation.fulfill()
+                    }
+                }
+                
+                return
+            }
+        }*/
+        TRPRestKit().getTrip(withHash: "2f75f97d2b094920966ef3d705abbe74") { (resut, error) in
+            XCTAssertNil(error)
+            if let result = resut as? TRPTripModel {
+                print(result.plans)
+                expectation.fulfill()
+            }
+        }
+        
         
         wait(for: [expectation], timeout: 20.0)
     }

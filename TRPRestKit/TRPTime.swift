@@ -13,6 +13,10 @@ import Foundation
 /// Time is `hh:mm`
 public struct TRPTime {
     
+    public var timeForServer: String {
+        return "\(self.date)T\(self.time)Z"
+    }
+    
     /// A Date value. Closer uses a `yyyy-MM-dd HH:mm`style to convert.
     public var formated: Date? {
         let formatter = DateFormatter()
@@ -70,4 +74,9 @@ public struct TRPTime {
         
         self.init(year: year, month: month, day: day, hours: hour, min: min)
     }
+    
+    
+    
+    
+    
 }

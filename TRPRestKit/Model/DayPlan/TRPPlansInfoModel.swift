@@ -24,8 +24,6 @@ public struct TRPPlansInfoModel: Decodable {
     /// A TRPPlanPoi array. Indicates a pois to go within a day.
     public var steps: [TRPStepInfoModel]
     
-    public var generatedStatus: Int
-    
     /**
         Indicates whether the plan was generated.
      
@@ -33,7 +31,7 @@ public struct TRPPlansInfoModel: Decodable {
      * -1: The plan was generated but the plan hasn't any poi.
      *  1: The plan was generated and it has pois.
      */
-    public var generate: Int
+    public var generatedStatus: Int
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -52,7 +50,7 @@ public struct TRPPlansInfoModel: Decodable {
         self.id = try values.decode(Int.self, forKey: .id)
         
         self.date = try values.decode(String.self, forKey: .date)
-        self.generate = try values.decode(Int.self, forKey: .generate)
+        
         self.startTime = try values.decodeIfPresent(String.self, forKey: .startTime)
         self.endTime = try values.decodeIfPresent(String.self, forKey: .endTime)
         self.generatedStatus = try values.decode(Int.self, forKey: .generate)

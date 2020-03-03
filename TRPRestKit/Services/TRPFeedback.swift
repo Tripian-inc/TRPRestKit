@@ -7,7 +7,8 @@
 //
 
 import Foundation
-internal class TRPFeedback: TRPRestServices<TRPUserTripsJsonModel> {
+
+internal class TRPFeedback: TRPRestServices<TRPGenericParser<[TRPUserTripInfoModel]>> {
     
     enum Status {
         case addFeedback

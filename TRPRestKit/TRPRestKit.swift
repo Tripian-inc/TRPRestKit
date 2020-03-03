@@ -1137,7 +1137,7 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let serviceResult = result as? TRPUserTripsJsonModel {
+            if let serviceResult = result as? TRPGenericParser<[TRPUserTripInfoModel]> {
                 self.postData(result: serviceResult.data)
             }else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
@@ -1279,6 +1279,8 @@ extension TRPRestKit {
             }
             if let serviceResult = result as? TRPGenericParser<TRPTripModel>, let info = serviceResult.data {
                 self.postData(result: info)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
         getProgramService.connection()

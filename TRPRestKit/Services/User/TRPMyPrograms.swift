@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPUserTripsServices: TRPRestServices<TRPUserTripsJsonModel> {
+internal class TRPUserTripsServices: TRPRestServices<TRPGenericParser<[TRPUserTripInfoModel]>> {
     
     public var limit: Int = 50
    

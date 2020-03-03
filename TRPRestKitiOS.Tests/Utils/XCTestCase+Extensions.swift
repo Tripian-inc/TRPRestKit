@@ -33,23 +33,31 @@ extension XCTestCase {
         return array.map { String($0) }.joined(separator: ",")
     }
     
-    func getToday() -> TRPTime {
-        let date = Date()
+    func getNextDay() -> TRPTime {
+        let date = Date().addingTimeInterval(TimeInterval(60*60*24))
         let calendar = Calendar.current
-        return TRPTime(year: calendar.component(.year, from: date), month: calendar.component(.month, from: date), day: calendar.component(.day, from: date), hours: 08, min: 00)
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        
+        return TRPTime(year: year,
+                       month: month,
+                       day: day,
+                       hours: 08,
+                       min: 00)
     }
     
     func getDaysAfter(withDays day: Int) -> TRPTime {
         let date = Date().addingTimeInterval(TimeInterval(day*60*60*24))
         let calendar = Calendar.current
-        return TRPTime(year: calendar.component(.year, from: date), month: calendar.component(.month, from: date), day: calendar.component(.day, from: date), hours: 18, min: 00)
+        return TRPTime(year: calendar.component(.year, from: date), month: calendar.component(.month, from: date), day: calendar.component(.day, from: date), hours: 10, min: 00)
     }
     
     func createMockTrip (completionHandler: @escaping(_ result: TRPTripModel, _ error: Error?) -> Void) {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
-        let arrival = getToday()
+        let arrival = getNextDay()
         let departure = getDaysAfter(withDays: 1)
         let settings = TRPTripSettings(cityId: TestUtilConstants.MockCityConstants.IstanbulCityId, arrivalTime: arrival, departureTime: departure)
         
