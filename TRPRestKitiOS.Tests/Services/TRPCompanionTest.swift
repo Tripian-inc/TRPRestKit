@@ -18,6 +18,8 @@ class TRPCompanionTest: XCTestCase {
     // MARK: Set Up
     override func setUp() {
         super.setUp()
+        UserMockSession.shared.setServer()
+        UserMockSession.shared.doLogin()
     }
     
     // MARK: - Test Functions
@@ -43,7 +45,6 @@ class TRPCompanionTest: XCTestCase {
             }
             guard let models = result as? [TRPCompanionModel]  else {
                 XCTFail("\(nameSpace) Json model couldn't converted")
-                
                 expectation.fulfill()
                 return
             }
@@ -62,12 +63,12 @@ class TRPCompanionTest: XCTestCase {
     func testAddCompanion() {
         
         let nameSpace = #function
-        let expectation = XCTestExpectation(description: name)
+        let expectation = XCTestExpectation(description: nameSpace)
         let randomName = randomString(length: 7)
         let randomAge = Int.random(in: 20..<80)
         let answers = [42, 43]
         
-        TRPRestKit().addCompanion(name: randomName, age: randomAge, answers: answers) { [weak self] (result, error) in
+        TRPRestKit().addCompanion(name: randomName, answers: answers, age: randomAge) { [weak self] (result, error) in
             guard self != nil else {return}
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
@@ -77,29 +78,15 @@ class TRPCompanionTest: XCTestCase {
             
             XCTAssertNotNil(result)
             
-            TRPRestKit().getUsersCompanions { (result, error) in
-                if let error = error {
-                    XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
-                    expectation.fulfill()
-                    return
-                }
-                guard let result = result else {
-                    XCTFail("\(nameSpace) Result is nil")
-                    expectation.fulfill()
-                    return
-                }
-                guard let models = result as? [TRPCompanionModel]  else {
-                    XCTFail("\(nameSpace) Json model couldn't converted")
-                    expectation.fulfill()
-                    return
-                }
-                
-                let addedCompanion = models.filter { $0.name == randomName }.first
-                XCTAssertEqual(addedCompanion?.name, randomName)
-                XCTAssertEqual(addedCompanion?.age, randomAge)
-                XCTAssertGreaterThan(models.count, 0)
+            guard let models = result as? TRPCompanionModel  else {
+                XCTFail("\(nameSpace) Json model couldn't converted")
                 expectation.fulfill()
+                return
             }
+            XCTAssertEqual(models.answers, answers)
+            XCTAssertEqual(models.age!, randomAge)
+            XCTAssertEqual(models.name, randomName)
+            expectation.fulfill()
         }
         
         wait(for: [expectation], timeout: 20)
@@ -141,48 +128,24 @@ class TRPCompanionTest: XCTestCase {
             let randomAge = Int.random(in: 20..<80)
             let mockAnswers = [44]
             
-            TRPRestKit().updateCompanion(id: (firstCompanion?.id)!, name: randomName, age: randomAge, answers: mockAnswers) {[weak self] (result, error) in
+            TRPRestKit().updateCompanion(id: (firstCompanion?.id)!, name: randomName, answers: mockAnswers, age: randomAge) {[weak self] (result, error) in
                 guard self != nil else {return}
                 if let error = error {
                     XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                     expectation.fulfill()
                     return
                 }
-                guard let result = result else {
-                    XCTFail("\(nameSpace) Result is nil")
-                    expectation.fulfill()
-                    return
-                }
-                guard result is TRPParentJsonModel  else {
+               XCTAssertNotNil(result)
+                
+                guard let models = result as? TRPCompanionModel  else {
                     XCTFail("\(nameSpace) Json model couldn't converted")
                     expectation.fulfill()
                     return
                 }
-                
-                XCTAssertEqual((result as! TRPParentJsonModel).status,  200)
-                
-                TRPRestKit().getUsersCompanions { (result, error) in
-                    if let error = error {
-                        XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
-                        expectation.fulfill()
-                        return
-                    }
-                    guard let result = result else {
-                        XCTFail("\(nameSpace) Result is nil")
-                        expectation.fulfill()
-                        return
-                    }
-                    guard let models = result as? [TRPCompanionModel]  else {
-                        XCTFail("\(nameSpace) Json model couldn't converted")
-                        expectation.fulfill()
-                        return
-                    }
-                    let updatedCompanion = models.filter { $0.id == firstCompanion?.id }.first
-                    XCTAssertEqual(updatedCompanion!.name, randomName)
-                    XCTAssertEqual(updatedCompanion!.age, randomAge)
-                    XCTAssertEqual(updatedCompanion!.answers, self!.toString(array: mockAnswers))
-                    expectation.fulfill()
-                }
+                XCTAssertEqual(models.answers, mockAnswers)
+                XCTAssertEqual(models.age!, randomAge)
+                XCTAssertEqual(models.name, randomName)
+                expectation.fulfill()
             }
             
         }

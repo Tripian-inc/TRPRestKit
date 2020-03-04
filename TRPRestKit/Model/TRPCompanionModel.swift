@@ -12,11 +12,11 @@ import Foundation
 /// This model provide you to use information of user.
 public struct TRPCompanionModel: Decodable {
     /// A Int value. Id of the companion.
-    public var id: Int?
+    public var id: Int
     /// A String value. Name of the companion.
-    public var name: String?
+    public var name: String
     /// A String value. Last name of the companion.
-    public var answers: String?
+    public var answers: [Int]
     /// A String value. Age of the companion.
     public var age: Int?
 
@@ -28,17 +28,9 @@ public struct TRPCompanionModel: Decodable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
-        self.name = try values.decodeIfPresent(String.self, forKey: .name)
-        self.answers = try values.decodeIfPresent(String.self, forKey: .answers)
-        if let age = try? values.decodeIfPresent(Int.self, forKey: .age) {
-            self.age = age
-        }
-        if let strAge = try? values.decodeIfPresent(String.self, forKey: .age) {
-            if let strAge = strAge, let intAge = Int(strAge) {
-                self.age = intAge
-            }
-        }
-    
+        self.name = try values.decode(String.self, forKey: .name)
+        self.answers = try values.decode([Int].self, forKey: .answers)
+        self.age = try values.decodeIfPresent(Int.self, forKey: .age)
     }
     
 }

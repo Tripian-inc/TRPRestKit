@@ -881,24 +881,22 @@ extension TRPRestKit {
 // MARK: - Companions.
 extension TRPRestKit {
     
-    
     /// Add companion by adding name(Optional), age(Optional), Answers(Optional) and completion parameters.
     ///
     ///
     /// - Parameters:
-    ///   - name: A String that refers to name of the companion (Optional).
+    ///   - name: A String that refers to name of the companion
+    ///   - answers: An Integer array that refers to preferences of the companion
     ///   - age: An Integer that refers to age of the companion (Optional).
-    ///   - answers: An Integer array that refers to preferences of the companion (Optional).
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPCompanionModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-companion)
-    public func addCompanion(name: String?,
+    public func addCompanion(name: String,
+                             answers: [Int],
                              age: Int?,
-                             answers: [Int]?,
                              completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        let serviceType = CompanionServiceType.add
-        companionServices(name: name, age: age, answers: answers, serviceType: serviceType)
+        companionPutPostService(name: name, answers: answers, age: age)
     }
     
     /// Update companion information (must be logged in with access token), such as name and answers
@@ -912,16 +910,11 @@ extension TRPRestKit {
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPCompanionModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-companion)
     public func updateCompanion(id: Int,
-                                name: String?,
-                                age: Int?,
-                                answers: [Int]?, completion: @escaping CompletionHandler) {
+                                name: String,
+                                answers: [Int], age: Int?,
+                                completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        let serviceType = CompanionServiceType.update
-        companionServices(id: id,
-                          name: name,
-                          age: age,
-                          answers: answers,
-                          serviceType: serviceType)
+        companionPutPostService(id: id, name: name, answers: answers, age: age)
     }
     
     /// Delete companion by adding companionId and completion parameters.
@@ -933,8 +926,23 @@ extension TRPRestKit {
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-companion)
     public func removeCompanion(companionId: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        let serviceType = CompanionServiceType.delete
-        companionServices(id: companionId, serviceType: serviceType)
+        companionDeleteService(id: companionId)
+    }
+    
+    private func companionDeleteService(id: Int) {
+        let service = TRPCompanionDeleteServices(id: id)
+        service.completion = {(result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            guard let result = result as? TRPParentJsonModel else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+                return
+            }
+            self.postData(result: result)
+        }
+        service.connection()
     }
     
     /// Obtain user companions (must be logged in with access token), such as companion name, answers.
@@ -945,77 +953,49 @@ extension TRPRestKit {
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-get-companions)
     public func getUsersCompanions(completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        let serviceType = CompanionServiceType.get
-        companionServices(serviceType: serviceType)
+        getCompanionService()
     }
     
-    /// A services which will be used in creating companion services, manages all task connecting to remote server.
-    private func createCompanionServices(id: Int? = 0, name: String? = nil, age: Int? = nil, answers: [Int]? = nil, serviceType: CompanionServiceType) -> TRPCompanionServices? {
-        var companionService: TRPCompanionServices?
-        
-        if serviceType == CompanionServiceType.add {
-            companionService = TRPCompanionServices(serviceType: serviceType,
-                                                    name: name,
-                                                    answers: answers,
-                                                    age: age)
-        } else if serviceType == CompanionServiceType.get {
-            companionService = TRPCompanionServices(serviceType: serviceType)
-        } else if serviceType == CompanionServiceType.delete, let id = id {
-            companionService = TRPCompanionServices(id: id, serviceType: serviceType)
-        } else {
-            guard let id = id else {return nil}
-            companionService = TRPCompanionServices(serviceType: serviceType,
-                                                    id: id,
-                                                    name: name,
-                                                    answers: answers,
-                                                    age: age)
-        }
-        return companionService
-    }
-    
-    /// A services which will be used in getting all companions, manages all task connecting to remote server.
-    private func companionServices(id: Int? = 0,
-                                   name: String? = nil,
-                                   age: Int? = nil,
-                                   answers: [Int]? = nil,
-                                   serviceType: CompanionServiceType) {
-        
-        let companionService = createCompanionServices(id: id, name: name, age: age, answers: answers, serviceType: serviceType)
-        guard let service = companionService else {
-            self.postError(error: TRPErrors.objectIsNil(name: "TRPCompanionServices") as NSError)
-            return
-        }
-        
+    internal func getCompanionService() {
+        let service = TRPGetCompanionServices()
         service.completion = {(result, error, _) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
             
-            if serviceType == .delete || serviceType == .update {
-                if let serviceResult = result as? TRPParentJsonModel {
-                    self.postData(result: serviceResult)
-                    return
-                }
-            } else if serviceType == .add {
-                if let serviceResult = result as? TRPCompanionsJsonModel {
-                    if let model = serviceResult.data?.first {
-                        self.postData(result: model)
-                    }
-                    
-                    return
-                }
-            } else if serviceType == .get {
-                if let serviceResult = result as? TRPCompanionsJsonModel {
-                    self.postData(result: serviceResult.data)
-                    return
-                }
+            guard let result = result as? TRPGenericParser<[TRPCompanionModel]> else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+                return
             }
             
-            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            var wrapped = [TRPCompanionModel]()
+            if let data = result.data {
+                wrapped = data
+            }
+            self.postData(result: wrapped)
         }
         service.connection()
     }
+    
+    private func companionPutPostService(id: Int? = nil, name: String, answers: [Int], age:Int? = nil) {
+        let service = TRPCompanionPutPostServices(companionId: id, name: name, answers: answers, age: age)
+        service.completion = {(result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            
+            guard let result = result as? TRPGenericParser<TRPCompanionModel>, let data = result.data else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+                return
+            }
+            
+            self.postData(result: data)
+        }
+        service.connection()
+    }
+
 }
 
 // MARK: - Favorites of User's Poi.
@@ -1060,7 +1040,7 @@ extension TRPRestKit {
     }
     
     /// A services which will be used in users favorite place of interests, manages all task connecting to remote server.
-    private func userFavoriteServices(cityId: Int, poiId: Int? = nil, favoriteId: Int? = nil,mode: TRPUserFavorite.Mode) {
+    private func userFavoriteServices(cityId: Int, poiId: Int? = nil, favoriteId: Int? = nil, mode: TRPUserFavorite.Mode) {
         
         var favoriteService: TRPUserFavorite?
         if mode == .add {
@@ -1071,7 +1051,7 @@ extension TRPRestKit {
             favoriteService = TRPUserFavorite(cityId: cityId)
         } else if mode == .delete {
             if let fav = favoriteId {
-            favoriteService = TRPUserFavorite(favoriteId: fav)
+                favoriteService = TRPUserFavorite(favoriteId: fav)
             }
         }
         
@@ -1091,8 +1071,8 @@ extension TRPRestKit {
                 if let resultService = result as? TRPFavoritesJsonModel {
                     if mode == .add {
                         
-                            self.postData(result: resultService.data)
-                            return
+                        self.postData(result: resultService.data)
+                        return
                         
                     } else {
                         self.postData(result: resultService.data, pagination: pagination)

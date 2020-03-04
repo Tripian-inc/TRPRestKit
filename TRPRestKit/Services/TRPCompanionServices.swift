@@ -8,101 +8,14 @@
 
 import Foundation
 import TRPFoundationKit
-public enum CompanionServiceType {
-    case get, add, update, delete
-}
+
 
 //TODO: - TRPCompanionsJsonModel - TRPParentJsonModel OLARAK GÜNCELLENECEK
-internal class TRPCompanionServices: TRPRestServices<TRPCompanionsJsonModel> {
-    let serviceType: CompanionServiceType
-    var id: Int?
-    var name: String?
-    var answers: [Int]?
-    var age: Int?
-    
-    //service constructor to - add - companion.
-    public init(serviceType: CompanionServiceType,
-                name: String? = nil,
-                answers: [Int]? = nil,
-                age: Int? = nil) {
-        self.serviceType = serviceType
-        self.name = name
-        self.answers = answers
-        self.age = age
-    }
-    
-    //service constructor to - update - user's companions.
-    public init(serviceType: CompanionServiceType,
-                id: Int, name: String? = nil,
-                answers: [Int]? = nil,
-                age: Int? = nil) {
-        self.serviceType = serviceType
-        self.id = id
-        self.name = name
-        self.answers = answers
-        self.age = age
-    }
-    
-    //service constructor to - delete - user's companion.
-    public init(id: Int, serviceType: CompanionServiceType) {
-        self.serviceType = serviceType
-        self.id = id
-    }
-    
-    //service constructor to - get - user's companions.
-    public init(serviceType: CompanionServiceType) {
-        self.serviceType = serviceType
-    }
-    
-    public override func servicesResult(data: Data?, error: NSError?) {
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
-        
-        let jsonDecode = JSONDecoder()
 
-        do {
-            if serviceType == .get {
-                let result = try jsonDecode.decode(TRPCompanionsJsonModel.self, from: data)
-                self.completion?(result, nil, nil)
-            } else if serviceType == .delete || serviceType == .update {
-                let result = try jsonDecode.decode(TRPParentJsonModel.self, from: data)
-                self.completion?(result, nil, nil)
-            } else {
-                let result = try jsonDecode.decode(TRPCompanionsJsonModel.self, from: data)
-                self.completion?(result, nil, nil)
-            }
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
-    }
+internal class TRPGetCompanionServices: TRPRestServices<TRPGenericParser<[TRPCompanionModel]>> {
     
-    public override func parameters() -> [String: Any]? {
-        var params: [String: Any] = [:]
-        if let answers = answers {
-            if answers.count > 0 {
-                params["answers"] = answers.toString()
-            }
-        }
-        if let name = name {
-            params["name"] = name
-        }
-        if serviceType == .add {
-            if let age = age {
-                params["age"] = Int(age) // Add a companion da age int olacak.
-            }
-        } else {
-            params["age"] = age
-        }
-        if serviceType == .get || serviceType == .delete {
-            params["id"] = id
-        }
-        return params
+    public override func requestMode() -> TRPRequestMode {
+        return .get
     }
     
     public override func userOAuth() -> Bool {
@@ -110,20 +23,76 @@ internal class TRPCompanionServices: TRPRestServices<TRPCompanionsJsonModel> {
     }
     
     public override func path() -> String {
-        if serviceType == .delete || serviceType == .update, let id = id {
-            return TRPConfig.ApiCall.companion.link + "/\(id)"
-        }
         return TRPConfig.ApiCall.companion.link
     }
+}
+
+internal class TRPCompanionPutPostServices: TRPRestServices<TRPGenericParser<TRPCompanionModel>> {
     
+    let name: String
+    let answers: [Int]
+    let age: Int?
+    var companionId: Int?
+    
+    //Companion Id varsa edit yapılacak anlamına gelir ve Put uygulanır.
+    //Companion Id yoksa yeni oluşturulacak anlamına gelir Post ugyulanır.
+    
+    init(companionId: Int? = nil,
+         name: String,
+         answers: [Int],
+         age: Int? = nil ) {
+        self.companionId = companionId
+        self.name = name
+        self.answers = answers
+        self.age = age
+    }
+       
     public override func requestMode() -> TRPRequestMode {
-        if serviceType == .add {
-            return TRPRequestMode.post
-        } else if serviceType == .update {
-            return TRPRequestMode.put
-        } else if serviceType == .delete {
-            return TRPRequestMode.delete
+        if companionId != nil {
+            return .put
         }
-        return TRPRequestMode.get
+        return .post
+    }
+    
+    public override func userOAuth() -> Bool {
+        return true
+    }
+    
+    override func bodyParameters() -> [String : Any]? {
+        var params = [String: Any]()
+        params["name"] = name
+        params["answers"] = answers
+        if let age = age {
+            params["age"] = age
+        }
+        return params
+    }
+    
+    public override func path() -> String {
+        var url = TRPConfig.ApiCall.companion.link
+        if let companion = companionId {
+            url += "/\(companion)"
+        }
+        return url
+    }
+}
+
+internal class TRPCompanionDeleteServices: TRPRestServices<TRPParentJsonModel> {
+    let id: Int
+    
+    init(id: Int) {
+        self.id = id
+    }
+    
+    public override func userOAuth() -> Bool {
+        return true
+    }
+    
+    public override func path() -> String {
+        return TRPConfig.ApiCall.companion.link + "/\(id)"
+    }
+    
+    override func requestMode() -> TRPRequestMode {
+        return .delete
     }
 }

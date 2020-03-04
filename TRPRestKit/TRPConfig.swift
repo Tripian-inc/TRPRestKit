@@ -88,7 +88,7 @@ internal struct TRPConfig {
             case .favorite:
                 return getNewLink() ?? "user-favorite"
             case .companion:
-                return getNewLink() ?? "user/companion"
+                return getNewLink() ?? "user-companion"
             case .refresh:
                 return getNewLink() ?? "refresh"
             }
