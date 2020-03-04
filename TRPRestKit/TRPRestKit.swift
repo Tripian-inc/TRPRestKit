@@ -808,17 +808,15 @@ extension TRPRestKit {
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPUserInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-current-user-information)
-    public func updateUserInfo(firstName: String?,
-                               lastName: String?,
+    public func updateUserInfo(firstName: String? = nil,
+                               lastName: String? = nil,
                                age: Int? = nil,
-                               password: String? = nil,
                                answers: [Int]? = nil,
                                completion: @escaping CompletionHandler) {
         completionHandler = completion
         userInfoServices(firstName: firstName,
                          lastName: lastName,
                          age: age,
-                         password: password,
                          answers: answers,
                          type: .updateInfo)
     }
@@ -843,7 +841,6 @@ extension TRPRestKit {
     private func userInfoServices(firstName: String? = nil,
                                   lastName: String? = nil,
                                   age: Int? = nil,
-                                  password: String? = nil,
                                   answers: [Int]? = nil,
                                   type: TRPUserInfoServices.ServiceType) {
         var infoService: TRPUserInfoServices?
@@ -858,7 +855,6 @@ extension TRPRestKit {
             infoService = TRPUserInfoServices(firstName: firstName,
                                               lastName: lastName,
                                               age: age,
-                                              password: password,
                                               answers: answers)
         }
         

@@ -15,6 +15,11 @@ class UserMockSession: XCTestCase {
     static var shared = UserMockSession()
     
     func setServer() {
+        
+        let urlCreater = BaseUrlCreater(baseUrl: "6ezq4jb2mk.execute-api.eu-west-1.amazonaws.com", basePath: "api")
+        TRPClient.start(baseUrl: urlCreater, apiKey: "")
+        TRPClient.monitor(data: true, url: true)
+        return
         switch TestUtilConstants.targetServer {
         case .airMiles:
             TRPClient.start(baseUrl: TestUtilConstants.Server.airMiles.url, apiKey: TestUtilConstants.targetServer.apiKey)
@@ -37,8 +42,19 @@ class UserMockSession: XCTestCase {
         
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        
-        if TestUtilConstants.targetServer == .airMiles {
+        TRPRestKit().login(withEmail: "silV3_9@fakemailxyz.com", password: "123456aA") { (result, error) in
+            XCTAssertNil(error)
+            
+            if  result is TRPLoginTokenInfoModel {
+                expectation.fulfill()
+            }else {
+                XCTFail()
+                expectation.fulfill()
+                return
+            }
+            expectation.fulfill()
+        }
+        /*if TestUtilConstants.targetServer == .airMiles {
             let params = ["email": TestUtilConstants.MockUserConstants.Email,
                           "password": TestUtilConstants.MockUserConstants.Password]
             TRPRestKit().login(with: params) { (result, error) in
@@ -67,7 +83,7 @@ class UserMockSession: XCTestCase {
                 XCTAssertNotNil(result.tokenType)
                 expectation.fulfill()
             }
-        }
+        }*/
         
         wait(for: [expectation], timeout: 10.0)
     }

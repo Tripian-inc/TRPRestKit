@@ -14,7 +14,6 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
     }
     
     let serviceType: ServiceType
-    var password: String?
     var answers: [Int]?
     var firstName: String?
     var lastName: String?
@@ -31,7 +30,6 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
     
     init(firstName: String? = nil, lastName: String? = nil, age: Int? = nil, password: String? = nil, answers: [Int]? = nil) {
         self.serviceType = .updateInfo
-        self.password = password
         self.answers = answers
         self.firstName = firstName
         self.lastName = lastName
@@ -48,9 +46,6 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
                 params["profile"] = profile
             }
         } else if serviceType == .updateInfo {
-            if let password = password {
-                params["password"] = password
-            }
             if let firstName = firstName {
                 params["first_name"] = firstName
             }
@@ -69,9 +64,7 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
     private func getProfile() -> [String: Any] {
         var params = [String: Any]()
         if let answers = answers {
-            if answers.toString().count > 0 {
-                params["answers"] = answers
-            }
+            params["answers"] = answers
         }
         if let age = age {
             params["age"] = "\(age)"

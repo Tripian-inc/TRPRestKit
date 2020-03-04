@@ -103,7 +103,7 @@ class ApiV3StartTest: XCTestCase {
     func testUserTrip() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        TRPRestKit().userTrips { (result, error, pag) in
+        TRPRestKit().userTrips { (result, error, _) in
             XCTAssertNil(error)
             if let result = result as? [TRPUserTripInfoModel] {
                 print("RRRR \(result.count)")
