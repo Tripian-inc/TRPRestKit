@@ -44,6 +44,7 @@ internal struct TRPConfig {
         case dailyPlanPoi
         case register
         case favorite
+        case step
         case companion
         var link: String {
             switch self {
@@ -91,6 +92,8 @@ internal struct TRPConfig {
                 return getNewLink() ?? "user-companion"
             case .refresh:
                 return getNewLink() ?? "refresh"
+            case .step
+                return return getNewLink() ?? "step"
             }
         }
         

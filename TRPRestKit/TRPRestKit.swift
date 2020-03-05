@@ -995,7 +995,7 @@ extension TRPRestKit {
         }
         service.connection()
     }
-
+    
 }
 
 // MARK: - Favorites of User's Poi.
@@ -1685,6 +1685,65 @@ extension TRPRestKit {
             }
         }
         dailyplanService.connection()
+    }
+    
+}
+
+// MARK: - Steps
+extension TRPRestKit {
+    
+    public func addStep(planId: Int, poiId: Int, order: Int? = nil, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        stepService(planId: planId, poiId: poiId, order: order)
+    }
+    
+    public func editStep(stepId: Int,
+                         poiId: Int,
+                         completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        stepService(poiId: poiId, stepId: stepId)
+    }
+    
+    public func editStep(stepId: Int,
+                         order: Int,
+                         completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        stepService(order: order, stepId: stepId)
+    }
+    
+    public func editStep(stepId: Int,
+                         poiId: Int,
+                         order: Int,
+                         completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        stepService(poiId: poiId, order: order, stepId: stepId)
+    }
+    
+    private func stepService(planId: Int? = nil, poiId: Int? = nil, order:Int? = nil, stepId: Int? = nil) {
+        var service: TRPStepServices?
+        //Edit Step
+        if let step = stepId {
+            service = TRPStepServices(stepId: step, poiId: poiId, order: order)
+        }else if let planId = planId, let poiId = poiId { //Add Step In Plan
+            service = TRPStepServices(planId: planId, poiId: poiId, order: order)
+        }
+        guard let stepService = service else {
+            print("[Error] StepService mustn't be nil")
+            return
+        }
+        stepService.completion = { (result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPGenericParser<TRPStepInfoModel> {
+                self.postData(result: serviceResult.data)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+            
+            stepService.connection()
+        }
     }
     
 }

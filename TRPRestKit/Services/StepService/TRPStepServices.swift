@@ -1,0 +1,80 @@
+//
+//  TRPStepServices.swift
+//  TRPRestKit
+//
+//  Created by Evren Yaşar on 5.03.2020.
+//  Copyright © 2020 Evren Yaşar. All rights reserved.
+//
+
+import Foundation
+
+final class TRPStepServices: TRPRestServices<TRPGenericParser<TRPStepInfoModel>> {
+    
+    enum ServiceType {
+        case edit, add
+    }
+    
+    private var stepId: Int?
+    private var poiId: Int?
+    private var order: Int?
+    private var planId: Int?
+    private let serviceType: ServiceType
+    
+    //Edit Step
+    init(stepId: Int, poiId: Int? = nil, order: Int? = nil) {
+        self.stepId = stepId
+        self.poiId = poiId
+        self.order = order
+        self.serviceType = .edit
+    }
+    
+    //Add Step
+    init(planId: Int, poiId: Int, order: Int? = nil) {
+        self.planId = planId
+        self.poiId = poiId
+        self.order = order
+        self.serviceType = .add
+    }
+    
+    override func requestMode() -> TRPRequestMode {
+        if serviceType == .add {
+            return .post
+        }
+        return .put
+    }
+    
+    override func userOAuth() -> Bool {
+        return true
+    }
+    
+    override func bodyParameters() -> [String : Any]? {
+        var params: [String : Any] = [:]
+        
+        if serviceType == .add {
+            guard let planId = planId, let poiId = poiId else {return nil}
+            params["plan_id"] = planId
+            params["poi_id"] = poiId
+            if let order = order {
+                params["order"] = order
+            }
+        }else if serviceType == .edit {
+            if let poiId = poiId {
+                params["poi_id"] = poiId
+            }
+            if let order = order {
+                params["order"] = order
+            }
+        }
+        return params
+    }
+    
+    override func path() -> String {
+        var path = TRPConfig.ApiCall.companion.link
+        if let stepId = stepId {
+            path += "/\(stepId)"
+        }
+        return path
+    }
+    
+    
+}
