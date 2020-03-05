@@ -92,8 +92,8 @@ internal struct TRPConfig {
                 return getNewLink() ?? "user-companion"
             case .refresh:
                 return getNewLink() ?? "refresh"
-            case .step
-                return return getNewLink() ?? "step"
+            case .step:
+                return getNewLink() ?? "step"
             }
         }
         
