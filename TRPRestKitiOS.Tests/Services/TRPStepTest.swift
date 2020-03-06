@@ -12,78 +12,33 @@ import XCTest
 // swiftlint:disable all
 class TRPStepTest: XCTestCase {
     
+    private var createdNewModel: TRPTripModel!
+    
     override func setUp() {
         UserMockSession.shared.setServer()
         UserMockSession.shared.doLogin()
+        do {
+           createdNewModel = try CreateTripHelper().create()
+        }catch {
+            print("[Error] \(error.localizedDescription)")
+            fatalError(error.localizedDescription)
+        }
+    }
+
+    func testK() {
+        print("TRİP INFOSU \(createdNewModel.city.name)")
+        XCTAssert(true)
     }
     
+    
     //Add Step
+    
     
     // Edit Step
     
     // Delete Step
     
     
-    func testV1() {
-        let expectation = XCTestExpectation(description:"a")
-        print("V1")
-        
-        DispatchQueue.global().asyncAfter(deadline: .now() + 9) {
-            print("V1 Completed")
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 10)
-    }
     
-    func testV2() {
-        let expectation = XCTestExpectation(description:"a")
-        print("V2")
-        
-        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
-            print("V2 Completed")
-            expectation.fulfill()
-        }
-        
-        
-        wait(for: [expectation], timeout: 10)
-    }
-    
-    func testV3() {
-        let expectation = XCTestExpectation(description:"a")
-        print("V3")
-        
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-            print("V3 Completed")
-            expectation.fulfill()
-        }
-        
-        
-        wait(for: [expectation], timeout: 10)
-    }
-    
-    
-    
-    
-    
-    func myFunction() {
-        var a: Int?
-
-        let group = DispatchGroup()
-        group.enter()
-
-        
-        
-        DispatchQueue.main.async {
-            a = 1
-            group.leave()
-        }
-
-        // does not wait. But the code in notify() gets run
-        // after enter() and leave() calls are balanced
-
-        group.notify(queue: .main) {
-            print(a)
-        }
-    }
     
 }
