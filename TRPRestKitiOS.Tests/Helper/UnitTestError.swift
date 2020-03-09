@@ -11,4 +11,5 @@ enum UnitTestError: Error {
     case typeCasting
     case trpError(_ error: String)
     case unDefined
+    case isEmpty
 }

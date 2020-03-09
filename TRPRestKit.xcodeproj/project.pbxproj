@@ -131,8 +131,9 @@
 		B29B46B020F613D80009E711 /* TRPRestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46AF20F613D80009E711 /* TRPRestServices.swift */; };
 		B29B46B420F613FE0009E711 /* TRPCheckDataUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46B320F613FE0009E711 /* TRPCheckDataUpdates.swift */; };
 		B29B46C120F6146D0009E711 /* TRPPlanPointAlternatives.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46C020F6146D0009E711 /* TRPPlanPointAlternatives.swift */; };
-		B2AC5866241229BA00256F79 /* CreateTripHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC5865241229BA00256F79 /* CreateTripHelper.swift */; };
-		B2AC586824122A8700256F79 /* UnitTestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC586724122A8700256F79 /* UnitTestError.swift */; };
+		B2AC586824122A8700256F79 /* TripHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC586724122A8700256F79 /* TripHelper.swift */; };
+		B2AC586A2412365200256F79 /* UnitTestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC58692412365200256F79 /* UnitTestError.swift */; };
+		B2AC586C24128CDB00256F79 /* TRPDeleteStepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC586B24128CDB00256F79 /* TRPDeleteStepService.swift */; };
 		B2AEE62D240F9DFD00395EE8 /* TRPUserFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AEE62C240F9DFD00395EE8 /* TRPUserFavorite.swift */; };
 		B2B500B8235073860006D406 /* TRPRestKitiOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B500B7235073860006D406 /* TRPRestKitiOS_Tests.swift */; };
 		B2B500BA235073860006D406 /* TRPRestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29B462520F607F90009E711 /* TRPRestKit.framework */; };
@@ -294,8 +295,9 @@
 		B29B46AF20F613D80009E711 /* TRPRestServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestServices.swift; sourceTree = "<group>"; };
 		B29B46B320F613FE0009E711 /* TRPCheckDataUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCheckDataUpdates.swift; sourceTree = "<group>"; };
 		B29B46C020F6146D0009E711 /* TRPPlanPointAlternatives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPlanPointAlternatives.swift; sourceTree = "<group>"; };
-		B2AC5865241229BA00256F79 /* CreateTripHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripHelper.swift; sourceTree = "<group>"; };
-		B2AC586724122A8700256F79 /* UnitTestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestError.swift; sourceTree = "<group>"; };
+		B2AC586724122A8700256F79 /* TripHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHelper.swift; sourceTree = "<group>"; };
+		B2AC58692412365200256F79 /* UnitTestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTestError.swift; sourceTree = "<group>"; };
+		B2AC586B24128CDB00256F79 /* TRPDeleteStepService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDeleteStepService.swift; sourceTree = "<group>"; };
 		B2AEE62C240F9DFD00395EE8 /* TRPUserFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserFavorite.swift; sourceTree = "<group>"; };
 		B2B500B5235073860006D406 /* TRPRestKitiOS.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TRPRestKitiOS.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B500B7235073860006D406 /* TRPRestKitiOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestKitiOS_Tests.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				B267EDDA241119F9006FCFA0 /* TRPStepServices.swift */,
+				B2AC586B24128CDB00256F79 /* TRPDeleteStepService.swift */,
 			);
 			path = StepService;
 			sourceTree = "<group>";
@@ -725,8 +728,8 @@
 		B2AC5864241229AA00256F79 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				B2AC5865241229BA00256F79 /* CreateTripHelper.swift */,
-				B2AC586724122A8700256F79 /* UnitTestError.swift */,
+				B2AC58692412365200256F79 /* UnitTestError.swift */,
+				B2AC586724122A8700256F79 /* TripHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1054,6 +1057,7 @@
 				B29B46C120F6146D0009E711 /* TRPPlanPointAlternatives.swift in Sources */,
 				784BAB9A22C354FA00BBDB0F /* TRPCompanionServices.swift in Sources */,
 				B29B46A620F6137C0009E711 /* poiCategories.swift in Sources */,
+				B2AC586C24128CDB00256F79 /* TRPDeleteStepService.swift in Sources */,
 				B20CD9F321368CF800497ED3 /* TRPPlanPoints.swift in Sources */,
 				B2341D6223143939007EAF80 /* RestKitInfo.swift in Sources */,
 				B2FDCFB92147EE41000C9387 /* TRPLoginJsonModel.swift in Sources */,
@@ -1077,14 +1081,14 @@
 				B2557E9423ACB14400C5BF4D /* AAUserPersistentTest.swift in Sources */,
 				78C448F5237C35C000E1DD7B /* TRPLoginTest.swift in Sources */,
 				78C448F3237C356700E1DD7B /* TRPReportAProblemTest.swift in Sources */,
-				B2AC586824122A8700256F79 /* UnitTestError.swift in Sources */,
+				B2AC586A2412365200256F79 /* UnitTestError.swift in Sources */,
+				B2AC586824122A8700256F79 /* TripHelper.swift in Sources */,
 				78C448F1237C353C00E1DD7B /* UserMockSession.swift in Sources */,
 				B259621724052BBC00E98DF4 /* ApiV3StartTest.swift in Sources */,
 				B267BBA42356F88D00C25778 /* TRPQuickRecommendationTest.swift in Sources */,
 				B267BBC02357396D00C25778 /* TRPTripsTest.swift in Sources */,
 				B2B500E9235091430006D406 /* TRPParentJsonModelTest.swift in Sources */,
 				B2B500F62354942B0006D406 /* TRPPoiCategoriesTest.swift in Sources */,
-				B2AC5866241229BA00256F79 /* CreateTripHelper.swift in Sources */,
 				B253185F24096144007F97C3 /* TRPImageParserTest.swift in Sources */,
 				B267BBBE23572BEF00C25778 /* TRPCompanionTest.swift in Sources */,
 				B248C93423A7D477000063C3 /* BaseUrlTest.swift in Sources */,

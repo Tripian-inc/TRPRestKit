@@ -48,7 +48,7 @@ final class TRPStepServices: TRPRestServices<TRPGenericParser<TRPStepInfoModel>>
     }
     
     override func bodyParameters() -> [String : Any]? {
-        var params: [String : Any] = [:]
+        var params: [String: Any] = [:]
         
         if serviceType == .add {
             guard let planId = planId, let poiId = poiId else {return nil}
@@ -57,7 +57,7 @@ final class TRPStepServices: TRPRestServices<TRPGenericParser<TRPStepInfoModel>>
             if let order = order {
                 params["order"] = order
             }
-        }else if serviceType == .edit {
+        } else if serviceType == .edit {
             if let poiId = poiId {
                 params["poi_id"] = poiId
             }
@@ -69,12 +69,11 @@ final class TRPStepServices: TRPRestServices<TRPGenericParser<TRPStepInfoModel>>
     }
     
     override func path() -> String {
-        var path = TRPConfig.ApiCall.companion.link
+        var path = TRPConfig.ApiCall.step.link
         if let stepId = stepId {
             path += "/\(stepId)"
         }
         return path
     }
-    
     
 }

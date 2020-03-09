@@ -1722,6 +1722,7 @@ extension TRPRestKit {
     //TODO: - burası doldurulacak
     public func deleteStep(stepId: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
+        stepDeleteService(stepId: stepId)
     }
     
     private func stepService(planId: Int? = nil, poiId: Int? = nil, order:Int? = nil, stepId: Int? = nil) {
@@ -1746,8 +1747,24 @@ extension TRPRestKit {
             }else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
-            stepService.connection()
         }
+        stepService.connection()
+    }
+    
+    private func stepDeleteService(stepId: Int) {
+        let service = TRPDeleteStepService(stepId: stepId)
+        service.completion = { (result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPParentJsonModel {
+                self.postData(result: serviceResult)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        service.connection()
     }
     
 }
