@@ -9,6 +9,7 @@
 import Foundation
 import XCTest
 @testable import TRPRestKit
+// swiftlint:disable all
 class TripHelper: XCTestCase {
     
     static let shared = TripHelper()
@@ -17,6 +18,12 @@ class TripHelper: XCTestCase {
     private var poisHolder: [TRPPoiInfoModel]?
     private var poisHolderCityId: Int = 107
     
+    
+    
+    
+    
+    
+    
     public func getTrip() -> TRPTripModel? {
         
         if createdTripHolder == nil {
@@ -24,15 +31,18 @@ class TripHelper: XCTestCase {
                 createdTripHolder = try createTrip()
             }catch UnitTestError.isEmpty {
                 fatalError("[Error] IsEmpty")
-            }catch UnitTestError.trpError(let error) {
-                fatalError(error)
-            }catch{
-                fatalError("[Error] \(error.localizedDescription)")
+            } catch UnitTestError.trpError(let error) { fatalError(error)
+            } catch { fatalError("[Error] \(error.localizedDescription)")
             }
             
         }
         return createdTripHolder!
     }
+    
+    
+    
+    
+    
     
     public func getPois(cityId: Int = 107) -> [TRPPoiInfoModel] {
         UserMockSession.shared.setServer()
@@ -52,51 +62,16 @@ class TripHelper: XCTestCase {
         return poisHolder!
     }
     
+    
+    
+    
     private func checkPoisIsSomeCity(cityId: Int) {
         if poisHolderCityId != cityId {
             poisHolder = nil
         }
     }
     
-    func createTrip() throws -> TRPTripModel {
-        UserMockSession.shared.setServer()
-        let arrival = getNextDay()
-        let departure = getDaysAfter(withDays: 10)
-        let settings = TRPTripSettings(cityId: TestUtilConstants.MockCityConstants.IstanbulCityId,
-                                       arrivalTime: arrival,
-                                       departureTime: departure)
-        //CallBack içindeki errorları anlamlı hale getirir.
-        var errorFromCall: UnitTestError?
-        var tripInfo: TRPTripModel?
-        //Async yapıyı kilitler
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        TRPRestKit().createTrip(settings: settings) {(result, error) in
-            
-            if let error = error {
-                errorFromCall = UnitTestError.trpError(error.localizedDescription)
-                semaphore.signal()
-                return
-            }
-            
-            guard let model = result as? TRPTripModel else {
-                errorFromCall = .typeCasting
-                semaphore.signal()
-                return
-            }
-            tripInfo = model
-            semaphore.signal()
-        }
-        //Semaphore un ne kadar beklemesi gerektiğini set eder.
-        _ = semaphore.wait(timeout: .distantFuture)
-        if errorFromCall != nil {
-            throw errorFromCall!
-        }
-        guard let tripInfom = tripInfo else {
-            throw UnitTestError.unDefined
-        }
-        return tripInfom
-    }
+    
     
     func fetchPoiInCity(_ cityId: Int = 107) throws -> [TRPPoiInfoModel] {
         //CallBack içindeki errorlar için
@@ -131,12 +106,62 @@ class TripHelper: XCTestCase {
         return pois
     }
     
-    func fetchTrip(_ tripHash: String) {
-        
-        
-        
+}
+
+//MARK: - Create Trip
+extension TripHelper {
+    
+    
+    /// Trip generate eder. Bunu senktron bir şekilde yaptığı için bekledir.
+    func createTrip() throws -> TRPTripModel {
+        UserMockSession.shared.setServer()
+        let arrival = getNextDay()
+        let departure = getDaysAfter(withDays: 3)
+        let settings = TRPTripSettings(cityId: TestUtilConstants.MockCityConstants.IstanbulCityId,
+                                       arrivalTime: arrival,
+                                       departureTime: departure)
+        //CallBack içindeki errorları anlamlı hale getirir.
+        var errorFromCall: UnitTestError?
+        var tripInfo: TRPTripModel?
+        //Async yapıyı kilitler
+        let semaphore = DispatchSemaphore(value: 0)
+    
+        TRPRestKit().createTrip(settings: settings) {(result, error) in
+            if let error = error {
+                errorFromCall = UnitTestError.trpError(error.localizedDescription)
+                semaphore.signal()
+                return
+            }
+            guard let model = result as? TRPTripModel else {
+                errorFromCall = .typeCasting
+                semaphore.signal()
+                return
+            }
+            tripInfo = model
+            semaphore.signal()
+        }
+        //Semaphore un ne kadar beklemesi gerektiğini set eder.
+        _ = semaphore.wait(timeout: .distantFuture)
+        if errorFromCall != nil {
+            throw errorFromCall!
+        }
+        guard let tripInfom = tripInfo else {
+            throw UnitTestError.unDefined
+        }
+        return tripInfom
     }
     
-    
-    
 }
+
+
+//MARK: - Fetch Trip
+extension TripHelper {
+    func fetchTrip(withHash hash: String) {
+        TRPRestKit().getTrip(withHash: hash) { (result, error) in
+            
+        }
+    }
+}
+
+
+
