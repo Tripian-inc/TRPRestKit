@@ -17,19 +17,22 @@ class BdTRPDailyPlanTest: XCTestCase {
     
     // MARK: Variables
     private var firstDayDailyPlan: TRPPlansInfoModel? {
-        return TripHolder.shared.getDay(order: 0)
+        return TripHelper.shared.getDay(order: 0)
+        
     }
     private var lastDayDailyPlan: TRPPlansInfoModel? {
-        return TripHolder.shared.getDay(order: 1)
+        return TripHelper.shared.getDay(order: 1)
     }
     private var mockTripHash: String? {
-        return TripHolder.shared.hash
+        return TripHelper.shared.getTrip().tripHash
     }
     
     // MARK: Set Up
     override func setUp() {
         super.setUp()
-        
+        UserMockSession.shared.setServer()
+        UserMockSession.shared.doLogin()
+        _ = TripHelper.shared.getTrip()
     }
     
     // MARK: Daily Plan Tests

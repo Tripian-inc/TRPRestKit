@@ -46,10 +46,8 @@ class TRPStepTest: XCTestCase {
         
         createRefAndEditPoi()
         
-        
-        
         let expect = XCTestExpectation(description: #function)
-        TRPRestKit().addStep(planId: TripHelper.shared.getTrip()!.plans.first!.id, poiId: refPoiForSteptest.id) { (result, error) in
+        TRPRestKit().addStep(planId: TripHelper.shared.getTrip().plans.first!.id, poiId: refPoiForSteptest.id) { (result, error) in
             if let error = error {
                 XCTAssertNil(error)
                 expect.fulfill()

@@ -144,6 +144,8 @@
 		B2B500F62354942B0006D406 /* TRPPoiCategoriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B500F52354942B0006D406 /* TRPPoiCategoriesTest.swift */; };
 		B2B50100235497D30006D406 /* TRPPoiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B500FF235497D30006D406 /* TRPPoiTest.swift */; };
 		B2B5011A2354C6950006D406 /* TRPQuestionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B501192354C6950006D406 /* TRPQuestionTest.swift */; };
+		B2BEF941241B619200794EC2 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BEF940241B619200794EC2 /* UserDefault.swift */; };
+		B2BEF943241B67DB00794EC2 /* TripFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BEF942241B67DB00794EC2 /* TripFetcher.swift */; };
 		B2C365AC226727A300E7B4CA /* TRPImageOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C365AB226727A300E7B4CA /* TRPImageOwner.swift */; };
 		B2E0D1F521491D2300876D81 /* TRPDayPlanJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1F421491D2300876D81 /* TRPDayPlanJsonModel.swift */; };
 		B2E0D1FF2149244A00876D81 /* TRPStepInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1FE2149244A00876D81 /* TRPStepInfoModel.swift */; };
@@ -309,6 +311,8 @@
 		B2B500F52354942B0006D406 /* TRPPoiCategoriesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPoiCategoriesTest.swift; sourceTree = "<group>"; };
 		B2B500FF235497D30006D406 /* TRPPoiTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPoiTest.swift; sourceTree = "<group>"; };
 		B2B501192354C6950006D406 /* TRPQuestionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPQuestionTest.swift; sourceTree = "<group>"; };
+		B2BEF940241B619200794EC2 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		B2BEF942241B67DB00794EC2 /* TripFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripFetcher.swift; sourceTree = "<group>"; };
 		B2C365AB226727A300E7B4CA /* TRPImageOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageOwner.swift; sourceTree = "<group>"; };
 		B2E0D1F421491D2300876D81 /* TRPDayPlanJsonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPDayPlanJsonModel.swift; sourceTree = "<group>"; };
 		B2E0D1FE2149244A00876D81 /* TRPStepInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPStepInfoModel.swift; sourceTree = "<group>"; };
@@ -730,6 +734,8 @@
 			children = (
 				B2AC58692412365200256F79 /* UnitTestError.swift */,
 				B2AC586724122A8700256F79 /* TripHelper.swift */,
+				B2BEF940241B619200794EC2 /* UserDefault.swift */,
+				B2BEF942241B67DB00794EC2 /* TripFetcher.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1089,12 +1095,14 @@
 				B267BBC02357396D00C25778 /* TRPTripsTest.swift in Sources */,
 				B2B500E9235091430006D406 /* TRPParentJsonModelTest.swift in Sources */,
 				B2B500F62354942B0006D406 /* TRPPoiCategoriesTest.swift in Sources */,
+				B2BEF943241B67DB00794EC2 /* TripFetcher.swift in Sources */,
 				B253185F24096144007F97C3 /* TRPImageParserTest.swift in Sources */,
 				B267BBBE23572BEF00C25778 /* TRPCompanionTest.swift in Sources */,
 				B248C93423A7D477000063C3 /* BaseUrlTest.swift in Sources */,
 				B2B50100235497D30006D406 /* TRPPoiTest.swift in Sources */,
 				B2B500B8235073860006D406 /* TRPRestKitiOS_Tests.swift in Sources */,
 				B2583C4623ABAB360081ED5D /* BaseUrlCreaterTest.swift in Sources */,
+				B2BEF941241B619200794EC2 /* UserDefault.swift in Sources */,
 				B2B500C4235073A70006D406 /* TRPCitiesTest.swift in Sources */,
 				B2583C4823ABC1220081ED5D /* AStartTestSettingsTest.swift in Sources */,
 				B248C92023A7A6EE000063C3 /* TestUtilConstants.swift in Sources */,

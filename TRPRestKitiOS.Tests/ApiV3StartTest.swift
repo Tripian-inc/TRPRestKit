@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import TRPRestKit
+// swiftlint:disable all
 class ApiV3StartTest: XCTestCase {
     
     override func setUp() {
@@ -204,4 +205,12 @@ class ApiV3StartTest: XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
     
+    func testAdasdasd() {
+        
+            
+        
+        
+        XCTAssert(true)
+    }
+
 }
