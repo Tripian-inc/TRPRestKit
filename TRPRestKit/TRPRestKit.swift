@@ -1340,7 +1340,7 @@ extension TRPRestKit {
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
-    public func planPoiAlternatives(withHash hash: String, completion: @escaping CompletionHandler) {
+    public func stepAlternatives(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointAlternative(hash: hash)
     }
@@ -1352,25 +1352,31 @@ extension TRPRestKit {
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
-    public func planPoiAlternatives(withDailyPlanId id: Int, completion: @escaping CompletionHandler) {
+    public func stepAlternatives(withPlanId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
-        planPointAlternative(dailyPlanId: id)
+        planPointAlternative(planId: id)
+    }
+    
+    public func stepAlternatives(stepId id: Int, completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        planPointAlternative(stepId: id)
     }
     
     /// A services which will be used in plan poi alternative services, manages all task connecting to remote server.
-    private func planPointAlternative(planPointId: Int? = nil, hash: String? = nil, dailyPlanId: Int? = nil) {
-        var poiAlternativeService: TRPPlanPointAlternatives?
+    private func planPointAlternative(hash:String? = nil, stepId: Int? = nil, planId: Int? = nil) {
+        var poiAlternativeService: TRPStepAlternativesServices?
         
-        if let planPointId = planPointId {
-            poiAlternativeService = TRPPlanPointAlternatives(planPointId: planPointId)
-        } else if let hash = hash {
-            poiAlternativeService = TRPPlanPointAlternatives(hash: hash)
-        } else if let dailyPlanId = dailyPlanId {
-            poiAlternativeService =  TRPPlanPointAlternatives(dailyPlanId: dailyPlanId)
+        if let hash = hash {
+            poiAlternativeService = TRPStepAlternativesServices(hash: hash)
+        }else if let stepId = stepId {
+            poiAlternativeService = TRPStepAlternativesServices(stepId: stepId)
+        }else if let planId = planId {
+            poiAlternativeService = TRPStepAlternativesServices(planId: planId)
         }
         
         guard let service = poiAlternativeService else {return}
-        service.completion = {   (result, error, pagination) in
+        
+        service.completion = { (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return

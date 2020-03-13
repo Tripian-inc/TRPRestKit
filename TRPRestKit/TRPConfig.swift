@@ -31,7 +31,7 @@ internal struct TRPConfig {
         case routes
         case routesResult
         case gRouteReuslt
-        case planPointAlternative
+        case stepAlternative
         case tags
         case checkDataUpdates
         case refresh
@@ -64,8 +64,8 @@ internal struct TRPConfig {
                 return getNewLink() ?? "routeresult"
             case .gRouteReuslt:
                 return getNewLink() ?? "grouteresult"
-            case .planPointAlternative:
-                return getNewLink() ?? "dailyplanpoi-alternatives"
+            case .stepAlternative:
+                return getNewLink() ?? "step-alternative"
             case .tags:
                 return getNewLink() ?? "tags"
             case .checkDataUpdates:
