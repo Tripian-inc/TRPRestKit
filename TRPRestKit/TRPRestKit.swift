@@ -1329,118 +1329,6 @@ extension TRPRestKit {
     
 }
 
-// MARK: - PlanPoints
-extension TRPRestKit {
-    
-    /// Add Plan POI to the daily plan.
-    ///
-    /// - Parameters:
-    ///    - hash: A String value that refers to foretold trip hash.
-    ///    - dailyPlanId: An Integer that refers to Id of the daily plan.
-    ///    - poiId: An Integer that refers to Id of the given place.
-    ///    - order: An Integer that refers to order number of the given place.
-    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **TRPPlanPoi** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#adding-a-place-to-trip)
-    public func addPlanPoints(hash: String, dailyPlanId: Int, poiId: Int, order: Int? = nil, completion: @escaping CompletionHandler) {
-        completionHandler = completion
-        planPointsServices(hash: hash, dailyPlanId: dailyPlanId, placeId: poiId, order: order, type: TRPPlanPoints.Status.add)
-    }
-    
-    /// Replace plan POI in trip.
-    ///
-    /// This function is used during changing place with it's alternative, in trips.
-    ///
-    /// - Parameters:
-    ///    - dailyPlanPoiId: An Integer that refers to Id of the daily plan POI.
-    ///    - poiId: An Integer that refers to Id of the given place.
-    ///    - order: An Integer that refers to order number of the given place.
-    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **TRPPlanPoi** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
-    public func replacePlanPoiFrom(dailyPlanPoiId: Int, poiId: Int? = nil, order: Int? = nil, completion: @escaping CompletionHandler ) {
-        completionHandler = completion
-        planPointsServices(id: dailyPlanPoiId, placeId: poiId, order: order, type: .update)
-    }
-    
-    /// Reorder plan POI in trip.
-    ///
-    /// This function is used during manuel sort on the map view.
-    ///
-    /// - Parameters:
-    ///    - dailyPlanPoiId: An Integer that refers to Id of the daily plan POI.
-    ///    - poiId: An Integer that refers to Id of the given place.
-    ///    - order: An Integer that refers to order number of the given place.
-    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **TRPPlanPoi** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#changing-a-place-in-a-trip)
-    public func reOrderPlanPoiFrom(dailyPlanPoiId: Int, poiId: Int, order: Int, completion: @escaping CompletionHandler) {
-        completionHandler = completion
-        planPointsServices(id: dailyPlanPoiId, placeId: poiId, order: order, type: .update)
-    }
-    
-    /// Delete plan POI in trip.
-    ///
-    /// This function is used during manuel sort on the map view.
-    ///
-    /// - Parameters:
-    ///    - planPoiId: An Integer that refers to Id of the daily plan POI.
-    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#deleting-a-place-from-a-trip)
-    public func deleteDailyPlanPoi(planPoiId id: Int, completion: @escaping CompletionHandler) {
-        completionHandler = completion
-        planPointsServices(id: id, type: .delete)
-    }
-    
-    /// A services which will be used in plan poi services, manages all task connecting to remote server.
-    private func planPointsServices(hash: String? = nil,
-                                    id: Int? = nil,
-                                    dailyPlanId: Int? = nil,
-                                    placeId: Int? = nil,
-                                    order: Int? = nil, type: TRPPlanPoints.Status) {
-        var planPointService: TRPPlanPoints?
-        
-        if type == TRPPlanPoints.Status.delete, let id = id {
-            planPointService = TRPPlanPoints(id: id, type: type)
-        } else if type == TRPPlanPoints.Status.add, let hash = hash, let dailyPlanId = dailyPlanId, let placeId = placeId {
-            planPointService = TRPPlanPoints(hash: hash, dailyPlanId: dailyPlanId, placeId: placeId, order: order)
-        } else if type == TRPPlanPoints.Status.update, let id = id {
-            planPointService = TRPPlanPoints(id: id, placeId: placeId, order: order)
-        }
-        
-        guard let service = planPointService else {
-            self.postError(error: TRPErrors.objectIsNil(name: "TRPPlanPoints") as NSError)
-            return
-        }
-        
-        service.completion = {   (result, error, pagination) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            if type == .delete {
-                if let serviceResult = result as? TRPParentJsonModel {
-                    self.postData(result: serviceResult, pagination: pagination)
-                    return
-                }
-            } else if type == .add {
-                if let serviceResult = result as? TRPProgramStepJsonModel {
-                    self.postData(result: serviceResult.data, pagination: pagination)
-                    return
-                }
-                
-            } else {
-                if let serviceResult = result as? TRPProgramStepJsonModel, let data = serviceResult.data {
-                    self.postData(result: data, pagination: pagination)
-                    return
-                }
-            }
-            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-        }
-        service.connection()
-    }
-}
 
 // MARK: - NearBy Services
 extension TRPRestKit {
@@ -1691,7 +1579,9 @@ extension TRPRestKit {
 
 // MARK: - Steps
 extension TRPRestKit {
+   //Burası silinen Add Plan Poit kısmının yeni hali, ordan alınabiliri
     
+    /// Add Plan POI to the daily plan.
     public func addStep(planId: Int, poiId: Int, order: Int? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         stepService(planId: planId, poiId: poiId, order: order)

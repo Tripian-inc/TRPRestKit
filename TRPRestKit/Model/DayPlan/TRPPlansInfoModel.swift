@@ -38,7 +38,7 @@ public struct TRPPlansInfoModel: Decodable {
         case date
         case startTime = "start_time"
         case endTime = "end_time"
-        case planPoints = "dailyplanpoi"
+        case steps
         case generate = "generated_status"
     }
     
@@ -55,7 +55,7 @@ public struct TRPPlansInfoModel: Decodable {
         self.endTime = try values.decodeIfPresent(String.self, forKey: .endTime)
         self.generatedStatus = try values.decode(Int.self, forKey: .generate)
         //todo:- alk kod açılacak test için yapıldı
-        if let planPoints = ((try? values.decodeIfPresent([TRPStepInfoModel].self, forKey: .planPoints)) as [TRPStepInfoModel]??) {
+        if let planPoints = ((try? values.decodeIfPresent([TRPStepInfoModel].self, forKey: .steps)) as [TRPStepInfoModel]??) {
             self.steps = planPoints ?? []
         } else {
             self.steps = []

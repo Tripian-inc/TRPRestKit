@@ -79,7 +79,7 @@ internal struct TRPConfig {
             case .trip:
                 return getNewLink() ?? "trip"
             case .dailyPlan:
-                return getNewLink() ?? "dailyplan"
+                return getNewLink() ?? "plan"
             case .userPreferences:
                 return getNewLink() ?? "user/preferences"
             case .dailyPlanPoi:

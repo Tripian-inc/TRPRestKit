@@ -119,64 +119,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "296E0645-979D-49D2-9764-05FB9F53B102"
+            uuid = "F0F92157-1C22-45E3-AE05-44B61D8902AB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TRPRestKit/TRPRestKit.swift"
+            filePath = "TRPRestKitiOS.Tests/Helper/TripHelper.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1322"
-            endingLineNumber = "1322"
-            landmarkName = "dailyPlanServices(id:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "getTrip()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F06E1E14-085C-4691-8DE3-4662FEFEDDF1"
+            uuid = "DF9F0F0F-9B32-4ED9-BFF1-93938B415CEA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TRPRestKit/TRPRestKit.swift"
+            filePath = "TRPRestKit/Services/PlanPoints/TRPPlanPoints.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1324"
-            endingLineNumber = "1324"
-            landmarkName = "dailyPlanServices(id:)"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "path()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "554F0904-37A9-4691-919B-25144D500A3A"
+            uuid = "05576A66-DE85-4D6D-8FB0-D902CA2BEF43"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TRPRestKit/TRPRestKit.swift"
+            filePath = "TRPRestKit/Services/PlanPoints/TRPPlanPoints.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1321"
-            endingLineNumber = "1321"
-            landmarkName = "dailyPlanServices(id:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1CB07536-BD84-4886-AC56-80EA75631048"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TRPRestKit/TRPRestKit.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1318"
-            endingLineNumber = "1318"
-            landmarkName = "dailyPlanServices(id:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "path()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

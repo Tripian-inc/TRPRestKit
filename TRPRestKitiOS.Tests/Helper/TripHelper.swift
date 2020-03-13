@@ -30,8 +30,7 @@ class TripHelper: XCTestCase {
         return trip.plans[order]
     }
     
-    
-    public func getTrip() -> TRPTripModel {
+    public func prepareTrip() {
         if createdTripHolder == nil && storageTripHash.isEmpty{
             let newTrip = createAndFetchNewTrip()
             createdTripHolder = newTrip
@@ -40,8 +39,16 @@ class TripHelper: XCTestCase {
         }else if !storageTripHash.isEmpty {
             fetchAllStepsInTrip(tripHash: storageTripHash, wait: 0)
         }
+    }
+    
+    
+    public func getTrip() -> TRPTripModel {
+        if createdTripHolder == nil {
+            prepareTrip()
+        }
         return createdTripHolder!
     }
+    
     
     
     private func createAndFetchNewTrip() -> TRPTripModel {

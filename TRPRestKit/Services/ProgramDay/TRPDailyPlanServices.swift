@@ -12,6 +12,7 @@ internal class TRPDailyPlanServices: TRPRestServices<TRPDayPlanJsonModel> {
     var dayId: Int?
     var startTime: String?
     var endTime: String?
+    var stepOrders: [Int]?
     
     internal init(id: Int) {
         self.dayId = id
@@ -23,12 +24,20 @@ internal class TRPDailyPlanServices: TRPRestServices<TRPDayPlanJsonModel> {
         self.endTime = endTime
     }
     
+    //TODO: orde eklenecek
+    internal init(id: Int, stepOrders orders: [Int]) {
+        self.stepOrders = orders
+        self.dayId = id
+    }
+    
     public override func userOAuth() -> Bool {
         return true
     }
     
     override func requestMode() -> TRPRequestMode {
         if startTime != nil && endTime != nil {
+            return .put
+        }else if stepOrders != nil {
             return .put
         }
         return .get
@@ -43,15 +52,22 @@ internal class TRPDailyPlanServices: TRPRestServices<TRPDayPlanJsonModel> {
         
         return path
     }
-
-    override func parameters() -> [String: Any]? {
-        if let id = dayId, let startTime = startTime, let endTime = endTime {
-            var params: [String: Any] = [:]
-            
+    
+    override func bodyParameters() -> [String : Any]? {
+        var params: [String: Any] = [:]
+        if let startTime = startTime {
             params["start_time"] = startTime
-            params["end_time"] = endTime
-            return params
         }
-        return nil
+        if let startTime = endTime {
+            params["end_time"] = startTime
+        }
+        if let orders = stepOrders {
+            params["orders"] = orders
+        }
+        if params.count == 0 {
+            return nil
+        }
+        return params
     }
+
 }
