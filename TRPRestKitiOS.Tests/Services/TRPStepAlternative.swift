@@ -135,8 +135,7 @@ class TRPStepAlternative: XCTestCase {
         guard let firstDaysDailyPlanId = self.firstDayDailyPlan?.id else{
             return
         }
-        
-        TRPRestKit().planPoiAlternatives(withDailyPlanId: firstDaysDailyPlanId) {[weak self] (result, error) in
+        TRPRestKit().stepAlternatives(withPlanId: firstDaysDailyPlanId) {[weak self] (result, error) in
             guard self != nil else {return}
             
             if let error = error {
@@ -149,7 +148,7 @@ class TRPStepAlternative: XCTestCase {
                 expectation.fulfill()
                 return
             }
-            guard let result = result as? [TRPPlanStepAlternativeInfoModel] else {
+            guard let result = result as? [TRPStepAlternativeInfoModel] else {
                 XCTFail("\(nameSpace) Json model coundn't converted to  TRPPlanPointAlternativeInfoModel")
                 expectation.fulfill()
                 return

@@ -69,7 +69,7 @@ class BcCreateTrip: XCTestCase {
             if let firstDay = currentTrip.plans.first {
                 let second = currentTrip.plans[1]
                 if firstDay.generatedStatus == 1 && second.generatedStatus == 1 {
-                    TripHolder.shared.model = currentTrip
+
                     expectation.fulfill()
                 }else {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

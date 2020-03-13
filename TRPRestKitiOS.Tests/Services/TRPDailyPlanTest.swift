@@ -71,62 +71,10 @@ class BdTRPDailyPlanTest: XCTestCase {
             
             XCTAssertNotNil(dailyPlan)
             XCTAssertNotNil(dailyPlan.date)
-            
             expectation.fulfill()
         }
-        
-        
         wait(for: [expectation], timeout: 20)
     }
     
-    
-    // MARK: Daily Plan Poi Alternative Tests
-    
-    /**
-     * Tests getDailyPlanPoiAlternativesWithHash function with given trip hash.
-     * <p>
-     * Checks the responded daily plan poi alternatives and its trip hash.
-     * </p>
-     */
-    func testGetDailyPlanPoiAlternativesWithHash() {
-        
-        //TODO:TUM TEST DÜZENLENECEK. STEP KARIŞTIRDI
-        /*
-        let nameSpace = #function
-        let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        
-        
-        
-        guard let mockTripHash = self.mockTripHash else{
-            XCTFail("mockTripHash not equal")
-            expectation.fulfill()
-            return
-        }
-        
-        TRPRestKit().planPoiAlternatives(withHash: mockTripHash) { result, error in
-            if let error = error {
-                XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
-                expectation.fulfill()
-                return
-            }
-            guard let _ = result else {
-                XCTFail("\(nameSpace) Result is nil")
-                expectation.fulfill()
-                return
-            }
-            guard let result = result as? [TRPPlanPointAlternativeInfoModel] else {
-                XCTFail("\(nameSpace) Json model coundn't converted to  TRPPlanPointAlternativeInfoModel")
-                expectation.fulfill()
-                return
-            }
-            XCTAssertNotNil(result)
-            XCTAssertGreaterThan(result.count, 0)
-            expectation.fulfill()
-        }
-        
-        
-        wait(for: [expectation], timeout: 20)
- */
-    }
     
 }
