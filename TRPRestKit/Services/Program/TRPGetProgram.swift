@@ -2,8 +2,8 @@
 //  TRPGetProgram.swift
 //  TRPRestKit
 //
-//  Created by Evren Yaşar on 28.08.2018.
-//  Copyright © 2018 Evren Yaşar. All rights reserved.
+//  Created by Evren Yaşar on 16.03.2020.
+//  Copyright © 2020 Evren Yaşar. All rights reserved.
 //
 
 import Foundation
