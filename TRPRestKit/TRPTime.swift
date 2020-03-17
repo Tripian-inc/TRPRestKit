@@ -56,6 +56,27 @@ public struct TRPTime {
         self.date = date
         self.time = time
     }
+    //2020-03-14T12:00:00Z
+    public init?(dateTime:String) {
+        
+        let dateSperator = dateTime.split(separator: "T")
+        
+        if dateSperator.count == 2 {
+            let date = dateSperator[0]
+            let time = dateSperator[1].replacingOccurrences(of: "Z", with: "")
+            
+            self.date = "\(date)"
+            self.time = "\(time)"
+        }else {
+            return nil
+        }
+    }
+    
+    func dateToString(date: Date, format: String) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: date)
+    }
     
     /// Initilizes a new TRPTime with date
     ///
@@ -74,9 +95,5 @@ public struct TRPTime {
         
         self.init(year: year, month: month, day: day, hours: hour, min: min)
     }
-    
-    
-    
-    
     
 }

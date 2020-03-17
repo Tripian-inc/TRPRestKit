@@ -15,9 +15,9 @@ public struct TRPTripProfileModel: Decodable {
     /// An Int value. Id of city.
     public var cityId: Int
     /// A String value. Arrival date of trip.
-    public var arrivalDateTime: String
+    public var arrivalDateTime: TRPTime?
     /// A String value. Departure date of trip.
-    public var departureDateTime: String
+    public var departureDateTime: TRPTime?
     
     /// An Int value. Adult count.
     public var numberOfAdults: Int
@@ -58,8 +58,13 @@ public struct TRPTripProfileModel: Decodable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         cityId = try values.decode(Int.self, forKey: .cityId)
-        arrivalDateTime = try values.decode(String.self, forKey: .arrivalDateTime)
-        departureDateTime = try values.decode(String.self, forKey: .departureDateTime)
+        let arrivalDT = try values.decode(String.self, forKey: .arrivalDateTime)
+        let departureDT = try values.decode(String.self, forKey: .departureDateTime)
+       
+        if let arrival = TRPTime(dateTime: arrivalDT), let departure = TRPTime(dateTime: departureDT) {
+            arrivalDateTime = arrival
+            departureDateTime = departure
+        }
         
         numberOfAdults = try values.decode(Int.self, forKey: .numberOfAdults)
         numberOfChildren = try values.decodeIfPresent(Int.self, forKey: .numberOfChildren)

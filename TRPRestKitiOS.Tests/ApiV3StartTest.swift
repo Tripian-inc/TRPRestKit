@@ -22,13 +22,11 @@ class ApiV3StartTest: XCTestCase {
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         TRPRestKit().register(email: "silV3_19@fakemailxyz.com", password: "123456aA", firstName: "Ali", lastName: "Veli", answers: [1, 2, 3, 4]) { (result, error) in
             XCTAssertNil(error)
-            
             if let result = result as? TRPUserInfoModel {
                 print("SONUC \(result)")
             }
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 20.0)
     }
     
@@ -207,9 +205,22 @@ class ApiV3StartTest: XCTestCase {
     
     func testAdasdasd() {
         
+        let ref = "2020-03-14T12:00:00Z"
+        let dateSperator = ref.split(separator: "T")
+        
+        
+        
+        if dateSperator.count == 2 {
             
-        
-        
+            let date = dateSperator[0]
+            let time = dateSperator[1].replacingOccurrences(of: "Z", with: "")
+            print("Sonuc 1: \(date)")
+            print("Sonuc 2: \(time)")
+        }else {
+            print("String Error")
+        }
+       
+   
         XCTAssert(true)
     }
 

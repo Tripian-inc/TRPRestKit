@@ -29,4 +29,3 @@ internal class TRPPoiCategoryJsonModel: TRPParentJsonModel {
         try super.init(from: decoder)
     }
 }
-
