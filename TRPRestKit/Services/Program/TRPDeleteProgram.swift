@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPDeleteProgram: TRPRestServices<TRPParentJsonModel> {
+internal class TRPDeleteProgram: TRPRestServices<TRPGenericParser<TRPDeleteUserTripInfo>> {
     
     var hash: String?
     

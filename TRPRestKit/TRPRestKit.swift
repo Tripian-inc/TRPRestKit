@@ -1284,8 +1284,8 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let serviceResult = result as? TRPParentJsonModel {
-                self.postData(result: serviceResult)
+            if let serviceResult = result as? TRPGenericParser<TRPDeleteUserTripInfo> {
+                self.postData(result: serviceResult.data)
             }
         }
         deleteService.connection()
