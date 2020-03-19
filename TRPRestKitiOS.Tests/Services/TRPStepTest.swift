@@ -39,13 +39,10 @@ class TRPStepTest: XCTestCase {
         editPoiForSteptest = pois[refOrder + 1]
     }
     
-    
-    
     //Add Step
     func testAddStepInTrip() {
         
         createRefAndEditPoi()
-        
         let expect = XCTestExpectation(description: #function)
         TRPRestKit().addStep(planId: TripHelper.shared.getTrip().plans.first!.id, poiId: refPoiForSteptest.id) { (result, error) in
             if let error = error {

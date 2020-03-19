@@ -9,7 +9,8 @@
 import Foundation
 
 /// Infomation of Plan Poi.
-public struct TRPStepInfoModel: Decodable {
+public struct TRPStepInfoModel: Decodable, Hashable {
+
     /// An Int value. Id of PlanPoi
     public var id: Int
     
@@ -19,7 +20,7 @@ public struct TRPStepInfoModel: Decodable {
     
     public var score: Int?
     
-    public var hours:TRPHourInfoModel?
+    public var hours: TRPHourInfoModel?
     public var alternatives: [Int]
     
     private enum CodingKeys: String, CodingKey {
@@ -41,11 +42,16 @@ public struct TRPStepInfoModel: Decodable {
         score = try values.decodeIfPresent(Int.self, forKey: .score)
         hours = try values.decodeIfPresent(TRPHourInfoModel.self, forKey: .hours)
         alternatives = try values.decode([Int].self, forKey: .alternatives)
-        order = try values.decode(Int.self,forKey: .order)
+        order = try values.decode(Int.self, forKey: .order)
     }
     
+    public static func == (lhs: TRPStepInfoModel, rhs: TRPStepInfoModel) -> Bool {
+        return lhs.order < rhs.order
+    }
+    
+    public func hash(into hasher: inout Hasher) {}
+    
 }
-
 
 public struct TRPHourInfoModel: Decodable {
     var from: String?

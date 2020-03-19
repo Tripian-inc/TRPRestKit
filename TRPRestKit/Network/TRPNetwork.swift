@@ -81,6 +81,7 @@ public class TRPNetwork {
         }
         if TRPClient.shared.monitorUrl {
             log.i("CurrentUrl: \(url)")
+            
         }
         generateSession(url)
     }
@@ -97,6 +98,7 @@ public class TRPNetwork {
             urlComponents!.path = "/" + path
         }
         if let urlQueryItems = getItems(params: params) {
+            
             urlComponents!.queryItems = urlQueryItems
         }
         return urlComponents!
@@ -166,6 +168,7 @@ public class TRPNetwork {
              let mValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
              queryItems.append(URLQueryItem(name: mKey, value: mValue));
              } */
+            //queryItems.append(URLQueryItem(name: key, value: "\(value)"))
             queryItems.append(URLQueryItem(name: key, value: "\(value)"))
         }
         return queryItems

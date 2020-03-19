@@ -35,6 +35,7 @@ public class TRPRestServices<T: Decodable> {
         
         networkService.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
         if let bodyData = bodyDataToJson(bodyParameters()) {
+            
             networkService.addValue("application/json", forHTTPHeaderField: "Content-Type")
             networkService.addValue("application/json", forHTTPHeaderField: "Accept")
             networkService.add(body: bodyData)

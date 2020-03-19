@@ -18,7 +18,6 @@ class TRPUserRegisterTest: XCTestCase {
         TRPClient.start(baseUrl: urlCreater, apiKey: "")
         TRPClient.monitor(data: true, url: true)
         TRPUserRegisterTest.userName += "\(Int.random(in: (100...500)))"
-        
     }
     
     private func loginServeci(expectation: XCTestExpectation, name: String) {

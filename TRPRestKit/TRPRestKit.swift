@@ -1070,8 +1070,12 @@ extension TRPRestKit {
             } else {
                 if let resultService = result as? TRPFavoritesJsonModel {
                     if mode == .add {
+                        if let first = resultService.data?.first {
+                            self.postData(result: first)
+                        }else {
+                            self.postData(result: resultService.data)
+                        }
                         
-                        self.postData(result: resultService.data)
                         return
                         
                     } else {

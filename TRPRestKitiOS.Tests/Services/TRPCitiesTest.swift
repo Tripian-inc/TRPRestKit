@@ -35,6 +35,7 @@ class BbTRPCitiesTest: XCTestCase {
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         expectation.expectedFulfillmentCount = 2
         var loopCount = 0
+        
         TRPRestKit().cities { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")

@@ -38,7 +38,7 @@ internal class TRPRecommendation: TRPRestServices<TRPGenericParser<[TRPRecommend
         }
         
         if let typeIds = setting.poiCategoryIds {
-            params["poi_categories"] = typeIds.toString()
+            params["poi_categories"] = typeIds//.toString()
         }
         if let adults = setting.adultsCount {
             params["adults"] = adults
@@ -57,7 +57,7 @@ internal class TRPRecommendation: TRPRestServices<TRPGenericParser<[TRPRecommend
         }
         
         if let answer = setting.answer {
-            params["answers"] = answer.toString()
+            params["answers"] = [95]// answer//.toString()
         }
         
         return params
