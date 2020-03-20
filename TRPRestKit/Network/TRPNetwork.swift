@@ -169,6 +169,7 @@ public class TRPNetwork {
              queryItems.append(URLQueryItem(name: mKey, value: mValue));
              } */
             //queryItems.append(URLQueryItem(name: key, value: "\(value)"))
+        
             queryItems.append(URLQueryItem(name: key, value: "\(value)"))
         }
         return queryItems
