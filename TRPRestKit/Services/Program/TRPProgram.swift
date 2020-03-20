@@ -61,7 +61,7 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         }
         
         if let companions = setting.selectedCompanionIds {
-            params["companion_ids"] = companions.map {"\($0)"}.joined(separator: ",")
+            params["companion_ids"] = companions
         }
 
         if let pace = setting.pace {
