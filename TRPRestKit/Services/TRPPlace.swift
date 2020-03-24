@@ -121,7 +121,10 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
                 params["poi_categories"] = typeId
             }
             if let typeIds = typeIds {
-                params["poi_categories"] = typeIds.toString()
+                if typeIds.count > 0 {
+                    params["poi_categories"] = typeIds.toString()
+                }
+                
             }
             if let cityId = cityId {
                 params["city_id"] = cityId

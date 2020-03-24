@@ -19,20 +19,17 @@ internal class TRPStepAlternativesServices: TRPRestServices<TRPPlanPointAlternat
         self.hash = hash
     }
     
-    
     /// Bir güne ait tüm alternativeler
     /// - Parameter planId: Gunun Id si
     public init(planId: Int) {
         self.planId = planId
     }
     
-    
     /// Bir adıma(poi ye ait tüm alternativeler
     /// - Parameter stepId: Stepin(poinin) idsi
     public init(stepId: Int) {
         self.stepId = stepId
     }
-    
     
     
     public override func path() -> String {

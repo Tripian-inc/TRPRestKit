@@ -21,7 +21,6 @@ public struct TRPStepAlternativeInfoModel: Decodable {
     public var markerCoordinate: TRPCoordinateModel
     
     public var category: TRPCategoryInfoModel
-    
 
     private enum CodingKeys: String, CodingKey {
         case id

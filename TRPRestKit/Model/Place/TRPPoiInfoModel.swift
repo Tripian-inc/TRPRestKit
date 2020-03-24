@@ -55,7 +55,7 @@ public struct TRPPoiInfoModel: Decodable {
     
     public var closed: [Int]
     public var distance: Float?
-    public var status:Bool
+    public var status: Bool
     
     private enum CodingKeys: String, CodingKey {
         case id

@@ -8,7 +8,7 @@
 
 import Foundation
 public struct TRPTastesInfoModel: Decodable {
-    var name: String
-    var description: String?
-    var image: String
+    public var name: String
+    public var description: String?
+    public var image: String
 }

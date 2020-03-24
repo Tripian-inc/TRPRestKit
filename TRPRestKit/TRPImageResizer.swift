@@ -20,8 +20,9 @@ public class TRPImageResizer {
     ///   - width: target width
     ///   - height: target height
     /// - Returns: new link 
-    public static func generate(imageLink link: String, width: Int, height: Int) -> String? {
-        if let component = URLComponents(string: link) {
+    public static func generate(imageLink link: String?, width: Int, height: Int) -> String? {
+        guard let url = link else {return nil}
+        if let component = URLComponents(string: url) {
             let link = "https://d1drj6u6cu0e3j.cloudfront.net/\(width)x\(height)/smart\(component.path)"
             return link
         }
