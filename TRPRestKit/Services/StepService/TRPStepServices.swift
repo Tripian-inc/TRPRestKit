@@ -47,7 +47,7 @@ final class TRPStepServices: TRPRestServices<TRPGenericParser<TRPStepInfoModel>>
         return true
     }
     
-    override func bodyParameters() -> [String : Any]? {
+    override func bodyParameters() -> [String: Any]? {
         var params: [String: Any] = [:]
         
         if serviceType == .add {

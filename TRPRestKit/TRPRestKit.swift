@@ -1103,18 +1103,30 @@ extension TRPRestKit {
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func userTrips(limit: Int? = 100, completion: @escaping CompletionHandlerWithPagination) {
         completionHandlerWithPagination = completion
-        guard let limit = limit else{
-            userTripsServices(limit: 100)
-            return
-        }
-        userTripsServices(limit: limit)
+        userTripsServices(limit: limit ?? 100)
+    }
+    
+    public func userTrips(from: String? = nil, to: String? = nil, completion: @escaping CompletionHandlerWithPagination) {
+        completionHandlerWithPagination = completion
+        userTripsServices(from: from, to: to, limit: 100)
     }
     
     /// A services which will be used in users trips, manages all task connecting to remote server.
-    private func userTripsServices(limit: Int) {
-        let tripService = TRPUserTripsServices()
-        tripService.limit = limit
-        tripService.completion = {   (result, error, pagination) in
+    private func userTripsServices(from:String? = nil, to: String? = nil, limit: Int) {
+        var tripService: TRPUserTripsServices?
+        
+        if let from = from {
+            tripService = TRPUserTripsServices(from: from)
+        }else if let to = to {
+            tripService = TRPUserTripsServices(to: to)
+        }
+        
+        if tripService == nil {
+            tripService = TRPUserTripsServices()
+        }
+        
+        tripService!.limit = limit
+        tripService!.completion = {   (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1125,7 +1137,7 @@ extension TRPRestKit {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        tripService.connection()
+        tripService!.connection()
     }
     
 }

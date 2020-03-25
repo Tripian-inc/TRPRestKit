@@ -11,12 +11,28 @@ internal class TRPUserTripsServices: TRPRestServices<TRPGenericParser<[TRPUserTr
     
     public var limit: Int = 50
    
+    private var from: String?
+    private var to: String?
+    
+    init(from: String? = nil, to:String? = nil) {
+        self.from = from
+        self.to = to
+    }
+    
     public override func userOAuth() -> Bool {
         return true
     }
     
     override func parameters() -> [String: Any]? {
-        return ["limit": limit]
+        var parameters = [String: Any]()
+        if let from = from {
+            parameters["from"] = from
+        }
+        if let to = to {
+            parameters["to"] = to
+        }
+        parameters["limit"] = limit
+        return parameters
     }
     
     public override func path() -> String {

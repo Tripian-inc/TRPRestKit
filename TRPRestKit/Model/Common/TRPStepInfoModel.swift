@@ -54,6 +54,6 @@ public struct TRPStepInfoModel: Decodable, Hashable {
 }
 
 public struct TRPHourInfoModel: Decodable {
-    var from: String?
-    var to: String?
+    public var from: String?
+    public var to: String?
 }

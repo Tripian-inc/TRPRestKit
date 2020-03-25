@@ -8,10 +8,35 @@
 
 import Foundation
 
+public enum TRPImageSizeStandart {
+    case small, placeDetail, myTrip
+    
+    public var size: (width: Int, height: Int) {
+        switch self {
+        case .small:
+            return (width: 64, height: 64)
+        case .placeDetail:
+            return (width: 64, height: 64)
+        case .myTrip:
+            return (width: 64, height: 64)
+        }
+    }
+}
+
 /// Provides new link to resizing Images
-public class TRPImageResizer {
+public struct TRPImageResizer {
     
     public init() {}
+    
+    
+    /// Gorsellerin yeniden boyutlandırılacağı linkleri standartlar dahilinde oluşturur
+    /// - Parameters:
+    ///   - url: Gorselin Url i
+    ///   - standart: daha önceden belirlenmiş boyutları içerir.
+    public static func generate(with url: String?, standart: TRPImageSizeStandart) -> String? {
+        return generate(imageLink: url, width: standart.size.width, height: standart.size.height)
+    }
+    
     
     /// New link of image generater
     ///
