@@ -85,9 +85,23 @@ public struct TRPTripProfileModel: Decodable {
 
 public struct TRPAccommodationInfoModel: Decodable {
     
-    var name: String?
-    var ref_id: String?
-    var address: String
-    var coordinate: TRPCoordinateModel
+    public var name: String?
+    public var referanceId: String?
+    public var address: String
+    public var coordinate: TRPCoordinateModel
     
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case refId = "ref_id"
+        case address
+        case coordinate
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try values.decodeIfPresent(String.self, forKey: .name)
+        self.referanceId = try values.decodeIfPresent(String.self, forKey: .refId)
+        self.address = try values.decode(String.self, forKey: .address)
+        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
+    }
 }
