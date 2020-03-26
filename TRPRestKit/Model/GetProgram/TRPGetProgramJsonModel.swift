@@ -29,7 +29,7 @@ public struct TRPTripProfileModel: Decodable {
     public var startCoordinate: TRPCoordinateModel?
     
     /// A String value. Address of hotel.
-    public var accommodationAddress: String?
+    public var accommodation: TRPAccommodationInfoModel?
     /// A String value. Companion of users for the selected trip.You must convert to Array.
     public var companionIds = [Int]()
     //TODO: - Pace Enum haline getirilecek
@@ -46,7 +46,7 @@ public struct TRPTripProfileModel: Decodable {
         case answers
         case owner
         case startCoordinate = "start_coordinate"
-        case accommodationAddress = "accommodation_address"
+        case accommodation = "accommodation"
         case companionIds = "companion_ids"
         case pace
         case doNotGenerate = "do_not_generate"
@@ -73,7 +73,7 @@ public struct TRPTripProfileModel: Decodable {
             self.startCoordinate = startCoordinate
         }
         
-        self.accommodationAddress = try values.decodeIfPresent(String.self, forKey: .accommodationAddress)
+        self.accommodation = try values.decodeIfPresent(TRPAccommodationInfoModel.self, forKey: .accommodation)
         self.answers = try values.decode([Int].self, forKey: .answers)
         self.owner = try values.decodeIfPresent(String.self, forKey: .owner)
         self.companionIds = try values.decode([Int].self, forKey: .companionIds)
@@ -81,4 +81,13 @@ public struct TRPTripProfileModel: Decodable {
         self.doNotGenerate = try values.decode(Int.self, forKey: .doNotGenerate)
     }
 
+}
+
+public struct TRPAccommodationInfoModel: Decodable {
+    
+    var name: String?
+    var ref_id: String?
+    var address: String
+    var coordinate: TRPCoordinateModel
+    
 }

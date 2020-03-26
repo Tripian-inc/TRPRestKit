@@ -10,7 +10,7 @@ import Foundation
 import TRPFoundationKit
 /// This model provides you all setting to create trip.
 public class TRPTripSettings {
-    //TODO: AGE RANGE
+
     /// An Int value. Id of city.
     public var cityId: Int?
     /// A TRPTime object. Arrival date of trip.
@@ -19,16 +19,12 @@ public class TRPTripSettings {
     public var departureTime: TRPTime
     /// An Int value. Adult count.
     public var adultsCount: Int = 1
-    /// A String value. Adults age range such as 32
-    //public var adultAgeRange: String?
     /// An Int value. Count of Children
     public var childrenCount: Int?
-    /// A String value. Children age range such as 12
-    //public var childrenAgeRange: String?
     /// A String value. Center coordinate of hotel (41.123,29.4532)
     private(set) var coordinate: TRPLocation?
     /// A String value. Address of hotel.
-    private(set) var accommodationAdress: String?
+    private(set) var accommodationAdress: Accommondation?
     /// An Int array. Answer of trip questions.
     public var tripAnswer: [Int] = []
     /// An Int array. Answer of profile questions.
@@ -59,15 +55,8 @@ public class TRPTripSettings {
         self.departureTime = departureTime
     }
     
-    /// Address of Hotel. The hotel is going to be First step in trip.
-    ///
-    /// - Parameters:
-    ///   - lat: Latitude
-    ///   - lon: longitude
-    ///   - hotelAddress: Hodel adress.
-    public func setCoordinateWithAddress(lat: Double, lon: Double, hotelAddress: String) {
-        coordinate = TRPLocation(lat: lat, lon: lon)
-        self.accommodationAdress  = hotelAddress
+    public func setAccommondation(_ value: Accommondation) {
+        self.accommodationAdress = value
     }
     
     public func getAllAnswers() -> [Int] {

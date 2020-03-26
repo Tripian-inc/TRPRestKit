@@ -56,8 +56,8 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         if let coord = setting.coordinate {
             params["coordinate"] = "{\"lat\":\(coord.lat),\"lng\"\(coord.lon)}"
         }
-        if let accommodationAddress = setting.accommodationAdress {
-            params["accommodation_address"] = accommodationAddress
+        if let accommodationAddress = setting.accommodationAdress, let accomJson = accommodationAddress.json() {
+            params["accommodation"] = accomJson
         }
         
         if let companions = setting.selectedCompanionIds {
@@ -69,9 +69,7 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         }
         
         let gen = setting.doNotGenerate == true ? 1 : 0
-        
         params["do_not_generate"] = gen
-        
         return params
     }
     

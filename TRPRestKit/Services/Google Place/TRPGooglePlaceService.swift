@@ -54,16 +54,16 @@ class TRPGooglePlaceService {
                 }
                 //todo: otel adress aktif hale getirilecek
                 var address = "Hotel"
+                var name: String?
+                if let value = result["name"] as? String {
+                    name = value
+                }
+                
                 if let formattedAddress = result["formatted_address"] as? String {
-                    /*if let escapedAddress = formattedAddress.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) {
-                        address = escapedAddress
-                    }else {
-                        address = formattedAddress
-                    }*/
                      address = formattedAddress
                 }
                 
-                let model = TRPGooglePlaceLocation(id: self.id, location: TRPLocation(lat: lat, lon: lon), hotelAddress: address)
+                let model = TRPGooglePlaceLocation(id: self.id, location: TRPLocation(lat: lat, lon: lon), hotelAddress: address, name: name)
                 completion(model, nil)
             }
         }
