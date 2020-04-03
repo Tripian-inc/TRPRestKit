@@ -22,7 +22,7 @@ public class TRPNetwork {
     private var completionHandler: Completion?
     private var bodyData: Data?
     private var headerValues: [String: String] = [:]
-    
+    private var component: URLComponents?
     /// Initializes a new object with baseURL and path.
     ///
     /// - Parameters:
@@ -32,6 +32,12 @@ public class TRPNetwork {
                 path: String) {
         self.baseUrl = baseUrl
         self.path = path
+    }
+    
+    public init(component: URLComponents) {
+        self.baseUrl = "baseUrl"
+        self.path = "path"
+        self.component = component
     }
     
     /// Initializes a new object with link.
@@ -85,7 +91,11 @@ public class TRPNetwork {
     }
     
     private func createComponents(url: String?) -> URLComponents {
-        var urlComponents: URLComponents?
+        if let url  = url {
+            return URLComponents(string: url)!
+        }
+        return component!
+        /*var urlComponents: URLComponents?
         if let url = url {
             urlComponents = URLComponents(string: url)
         }
@@ -99,7 +109,7 @@ public class TRPNetwork {
             
             urlComponents!.queryItems = urlQueryItems
         }
-        return urlComponents!
+        return urlComponents!*/
     }
     
     /// To start connection with server using Url

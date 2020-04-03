@@ -27,7 +27,8 @@ public class TRPRestServices<T: Decodable> {
         if let url = url {
             network = TRPNetwork(link: url)
         }else {
-            network = TRPNetwork(path: path())
+          //  network = TRPNetwork(path: path())
+            network = TRPNetwork(component: createPath(api: mainApi, path: path()))
             network!.add(params: createParams())
             network!.add(mode: requestMode())
         }
@@ -80,13 +81,12 @@ public class TRPRestServices<T: Decodable> {
         return .tripian
     }
     
-    private func createPath(api: MainAPI, path: String) {
-        
-        /*var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        */
-       // urlComponents.host = baseUrl
-       // urlComponents.path = "/" + path
+    private func createPath(api: MainAPI, path: String) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = api.configuration.baseUrl.baseUrl
+        components.path = "/" + api.configuration.baseUrl.basePath + "/" + path
+        return components
     }
     
     // MARK: - Overriter Funstions
