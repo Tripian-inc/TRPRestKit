@@ -16,7 +16,7 @@ public struct TRPStepInfoModel: Decodable, Hashable {
     
     public var poi: TRPPoiInfoModel
     /// An Int value. Order of PlanPoi
-    public var order: Int
+    public var order: Int = 0
     
     public var score: Int?
     
@@ -43,6 +43,7 @@ public struct TRPStepInfoModel: Decodable, Hashable {
         hours = try values.decodeIfPresent(TRPHourInfoModel.self, forKey: .hours)
         alternatives = try values.decode([Int].self, forKey: .alternatives)
         order = try values.decode(Int.self, forKey: .order)
+        print("N")
     }
     
     public static func == (lhs: TRPStepInfoModel, rhs: TRPStepInfoModel) -> Bool {

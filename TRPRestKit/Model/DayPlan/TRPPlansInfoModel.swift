@@ -55,7 +55,7 @@ public struct TRPPlansInfoModel: Decodable {
         self.endTime = try values.decodeIfPresent(String.self, forKey: .endTime)
         self.generatedStatus = try values.decode(Int.self, forKey: .generate)
         //todo:- alk kod açılacak test için yapıldı
-        if let planPoints = ((try? values.decodeIfPresent([TRPStepInfoModel].self, forKey: .steps)) as [TRPStepInfoModel]??) {
+        if let planPoints = try? values.decodeIfPresent([TRPStepInfoModel].self, forKey: .steps) {
             self.steps = planPoints ?? []
         } else {
             self.steps = []

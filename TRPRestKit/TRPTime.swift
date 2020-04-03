@@ -72,7 +72,7 @@ public struct TRPTime {
         }
     }
     
-    func dateToString(date: Date, format: String) -> String{
+    func dateToString(date: Date, format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         return formatter.string(from: date)

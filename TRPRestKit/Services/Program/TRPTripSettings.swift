@@ -65,4 +65,5 @@ public class TRPTripSettings {
         tempAns.append(contentsOf: profileAnswer)
         return tempAns
     }
+    
 }
