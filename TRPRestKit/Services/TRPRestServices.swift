@@ -23,6 +23,7 @@ public class TRPRestServices<T: Decodable> {
     /// To start connection
     public func connection(_ url: String? = nil) {
         var network: TRPNetwork?
+        //Fonksiyondan alınacak
         if let url = url {
             network = TRPNetwork(link: url)
         }else {
@@ -32,7 +33,7 @@ public class TRPRestServices<T: Decodable> {
         }
         
         guard let networkService = network else {return}
-        
+        //Fonksiyondan alınacak
         networkService.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
         if let bodyData = bodyDataToJson(bodyParameters()) {
             
@@ -73,6 +74,19 @@ public class TRPRestServices<T: Decodable> {
     
     var isPagination: Bool {
         return false
+    }
+    
+    public var mainApi: MainAPI {
+        return .tripian
+    }
+    
+    private func createPath(api: MainAPI, path: String) {
+        
+        /*var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        */
+       // urlComponents.host = baseUrl
+       // urlComponents.path = "/" + path
     }
     
     // MARK: - Overriter Funstions

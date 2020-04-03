@@ -46,7 +46,8 @@ public class TRPNetwork {
     /// Base url is taken from TRPConfig classes.
     /// - Parameter link: url
     convenience init(path: String) {
-        self.init(baseUrl: TRPConfig.getBaseUrl(), path: TRPConfig.getBaseUrlPath() + "/" + path)
+        self.init(link: "asd")
+        //self.init(baseUrl: TRPConfig.getBaseUrl(), path: TRPConfig.getBaseUrlPath() + "/" + path)
     }
     
     internal func add(params: [String: Any]) {

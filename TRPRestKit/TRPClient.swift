@@ -26,24 +26,14 @@ import Foundation
     /// Allows Data to be shown
     public var monitorData = false
     
-    internal var enviroment: Environment = .test {
-        didSet {
-            log.i("Enviroment was changed: \(self.enviroment)")
-            self.baseUrl = self.enviroment.baseUrl
-        }
-    }
-    
-    internal var baseUrl: BaseUrlCreater = Environment.test.baseUrl
+    internal var enviroment: Environment = .test
+    //internal var baseUrl: BaseUrlCreater = Environment.test.baseUrl
     
     private override init() {}
     
+    
     public static func start(enviroment: Environment, apiKey: String) {
         TRPClient.shared.enviroment = enviroment
-        TRPApiKey.setApiKey(apiKey)
-    }
-    
-    public static func start(baseUrl: BaseUrlCreater, apiKey: String) {
-        TRPClient.shared.baseUrl = baseUrl
         TRPApiKey.setApiKey(apiKey)
     }
     
