@@ -85,6 +85,8 @@
 		B259621724052BBC00E98DF4 /* ApiV3StartTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259621624052BBC00E98DF4 /* ApiV3StartTest.swift */; };
 		B259621924053B7000E98DF4 /* TRPImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259621824053B7000E98DF4 /* TRPImageModel.swift */; };
 		B25D1C0B2437D41D009B5668 /* ApiConfigurationStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25D1C0A2437D41D009B5668 /* ApiConfigurationStruct.swift */; };
+		B25D1C112437E635009B5668 /* TRPGlxConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25D1C102437E635009B5668 /* TRPGlxConfig.swift */; };
+		B25D1C142437E739009B5668 /* GLXAuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25D1C132437E739009B5668 /* GLXAuthServices.swift */; };
 		B261A72022490DEC00D31558 /* TRPReportAProblemServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261A71F22490DEC00D31558 /* TRPReportAProblemServices.swift */; };
 		B261A72222490E4C00D31558 /* TRPProblemCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261A72122490E4C00D31558 /* TRPProblemCategories.swift */; };
 		B261A733224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261A732224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift */; };
@@ -252,6 +254,8 @@
 		B259621624052BBC00E98DF4 /* ApiV3StartTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiV3StartTest.swift; sourceTree = "<group>"; };
 		B259621824053B7000E98DF4 /* TRPImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageModel.swift; sourceTree = "<group>"; };
 		B25D1C0A2437D41D009B5668 /* ApiConfigurationStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfigurationStruct.swift; sourceTree = "<group>"; };
+		B25D1C102437E635009B5668 /* TRPGlxConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGlxConfig.swift; sourceTree = "<group>"; };
+		B25D1C132437E739009B5668 /* GLXAuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLXAuthServices.swift; sourceTree = "<group>"; };
 		B261A71F22490DEC00D31558 /* TRPReportAProblemServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPReportAProblemServices.swift; sourceTree = "<group>"; };
 		B261A72122490E4C00D31558 /* TRPProblemCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProblemCategories.swift; sourceTree = "<group>"; };
 		B261A732224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProblemCategoriesJsonModel.swift; sourceTree = "<group>"; };
@@ -530,8 +534,17 @@
 			children = (
 				B25D1C0A2437D41D009B5668 /* ApiConfigurationStruct.swift */,
 				B29B463A20F60A910009E711 /* TRPConfig.swift */,
+				B25D1C102437E635009B5668 /* TRPGlxConfig.swift */,
 			);
 			path = ApiConfiguration;
+			sourceTree = "<group>";
+		};
+		B25D1C122437E703009B5668 /* GLXServices */ = {
+			isa = PBXGroup;
+			children = (
+				B25D1C132437E739009B5668 /* GLXAuthServices.swift */,
+			);
+			path = GLXServices;
 			sourceTree = "<group>";
 		};
 		B261A71E22490DCA00D31558 /* ReportAProblem */ = {
@@ -618,6 +631,7 @@
 		B29B463220F60A1F0009E711 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B25D1C122437E703009B5668 /* GLXServices */,
 				B267EDD9241119E9006FCFA0 /* StepService */,
 				B25318552407EF7A007F97C3 /* RefreshToken */,
 				783A138022F039DE00952CA2 /* Constants */,
@@ -1038,6 +1052,7 @@
 				B283766B24378F0B00E0D270 /* API.swift in Sources */,
 				784BAB9422C3505D00BBDB0F /* TRPCompanionModel.swift in Sources */,
 				B29B46A220F613430009E711 /* TRPRequestMode.swift in Sources */,
+				B25D1C112437E635009B5668 /* TRPGlxConfig.swift in Sources */,
 				B215BF0921319D6500659818 /* TRPUserInfoModel.swift in Sources */,
 				B287616623A79DEC00951486 /* TRPApiKey.swift in Sources */,
 				B267EDDB241119F9006FCFA0 /* TRPStepServices.swift in Sources */,
@@ -1048,6 +1063,7 @@
 				B259621924053B7000E98DF4 /* TRPImageModel.swift in Sources */,
 				B29B46B020F613D80009E711 /* TRPRestServices.swift in Sources */,
 				B20CD9CF213596FB00497ED3 /* TRPPlansInfoModel.swift in Sources */,
+				B25D1C142437E739009B5668 /* GLXAuthServices.swift in Sources */,
 				B236A0D8240CFC0B002331D6 /* TRPTripModel.swift in Sources */,
 				B282653624066A01004A4EDC /* TRPTastesModel.swift in Sources */,
 				B29B467F20F60F5C0009E711 /* TRPTripQuestionJsonModel.swift in Sources */,

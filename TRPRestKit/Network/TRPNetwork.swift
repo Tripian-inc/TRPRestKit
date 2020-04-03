@@ -94,7 +94,11 @@ public class TRPNetwork {
         if let url  = url {
             return URLComponents(string: url)!
         }
-        return component!
+        var comp = component!
+        if let urlQueryItems = getItems(params: params) {
+            comp.queryItems = urlQueryItems
+        }
+        return comp
         /*var urlComponents: URLComponents?
         if let url = url {
             urlComponents = URLComponents(string: url)

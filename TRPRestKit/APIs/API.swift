@@ -15,7 +15,7 @@ public enum MainAPI {
         case .tripian:
             return TRPConfig()
         case .guestLogix:
-            return TRPConfig()
+            return TRPGlxConfig()
         }
     }
 }

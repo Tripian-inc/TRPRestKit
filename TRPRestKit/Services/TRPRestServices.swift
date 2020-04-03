@@ -35,16 +35,21 @@ public class TRPRestServices<T: Decodable> {
         
         guard let networkService = network else {return}
         //Fonksiyondan alınacak
-        networkService.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
+        //networkService.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
+        networkService.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        networkService.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        for aBC in parameters() ?? [:] {
+                networkService.addValue("\(aBC.value)", forHTTPHeaderField: aBC.key)
+            }
+        
         if let bodyData = bodyDataToJson(bodyParameters()) {
             
-            networkService.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            networkService.addValue("application/json", forHTTPHeaderField: "Accept")
             networkService.add(body: bodyData)
         }
         if userOAuth() == true {
             if let token = oauth() {
-                networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+                //networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             }
         }
         networkService.build { (error, data) in

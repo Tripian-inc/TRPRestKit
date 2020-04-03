@@ -1680,3 +1680,10 @@ extension TRPRestKit {
     }
     
 }
+
+extension TRPRestKit {
+    public func glxAuth() {
+        let service = GLXAuthServices()
+        service.connection()
+    }
+}
