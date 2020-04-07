@@ -16,7 +16,6 @@ internal class TRPLogin: TRPRestServices {
     //Test server
     private var loginParameters: [String: String]
     
-    
     init?(parameters: [String: String]) {
         if parameters.count == 0 {
             return nil
@@ -56,8 +55,8 @@ internal class TRPLogin: TRPRestServices {
         return TRPConfig.ApiCall.login.link
     }
     
-    public override func bodyParameters() -> [String: Any]? {
+    override func bodyParameters() -> [String: Any]? {
         return loginParameters
     }
-
+    
 }
