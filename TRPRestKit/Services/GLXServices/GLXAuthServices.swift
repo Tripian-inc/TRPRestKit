@@ -16,6 +16,7 @@ final class GLXAuthServices: TRPRestServices<TRPGenericParser<TRPRefreshTokenInf
     override func parameters() -> [String : Any]? {
         var params: [String: Any] = [:]
         /*x-device-id=B94BBEF1-C126-5DB9-864E-EBE19C1C1171&x-os-version=macOS10.14.6&x-language=en&x-locale=en-US&x-region=CA&x-application-id=com.guestlogix.Passenger&x-timezone=UTC&x-sandbox-mode=true&x-api-key=pub_4GFAvVdTBhTBgaztiBufzdStiyWDqgec_*/
+        //Fixme: Parametreleri default olarak kullanma
         params["x-device-id"] = "B94BBEF1-C126-5DB9-864E-EBE19C1C1333"
         params["x-os-version"] = "ios13.2"
         params["x-language"] = "en"

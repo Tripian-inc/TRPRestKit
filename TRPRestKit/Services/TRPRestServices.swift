@@ -49,7 +49,7 @@ public class TRPRestServices<T: Decodable> {
         }
         if userOAuth() == true {
             if let token = oauth() {
-                //networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+                networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             }
         }
         networkService.build { (error, data) in

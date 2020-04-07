@@ -46,6 +46,7 @@ public class TRPNetwork {
     public convenience init(link: String) {
         self.init(baseUrl: "", path: "")
         self.rawLink = link
+        print("Link: \(link)")
     }
     
     /// Initializes a new object with path.

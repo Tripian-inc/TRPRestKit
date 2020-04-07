@@ -43,7 +43,6 @@ public struct TRPStepInfoModel: Decodable, Hashable {
         hours = try values.decodeIfPresent(TRPHourInfoModel.self, forKey: .hours)
         alternatives = try values.decode([Int].self, forKey: .alternatives)
         order = try values.decode(Int.self, forKey: .order)
-        print("N")
     }
     
     public static func == (lhs: TRPStepInfoModel, rhs: TRPStepInfoModel) -> Bool {
