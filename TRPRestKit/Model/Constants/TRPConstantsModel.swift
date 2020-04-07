@@ -71,6 +71,7 @@ public struct TRPVersionInfoModel: Decodable {
         self.forceUpdateMessage = try values.decodeIfPresent(TRPLocalizableMessageInfoModel.self, forKey: .forceUpdateMessage)
         self.forceUpdateStroreUrl = try values.decode(String.self, forKey: .forceUpdateStoreUrl)
     }
+    
 }
 
 /// This model provides you to use full information of constants.
