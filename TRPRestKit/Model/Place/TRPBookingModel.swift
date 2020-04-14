@@ -8,11 +8,28 @@
 
 import Foundation
 public struct TRPBookingInfoModel: Decodable {
-    var name: String
-    var url: String
-    var provider: TRPPoiBookingProvider
+    var providerId: Int?
+    var providerName: String?
+    var product: TRPBookingProductInfoModel?
+    private enum CodingKeys: String, CodingKey {
+        case providerId = "provider_id"
+        case providerName = "provider_name"
+        case product
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        providerId = try values.decodeIfPresent(Int.self, forKey: .providerId)
+        providerName = try values.decodeIfPresent(String.self, forKey: .providerName)
+        product = try values.decodeIfPresent(TRPBookingProductInfoModel.self, forKey: .product)
+        
+    }
 }
 
-public struct TRPPoiBookingProvider: Decodable {
-    var name: String
+public struct TRPBookingProductInfoModel: Decodable {
+    var id: String
+    var title: String?
+    var transactions: [String]?
+    var url: String?
 }

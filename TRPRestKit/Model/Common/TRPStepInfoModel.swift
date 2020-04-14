@@ -38,12 +38,13 @@ public struct TRPStepInfoModel: Decodable, Hashable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
+        print("Başladı \(id)")
         poi = try values.decode(TRPPoiInfoModel.self, forKey: .poi)
         score = try values.decodeIfPresent(Int.self, forKey: .score)
         hours = try values.decodeIfPresent(TRPHourInfoModel.self, forKey: .hours)
         alternatives = try values.decode([Int].self, forKey: .alternatives)
         order = try values.decode(Int.self, forKey: .order)
-        print("N")
+        print("YAratıldı \(id)")
     }
     
     public static func == (lhs: TRPStepInfoModel, rhs: TRPStepInfoModel) -> Bool {

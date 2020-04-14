@@ -120,7 +120,10 @@ public struct TRPPoiInfoModel: Decodable {
         }
 
         self.cuisines = try values.decodeIfPresent(String.self, forKey: .cuisines)
-        self.booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey:.booking)
+        if let booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey: .booking) {
+            self.booking = booking
+        }
+       // self.booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey:.booking)
         
         self.tags = try values.decode([String].self, forKey: .tags)
         self.tastes = try values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .tastes) ?? []

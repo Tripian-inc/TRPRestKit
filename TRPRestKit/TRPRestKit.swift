@@ -249,7 +249,7 @@ extension TRPRestKit {
 
 // MARK: - Poi Services
 extension TRPRestKit {
-    
+    //NOT: GÖNDERİLEN POİ AYNI SIRA İLE GELMİYOR
     /// Obtain the list of all Place of interests.
     /// Returned results include, POI id, city id, category id, name, address,
     /// coordinates, phone number, website, opening/closing times, tags, icon, description (if available), price range and images.
@@ -271,10 +271,11 @@ extension TRPRestKit {
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
     public func poi(withIds ids: [Int],
                     cityId: Int,
+                    limit: Int? = 25,
                     autoPagination: Bool = true,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
-        poiServices(placeIds: ids, cities: [cityId], autoPagination: autoPagination)
+        poiServices(placeIds: ids, cities: [cityId], limit: limit, autoPagination: autoPagination)
     }
     
     /// Obtain all information of pois using city id.
