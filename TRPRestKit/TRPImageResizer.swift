@@ -16,10 +16,17 @@ public enum TRPImageSizeStandart {
         case .small:
             return (width: 64, height: 64)
         case .placeDetail:
-            return (width: 64, height: 64)
+            return devices()
         case .myTrip:
-            return (width: 64, height: 64)
+            return devices()
         }
+    }
+    
+    public func devices() -> (width: Int, height: Int) {
+        if UIDevice().userInterfaceIdiom == .phone {
+            return (width: 480, height: 480)
+        }
+        return (width: 800, height: 800)
     }
 }
 
@@ -27,16 +34,15 @@ public enum TRPImageSizeStandart {
 public struct TRPImageResizer {
     
     public init() {}
-    
-    
+
     /// Gorsellerin yeniden boyutlandırılacağı linkleri standartlar dahilinde oluşturur
     /// - Parameters:
     ///   - url: Gorselin Url i
     ///   - standart: daha önceden belirlenmiş boyutları içerir.
-    public static func generate(with url: String?, standart: TRPImageSizeStandart) -> String? {
-        return generate(imageLink: url, width: standart.size.width, height: standart.size.height)
+    public static func generate(withUrl url: String?, standart: TRPImageSizeStandart) -> String? {
+        
+        return generate(withUrl: url, width: standart.size.width, height: standart.size.height)
     }
-    
     
     /// New link of image generater
     ///
@@ -45,10 +51,12 @@ public struct TRPImageResizer {
     ///   - width: target width
     ///   - height: target height
     /// - Returns: new link 
-    public static func generate(imageLink link: String?, width: Int, height: Int) -> String? {
+    public static func generate(withUrl link: String?, width: Int, height: Int) -> String? {
+        
         guard let url = link else {return nil}
         if let component = URLComponents(string: url) {
             let link = "https://d1drj6u6cu0e3j.cloudfront.net/\(width)x\(height)/smart\(component.path)"
+            print(link)
             return link
         }
         return nil
