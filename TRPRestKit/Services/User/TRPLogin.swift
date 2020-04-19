@@ -14,14 +14,14 @@ internal class TRPLogin: TRPRestServices<TRPGenericParser<TRPLoginTokenInfoModel
     private var email: String?
     private var password: String?
     //Test server
-    private var loginParameters: [String: String]
+    private var loginParameters: [String: Any]
     
-    init?(parameters: [String: String]) {
+    init?(parameters: [String: Any]) {
         if parameters.count == 0 {
             return nil
         }
         for param in parameters {
-            if param.key.isEmpty || param.value.isEmpty {
+            if param.key.isEmpty  {
                 return nil
             }
         }

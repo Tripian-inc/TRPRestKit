@@ -136,6 +136,7 @@
 		B2AC586A2412365200256F79 /* UnitTestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC58692412365200256F79 /* UnitTestError.swift */; };
 		B2AC586C24128CDB00256F79 /* TRPDeleteStepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC586B24128CDB00256F79 /* TRPDeleteStepService.swift */; };
 		B2AEE62D240F9DFD00395EE8 /* TRPUserFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AEE62C240F9DFD00395EE8 /* TRPUserFavorite.swift */; };
+		B2AF33ED244C918400C68B6E /* TRPDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF33EC244C918400C68B6E /* TRPDevice.swift */; };
 		B2B500B8235073860006D406 /* TRPRestKitiOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B500B7235073860006D406 /* TRPRestKitiOS_Tests.swift */; };
 		B2B500BA235073860006D406 /* TRPRestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29B462520F607F90009E711 /* TRPRestKit.framework */; };
 		B2B500C4235073A70006D406 /* TRPCitiesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B500C3235073A70006D406 /* TRPCitiesTest.swift */; };
@@ -303,6 +304,7 @@
 		B2AC58692412365200256F79 /* UnitTestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTestError.swift; sourceTree = "<group>"; };
 		B2AC586B24128CDB00256F79 /* TRPDeleteStepService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDeleteStepService.swift; sourceTree = "<group>"; };
 		B2AEE62C240F9DFD00395EE8 /* TRPUserFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserFavorite.swift; sourceTree = "<group>"; };
+		B2AF33EC244C918400C68B6E /* TRPDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDevice.swift; sourceTree = "<group>"; };
 		B2B500B5235073860006D406 /* TRPRestKitiOS.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TRPRestKitiOS.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B500B7235073860006D406 /* TRPRestKitiOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestKitiOS_Tests.swift; sourceTree = "<group>"; };
 		B2B500B9235073860006D406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -664,6 +666,7 @@
 				B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */,
 				B253185A24092F31007F97C3 /* TRPGenericParser.swift */,
 				B253186124096D75007F97C3 /* TRPRefreshTokenInfoModel.swift */,
+				B2AF33EC244C918400C68B6E /* TRPDevice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1056,6 +1059,7 @@
 				B253186224096D75007F97C3 /* TRPRefreshTokenInfoModel.swift in Sources */,
 				B227F45C216CA2BA00591C70 /* TRPFavoritesJsonModel.swift in Sources */,
 				B29B46AE20F613C70009E711 /* TRPRecommendationSettings.swift in Sources */,
+				B2AF33ED244C918400C68B6E /* TRPDevice.swift in Sources */,
 				B29B464920F60BF80009E711 /* TRPCoordinateModel.swift in Sources */,
 				B29B46C120F6146D0009E711 /* TRPStepAlternativesServices.swift in Sources */,
 				784BAB9A22C354FA00BBDB0F /* TRPCompanionServices.swift in Sources */,

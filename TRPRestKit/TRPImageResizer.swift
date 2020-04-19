@@ -52,13 +52,7 @@ public struct TRPImageResizer {
     ///   - height: target height
     /// - Returns: new link 
     public static func generate(withUrl link: String?, width: Int, height: Int) -> String? {
-        
-        guard let url = link else {return nil}
-        if let component = URLComponents(string: url) {
-            let link = "https://d1drj6u6cu0e3j.cloudfront.net/\(width)x\(height)/smart\(component.path)"
-            print(link)
-            return link
-        }
-        return nil
+        guard let url = link, let component = URLComponents(string: url) else {return nil}
+        return "https://d1drj6u6cu0e3j.cloudfront.net/\(width)x\(height)/smart\(component.path)"
     }
 }

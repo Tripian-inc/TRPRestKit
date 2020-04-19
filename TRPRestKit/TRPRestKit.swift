@@ -656,13 +656,23 @@ extension TRPRestKit {
         loginServices(parameters: parameters)
     }
     
-    public func login(withEmail email: String, password: String, completion: @escaping CompletionHandler) {
+    public func login(withEmail email: String,
+                      password: String,
+                      device: TRPDevice? = nil,
+                      completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        let params = ["email": email, "password": password]
+        var params = [String: Any]()
+        params["email"] = email
+        params["password"] = password
+        
+        if let device = device, let deviceParams = device.params() {
+            params["device"] = deviceParams
+        }
+        print("Login Params \(params)")
         loginServices(parameters: params)
     }
     
-    private func loginServices(parameters: [String: String]) {
+    private func loginServices(parameters: [String: Any]) {
         let loginService: TRPLogin? = TRPLogin(parameters: parameters)
         guard let service = loginService else {return}
         service.completion = {    (result, error, pagination) in
