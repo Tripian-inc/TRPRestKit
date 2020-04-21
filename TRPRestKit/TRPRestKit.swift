@@ -78,6 +78,10 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
         }
     }
     
+    public override init() {
+        print("AAA")
+    }
+    
 }
 
 // MARK: - Cities Services
@@ -683,7 +687,7 @@ extension TRPRestKit {
             if let serviceResult = result as? TRPGenericParser<TRPLoginTokenInfoModel> {
                 //if let serviceResult = result as? TRPLoginJsonModel {
                 TRPUserPersistent.saveHashToken(serviceResult.data!.accessToken)
-                
+                //TRPUserPersistent.saveLoginToken(serviceResult.data)
                 self.postData(result: serviceResult.data, pagination: pagination)
             } else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)

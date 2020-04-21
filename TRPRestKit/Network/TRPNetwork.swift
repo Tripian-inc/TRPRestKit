@@ -137,6 +137,18 @@ public class TRPNetwork {
                         return
                     }
                     self.completionHandler?(nil, data)
+                } else if httpResponse.statusCode == 401 {
+                    print(" ")
+                    print("------")
+                    print("401")
+                    print("------")
+                    print(" ")
+                    guard let json = object as? JSON else {
+                        self.completionHandler?(TRPErrors.wrongData as NSError, nil)
+                        return
+                    }
+                    let trpError = TRPErrors(json: json, link: "\(url)") ?? TRPErrors.undefined
+                    self.completionHandler?(trpError as NSError, nil)
                 } else {
                     //Mistake from Server side.
                     guard let json = object as? JSON else {

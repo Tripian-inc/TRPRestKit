@@ -67,7 +67,10 @@ public struct TRPTripProfileModel: Decodable {
         numberOfAdults = try values.decode(Int.self, forKey: .numberOfAdults)
         numberOfChildren = try values.decodeIfPresent(Int.self, forKey: .numberOfChildren)
     
-        self.accommodation = try values.decodeIfPresent(TRPAccommodationInfoModel.self, forKey: .accommodation)
+        if let accommondation = try? values.decodeIfPresent(TRPAccommodationInfoModel.self, forKey: .accommodation) {
+            self.accommodation = accommondation
+        }
+        
         self.answers = try values.decode([Int].self, forKey: .answers)
         self.owner = try values.decodeIfPresent(String.self, forKey: .owner)
         self.companionIds = try values.decode([Int].self, forKey: .companionIds)

@@ -35,5 +35,5 @@ public struct TRPLoginTokenInfoModel: Decodable {
         self.accessToken = try values.decode(String.self, forKey: .accessToken)
         self.expiresIn = try values.decode(Int.self, forKey: .expiresIn)
         self.refresthToken = try values.decode(String.self, forKey: .refreshToken)
-    }    
+    }
 }

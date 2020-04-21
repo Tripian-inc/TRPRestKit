@@ -12,6 +12,7 @@ public struct TRPUserPersistent {
     private static let userHashCodeTag = "trpuserhash"
     private static let userIdCodeTag = "trpuserid"
     private static let userEmailCodeTag = "trpuseremail"
+    private static let loginToken = "trpLoginToken"
     
     public static func didUserLoging() -> Bool {
         return fetchHashToken() == nil ? false : true
@@ -21,6 +22,14 @@ public struct TRPUserPersistent {
     /// - Parameter value: token code
     internal static func saveHashToken(_ value: String) {
         UserDefaults.standard.set(value, forKey: userHashCodeTag)
+    }
+    
+    internal static func saveLoginToken<T: Encodable>(_ model: T) {
+        UserDefaults.standard.set(model, forKey: loginToken)
+    }
+    
+    internal static func fetchLoginToken() -> Encodable? {
+        return UserDefaults.standard.object(forKey: loginToken) as? Encodable
     }
     
     /// To Fetch user Token code
