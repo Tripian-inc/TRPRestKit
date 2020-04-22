@@ -79,7 +79,7 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
     }
     
     public override init() {
-        print("AAA")
+        print("Token Is Valid \(TRPUserPersistent.isTokenValid)")
     }
     
 }
@@ -685,9 +685,9 @@ extension TRPRestKit {
                 return
             }
             if let serviceResult = result as? TRPGenericParser<TRPLoginTokenInfoModel> {
-                //if let serviceResult = result as? TRPLoginJsonModel {
-                TRPUserPersistent.saveHashToken(serviceResult.data!.accessToken)
-                //TRPUserPersistent.saveLoginToken(serviceResult.data)
+                if let data = serviceResult.data {
+                    TRPUserPersistent.saveLoginToken(data)
+                }
                 self.postData(result: serviceResult.data, pagination: pagination)
             } else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)

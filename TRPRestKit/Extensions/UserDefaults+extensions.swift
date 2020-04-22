@@ -9,12 +9,11 @@
 import Foundation
 extension UserDefaults {
     
-    
     /// Codable objeyi kaydetmeye yarar
     /// - Parameters:
     ///   - model: Codable Json Obje
     ///   - key: key
-    func set<T: Codable>(_ model: T, forKey key: String) {
+    func save<T: Codable>(_ model: T, forKey key: String) {
         do {
             let data = try JSONEncoder().encode(model)
             set(data, forKey: key)
@@ -22,7 +21,6 @@ extension UserDefaults {
             print("[Error] \(error.localizedDescription)")
         }
     }
-    
     
     /// Kaydedilen codable objeyi geri dönüştürür
     /// - Parameters:

@@ -43,18 +43,25 @@ public struct TRPDevice: Decodable, Encodable {
         self.firebaseToken = firebaseToken
     }
     
-    public func params() -> String? {
+    public func params() -> [String: String]? {
+        var params = [String: String]()
         
-        do {
+        if let deviceId = deviceId {
+            params[CodingKeys.deviceId.rawValue] = deviceId
+        }
+        
+        return params
+        
+        /*do {
             let jsonData = try JSONEncoder().encode(self)
             if let jsonString = String(data: jsonData, encoding: .utf8) {
-                print("JSON \(jsonString)")
+               // print("JSON \(jsonString)")
                 return jsonString
             }
         } catch {
             print(error.localizedDescription)
         }
         
-        return nil
+        return nil*/
     }
 }

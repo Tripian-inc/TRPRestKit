@@ -9,15 +9,14 @@
 import Foundation
 
 /// Indicates a informaion of login.
-public struct TRPLoginTokenInfoModel: Decodable {
+public struct TRPLoginTokenInfoModel: Codable {
     
     /// Type of token
     public var tokenType: String?
     /// Token access key
     public var accessToken: String
-    
     public var expiresIn: Int
-    public var refresthToken: String
+    public var refreshToken: String
     
     private enum CodingKeys: String, CodingKey {
         case tokenType = "token_type"
@@ -26,7 +25,7 @@ public struct TRPLoginTokenInfoModel: Decodable {
         case refreshToken = "refresh_token"
     }
     
-    /// Initializes a new object with decoder
+    /*/// Initializes a new object with decoder
     ///
     /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
@@ -36,4 +35,8 @@ public struct TRPLoginTokenInfoModel: Decodable {
         self.expiresIn = try values.decode(Int.self, forKey: .expiresIn)
         self.refresthToken = try values.decode(String.self, forKey: .refreshToken)
     }
+    
+    public func encode(to encoder: Encoder) throws {
+        
+    }*/
 }

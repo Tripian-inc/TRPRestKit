@@ -9,32 +9,49 @@
 import Foundation
 public struct TRPUserPersistent {
     
-    private static let userHashCodeTag = "trpuserhash"
+    private static var calendar: Calendar {
+        var currentCalendar = Calendar.current
+        if let timeZone = TimeZone(identifier: "UTC") {
+            currentCalendar.timeZone = timeZone
+        }
+        return currentCalendar
+    }
+    
     private static let userIdCodeTag = "trpuserid"
     private static let userEmailCodeTag = "trpuseremail"
-    private static let loginToken = "trpLoginToken"
+    private static let loginTokenTag = "trpLoginTokenModel"
+    
+    private static let tokenExpiredTimeTag = "trpTokenStartTime"
+    
+    public static func token() -> String? {
+        return fetchLoginToken()?.accessToken
+    }
     
     public static func didUserLoging() -> Bool {
-        return fetchHashToken() == nil ? false : true
+        return fetchLoginToken() == nil ? false : true
     }
     
-    /// When user login in system, token code is saved
-    /// - Parameter value: token code
-    internal static func saveHashToken(_ value: String) {
-        UserDefaults.standard.set(value, forKey: userHashCodeTag)
+    public static var isTokenValid: Bool {
+        guard let expired = fetchTokenExpiredTime() else {
+            return false
+        }
+        return expired > Int(Date().timeIntervalSince1970)
     }
     
-    internal static func saveLoginToken<T: Encodable>(_ model: T) {
-        UserDefaults.standard.set(model, forKey: loginToken)
-    }
+    public static func tokenValidUntil() -> String? {
+        guard let expired = fetchTokenExpiredTime() else {
+            return nil
+        }
+        
+        guard let date = timeIntervalToDate(expired) else {
+            return nil
+        }
     
-    internal static func fetchLoginToken() -> Encodable? {
-        return UserDefaults.standard.object(forKey: loginToken) as? Encodable
-    }
-    
-    /// To Fetch user Token code
-    internal static func fetchHashToken() -> String? {
-        return UserDefaults.standard.string(forKey: userHashCodeTag)
+        let formatter = DateFormatter()
+        formatter.timeStyle = .full
+        formatter.timeZone = TimeZone(identifier: "UTC")!
+        print("TOKEN VALİD UNTİL \(formatter.string(from: date))")
+        return formatter.string(from: date)
     }
     
     public static func fetchId() -> Int? {
@@ -55,7 +72,49 @@ public struct TRPUserPersistent {
     
     public static func remove() {
         UserDefaults.standard.removeObject(forKey: userIdCodeTag)
-        UserDefaults.standard.removeObject(forKey: userHashCodeTag)
+        UserDefaults.standard.removeObject(forKey: loginTokenTag)
         UserDefaults.standard.removeObject(forKey: userEmailCodeTag)
+    }
+}
+
+// MARK: Login
+extension TRPUserPersistent {
+    
+    internal static func saveLoginToken(_ model: TRPLoginTokenInfoModel) {
+        if let expiresTime = calculateExpiredTime(model.expiresIn) {
+            saveTokenTimes(expiresIn: expiresTime)
+        }else {
+            print("[FatalError] Token expires time can not calculated")
+        }
+        
+        UserDefaults.standard.save(model, forKey: loginTokenTag)
+    }
+    
+    internal static func fetchLoginToken() -> TRPLoginTokenInfoModel? {
+        return UserDefaults.standard.load(type: TRPLoginTokenInfoModel.self, forKey: loginTokenTag)
+    }
+}
+
+//MARK: - Token Expired Time
+extension TRPUserPersistent {
+    
+    /// Token ın başlagıç zamanını kaydeder
+    private static func saveTokenTimes(expiresIn: Int) {
+        UserDefaults.standard.set(expiresIn, forKey: tokenExpiredTimeTag)
+    }
+    
+    private static func fetchTokenExpiredTime() -> Int? {
+        return UserDefaults.standard.integer(forKey: tokenExpiredTimeTag)
+    }
+    
+    private static func calculateExpiredTime(_ expiresIn: Int) -> Int? {
+        guard let expiredTime = calendar.date(byAdding: .second, value: expiresIn, to: Date()) else {return nil}
+        let timeInterval = Int(expiredTime.timeIntervalSince1970)
+        print("Expired Time \(expiredTime) - \(timeInterval) - now: \(Date())")
+        return timeInterval
+    }
+    
+    private static func timeIntervalToDate(_ interval : Int) -> Date? {
+        return Date(timeIntervalSince1970: TimeInterval(interval))
     }
 }

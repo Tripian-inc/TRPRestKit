@@ -160,7 +160,7 @@ public class TRPRestServices<T: Decodable> {
     ///
     /// - Returns: User hash for oauth
     internal func oauth() -> String? {
-        return TRPUserPersistent.fetchHashToken()
+        return TRPUserPersistent.token()
     }
     
 }
