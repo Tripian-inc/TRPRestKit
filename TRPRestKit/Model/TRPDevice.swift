@@ -50,19 +50,17 @@ public struct TRPDevice: Decodable, Encodable {
         
         params[CodingKeys.deviceOs.rawValue] = deviceOs
         
-        
         if let osVersion = osVersion {
             params[CodingKeys.osVersion.rawValue] = osVersion
         }
         
-        if let osVersion = osVersion {
-            params[CodingKeys.osVersion.rawValue] = osVersion
+        if let firebase = firebaseToken {
+            params[CodingKeys.firebaseToken.rawValue] = firebase
         }
         
-        if let osVersion = osVersion {
-            params[CodingKeys.osVersion.rawValue] = osVersion
+        if let bundleId = bundleId {
+            params[CodingKeys.bundleId.rawValue] = bundleId
         }
-        
         
         return params
     }

@@ -788,13 +788,13 @@ extension TRPRestKit {
 
 // MARK: - Refresh Token
 extension TRPRestKit {
-    public func refreshToken(_ refreshToken: String, completion: @escaping CompletionHandler) {
+    public func refreshToken(_ refreshToken: String, device: TRPDevice? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        refreshTokenService(refreshToken)
+        refreshTokenService(refreshToken, device: device)
     }
     ///RETURN TRPRefreshTokenInfoModel
-    private func refreshTokenService(_ refreshToken: String) {
-        let service = TRPRefreshTokenService(refreshToken: refreshToken)
+    private func refreshTokenService(_ refreshToken: String, device: TRPDevice? = nil) {
+        let service = TRPRefreshTokenService(refreshToken: refreshToken, device: device)
         service.completion = {result, error, _ in
             if let error = error {
                 self.postError(error: error)

@@ -10,9 +10,11 @@ import Foundation
 internal class TRPRefreshTokenService: TRPRestServices<TRPGenericParser<TRPRefreshTokenInfoModel>> {
     
     private var refreshToken: String
+    private var device: TRPDevice?
     
-    init(refreshToken: String) {
+    init(refreshToken: String, device: TRPDevice? = nil) {
         self.refreshToken = refreshToken
+        self.device = device
     }
     
     public override func path() -> String {
@@ -26,6 +28,11 @@ internal class TRPRefreshTokenService: TRPRestServices<TRPGenericParser<TRPRefre
         return true
     }
     override func bodyParameters() -> [String: Any]? {
-        return ["refresh_token": refreshToken]
+        var params = [String: Any]()
+        params["refresh_token"] = refreshToken
+        if let device = device, let deviceParameters = device.params() {
+            params["device"] = deviceParameters
+        }
+        return params
     }
 }
