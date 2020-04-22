@@ -7,6 +7,9 @@
 //
 
 import Foundation
+
+let dispatch = DispatchGroup()
+
 typealias JSON = [String: Any]
 /// Provide connection remote server.
 /// This class is use NSURLRequest.
@@ -80,7 +83,10 @@ public class TRPNetwork {
             return
         }
         
-        generateSession(url)
+        dispatch.notify(queue: .main) {
+            self.generateSession(url)
+        }
+        
     }
     
     private func createComponents(url: String?) -> URLComponents {
@@ -138,17 +144,21 @@ public class TRPNetwork {
                     }
                     self.completionHandler?(nil, data)
                 } else if httpResponse.statusCode == 401 {
-                    print(" ")
-                    print("------")
-                    print("401")
-                    print("------")
-                    print(" ")
+                    
                     guard let json = object as? JSON else {
                         self.completionHandler?(TRPErrors.wrongData as NSError, nil)
                         return
                     }
                     let trpError = TRPErrors(json: json, link: "\(url)") ?? TRPErrors.undefined
-                    self.completionHandler?(trpError as NSError, nil)
+                    
+                    print(" ")
+                    print("------")
+                    print("401 REFRESH TOKEN YENİDEN ÇALIŞTIRILIYOR")
+                    print("Error \(trpError.localizedDescription)")
+                    print("------")
+                    print(" ")
+                    self.refreshToken()
+                    //self.completionHandler?(trpError as NSError, nil)
                 } else {
                     //Mistake from Server side.
                     guard let json = object as? JSON else {
@@ -194,5 +204,23 @@ public class TRPNetwork {
             log.i("Request Result: \(strData)")
         }
         
+    }
+    
+    private func refreshToken() {
+        
+        guard let refresh = TRPUserPersistent.fetchLoginToken()?.refreshToken else {
+            print("Refresh Token Faill")
+            return
+        }
+        dispatch.enter()
+        TRPRestKit().refreshToken(refresh) { (_, error) in
+            dispatch.leave()
+            if let error = error {
+                print("[Fatal Error \(error.localizedDescription)]")
+                
+                return
+            }
+            
+        }
     }
 }

@@ -80,7 +80,7 @@ public struct TRPUserPersistent {
 // MARK: Login
 extension TRPUserPersistent {
     
-    internal static func saveLoginToken(_ model: TRPLoginTokenInfoModel) {
+    internal static func saveLoginToken(_ model: TokenInfo) {
         if let expiresTime = calculateExpiredTime(model.expiresIn) {
             saveTokenTimes(expiresIn: expiresTime)
         }else {
@@ -90,8 +90,8 @@ extension TRPUserPersistent {
         UserDefaults.standard.save(model, forKey: loginTokenTag)
     }
     
-    internal static func fetchLoginToken() -> TRPLoginTokenInfoModel? {
-        return UserDefaults.standard.load(type: TRPLoginTokenInfoModel.self, forKey: loginTokenTag)
+    internal static func fetchLoginToken() -> TokenInfo? {
+        return UserDefaults.standard.load(type: TokenInfo.self, forKey: loginTokenTag)
     }
 }
 
