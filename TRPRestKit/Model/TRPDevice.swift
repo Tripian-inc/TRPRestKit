@@ -32,7 +32,7 @@ public struct TRPDevice: Decodable, Encodable {
         self.firebaseToken = try values.decodeIfPresent(String.self, forKey: .firebaseToken)
     }
     
-    public init(deviceId: String? = nil,
+    public init(deviceId: String,
                 osVersion: String? = nil,
                 bundleId: String? = nil,
                 firebaseToken: String? = nil) {
@@ -46,22 +46,24 @@ public struct TRPDevice: Decodable, Encodable {
     public func params() -> [String: String]? {
         var params = [String: String]()
         
-        if let deviceId = deviceId {
-            params[CodingKeys.deviceId.rawValue] = deviceId
+        params[CodingKeys.deviceId.rawValue] = deviceId
+        
+        params[CodingKeys.deviceOs.rawValue] = deviceOs
+        
+        
+        if let osVersion = osVersion {
+            params[CodingKeys.osVersion.rawValue] = osVersion
         }
+        
+        if let osVersion = osVersion {
+            params[CodingKeys.osVersion.rawValue] = osVersion
+        }
+        
+        if let osVersion = osVersion {
+            params[CodingKeys.osVersion.rawValue] = osVersion
+        }
+        
         
         return params
-        
-        /*do {
-            let jsonData = try JSONEncoder().encode(self)
-            if let jsonString = String(data: jsonData, encoding: .utf8) {
-               // print("JSON \(jsonString)")
-                return jsonString
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        return nil*/
     }
 }

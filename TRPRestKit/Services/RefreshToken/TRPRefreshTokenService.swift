@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPRefreshTokenService: TRPRestServices<TRPGenericParser<TRPRefreshTokenInfoModel>>{
+internal class TRPRefreshTokenService: TRPRestServices<TRPGenericParser<TRPRefreshTokenInfoModel>> {
     
     private var refreshToken: String
     
@@ -22,7 +22,9 @@ internal class TRPRefreshTokenService: TRPRestServices<TRPGenericParser<TRPRefre
     override func requestMode() -> TRPRequestMode {
         return .post
     }
-    
+    override func userOAuth() -> Bool {
+        return true
+    }
     override func bodyParameters() -> [String: Any]? {
         return ["refresh_token": refreshToken]
     }

@@ -83,10 +83,13 @@ public class TRPNetwork {
             return
         }
         
+        if url.path.contains("refresh") {
+            self.generateSession(url)
+            return
+        }
         dispatch.notify(queue: .main) {
             self.generateSession(url)
         }
-        
     }
     
     private func createComponents(url: String?) -> URLComponents {
@@ -213,14 +216,20 @@ public class TRPNetwork {
             return
         }
         dispatch.enter()
-        TRPRestKit().refreshToken(refresh) { (_, error) in
-            dispatch.leave()
+        TRPRestKit().refreshToken(refresh) { (result, error) in
+            
             if let error = error {
+                dispatch.leave()
                 print("[Fatal Error \(error.localizedDescription)]")
                 
                 return
             }
-            
+            if let result = result as? TRPRefreshTokenInfoModel {
+            print("Sonuc Harika \(result)")
+            }else {
+                print("Sonuc Patladı ")
+            }
+            dispatch.leave()
         }
     }
 }
