@@ -802,7 +802,10 @@ extension TRPRestKit {
             }
             
             if let result = result as? TRPGenericParser<TRPRefreshTokenInfoModel>, let data = result.data {
-                TRPUserPersistent.saveLoginToken(TokenInfo(refresh: data))
+                
+                var tokenInfo = TokenInfo(refresh: data)
+                tokenInfo.refreshToken = refreshToken
+                TRPUserPersistent.saveLoginToken(tokenInfo)
                 self.postData(result: data)
             } else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)

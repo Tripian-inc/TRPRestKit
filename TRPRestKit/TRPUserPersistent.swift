@@ -24,11 +24,13 @@ public struct TRPUserPersistent {
     private static let tokenExpiredTimeTag = "trpTokenStartTime"
     
     public static func token() -> String? {
-        return fetchLoginToken()?.accessToken
+        guard let token = fetchTokenInfo()?.accessToken else {return nil}
+        
+        return token
     }
     
     public static func didUserLoging() -> Bool {
-        return fetchLoginToken() == nil ? false : true
+        return fetchRefreshToken() == nil ? false : true
     }
     
     public static var isTokenValid: Bool {
@@ -90,8 +92,18 @@ extension TRPUserPersistent {
         UserDefaults.standard.save(model, forKey: loginTokenTag)
     }
     
-    internal static func fetchLoginToken() -> TokenInfo? {
+    internal static func fetchTokenInfo() -> TokenInfo? {
         return UserDefaults.standard.load(type: TokenInfo.self, forKey: loginTokenTag)
+    }
+    
+    internal static func fetchRefreshToken() -> String? {
+        guard let model = fetchTokenInfo() else {return nil}
+        //İlk token
+        if let refresh = model.refreshToken {
+            return refresh
+        }
+        //Refresh token sorgusundan sonra accessToken a dönüyor
+        return model.accessToken
     }
 }
 

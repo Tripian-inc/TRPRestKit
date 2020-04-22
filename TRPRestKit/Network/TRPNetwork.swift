@@ -211,7 +211,7 @@ public class TRPNetwork {
     
     private func refreshToken() {
         
-        guard let refresh = TRPUserPersistent.fetchLoginToken()?.refreshToken else {
+        guard let refresh = TRPUserPersistent.fetchRefreshToken() else {
             print("Refresh Token Faill")
             return
         }
@@ -225,7 +225,7 @@ public class TRPNetwork {
                 return
             }
             if let result = result as? TRPRefreshTokenInfoModel {
-            print("Sonuc Harika \(result)")
+                print("Sonuc Harika \(result)")
             }else {
                 print("Sonuc Patladı ")
             }
