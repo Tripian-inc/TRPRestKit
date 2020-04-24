@@ -82,14 +82,8 @@ public class TRPNetwork {
             completionHandler?(TRPErrors.undefined as NSError, nil)
             return
         }
-        
-        if url.path.contains("refresh") {
-            self.generateSession(url)
-            return
-        }
-        dispatch.notify(queue: .main) {
-            self.generateSession(url)
-        }
+    
+        self.generateSession(url)
     }
     
     private func createComponents(url: String?) -> URLComponents {

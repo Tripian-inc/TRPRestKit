@@ -9,7 +9,7 @@
 import Foundation
 import TRPFoundationKit
 /// Indicates parameters used when creating a trip.
-//TODO:- adı değiştirilecek //TRİP PRofile
+
 public struct TRPTripProfileModel: Decodable {
     
     /// An Int value. Id of city.

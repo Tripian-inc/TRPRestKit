@@ -34,21 +34,36 @@ public class TRPRestServices<T: Decodable> {
         guard let networkService = network else {return}
         
         networkService.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
+        
         if let bodyData = bodyDataToJson(bodyParameters()) {
-            
             networkService.addValue("application/json", forHTTPHeaderField: "Content-Type")
             networkService.addValue("application/json", forHTTPHeaderField: "Accept")
-            
             networkService.add(body: bodyData)
         }
-        if userOAuth() == true {
-            if let token = oauth() {
-                networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        if path().contains("refresh") {
+            if userOAuth() == true {
+                if let token = oauth() {
+                    networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+                }
+            }
+            networkService.build { (error, data) in
+                self.servicesResult(data: data, error: error)
+            }
+            return
+        }
+        
+        dispatch.notify(queue: .main) {
+            if self.userOAuth() == true {
+                if let token = self.oauth() {
+                    networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+                }
+            }
+            networkService.build { (error, data) in
+                self.servicesResult(data: data, error: error)
             }
         }
-        networkService.build { (error, data) in
-            self.servicesResult(data: data, error: error)
-        }
+        
     }
    
     private func createParams() -> [String: Any] {

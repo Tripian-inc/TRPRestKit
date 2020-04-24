@@ -65,12 +65,14 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         }
 
         if let pace = setting.pace {
-            params["pace"] = pace
+            params["pace"] = pace.uppercased()
         }
         
         let gen = setting.doNotGenerate == true ? 1 : 0
         params["do_not_generate"] = gen
+        print("CreateTrip Params \(params)")
         return params
+        
     }
     
 }

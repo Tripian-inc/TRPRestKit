@@ -49,7 +49,6 @@ final class TRPStepServices: TRPRestServices<TRPGenericParser<TRPStepInfoModel>>
     
     override func bodyParameters() -> [String: Any]? {
         var params: [String: Any] = [:]
-        
         if serviceType == .add {
             guard let planId = planId, let poiId = poiId else {return nil}
             params["plan_id"] = planId
