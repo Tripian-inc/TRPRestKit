@@ -99,6 +99,8 @@
 		B2757C632450491100E88806 /* TokenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2757C622450491100E88806 /* TokenInfo.swift */; };
 		B27712AF23CCB3F10092EE69 /* TRPRestDeneme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27712AE23CCB3F10092EE69 /* TRPRestDeneme.swift */; };
 		B27F37A9245817920005EC81 /* TokenRefreshServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F37A8245817920005EC81 /* TokenRefreshServices.swift */; };
+		B27F37B9245851BD0005EC81 /* TripianTokenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F37B8245851BD0005EC81 /* TripianTokenController.swift */; };
+		B27F37BB245851C90005EC81 /* TokenControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F37BA245851C90005EC81 /* TokenControllerProtocol.swift */; };
 		B282653224065504004A4EDC /* TRPProblemCategoriesInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282653124065504004A4EDC /* TRPProblemCategoriesInfoModel.swift */; };
 		B2826534240664F5004A4EDC /* TRPBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2826533240664F5004A4EDC /* TRPBookingModel.swift */; };
 		B282653624066A01004A4EDC /* TRPTastesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282653524066A01004A4EDC /* TRPTastesModel.swift */; };
@@ -270,6 +272,8 @@
 		B2764A84218AE4EF0069B17E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B27712AE23CCB3F10092EE69 /* TRPRestDeneme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestDeneme.swift; sourceTree = "<group>"; };
 		B27F37A8245817920005EC81 /* TokenRefreshServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshServices.swift; sourceTree = "<group>"; };
+		B27F37B8245851BD0005EC81 /* TripianTokenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripianTokenController.swift; sourceTree = "<group>"; };
+		B27F37BA245851C90005EC81 /* TokenControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenControllerProtocol.swift; sourceTree = "<group>"; };
 		B282653124065504004A4EDC /* TRPProblemCategoriesInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProblemCategoriesInfoModel.swift; sourceTree = "<group>"; };
 		B2826533240664F5004A4EDC /* TRPBookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPBookingModel.swift; sourceTree = "<group>"; };
 		B282653524066A01004A4EDC /* TRPTastesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTastesModel.swift; sourceTree = "<group>"; };
@@ -566,6 +570,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B27F37B6245850490005EC81 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		B27F37B7245850560005EC81 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				B27F37A8245817920005EC81 /* TokenRefreshServices.swift */,
+				B27F37BA245851C90005EC81 /* TokenControllerProtocol.swift */,
+				B27F37B8245851BD0005EC81 /* TripianTokenController.swift */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
 		B29B461B20F607F90009E711 = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +611,7 @@
 		B29B462720F607F90009E711 /* TRPRestKit */ = {
 			isa = PBXGroup;
 			children = (
+				B27F37B6245850490005EC81 /* Logic */,
 				B2757C5F244EE47C00E88806 /* Extensions */,
 				B248C92523A7C200000063C3 /* Environment */,
 				B20F29AD21C25B9B0041957B /* TestServerInfo.plist */,
@@ -610,7 +632,6 @@
 				B27712AE23CCB3F10092EE69 /* TRPRestDeneme.swift */,
 				B2757C622450491100E88806 /* TokenInfo.swift */,
 				B25CC2C1245317D300FE964A /* TRPAsyncTest.swift */,
-				B27F37A8245817920005EC81 /* TokenRefreshServices.swift */,
 			);
 			path = TRPRestKit;
 			sourceTree = "<group>";
@@ -652,6 +673,7 @@
 		B29B463420F60A310009E711 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B27F37B7245850560005EC81 /* OAuth */,
 				B29B469D20F613150009E711 /* TRPNetwork.swift */,
 				B29B469F20F613300009E711 /* TRPNetworkError.swift */,
 				B29B46A120F613430009E711 /* TRPRequestMode.swift */,
@@ -1035,6 +1057,7 @@
 				B261A72022490DEC00D31558 /* TRPReportAProblemServices.swift in Sources */,
 				B25318542407E1D1007F97C3 /* TRPUserProfileInfoModel.swift in Sources */,
 				B215BEFD2131756700659818 /* TRPTripSettings.swift in Sources */,
+				B27F37BB245851C90005EC81 /* TokenControllerProtocol.swift in Sources */,
 				784BAB9422C3505D00BBDB0F /* TRPCompanionModel.swift in Sources */,
 				B29B46A220F613430009E711 /* TRPRequestMode.swift in Sources */,
 				B215BF0921319D6500659818 /* TRPUserInfoModel.swift in Sources */,
@@ -1086,6 +1109,7 @@
 				B29B464920F60BF80009E711 /* TRPCoordinateModel.swift in Sources */,
 				B29B46C120F6146D0009E711 /* TRPStepAlternativesServices.swift in Sources */,
 				784BAB9A22C354FA00BBDB0F /* TRPCompanionServices.swift in Sources */,
+				B27F37B9245851BD0005EC81 /* TripianTokenController.swift in Sources */,
 				B2757C61244EE48D00E88806 /* UserDefaults+extensions.swift in Sources */,
 				B29B46A620F6137C0009E711 /* poiCategories.swift in Sources */,
 				B2AC586C24128CDB00256F79 /* TRPDeleteStepService.swift in Sources */,

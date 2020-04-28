@@ -42,14 +42,14 @@ public class TRPRestServices<T: Decodable> {
         }
         
         if userOAuth() == true {
+            
             TokenRefreshServices.shared.handler(isRefresh: isRefresh) { (token) in
                 print("Token İle Beraber Network işlemi \(self.path()) için başladı")
                 networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
                 networkService.build { (error, data) in
                     self.servicesResult(data: data, error: error)
                 }
-            }
-            
+            } 
         }else {
             networkService.build { (error, data) in
                 self.servicesResult(data: data, error: error)

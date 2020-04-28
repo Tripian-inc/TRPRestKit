@@ -187,27 +187,4 @@ public class TRPNetwork {
         
     }
     
-    private func refreshToken() {
-        
-        guard let refresh = TRPUserPersistent.fetchRefreshToken() else {
-            print("Refresh Token Faill")
-            return
-        }
-        dispatch.enter()
-        TRPRestKit().refreshToken(refresh) { (result, error) in
-            
-            if let error = error {
-                dispatch.leave()
-                print("[Fatal Error \(error.localizedDescription)]")
-                
-                return
-            }
-            if let result = result as? TRPRefreshTokenInfoModel {
-                print("Sonuc Harika \(result)")
-            }else {
-                print("Sonuc Patladı ")
-            }
-            dispatch.leave()
-        }
-    }
 }
