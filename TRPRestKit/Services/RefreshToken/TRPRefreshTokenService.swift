@@ -35,4 +35,10 @@ internal class TRPRefreshTokenService: TRPRestServices<TRPGenericParser<TRPRefre
         }
         return params
     }
+    
+    override var isRefresh: Bool {
+        return true
+    }
 }
+
+

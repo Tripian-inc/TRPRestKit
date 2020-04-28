@@ -25,7 +25,6 @@ public struct TRPUserPersistent {
     
     public static func token() -> String? {
         guard let token = fetchTokenInfo()?.accessToken else {return nil}
-        
         return token
     }
     
@@ -37,7 +36,8 @@ public struct TRPUserPersistent {
         guard let expired = fetchTokenExpiredTime() else {
             return false
         }
-        return expired > Int(Date().timeIntervalSince1970)
+        //return expired > Int(Date().timeIntervalSince1970)
+        return false
     }
     
     public static func tokenValidUntil() -> String? {

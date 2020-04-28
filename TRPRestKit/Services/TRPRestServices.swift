@@ -41,29 +41,21 @@ public class TRPRestServices<T: Decodable> {
             networkService.add(body: bodyData)
         }
         
-        if path().contains("refresh") {
-            if userOAuth() == true {
-                if let token = oauth() {
-                    networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        if userOAuth() == true {
+            TokenRefreshServices.shared.handler(isRefresh: isRefresh) { (token) in
+                print("Token İle Beraber Network işlemi \(self.path()) için başladı")
+                networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+                networkService.build { (error, data) in
+                    self.servicesResult(data: data, error: error)
                 }
             }
-            networkService.build { (error, data) in
-                self.servicesResult(data: data, error: error)
-            }
-            return
-        }
-        
-        dispatch.notify(queue: .main) {
-            if self.userOAuth() == true {
-                if let token = self.oauth() {
-                    networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-                }
-            }
+            
+        }else {
             networkService.build { (error, data) in
                 self.servicesResult(data: data, error: error)
             }
         }
-        
+    
     }
    
     private func createParams() -> [String: Any] {
@@ -172,11 +164,8 @@ public class TRPRestServices<T: Decodable> {
         return false
     }
     
-    /// Returns user hash using `DataHolder`
-    ///
-    /// - Returns: User hash for oauth
-    internal func oauth() -> String? {
-        return TRPUserPersistent.token()
+    public var isRefresh: Bool {
+        return false
     }
     
 }

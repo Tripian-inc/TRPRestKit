@@ -81,7 +81,7 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
     public override init() {
         TRPUserPersistent.tokenValidUntil()
        // print("Tokens \(TRPUserPersistent.fetchLoginToken())")
-        print("Token Is Valid \(TRPUserPersistent.isTokenValid)")
+     //   print("Token Is Valid \(TRPUserPersistent.isTokenValid)")
     }
     
 }
