@@ -79,7 +79,7 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
     }
     
     public override init() {
-        TripianTokenController().tokenValidUntil()
+        //TripianTokenController().tokenValidUntil()
     }
     
 }
