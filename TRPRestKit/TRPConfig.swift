@@ -46,6 +46,7 @@ internal struct TRPConfig {
         case favorite
         case step
         case companion
+        case userReaction
         var link: String {
             switch self {
             case .city:
@@ -94,6 +95,8 @@ internal struct TRPConfig {
                 return getNewLink() ?? "refresh"
             case .step:
                 return getNewLink() ?? "step"
+            case .userReaction:
+                return getNewLink() ?? "user-reaction"
             }
         }
         

@@ -85,6 +85,8 @@
 		B259621724052BBC00E98DF4 /* ApiV3StartTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259621624052BBC00E98DF4 /* ApiV3StartTest.swift */; };
 		B259621924053B7000E98DF4 /* TRPImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259621824053B7000E98DF4 /* TRPImageModel.swift */; };
 		B25CC2C2245317D300FE964A /* TRPAsyncTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CC2C1245317D300FE964A /* TRPAsyncTest.swift */; };
+		B261996C245C2D96001F1A45 /* TRPUserReactionServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261996B245C2D96001F1A45 /* TRPUserReactionServices.swift */; };
+		B261996E245C2FE5001F1A45 /* UserReactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261996D245C2FE5001F1A45 /* UserReactionType.swift */; };
 		B261A72022490DEC00D31558 /* TRPReportAProblemServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261A71F22490DEC00D31558 /* TRPReportAProblemServices.swift */; };
 		B261A72222490E4C00D31558 /* TRPProblemCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261A72122490E4C00D31558 /* TRPProblemCategories.swift */; };
 		B261A733224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261A732224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift */; };
@@ -257,6 +259,8 @@
 		B259621624052BBC00E98DF4 /* ApiV3StartTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiV3StartTest.swift; sourceTree = "<group>"; };
 		B259621824053B7000E98DF4 /* TRPImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageModel.swift; sourceTree = "<group>"; };
 		B25CC2C1245317D300FE964A /* TRPAsyncTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPAsyncTest.swift; sourceTree = "<group>"; };
+		B261996B245C2D96001F1A45 /* TRPUserReactionServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserReactionServices.swift; sourceTree = "<group>"; };
+		B261996D245C2FE5001F1A45 /* UserReactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReactionType.swift; sourceTree = "<group>"; };
 		B261A71F22490DEC00D31558 /* TRPReportAProblemServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPReportAProblemServices.swift; sourceTree = "<group>"; };
 		B261A72122490E4C00D31558 /* TRPProblemCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProblemCategories.swift; sourceTree = "<group>"; };
 		B261A732224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProblemCategoriesJsonModel.swift; sourceTree = "<group>"; };
@@ -535,6 +539,15 @@
 			path = RefreshToken;
 			sourceTree = "<group>";
 		};
+		B261996A245C2A26001F1A45 /* UserReaction */ = {
+			isa = PBXGroup;
+			children = (
+				B261996B245C2D96001F1A45 /* TRPUserReactionServices.swift */,
+				B261996D245C2FE5001F1A45 /* UserReactionType.swift */,
+			);
+			path = UserReaction;
+			sourceTree = "<group>";
+		};
 		B261A71E22490DCA00D31558 /* ReportAProblem */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,6 +652,7 @@
 		B29B463220F60A1F0009E711 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B261996A245C2A26001F1A45 /* UserReaction */,
 				B267EDD9241119E9006FCFA0 /* StepService */,
 				B25318552407EF7A007F97C3 /* RefreshToken */,
 				783A138022F039DE00952CA2 /* Constants */,
@@ -1042,7 +1056,9 @@
 				B29B46A020F613300009E711 /* TRPNetworkError.swift in Sources */,
 				B29B469220F60FFB0009E711 /* TRPCityInfoModel.swift in Sources */,
 				B25318642409744A007F97C3 /* TRPPoiRefInfoModel.swift in Sources */,
+				B261996E245C2FE5001F1A45 /* UserReactionType.swift in Sources */,
 				B29B469420F6100C0009E711 /* TRPCountryJsonModel.swift in Sources */,
+				B261996C245C2D96001F1A45 /* TRPUserReactionServices.swift in Sources */,
 				B29B467A20F60F320009E711 /* TRPRecommendationInfoJsonModel.swift in Sources */,
 				B21E1A8D220A281200EF471F /* TRPGoogleAutoComplete.swift in Sources */,
 				B248C92C23A7C2D8000063C3 /* Environment.swift in Sources */,

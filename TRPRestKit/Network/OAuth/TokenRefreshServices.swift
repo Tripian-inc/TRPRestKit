@@ -24,12 +24,15 @@ public class TokenRefreshServices {
             return
         }
         
-        
-        
         if TripianTokenController().isTokenValid || isRefresh {
             handler(token)
             return
         }
+        
+        
+        
+        
+        
         services.append(handler)
         print("Token zaman aşımında")
         fetchNewRefreshToken { (newToken) in

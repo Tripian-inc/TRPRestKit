@@ -1698,3 +1698,37 @@ extension TRPRestKit {
     }
     
 }
+
+extension TRPRestKit {
+    
+    public func addUserReaction(poiId: Int, stepId: Int, reaction: UserReactionType?, comment: String?, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        addUserReactionService(poiId: poiId, stepId: stepId, reaction: reaction, comment: comment)
+    }
+    
+    private func addUserReactionService(poiId: Int,
+                                        stepId: Int,
+                                        reaction: UserReactionType?,
+                                        comment: String?) {
+        
+        let services = TRPUserReactionServices(stepId: stepId, poiId: poiId, reaction: reaction, comment: comment)
+        
+        services.completion = { (result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPParentJsonModel {
+                self.postData(result: serviceResult)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        
+        services.connection()
+    }
+    
+    
+    
+    
+}
