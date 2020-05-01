@@ -1699,6 +1699,8 @@ extension TRPRestKit {
     
 }
 
+
+
 extension TRPRestKit {
     
     public func addUserReaction(poiId: Int, stepId: Int, reaction: UserReactionType?, comment: String?, completion: @escaping CompletionHandler) {
@@ -1728,7 +1730,29 @@ extension TRPRestKit {
         services.connection()
     }
     
+}
+
+
+extension TRPRestKit {
+    public func deleteUserReaction(id: Int, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        deleteUserReactionService(id)
+    }
     
-    
-    
+    private func deleteUserReactionService(_ reactionId: Int) {
+        let deleteService = TRPDeleteUserReactionServices(id: reactionId)
+        
+        deleteService.completion = { (result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPParentJsonModel {
+                self.postData(result: serviceResult)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        deleteService.connection()
+    }
 }
