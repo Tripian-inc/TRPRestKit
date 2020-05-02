@@ -3,7 +3,7 @@
 //  TRPRestKit
 //
 //  Created by Evren Yaşar on 21.04.2020.
-//  Copyright © 2020 Evren Yaşar. All rights reserved.
+//  Copyright © 2020 Tripian Inc. All rights reserved.
 //
 
 import Foundation

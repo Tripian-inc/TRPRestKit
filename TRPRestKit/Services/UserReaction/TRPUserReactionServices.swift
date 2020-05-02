@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPUserReactionServices: TRPRestServices<TRPParentJsonModel> {
+internal class TRPUserReactionServices: TRPRestServices<TRPGenericParser<TRPReactionModel>> {
     
     private let stepId: Int
     private let poiId: Int
@@ -29,10 +29,14 @@ internal class TRPUserReactionServices: TRPRestServices<TRPParentJsonModel> {
         return true
     }
     
-    override func bodyParameters() -> [String : Any]? {
+    override func requestMode() -> TRPRequestMode {
+        .post
+    }
+    
+    override func bodyParameters() -> [String: Any]? {
         
-        var params = [String :Any]()
-        params["place_id"] = poiId
+        var params = [String: Any]()
+        params["poi_id"] = poiId
         params["step_id"] = stepId
         
         if let reaction = reaction {
@@ -41,7 +45,7 @@ internal class TRPUserReactionServices: TRPRestServices<TRPParentJsonModel> {
         if let comment = comment {
             params["comment"] = comment
         }
-        
+        print("PARAMETRE \(params)")
         return params
     }
 }
