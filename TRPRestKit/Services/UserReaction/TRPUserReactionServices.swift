@@ -9,12 +9,14 @@
 import Foundation
 internal class TRPUserReactionServices: TRPRestServices<TRPGenericParser<TRPReactionModel>> {
     
+    private var id: Int?
     private let stepId: Int
     private let poiId: Int
     private var reaction: UserReactionType?
     private var comment: String?
     
-    internal init(stepId: Int, poiId: Int, reaction: UserReactionType?, comment: String?) {
+    internal init(id: Int? = nil, stepId: Int, poiId: Int, reaction: UserReactionType?, comment: String?) {
+        self.id = id
         self.stepId = stepId
         self.poiId = poiId
         self.reaction = reaction
@@ -22,7 +24,11 @@ internal class TRPUserReactionServices: TRPRestServices<TRPGenericParser<TRPReac
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.userReaction.link
+        var url = TRPConfig.ApiCall.userReaction.link
+        if let id = id {
+            url += "/\(id)"
+        }
+        return url
     }
     
     override func userOAuth() -> Bool {
@@ -30,7 +36,10 @@ internal class TRPUserReactionServices: TRPRestServices<TRPGenericParser<TRPReac
     }
     
     override func requestMode() -> TRPRequestMode {
-        .post
+        if id != nil {
+            return .put
+        }
+        return .post
     }
     
     override func bodyParameters() -> [String: Any]? {

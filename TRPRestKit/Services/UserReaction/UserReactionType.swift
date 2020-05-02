@@ -11,3 +11,8 @@ public enum UserReactionType: String {
     case thumbsUp = "THUMBS UP"
     case thumbsDown = "THUMBS DOWN"
 }
+
+public enum UserReactionComment: String {
+    case iHaveAlreadySeen = "I_HAVE_ALREADY_SEEN"
+    case notInterest = "NOT_INTEREST"
+}

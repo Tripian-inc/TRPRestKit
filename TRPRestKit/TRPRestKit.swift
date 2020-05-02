@@ -1703,18 +1703,29 @@ extension TRPRestKit {
 
 extension TRPRestKit {
     
+    
+    
     public func addUserReaction(poiId: Int, stepId: Int, reaction: UserReactionType? = nil, comment: String? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        addUserReactionService(poiId: poiId, stepId: stepId, reaction: reaction, comment: comment)
+        userReactionService(poiId: poiId, stepId: stepId, reaction: reaction, comment: comment)
     }
     
-    private func addUserReactionService(poiId: Int,
+    public func updateUserReaction(id: Int,
+                                   poiId: Int,
+                                   stepId: Int,
+                                   reaction: UserReactionType? = nil,
+                                   comment: String? = nil,
+                                   completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        userReactionService(id: id, poiId: poiId, stepId: stepId, reaction: reaction, comment: comment)
+    }
+    
+    private func userReactionService(id: Int? = nil,
+                                        poiId: Int,
                                         stepId: Int,
                                         reaction: UserReactionType?,
                                         comment: String?) {
-        
-        let services = TRPUserReactionServices(stepId: stepId, poiId: poiId, reaction: reaction, comment: comment)
-        
+        let services = TRPUserReactionServices(id: id, stepId: stepId, poiId: poiId, reaction: reaction, comment: comment)
         services.completion = { (result, error, _) in
             if let error = error {
                 self.postError(error: error)
