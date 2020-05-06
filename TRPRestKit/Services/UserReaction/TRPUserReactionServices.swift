@@ -10,18 +10,28 @@ import Foundation
 internal class TRPUserReactionServices: TRPRestServices<TRPGenericParser<TRPReactionModel>> {
     
     private var id: Int?
-    private let stepId: Int
-    private let poiId: Int
+    private let stepId: Int?
+    private let poiId: Int?
     private var reaction: UserReactionType?
     private var comment: String?
     
-    internal init(id: Int? = nil, stepId: Int, poiId: Int, reaction: UserReactionType?, comment: String?) {
+    //Add Reaction
+    internal init(stepId: Int, poiId: Int, reaction: UserReactionType? = nil, comment: String? = nil) {
+        self.stepId = stepId
+        self.poiId = poiId
+        self.reaction = reaction
+        self.comment = comment
+    }
+    
+    //Update Reaction
+    internal init(id: Int, stepId: Int? = nil, poiId: Int? = nil, reaction: UserReactionType? = nil, comment: String? = nil) {
         self.id = id
         self.stepId = stepId
         self.poiId = poiId
         self.reaction = reaction
         self.comment = comment
     }
+    
     
     public override func path() -> String {
         var url = TRPConfig.ApiCall.userReaction.link
@@ -45,9 +55,12 @@ internal class TRPUserReactionServices: TRPRestServices<TRPGenericParser<TRPReac
     override func bodyParameters() -> [String: Any]? {
         
         var params = [String: Any]()
-        params["poi_id"] = poiId
-        params["step_id"] = stepId
-        
+        if let poiId = poiId {
+            params["poi_id"] = poiId
+        }
+        if let stepId = stepId {
+            params["step_id"] = stepId
+        }
         if let reaction = reaction {
             params["reaction"] = reaction.rawValue
         }

@@ -1699,11 +1699,7 @@ extension TRPRestKit {
     
 }
 
-
-
 extension TRPRestKit {
-    
-    
     
     public func addUserReaction(poiId: Int, stepId: Int, reaction: UserReactionType? = nil, comment: String? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -1711,8 +1707,8 @@ extension TRPRestKit {
     }
     
     public func updateUserReaction(id: Int,
-                                   poiId: Int,
-                                   stepId: Int,
+                                   poiId: Int? = nil,
+                                   stepId: Int? = nil,
                                    reaction: UserReactionType? = nil,
                                    comment: String? = nil,
                                    completion: @escaping CompletionHandler) {
@@ -1720,13 +1716,20 @@ extension TRPRestKit {
         userReactionService(id: id, poiId: poiId, stepId: stepId, reaction: reaction, comment: comment)
     }
     
-    private func userReactionService(id: Int? = nil,
-                                        poiId: Int,
-                                        stepId: Int,
-                                        reaction: UserReactionType?,
-                                        comment: String?) {
-        let services = TRPUserReactionServices(id: id, stepId: stepId, poiId: poiId, reaction: reaction, comment: comment)
-        services.completion = { (result, error, _) in
+    private func userReactionService(id: Int? = nil, poiId: Int? = nil, stepId: Int? = nil, reaction: UserReactionType? = nil, comment: String? = nil) {
+        
+        var services: TRPUserReactionServices?
+        
+        //Update
+        if let id = id {
+            services = TRPUserReactionServices(id: id, stepId: stepId, poiId: poiId, reaction: reaction, comment: comment)
+        }else if let poiId = poiId, let step = stepId {
+            //Add
+            services = TRPUserReactionServices(stepId: step, poiId: poiId, reaction: reaction, comment: comment)
+        }
+        guard let service = services else {return}
+        
+        service.completion = { (result, error, _) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -1737,8 +1740,7 @@ extension TRPRestKit {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        
-        services.connection()
+        service.connection()
     }
     
 }

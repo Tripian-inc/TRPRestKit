@@ -9,15 +9,15 @@
 import Foundation
 public struct TRPReactionModel: Decodable {
     
-    var id: Int
-    var poiId: Int
-    var stepId: Int
-    var reaction: String?
-    var comment: String?
+    public var id: Int
+    public var poiId: Int
+    public var stepId: Int
+    public var reaction: String?
+    public var comment: String?
     
     enum CodingKeys: String, CodingKey {
         case id
-        case poiId = "place_id"
+        case poiId = "poi_id"
         case stepId = "step_id"
         case reaction
         case comment
