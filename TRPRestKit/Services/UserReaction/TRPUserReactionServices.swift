@@ -32,7 +32,6 @@ internal class TRPUserReactionServices: TRPRestServices<TRPGenericParser<TRPReac
         self.comment = comment
     }
     
-    
     public override func path() -> String {
         var url = TRPConfig.ApiCall.userReaction.link
         if let id = id {

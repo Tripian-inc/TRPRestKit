@@ -8,11 +8,12 @@
 
 import Foundation
 public enum UserReactionType: String {
-    case thumbsUp = "THUMBS_UP"
-    case thumbsDown = "THUMBS_DOWN"
+    case thumbsUp = "Thumbs Up"
+    case thumbsDown = "Thumbs Down"
+    case neutral = "Neutral"
 }
 
 public enum UserReactionComment: String {
-    case iHaveAlreadySeen = "I_HAVE_ALREADY_SEEN"
-    case notInterest = "NOT_INTEREST"
+    case iHaveAlreadyVisited = "I_HAVE_ALREADY_VISITED"
+    case iDontLikePlace = "I_DONT_LIKE_PLACE"
 }
