@@ -18,7 +18,7 @@ public struct TRPStepInfoModel: Decodable, Hashable {
     /// An Int value. Order of PlanPoi
     public var order: Int = 0
     
-    public var score: Int?
+    public var score: Float?
     
     public var hours: TRPHourInfoModel?
     public var alternatives: [Int]
@@ -39,7 +39,7 @@ public struct TRPStepInfoModel: Decodable, Hashable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
         poi = try values.decode(TRPPoiInfoModel.self, forKey: .poi)
-        score = try values.decodeIfPresent(Int.self, forKey: .score)
+        score = try values.decodeIfPresent(Float.self, forKey: .score)
         hours = try values.decodeIfPresent(TRPHourInfoModel.self, forKey: .hours)
         alternatives = try values.decode([Int].self, forKey: .alternatives)
         order = try values.decode(Int.self, forKey: .order)
