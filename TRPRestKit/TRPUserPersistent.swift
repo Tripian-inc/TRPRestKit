@@ -12,14 +12,22 @@ public struct TRPUserPersistent {
     private static let userIdCodeTag = "trpuserid"
     private static let userEmailCodeTag = "trpuseremail"
 
-    public static func fetchId() -> Int? {
-        return UserDefaults.standard.integer(forKey: userIdCodeTag)
+    public var isLoggedIn: Bool {
+        guard let tokens = TripianTokenController().fetchTokenInfo() else {return false}
+        if !tokens.accessToken.isEmpty && tokens.expiresIn != 0 {
+            return true
+        }
+        return false
+    }
+
+    public var isTokenValid: Bool {
+        return TripianTokenController().isTokenValid
     }
     
-    public static func saveId(_ value: Int) {
-        UserDefaults.standard.set(value, forKey: userIdCodeTag)
+    public var tokenInfo: TokenInfo? {
+        return TripianTokenController().fetchTokenInfo()
     }
-    
+
     public static func getUserEmail() -> String? {
         return UserDefaults.standard.string(forKey: userEmailCodeTag)
     }

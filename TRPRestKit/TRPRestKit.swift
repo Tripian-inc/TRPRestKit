@@ -78,9 +78,7 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
         }
     }
     
-    public override init() {
-        //TripianTokenController().tokenValidUntil()
-    }
+    public override init() {}
     
 }
 
@@ -672,7 +670,6 @@ extension TRPRestKit {
         if let device = device, let deviceParams = device.params() {
             params["device"] = deviceParams
         }
-        print("Login Params \(params)")
         loginServices(parameters: params)
     }
     

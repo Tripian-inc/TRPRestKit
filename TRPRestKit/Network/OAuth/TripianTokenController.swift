@@ -69,7 +69,6 @@ class TripianTokenController: TokenControllerProtocol {
         let formatter = DateFormatter()
         formatter.timeStyle = .full
         formatter.timeZone = TimeZone(identifier: "UTC")!
-        print("TOKEN VALİD UNTİL \(formatter.string(from: date))")
     }
     
 }
