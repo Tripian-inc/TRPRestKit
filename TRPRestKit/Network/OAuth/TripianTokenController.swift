@@ -61,23 +61,14 @@ class TripianTokenController: TokenControllerProtocol {
         return UserDefaults.standard.integer(forKey: tokenExpiredTime)
     }
     
-    //Sadece debug işlemi için
-    public func tokenValidUntil() {
-        guard let expired = fetchTokenExpiredTime() else { return }
-        
-        guard let date = timeIntervalToDate(expired) else { return }
-        let formatter = DateFormatter()
-        formatter.timeStyle = .full
-        formatter.timeZone = TimeZone(identifier: "UTC")!
+    func clearDataInUserDefaults() {
+        UserDefaults.standard.removeObject(forKey: loginTokenTag)
+        UserDefaults.standard.removeObject(forKey: tokenExpiredTime)
     }
     
 }
 
 extension TripianTokenController {
-    
-    private func timeIntervalToDate(_ interval : Int) -> Date? {
-        return Date(timeIntervalSince1970: TimeInterval(interval))
-    }
     
     private func calculateExpiredTime(_ expiresIn: Int) -> Int? {
            guard let expiredTime = calendar.date(byAdding: .second, value: expiresIn, to: Date()) else {return nil}

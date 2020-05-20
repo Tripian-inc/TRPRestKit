@@ -39,5 +39,6 @@ public struct TRPUserPersistent {
     public static func remove() {
         UserDefaults.standard.removeObject(forKey: userIdCodeTag)
         UserDefaults.standard.removeObject(forKey: userEmailCodeTag)
+        TripianTokenController().clearDataInUserDefaults()
     }
 }
