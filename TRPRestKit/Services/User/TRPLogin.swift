@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class TRPLogin: TRPRestServices<TRPGenericParser<TRPLoginTokenInfoModel>> {
+internal class TRPLogin: TRPRestServices<TRPGenericParser<TRPLoginInfoModel>> {
     
     //Airmiles
     private var email: String?

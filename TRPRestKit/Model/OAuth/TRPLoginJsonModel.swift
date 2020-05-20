@@ -9,7 +9,7 @@
 import Foundation
 
 /// Indicates a informaion of login.
-public struct TRPLoginTokenInfoModel: Codable {
+public struct TRPLoginInfoModel: Codable {
     
     /// Type of token
     public var tokenType: String?

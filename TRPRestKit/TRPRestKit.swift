@@ -684,7 +684,7 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let serviceResult = result as? TRPGenericParser<TRPLoginTokenInfoModel> {
+            if let serviceResult = result as? TRPGenericParser<TRPLoginInfoModel> {
                 if let data = serviceResult.data {
                     TripianTokenController().saveTokenInfo(TokenInfo(login: data))
                 }

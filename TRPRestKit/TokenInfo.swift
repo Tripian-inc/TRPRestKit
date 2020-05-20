@@ -15,7 +15,7 @@ struct TokenInfo: Codable {
     
     var refreshToken: String?
     
-    init(login: TRPLoginTokenInfoModel) {
+    init(login: TRPLoginInfoModel) {
         accessToken = login.accessToken
         expiresIn = login.expiresIn
         refreshToken = login.refreshToken
