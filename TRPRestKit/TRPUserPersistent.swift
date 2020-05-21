@@ -12,7 +12,7 @@ public struct TRPUserPersistent {
     private static let userIdCodeTag = "trpuserid"
     private static let userEmailCodeTag = "trpuseremail"
 
-    public var isLoggedIn: Bool {
+    public static var isLoggedIn: Bool {
         guard let tokens = TripianTokenController().fetchTokenInfo() else {return false}
         if !tokens.accessToken.isEmpty && tokens.expiresIn != 0 {
             return true
@@ -20,11 +20,11 @@ public struct TRPUserPersistent {
         return false
     }
 
-    public var isTokenValid: Bool {
+    public static var isTokenValid: Bool {
         return TripianTokenController().isTokenValid
     }
     
-    public var tokenInfo: TokenInfo? {
+    public static var tokenInfo: TokenInfo? {
         return TripianTokenController().fetchTokenInfo()
     }
 

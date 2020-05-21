@@ -670,6 +670,7 @@ extension TRPRestKit {
         if let device = device, let deviceParams = device.params() {
             params["device"] = deviceParams
         }
+        print("LOGIN PARAMETERS \(params)")
         loginServices(parameters: params)
     }
     

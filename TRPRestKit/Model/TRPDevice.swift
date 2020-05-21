@@ -33,6 +33,7 @@ public struct TRPDevice: Decodable, Encodable {
     }
     
     public init(deviceId: String,
+                deviceOS:String? = nil,
                 osVersion: String? = nil,
                 bundleId: String? = nil,
                 firebaseToken: String? = nil) {
@@ -41,6 +42,14 @@ public struct TRPDevice: Decodable, Encodable {
         self.osVersion = osVersion
         self.bundleId = bundleId
         self.firebaseToken = firebaseToken
+    }
+    
+    public init(device:UIDevice = .current,
+                bundleId: String? = nil,
+                firebaseToken: String? = nil) {
+        self.deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        self.deviceOs = UIDevice.current.systemName
+        self.osVersion = UIDevice.current.systemVersion
     }
     
     public func params() -> [String: String]? {

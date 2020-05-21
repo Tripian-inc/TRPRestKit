@@ -40,5 +40,3 @@ internal class TRPRefreshTokenService: TRPRestServices<TRPGenericParser<TRPRefre
         return true
     }
 }
-
-
