@@ -17,6 +17,7 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
     var answers: [Int]?
     var firstName: String?
     var lastName: String?
+    var password: String?
     var age: Int?
     
     init(type: ServiceType) {
@@ -33,6 +34,7 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
         self.answers = answers
         self.firstName = firstName
         self.lastName = lastName
+        self.password = password
         self.age = age
     }
     
@@ -56,6 +58,9 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
             let profile = getProfile()
             if profile.count > 0 {
                 params["profile"] = profile
+            }
+            if let password = password {
+                params["password"] = password
             }
         }
         return params

@@ -666,11 +666,9 @@ extension TRPRestKit {
         var params = [String: Any]()
         params["email"] = email
         params["password"] = password
-        
         if let device = device, let deviceParams = device.params() {
             params["device"] = deviceParams
         }
-        print("LOGIN PARAMETERS \(params)")
         loginServices(parameters: params)
     }
     
@@ -826,6 +824,7 @@ extension TRPRestKit {
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-update-current-user-information)
     public func updateUserInfo(firstName: String? = nil,
                                lastName: String? = nil,
+                               password: String? = nil,
                                age: Int? = nil,
                                answers: [Int]? = nil,
                                completion: @escaping CompletionHandler) {
@@ -834,6 +833,7 @@ extension TRPRestKit {
                          lastName: lastName,
                          age: age,
                          answers: answers,
+                         password: password,
                          type: .updateInfo)
     }
     
@@ -858,6 +858,7 @@ extension TRPRestKit {
                                   lastName: String? = nil,
                                   age: Int? = nil,
                                   answers: [Int]? = nil,
+                                  password: String? = nil,
                                   type: TRPUserInfoServices.ServiceType) {
         var infoService: TRPUserInfoServices?
         
@@ -871,6 +872,7 @@ extension TRPRestKit {
             infoService = TRPUserInfoServices(firstName: firstName,
                                               lastName: lastName,
                                               age: age,
+                                              password: password,
                                               answers: answers)
         }
         
