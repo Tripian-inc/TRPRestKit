@@ -20,14 +20,14 @@ public struct TRPCategoryInfoModel: Decodable {
     /// A String value. Description of a poi category. Description can be used in search bar that is in AddPlace.
     public var description: String?
     
-    public var parentCategoryId: Int?
+    public var parent: TRPPoiCategoryParent?
     
     /// Tag matcher
     private enum CodingKeys: String, CodingKey {
         case id
         case name
         case description
-        case parentCategoryId = "parent_category_id"
+        case parent
     }
     
     /// Json to Object converter
@@ -38,7 +38,9 @@ public struct TRPCategoryInfoModel: Decodable {
         self.id = try values.decode(Int.self, forKey: .id)
         self.name = try values.decode(String.self, forKey: .name)
         self.description = try values.decodeIfPresent(String.self, forKey: .description)
-        self.parentCategoryId = try values.decodeIfPresent(Int.self, forKey: .parentCategoryId)
+        if let parent = try? values.decodeIfPresent(TRPPoiCategoryParent.self, forKey: .parent) {
+            self.parent = parent
+        }
     }
     
 }

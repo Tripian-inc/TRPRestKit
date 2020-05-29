@@ -75,7 +75,6 @@ public struct TRPPoiInfoModel: Decodable {
         case description
         case cuisines
         case features
-        case narrativeTags = "narrative_tags"
         case imageOwner = "image_owner"
         case gallery
         case markerCoordinate = "marker_coordinate"
