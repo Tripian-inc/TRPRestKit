@@ -24,7 +24,7 @@ public struct TRPUserPersistent {
         return TripianTokenController().isTokenValid
     }
     
-    public static var tokenInfo: TokenInfo? {
+    public static var tokenInfo: TRPToken? {
         return TripianTokenController().fetchTokenInfo()
     }
 

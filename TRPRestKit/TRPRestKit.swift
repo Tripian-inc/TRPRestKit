@@ -682,7 +682,8 @@ extension TRPRestKit {
             }
             if let serviceResult = result as? TRPGenericParser<TRPLoginInfoModel> {
                 if let data = serviceResult.data {
-                    TripianTokenController().saveTokenInfo(TokenInfo(login: data))
+                    self.saveToken(TRPToken(login: data))
+                    
                 }
                 self.postData(result: serviceResult.data, pagination: pagination)
             } else {
@@ -795,9 +796,10 @@ extension TRPRestKit {
             }
             
             if let result = result as? TRPGenericParser<TRPRefreshTokenInfoModel>, let data = result.data {
-                var tokenInfo = TokenInfo(refresh: data)
+                
+                var tokenInfo = TRPToken(refresh: data)
                 tokenInfo.refreshToken = refreshToken
-                TripianTokenController().saveTokenInfo(tokenInfo)
+                self.saveToken(tokenInfo)
                 self.postData(result: data)
             } else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
@@ -1767,5 +1769,12 @@ extension TRPRestKit {
             }
         }
         deleteService.connection()
+    }
+}
+
+//MARK: - Token Controller
+extension TRPRestKit {
+    public func saveToken(_ token: TRPToken) {
+        TripianTokenController().saveTokenInfo(token)
     }
 }

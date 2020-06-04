@@ -20,8 +20,6 @@ public struct TRPUserTripInfoModel: Decodable {
     public var tripProfile: TRPTripProfileModel
     public var city: TRPCityInfoModel
     
-    //TODO: - unit testi yazılacak cünkü gelen modellerin eksik gelme ihtimali çok yüksek ve projenin en önemli kısımlarından biri.
-    
     private enum CodingKeys: String, CodingKey {
         case id
         case tripHash = "trip_hash"

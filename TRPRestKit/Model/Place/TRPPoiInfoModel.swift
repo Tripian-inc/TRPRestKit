@@ -130,8 +130,9 @@ public struct TRPPoiInfoModel: Decodable {
         self.closed = try values.decodeIfPresent([Int].self, forKey: .closed) ?? []
         self.distance = try values.decodeIfPresent(Float.self, forKey: .distance)
         self.status = try values.decode(Bool.self, forKey: .status)
-        
+        //TODO: - Api de değişebilir diye bu şekilde bıraktım
         if let mustTries = try? values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .mustTries){
+            
             self.mustTries = mustTries ?? []
         }
         

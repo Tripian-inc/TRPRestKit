@@ -13,8 +13,8 @@ protocol TokenControllerProtocol {
     var loginTokenTag: String {get}
     var tokenExpiredTime: String {get}
     
-    func saveTokenInfo(_ value: TokenInfo)
-    func fetchTokenInfo() -> TokenInfo?
+    func saveTokenInfo(_ value: TRPToken)
+    func fetchTokenInfo() -> TRPToken?
     
     func saveTokenTime(expiresIn: Int)
     func fetchTokenExpiredTime() -> Int?

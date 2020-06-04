@@ -1,13 +1,13 @@
 //
-//  TokenInfo.swift
+//  TRPTokenModel.swift
 //  TRPRestKit
 //
-//  Created by Evren Yaşar on 22.04.2020.
+//  Created by Evren Yaşar on 4.06.2020.
 //  Copyright © 2020 Evren Yaşar. All rights reserved.
 //
 
 import Foundation
-public struct TokenInfo: Codable {
+public struct TRPToken: Codable {
     
     public var accessToken: String
     
@@ -27,4 +27,9 @@ public struct TokenInfo: Codable {
         refreshToken = nil
     }
     
+    public init(accessToken: String, expiresIn: Int, refreshToken: String?) {
+        self.accessToken = accessToken
+        self.expiresIn = expiresIn
+        self.refreshToken = refreshToken
+    }
 }

@@ -42,15 +42,15 @@ class TripianTokenController: TokenControllerProtocol {
         return nil
     }
     
-    func saveTokenInfo(_ value: TokenInfo) {
+    func saveTokenInfo(_ value: TRPToken) {
         if let expires = calculateExpiredTime(value.expiresIn) {
             saveTokenTime(expiresIn: expires)
         }
         UserDefaults.standard.save(value, forKey: loginTokenTag)
     }
     
-    func fetchTokenInfo() -> TokenInfo? {
-        return UserDefaults.standard.load(type: TokenInfo.self, forKey: loginTokenTag)
+    func fetchTokenInfo() -> TRPToken? {
+        return UserDefaults.standard.load(type: TRPToken.self, forKey: loginTokenTag)
     }
     
     func saveTokenTime(expiresIn: Int) {
