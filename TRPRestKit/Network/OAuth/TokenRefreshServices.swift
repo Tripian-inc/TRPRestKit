@@ -19,13 +19,11 @@ public class TokenRefreshServices {
     public func handler(isRefresh: Bool, _ handler: @escaping Handler) {
         
         guard let token = TripianTokenController().token else {
-            print("[Error 1]: Token Yok")
             handler("")
             return
         }
         
         if TripianTokenController().isTokenValid || isRefresh {
-            print("TOKEN \(token)")
             handler(token)
             return
         }
@@ -33,12 +31,10 @@ public class TokenRefreshServices {
         services.append(handler)
         print("Token zaman aşımında")
         fetchNewRefreshToken { (newToken) in
-            
             for service in self.services {
                 service(newToken)
             }
             self.services.removeAll()
-            print("Tümü temizlendi")
         }
     }
  
