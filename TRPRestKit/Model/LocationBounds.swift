@@ -9,11 +9,11 @@
 import Foundation
 import TRPFoundationKit
 public struct LocationBounds {
-    public var northWest: TRPLocation
-    public var southEast: TRPLocation
+    public var northEast: TRPLocation
+    public var southWest: TRPLocation
     
-    public init(northWest: TRPLocation, southEast: TRPLocation) {
-        self.northWest = northWest
-        self.southEast = southEast
+    public init(northEast: TRPLocation, southWest: TRPLocation) {
+        self.northEast = northEast
+        self.southWest = southWest
     }
 }

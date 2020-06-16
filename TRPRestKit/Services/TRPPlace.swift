@@ -128,7 +128,6 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
                 if typeIds.count > 0 {
                     params["poi_categories"] = typeIds.toString()
                 }
-                
             }
             if let cityId = cityId {
                 params["city_id"] = cityId
@@ -149,7 +148,7 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
             params["coordinate"] = "\(location.lat),\(location.lon)"
         }
         if let bounds = bounds {
-            params["bounds"] = "\(bounds.northWest.lat),\(bounds.southEast.lat),\(bounds.northWest.lon),\(bounds.southEast.lon)"
+            params["bounds"] = "\(bounds.northEast.lat),\(bounds.southWest.lat),\(bounds.northEast.lon),\(bounds.southWest.lon)"
         }
         return params
     }
