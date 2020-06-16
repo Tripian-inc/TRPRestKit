@@ -400,9 +400,10 @@ extension TRPRestKit {
     public func poi(search: String,
                     cityId: Int? = nil,
                     location userLoc: TRPLocation? = nil,
+                    bounds: LocationBounds? = nil,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
-        poiServices(location: userLoc, searchText: search, cityId: cityId, autoPagination: false)
+        poiServices(location: userLoc, searchText: search, cityId: cityId, bounds: bounds, autoPagination: false)
     }
     
     /// A services which will be used in place of interests services, manages all task connecting to remote server.
@@ -429,6 +430,7 @@ extension TRPRestKit {
                              url: String? = nil,
                              searchText: String? = nil,
                              cityId: Int? = nil,
+                             bounds: LocationBounds? = nil,
                              autoPagination: Bool = true) {
         
         let placeService = createPoiService(placeIds: placeIds,
@@ -441,6 +443,7 @@ extension TRPRestKit {
                                             link: url,
                                             searchText: searchText,
                                             cityId: cityId,
+                                            bounds: bounds,
                                             autoPagination: autoPagination)
         
         guard let services = placeService else {return}
@@ -477,6 +480,7 @@ extension TRPRestKit {
                                   link: String? = nil,
                                   searchText: String? = nil,
                                   cityId: Int? = nil,
+                                  bounds: LocationBounds? = nil,
                                   autoPagination: Bool = true) -> TRPPoiService? {
         var placeService: TRPPoiService?
         if let places = placeIds, let cities = cities, let city = cities.first {
@@ -484,7 +488,8 @@ extension TRPRestKit {
         } else if let search = searchText {
             placeService = TRPPoiService(location: location,
                                          searchText: search,
-                                         cityId: cityId)
+                                         cityId: cityId,
+                                         bounds: bounds)
         } else if let location = location {
             placeService = TRPPoiService(location: location, distance: distance)
             if let id = typeId {
@@ -1621,7 +1626,7 @@ extension TRPRestKit {
 
 // MARK: - Steps
 extension TRPRestKit {
-   //Burası silinen Add Plan Poit kısmının yeni hali, ordan alınabiliri
+    //Burası silinen Add Plan Poit kısmının yeni hali, ordan alınabiliri
     
     /// Add Plan POI to the daily plan.
     public func addStep(planId: Int, poiId: Int, order: Int? = nil, completion: @escaping CompletionHandler) {
@@ -1701,6 +1706,33 @@ extension TRPRestKit {
     
 }
 
+//Mark: Get User Reaction
+extension TRPRestKit {
+    
+    // return [TRPReactionModel]
+    public func getUserReaction(withTripHash hash: String, completion: @escaping CompletionHandlerWithPagination) {
+        self.completionHandlerWithPagination = completion
+        getUserReactionService(tripHash: hash)
+    }
+    
+    private func getUserReactionService(tripHash hash: String) {
+        let service = TRPGetUserReactionServices(tripHash: hash)
+        service.completion = { (result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPGenericParser<[TRPReactionModel]> {
+                self.postData(result: serviceResult.data)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        service.connection()
+    }
+}
+
+//Mark: Add and Update userReaction
 extension TRPRestKit {
     
     public func addUserReaction(poiId: Int, stepId: Int, reaction: UserReactionType? = nil, comment: String? = nil, completion: @escaping CompletionHandler) {
@@ -1746,7 +1778,6 @@ extension TRPRestKit {
     }
     
 }
-
 
 extension TRPRestKit {
     public func deleteUserReaction(id: Int, completion: @escaping CompletionHandler) {

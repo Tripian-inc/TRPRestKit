@@ -16,7 +16,6 @@ public struct TRPTripModel: Decodable {
     public var id: Int
     /// A String value. Unique hash of trip.
     public var tripHash: String
-
     public var tripProfile: TRPTripProfileModel
     public var city: TRPCityInfoModel
     public var plans: [TRPPlansInfoModel]

@@ -66,7 +66,6 @@ internal class TRPUserReactionServices: TRPRestServices<TRPGenericParser<TRPReac
         if let comment = comment {
             params["comment"] = comment
         }
-        print("PARAMETRE \(params)")
         return params
     }
 }

@@ -14,6 +14,9 @@ public struct TRPReactionModel: Decodable {
     public var stepId: Int
     public var reaction: String?
     public var comment: String?
+    public var createdAt: String?
+    public var updatedAt: String?
+    public var tripHash: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -21,6 +24,9 @@ public struct TRPReactionModel: Decodable {
         case stepId = "step_id"
         case reaction
         case comment
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case tripHash = "trip_hash"
     }
     
 }

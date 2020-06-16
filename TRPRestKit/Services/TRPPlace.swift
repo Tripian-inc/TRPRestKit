@@ -25,6 +25,7 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
     var typeIds: [Int]?
     
     private var location: TRPLocation?
+    private var bounds: LocationBounds?
     private var distance: Float?
     private var status: FetchType = FetchType.withCityId
     private var searchText: String?
@@ -54,12 +55,15 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
         status = .withLocation
     }
     
+    //Bir alan içinde Text bazlı poi listesi için kullanılır.
     internal init(location: TRPLocation? = nil,
                   searchText: String,
-                  cityId: Int?) {
+                  cityId: Int?,
+                  bounds: LocationBounds?) {
         self.location = location
         self.searchText = searchText
         self.cityId = cityId
+        self.bounds = bounds
         status = .withSearchText
     }
     
@@ -143,6 +147,9 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
         }
         if let location = location {
             params["coordinate"] = "\(location.lat),\(location.lon)"
+        }
+        if let bounds = bounds {
+            params["bounds"] = "\(bounds.northWest.lat),\(bounds.southEast.lat),\(bounds.northWest.lon),\(bounds.southEast.lon)"
         }
         return params
     }
