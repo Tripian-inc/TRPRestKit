@@ -80,12 +80,12 @@ public struct TRPConstantsInfoModel: Decodable {
     public var readMe: String?
     /// An Int value. Shows max day between user trips can be.
     public var maxDayBetweenTrips: Int?
-    public var message: TRPConstantMessageInfoModel?
+    public var alertMessage: TRPConstantMessageInfoModel?
     
     private enum CodingKeys: String, CodingKey {
         case readMe = "read_me"
         case maxDayBetweenTrips = "max_day_between_trips"
-        case message
+        case alertMessage = "alert_message"
     }
     
     /// Initializes a new object with decoder
@@ -95,7 +95,7 @@ public struct TRPConstantsInfoModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.readMe = try values.decodeIfPresent(String.self, forKey: .readMe)
         self.maxDayBetweenTrips = try values.decodeIfPresent(Int.self, forKey: .maxDayBetweenTrips)
-        self.message = try values.decodeIfPresent(TRPConstantMessageInfoModel.self, forKey: .maxDayBetweenTrips)
+        self.alertMessage = try values.decodeIfPresent(TRPConstantMessageInfoModel.self, forKey: .alertMessage)
     }
 }
 
