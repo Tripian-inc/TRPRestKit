@@ -97,3 +97,11 @@ public struct TRPTime {
     }
     
 }
+
+extension TRPTime: Equatable{
+    //Note: -  saat eklenebilir.
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.formated == rhs.formated
+    }
+
+}

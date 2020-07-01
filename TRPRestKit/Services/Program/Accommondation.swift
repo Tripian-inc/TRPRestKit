@@ -32,10 +32,6 @@ public struct Accommondation {
         
         params["address"] = address
         params["coordinate"] = coordinate.json()
-        print(" ")
-        print("*******")
-        print("Accommondation")
-        print(params)
         return params
     }
 }

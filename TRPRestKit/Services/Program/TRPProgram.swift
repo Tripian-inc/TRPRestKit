@@ -58,6 +58,8 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         }
         if let accommodationAddress = setting.accommodationAdress, let accomJson = accommodationAddress.json() {
             params["accommodation"] = accomJson
+        }else {
+            params["accommodation"] =  NSNull()
         }
         
         if let companions = setting.selectedCompanionIds {

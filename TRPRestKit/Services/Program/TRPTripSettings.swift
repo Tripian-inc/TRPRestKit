@@ -55,7 +55,7 @@ public class TRPTripSettings {
         self.departureTime = departureTime
     }
     
-    public func setAccommondation(_ value: Accommondation) {
+    public func setAccommondation(_ value: Accommondation?) {
         self.accommodationAdress = value
     }
     

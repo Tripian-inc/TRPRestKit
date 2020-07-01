@@ -55,12 +55,24 @@ public struct TRPPlansInfoModel: Decodable {
         self.endTime = try values.decodeIfPresent(String.self, forKey: .endTime)
         self.generatedStatus = try values.decode(Int.self, forKey: .generate)
         //todo:- alk kod açılacak test için yapıldı
-        if let planPoints = try? values.decodeIfPresent([TRPStepInfoModel].self, forKey: .steps) {
-            self.steps = planPoints ?? []
+        if let planPoints = try? values.decodeIfPresent([FailableDecodable<TRPStepInfoModel>].self, forKey: .steps) {
+            let result = planPoints ?? []
+            
+            self.steps = result.compactMap({$0.base})
         } else {
             self.steps = []
         }
         
     }
     
+}
+
+struct FailableDecodable<Base : Decodable> : Decodable {
+
+    let base: Base?
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        self.base = try? container.decode(Base.self)
+    }
 }
