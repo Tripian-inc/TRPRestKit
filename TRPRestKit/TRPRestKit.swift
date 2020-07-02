@@ -1404,7 +1404,7 @@ extension TRPRestKit {
     }
     
     /// A services which will be used in plan poi alternative services, manages all task connecting to remote server.
-    private func planPointAlternative(hash:String? = nil, stepId: Int? = nil, planId: Int? = nil) {
+    private func planPointAlternative(hash: String? = nil, stepId: Int? = nil, planId: Int? = nil) {
         var poiAlternativeService: TRPStepAlternativesServices?
         
         if let hash = hash {
