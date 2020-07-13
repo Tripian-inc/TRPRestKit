@@ -9,9 +9,9 @@
 import Foundation
 public struct TRPBookingInfoModel: Decodable {
     
-    var providerId: Int?
-    var providerName: String?
-    var product: TRPBookingProductInfoModel?
+    public var providerId: Int?
+    public var providerName: String?
+    public var product: TRPBookingProductInfoModel?
     
     private enum CodingKeys: String, CodingKey {
         case providerId = "provider_id"
@@ -31,10 +31,10 @@ public struct TRPBookingInfoModel: Decodable {
 
 public struct TRPBookingProductInfoModel: Decodable {
     
-    var id: String?
-    var title: String?
-    var additionalData: [String]?
-    var url: String?
+    public var id: String?
+    public var title: String?
+    public var additionalData: [String]?
+    public var url: String?
     
     private enum CodingKeys: String, CodingKey {
         case id
