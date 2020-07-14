@@ -114,6 +114,7 @@ public class TRPRestServices<T: Decodable> {
             let pagination = checkPagination(result)
             self.completion?(result, nil, pagination)
         } catch let tryError {
+            print("PARSER ERROR \(tryError)")
             self.completion?(nil, tryError as NSError, nil)
         }
     }

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPUserReservationServices: TRPRestServices<TRPGenericParser<TRPReactionModel>> {
+internal class TRPUserReservationServices: TRPRestServices<TRPGenericParser<[TRPReservationInfoModel]>> {
     
     var cityId: Int?
     var tripHash: String?
@@ -16,8 +16,6 @@ internal class TRPUserReservationServices: TRPRestServices<TRPGenericParser<TRPR
     var to: String?
     var provider: String?
     var limit: Int?
-    
-    
     
     public override func path() -> String {
         let url = TRPConfig.ApiCall.userReservation.link
@@ -33,13 +31,38 @@ internal class TRPUserReservationServices: TRPRestServices<TRPGenericParser<TRPR
         return .get
     }
     
-    override func bodyParameters() -> [String: Any]? {
-        
+    override func parameters() -> [String: Any]? {
         var params = [String: Any]()
+        
+        if let cityId = cityId {
+            params["city_id"] = cityId
+        }
+        
+        if let tripHash = tripHash {
+            params["trip_hash"] = tripHash
+        }
+        
         if let poiId = poiId {
             params["poi_id"] = poiId
         }
-       
+        
+        if let from = from {
+            params["from"] = from
+        }
+        
+        if let mto = to {
+            params["to"] = mto
+        }
+        
+        if let provider = provider {
+            params["provider"] = provider
+        }
+        
+        if let limit = limit {
+            params["limit"] = limit
+        }
+    
         return params
     }
+    
 }

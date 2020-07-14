@@ -1806,23 +1806,24 @@ extension TRPRestKit {
 
 //MARK: - Token Controller
 extension TRPRestKit {
+    
+    // [TRPReservationInfoModel]
     public func getUserReservation(cityId: Int, from: String? = nil, to: String? = nil, provider: String? = nil, limit: Int? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         getUserReservationServices(cityId: cityId, from: from, to: to, provider: provider, limit: limit)
     }
     
-    
+    // [TRPReservationInfoModel]
     public func getUserReservation(tripHash: String, from: String? = nil, to: String? = nil, provider: String? = nil, limit: Int? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         getUserReservationServices(tripHash: tripHash, from: from, to: to, provider: provider, limit: limit)
     }
     
-    
+    // [TRPReservationInfoModel]
     public func getUserReservation(poiId: Int, from: String? = nil, to: String? = nil, provider: String? = nil, limit: Int? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         getUserReservationServices(poiId: poiId, from: from, to: to, provider: provider, limit: limit)
     }
-    
     
     private func getUserReservationServices(cityId: Int? = nil,
                                             tripHash: String? = nil,
@@ -1845,7 +1846,8 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let serviceResult = result as? TRPParentJsonModel {
+            
+            if let serviceResult = result as? TRPGenericParser<[TRPReservationInfoModel]> {
                 self.postData(result: serviceResult)
             }else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
