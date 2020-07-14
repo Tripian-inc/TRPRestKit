@@ -1803,6 +1803,73 @@ extension TRPRestKit {
     }
 }
 
+
+//MARK: - Token Controller
+extension TRPRestKit {
+    public func getUserReservation(cityId: Int, from: String? = nil, to: String? = nil, provider: String? = nil, limit: Int? = nil, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        getUserReservationServices(cityId: cityId, from: from, to: to, provider: provider, limit: limit)
+    }
+    
+    
+    public func getUserReservation(tripHash: String, from: String? = nil, to: String? = nil, provider: String? = nil, limit: Int? = nil, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        getUserReservationServices(tripHash: tripHash, from: from, to: to, provider: provider, limit: limit)
+    }
+    
+    
+    public func getUserReservation(poiId: Int, from: String? = nil, to: String? = nil, provider: String? = nil, limit: Int? = nil, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        getUserReservationServices(poiId: poiId, from: from, to: to, provider: provider, limit: limit)
+    }
+    
+    
+    private func getUserReservationServices(cityId: Int? = nil,
+                                            tripHash: String? = nil,
+                                            poiId: Int? = nil,
+                                            from: String? = nil,
+                                            to: String? = nil,
+                                            provider: String? = nil,
+                                            limit: Int? = nil) {
+        let services = TRPUserReservationServices()
+        services.cityId = cityId
+        services.tripHash = tripHash
+        services.poiId = poiId
+        services.from = from
+        services.to = to
+        services.provider = provider
+        services.limit = limit
+        
+        services.completion = { (result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPParentJsonModel {
+                self.postData(result: serviceResult)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        services.connection()
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //MARK: - Token Controller
 extension TRPRestKit {
     public func saveToken(_ token: TRPToken) {

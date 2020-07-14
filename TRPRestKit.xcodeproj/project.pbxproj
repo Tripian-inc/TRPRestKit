@@ -67,6 +67,7 @@
 		B24F16F92488FFB200922C43 /* TRPTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24F16F82488FFB200922C43 /* TRPTokenModel.swift */; };
 		B25219B123AA708100D0F785 /* TRPUserRegisterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25219B023AA708100D0F785 /* TRPUserRegisterTest.swift */; };
 		B25251682269E76F00C0EBAA /* TRPReportAProblemJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25251672269E76F00C0EBAA /* TRPReportAProblemJsonModel.swift */; };
+		B252FC4824BE128D0014B750 /* TRPUserReservationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252FC4724BE128D0014B750 /* TRPUserReservationServices.swift */; };
 		B25318542407E1D1007F97C3 /* TRPUserProfileInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25318532407E1D1007F97C3 /* TRPUserProfileInfoModel.swift */; };
 		B25318572407EFA2007F97C3 /* TRPRefreshTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25318562407EFA2007F97C3 /* TRPRefreshTokenService.swift */; };
 		B253185924092981007F97C3 /* TRPGenericParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253185824092981007F97C3 /* TRPGenericParserTest.swift */; };
@@ -245,6 +246,7 @@
 		B24F16F82488FFB200922C43 /* TRPTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTokenModel.swift; sourceTree = "<group>"; };
 		B25219B023AA708100D0F785 /* TRPUserRegisterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserRegisterTest.swift; sourceTree = "<group>"; };
 		B25251672269E76F00C0EBAA /* TRPReportAProblemJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPReportAProblemJsonModel.swift; sourceTree = "<group>"; };
+		B252FC4724BE128D0014B750 /* TRPUserReservationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserReservationServices.swift; sourceTree = "<group>"; };
 		B25318532407E1D1007F97C3 /* TRPUserProfileInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserProfileInfoModel.swift; sourceTree = "<group>"; };
 		B25318562407EFA2007F97C3 /* TRPRefreshTokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRefreshTokenService.swift; sourceTree = "<group>"; };
 		B253185824092981007F97C3 /* TRPGenericParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGenericParserTest.swift; sourceTree = "<group>"; };
@@ -535,6 +537,14 @@
 			path = ReportAProblem;
 			sourceTree = "<group>";
 		};
+		B252FC4624BE125C0014B750 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				B252FC4724BE128D0014B750 /* TRPUserReservationServices.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
 		B25318552407EF7A007F97C3 /* RefreshToken */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +674,7 @@
 		B29B463220F60A1F0009E711 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B252FC4624BE125C0014B750 /* Reservation */,
 				B261996A245C2A26001F1A45 /* UserReaction */,
 				B267EDD9241119E9006FCFA0 /* StepService */,
 				B25318552407EF7A007F97C3 /* RefreshToken */,
@@ -1091,6 +1102,7 @@
 				784BAB9422C3505D00BBDB0F /* TRPCompanionModel.swift in Sources */,
 				B29B46A220F613430009E711 /* TRPRequestMode.swift in Sources */,
 				B215BF0921319D6500659818 /* TRPUserInfoModel.swift in Sources */,
+				B252FC4824BE128D0014B750 /* TRPUserReservationServices.swift in Sources */,
 				B287616623A79DEC00951486 /* TRPApiKey.swift in Sources */,
 				B267EDDB241119F9006FCFA0 /* TRPStepServices.swift in Sources */,
 				B2642BEB248FC4F200A1B8CF /* TRPGetUserReactionServices.swift in Sources */,
