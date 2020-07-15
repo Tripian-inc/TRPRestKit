@@ -44,6 +44,7 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
 /// instead you receive object in completion handler form when you request a call
 /// such as `TRPRestKit().city(withId:completion:)` method. However assure that you have provided tripian api key first.
 ///
+// swiftlint:disable all
 @objc public class TRPRestKit: NSObject {
     
     /// **CompletionHandler** is a typealias that provides result and error when the request is completed.
@@ -75,6 +76,30 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
             comp(nil, error)
         } else if let full = completionHandlerWithPagination {
             full(nil, error, pagination)
+        }
+    }
+    
+    private func parseAndPost<T: Decodable>(_ parser: T.Type, _ result: Any?, _ error: NSError?, _ pagination: Pagination?) {
+        if let error = error {
+            self.postError(error: error)
+            return
+        }
+        if let serviceResult = result as? T{
+            self.postData(result: serviceResult)
+        }else {
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+        }
+    }
+    
+    private func genericParseAndPost<T: Decodable>(_ parser: T.Type, _ result: Any?, _ error: NSError?, _ pagination: Pagination?) {
+        if let error = error {
+            self.postError(error: error)
+            return
+        }
+        if let serviceResult = result as? TRPGenericParser<T>, let data = serviceResult.data{
+            self.postData(result: data)
+        }else {
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
     }
     
@@ -619,11 +644,8 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            
-            if let serviceResult = result as? TRPGenericParser<[TRPRecommendationInfoJsonModel]>, let recommendationPlaces = serviceResult.data {
-                self.postData(result: recommendationPlaces, pagination: pagination)
-            } else {
-                self.postData(result: [], pagination: pagination)
+            recommendationService.completion = { result, error, pagination in
+                self.genericParseAndPost([TRPRecommendationInfoJsonModel].self, result, error, pagination)
             }
         }
         recommendationService.connection()
@@ -688,7 +710,6 @@ extension TRPRestKit {
             if let serviceResult = result as? TRPGenericParser<TRPLoginInfoModel> {
                 if let data = serviceResult.data {
                     self.saveToken(TRPToken(login: data))
-                    
                 }
                 self.postData(result: serviceResult.data, pagination: pagination)
             } else {
@@ -956,16 +977,8 @@ extension TRPRestKit {
     
     private func companionDeleteService(id: Int) {
         let service = TRPCompanionDeleteServices(id: id)
-        service.completion = {(result, error, _) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            guard let result = result as? TRPParentJsonModel else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-                return
-            }
-            self.postData(result: result)
+        service.completion = { result, error, pagination in
+            self.parseAndPost(TRPParentJsonModel.self, result, error, pagination)
         }
         service.connection()
     }
@@ -983,40 +996,16 @@ extension TRPRestKit {
     
     internal func getCompanionService() {
         let service = TRPGetCompanionServices()
-        service.completion = {(result, error, _) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            
-            guard let result = result as? TRPGenericParser<[TRPCompanionModel]> else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-                return
-            }
-            
-            var wrapped = [TRPCompanionModel]()
-            if let data = result.data {
-                wrapped = data
-            }
-            self.postData(result: wrapped)
+        service.completion = { result, error, pagination in
+            self.genericParseAndPost([TRPCompanionModel].self, result, error, pagination)
         }
         service.connection()
     }
     
     private func companionPutPostService(id: Int? = nil, name: String, answers: [Int], age:Int? = nil) {
         let service = TRPCompanionPutPostServices(companionId: id, name: name, answers: answers, age: age)
-        service.completion = {(result, error, _) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            
-            guard let result = result as? TRPGenericParser<TRPCompanionModel>, let data = result.data else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-                return
-            }
-            
-            self.postData(result: data)
+        service.completion = { result, error, pagination in
+            self.genericParseAndPost(TRPCompanionModel.self, result, error, pagination)
         }
         service.connection()
     }
@@ -1151,16 +1140,8 @@ extension TRPRestKit {
         }
         
         tripService!.limit = limit
-        tripService!.completion = {   (result, error, pagination) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            if let serviceResult = result as? TRPGenericParser<[TRPUserTripInfoModel]> {
-                self.postData(result: serviceResult.data)
-            }else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-            }
+        tripService!.completion = { result, error, pagination in
+            self.genericParseAndPost([TRPUserTripInfoModel].self, result, error, pagination)
         }
         tripService!.connection()
     }
@@ -1261,16 +1242,8 @@ extension TRPRestKit {
     /// A services which will be used for both creating and editing services, manages all task connecting to remote server.
     private func createOrEditTripServices(settings: TRPTripSettings) {
         let programService = TRPProgram(setting: settings)
-        programService.completion = {   (result, error, pagination) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            if let data = result as? TRPGenericParser<TRPTripModel>, let serviceResult = data.data {
-                self.postData(result: serviceResult)
-            }else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-            }
+        programService.completion = { result, error, pagination in
+            self.genericParseAndPost(TRPTripModel.self, result, error, pagination)
         }
         programService.connection()
     }
@@ -1291,16 +1264,8 @@ extension TRPRestKit {
     private func getTripServices(hash: String) {
         
         let getProgramService = TRPGetTripServices(hash: hash)
-        getProgramService.completion = {  (result, error, pagination) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            if let serviceResult = result as? TRPGenericParser<TRPTripModel>, let info = serviceResult.data {
-                self.postData(result: info)
-            }else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-            }
+        getProgramService.completion = { result, error, pagination in
+            self.genericParseAndPost(TRPTripModel.self, result, error, pagination)
         }
         getProgramService.connection()
     }
@@ -1320,14 +1285,8 @@ extension TRPRestKit {
     /// A services which will be used in delete trip services, manages all task connecting to remote server.
     private func deleteTripServices(hash: String) {
         let deleteService = TRPDeleteProgram(hash: hash)
-        deleteService.completion = { (result, error, pagination) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            if let serviceResult = result as? TRPGenericParser<TRPDeleteUserTripInfo> {
-                self.postData(result: serviceResult.data)
-            }
+        deleteService.completion = { result, error, pagination in
+            self.genericParseAndPost(TRPDeleteUserTripInfo.self, result, error, pagination)
         }
         deleteService.connection()
     }
@@ -1674,32 +1633,16 @@ extension TRPRestKit {
             print("[Error] StepService mustn't be nil")
             return
         }
-        stepService.completion = { (result, error, _) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            if let serviceResult = result as? TRPGenericParser<TRPStepInfoModel> {
-                self.postData(result: serviceResult.data)
-            }else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-            }
+        stepService.completion = { result, error, pagination in
+            self.genericParseAndPost(TRPStepInfoModel.self, result, error, pagination)
         }
         stepService.connection()
     }
     
     private func stepDeleteService(stepId: Int) {
         let service = TRPDeleteStepService(stepId: stepId)
-        service.completion = { (result, error, _) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            if let serviceResult = result as? TRPParentJsonModel {
-                self.postData(result: serviceResult)
-            }else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-            }
+        service.completion = { result, error, pagination in
+            self.parseAndPost(TRPParentJsonModel.self, result, error, pagination)
         }
         service.connection()
     }
@@ -1717,16 +1660,8 @@ extension TRPRestKit {
     
     private func getUserReactionService(tripHash hash: String) {
         let service = TRPGetUserReactionServices(tripHash: hash)
-        service.completion = { (result, error, _) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            if let serviceResult = result as? TRPGenericParser<[TRPReactionModel]> {
-                self.postData(result: serviceResult.data)
-            }else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-            }
+        service.completion = { result, error, pagination in
+            self.genericParseAndPost([TRPReactionModel].self, result, error, pagination)
         }
         service.connection()
     }
@@ -1751,9 +1686,7 @@ extension TRPRestKit {
     }
     
     private func userReactionService(id: Int? = nil, poiId: Int? = nil, stepId: Int? = nil, reaction: UserReactionType? = nil, comment: String? = nil) {
-        
         var services: TRPUserReactionServices?
-        
         //Update
         if let id = id {
             services = TRPUserReactionServices(id: id, stepId: stepId, poiId: poiId, reaction: reaction, comment: comment)
@@ -1762,17 +1695,8 @@ extension TRPRestKit {
             services = TRPUserReactionServices(stepId: step, poiId: poiId, reaction: reaction, comment: comment)
         }
         guard let service = services else {return}
-        
-        service.completion = { (result, error, _) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            if let serviceResult = result as? TRPGenericParser<TRPReactionModel> {
-                self.postData(result: serviceResult.data)
-            }else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-            }
+        service.completion = { result, error, pagination in
+            self.genericParseAndPost(TRPReactionModel.self, result, error, pagination)
         }
         service.connection()
     }
@@ -1787,24 +1711,14 @@ extension TRPRestKit {
     
     private func deleteUserReactionService(_ reactionId: Int) {
         let deleteService = TRPDeleteUserReactionServices(id: reactionId)
-        
-        deleteService.completion = { (result, error, _) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            if let serviceResult = result as? TRPParentJsonModel {
-                self.postData(result: serviceResult)
-            }else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-            }
+        deleteService.completion = { result, error, pagination in
+            self.parseAndPost(TRPParentJsonModel.self, result, error, pagination)
         }
         deleteService.connection()
     }
 }
 
-
-//MARK: - Token Controller
+//MARK: - USER RESERVATION
 extension TRPRestKit {
     
     // [TRPReservationInfoModel]
@@ -1840,36 +1754,41 @@ extension TRPRestKit {
         services.to = to
         services.provider = provider
         services.limit = limit
-        
-        services.completion = { (result, error, _) in
-            if let error = error {
-                self.postError(error: error)
-                return
-            }
-            
-            if let serviceResult = result as? TRPGenericParser<[TRPReservationInfoModel]> {
-                self.postData(result: serviceResult)
-            }else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
-            }
+        services.completion = { (result, error, pagination) in
+            self.genericParseAndPost([TRPReservationInfoModel].self, result, error, pagination)
         }
         services.connection()
     }
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+extension TRPRestKit {
+    public func addUserReservation(key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value: [String : Any]? = nil, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        addUserReservationServices(key: key, provider: provider, tripHash: tripHash, poiId: poiId,value: value)
+    }
+    
+    private func addUserReservationServices(key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value:[String : Any]? = nil) {
+        let service = TRPAddUserReservationServices(key: key, provider: provider, tripHash: tripHash, poiId: poiId,value: value)
+        service.completion = { result, error, pagination in
+            self.genericParseAndPost([TRPReservationInfoModel].self, result, error, pagination)
+        }
+        service.connection()
+    }
+    
+    public func deleteUserReservation(id: Int, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        deletePutUserReservationServices(id: id)
+    }
+    
+    private func deletePutUserReservationServices(id: Int) {
+        let service = TRPUserReservationDeletePutServices(id: id)
+        service.completion = { result, error, pagination in
+            self.parseAndPost(TRPParentJsonModel.self, result, error, pagination)
+        }
+        service.connection()
+    }
+}
 
 
 //MARK: - Token Controller

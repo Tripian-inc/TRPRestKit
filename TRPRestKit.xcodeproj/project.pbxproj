@@ -84,6 +84,8 @@
 		B2562EF223AB86100094A7B8 /* TRPFoundationKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B23C25A423AB75FE00B6736F /* TRPFoundationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2583C4623ABAB360081ED5D /* BaseUrlCreaterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2583C4523ABAB360081ED5D /* BaseUrlCreaterTest.swift */; };
 		B2583C4823ABC1220081ED5D /* AStartTestSettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2583C4723ABC1220081ED5D /* AStartTestSettingsTest.swift */; };
+		B258DD4524BECE4200C6C335 /* TRPAddUserReservationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B258DD4424BECE4200C6C335 /* TRPAddUserReservationServices.swift */; };
+		B258DD4724BEDC3D00C6C335 /* TRPUserReservationDeletePutServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B258DD4624BEDC3D00C6C335 /* TRPUserReservationDeletePutServices.swift */; };
 		B259621724052BBC00E98DF4 /* ApiV3StartTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259621624052BBC00E98DF4 /* ApiV3StartTest.swift */; };
 		B259621924053B7000E98DF4 /* TRPImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259621824053B7000E98DF4 /* TRPImageModel.swift */; };
 		B261996C245C2D96001F1A45 /* TRPUserReactionServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261996B245C2D96001F1A45 /* TRPUserReactionServices.swift */; };
@@ -262,6 +264,8 @@
 		B2557E9323ACB14400C5BF4D /* AAUserPersistentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAUserPersistentTest.swift; sourceTree = "<group>"; };
 		B2583C4523ABAB360081ED5D /* BaseUrlCreaterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlCreaterTest.swift; sourceTree = "<group>"; };
 		B2583C4723ABC1220081ED5D /* AStartTestSettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStartTestSettingsTest.swift; sourceTree = "<group>"; };
+		B258DD4424BECE4200C6C335 /* TRPAddUserReservationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPAddUserReservationServices.swift; sourceTree = "<group>"; };
+		B258DD4624BEDC3D00C6C335 /* TRPUserReservationDeletePutServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserReservationDeletePutServices.swift; sourceTree = "<group>"; };
 		B259621624052BBC00E98DF4 /* ApiV3StartTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiV3StartTest.swift; sourceTree = "<group>"; };
 		B259621824053B7000E98DF4 /* TRPImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageModel.swift; sourceTree = "<group>"; };
 		B261996B245C2D96001F1A45 /* TRPUserReactionServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserReactionServices.swift; sourceTree = "<group>"; };
@@ -543,6 +547,8 @@
 			isa = PBXGroup;
 			children = (
 				B252FC4724BE128D0014B750 /* TRPUserReservationServices.swift */,
+				B258DD4424BECE4200C6C335 /* TRPAddUserReservationServices.swift */,
+				B258DD4624BEDC3D00C6C335 /* TRPUserReservationDeletePutServices.swift */,
 			);
 			path = Reservation;
 			sourceTree = "<group>";
@@ -1091,6 +1097,7 @@
 				B261A72222490E4C00D31558 /* TRPProblemCategories.swift in Sources */,
 				B29B46A020F613300009E711 /* TRPNetworkError.swift in Sources */,
 				B29B469220F60FFB0009E711 /* TRPCityInfoModel.swift in Sources */,
+				B258DD4524BECE4200C6C335 /* TRPAddUserReservationServices.swift in Sources */,
 				B25318642409744A007F97C3 /* TRPPoiRefInfoModel.swift in Sources */,
 				B261996E245C2FE5001F1A45 /* UserReactionType.swift in Sources */,
 				B29B469420F6100C0009E711 /* TRPCountryJsonModel.swift in Sources */,
@@ -1176,6 +1183,7 @@
 				B215BEFF2131765B00659818 /* TRPProgram.swift in Sources */,
 				B2731D3E245DBE0900FF5718 /* TRPReactionModel.swift in Sources */,
 				B29B469C20F6104F0009E711 /* TRPCheckUpdateJsonModel.swift in Sources */,
+				B258DD4724BEDC3D00C6C335 /* TRPUserReservationDeletePutServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
