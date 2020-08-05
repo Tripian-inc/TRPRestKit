@@ -9,14 +9,14 @@
 import Foundation
 public struct TRPReservationInfoModel: Decodable {
     
-    let id: Int
-    let key: String
+    public let id: Int
+    public let key: String
     //let value: Any?
-    let provider, tripHash: String
-    let poiID: Int
-    let createdAt: String
-    var updatedAt: String?
-    var yelpModel: TRPYelpInfoModel?
+    public let provider, tripHash: String
+    public let poiID: Int
+    public let createdAt: String
+    public var updatedAt: String?
+    public var yelpModel: TRPYelpInfoModel?
     
     enum CodingKeys: String, CodingKey {
         case id, key, provider
@@ -43,15 +43,15 @@ public struct TRPReservationInfoModel: Decodable {
     
 }
 
-struct TRPYelpInfoModel: Codable {
-    let confirmURL: String
-    let reservationID: String
-    let restaurantImage: String
-    let restaurantName: String
-    let reservationStatus: TRPYelpReservationStatusInfoModel
+public struct TRPYelpInfoModel: Codable {
+    public let confirmURL: String
+    public let reservationID: String
+    public let restaurantImage: String
+    public let restaurantName: String
+    public let reservationStatus: TRPYelpReservationStatusInfoModel
 
     enum CodingKeys: String, CodingKey {
-        case confirmURL = "confirmUrl"
+        case confirmURL = "confirm_url"
         case reservationID = "reservation_id"
         case restaurantImage = "restaurant_image"
         case restaurantName = "restaurant_name"
@@ -60,8 +60,8 @@ struct TRPYelpInfoModel: Codable {
 }
 
 // MARK: - ReservationStatus
-struct TRPYelpReservationStatusInfoModel: Codable {
-    let active: Bool
-    let covers: Int
-    let date, time: String
+public struct TRPYelpReservationStatusInfoModel: Codable {
+    public let active: Bool
+    public let covers: Int
+    public let date, time: String
 }

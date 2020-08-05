@@ -14,6 +14,7 @@ public struct TRPUserTripInfoModel: Decodable {
     
     /// An Int value. Id of trip.
     public var id: Int
+    
     /// A String value. Unique hash of trip.
     public var tripHash: String
     

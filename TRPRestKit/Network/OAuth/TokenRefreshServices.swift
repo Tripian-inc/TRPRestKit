@@ -16,7 +16,12 @@ public class TokenRefreshServices {
     private var services: [Handler] = []
     private var isFetching = false
     
+    
+    
+    
+    
     public func handler(isRefresh: Bool, _ handler: @escaping Handler) {
+        
         
         guard let token = TripianTokenController().token else {
             handler("")
@@ -36,6 +41,7 @@ public class TokenRefreshServices {
             }
             self.services.removeAll()
         }
+        
     }
  
     private func fetchNewRefreshToken(_ completion: @escaping(_ token: String) -> Void) {

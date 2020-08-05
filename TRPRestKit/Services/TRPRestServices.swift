@@ -42,15 +42,12 @@ public class TRPRestServices<T: Decodable> {
         }
         
         if userOAuth() == true {
-            
             TokenRefreshServices.shared.handler(isRefresh: isRefresh) { (token) in
-                
                 networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-                
                 networkService.build { (error, data) in
                     self.servicesResult(data: data, error: error)
                 }
-            } 
+            }
         }else {
             networkService.build { (error, data) in
                 self.servicesResult(data: data, error: error)
@@ -59,6 +56,7 @@ public class TRPRestServices<T: Decodable> {
     
     }
    
+    
     private func createParams() -> [String: Any] {
         var params: [String: Any] = [:]
         if let additionalParams = parameters() {

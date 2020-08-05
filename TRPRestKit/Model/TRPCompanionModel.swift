@@ -19,8 +19,9 @@ public struct TRPCompanionModel: Decodable {
     public var answers: [Int]
     /// A String value. Age of the companion.
     public var age: Int?
+    public var title: String?
 
-    private enum CodingKeys: String, CodingKey {case id, name, answers, age}
+    private enum CodingKeys: String, CodingKey {case id, name, answers, age, title}
     
     /// Json to Object converter
     ///
@@ -31,6 +32,7 @@ public struct TRPCompanionModel: Decodable {
         self.name = try values.decode(String.self, forKey: .name)
         self.answers = try values.decode([Int].self, forKey: .answers)
         self.age = try values.decodeIfPresent(Int.self, forKey: .age)
+        self.title = try values.decodeIfPresent(String.self, forKey: .title)
     }
     
 }

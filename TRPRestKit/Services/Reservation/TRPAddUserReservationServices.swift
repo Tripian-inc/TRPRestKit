@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPAddUserReservationServices: TRPRestServices<TRPGenericParser<[TRPReservationInfoModel]>> {
+internal class TRPAddUserReservationServices: TRPRestServices<TRPGenericParser<TRPReservationInfoModel>> {
     
     private(set) var key: String
     private(set) var provider: String
@@ -49,9 +49,7 @@ internal class TRPAddUserReservationServices: TRPRestServices<TRPGenericParser<[
         }
         
         if let value = value {
-            for item in value {
-                params[item.key] = item.value
-            }
+            params["value"] = value
         }
         return params
     }

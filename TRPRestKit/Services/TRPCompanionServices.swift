@@ -30,19 +30,22 @@ internal class TRPGetCompanionServices: TRPRestServices<TRPGenericParser<[TRPCom
 internal class TRPCompanionPutPostServices: TRPRestServices<TRPGenericParser<TRPCompanionModel>> {
     
     let name: String
-    let answers: [Int]
+    let answers: [Int]?
     let age: Int?
     var companionId: Int?
+    var title: String?
     
     //Companion Id varsa edit yapılacak anlamına gelir ve Put uygulanır.
     //Companion Id yoksa yeni oluşturulacak anlamına gelir Post ugyulanır.
     
     init(companionId: Int? = nil,
          name: String,
-         answers: [Int],
+         answers: [Int]?,
+         title: String?,
          age: Int? = nil ) {
         self.companionId = companionId
         self.name = name
+        self.title = title
         self.answers = answers
         self.age = age
     }
@@ -61,9 +64,16 @@ internal class TRPCompanionPutPostServices: TRPRestServices<TRPGenericParser<TRP
     override func bodyParameters() -> [String : Any]? {
         var params = [String: Any]()
         params["name"] = name
+        
+        if let answers = answers {
         params["answers"] = answers
+        }
+        
         if let age = age {
             params["age"] = age
+        }
+        if let title = title {
+            params["title"] = title
         }
         return params
     }
