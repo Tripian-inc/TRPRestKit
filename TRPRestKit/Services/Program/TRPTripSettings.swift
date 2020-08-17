@@ -63,8 +63,6 @@ public class TRPTripSettings {
         var tempAns = [Int]()
         tempAns.append(contentsOf: tripAnswer)
         tempAns.append(contentsOf: profileAnswer)
-        print("Profile Question \(profileAnswer)")
-        print("Trip Questions \(tripAnswer)")
         return tempAns
     }
     

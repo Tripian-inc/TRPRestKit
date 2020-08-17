@@ -108,7 +108,7 @@ public class TRPRestKit {
             self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
     }
-
+    
     
     public init(queue: DispatchQueue = .main) {
         self.queue = queue
@@ -247,6 +247,13 @@ extension TRPRestKit {
 // MARK: - Poi Categories Services
 extension TRPRestKit {
     
+    
+    
+    
+    
+    
+    
+    
     /// Obtain the list of all categories, such as attractions, restaurants, cafes, bars,
     /// religious places, cool finds, shopping centers, museums, bakeries and art galleries. Returned results include category ids.
     ///
@@ -285,163 +292,58 @@ extension TRPRestKit {
 
 // MARK: - Poi Services
 extension TRPRestKit {
-    //NOT: GÖNDERİLEN POİ AYNI SIRA İLE GELMİYOR
-    /// Obtain the list of all Place of interests.
-    /// Returned results include, POI id, city id, category id, name, address,
-    /// coordinates, phone number, website, opening/closing times, tags, icon, description (if available), price range and images.
-    /// Use city id to obtain Places of interests of a specific city.
-    /// Use coordinates to obtain nearby POIs (use category or distance parameters to filter)
-    ///
-    /// All pois must be in the same city.
-    ///
-    /// - Parameters:
-    ///   - withIds: Places of Interests in a form of array.
-    ///   - cityId: Id of the requested city.
-    ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
-    ///   if the autopagination is set to `true`, next url will be continued.
-    ///   If autopagination is set to `false`, next url will not be continued.
-    ///   To call **poi(url:complation:)**, `pagination.nextlink` must be used.
-    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
-    ///  Pagination value also must be checked.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
-    public func poi(withIds ids: [Int],
-                    cityId: Int,
-                    limit: Int? = 25,
-                    autoPagination: Bool = true,
-                    completion: @escaping CompletionHandlerWithPagination) {
-        self.completionHandlerWithPagination = completion
-        poiServices(placeIds: ids, cities: [cityId], limit: limit, autoPagination: autoPagination)
-    }
     
-    /// Obtain all information of pois using city id.
-    ///
-    /// - Parameters:
-    ///   - cityId: City Id
-    ///   - limit: number of poi list to display (Optional).
-    ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
-    ///   if the autopagination is set to `true`, next url will be continued.
-    ///   If autopagination is set to `false`, next url will not be continued.
-    ///   To call **poi(url:complation:)**, `pagination.nextlink` must be used.
-    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
-    ///  Pagination value also must be checked.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
-    public func poi(withCityId cityId: Int,
-                    limit: Int? = 100,
-                    autoPagination: Bool? = false,
+    
+    public func poi(cityId: Int,
+                    search: String? = nil,
+                    poiIds: [Int]? = nil,
+                    poiCategoies: [Int]? = nil,
+                    mustTryIds: [Int]? = nil,
+                    distance: Float? = nil,
+                    bounds: LocationBounds? = nil,
+                    limit: Int? = 25,
+                    autoPagination: Bool = false,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
         
-        poiServices(placeIds: nil,
-                    cities: [cityId], limit: limit,
-                    autoPagination: autoPagination ?? false)
-    }
-    
-    /// Obtain information of pois using url which will be returned from Pagination
-    ///
-    /// - Parameters:
-    ///   - url: url that returned from Pagination
-    ///   - limit: number of poi list to display (Optional).
-    ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
-    ///   if the autopagination is set to `true`, next url will be continued.
-    ///   If autopagination is set to `false`, next url will not be continued.
-    ///   To call **poi(url:complation:)**, `pagination.nextlink` must be used.
-    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
-    ///  Pagination value also must be checked.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
-    public func poi(url: String, limit: Int? = 100, autoPagination: Bool = true, completion: @escaping CompletionHandlerWithPagination) {
-        self.completionHandlerWithPagination = completion
-        poiServices(placeIds: nil, cities: nil, limit: limit, url: url, autoPagination: autoPagination)
-    }
-    
-    /// Obtain information of pois using location.
-    ///
-    /// This method is used when tapped in `Search This Area` button on the map view.
-    /// The pois are ordered by the nearest cordinate,
-    /// so that the first poi will be the closest one to the requested location.
-    /// If all the pois are requested in the call, categoryIds parameter must be nil.
-    ///
-    /// - Parameters:
-    ///   - location: TRLocation object that will be given.
-    ///   - distance: Double value which will return pois in requested distance km. (Optional, default value is 50(km)).
-    ///   - cityId: Id of the requested city.
-    ///   - categoryIds: Poi category ids. This parameter is used in `Search This Area` button action on `Map View`.
-    ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
-    ///   if the autopagination is set to `true`, next url will be continued.
-    ///   If autopagination is set to `false`, next url will not be continued.
-    ///   To call **poi(url:complation:)**, `pagination.nextlink` must be used.
-    ///   - limit: number of pois to display (Optional).
-    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
-    ///  Pagination value also must be checked.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
-    public func poi(withLocation location: TRPLocation,
-                    distance: Float? = nil,
-                    cityId: Int? = nil,
-                    categoryIds: [Int]? = nil,
-                    autoPagination: Bool? = false,
-                    limit: Int? = 25,
-                    completion: @escaping CompletionHandlerWithPagination) {
-        self.completionHandlerWithPagination = completion
-        poiServices(limit: limit,
-                    location: location,
+        poiServices(cityId: cityId,
+                    search: search,
+                    poiIds: poiIds,
+                    poiCategoies: poiCategoies,
+                    mustTryIds: mustTryIds,
                     distance: distance,
-                    typeIds: categoryIds,
-                    cityId: cityId,
-                    autoPagination: autoPagination ?? false)
+                    bounds: bounds,
+                    limit: limit,
+                    autoPagination: autoPagination)
+        
     }
     
-    
-  
-    
-    /// Obtain information of pois using city Id.
-    ///
-    ///
-    /// - Parameters:
-    ///   - withCityId: Id of the requested city.
-    ///   - categoryIds: Poi category ids. This parameter is used in `Search This Area` button action on `Map View`.
-    ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional), in a detailed manner,
-    ///   if the autopagination is set to `true`, next url will be continued.
-    ///   If autopagination is set to `false`, next url will not be continued.
-    ///   To call **poi(url:complation:)**, `pagination.nextlink` must be used.
-    ///   - limit: number of pois to display (Optional).
-    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
-    ///  Pagination value also must be checked.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
-    public func poi(withCityId: Int,
-                    categoryIds: [Int]? = nil,
-                    autoPagination: Bool? = false,
-                    limit: Int? = 25,
-                    completion: @escaping CompletionHandlerWithPagination) {
-        self.completionHandlerWithPagination = completion
-        poiServices(limit: limit,
-                    typeIds: categoryIds,
-                    cityId: withCityId,
-                    autoPagination: autoPagination ?? false)
-    }
-    
-    /// Obtain information of pois using search text such as tags(for example "restaurant", "museum", "bar" etc.), name of poi.
-    ///
-    ///
-    /// - Parameters:
-    ///   - search: Text such as tags(for example "restaurant", "museum", "bar" etc.), name of poi.
-    ///   - cityId: Id of City(Optional). If user is not in the referanced city, city id should not be sent. When city id is sent, pois are sorted by distance.
-    ///   - userLoc: TRPLocation object that refers to user's coordinate. If userLocation is sent, pois are sorted by distance, in that case, CityId is not needed.
-    ///   - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
-    ///  - Important: Completion Handler is an any object which needs to be converted to **[TRPPoiInfoModel]** object.
-    ///  Pagination value also must be checked.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-places)
-    public func poi(search: String,
-                    cityId: Int? = nil,
-                    location userLoc: TRPLocation? = nil,
+    public func poi(coordinate: TRPLocation,
+                    search: String? = nil,
+                    poiIds: [Int]? = nil,
+                    poiCategoies: [Int]? = nil,
+                    mustTryIds: [Int]? = nil,
+                    distance: Float? = nil,
                     bounds: LocationBounds? = nil,
+                    limit: Int? = 25,
+                    autoPagination: Bool = false,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
-        poiServices(location: userLoc, searchText: search, cityId: cityId, bounds: bounds, autoPagination: false)
+        
+        poiServices(coordinate: coordinate,
+                    search: search,
+                    poiIds: poiIds,
+                    poiCategoies: poiCategoies,
+                    mustTryIds: mustTryIds,
+                    distance: distance,
+                    bounds: bounds,
+                    limit: limit,
+                    autoPagination: autoPagination)
     }
+    
+    
+    
+    
     
     /// A services which will be used in place of interests services, manages all task connecting to remote server.
     ///
@@ -457,36 +359,30 @@ extension TRPRestKit {
     ///   - searchText: Search text parameter for tags or places name
     ///   - cityId: CityId
     ///   - autoPagination: AutoCompletion patameter
-    private func poiServices(placeIds: [Int]? = nil,
-                             cities: [Int]? = nil,
-                             limit: Int? = 25,
-                             location: TRPLocation? = nil,
+    private func poiServices(cityId: Int? = nil,
+                             coordinate: TRPLocation? = nil,
+                             search: String? = nil,
+                             poiIds: [Int]? = nil,
+                             poiCategoies: [Int]? = nil,
+                             mustTryIds: [Int]? = nil,
                              distance: Float? = nil,
-                             typeId: Int? = nil,
-                             typeIds: [Int]? = nil,
-                             url: String? = nil,
-                             searchText: String? = nil,
-                             cityId: Int? = nil,
                              bounds: LocationBounds? = nil,
-                             autoPagination: Bool = true) {
+                             limit: Int? = 25,
+                             autoPagination: Bool = false,
+                             url: String? = nil
+    ) {
         
-        let placeService = createPoiService(placeIds: placeIds,
-                                            cities: cities,
-                                            limit: limit,
-                                            location: location,
-                                            distance: distance,
-                                            typeId: typeId,
-                                            typeIds: typeIds,
-                                            link: url,
-                                            searchText: searchText,
-                                            cityId: cityId,
-                                            bounds: bounds,
-                                            autoPagination: autoPagination)
+        var services: TRPPoiService?
+        if let cityId = cityId {
+            services = TRPPoiService(cityId: cityId)
+        }else if let coordinate = coordinate {
+            services = TRPPoiService(coordinate: coordinate)
+        }
         
-        guard let services = placeService else {return}
-        services.isAutoPagination = autoPagination
-        services.limit = limit ?? 25
-        services.completion = {    (result, error, pagination) in
+        guard let service = services else {return}
+        
+        
+        service.completion = {    (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
                 return
@@ -501,50 +397,13 @@ extension TRPRestKit {
         }
         
         if let link = url {
-            services.connection(link)
+            service.connection(link)
         } else {
-            services.connection()
+            service.connection()
         }
     }
     
-    private func createPoiService(placeIds: [Int]? = nil,
-                                  cities: [Int]? = nil,
-                                  limit: Int? = 25,
-                                  location: TRPLocation? = nil,
-                                  distance: Float? = nil,
-                                  typeId: Int? = nil,
-                                  typeIds: [Int]? = nil,
-                                  link: String? = nil,
-                                  searchText: String? = nil,
-                                  cityId: Int? = nil,
-                                  bounds: LocationBounds? = nil,
-                                  autoPagination: Bool = true) -> TRPPoiService? {
-        var placeService: TRPPoiService?
-        if let places = placeIds, let cities = cities, let city = cities.first {
-            placeService = TRPPoiService(ids: places, cityId: city)
-        } else if let search = searchText {
-            placeService = TRPPoiService(location: location,
-                                         searchText: search,
-                                         cityId: cityId,
-                                         bounds: bounds)
-        } else if let location = location {
-            placeService = TRPPoiService(location: location, distance: distance)
-            if let id = typeId {
-                placeService?.typeId = id
-            }
-            if let ids = typeIds {
-                placeService?.typeIds = ids
-            }
-            placeService?.cityId = cityId
-        } else if let cities = cities {
-            placeService = TRPPoiService(cities: cities)
-        } else if link != nil {
-            placeService = TRPPoiService()
-        } else if let cityId = cityId, let types = typeIds {
-            placeService = TRPPoiService(cityId: cityId, typeIds: types)
-        }
-        return placeService
-    }
+    
     
 }
 
@@ -1774,7 +1633,7 @@ extension TRPRestKit {
         }
         services.connection()
     }
-
+    
 }
 
 extension TRPRestKit {

@@ -40,7 +40,7 @@ public struct TRPPoiInfoModel: Decodable {
     /// A String value. Icon name of poi.
     public var icon: String
     /// A TRPCoordinateModel objects. Center coordinate of poi.
-    public var coordinate: TRPCoordinateModel?
+    public var coordinate: TRPCoordinateModel
     
     public var markerCoordinate: TRPCoordinateModel?
     
@@ -108,7 +108,7 @@ public struct TRPPoiInfoModel: Decodable {
         self.phone = try values.decodeIfPresent(String.self, forKey: .phone)
         
         self.icon = try values.decode(String.self, forKey: .icon)
-        self.coordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .coordinate)
+        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
         self.markerCoordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .markerCoordinate)
         
         if let categorys = try values.decodeIfPresent([TRPCategoryInfoModel].self, forKey: .category) {

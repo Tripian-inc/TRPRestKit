@@ -11,7 +11,7 @@ public class TRPImageModel: NSObject, Decodable {
     
     /// An Int value. Unique id of a city.
     public var url: String
-    public var imageOwner: TRPImageOwner?
+    public var imageOwner: TRPImageOwnerModel?
    
     /// Tag matcher
     private enum CodingKeys: String, CodingKey {
@@ -25,7 +25,7 @@ public class TRPImageModel: NSObject, Decodable {
     public required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.url = try values.decode(String.self, forKey: .url)
-        self.imageOwner = try values.decodeIfPresent(TRPImageOwner.self, forKey: .imageOwner)
+        self.imageOwner = try values.decodeIfPresent(TRPImageOwnerModel.self, forKey: .imageOwner)
     }
     
 }
