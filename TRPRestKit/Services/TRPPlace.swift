@@ -10,8 +10,6 @@ import Foundation
 import TRPFoundationKit
 internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
     
-
-    
     //Must
     var cityId: Int?
     var coordinate: TRPLocation?
@@ -25,11 +23,7 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
     var bounds: LocationBounds?
     var limit: Int = 25
     
-    
-    
     internal override init() {}
-    
-    
     
     internal init(cityId: Int) {
         self.cityId = cityId
@@ -39,11 +33,9 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
         self.coordinate = coordinate
     }
     
-    
     override func parameters() -> [String: Any]? {
         return getParameters()
     }
-    
     
     private func getParameters() -> [String: Any] {
         var params: [String: Any] = [:]
@@ -53,16 +45,14 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
             params["city_id"] = cityId
         }
         
-        
         //Coordinate
         if let location = coordinate {
             params["coordinate"] = "\(location.lat),\(location.lon)"
         }
         
         if let places = placeIds, places.count > 0 {
-            params["poi_ids"] = places
+            params["poi_ids"] = places.toString()
         }
-        
         
         if let searchText = searchText {
             params["search"] = searchText
@@ -88,7 +78,6 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
         
         return params
     }
-    
     
     public override func path() -> String {
         return TRPConfig.ApiCall.poi.link

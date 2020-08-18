@@ -381,7 +381,16 @@ extension TRPRestKit {
         
         guard let service = services else {return}
         
+        service.bounds = bounds
+        service.coordinate = coordinate
+        service.distance = distance
+        service.searchText = search
+        service.placeIds = poiIds
+        service.mustTryIds = mustTryIds
+        service.poiCategories = poiCategoies
         
+        
+        service.isAutoPagination = autoPagination
         service.completion = {    (result, error, pagination) in
             if let error = error {
                 self.postError(error: error)
