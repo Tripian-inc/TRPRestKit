@@ -48,20 +48,32 @@ public struct TRPYelpInfoModel: Codable {
     public let reservationID: String
     public let restaurantImage: String
     public let restaurantName: String
-    public let reservationStatus: TRPYelpReservationStatusInfoModel
-
+    public let reservationDetail: TRPYelpReservationDetailInfoModel?
+    
     enum CodingKeys: String, CodingKey {
         case confirmURL = "confirm_url"
         case reservationID = "reservation_id"
         case restaurantImage = "restaurant_image"
         case restaurantName = "restaurant_name"
-        case reservationStatus = "reservation_status"
+        case reservationDetail = "reservation_status"
     }
 }
 
 // MARK: - ReservationStatus
-public struct TRPYelpReservationStatusInfoModel: Codable {
-    public let active: Bool
+public struct TRPYelpReservationDetailInfoModel: Codable {
+    
+    public let businessID: String
     public let covers: Int
-    public let date, time: String
+    public let time, holdID, firstName, phone: String
+    public let date, email, uniqueID, lastName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case businessID = "businessId"
+        case covers, time
+        case holdID = "holdId"
+        case firstName, phone, date, email
+        case uniqueID = "uniqueId"
+        case lastName
+    }
+    
 }

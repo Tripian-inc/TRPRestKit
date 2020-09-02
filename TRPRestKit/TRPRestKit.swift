@@ -342,7 +342,11 @@ extension TRPRestKit {
     }
     
     
-    
+    public func poi(url: String, limit: Int? = 25, completion: @escaping CompletionHandlerWithPagination) {
+        self.completionHandlerWithPagination = completion
+        
+        poiServices(url: url)
+    }
     
     
     /// A services which will be used in place of interests services, manages all task connecting to remote server.
@@ -377,6 +381,8 @@ extension TRPRestKit {
             services = TRPPoiService(cityId: cityId)
         }else if let coordinate = coordinate {
             services = TRPPoiService(coordinate: coordinate)
+        }else if url != nil {
+            services = TRPPoiService()
         }
         
         guard let service = services else {return}

@@ -54,6 +54,8 @@ public class TokenRefreshServices {
         TRPRestKit().refreshToken(refresh) { (_, error) in
             self.isFetching = false
             if let error = error {
+                //TODO: BURASI KESINLİKLE GERI DONDURULECEK.
+                //FIXME: KESİN İŞLEM YAPILACAK
                 print("Refresh Error \(error.localizedDescription)")
                 return
             }

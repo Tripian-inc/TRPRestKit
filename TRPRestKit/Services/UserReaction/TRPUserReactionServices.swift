@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 internal class TRPUserReactionServices: TRPRestServices<TRPGenericParser<TRPReactionModel>> {
     
     private var id: Int?
