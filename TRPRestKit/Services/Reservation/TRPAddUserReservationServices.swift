@@ -7,13 +7,15 @@
 //
 
 import Foundation
-internal class TRPAddUserReservationServices: TRPRestServices<TRPGenericParser<TRPReservationInfoModel>> {
+internal class TRPAddUpadateUserReservationServices: TRPRestServices<TRPGenericParser<TRPReservationInfoModel>> {
     
     private(set) var key: String
     private(set) var provider: String
     var tripHash: String?
     var poiId: Int?
     var value: [String: Any]?
+    var reservationId: Int?
+    
     
     init(key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value: [String: Any]? = nil) {
         self.key = key
@@ -23,8 +25,25 @@ internal class TRPAddUserReservationServices: TRPRestServices<TRPGenericParser<T
         self.value = value
     }
     
+    init(reservationId: Int, key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value: [String: Any]? = nil) {
+        self.reservationId = reservationId
+        self.key = key
+        self.provider = provider
+        self.tripHash = tripHash
+        self.poiId = poiId
+        self.value = value
+    }
+    
+    
     public override func path() -> String {
-        return TRPConfig.ApiCall.userReservation.link
+        
+        var url = TRPConfig.ApiCall.userReservation.link
+        
+        if let reservationId = reservationId {
+            url += "/\(reservationId)"
+        }
+        
+        return url
     }
     
     override func userOAuth() -> Bool {
@@ -32,6 +51,9 @@ internal class TRPAddUserReservationServices: TRPRestServices<TRPGenericParser<T
     }
     
     override func requestMode() -> TRPRequestMode {
+        if reservationId != nil {
+            return .put
+        }
         return .post
     }
     
@@ -39,6 +61,8 @@ internal class TRPAddUserReservationServices: TRPRestServices<TRPGenericParser<T
         var params = [String: Any]()
         params["key"] = key
         params["provider"] = provider
+        
+        
         
         if let tripHash = tripHash {
             params["trip_hash"] = tripHash

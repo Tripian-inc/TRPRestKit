@@ -71,7 +71,8 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         }
         
         let gen = setting.doNotGenerate == true ? 1 : 0
-        params["do_not_generate"] = gen
+        //TODO: do_not_generate GEN değişkenine eşitlenecek
+        params["do_not_generate"] = 0
         print("CreateTrip Params \(params)")
         return params
         

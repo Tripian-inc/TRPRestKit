@@ -1113,7 +1113,11 @@ extension TRPRestKit {
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#see-details-of-a-trip)
     public func createTrip(settings: TRPTripSettings, completion: @escaping CompletionHandler) {
         completionHandler = completion
-        createOrEditTripServices(settings: settings)
+        if let city = settings.cityId, city != 0 {
+            createOrEditTripServices(settings: settings)
+        }else {
+            print("[Error] City Id hash must not be empty")
+        }
     }
     
     /// Update trip with given settings and completion handler parameters.
@@ -1125,7 +1129,11 @@ extension TRPRestKit {
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#update-a-trip)
     public func editTrip(settings: TRPTripSettings, completion: @escaping CompletionHandler) {
         completionHandler = completion
-        createOrEditTripServices(settings: settings)
+        if let hash = settings.hash, !hash.isEmpty {
+            createOrEditTripServices(settings: settings)
+        }else {
+            print("[Error] Trip hash must not be empty")
+        }
     }
     
     /// A services which will be used for both creating and editing services, manages all task connecting to remote server.
@@ -1658,7 +1666,16 @@ extension TRPRestKit {
     }
     
     private func addUserReservationServices(key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value:[String : Any]? = nil) {
-        let service = TRPAddUserReservationServices(key: key, provider: provider, tripHash: tripHash, poiId: poiId,value: value)
+        let service = TRPAddUpadateUserReservationServices(key: key, provider: provider, tripHash: tripHash, poiId: poiId,value: value)
+        service.completion = { result, error, pagination in
+            self.genericParseAndPost(TRPReservationInfoModel.self, result, error, pagination)
+        }
+        service.connection()
+    }
+    
+    public func updateUserReservation(id: Int, key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value: [String : Any]? = nil, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        let service = TRPAddUpadateUserReservationServices(reservationId:id, key: key, provider: provider, tripHash: tripHash, poiId: poiId,value: value)
         service.completion = { result, error, pagination in
             self.genericParseAndPost(TRPReservationInfoModel.self, result, error, pagination)
         }

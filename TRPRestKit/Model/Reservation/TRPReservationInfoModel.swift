@@ -55,7 +55,7 @@ public struct TRPYelpInfoModel: Codable {
         case reservationID = "reservation_id"
         case restaurantImage = "restaurant_image"
         case restaurantName = "restaurant_name"
-        case reservationDetail = "reservation_status"
+        case reservationDetail = "reservation_details"
     }
 }
 

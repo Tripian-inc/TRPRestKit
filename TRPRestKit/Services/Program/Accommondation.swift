@@ -23,9 +23,11 @@ public struct Accommondation {
     
     public func json() -> [String: Any]? {
         var params: [String: Any] = [:]
+        
         if let refId = refId {
             params["ref_id"] = refId
         }
+        
         if let name = name {
             params["name"] = name
         }

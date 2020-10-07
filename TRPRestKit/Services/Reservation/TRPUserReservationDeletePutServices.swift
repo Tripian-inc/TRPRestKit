@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPUserReservationDeletePutServices: TRPRestServices<TRPGenericParser<TRPParentJsonModel>> {
+internal class TRPUserReservationDeletePutServices: TRPRestServices<TRPParentJsonModel> {
     
     private(set) var reservationId: Int
   
