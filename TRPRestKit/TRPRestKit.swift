@@ -319,6 +319,7 @@ extension TRPRestKit {
     }
     
     public func poi(coordinate: TRPLocation,
+                    cityId: Int? = nil,
                     search: String? = nil,
                     poiIds: [Int]? = nil,
                     poiCategoies: [Int]? = nil,
@@ -330,7 +331,8 @@ extension TRPRestKit {
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
         
-        poiServices(coordinate: coordinate,
+        poiServices(cityId:cityId,
+                    coordinate: coordinate,
                     search: search,
                     poiIds: poiIds,
                     poiCategoies: poiCategoies,
@@ -377,16 +379,16 @@ extension TRPRestKit {
     ) {
         
         var services: TRPPoiService?
-        if let cityId = cityId {
-            services = TRPPoiService(cityId: cityId)
-        }else if let coordinate = coordinate {
+        if let coordinate = coordinate {
             services = TRPPoiService(coordinate: coordinate)
+        }else if let cityId = cityId {
+            services = TRPPoiService(cityId: cityId)
         }else if url != nil {
             services = TRPPoiService()
         }
         
         guard let service = services else {return}
-        
+        service.cityId = cityId
         service.bounds = bounds
         service.coordinate = coordinate
         service.distance = distance
