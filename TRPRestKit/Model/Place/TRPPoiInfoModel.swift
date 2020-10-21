@@ -52,10 +52,11 @@ public struct TRPPoiInfoModel: Decodable {
     public var mustTries: [TRPTastesInfoModel] = []
     public var cuisines: String?
     public var attention: String?
-    
+    public var safety: [String] = []
     public var closed: [Int]
     public var distance: Float?
     public var status: Bool
+    
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -85,6 +86,7 @@ public struct TRPPoiInfoModel: Decodable {
         case distance
         case status
         case mustTries = "must_tries"
+        case safety
     }
     
     /// Json to Object converter
@@ -130,9 +132,10 @@ public struct TRPPoiInfoModel: Decodable {
         self.closed = try values.decodeIfPresent([Int].self, forKey: .closed) ?? []
         self.distance = try values.decodeIfPresent(Float.self, forKey: .distance)
         self.status = try values.decode(Bool.self, forKey: .status)
-        //TODO: - Api de değişebilir diye bu şekilde bıraktım
+        self.safety = try values.decodeIfPresent([String].self, forKey: .safety) ?? []
+        
+
         if let mustTries = try? values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .mustTries){
-            
             self.mustTries = mustTries ?? []
         }
         

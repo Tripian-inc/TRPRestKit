@@ -8,9 +8,8 @@
 
 import Foundation
 
-let dispatch = DispatchGroup()
-
 typealias JSON = [String: Any]
+
 /// Provide connection remote server.
 /// This class is use NSURLRequest.
 public class TRPNetwork {
@@ -119,8 +118,9 @@ public class TRPNetwork {
         if let bodyData = bodyData {
             request.httpBody = bodyData
         }
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+       
+        request.timeoutInterval = 30
+        let task = URLSession.shared.dataTask(with: request as URLRequest, useOfflineOnError: true) { (data, response, error) in
             var object: Any?
             
             if let data = data {
@@ -162,14 +162,6 @@ public class TRPNetwork {
         guard let params = params else {return nil}
         var queryItems = [URLQueryItem]()
         for (key, value) in params {
-            // İKİ KERE DECODE EDİLMİŞ OLUYOR.
-            // Bu yüzden türkçe karakter bozulması oluyor. Kod ileride bozulmaya neden olabiir.
-            /* if let mKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-             let mValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-             queryItems.append(URLQueryItem(name: mKey, value: mValue));
-             } */
-            //queryItems.append(URLQueryItem(name: key, value: "\(value)"))
-        
             queryItems.append(URLQueryItem(name: key, value: "\(value)"))
         }
         return queryItems
@@ -185,6 +177,25 @@ public class TRPNetwork {
             log.i("Request Result: \(strData)")
         }
         
+    }
+    
+}
+
+extension URLSession {
+    
+    func dataTask(with request: URLRequest,
+                  useOfflineOnError: Bool = false,
+                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        
+        return self.dataTask(with: request) { data, response, error in
+            
+            if useOfflineOnError, let error = error, let cachedResponse = self.configuration.urlCache?.cachedResponse(for: request) {
+                completionHandler(cachedResponse.data, cachedResponse.response, error)
+                return
+            }
+            
+            completionHandler(data, response, error)
+        }
     }
     
 }

@@ -30,16 +30,41 @@ public struct TRPBookingInfoModel: Decodable {
 }
 
 public struct TRPBookingProductInfoModel: Decodable {
-    
+
     public var id: String?
+    
     public var title: String?
-    public var additionalData: [String]?
+    
+    public var currency: String?
+    
+    public var price: Float
+    
+    public var priceDescription: String?
+    
+    public var image: String?
+    
+    public var rating: Float
+    
+    public var ratingCount: Int?
+    
+    public var duration: String?
+    
+    public var info: [String] = []
+    
     public var url: String?
     
     private enum CodingKeys: String, CodingKey {
         case id
         case title
+        case currency
+        case price
+        case priceDescription = "price_description"
+        case image
+        case rating
+        case ratingCount = "rating_count"
+        case duration
+        case info
         case url
-        case additionalData = "additional_data"
     }
+    
 }

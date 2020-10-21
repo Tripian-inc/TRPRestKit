@@ -56,7 +56,6 @@ public class TRPRestServices<T: Decodable> {
     
     }
    
-    
     private func createParams() -> [String: Any] {
         var params: [String: Any] = [:]
         if let additionalParams = parameters() {

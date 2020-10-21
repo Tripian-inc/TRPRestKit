@@ -45,10 +45,10 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         params["city_id"] = setting.cityId
         params["arrival_datetime"] = setting.arrivalTime.timeForServer
         params["departure_datetime"] = setting.departureTime.timeForServer
-        params["number_of_adults"] = String(setting.adultsCount)
+        params["number_of_adults"] = setting.adultsCount
         
         if let children = setting.childrenCount {
-            params["number_of_children"] = String(children)
+            params["number_of_children"] = children
         }
         
         params["answers"] = setting.getAllAnswers()
