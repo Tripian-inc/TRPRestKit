@@ -57,7 +57,6 @@ public struct TRPPoiInfoModel: Decodable {
     public var distance: Float?
     public var status: Bool
     
-    
     private enum CodingKeys: String, CodingKey {
         case id
         case cityId = "city_id"
@@ -97,6 +96,7 @@ public struct TRPPoiInfoModel: Decodable {
         self.id = try values.decode(Int.self, forKey: .id)
         self.cityId = try values.decode(Int.self, forKey: .cityId)
         self.name = try values.decode(String.self, forKey: .name)
+        
         self.image = try values.decode(TRPImageModel.self, forKey: .image)
         self.gallery = try values.decodeIfPresent([TRPImageModel].self, forKey: .gallery) ?? []
         self.price = try values.decodeIfPresent(Int.self, forKey: .price)
@@ -121,9 +121,13 @@ public struct TRPPoiInfoModel: Decodable {
         }
 
         self.cuisines = try values.decodeIfPresent(String.self, forKey: .cuisines)
-        if let booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey: .booking) {
-            self.booking = booking
+        
+        do {
+             self.booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey: .booking)
+        }catch let error {
+            print("Booking Error \(error)")
         }
+        
        // self.booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey:.booking)
         
         self.tags = try values.decode([String].self, forKey: .tags)
@@ -133,8 +137,7 @@ public struct TRPPoiInfoModel: Decodable {
         self.distance = try values.decodeIfPresent(Float.self, forKey: .distance)
         self.status = try values.decode(Bool.self, forKey: .status)
         self.safety = try values.decodeIfPresent([String].self, forKey: .safety) ?? []
-        
-
+    
         if let mustTries = try? values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .mustTries){
             self.mustTries = mustTries ?? []
         }

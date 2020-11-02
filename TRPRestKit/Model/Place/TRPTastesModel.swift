@@ -11,5 +11,5 @@ public struct TRPTastesInfoModel: Decodable {
     public var id: Int
     public var name: String
     public var description: String?
-    public var image: String
+    public var image: TRPImageModel?
 }

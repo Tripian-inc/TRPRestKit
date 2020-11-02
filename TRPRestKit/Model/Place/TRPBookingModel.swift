@@ -37,19 +37,19 @@ public struct TRPBookingProductInfoModel: Decodable {
     
     public var currency: String?
     
-    public var price: Float
+    public var price: Float?
     
     public var priceDescription: String?
     
     public var image: String?
     
-    public var rating: Float
+    public var rating: Float?
     
     public var ratingCount: Int?
     
     public var duration: String?
     
-    public var info: [String] = []
+    public var info: [String]?
     
     public var url: String?
     

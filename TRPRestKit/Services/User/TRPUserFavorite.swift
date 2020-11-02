@@ -63,7 +63,7 @@ internal class TRPUserFavorite: TRPRestServices<TRPFavoritesJsonModel> {
     
     override func bodyParameters() -> [String : Any]? {
         if type == .add, let poi = poiId{
-            return ["poi_id": "\(poi)"]
+            return ["poi_id": poi]
         }
         return nil
     }
