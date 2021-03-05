@@ -16,17 +16,22 @@ public struct TRPQuestionOptionsJsonModel: Decodable {
     /// A String value. Name of option.
     public var name: String
     
+    public var subOptions: [TRPSubOptionsJsonModel]?
+    
     private enum CodingKeys: String, CodingKey {
         case id
         case name
+        case subOptions = "sub_options"
     }
     
-    /// Json to Object converter
-    ///
-    /// - Parameter decoder: Json Decoder Object
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try values.decode(Int.self, forKey: .id)
-        self.name = try values.decode(String.self, forKey: .name)
-    }
+}
+
+
+public struct TRPSubOptionsJsonModel: Decodable {
+    
+    /// An Int value. Unique Id of option.
+    public var id: Int
+    /// A String value. Name of option.
+    public var name: String
+    
 }

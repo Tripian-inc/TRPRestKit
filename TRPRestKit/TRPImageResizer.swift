@@ -23,9 +23,9 @@ public enum TRPImageSizeStandart {
     }
     
     public func devices() -> (width: Int, height: Int) {
-        if UIDevice().userInterfaceIdiom == .phone {
-            return (width: 480, height: 480)
-        }
+        /*if UIDevice().userInterfaceIdiom == .phone {
+            return (width: 800, height: 600)
+        }*/
         return (width: 800, height: 800)
     }
 }

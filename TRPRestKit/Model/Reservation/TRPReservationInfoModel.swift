@@ -12,11 +12,13 @@ public struct TRPReservationInfoModel: Decodable {
     public let id: Int
     public let key: String
     //let value: Any?
-    public let provider, tripHash: String
-    public let poiID: Int
+    public let provider: String
+    public let tripHash: String?
+    public let poiID: Int?
     public let createdAt: String
     public var updatedAt: String?
     public var yelpModel: TRPYelpInfoModel?
+    public var gygModel: TRPGygInfoModel?
     
     enum CodingKeys: String, CodingKey {
         case id, key, provider
@@ -32,12 +34,17 @@ public struct TRPReservationInfoModel: Decodable {
         self.id = try values.decode(Int.self, forKey: .id)
         self.key = try values.decode(String.self, forKey: .key)
         self.provider = try values.decode(String.self, forKey: .provider)
-        self.tripHash = try values.decode(String.self, forKey: .tripHash)
-        self.poiID = try values.decode(Int.self, forKey: .poiID)
+        self.tripHash = try values.decodeIfPresent(String.self, forKey: .tripHash)
+        self.poiID = try values.decodeIfPresent(Int.self, forKey: .poiID)
         self.createdAt = try values.decode(String.self, forKey: .createdAt)
         self.updatedAt = try values.decodeIfPresent(String.self, forKey: .updatedAt)
-        if let datas = try? values.decodeIfPresent(TRPYelpInfoModel.self, forKey: .value) {
-            yelpModel = datas
+        
+        if let yelp = try? values.decodeIfPresent(TRPYelpInfoModel.self, forKey: .value) {
+            yelpModel = yelp
+        }
+        
+        if let gyg = try? values.decodeIfPresent(TRPGygInfoModel.self, forKey: .value) {
+            gygModel = gyg
         }
     }
     

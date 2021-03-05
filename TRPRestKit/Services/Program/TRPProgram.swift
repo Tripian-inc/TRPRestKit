@@ -70,12 +70,10 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
             params["pace"] = pace.uppercased()
         }
         
-        let gen = setting.doNotGenerate == true ? 1 : 0
-        //TODO: do_not_generate GEN değişkenine eşitlenecek
-        params["do_not_generate"] = 0
+        let generate = setting.doNotGenerate == true ? 1 : 0
+        params["do_not_generate"] = generate
         print("CreateTrip Params \(params)")
         return params
-        
     }
     
 }

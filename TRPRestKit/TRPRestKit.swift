@@ -247,13 +247,6 @@ extension TRPRestKit {
 // MARK: - Poi Categories Services
 extension TRPRestKit {
     
-    
-    
-    
-    
-    
-    
-    
     /// Obtain the list of all categories, such as attractions, restaurants, cafes, bars,
     /// religious places, cool finds, shopping centers, museums, bakeries and art galleries. Returned results include category ids.
     ///
@@ -1675,9 +1668,20 @@ extension TRPRestKit {
         service.connection()
     }
     
-    public func updateUserReservation(id: Int, key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value: [String : Any]? = nil, completion: @escaping CompletionHandler) {
+    public func updateUserReservation(id: Int,
+                                      key: String,
+                                      provider: String,
+                                      tripHash: String? = nil,
+                                      poiId: Int? = nil,
+                                      value: [String : Any]? = nil,
+                                      completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        let service = TRPAddUpadateUserReservationServices(reservationId:id, key: key, provider: provider, tripHash: tripHash, poiId: poiId,value: value)
+        let service = TRPAddUpadateUserReservationServices(reservationId:id,
+                                                           key: key,
+                                                           provider: provider,
+                                                           tripHash: tripHash,
+                                                           poiId: poiId,
+                                                           value: value)
         service.completion = { result, error, pagination in
             self.genericParseAndPost(TRPReservationInfoModel.self, result, error, pagination)
         }
