@@ -16,7 +16,6 @@ internal class TRPAddUpadateUserReservationServices: TRPRestServices<TRPGenericP
     var value: [String: Any]?
     var reservationId: Int?
     
-    
     init(key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value: [String: Any]? = nil) {
         self.key = key
         self.provider = provider
@@ -33,7 +32,6 @@ internal class TRPAddUpadateUserReservationServices: TRPRestServices<TRPGenericP
         self.poiId = poiId
         self.value = value
     }
-    
     
     public override func path() -> String {
         
@@ -61,8 +59,6 @@ internal class TRPAddUpadateUserReservationServices: TRPRestServices<TRPGenericP
         var params = [String: Any]()
         params["key"] = key
         params["provider"] = provider
-        
-        
         
         if let tripHash = tripHash {
             params["trip_hash"] = tripHash
