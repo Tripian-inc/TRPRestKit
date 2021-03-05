@@ -8,7 +8,8 @@
 
 import Foundation
 import TRPFoundationKit
-public class TRPCities: TRPRestServices {
+
+public class TRPCities: TRPRestServices<TRPCityJsonModel> {
     
     private enum RequestType {
         case allCities
@@ -27,41 +28,22 @@ public class TRPCities: TRPRestServices {
         self.requestType = .cityWithId
         self.cityId = cityId
     }
-    
+    //Fixme: Lokasyon ile sehir arama aktif değil
     public init(location: TRPLocation) {
         self.requestType = .cityWithLocation
         self.location = location
-    }
-    
-    public override func servicesResult(data: Data?, error: NSError?) {
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
-        let jsonDecode = JSONDecoder()
-        do {
-            let result = try jsonDecode.decode(TRPCityJsonModel.self, from: data)
-            let pag = paginationController(parentJson: result)
-            self.completion?(result, nil, pag)
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
     }
     
     public override func path() -> String {
         var path = ""
         
         if requestType == .allCities || requestType == .cityWithId {
-            path = TRPConfig.ApiCall.cities.link
+            path = TRPConfig.ApiCall.city.link
             if let id = cityId {
                 path += "/\(id)"
             }
         } else if requestType == .cityWithLocation {
-            path = TRPConfig.ApiCall.getcityByCoordinates.link
+            //path = TRPConfig.ApiCall.getcityByCoordinates.link
         }
         return path
     }
@@ -73,6 +55,10 @@ public class TRPCities: TRPRestServices {
         }
         params["limit"] = limit
         return params
+    }
+    
+    override var isPagination: Bool {
+        return true
     }
     
 }

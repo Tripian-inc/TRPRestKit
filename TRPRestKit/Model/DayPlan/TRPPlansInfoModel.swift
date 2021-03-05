@@ -10,12 +10,11 @@ import Foundation
 
 /// The struct provides you to plan of day. Thera are pois in a Daily Plan.
 /// Pois were recommended by Tripian.
-public struct TRPDailyPlanInfoModel: Decodable {
+public struct TRPPlansInfoModel: Decodable {
     
     /// An Int value. Id of plan
     public var id: Int
-    /// A String value. Hash of plan
-    public var hash: String
+    
     /// A String value. Date of plan
     public var date: String
     /// A String value. Start time of plan
@@ -23,7 +22,7 @@ public struct TRPDailyPlanInfoModel: Decodable {
     /// A String value. End time of plan
     public var endTime: String?
     /// A TRPPlanPoi array. Indicates a pois to go within a day.
-    public var planPois: [TRPPlanPoi]
+    public var steps: [TRPStepInfoModel]
     
     /**
         Indicates whether the plan was generated.
@@ -32,16 +31,15 @@ public struct TRPDailyPlanInfoModel: Decodable {
      * -1: The plan was generated but the plan hasn't any poi.
      *  1: The plan was generated and it has pois.
      */
-    public var generate: Int
+    public var generatedStatus: Int
     
     private enum CodingKeys: String, CodingKey {
         case id
-        case hash
         case date
         case startTime = "start_time"
         case endTime = "end_time"
-        case planPoints = "dailyplanpoi"
-        case generate
+        case steps
+        case generate = "generated_status"
     }
     
     /// Initializes a new object with decoder
@@ -50,18 +48,31 @@ public struct TRPDailyPlanInfoModel: Decodable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
-        self.hash = try values.decode(String.self, forKey: .hash)
+        
         self.date = try values.decode(String.self, forKey: .date)
-        self.generate = try values.decode(Int.self, forKey: .generate)
+        
         self.startTime = try values.decodeIfPresent(String.self, forKey: .startTime)
         self.endTime = try values.decodeIfPresent(String.self, forKey: .endTime)
+        self.generatedStatus = try values.decode(Int.self, forKey: .generate)
         //todo:- alk kod açılacak test için yapıldı
-        if let planPoints = ((try? values.decodeIfPresent([TRPPlanPoi].self, forKey: .planPoints)) as [TRPPlanPoi]??) {
-            self.planPois = planPoints ?? []
+        if let planPoints = try? values.decodeIfPresent([FailableDecodable<TRPStepInfoModel>].self, forKey: .steps) {
+            let result = planPoints ?? []
+            
+            self.steps = result.compactMap({$0.base})
         } else {
-            self.planPois = []
+            self.steps = []
         }
         
     }
     
+}
+
+struct FailableDecodable<Base : Decodable> : Decodable {
+
+    let base: Base?
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        self.base = try? container.decode(Base.self)
+    }
 }

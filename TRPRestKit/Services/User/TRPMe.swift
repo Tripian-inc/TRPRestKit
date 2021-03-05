@@ -7,17 +7,17 @@
 //
 
 import Foundation
-internal class TRPUserInfoServices: TRPRestServices {
+internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
     
     enum ServiceType {
         case getInfo, updateInfo, updateAnswer
     }
     
     let serviceType: ServiceType
-    var password: String?
     var answers: [Int]?
     var firstName: String?
     var lastName: String?
+    var password: String?
     var age: Int?
     
     init(type: ServiceType) {
@@ -31,56 +31,48 @@ internal class TRPUserInfoServices: TRPRestServices {
     
     init(firstName: String? = nil, lastName: String? = nil, age: Int? = nil, password: String? = nil, answers: [Int]? = nil) {
         self.serviceType = .updateInfo
-        self.password = password
         self.answers = answers
         self.firstName = firstName
         self.lastName = lastName
+        self.password = password
         self.age = age
     }
     
-    public override func servicesResult(data: Data?, error: NSError?) {
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
+    public override func bodyParameters() -> [String: Any]? {
+        if serviceType == .getInfo {return nil}
         
-        let jsonDecode = JSONDecoder()
-        do {
-            let result = try jsonDecode.decode(TRPUserInfoJsonModel.self, from: data)
-            self.completion?(result, nil, nil)
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
-    }
-    
-    public override func parameters() -> [String: Any]? {
         var params: [String: Any] = [:]
         if serviceType == .updateAnswer {
-            if let answers = answers {
-                params["answers"] = answers.toString()
+            let profile = getProfile()
+            if profile.count > 0 {
+                params["profile"] = profile
             }
         } else if serviceType == .updateInfo {
-            if let password = password {
-                params["password"] = password
-            }
-            if let answers = answers {
-                if answers.toString().count > 0 {
-                    params["answers"] = answers.toString()
-                }
-            }
             if let firstName = firstName {
                 params["first_name"] = firstName
             }
             if let lastName = lastName {
                 params["last_name"] = lastName
             }
-            if let age = age {
-                params["age"] = "\(age)"
+            
+            let profile = getProfile()
+            if profile.count > 0 {
+                params["profile"] = profile
             }
+            if let password = password {
+                params["password"] = password
+            }
+        }
+        return params
+    }
+    
+    private func getProfile() -> [String: Any] {
+        var params = [String: Any]()
+        if let answers = answers {
+            params["answers"] = answers
+        }
+        if let age = age {
+            params["age"] = "\(age)"
         }
         return params
     }

@@ -21,3 +21,4 @@ internal class TRPLoginJsonModel: TRPParentJsonModel {
         try super.init(from: decoder)
     }
 }
+

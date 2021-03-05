@@ -9,7 +9,7 @@
 import Foundation
 internal class TRPProgramStepJsonModel: TRPParentJsonModel {
     
-    internal var data: TRPPlanPoi?
+    internal var data: TRPStepInfoModel?
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -17,7 +17,7 @@ internal class TRPProgramStepJsonModel: TRPParentJsonModel {
     
     required internal init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        if let data = ((try? values.decodeIfPresent(TRPPlanPoi.self, forKey: .data)) as TRPPlanPoi??) {
+        if let data = ((try? values.decodeIfPresent(TRPStepInfoModel.self, forKey: .data)) as TRPStepInfoModel??) {
             self.data = data
         }
         try super.init(from: decoder)

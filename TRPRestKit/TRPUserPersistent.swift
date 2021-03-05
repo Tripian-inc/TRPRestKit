@@ -9,33 +9,25 @@
 import Foundation
 public struct TRPUserPersistent {
     
-    private static let userHashCodeTag = "trpuserhash"
     private static let userIdCodeTag = "trpuserid"
     private static let userEmailCodeTag = "trpuseremail"
-    
-    public static func didUserLoging() -> Bool {
-        return fetchHashToken() == nil ? false : true
+
+    public static var isLoggedIn: Bool {
+        guard let tokens = TripianTokenController().fetchTokenInfo() else {return false}
+        if !tokens.accessToken.isEmpty && tokens.expiresIn != 0 {
+            return true
+        }
+        return false
+    }
+
+    public static var isTokenValid: Bool {
+        return TripianTokenController().isTokenValid
     }
     
-    /// When user login in system, token code is saved
-    /// - Parameter value: token code
-    internal static func saveHashToken(_ value: String) {
-        UserDefaults.standard.set(value, forKey: userHashCodeTag)
+    public static var tokenInfo: TRPToken? {
+        return TripianTokenController().fetchTokenInfo()
     }
-    
-    /// To Fetch user Token code
-    internal static func fetchHashToken() -> String? {
-        return UserDefaults.standard.string(forKey: userHashCodeTag)
-    }
-    
-    public static func fetchId() -> Int? {
-        return UserDefaults.standard.integer(forKey: userIdCodeTag)
-    }
-    
-    public static func saveId(_ value: Int) {
-        UserDefaults.standard.set(value, forKey: userIdCodeTag)
-    }
-    
+
     public static func getUserEmail() -> String? {
         return UserDefaults.standard.string(forKey: userEmailCodeTag)
     }
@@ -46,7 +38,7 @@ public struct TRPUserPersistent {
     
     public static func remove() {
         UserDefaults.standard.removeObject(forKey: userIdCodeTag)
-        UserDefaults.standard.removeObject(forKey: userHashCodeTag)
         UserDefaults.standard.removeObject(forKey: userEmailCodeTag)
+        TripianTokenController().clearDataInUserDefaults()
     }
 }

@@ -22,19 +22,19 @@ internal struct TRPConfig {
     }
     
     internal enum ApiCall: String {
-        case cities
-        case getcityByCoordinates
-        case poiCategories
+        case city
+        
+        case poiCategory
         case poi
         case questions
         case recommendations
         case routes
         case routesResult
         case gRouteReuslt
-        case planPointAlternative
+        case stepAlternative
         case tags
         case checkDataUpdates
-        
+        case refresh
         case login
         case user
         case userTrips
@@ -44,19 +44,20 @@ internal struct TRPConfig {
         case dailyPlanPoi
         case register
         case favorite
+        case step
         case companion
+        case userReaction
+        case userReservation
         var link: String {
             switch self {
-            case .cities:
-                return getNewLink() ?? "cities"
-            case .getcityByCoordinates:
-                return getNewLink() ?? "getcitybycoordinate"
-            case .poiCategories:
-                return getNewLink() ?? "poi-categories"
+            case .city:
+                return getNewLink() ?? "city"
+            case .poiCategory:
+                return getNewLink() ?? "poi-category"
             case .poi:
                 return getNewLink() ?? "poi"
             case .questions:
-                return getNewLink() ?? "trip-questions"
+                return getNewLink() ?? "question"
             case .recommendations:
                 return getNewLink() ?? "recommendation"
             case .routes:
@@ -65,8 +66,8 @@ internal struct TRPConfig {
                 return getNewLink() ?? "routeresult"
             case .gRouteReuslt:
                 return getNewLink() ?? "grouteresult"
-            case .planPointAlternative:
-                return getNewLink() ?? "dailyplanpoi-alternatives"
+            case .stepAlternative:
+                return getNewLink() ?? "step-alternative"
             case .tags:
                 return getNewLink() ?? "tags"
             case .checkDataUpdates:
@@ -76,11 +77,11 @@ internal struct TRPConfig {
             case .user:
                 return getNewLink() ?? "user"
             case .userTrips:
-                return getNewLink() ?? "user/trips"
+                return getNewLink() ?? "user-trip"
             case .trip:
                 return getNewLink() ?? "trip"
             case .dailyPlan:
-                return getNewLink() ?? "dailyplan"
+                return getNewLink() ?? "plan"
             case .userPreferences:
                 return getNewLink() ?? "user/preferences"
             case .dailyPlanPoi:
@@ -88,9 +89,17 @@ internal struct TRPConfig {
             case .register:
                 return getNewLink() ?? "register"
             case .favorite:
-                return getNewLink() ?? "user/favorites"
+                return getNewLink() ?? "user-favorite"
             case .companion:
-                return getNewLink() ?? "user/companion"
+                return getNewLink() ?? "user-companion"
+            case .refresh:
+                return getNewLink() ?? "refresh"
+            case .step:
+                return getNewLink() ?? "step"
+            case .userReaction:
+                return getNewLink() ?? "user-reaction"
+            case .userReservation:
+                return getNewLink() ?? "user-reservation"
             }
         }
         

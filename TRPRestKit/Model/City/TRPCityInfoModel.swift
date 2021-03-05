@@ -18,21 +18,22 @@ public class TRPCityInfoModel: NSObject, Decodable {
     /// A TRPCoordinateModel object that refers center coordinate(lat,lon) of a city.
     public var coordinate: TRPCoordinateModel
     /// A TRPCountryJsonModel object that indicates a country information that which the city is in.
-    public var country: TRPCountryJsonModel?
+    public var country: TRPCountryJsonModel
     /// A string value that indicate a featured image of City
-    public var image: String?
+    public var image: TRPImageModel
     /// A double array that indicate a boundary of City
     public var boundary: [Double] = []
+    public var tastes: [TRPTastesInfoModel]?
     
     /// Tag matcher
     private enum CodingKeys: String, CodingKey {
         case id
         case name
-        case coord = "coordinate"
+        case coordinate
         case country
-        case updateType
-        case image = "featured"
+        case image
         case boundary
+        case tastes
     }
     
     /// Json to Object converter
@@ -42,10 +43,13 @@ public class TRPCityInfoModel: NSObject, Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
         self.name = try values.decode(String.self, forKey: .name)
-        self.image = try values.decodeIfPresent(String.self, forKey: .image)
-        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coord)
-        self.country = try values.decodeIfPresent(TRPCountryJsonModel.self, forKey: .country)
-        self.boundary = try values.decodeIfPresent([Double].self, forKey: .boundary) ?? []
+        self.image = try values.decode(TRPImageModel.self, forKey: .image)
+        self.boundary = try values.decode([Double].self, forKey: .boundary)
+        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
+        self.country = try values.decode(TRPCountryJsonModel.self, forKey: .country)
+        if let taste = try? values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .tastes) {
+            self.tastes = taste ?? []
+        }
     }
     
 }

@@ -19,4 +19,6 @@ public struct TRPGooglePlaceLocation {
     /// A String value. Address of Hotel.
     public var hotelAddress: String
     
+    public var name: String?
+    
 }

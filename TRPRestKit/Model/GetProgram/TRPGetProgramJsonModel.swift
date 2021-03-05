@@ -9,52 +9,45 @@
 import Foundation
 import TRPFoundationKit
 /// Indicates parameters used when creating a trip.
-public struct TRPGetProgramParamsInfoModel: Decodable {
+
+public struct TRPTripProfileModel: Decodable {
     
     /// An Int value. Id of city.
-    public var cityId: String?
+    public var cityId: Int
     /// A String value. Arrival date of trip.
-    public var arrivalDate: String?
+    public var arrivalDateTime: TRPTime?
     /// A String value. Departure date of trip.
-    public var departureDate: String?
-    /// A String value. Arrival time of trip.
-    public var arrivalTime: String?
-    /// A String value. Departure time of trip.
-    public var departureTime: String?
+    public var departureDateTime: TRPTime?
+    
     /// An Int value. Adult count.
-    public var adults: Int?
-    /// An Int value. Adults age range such as 32
-    public var adultAgeRange: Int?
+    public var numberOfAdults: Int
     /// An Int value. Count of Children
-    public var children: Int?
-    /// An Int value. Children age range such as 12
-    public var childrenAgeRange: Int?
-    /// A String value. Center coordinate of hotel (41.123,29.4532)
-    public var coordinate: String?
-    /// A String value. Address of hotel.
-    public var hotelAddress: String?
+    public var numberOfChildren: Int?
     /// A String value. Answer of questions.You must convert to Array.
     public var answers = [Int]()
-    /// A String value. Companion of users for the selected trip.You must convert to Array.
-    public var companions = [Int]()
+    public var owner: String?
     
-    public var tripAnswers = [Int]()
+    /// A String value. Address of hotel.
+    public var accommodation: TRPAccommodationInfoModel?
+    /// A String value. Companion of users for the selected trip.You must convert to Array.
+    public var companionIds = [Int]()
+    //TODO: - Pace Enum haline getirilecek
+    public var pace: String?
+
+    public var doNotGenerate: Int
     
     private enum CodingKeys: String, CodingKey {
         case cityId = "city_id"
-        case arrivalDate = "arrival_date"
-        case departureDate = "departure_date"
-        case arrivalTime = "arrival_time"
-        case departureTime = "departure_time"
-        case adults
-        case adultAgeRange = "adult_age_average"
-        case children
-        case childAgeRange = "children_age_average"
-        case tripAnswers = "trip_answers"
-        case coordinate
+        case arrivalDateTime = "arrival_datetime"
+        case departureDateTime = "departure_datetime"
+        case numberOfAdults = "number_of_adults"
+        case numberOfChildren = "number_of_children"
         case answers
-        case hotelAddress = "hotel_address"
-        case companions
+        case owner
+        case accommodation = "accommodation"
+        case companionIds = "companion_ids"
+        case pace
+        case doNotGenerate = "do_not_generate"
     }
     
     /// Initializes a new object with decoder
@@ -62,44 +55,50 @@ public struct TRPGetProgramParamsInfoModel: Decodable {
     /// - Parameter decoder: Json decoder
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        cityId = try values.decodeIfPresent(String.self, forKey: .cityId)
-        arrivalDate = try values.decodeIfPresent(String.self, forKey: .arrivalDate)
-        departureDate = try values.decodeIfPresent(String.self, forKey: .departureDate)
-        arrivalTime = try values.decodeIfPresent(String.self, forKey: .arrivalTime)
-        departureTime = try values.decodeIfPresent(String.self, forKey: .departureTime)
-        
-        if let adults = try values.decodeIfPresent(String.self, forKey: .adults), let adultsCount = Int(adults) {
-            self.adults = adultsCount
+        cityId = try values.decode(Int.self, forKey: .cityId)
+        let arrivalDT = try values.decode(String.self, forKey: .arrivalDateTime)
+        let departureDT = try values.decode(String.self, forKey: .departureDateTime)
+       
+        if let arrival = TRPTime(dateTime: arrivalDT), let departure = TRPTime(dateTime: departureDT) {
+            arrivalDateTime = arrival
+            departureDateTime = departure
         }
         
-        if let children = try values.decodeIfPresent(String.self, forKey: .children), let childrenCount = Int(children) {
-            self.children = childrenCount
+        numberOfAdults = try values.decode(Int.self, forKey: .numberOfAdults)
+        numberOfChildren = try values.decodeIfPresent(Int.self, forKey: .numberOfChildren)
+    
+        if let accommondation = try? values.decodeIfPresent(TRPAccommodationInfoModel.self, forKey: .accommodation) {
+            self.accommodation = accommondation
         }
         
-        if let ageRange = try values.decodeIfPresent(String.self, forKey: .adultAgeRange), let range = Int(ageRange) {
-            self.adultAgeRange = range
-        }
-        
-        if let ageRange = try values.decodeIfPresent(String.self, forKey: .childAgeRange), let range = Int(ageRange) {
-            self.childrenAgeRange = range
-        }
-        
-        self.coordinate = try values.decodeIfPresent(String.self, forKey: .coordinate)
-        
-        self.hotelAddress = try values.decodeIfPresent(String.self, forKey: .hotelAddress)
-        
-        if let answersStr = try values.decodeIfPresent(String.self, forKey: .answers) {
-            answers = answersStr.toIntArray()
-        }
-        
-        if let tripAnswersStr = try values.decodeIfPresent(String.self, forKey: .tripAnswers) {
-            tripAnswers = tripAnswersStr.toIntArray()
-        }
-        
-        if let companionsStr = try values.decodeIfPresent(String.self, forKey: .companions) {
-            companions = companionsStr.toIntArray()
-        }
-        
+        self.answers = try values.decode([Int].self, forKey: .answers)
+        self.owner = try values.decodeIfPresent(String.self, forKey: .owner)
+        self.companionIds = try values.decode([Int].self, forKey: .companionIds)
+        self.pace = try values.decodeIfPresent(String.self, forKey: .pace)
+        self.doNotGenerate = try values.decode(Int.self, forKey: .doNotGenerate)
     }
 
+}
+
+public struct TRPAccommodationInfoModel: Decodable {
+    
+    public var name: String?
+    public var referanceId: String?
+    public var address: String
+    public var coordinate: TRPCoordinateModel
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case refId = "ref_id"
+        case address
+        case coordinate
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try values.decodeIfPresent(String.self, forKey: .name)
+        self.referanceId = try values.decodeIfPresent(String.self, forKey: .refId)
+        self.address = try values.decode(String.self, forKey: .address)
+        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
+    }
 }

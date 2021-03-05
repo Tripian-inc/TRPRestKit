@@ -12,6 +12,20 @@ import Foundation
 public struct TRPRecommendationInfoJsonModel: Decodable {
     
     /// An Int value. Unique id of poi.
-    public var id: Int
+    public var poiRef: TRPPoiRefInfoModel
+    public var score: Double
+    /// Tag matcher
+    private enum CodingKeys: String, CodingKey {
+        case poiRef = "poi_ref"
+        case score
+    }
     
+    /// Json to Object converter
+    ///
+    /// - Parameter decoder: Json Decoder Object
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.poiRef = try values.decode(TRPPoiRefInfoModel.self, forKey: .poiRef)
+        self.score = try values.decode(Double.self, forKey: .score)
+    }
 }

@@ -7,29 +7,16 @@
 //
 
 import Foundation
-internal class TRPUserTrips: TRPRestServices {
+internal class TRPUserTripsServices: TRPRestServices<TRPGenericParser<[TRPUserTripInfoModel]>> {
     
     public var limit: Int = 50
+   
+    private var from: String?
+    private var to: String?
     
-    public override func servicesResult(data: Data?, error: NSError?) {
-        
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
-        
-        let jsonDecode = JSONDecoder()
-        do {
-            let result = try jsonDecode.decode(TRPUserTripsJsonModel.self, from: data)
-            self.completion?(result, nil, nil)
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
+    init(from: String? = nil, to:String? = nil) {
+        self.from = from
+        self.to = to
     }
     
     public override func userOAuth() -> Bool {
@@ -37,7 +24,15 @@ internal class TRPUserTrips: TRPRestServices {
     }
     
     override func parameters() -> [String: Any]? {
-        return ["limit": limit]
+        var parameters = [String: Any]()
+        if let from = from {
+            parameters["from"] = from
+        }
+        if let to = to {
+            parameters["to"] = to
+        }
+        parameters["limit"] = limit
+        return parameters
     }
     
     public override func path() -> String {

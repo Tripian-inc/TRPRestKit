@@ -9,7 +9,7 @@
 import Foundation
 
 /// Parent Json parser model for PoiCategories
-internal class TRPPoiCategories: TRPParentJsonModel {
+internal class TRPPoiCategoryJsonModel: TRPParentJsonModel {
     
     /// Categories data
     public var data: [TRPCategoryInfoModel]?

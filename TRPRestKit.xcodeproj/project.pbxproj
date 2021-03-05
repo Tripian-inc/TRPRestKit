@@ -125,7 +125,6 @@
 		B2B50100235497D30006D406 /* TRPPoiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B500FF235497D30006D406 /* TRPPoiTest.swift */; };
 		B2B5011A2354C6950006D406 /* TRPQuestionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B501192354C6950006D406 /* TRPQuestionTest.swift */; };
 		B2B58F4C25F2658700138FE7 /* TRPFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B58F4B25F2658700138FE7 /* TRPFoundationKit.framework */; };
-		B2B58F4D25F2658700138FE7 /* TRPFoundationKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2B58F4B25F2658700138FE7 /* TRPFoundationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2C365AC226727A300E7B4CA /* TRPImageOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C365AB226727A300E7B4CA /* TRPImageOwner.swift */; };
 		B2E0D1F521491D2300876D81 /* TRPDayPlanJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1F421491D2300876D81 /* TRPDayPlanJsonModel.swift */; };
 		B2E0D1F821491DF000876D81 /* TRPTripJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1F721491DF000876D81 /* TRPTripJsonModel.swift */; };
@@ -163,17 +162,6 @@
 			files = (
 				B2562EF223AB86100094A7B8 /* TRPFoundationKit.framework in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B2B58F4E25F2658700138FE7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B2B58F4D25F2658700138FE7 /* TRPFoundationKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -780,7 +768,6 @@
 				B29B462220F607F90009E711 /* Frameworks */,
 				B29B462320F607F90009E711 /* Resources */,
 				18B84BED23617C61008B374D /* ShellScript */,
-				B2B58F4E25F2658700138FE7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

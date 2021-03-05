@@ -7,11 +7,12 @@
 //
 
 import Foundation
-internal class TRPDailyPlanServices: TRPRestServices {
+internal class TRPDailyPlanServices: TRPRestServices<TRPDayPlanJsonModel> {
     
     var dayId: Int?
     var startTime: String?
     var endTime: String?
+    var stepOrders: [Int]?
     
     internal init(id: Int) {
         self.dayId = id
@@ -23,23 +24,10 @@ internal class TRPDailyPlanServices: TRPRestServices {
         self.endTime = endTime
     }
     
-    public override func servicesResult(data: Data?, error: NSError?) {
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
-        
-        let jsonDecode = JSONDecoder()
-        do {
-            let result = try jsonDecode.decode(TRPDayPlanJsonModel.self, from: data)
-            self.completion?(result, nil, nil)
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
+    //TODO: orde eklenecek
+    internal init(id: Int, stepOrders orders: [Int]) {
+        self.stepOrders = orders
+        self.dayId = id
     }
     
     public override func userOAuth() -> Bool {
@@ -48,6 +36,8 @@ internal class TRPDailyPlanServices: TRPRestServices {
     
     override func requestMode() -> TRPRequestMode {
         if startTime != nil && endTime != nil {
+            return .put
+        }else if stepOrders != nil {
             return .put
         }
         return .get
@@ -62,15 +52,22 @@ internal class TRPDailyPlanServices: TRPRestServices {
         
         return path
     }
-
-    override func parameters() -> [String: Any]? {
-        if let id = dayId, let startTime = startTime, let endTime = endTime {
-            var params: [String: Any] = [:]
-            
+    
+    override func bodyParameters() -> [String : Any]? {
+        var params: [String: Any] = [:]
+        if let startTime = startTime {
             params["start_time"] = startTime
-            params["end_time"] = endTime
-            return params
         }
-        return nil
+        if let startTime = endTime {
+            params["end_time"] = startTime
+        }
+        if let orders = stepOrders {
+            params["orders"] = orders
+        }
+        if params.count == 0 {
+            return nil
+        }
+        return params
     }
+
 }

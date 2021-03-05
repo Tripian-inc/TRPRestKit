@@ -7,9 +7,10 @@
 //
 
 import Foundation
+//TODO: SİLİNECEK VE GENERİC YAPILACAK
 internal class TRPDayPlanJsonModel: TRPParentJsonModel {
     
-    public var data: TRPDailyPlanInfoModel
+    public var data: TRPPlansInfoModel
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -17,7 +18,7 @@ internal class TRPDayPlanJsonModel: TRPParentJsonModel {
     
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.data = try values.decode(TRPDailyPlanInfoModel.self, forKey: .data)
+        self.data = try values.decode(TRPPlansInfoModel.self, forKey: .data)
         try super.init(from: decoder)
     }
 }

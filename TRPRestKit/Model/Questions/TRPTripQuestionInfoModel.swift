@@ -9,16 +9,20 @@
 import Foundation
 
 /// This model provide you to use full information of Question to creating a trip.
-public struct TRPTripQuestionInfoModel: Decodable {
+public struct TRPQuestionInfoModel: Decodable {
     
     /// An Int value. Unique Id of question.
-    public var id: Int?
+    public var id: Int
     /// A Bool value. Indicates that the question can be skipped without an answer.
-    public var skippable: Bool?
+    public var skippable: Bool
     /// A Bool value. A Question can be multiple answer.
-    public var selectMultiple: Bool?
+    public var selectMultiple: Bool
     /// A String value. Name of question.
-    public var name: String?
+    public var name: String
+    
+    public var category: TRPQuestionCategory
+    
+    public var order: Int
     
     /// A TRPQuestionOptionsJsonModel object. Options of a question.
     public var options: [TRPQuestionOptionsJsonModel]?
@@ -28,6 +32,8 @@ public struct TRPTripQuestionInfoModel: Decodable {
         case skippable
         case selectMultiple = "select_multiple"
         case name
+        case category
+        case order
         case options
     }
     
@@ -36,10 +42,13 @@ public struct TRPTripQuestionInfoModel: Decodable {
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try values.decodeIfPresent(Int.self, forKey: .id)
-        self.skippable = try values.decodeIfPresent(Bool.self, forKey: .skippable)
-        self.selectMultiple = try values.decodeIfPresent(Bool.self, forKey: .selectMultiple)
-        self.name = try values.decodeIfPresent(String.self, forKey: .name)
+        self.id = try values.decode(Int.self, forKey: .id)
+        self.skippable = try values.decode(Bool.self, forKey: .skippable)
+        self.selectMultiple = try values.decode(Bool.self, forKey: .selectMultiple)
+        self.name = try values.decode(String.self, forKey: .name)
+        let questionCategory = try values.decode(String.self, forKey: .category)
+        self.category = TRPQuestionCategory(rawValue: questionCategory) ?? .trip
+        self.order = try values.decode(Int.self, forKey: .order)
         self.options = try values.decodeIfPresent([TRPQuestionOptionsJsonModel].self, forKey: .options)
     }
     

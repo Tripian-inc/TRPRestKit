@@ -8,44 +8,24 @@
 
 import Foundation
 
-internal class TRPLogin: TRPRestServices {
+internal class TRPLogin: TRPRestServices<TRPGenericParser<TRPLoginInfoModel>> {
     
     //Airmiles
     private var email: String?
     private var password: String?
     //Test server
-    private var loginParameters: [String: String]
+    private var loginParameters: [String: Any]
     
-    
-    init?(parameters: [String: String]) {
+    init?(parameters: [String: Any]) {
         if parameters.count == 0 {
             return nil
         }
         for param in parameters {
-            if param.key.isEmpty || param.value.isEmpty {
+            if param.key.isEmpty  {
                 return nil
             }
         }
         loginParameters  = parameters
-    }
-    
-    override func servicesResult(data: Data?, error: NSError?) {
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
-        
-        let jsonDecode = JSONDecoder()
-        do {
-            let result = try jsonDecode.decode(TRPLoginJsonModel.self, from: data)
-            self.completion?(result, nil, nil)
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
     }
     
     override public func requestMode() -> TRPRequestMode {

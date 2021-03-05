@@ -25,6 +25,7 @@ class TRPGoogleAutoComplete {
         guard let escapedAddress = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {return}
         
         var link = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\(escapedAddress)&key=\(key)"
+        
         if let location = centerLocationForBoundary, let radius = radiusForBoundary {
             link += "&location=\(location.lat),\(location.lon)&radius=\(radius)&strictbounds=true"
         }

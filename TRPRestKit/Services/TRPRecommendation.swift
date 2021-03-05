@@ -9,35 +9,13 @@
 import Foundation
 import TRPFoundationKit
 
-internal class TRPRecommendation: TRPRestServices {
+internal class TRPRecommendation: TRPRestServices<TRPGenericParser<[TRPRecommendationInfoJsonModel]>> {
     
     var setting: TRPRecommendationSettings
     var limit: Int = 15
     
     internal init(settings: TRPRecommendationSettings) {
         self.setting = settings
-    }
-    
-    public override func servicesResult(data: Data?, error: NSError?) {
-        
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
-        
-        let jsonDecode = JSONDecoder()
-        do {
-            let result = try jsonDecode.decode(TRPRecommendationJsonModel.self, from: data)
-            let pag = paginationController(parentJson: result)
-            self.completion?(result, nil, pag)
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
     }
     
     public override func path() -> String {
@@ -56,24 +34,29 @@ internal class TRPRecommendation: TRPRestServices {
         }
         
         if let hash = setting.hash {
-            params["hash"] = hash
+            params["trip_hash"] = hash
         }
         
         if let typeIds = setting.poiCategoryIds {
             params["poi_categories"] = typeIds.toString()
         }
+        
         if let adults = setting.adultsCount {
             params["adults"] = adults
         }
+        
         if let adultAgeRange = setting.adultAgeRange {
-            params["adult_age_range"] = adultAgeRange
+            params["adult_age_average"] = adultAgeRange
         }
+        
         if let childrenCount = setting.childrenCount {
             params["children"] = childrenCount
         }
+        
         if let childrenAgeRange = setting.childrenAgeRange {
-            params["children_age_range"] = childrenAgeRange
+            params["children_age_average"] = childrenAgeRange
         }
+        
         if let coord = setting.currentCoordinate {
             params["coordinate"] = coord // int
         }

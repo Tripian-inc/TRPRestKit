@@ -10,7 +10,9 @@ import Foundation
 
 /// This is a high-level class to connectiong with remote server.
 /// If you want to generate a new servise, new servise must be extended TRPRestServices.
-public class TRPRestServices {
+public class TRPRestServices<T: Decodable> {
+    
+    typealias JsonParserModel = T
     
     /// A Closer. Completion handler
     public var completion:((_ result: Any?, _ error: NSError?, _ pagination: Pagination?) -> Void)?
@@ -19,49 +21,41 @@ public class TRPRestServices {
     public var isAutoPagination = true
     
     /// To start connection
-    public func connection() {
-        let network = TRPNetwork(path: path())
-        network.add(params: createParams())
-        network.add(mode: requestMode())
-        
-        network.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
-        if let bodyData = bodyDataToJson(bodyParameters()) {
-            network.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            network.addValue("application/json", forHTTPHeaderField: "Accept")
-            network.add(body: bodyData)
+    public func connection(_ url: String? = nil) {
+        var network: TRPNetwork?
+        if let url = url {
+            network = TRPNetwork(link: url)
+        }else {
+            network = TRPNetwork(path: path())
+            network!.add(params: createParams())
+            network!.add(mode: requestMode())
         }
+        
+        guard let networkService = network else {return}
+        
+        networkService.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
+        
+        if let bodyData = bodyDataToJson(bodyParameters()) {
+            networkService.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            networkService.addValue("application/json", forHTTPHeaderField: "Accept")
+            networkService.add(body: bodyData)
+        }
+        
         if userOAuth() == true {
-            if let token = oauth() {
-                network.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            TokenRefreshServices.shared.handler(isRefresh: isRefresh) { (token) in
+                networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+                networkService.build { (error, data) in
+                    self.servicesResult(data: data, error: error)
+                }
+            }
+        }else {
+            networkService.build { (error, data) in
+                self.servicesResult(data: data, error: error)
             }
         }
-        network.build { (error, data) in
-            self.servicesResult(data: data, error: error)
-        }
-    }
     
-    /// To start connection using link
-    ///
-    /// - Parameter link: Raw link
-    public func connection(link: String) {
-        
-        let network = TRPNetwork(link: link)
-        network.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
-        if let bodyData = bodyDataToJson(bodyParameters()) {
-            network.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            network.addValue("application/json", forHTTPHeaderField: "Accept")
-            network.add(body: bodyData)
-        }
-        if userOAuth() == true {
-            if let token = oauth() {
-                network.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-            }
-        }
-        network.build { (error, data) in
-            self.servicesResult(data: data, error: error)
-        }
     }
-    
+   
     private func createParams() -> [String: Any] {
         var params: [String: Any] = [:]
         if let additionalParams = parameters() {
@@ -83,6 +77,10 @@ public class TRPRestServices {
         return jsonData
     }
     
+    var isPagination: Bool {
+        return false
+    }
+    
     // MARK: - Overriter Funstions
     
     /// HTTP request mode
@@ -97,7 +95,32 @@ public class TRPRestServices {
     /// - Parameters:
     ///   - data: returns from remote server
     ///   - error: nsError
-    public func servicesResult(data: Data?, error: NSError?) {}
+    public func servicesResult(data: Data?, error: NSError?) {
+        if let error = error {
+            self.completion?(nil, error, nil)
+            return
+        }
+        guard let data = data else {
+            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
+            return
+        }
+        
+        let jsonDecode = JSONDecoder()
+        do {
+            let result = try jsonDecode.decode(JsonParserModel.self, from: data)
+            let pagination = checkPagination(result)
+            self.completion?(result, nil, pagination)
+        } catch let tryError {
+            print("PARSER ERROR \(tryError)")
+            self.completion?(nil, tryError as NSError, nil)
+        }
+        
+    }
+    
+    private func checkPagination(_ result: Decodable) -> Pagination? {
+        guard let parent = result as? TRPParentJsonModel else {return nil}
+        return paginationController(parentJson: parent)
+    }
     
     /// Returns HTTP body parameters
     ///
@@ -120,10 +143,13 @@ public class TRPRestServices {
         return ""
     }
     
-    public func paginationController(parentJson: TRPParentJsonModel) -> Pagination {
-        if let nextPage = parentJson.pagination?.links?.next {
+    public func paginationController(parentJson: TRPParentJsonModel) -> Pagination? {
+        guard let pagination = parentJson.pagination else {
+            return nil
+        }
+        if let nextPage = pagination.links?.next {
             if isAutoPagination {
-                connection(link: nextPage)
+                connection(nextPage)
             }
             return .continues(nextPage)
         } else {
@@ -138,11 +164,8 @@ public class TRPRestServices {
         return false
     }
     
-    /// Returns user hash using `DataHolder`
-    ///
-    /// - Returns: User hash for oauth
-    internal func oauth() -> String? {
-        return TRPUserPersistent.fetchHashToken()
+    public var isRefresh: Bool {
+        return false
     }
     
 }

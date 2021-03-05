@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPUserFavorite: TRPRestServices {
+internal class TRPUserFavorite: TRPRestServices<TRPFavoritesJsonModel> {
     
     public enum Mode {
         case add, get, delete
@@ -16,12 +16,18 @@ internal class TRPUserFavorite: TRPRestServices {
     private let type: Mode
     private var cityId: Int?
     private var poiId: Int?
-    
-    //ADD - Remove
-    public init(cityId: Int, poiId: Int, type: Mode) {
+    private var favoriteId: Int?
+    //ADD
+    public init(poiId: Int, type: Mode) {
         self.type = type
-        self.cityId  = cityId
+        
         self.poiId = poiId
+    }
+    
+    //Delete
+    public init(favoriteId: Int) {
+        self.favoriteId = favoriteId
+        self.type = .delete
     }
     
     //GET
@@ -30,50 +36,42 @@ internal class TRPUserFavorite: TRPRestServices {
         self.cityId = cityId
     }
     
-    public override func servicesResult(data: Data?, error: NSError?) {
-        if let error = error {
-            self.completion?(nil, error, nil)
-            return
-        }
-        guard let data = data else {
-            self.completion?(nil, TRPErrors.wrongData as NSError, nil)
-            return
-        }
-        
-        let jsonDecode = JSONDecoder()
-        do {
-            let result = try jsonDecode.decode(TRPFavoritesJsonModel.self, from: data)
-            self.completion?(result, nil, nil)
-        } catch let tryError {
-            self.completion?(nil, tryError as NSError, nil)
-        }
-    }
-    
     override public func requestMode() -> TRPRequestMode {
         if type == .get {
             return .get
-        } else if type == .add || type == .delete {
+        } else if type == .add {
             return .post
+        } else if type == .delete {
+            return .delete
         }
         return .get
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.favorite.link
+        var url = TRPConfig.ApiCall.favorite.link
+        if type == .delete {
+            if let id = favoriteId {
+                url += "/\(id)"
+            }
+        }
+        return url
     }
     
     public override func userOAuth() -> Bool {
         return true
     }
- 
+    
+    override func bodyParameters() -> [String : Any]? {
+        if type == .add, let poi = poiId {
+            return ["poi_id": poi]
+        }
+        return nil
+    }
+    
     public override func parameters() -> [String: Any]? {
         if type == .get {
             if let cityId = cityId {
                 return ["city_id": "\(cityId)"]
-            }
-        } else if type == .add || type == .delete {
-            if let cityId = cityId, let poi = poiId {
-                return ["city_id": "\(cityId)", "poi_id": "\(poi)"]
             }
         }
         return nil
