@@ -67,6 +67,8 @@
 		B21E1A8F220A282800EF471F /* TRPGooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E1A8E220A282800EF471F /* TRPGooglePlace.swift */; };
 		B22372242131151900E21532 /* TRPOAuthJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22372232131151900E21532 /* TRPOAuthJsonModel.swift */; };
 		B227F45C216CA2BA00591C70 /* TRPFavoritesJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B227F45B216CA2BA00591C70 /* TRPFavoritesJsonModel.swift */; };
+		B233419025F273C800A6D280 /* TRPFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B233418F25F273C800A6D280 /* TRPFoundationKit.framework */; };
+		B233419125F273C800A6D280 /* TRPFoundationKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B233418F25F273C800A6D280 /* TRPFoundationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2341D6223143939007EAF80 /* RestKitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2341D6123143939007EAF80 /* RestKitInfo.swift */; };
 		B236885F216BAE0800920DA7 /* TRPUserFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236885E216BAE0800920DA7 /* TRPUserFavorite.swift */; };
 		B236A0D8240CFC0B002331D6 /* TRPTripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236A0D7240CFC0B002331D6 /* TRPTripModel.swift */; };
@@ -176,7 +178,6 @@
 		B2C365AC226727A300E7B4CA /* TRPImageOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C365AB226727A300E7B4CA /* TRPImageOwner.swift */; };
 		B2E0D1F521491D2300876D81 /* TRPDayPlanJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1F421491D2300876D81 /* TRPDayPlanJsonModel.swift */; };
 		B2E0D1FF2149244A00876D81 /* TRPStepInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1FE2149244A00876D81 /* TRPStepInfoModel.swift */; };
-		B2E798BD25EEB40C00A9C293 /* TRPFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E798BC25EEB40C00A9C293 /* TRPFoundationKit.framework */; };
 		B2FDCFB92147EE41000C9387 /* TRPLoginJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCFB82147EE41000C9387 /* TRPLoginJsonModel.swift */; };
 		B2FDCFBD2147FA45000C9387 /* TRPUserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCFBC2147FA45000C9387 /* TRPUserRegister.swift */; };
 		B2FE503621356EE700CDC79E /* TRPDeleteProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FE503521356EE700CDC79E /* TRPDeleteProgram.swift */; };
@@ -200,6 +201,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		B233419225F273C800A6D280 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B233419125F273C800A6D280 /* TRPFoundationKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2562EF123AB86060094A7B8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -250,6 +262,7 @@
 		B22372232131151900E21532 /* TRPOAuthJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOAuthJsonModel.swift; sourceTree = "<group>"; };
 		B227F45B216CA2BA00591C70 /* TRPFavoritesJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPFavoritesJsonModel.swift; sourceTree = "<group>"; };
 		B22999D025BB037D0070C853 /* TRPFoundationKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = TRPFoundationKit.xcframework; sourceTree = "<group>"; };
+		B233418F25F273C800A6D280 /* TRPFoundationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2341D6123143939007EAF80 /* RestKitInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestKitInfo.swift; sourceTree = "<group>"; };
 		B236885E216BAE0800920DA7 /* TRPUserFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserFavorite.swift; sourceTree = "<group>"; };
 		B236A0D7240CFC0B002331D6 /* TRPTripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripModel.swift; sourceTree = "<group>"; };
@@ -374,7 +387,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2E798BD25EEB40C00A9C293 /* TRPFoundationKit.framework in Frameworks */,
+				B233419025F273C800A6D280 /* TRPFoundationKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +550,7 @@
 		B2373F87218B2FD700CAB14F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B233418F25F273C800A6D280 /* TRPFoundationKit.framework */,
 				B2E798BC25EEB40C00A9C293 /* TRPFoundationKit.framework */,
 				B249688625C1968E002D63B6 /* TRPFoundationKit.framework */,
 				B22999D025BB037D0070C853 /* TRPFoundationKit.xcframework */,
@@ -964,6 +978,7 @@
 				B29B462220F607F90009E711 /* Frameworks */,
 				B29B462320F607F90009E711 /* Resources */,
 				18B84BED23617C61008B374D /* ShellScript */,
+				B233419225F273C800A6D280 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
