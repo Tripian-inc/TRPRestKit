@@ -9,12 +9,14 @@
 import Foundation
 
 public enum TRPImageSizeStandart {
-    case small, placeDetail, myTrip
+    case small, small2, placeDetail, myTrip
     
     public var size: (width: Int, height: Int) {
         switch self {
         case .small:
             return (width: 64, height: 64)
+        case .small2:
+            return (width: 128, height: 128)
         case .placeDetail:
             return devices()
         case .myTrip:

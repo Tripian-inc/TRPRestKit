@@ -79,7 +79,6 @@
 		B25318642409744A007F97C3 /* TRPPoiRefInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25318632409744A007F97C3 /* TRPPoiRefInfoModel.swift */; };
 		B254CDDF241BAB9000B7B438 /* TRPStepAlternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254CDDE241BAB9000B7B438 /* TRPStepAlternative.swift */; };
 		B255661723B0CB1E00C8AAF2 /* BCCreateTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255661623B0CB1E00C8AAF2 /* BCCreateTrip.swift */; };
-		B2556E0E25FDDFF100525671 /* TRPFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2556E0D25FDDFF100525671 /* TRPFoundationKit.framework */; };
 		B2557E9423ACB14400C5BF4D /* AAUserPersistentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2557E9323ACB14400C5BF4D /* AAUserPersistentTest.swift */; };
 		B2562EF223AB86100094A7B8 /* TRPFoundationKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B23C25A423AB75FE00B6736F /* TRPFoundationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2583C4623ABAB360081ED5D /* BaseUrlCreaterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2583C4523ABAB360081ED5D /* BaseUrlCreaterTest.swift */; };
@@ -166,6 +165,7 @@
 		B2C365AC226727A300E7B4CA /* TRPImageOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C365AB226727A300E7B4CA /* TRPImageOwner.swift */; };
 		B2E0D1F521491D2300876D81 /* TRPDayPlanJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1F421491D2300876D81 /* TRPDayPlanJsonModel.swift */; };
 		B2E0D1FF2149244A00876D81 /* TRPStepInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1FE2149244A00876D81 /* TRPStepInfoModel.swift */; };
+		B2FC20A22647DECE00155D21 /* TRPFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B249688625C1968E002D63B6 /* TRPFoundationKit.framework */; };
 		B2FDCFB92147EE41000C9387 /* TRPLoginJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCFB82147EE41000C9387 /* TRPLoginJsonModel.swift */; };
 		B2FDCFBD2147FA45000C9387 /* TRPUserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCFBC2147FA45000C9387 /* TRPUserRegister.swift */; };
 		B2FE503621356EE700CDC79E /* TRPDeleteProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FE503521356EE700CDC79E /* TRPDeleteProgram.swift */; };
@@ -211,6 +211,7 @@
 		78C448F4237C35C000E1DD7B /* TRPLoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLoginTest.swift; sourceTree = "<group>"; };
 		78C448F6237C35FA00E1DD7B /* TRPDailyPlanTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDailyPlanTest.swift; sourceTree = "<group>"; };
 		78C448F8237C363A00E1DD7B /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		B2002D79262896BE000D9782 /* TRPFoundationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B205CB5324214F80001F4B5A /* TRPDeleteUserTripInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDeleteUserTripInfo.swift; sourceTree = "<group>"; };
 		B20BBAEA213046CB00DEAA3E /* TRPLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLogin.swift; sourceTree = "<group>"; };
 		B20CD9C821357C0800497ED3 /* TRPGetProgramJsonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPGetProgramJsonModel.swift; sourceTree = "<group>"; };
@@ -274,6 +275,7 @@
 		B259621624052BBC00E98DF4 /* ApiV3StartTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiV3StartTest.swift; sourceTree = "<group>"; };
 		B259621824053B7000E98DF4 /* TRPImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageModel.swift; sourceTree = "<group>"; };
 		B25DC54925FBB23A00F416AA /* TRPFoundationKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TRPFoundationKit.xcframework; path = Carthage/Build/TRPFoundationKit.xcframework; sourceTree = "<group>"; };
+		B25E0CD826288F9C0081C785 /* TRPFoundationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25EC986259CACCB0027AF50 /* TRPGygInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGygInfoModel.swift; sourceTree = "<group>"; };
 		B261996B245C2D96001F1A45 /* TRPUserReactionServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserReactionServices.swift; sourceTree = "<group>"; };
 		B261996D245C2FE5001F1A45 /* UserReactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReactionType.swift; sourceTree = "<group>"; };
@@ -366,7 +368,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2556E0E25FDDFF100525671 /* TRPFoundationKit.framework in Frameworks */,
+				B2FC20A22647DECE00155D21 /* TRPFoundationKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +531,8 @@
 		B2373F87218B2FD700CAB14F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2002D79262896BE000D9782 /* TRPFoundationKit.framework */,
+				B25E0CD826288F9C0081C785 /* TRPFoundationKit.framework */,
 				B2556E0D25FDDFF100525671 /* TRPFoundationKit.framework */,
 				B25DC54925FBB23A00F416AA /* TRPFoundationKit.xcframework */,
 				B233418F25F273C800A6D280 /* TRPFoundationKit.framework */,
@@ -1343,12 +1347,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)/../TripianFrameworks/",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/TestServerInfo.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1361,7 +1366,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -1451,6 +1456,7 @@
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)/../TripianFrameworks/",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/TestServerInfo.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1463,7 +1469,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1650,12 +1656,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)/../TripianFrameworks/",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1668,7 +1675,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -1695,6 +1702,7 @@
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)/../TripianFrameworks/",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1707,7 +1715,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

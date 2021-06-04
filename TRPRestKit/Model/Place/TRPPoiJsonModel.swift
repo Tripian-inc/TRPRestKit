@@ -24,6 +24,10 @@ internal class TRPPoiJsonModel: TRPParentJsonModel {
         } else if let model = try? values.decodeIfPresent(TRPPoiInfoModel.self, forKey: .data), let data = [model] as? [TRPPoiInfoModel] {
             self.data = data
         }
+        
+        
+        //self.data = try values.decodeIfPresent([TRPPoiInfoModel].self, forKey: .data)
+        
         try super.init(from: decoder)
     }
 }
