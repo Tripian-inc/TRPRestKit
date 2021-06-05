@@ -25,8 +25,11 @@ internal class TRPPoiJsonModel: TRPParentJsonModel {
             self.data = data
         }
         
-        
-        //self.data = try values.decodeIfPresent([TRPPoiInfoModel].self, forKey: .data)
+        // Yukarıdaki mekanizma throws özelliğini kapatıyor.
+        // Eğer json yapısında bir sorun varsa burası yakalasın diye ekledim.
+        if self.data == nil {
+            self.data = try values.decodeIfPresent([TRPPoiInfoModel].self, forKey: .data)
+        }
         
         try super.init(from: decoder)
     }

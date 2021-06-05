@@ -25,6 +25,7 @@ public enum TRPErrors: Error {
     case emptyDataOrParserError
     case objectIsNil(name: String)
     case someThingWronk(_ message: String)
+    case jsonParserError(code: Int)
 }
 
 extension TRPErrors: LocalizedError {
@@ -44,6 +45,8 @@ extension TRPErrors: LocalizedError {
             return NSLocalizedString("Empty data or couldn't parse json", comment: "")
         case .objectIsNil(let name):
             return NSLocalizedString("\(name) is a nil", comment: "")
+        case .jsonParserError(let code):
+            return NSLocalizedString("Empty data or couldn't parse json. Code: \(code)", comment: "")
         case .someThingWronk(let message):
             return NSLocalizedString("\(message)", comment: "")
         }
