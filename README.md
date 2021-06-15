@@ -2,7 +2,7 @@
 
 Tripian Rest Kit makes it easy to connect your iOS application to the Tripian APIs. It provides you all the tools you need to create personalized recommendations and itineraries for your customers. 
 
-The Tripian Rest Kit is powered by the Tripian Rest API and Tripian recommendation engines. For more information, see the [Tripian Recommendation API Page](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine).
+The Tripian Rest Kit is powered by the Tripian Rest API and Tripian recommendation engines. For more information, see the [Tripian Recommendation API Page](https://tripian-inc.github.io/APIV3-Released/api-spec.html).
 
 Tripian Rest Kit pairs well with Tripian Core Kit SDK for iOS.
 
@@ -34,7 +34,6 @@ The key features are:
   * Getting quick recommendation with a given cityId or trip hash.
 * Comprehensive Unit and Integration Test Coverage.
 * English and French Language Support.
-* Detailed documentation is available in the [TRPRestKit Documentation](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine).
 
 ## Documentation
 
@@ -44,15 +43,14 @@ See the [TRPRestKit documentation](http://airmiles-api-1837638174.ca-central-1.e
 
 In order to keep Tripian Rest kit focused specifically on networking implementations of Tripian Rest API, additional component frameworks have been created by the [Tripian Software Team](https://www.tripian.com/about-us/) to bring additional functionality to the Tripian IOS Frameworks ecosystem.
 
-- [TRPCoreKit](https://corekit) - A Core framework which includes all the operations of Tripian Rest Kit in view controllers including with core functionalities. Such as creating trip, getting daily plan list, performing user management, viewing or editing user's upcoming & past trips, etc.
+- **TRPCoreKit** - A Core framework which includes all the operations of Tripian Rest Kit in view controllers including with core functionalities. Such as creating trip, getting daily plan list, performing user management, viewing or editing user's upcoming & past trips, etc.
 
-- [TRPFoundationKit](https://foundationkit) - A Foundation framework which defines a base layer of functionality among Tripian IOS Frameworks. It provides primitive classes and introduces several paradigms that makes developing with TRPRestKit more easier by introducing consistent conventions.
+- **TRPFoundationKit** - A Foundation framework which defines a base layer of functionality among Tripian IOS Frameworks. It provides primitive classes and introduces several paradigms that makes developing with TRPRestKit more easier by introducing consistent conventions.
 
 ## Requirements
 
 Tripian Rest Kit and Tripian Core Kit are compatible with applications written in Swift 5 in Xcode 10.2 and above. Tripian Rest Kit and Tripian Core Kit frameworks run on iOS 11.0 and above.
 
-Tripian Rest Kit SDK is also available [for Android](https://github.com/tripian/trpRestKitAndroid/).
 
 ## Installation
 
@@ -72,9 +70,9 @@ To install TRP Rest Kit using [CocoaPods](https://cocoapods.org/):
 
 ## Usage
 
-**Tripian APIs require a Tripian account and API access token.** In the project editor, select the application target, then go to the Info tab. Under the “Custom iOS Target Properties” section, set `TripianAccessToken` to your access token. You can obtain an access token from the [Tripian Recommendation API Page](https://www.tripian.com/travel-recommendation-api/).
+**Tripian APIs require a Tripian account and API access token.** In the project editor, select the application target, then go to the Info tab. Under the “Custom iOS Target Properties” section, set `TripianAccessToken` to your access token. You can obtain an access token from the [Tripian Recommendation API Page](https://tripian-inc.github.io/APIV3-Released/dev/api-spec.html).
 
-**Adding internet permission:** The TRPRestKit SDK requires internet permission to work properly. Under the “NSAppTransportSecurity” section, set `NSAllowsArbitraryLoads` to `NO`. //TODO: Buna gerek olmayabilir.
+**Adding internet permission:** The TRPRestKit SDK requires internet permission to work properly. Under the “NSAppTransportSecurity” section, set `NSAllowsArbitraryLoads` to `NO`. 
 
 
 ##### Now import the TRPRestKit module.
@@ -331,7 +329,7 @@ TRPRestKit().quickRecommendation(settings: settings) { (result, error, paginatio
 ```
 </details>
 
-Consult the [Api Documentation](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine),[Unit and Integration Tests](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine) for further details.
+Consult the [Api Documentation](https://tripian-inc.github.io/APIV3-Released/dev/api-spec.html),[Unit and Integration Tests](https://tripian-inc.github.io/APIV3-Released/dev/api-spec.html) for further details.
 
 ## Use Cases
 
@@ -365,13 +363,9 @@ The [TRPRestKit-IOS-Examples](https://github/trprestkitiosexamples) includes exa
 
 ## Communication
 - If you **need help with TRPRest Kit**, use [Stack Overflow](https://stackoverflow.com/questions/tagged/trprestkit) and tag `trprestkit`.
-- If you need to **find or understand the Tripian Recommendation Engine API**, check [our documentation](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine).
+- If you need to **find or understand the Tripian Recommendation Engine API**, check [our documentation](https://tripian-inc.github.io/APIV3-Released/dev/api-spec.html).
 - If you **found a bug**, open an issue here on GitHub and follow the guide. The more detail the better!
 
 ## Built With
-* [TRPFoundationKit](https://foundation/kit/linki) - framework is created by the [Tripian Software Team](https://www.tripian.com/about-us/) to provide primitive classes and introduce several paradigms that makes developing with TRPRestKit more easier by introducing consistent conventions.
+* **TRPFoundationKit** - framework is created by the [Tripian Software Team](https://www.tripian.com/about-us/) to provide primitive classes and introduce several paradigms that makes developing with TRPRestKit more easier by introducing consistent conventions.
 
-## License
-
-Licence kismini arastir, gerekirse biz de alalim.
-https://github.com/mapbox/mapbox-gl-native/blob/master/LICENSE.md
