@@ -1297,7 +1297,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1337,7 +1336,6 @@
 			baseConfigurationReference = B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEFINES_MODULE = YES;
@@ -1364,6 +1362,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1405,7 +1404,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1440,7 +1438,6 @@
 			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEFINES_MODULE = YES;
@@ -1467,6 +1464,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 4.2;
@@ -1543,7 +1541,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1611,7 +1608,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1646,7 +1642,6 @@
 			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEFINES_MODULE = YES;
@@ -1673,6 +1668,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1686,7 +1682,6 @@
 			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEFINES_MODULE = YES;
@@ -1713,6 +1708,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 4.2;
@@ -1828,7 +1824,7 @@
 				B258870D22316B9100BD6930 /* Release(TestServer) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release(TestServer)";
+			defaultConfigurationName = Release;
 		};
 		B29B461F20F607F90009E711 /* Build configuration list for PBXProject "TRPRestKit" */ = {
 			isa = XCConfigurationList;
@@ -1839,7 +1835,7 @@
 				B20F29A821C259F90041957B /* Release(TestServer) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release(TestServer)";
+			defaultConfigurationName = Release;
 		};
 		B29B462D20F607F90009E711 /* Build configuration list for PBXNativeTarget "TRPRestKit" */ = {
 			isa = XCConfigurationList;
@@ -1850,7 +1846,7 @@
 				B20F29A921C259F90041957B /* Release(TestServer) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release(TestServer)";
+			defaultConfigurationName = Release;
 		};
 		B2B500BD235073860006D406 /* Build configuration list for PBXNativeTarget "TRPRestKitiOS.Tests" */ = {
 			isa = XCConfigurationList;
@@ -1861,7 +1857,7 @@
 				B2B500C1235073860006D406 /* Release(TestServer) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release(TestServer)";
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
