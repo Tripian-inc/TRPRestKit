@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal class TRPGenericParser<T: Decodable>: TRPParentJsonModel {
+public class TRPGenericParser<T: Decodable>: TRPParentJsonModel {
     
     public var data: T?
     
