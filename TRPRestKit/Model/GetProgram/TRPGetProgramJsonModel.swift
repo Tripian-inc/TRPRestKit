@@ -36,6 +36,8 @@ public struct TRPTripProfileModel: Decodable {
 
     public var doNotGenerate: Int
     
+    public var theme: String?
+    
     private enum CodingKeys: String, CodingKey {
         case cityId = "city_id"
         case arrivalDateTime = "arrival_datetime"
@@ -48,6 +50,7 @@ public struct TRPTripProfileModel: Decodable {
         case companionIds = "companion_ids"
         case pace
         case doNotGenerate = "do_not_generate"
+        case theme
     }
     
     /// Initializes a new object with decoder
@@ -84,7 +87,7 @@ public struct TRPAccommodationInfoModel: Decodable {
     
     public var name: String?
     public var referanceId: String?
-    public var address: String
+    public var address: String?
     public var coordinate: TRPCoordinateModel
     
     private enum CodingKeys: String, CodingKey {
@@ -96,9 +99,9 @@ public struct TRPAccommodationInfoModel: Decodable {
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
         self.name = try values.decodeIfPresent(String.self, forKey: .name)
         self.referanceId = try values.decodeIfPresent(String.self, forKey: .refId)
-        self.address = try values.decode(String.self, forKey: .address)
-        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
+        self.address = try values.decodeIfPresent(String.self, forKey: .address)
     }
 }
