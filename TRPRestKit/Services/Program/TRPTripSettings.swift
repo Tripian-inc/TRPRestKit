@@ -36,6 +36,8 @@ public class TRPTripSettings {
     public var owner: String?
     public var pace: String?
     public var hash: String?
+    /// Pre generated theme tour parameter
+    public var theme: String?
     
     /// Initializes a new Settings with cityId, arrivalTime and departureTime
     ///
