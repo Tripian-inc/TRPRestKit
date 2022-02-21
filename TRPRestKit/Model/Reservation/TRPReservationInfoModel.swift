@@ -46,6 +46,15 @@ public struct TRPReservationInfoModel: Decodable {
         if let gyg = try? values.decodeIfPresent(TRPGygInfoModel.self, forKey: .value) {
             gygModel = gyg
         }
+        
+        do {
+            if let gyg = try values.decodeIfPresent(TRPGygInfoModel.self, forKey: .value) {
+                gygModel = gyg
+            }
+        }catch {
+            print("[Error] \(error)")
+        }
+        
     }
     
 }

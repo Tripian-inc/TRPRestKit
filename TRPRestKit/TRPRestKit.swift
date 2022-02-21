@@ -1639,7 +1639,10 @@ extension TRPRestKit {
                                             provider: String? = nil,
                                             limit: Int? = nil) {
         let services = TRPUserReservationServices()
-        services.cityId = cityId
+        if let cityId = cityId, cityId != 0 {
+            services.cityId = cityId
+        }
+        
         services.tripHash = tripHash
         services.poiId = poiId
         services.from = from
