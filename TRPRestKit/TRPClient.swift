@@ -26,6 +26,9 @@ import Foundation
     /// Allows Data to be shown
     public var monitorData = false
     
+    public var isReverseProxy = false
+    public var reverseProxyURL: String = ""
+    
     internal var enviroment: Environment = .test {
         didSet {
             log.i("Enviroment was changed: \(self.enviroment)")
@@ -50,6 +53,15 @@ import Foundation
     public static func monitor(data: Bool? = false, url: Bool? = false) {
         TRPClient.shared.monitorUrl = url ?? false
         TRPClient.shared.monitorData = data ?? false
+    }
+    
+    ///Reverse proxy connection
+    public static func start(baseUrl: BaseUrlCreater, apiKey: String, reverseProxyUrl: String) {
+        TRPClient.shared.baseUrl = baseUrl
+        TRPApiKey.setApiKey(apiKey)
+        
+        TRPClient.shared.reverseProxyURL = reverseProxyUrl
+        TRPClient.shared.isReverseProxy = true
     }
     
 }

@@ -76,6 +76,10 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         if let theme = setting.theme {
             params["theme"] = theme
         }
+        
+        if let excludeHash = setting.excludeHash {
+            params["exclude_hash"] = excludeHash
+        }
         print("CreateTrip Params \(params)")
         return params
     }

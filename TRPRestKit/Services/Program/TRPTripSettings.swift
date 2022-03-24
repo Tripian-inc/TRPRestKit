@@ -38,6 +38,8 @@ public class TRPTripSettings {
     public var hash: String?
     /// Pre generated theme tour parameter
     public var theme: String?
+    /// Pre generated theme tour parameter
+    public var excludeHash: [String]?
     
     /// Initializes a new Settings with cityId, arrivalTime and departureTime
     ///

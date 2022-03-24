@@ -81,8 +81,16 @@ public class TRPNetwork {
             completionHandler?(TRPErrors.undefined as NSError, nil)
             return
         }
+        
+        if TRPClient.shared.isReverseProxy {
+            let urlString = url.absoluteString.addingPercentEncoding( withAllowedCharacters: .alphanumerics)!
+            let formattedUrl = URL(string: "\(TRPClient.shared.reverseProxyURL)\(urlString)")!
+            self.generateSession(formattedUrl)
+        } else {
+            self.generateSession(url)
+        }
     
-        self.generateSession(url)
+//
     }
     
     private func createComponents(url: String?) -> URLComponents {
