@@ -48,14 +48,14 @@ public struct TRPPoiInfoModel: Decodable {
     
     /// A TRPCategoryInfoModel array. A poi can have multiple categories.
     public var category = [TRPCategoryInfoModel]()
-    public var tags: [String]
+    public var tags: [String]? = []
     public var mustTries: [TRPTastesInfoModel] = []
     public var cuisines: String?
     public var attention: String?
     public var safety: [String] = []
     public var closed: [Int]
     public var distance: Float?
-    public var status: Bool
+    public var status: Bool = true
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -130,12 +130,12 @@ public struct TRPPoiInfoModel: Decodable {
         
        // self.booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey:.booking)
         
-        self.tags = try values.decode([String].self, forKey: .tags)
+        self.tags = try values.decodeIfPresent([String].self, forKey: .tags)
         
         self.attention = try values.decodeIfPresent(String.self, forKey: .attention)
         self.closed = try values.decodeIfPresent([Int].self, forKey: .closed) ?? []
         self.distance = try values.decodeIfPresent(Float.self, forKey: .distance)
-        self.status = try values.decode(Bool.self, forKey: .status)
+        self.status = try values.decodeIfPresent(Bool.self, forKey: .status) ?? true
         self.safety = try values.decodeIfPresent([String].self, forKey: .safety) ?? []
     
         if let mustTries = try? values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .mustTries){
