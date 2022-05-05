@@ -73,7 +73,7 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         let generate = setting.doNotGenerate == true ? 1 : 0
         params["do_not_generate"] = generate
         
-        if let theme = setting.theme {
+        if let theme = setting.theme, setting.theme?.isEmpty == false {
             params["theme"] = theme
         }
         
