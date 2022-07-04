@@ -40,19 +40,19 @@ public struct TRPTripProfileModel: Decodable {
     public var excludeHash: [String]?
     
     private enum CodingKeys: String, CodingKey {
-        case cityId = "city_id"
-        case arrivalDateTime = "arrival_datetime"
-        case departureDateTime = "departure_datetime"
-        case numberOfAdults = "number_of_adults"
-        case numberOfChildren = "number_of_children"
+        case cityId 
+        case arrivalDateTime = "arrivalDatetime"
+        case departureDateTime = "departureDatetime"
+        case numberOfAdults
+        case numberOfChildren
         case answers
         case owner
         case accommodation = "accommodation"
-        case companionIds = "companion_ids"
+        case companionIds
         case pace
-        case doNotGenerate = "do_not_generate"
+        case doNotGenerate
         case theme
-        case excludeHash = "exclude_hash"
+        case excludeHash
     }
     
     /// Initializes a new object with decoder
@@ -96,7 +96,7 @@ public struct TRPAccommodationInfoModel: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case name
-        case refId = "ref_id"
+        case refId = "refID"
         case address
         case coordinate
     }

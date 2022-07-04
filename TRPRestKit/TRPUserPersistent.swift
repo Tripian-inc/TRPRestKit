@@ -14,7 +14,7 @@ public struct TRPUserPersistent {
 
     public static var isLoggedIn: Bool {
         guard let tokens = TripianTokenController().fetchTokenInfo() else {return false}
-        if !tokens.accessToken.isEmpty && tokens.expiresIn != 0 {
+        if !tokens.idToken.isEmpty && tokens.expiresIn != 0 {
             return true
         }
         return false

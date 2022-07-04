@@ -42,13 +42,13 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         guard let setting = setting else {
             return params
         }
-        params["city_id"] = setting.cityId
-        params["arrival_datetime"] = setting.arrivalTime.timeForServer
-        params["departure_datetime"] = setting.departureTime.timeForServer
-        params["number_of_adults"] = setting.adultsCount
+        params["cityId"] = setting.cityId
+        params["arrivalDatetime"] = setting.arrivalTime.timeForServer
+        params["departureDatetime"] = setting.departureTime.timeForServer
+        params["numberOfAdults"] = setting.adultsCount
         
         if let children = setting.childrenCount {
-            params["number_of_children"] = children
+            params["numberOfChildren"] = children
         }
         
         params["answers"] = setting.getAllAnswers()
@@ -58,12 +58,12 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         }
         if let accommodationAddress = setting.accommodationAdress, let accomJson = accommodationAddress.json() {
             params["accommodation"] = accomJson
-        }else {
-            params["accommodation"] =  NSNull()
+//        }else {
+//            params["accommodation"] =  NSNull()
         }
         
         if let companions = setting.selectedCompanionIds {
-            params["companion_ids"] = companions
+            params["companionIds"] = companions
         }
 
         if let pace = setting.pace {
@@ -71,14 +71,14 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         }
         
         let generate = setting.doNotGenerate == true ? 1 : 0
-        params["do_not_generate"] = generate
+        params["doNotGenerate"] = generate
         
-        if let theme = setting.theme, setting.theme?.isEmpty == false {
+        if let theme = setting.theme, !theme.isEmpty {
             params["theme"] = theme
         }
         
         if let excludeHash = setting.excludeHash {
-            params["exclude_hash"] = excludeHash
+            params["excludeHash"] = excludeHash
         }
         print("CreateTrip Params \(params)")
         return params

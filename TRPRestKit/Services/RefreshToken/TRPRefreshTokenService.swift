@@ -29,7 +29,7 @@ internal class TRPRefreshTokenService: TRPRestServices<TRPGenericParser<TRPRefre
     }
     override func bodyParameters() -> [String: Any]? {
         var params = [String: Any]()
-        params["refresh_token"] = refreshToken
+        params["refreshToken"] = refreshToken
         if let device = device, let deviceParameters = device.params() {
             params["device"] = deviceParameters
         }

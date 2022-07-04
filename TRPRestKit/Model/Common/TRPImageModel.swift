@@ -18,7 +18,7 @@ public class TRPImageModel: NSObject, Decodable {
     /// Tag matcher
     private enum CodingKeys: String, CodingKey {
         case url
-        case imageOwner = "image_owner"
+        case imageOwner
         case width
         case height
     }

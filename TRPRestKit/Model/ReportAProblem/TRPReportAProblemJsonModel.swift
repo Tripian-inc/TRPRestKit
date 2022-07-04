@@ -39,9 +39,9 @@ public struct TRPReportAProblemInfoModel: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case id
-        case problemCategory = "problem_category"
+        case problemCategory = "problemCategory"
         case message
-        case poiId = "poi_id"
+        case poiId = "poiId"
     }
     
     /// Initializes a new object with decoder

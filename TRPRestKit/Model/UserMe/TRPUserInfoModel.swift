@@ -13,6 +13,7 @@ public struct TRPUserInfoModel: Decodable {
     
     public var username: String
     
+    public var id: Int?
     /// A String value. Email of the user.
     public var email: String
     /// A String value. First name of the user.
@@ -20,16 +21,23 @@ public struct TRPUserInfoModel: Decodable {
     //public var age:String?
     /// A String value. Last name of the user.
     public var lastName: String?
+    
+    public var dateOfBirth: String?
+    
+    public var answers: [Int]?
    
     /// A array of TRPUserPreferencesInfoModel objects.
-    public var profile: TRPUserProfileInfoModel?
+//    public var profile: TRPUserProfileInfoModel?
     
     private enum CodingKeys: String, CodingKey {
         case userName = "username"
+        case id
         case email
-        case profile
-        case firstName = "first_name"
-        case lastName = "last_name"
+//        case profile
+        case firstName
+        case lastName
+        case dateOfBirth
+        case answers
     }
     
     /// Json to Object converter
@@ -37,6 +45,7 @@ public struct TRPUserInfoModel: Decodable {
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try values.decodeIfPresent(Int.self, forKey: .id)
         
         if let email = try values.decodeIfPresent(String.self, forKey: .email) {
             username = ""
@@ -51,7 +60,9 @@ public struct TRPUserInfoModel: Decodable {
         
         self.firstName = try values.decodeIfPresent(String.self, forKey: .firstName)
         self.lastName = try values.decodeIfPresent(String.self, forKey: .lastName)
-        self.profile = try values.decodeIfPresent(TRPUserProfileInfoModel.self, forKey: .profile)
+        self.dateOfBirth = try values.decodeIfPresent(String.self, forKey: .dateOfBirth)
+        self.answers = try values.decodeIfPresent([Int].self, forKey: .answers)
+//        self.profile = try values.decodeIfPresent(TRPUserProfileInfoModel.self, forKey: .profile)
     }
     
 }

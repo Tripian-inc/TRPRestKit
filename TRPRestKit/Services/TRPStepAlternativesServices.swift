@@ -43,11 +43,11 @@ internal class TRPStepAlternativesServices: TRPRestServices<TRPPlanPointAlternat
     public override func parameters() -> [String: Any]? {
         var params: [String: Any] = [:]
         if let hash = hash {
-            params["trip_hash"] = hash
+            params["tripHash"] = hash
         } else if let planId = planId {
-            params["plan_id"] = planId
+            params["planId"] = planId
         } else if let stepId = stepId {
-            params["step_id"] = stepId
+            params["stepId"] = stepId
         }
         return params
     }

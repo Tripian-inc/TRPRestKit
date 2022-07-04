@@ -61,11 +61,11 @@ internal class TRPAddUpadateUserReservationServices: TRPRestServices<TRPGenericP
         params["provider"] = provider
         
         if let tripHash = tripHash {
-            params["trip_hash"] = tripHash
+            params["tripHash"] = tripHash
         }
         
         if let poiId = poiId {
-            params["poi_id"] = poiId
+            params["poiId"] = poiId
         }
         
         if let value = value {

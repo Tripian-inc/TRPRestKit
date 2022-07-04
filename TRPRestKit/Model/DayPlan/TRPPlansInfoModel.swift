@@ -36,10 +36,10 @@ public struct TRPPlansInfoModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case id
         case date
-        case startTime = "start_time"
-        case endTime = "end_time"
+        case startTime
+        case endTime
         case steps
-        case generate = "generated_status"
+        case generate = "generatedStatus"
     }
     
     /// Initializes a new object with decoder

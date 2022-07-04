@@ -51,14 +51,14 @@ final class TRPStepServices: TRPRestServices<TRPGenericParser<TRPStepInfoModel>>
         var params: [String: Any] = [:]
         if serviceType == .add {
             guard let planId = planId, let poiId = poiId else {return nil}
-            params["plan_id"] = planId
-            params["poi_id"] = poiId
+            params["planId"] = planId
+            params["poiId"] = poiId
             if let order = order {
                 params["order"] = order
             }
         } else if serviceType == .edit {
             if let poiId = poiId {
-                params["poi_id"] = poiId
+                params["poiId"] = poiId
             }
             if let order = order {
                 params["order"] = order

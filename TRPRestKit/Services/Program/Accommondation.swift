@@ -25,7 +25,7 @@ public struct Accommondation {
         var params: [String: Any] = [:]
         
         if let refId = refId {
-            params["ref_id"] = refId
+            params["refID"] = refId
         }
         
         if let name = name {

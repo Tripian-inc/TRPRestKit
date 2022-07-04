@@ -16,7 +16,7 @@ public struct TRPRecommendationInfoJsonModel: Decodable {
     public var score: Double
     /// Tag matcher
     private enum CodingKeys: String, CodingKey {
-        case poiRef = "poi_ref"
+        case poiRef = "poiRef"
         case score
     }
     

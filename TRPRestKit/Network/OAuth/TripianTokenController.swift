@@ -30,7 +30,7 @@ class TripianTokenController: TokenControllerProtocol {
     
     var token: String? {
         if let model = fetchTokenInfo() {
-            return model.accessToken
+            return model.idToken
         }
         return nil
     }

@@ -56,10 +56,10 @@ internal class TRPUserReactionServices: TRPRestServices<TRPGenericParser<TRPReac
         
         var params = [String: Any]()
         if let poiId = poiId {
-            params["poi_id"] = poiId
+            params["poiId"] = poiId
         }
         if let stepId = stepId {
-            params["step_id"] = stepId
+            params["stepId"] = stepId
         }
         if let reaction = reaction {
             params["reaction"] = reaction.rawValue

@@ -42,10 +42,10 @@ internal class TRPQuestionService: TRPRestServices<TRPQuestionJsonModel> {
     public override func parameters() -> [String: Any]? {
         var dic: [String: Any] = [:]
         if let cityId = cityId {
-            dic["city_id"] = "\(cityId)"
+            dic["cityId"] = "\(cityId)"
             dic["category"] = "\(tripType.rawValue)"
             if let lang = language {
-                dic["language_code"] = "\(lang)"
+                dic["languageCode"] = "\(lang)"
             }
             
             return dic
@@ -54,4 +54,8 @@ internal class TRPQuestionService: TRPRestServices<TRPQuestionJsonModel> {
         return dic
     }
     
+    
+    public override func userOAuth() -> Bool {
+        return true
+    }
 }

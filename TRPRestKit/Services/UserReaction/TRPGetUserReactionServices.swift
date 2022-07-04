@@ -29,7 +29,7 @@ internal class TRPGetUserReactionServices: TRPRestServices<TRPGenericParser<[TRP
     
     override func parameters() -> [String: Any]? {
         var params = [String: Any]()
-        params["trip_hash"] = tripHash
+        params["tripHash"] = tripHash
         return params
     }
     

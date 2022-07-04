@@ -27,13 +27,13 @@ internal class TRPReportAProblemServices: TRPRestServices<TRPReportAProblemJsonM
     
     override func parameters() -> [String: Any]? {
         var params: [String: Any] = [:]
-        params["problem_category"] = categoryName
+        params["problemCategory"] = categoryName
         
         if let message = message {
             params["message"] = message
         }
         if let poiId = poiId {
-            params["poi_id"] = poiId
+            params["poiId"] = poiId
         }
         return params
     }

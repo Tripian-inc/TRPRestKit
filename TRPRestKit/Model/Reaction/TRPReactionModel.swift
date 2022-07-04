@@ -20,13 +20,13 @@ public struct TRPReactionModel: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case id
-        case poiId = "poi_id"
-        case stepId = "step_id"
+        case poiId = "poiId"
+        case stepId = "stepId"
         case reaction
         case comment
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-        case tripHash = "trip_hash"
+        case createdAt = "createdAt"
+        case updatedAt = "updatedAt"
+        case tripHash = "tripHash"
     }
     
 }

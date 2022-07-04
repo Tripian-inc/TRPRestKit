@@ -12,15 +12,15 @@ public class TRPPoiRefInfoModel: Decodable {
     /// An Int value. Unique id of a city.
     public var id: Int
     public var name: String
-    public var markerCoordinate: TRPCoordinateModel
-    public var category: [TRPCategoryInfoModel]
-    public var image: TRPImageModel
+    public var coordinate: TRPCoordinateModel?
+    public var category: [TRPCategoryInfoModel]?
+    public var image: TRPImageModel?
    
     /// Tag matcher
     private enum CodingKeys: String, CodingKey {
         case id
         case name
-        case markerCoordinate = "marker_coordinate"
+        case coordinate
         case image
         case category
     }
@@ -32,9 +32,9 @@ public class TRPPoiRefInfoModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
         self.name = try values.decode(String.self, forKey: .name)
-        self.markerCoordinate = try values.decode(TRPCoordinateModel.self, forKey: .markerCoordinate)
-        self.category = try values.decode([TRPCategoryInfoModel].self, forKey: .category)
-        self.image = try values.decode(TRPImageModel.self, forKey: .image)
+        self.coordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .coordinate)
+        self.category = try values.decodeIfPresent([TRPCategoryInfoModel].self, forKey: .category)
+        self.image = try values.decodeIfPresent(TRPImageModel.self, forKey: .image)
     }
     
 }

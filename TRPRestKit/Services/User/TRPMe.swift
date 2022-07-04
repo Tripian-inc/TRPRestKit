@@ -18,7 +18,8 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
     var firstName: String?
     var lastName: String?
     var password: String?
-    var age: Int?
+    var dateOfBirth: String?
+//    var age: Int?
     
     init(type: ServiceType) {
         self.serviceType = type
@@ -29,13 +30,13 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
         self.answers = answers
     }
     
-    init(firstName: String? = nil, lastName: String? = nil, age: Int? = nil, password: String? = nil, answers: [Int]? = nil) {
+    init(firstName: String? = nil, lastName: String? = nil, dateOfBirth: String? = nil, password: String? = nil, answers: [Int]? = nil) {
         self.serviceType = .updateInfo
         self.answers = answers
         self.firstName = firstName
         self.lastName = lastName
         self.password = password
-        self.age = age
+        self.dateOfBirth = dateOfBirth
     }
     
     public override func bodyParameters() -> [String: Any]? {
@@ -43,22 +44,31 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
         
         var params: [String: Any] = [:]
         if serviceType == .updateAnswer {
-            let profile = getProfile()
-            if profile.count > 0 {
-                params["profile"] = profile
+//            let profile = getProfile()
+//            if profile.count > 0 {
+//                params["profile"] = profile
+//            }
+            if let answers = answers {
+                params["answers"] = answers
             }
         } else if serviceType == .updateInfo {
             if let firstName = firstName {
-                params["first_name"] = firstName
+                params["firstName"] = firstName
             }
             if let lastName = lastName {
-                params["last_name"] = lastName
+                params["lastName"] = lastName
+            }
+            if let dateOfBirth = dateOfBirth, !dateOfBirth.isEmpty {
+                params["dateOfBirth"] = dateOfBirth
+            }
+            if let answers = answers {
+                params["answers"] = answers
             }
             
-            let profile = getProfile()
-            if profile.count > 0 {
-                params["profile"] = profile
-            }
+//            let profile = getProfile()
+//            if profile.count > 0 {
+//                params["profile"] = profile
+//            }
             if let password = password {
                 params["password"] = password
             }
@@ -66,16 +76,16 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
         return params
     }
     
-    private func getProfile() -> [String: Any] {
-        var params = [String: Any]()
-        if let answers = answers {
-            params["answers"] = answers
-        }
-        if let age = age {
-            params["age"] = "\(age)"
-        }
-        return params
-    }
+//    private func getProfile() -> [String: Any] {
+//        var params = [String: Any]()
+//        if let answers = answers {
+//            params["answers"] = answers
+//        }
+//        if let age = age {
+//            params["age"] = "\(age)"
+//        }
+//        return params
+//    }
     
     public override func userOAuth() -> Bool {
         return true

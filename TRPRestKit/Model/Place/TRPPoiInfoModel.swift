@@ -42,9 +42,7 @@ public struct TRPPoiInfoModel: Decodable {
     /// A TRPCoordinateModel objects. Center coordinate of poi.
     public var coordinate: TRPCoordinateModel
     
-    public var markerCoordinate: TRPCoordinateModel?
-    
-    public var booking: [TRPBookingInfoModel]?
+    public var bookings: [TRPBookingInfoModel]?
     
     /// A TRPCategoryInfoModel array. A poi can have multiple categories.
     public var category = [TRPCategoryInfoModel]()
@@ -59,11 +57,11 @@ public struct TRPPoiInfoModel: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case id
-        case cityId = "city_id"
+        case cityId
         case rating
-        case ratingCount = "rating_count"
+        case ratingCount
         case name
-        case address = "address"
+        case address
         case price
         case web
         case hours
@@ -75,16 +73,15 @@ public struct TRPPoiInfoModel: Decodable {
         case description
         case cuisines
         case features
-        case imageOwner = "image_owner"
+        case imageOwner
         case gallery
-        case markerCoordinate = "marker_coordinate"
-        case booking
+        case bookings
         case tags
         case attention
         case closed
         case distance
         case status
-        case mustTries = "must_tries"
+        case mustTries
         case safety
     }
     
@@ -111,7 +108,6 @@ public struct TRPPoiInfoModel: Decodable {
         
         self.icon = try values.decode(String.self, forKey: .icon)
         self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
-        self.markerCoordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .markerCoordinate)
         
         if let categorys = try values.decodeIfPresent([TRPCategoryInfoModel].self, forKey: .category) {
             category = categorys
@@ -123,7 +119,7 @@ public struct TRPPoiInfoModel: Decodable {
         self.cuisines = try values.decodeIfPresent(String.self, forKey: .cuisines)
         
         do {
-             self.booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey: .booking)
+             self.bookings = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey: .bookings)
         }catch let error {
             print("Booking Error \(error)")
         }

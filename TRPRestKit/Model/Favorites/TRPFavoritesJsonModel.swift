@@ -45,10 +45,10 @@ public struct TRPFavoritesInfoModel: Decodable {
     public var tripHash: String?
     
     private enum CodingKeys: String, CodingKey {
-        case poiId = "poi_id"
-        case cityId = "city_id"
+        case poiId = "poiId"
+        case cityId = "cityId"
         case id
-        case tripHash = "trip_hash"
+        case tripHash = "tripHash"
     }
     
     /// Json to Object converter

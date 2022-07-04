@@ -25,16 +25,16 @@ public struct TRPQuestionInfoModel: Decodable {
     public var order: Int
     
     /// A TRPQuestionOptionsJsonModel object. Options of a question.
-    public var options: [TRPQuestionOptionsJsonModel]?
+    public var answers: [TRPQuestionOptionsJsonModel]?
     
     private enum CodingKeys: String, CodingKey {
         case id
         case skippable
-        case selectMultiple = "select_multiple"
+        case selectMultiple = "selectMultiple"
         case name
         case category
         case order
-        case options
+        case answers
     }
     
     /// Json to Object converter
@@ -49,7 +49,7 @@ public struct TRPQuestionInfoModel: Decodable {
         let questionCategory = try values.decode(String.self, forKey: .category)
         self.category = TRPQuestionCategory(rawValue: questionCategory) ?? .trip
         self.order = try values.decode(Int.self, forKey: .order)
-        self.options = try values.decodeIfPresent([TRPQuestionOptionsJsonModel].self, forKey: .options)
+        self.answers = try values.decodeIfPresent([TRPQuestionOptionsJsonModel].self, forKey: .answers)
     }
     
 }

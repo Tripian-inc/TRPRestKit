@@ -25,6 +25,10 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
     
     internal override init() {}
     
+    override func userOAuth() -> Bool {
+        return true
+    }
+    
     internal init(cityId: Int) {
         self.cityId = cityId
     }
@@ -42,7 +46,7 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
         
         //City
         if let cityId = cityId {
-            params["city_id"] = cityId
+            params["cityId"] = cityId
         }
         
         //Coordinate
@@ -51,7 +55,7 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
         }
         
         if let places = placeIds, places.count > 0 {
-            params["poi_ids"] = places.toString()
+            params["poiIds"] = places.toString()
         }
         
         if let searchText = searchText {
@@ -63,11 +67,11 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
         }
         
         if let typeIds = poiCategories, typeIds.count > 0 {
-            params["poi_categories"] = typeIds.toString()
+            params["poiCategories"] = typeIds.toString()
         }
         
         if let mustTries = mustTryIds {
-            params["must_try_ids"] = mustTries.toString()
+            params["mustTryIDs"] = mustTries.toString()
         }
         
         if let distance = distance {

@@ -8,7 +8,7 @@
 
 import Foundation
 //TODO: TRPUserInfoJsonModel VE TRPTestUserInfoJsonModel İÇİN YENİDEN YAZILACAK
-internal class TRPUserRegister: TRPRestServices<TRPUserInfoJsonModel> {
+internal class TRPUserRegister: TRPRestServices<TRPLoginJsonModel> {
     
     private var email: String?
     private var password: String?
@@ -17,24 +17,31 @@ internal class TRPUserRegister: TRPRestServices<TRPUserInfoJsonModel> {
     private var lastName: String?
     private var answers: [Int]?
     private var age: Int?
+    private var dateOfBirth: String?
+    
+    private var device: TRPDevice?
     
     public init(email: String,
                 password: String,
                 firstName: String?,
                 lastName: String?,
                 answers: [Int]?,
-                age: Int?) {
+                age: Int?,
+                dateOfBirth: String?,
+                device: TRPDevice? = nil) {
         self.password = password
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
         self.answers = answers
         self.age = age
+        self.dateOfBirth = dateOfBirth
+        self.device = device
     }
     
-    public init(userName: String) {
-        self.userName = userName
-    }
+//    public init(userName: String) {
+//        self.userName = userName
+//    }
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
@@ -49,7 +56,7 @@ internal class TRPUserRegister: TRPRestServices<TRPUserInfoJsonModel> {
         let jsonDecode = JSONDecoder()
         do {
             if password != nil && email != nil {
-                let result = try jsonDecode.decode(TRPUserInfoJsonModel.self, from: data)
+                let result = try jsonDecode.decode(TRPLoginJsonModel.self, from: data)
                 let pag = paginationController(parentJson: result)
                 self.completion?(result, nil, pag)
             } else if userName != nil {
@@ -71,13 +78,17 @@ internal class TRPUserRegister: TRPRestServices<TRPUserInfoJsonModel> {
             parameters["password"] = password
             
             if let firstName = firstName {
-                parameters["first_name"] = firstName
+                parameters["firstName"] = firstName
             }
             if let lastName = lastName {
-                parameters["last_name"] = lastName
+                parameters["lastName"] = lastName
             }
             if let profile = profileParams() {
                 parameters["profile"] = profile
+            }
+            
+            if let device = device, let deviceParams = device.params() {
+                parameters["device"] = deviceParams
             }
             return parameters
         }

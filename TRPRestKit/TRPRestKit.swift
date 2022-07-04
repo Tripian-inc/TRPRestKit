@@ -631,9 +631,11 @@ extension TRPRestKit {
                          lastName: String? = nil,
                          age: Int? = nil,
                          answers: [Int]? = nil,
+                         dateOfBirth: String? = nil,
+                         device: TRPDevice? = nil,
                          completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        userRegisterServices(email: email, password: password, firstName: firstName, lastName: lastName, age: age, answers: answers)
+        userRegisterServices(email: email, password: password, firstName: firstName, lastName: lastName, age: age, answers: answers, dateOfBirth: dateOfBirth, device: device)
     }
     
     /// Obtain personal user information (must be logged in with access token), such as user id, e-mail, and preferences.
@@ -655,17 +657,21 @@ extension TRPRestKit {
                                       firstName: String? = nil,
                                       lastName: String? = nil,
                                       age: Int? = nil,
-                                      answers: [Int]? = nil) {
+                                      answers: [Int]? = nil,
+                                      dateOfBirth: String? = nil,
+                                      device: TRPDevice? = nil) {
         var services: TRPUserRegister?
-        if let userName = userName {
-            services = TRPUserRegister(userName: userName)
+        if userName != nil {
+//            services = TRPUserRegister(userName: userName)
         }else if let email = email, let password = password {
             services = TRPUserRegister(email: email,
                                        password: password,
                                        firstName: firstName,
                                        lastName: lastName,
                                        answers: answers,
-                                       age: age)
+                                       age: age,
+                                       dateOfBirth: dateOfBirth,
+                                       device: device)
         }
         
         guard let mServices = services else { return }
@@ -674,7 +680,7 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let serviceResultForAirMiles = result as? TRPUserInfoJsonModel {
+            if let serviceResultForAirMiles = result as? TRPLoginJsonModel {
                 self.postData(result: serviceResultForAirMiles.data)
             }else if let serviceResult = result as? TRPTestUserInfoJsonModel {
                 self.postData(result: serviceResult.data)
@@ -734,13 +740,13 @@ extension TRPRestKit {
     public func updateUserInfo(firstName: String? = nil,
                                lastName: String? = nil,
                                password: String? = nil,
-                               age: Int? = nil,
+                               dateOfBirth: String? = nil,
                                answers: [Int]? = nil,
                                completion: @escaping CompletionHandler) {
         completionHandler = completion
         userInfoServices(firstName: firstName,
                          lastName: lastName,
-                         age: age,
+                         dateOfBirth: dateOfBirth,
                          answers: answers,
                          password: password,
                          type: .updateInfo)
@@ -765,7 +771,7 @@ extension TRPRestKit {
     /// A services which will be used in user info services, manages all task connecting to remote server.
     private func userInfoServices(firstName: String? = nil,
                                   lastName: String? = nil,
-                                  age: Int? = nil,
+                                  dateOfBirth: String? = nil,
                                   answers: [Int]? = nil,
                                   password: String? = nil,
                                   type: TRPUserInfoServices.ServiceType) {
@@ -780,7 +786,7 @@ extension TRPRestKit {
         } else if type == .updateInfo {
             infoService = TRPUserInfoServices(firstName: firstName,
                                               lastName: lastName,
-                                              age: age,
+                                              dateOfBirth: dateOfBirth,
                                               password: password,
                                               answers: answers)
         }
@@ -1541,7 +1547,7 @@ extension TRPRestKit {
     
 }
 
-//Mark: Get User Reaction
+//MARK: Get User Reaction
 extension TRPRestKit {
     
     // return [TRPReactionModel]

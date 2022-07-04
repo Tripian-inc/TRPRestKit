@@ -22,10 +22,10 @@ public struct TRPReservationInfoModel: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case id, key, provider
-        case tripHash = "trip_hash"
-        case poiID = "poi_id"
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
+        case tripHash = "tripHash"
+        case poiID = "poiId"
+        case createdAt = "createdAt"
+        case updatedAt = "updatedAt"
         case value = "value"
     }
     
@@ -67,11 +67,11 @@ public struct TRPYelpInfoModel: Codable {
     public let reservationDetail: TRPYelpReservationDetailInfoModel?
     
     enum CodingKeys: String, CodingKey {
-        case confirmURL = "confirm_url"
-        case reservationID = "reservation_id"
-        case restaurantImage = "restaurant_image"
-        case restaurantName = "restaurant_name"
-        case reservationDetail = "reservation_details"
+        case confirmURL = "confirmUrl"
+        case reservationID = "reservationId"
+        case restaurantImage = "restaurantImage"
+        case restaurantName = "restaurantName"
+        case reservationDetail = "reservationDetails"
     }
 }
 

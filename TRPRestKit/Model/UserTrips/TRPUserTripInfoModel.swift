@@ -23,8 +23,8 @@ public struct TRPUserTripInfoModel: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case id
-        case tripHash = "trip_hash"
-        case tripProfile = "trip_profile"
+        case tripHash
+        case tripProfile
         case city
     }
     

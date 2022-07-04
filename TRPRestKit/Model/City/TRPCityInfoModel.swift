@@ -24,6 +24,8 @@ public class TRPCityInfoModel: NSObject, Decodable {
     /// A double array that indicate a boundary of City
     public var boundary: [Double] = []
     public var tastes: [TRPTastesInfoModel]?
+    public var status: Bool
+    public var cityDescription: String?
     
     /// Tag matcher
     private enum CodingKeys: String, CodingKey {
@@ -33,7 +35,9 @@ public class TRPCityInfoModel: NSObject, Decodable {
         case country
         case image
         case boundary
-        case tastes
+        case mustTries
+        case description
+        case status
     }
     
     /// Json to Object converter
@@ -47,9 +51,11 @@ public class TRPCityInfoModel: NSObject, Decodable {
         self.boundary = try values.decode([Double].self, forKey: .boundary)
         self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
         self.country = try values.decode(TRPCountryJsonModel.self, forKey: .country)
-        if let taste = try? values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .tastes) {
+        if let taste = try? values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .mustTries) {
             self.tastes = taste ?? []
         }
+        self.status = try values.decode(Bool.self, forKey: .status)
+        self.cityDescription = try values.decode(String.self, forKey: .description)
     }
     
 }
