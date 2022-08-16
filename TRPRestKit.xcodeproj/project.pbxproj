@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		6BA6C5E328A2FA1900E2DB69 /* TRPOfferInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6C5E228A2FA1900E2DB69 /* TRPOfferInfoModel.swift */; };
+		6BA6C5E528A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6C5E428A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift */; };
 		783A137F22F0339D00952CA2 /* TRPConstantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */; };
 		783A138222F039FC00952CA2 /* TRPConstantsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A138122F039FC00952CA2 /* TRPConstantsServices.swift */; };
 		784BAB9422C3505D00BBDB0F /* TRPCompanionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784BAB9322C3505C00BBDB0F /* TRPCompanionModel.swift */; };
@@ -201,6 +203,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6BA6C5E228A2FA1900E2DB69 /* TRPOfferInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOfferInfoModel.swift; sourceTree = "<group>"; };
+		6BA6C5E428A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOffersProductTypeModel.swift; sourceTree = "<group>"; };
 		783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsModel.swift; sourceTree = "<group>"; };
 		783A138122F039FC00952CA2 /* TRPConstantsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsServices.swift; sourceTree = "<group>"; };
 		784BAB9322C3505C00BBDB0F /* TRPCompanionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCompanionModel.swift; sourceTree = "<group>"; };
@@ -382,6 +386,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BA6C5E128A2F9FC00E2DB69 /* Offers */ = {
+			isa = PBXGroup;
+			children = (
+				6BA6C5E228A2FA1900E2DB69 /* TRPOfferInfoModel.swift */,
+				6BA6C5E428A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift */,
+			);
+			path = Offers;
+			sourceTree = "<group>";
+		};
 		783A137D22F032CA00952CA2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -754,6 +767,7 @@
 		B29B463520F60A390009E711 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6BA6C5E128A2F9FC00E2DB69 /* Offers */,
 				B252FC4924BE31E90014B750 /* Reservation */,
 				B2731D3C245DBDF400FF5718 /* Reaction */,
 				B2E0D1FB21491E7D00876D81 /* Common */,
@@ -1151,6 +1165,7 @@
 				B29B46B020F613D80009E711 /* TRPRestServices.swift in Sources */,
 				B20CD9CF213596FB00497ED3 /* TRPPlansInfoModel.swift in Sources */,
 				B236A0D8240CFC0B002331D6 /* TRPTripModel.swift in Sources */,
+				6BA6C5E328A2FA1900E2DB69 /* TRPOfferInfoModel.swift in Sources */,
 				B282653624066A01004A4EDC /* TRPTastesModel.swift in Sources */,
 				B29B467F20F60F5C0009E711 /* TRPTripQuestionJsonModel.swift in Sources */,
 				B29B464120F60ADF0009E711 /* Pagination.swift in Sources */,
@@ -1178,6 +1193,7 @@
 				B215BF022131791D00659818 /* TRPMe.swift in Sources */,
 				B29B463F20F60AC30009E711 /* TRPRestKit.swift in Sources */,
 				B29B468320F60F7C0009E711 /* TRPQuestionOptionsJsonModel.swift in Sources */,
+				6BA6C5E528A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift in Sources */,
 				B236A0DA240CFD29002331D6 /* TRPGetTripService.swift in Sources */,
 				B29B464B20F60C0D0009E711 /* TRPParentJsonModel.swift in Sources */,
 				B253186224096D75007F97C3 /* TRPRefreshTokenInfoModel.swift in Sources */,

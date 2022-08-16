@@ -681,6 +681,7 @@ extension TRPRestKit {
                 return
             }
             if let serviceResultForAirMiles = result as? TRPLoginJsonModel {
+                self.saveToken(TRPToken(login: serviceResultForAirMiles.data))
                 self.postData(result: serviceResultForAirMiles.data)
             }else if let serviceResult = result as? TRPTestUserInfoJsonModel {
                 self.postData(result: serviceResult.data)
