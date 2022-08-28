@@ -1228,7 +1228,6 @@ extension TRPRestKit {
     
 }
 
-
 // MARK: - NearBy Services
 extension TRPRestKit {
     
@@ -1548,7 +1547,7 @@ extension TRPRestKit {
     
 }
 
-//MARK: Get User Reaction
+// MARK: - User Reaction
 extension TRPRestKit {
     
     // return [TRPReactionModel]
@@ -1564,10 +1563,6 @@ extension TRPRestKit {
         }
         service.connection()
     }
-}
-
-//Mark: Add and Update userReaction
-extension TRPRestKit {
     
     public func addUserReaction(poiId: Int, stepId: Int, reaction: UserReactionType? = nil, comment: String? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -1589,8 +1584,8 @@ extension TRPRestKit {
         //Update
         if let id = id {
             services = TRPUserReactionServices(id: id, stepId: stepId, poiId: poiId, reaction: reaction, comment: comment)
-        }else if let poiId = poiId, let step = stepId {
-            //Add
+        } else if let poiId = poiId, let step = stepId {
+        //Add
             services = TRPUserReactionServices(stepId: step, poiId: poiId, reaction: reaction, comment: comment)
         }
         guard let service = services else {return}
@@ -1600,9 +1595,6 @@ extension TRPRestKit {
         service.connection()
     }
     
-}
-
-extension TRPRestKit {
     public func deleteUserReaction(id: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         deleteUserReactionService(id)
@@ -1617,7 +1609,7 @@ extension TRPRestKit {
     }
 }
 
-//MARK: - USER RESERVATION
+//MARK: - User Reservation
 extension TRPRestKit {
     
     // [TRPReservationInfoModel]
@@ -1662,9 +1654,7 @@ extension TRPRestKit {
         services.connection()
     }
     
-}
-
-extension TRPRestKit {
+    //Add
     public func addUserReservation(key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value: [String : Any]? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         addUserReservationServices(key: key, provider: provider, tripHash: tripHash, poiId: poiId,value: value)
@@ -1678,6 +1668,7 @@ extension TRPRestKit {
         service.connection()
     }
     
+    //Update
     public func updateUserReservation(id: Int,
                                       key: String,
                                       provider: String,
@@ -1698,6 +1689,7 @@ extension TRPRestKit {
         service.connection()
     }
     
+    //Delete
     public func deleteUserReservation(id: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         deletePutUserReservationServices(id: id)
@@ -1710,6 +1702,7 @@ extension TRPRestKit {
         }
         service.connection()
     }
+    
 }
 
 
@@ -1717,5 +1710,55 @@ extension TRPRestKit {
 extension TRPRestKit {
     public func saveToken(_ token: TRPToken) {
         TripianTokenController().saveTokenInfo(token)
+    }
+}
+
+//MARK: - Offers
+extension TRPRestKit {
+    
+    public func getOffers(dateFrom: String,
+                          dateTo: String,
+                          poiIds: [Int]?,
+                          typeId: [Int]?,
+                          boundary: String?,
+                          page: Int?,
+                          limit: Int?,
+                          excludeOptIn: Bool?,
+                          completion: @escaping CompletionHandlerWithPagination) {
+        self.completionHandlerWithPagination = completion
+        getOffersService(dateFrom: dateFrom, dateTo: dateTo, poiIds: poiIds, typeId: typeId, boundary: boundary, page: page, limit: limit, excludeOptIn: excludeOptIn)
+    }
+    
+    public func getOffer(id: Int, completion: @escaping CompletionHandlerWithPagination) {
+        self.completionHandlerWithPagination = completion
+        getOffersService(offerId: id)
+    }
+    
+    private func getOffersService(offerId: Int? = nil,
+                                  dateFrom: String? = nil,
+                                  dateTo: String? = nil,
+                                  poiIds: [Int]? = nil,
+                                  typeId: [Int]? = nil,
+                                  boundary: String? = nil,
+                                  page: Int? = 1,
+                                  limit: Int? = 50,
+                                  excludeOptIn: Bool? = false) {
+        var service = TRPGetOfferServices()
+        if let offerId = offerId {
+            service = TRPGetOfferServices(offerId: offerId)
+        }
+        if let dateFrom = dateFrom, let dateTo = dateTo {
+            service = TRPGetOfferServices(dateFrom: dateFrom, dateTo: dateTo)
+        }
+        service.poiIds = poiIds
+        service.typeId = typeId
+        service.boundary = boundary
+        service.page = page
+        service.limit = limit
+        service.excludeOptIn = excludeOptIn
+        service.completion = { result, error, pagination in
+            self.genericParseAndPost([TRPOfferInfoModel].self, result, error, pagination)
+        }
+        service.connection()
     }
 }
