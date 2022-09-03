@@ -8,6 +8,7 @@
 
 import Foundation
 import TRPFoundationKit
+
 /// Indicates parameters used when creating a trip.
 
 public struct TRPTripProfileModel: Decodable {

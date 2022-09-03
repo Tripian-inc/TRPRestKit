@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "trpfoundationkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Tripian-inc/TRPFoundationKit.git",
+      "state" : {
+        "branch" : "feature/spm",
+        "revision" : "2aa41e5df438ab3024ae4259b02cb96915460060"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -37,13 +37,13 @@ class ApiV3StartTest: XCTestCase {
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         TRPRestKit().login(withEmail: "silV3_9@fakemailxyz.com", password: "123456aA") { (result, error) in
             XCTAssertNil(error)
-            
+            /*
             if let result = result as? TRPLoginTokenInfoModel {
                 print("SONUC \(result)")
             }else {
                 XCTFail()
                 return
-            }
+            }*/
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 20.0)

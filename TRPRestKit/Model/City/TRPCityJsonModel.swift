@@ -9,7 +9,7 @@
 import Foundation
 
 /// Parent Json parser model for City
-internal class TRPCityJsonModel: TRPParentJsonModel {
+public class TRPCityJsonModel: TRPParentJsonModel {
     
     /// Cities data
     internal var data: [TRPCityInfoModel]?

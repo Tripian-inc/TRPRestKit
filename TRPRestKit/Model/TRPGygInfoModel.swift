@@ -7,13 +7,14 @@
 //
 
 import Foundation
-
+#warning("Cem buna bakalım. sınıftan iki tane var")
+/*
 public struct TRPGygInfoModel: Codable {
     
     public let data: TRPGYGDataModel?
     
 }
-
+*/
 // MARK: - DataClass
 public struct TRPGYGDataModel: Codable {
     public let shoppingCart: TRPGygShoppingCart?

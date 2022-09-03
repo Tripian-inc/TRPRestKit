@@ -9,7 +9,7 @@
 import XCTest
 @testable import TRPRestKit
 class AaUserPersistentTest: XCTestCase {
-
+/*
     func testHashToken() {
         let hash = "1234"
         TRPUserPersistent.saveHashToken(hash)
@@ -57,4 +57,5 @@ class AaUserPersistentTest: XCTestCase {
         let userStatus = TRPUserPersistent.didUserLoging()
         XCTAssertEqual(userStatus, false)
     }
+ */
 }

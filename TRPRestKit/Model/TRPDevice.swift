@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 public struct TRPDevice: Decodable, Encodable {
     
     public var deviceId: String?

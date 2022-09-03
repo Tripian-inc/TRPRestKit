@@ -8,7 +8,8 @@
 
 import Foundation
 //fixme: - isim refactor edilecek
-internal class TRPGetProgram: TRPRestServices {
+/*
+public class TRPGetProgram: TRPRestServices {
     
     var hash: String?
     
@@ -50,3 +51,4 @@ internal class TRPGetProgram: TRPRestServices {
     }
     
 }
+*/
