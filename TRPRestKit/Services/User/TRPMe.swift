@@ -19,7 +19,6 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
     var lastName: String?
     var password: String?
     var dateOfBirth: String?
-//    var age: Int?
     
     init(type: ServiceType) {
         self.serviceType = type
@@ -44,10 +43,6 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
         
         var params: [String: Any] = [:]
         if serviceType == .updateAnswer {
-//            let profile = getProfile()
-//            if profile.count > 0 {
-//                params["profile"] = profile
-//            }
             if let answers = answers {
                 params["answers"] = answers
             }
@@ -65,27 +60,12 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
                 params["answers"] = answers
             }
             
-//            let profile = getProfile()
-//            if profile.count > 0 {
-//                params["profile"] = profile
-//            }
             if let password = password {
                 params["password"] = password
             }
         }
         return params
     }
-    
-//    private func getProfile() -> [String: Any] {
-//        var params = [String: Any]()
-//        if let answers = answers {
-//            params["answers"] = answers
-//        }
-//        if let age = age {
-//            params["age"] = "\(age)"
-//        }
-//        return params
-//    }
     
     public override func userOAuth() -> Bool {
         return true

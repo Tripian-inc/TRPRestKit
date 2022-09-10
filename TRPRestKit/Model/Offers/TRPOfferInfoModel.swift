@@ -16,17 +16,19 @@ public struct TRPOfferInfoModel: Decodable {
     public var description:  String?
     public var currency: String
     public var caption: String
-    public var productName: String
-    public var threshold: Int
-    public var discount: Int
-    public var discountedProductCount: Int
-    public var quantity: Int
+    public var productName: String?
+    public var giftName: String?
+    public var threshold: Int?
+    public var discount: Int?
+    public var discountedProductCount: Int?
+    public var quantity: Int?
     public var timeframe: TRPOffersTimeFrameModel
     public var imageUrl: String?
     public var productType: TRPOffersProductTypeModel
     public var offerType: String
-    public var usage: Int
+    public var usage: Int?
     public var optIn: Bool
+    public var optInClaimDate: String?
     public var status: String
     
     enum CodingKeys: String, CodingKey {
@@ -49,8 +51,10 @@ public struct TRPOfferInfoModel: Decodable {
         case productName
         case usage
         case optIn
+        case optInClaimDate
         case status
         case threshold
+        case giftName
     }
 }
 

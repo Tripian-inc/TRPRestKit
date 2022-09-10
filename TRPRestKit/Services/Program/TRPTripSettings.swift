@@ -40,7 +40,8 @@ public class TRPTripSettings {
     public var theme: String?
     /// Pre generated theme tour parameter
     public var excludeHash: [String]?
-    
+    /// Bool value for getting offers of pois
+    public var withOffers: Bool = true
     /// Initializes a new Settings with cityId, arrivalTime and departureTime
     ///
     /// - Parameters:

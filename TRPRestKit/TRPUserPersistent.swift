@@ -36,6 +36,14 @@ public struct TRPUserPersistent {
         UserDefaults.standard.set(mail, forKey: userEmailCodeTag)
     }
     
+    public static var isSocialLogin: Bool {
+        return TripianTokenController().isSocialLoggedIn()
+    }
+    
+    public static func saveSocialLogin() {
+        TripianTokenController().saveSocialLogin()
+    }
+    
     public static func remove() {
         UserDefaults.standard.removeObject(forKey: userIdCodeTag)
         UserDefaults.standard.removeObject(forKey: userEmailCodeTag)

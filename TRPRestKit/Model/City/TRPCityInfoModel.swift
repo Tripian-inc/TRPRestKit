@@ -26,6 +26,9 @@ public class TRPCityInfoModel: NSObject, Decodable {
     public var tastes: [TRPTastesInfoModel]?
     public var status: Bool
     public var cityDescription: String?
+    public var locationType: String?
+    public var parentLocationId: Int?
+    public var maxTripDays: Int?
     
     /// Tag matcher
     private enum CodingKeys: String, CodingKey {
@@ -38,6 +41,9 @@ public class TRPCityInfoModel: NSObject, Decodable {
         case mustTries
         case description
         case status
+        case locationType
+        case parentLocationId
+        case maxTripDays
     }
     
     /// Json to Object converter
@@ -55,7 +61,10 @@ public class TRPCityInfoModel: NSObject, Decodable {
             self.tastes = taste ?? []
         }
         self.status = try values.decode(Bool.self, forKey: .status)
-        self.cityDescription = try values.decode(String.self, forKey: .description)
+        self.cityDescription = try values.decodeIfPresent(String.self, forKey: .description)
+        self.locationType = try values.decodeIfPresent(String.self, forKey: .locationType)
+        self.parentLocationId = try values.decodeIfPresent(Int.self, forKey: .parentLocationId)
+        self.maxTripDays = try values.decodeIfPresent(Int.self, forKey: .maxTripDays)
     }
     
 }

@@ -9,7 +9,7 @@
 import Foundation
 import TRPFoundationKit
 
-public class TRPCities: TRPRestServices<TRPCityJsonModel> {
+internal class TRPCities: TRPRestServices<TRPCityJsonModel> {
     
     private enum RequestType {
         case allCities
@@ -20,7 +20,7 @@ public class TRPCities: TRPRestServices<TRPCityJsonModel> {
     private var cityId: Int?
     private var requestType: RequestType = RequestType.allCities
     private var location: TRPLocation?
-    public var limit = 50
+    public var limit = 200
     
     public override init() {}
     

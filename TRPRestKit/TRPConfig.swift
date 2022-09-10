@@ -53,6 +53,7 @@ internal struct TRPConfig {
         case resetPassword
         case notifications
         case offers
+        case optInOffers
         var link: String {
             switch self {
             case .city:
@@ -115,6 +116,8 @@ internal struct TRPConfig {
                 return "notifications"
             case .offers:
                 return "offers"
+            case .optInOffers:
+                return "offers/opt-in"
             }
         }
         

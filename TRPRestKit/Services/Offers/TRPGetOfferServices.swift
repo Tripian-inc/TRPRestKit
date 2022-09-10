@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class TRPGetOfferServices: TRPRestServices<TRPOfferInfoJsonModel> {
+internal class TRPGetOfferServices: TRPRestServices<TRPGenericParser<[TRPOfferInfoModel]>> {
     
     private enum RequestType {
         case offer
@@ -20,7 +20,8 @@ internal class TRPGetOfferServices: TRPRestServices<TRPOfferInfoJsonModel> {
     private var dateFrom: String?
     private var dateTo: String?
     var poiIds: [Int]?
-    var boundary: String?
+    var boundary: LocationBounds?
+//    var boundary: String?
     var typeId: [Int]?
     var excludeOptIn: Bool?
     var page: Int?
@@ -76,9 +77,17 @@ internal class TRPGetOfferServices: TRPRestServices<TRPOfferInfoJsonModel> {
             params["poiIds"] = poiIds.toString(",")
         }
         
-        if let boundary = boundary {
-            params["boundary"] = boundary
+
+        if let bounds = boundary {
+            let minLat = min(bounds.northEast.lat, bounds.southWest.lat)
+            let maxLat = max(bounds.northEast.lat, bounds.southWest.lat)
+            let minLng = min(bounds.northEast.lon, bounds.southWest.lon)
+            let maxLng = max(bounds.northEast.lon, bounds.southWest.lon)
+            params["boundary"] = "\(minLat),\(maxLat),\(minLng),\(maxLng)"
         }
+//        if let boundary = boundary {
+//            params["boundary"] = boundary
+//        }
         
         if let typeId = typeId {
             params["typeId"] = typeId.toString(",")

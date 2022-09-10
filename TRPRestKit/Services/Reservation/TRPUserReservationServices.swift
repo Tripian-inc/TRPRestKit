@@ -47,11 +47,11 @@ internal class TRPUserReservationServices: TRPRestServices<TRPGenericParser<[TRP
         }
         
         if let from = from {
-            params["from"] = from
+            params["dateFrom"] = from
         }
         
         if let mto = to {
-            params["to"] = mto
+            params["dateTo"] = mto
         }
         
         if let provider = provider {

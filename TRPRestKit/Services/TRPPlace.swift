@@ -63,7 +63,11 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
         }
 
         if let bounds = bounds {
-            params["bounds"] = "\(bounds.northEast.lat),\(bounds.southWest.lat),\(bounds.northEast.lon),\(bounds.southWest.lon)"
+            let minLat = min(bounds.northEast.lat, bounds.southWest.lat)
+            let maxLat = max(bounds.northEast.lat, bounds.southWest.lat)
+            let minLng = min(bounds.northEast.lon, bounds.southWest.lon)
+            let maxLng = max(bounds.northEast.lon, bounds.southWest.lon)
+            params["bounds"] = "\(minLat),\(maxLat),\(minLng),\(maxLng)"
         }
         
         if let typeIds = poiCategories, typeIds.count > 0 {
