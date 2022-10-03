@@ -25,11 +25,11 @@ public struct TRPOfferInfoModel: Decodable {
     public var timeframe: TRPOffersTimeFrameModel
     public var imageUrl: String?
     public var productType: TRPOffersProductTypeModel
-    public var offerType: String
+    public var offerType: String?
     public var usage: Int?
-    public var optIn: Bool
+    public var optIn: Bool?
     public var optInClaimDate: String?
-    public var status: String
+    public var status: String?
     
     enum CodingKeys: String, CodingKey {
         case id
