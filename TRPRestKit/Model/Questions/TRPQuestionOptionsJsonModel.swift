@@ -16,22 +16,14 @@ public struct TRPQuestionOptionsJsonModel: Decodable {
     /// A String value. Name of option.
     public var name: String
     
-    public var subAnswers: [TRPSubOptionsJsonModel]?
+    public var subAnswers: [TRPQuestionOptionsJsonModel]?
+    public var description: String?
     
     private enum CodingKeys: String, CodingKey {
         case id
         case name
         case subAnswers
+        case description
     }
-    
-}
-
-
-public struct TRPSubOptionsJsonModel: Decodable {
-    
-    /// An Int value. Unique Id of option.
-    public var id: Int
-    /// A String value. Name of option.
-    public var name: String
     
 }

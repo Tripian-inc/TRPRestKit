@@ -24,7 +24,7 @@ public class TRPCityInfoModel: NSObject, Decodable {
     /// A double array that indicate a boundary of City
     public var boundary: [Double] = []
     public var tastes: [TRPTastesInfoModel]?
-    public var status: Bool
+//    public var status: Bool
     public var cityDescription: String?
     public var locationType: String?
     public var parentLocationId: Int?
@@ -60,7 +60,7 @@ public class TRPCityInfoModel: NSObject, Decodable {
         if let taste = try? values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .mustTries) {
             self.tastes = taste ?? []
         }
-        self.status = try values.decode(Bool.self, forKey: .status)
+//        self.status = try values.decode(Bool.self, forKey: .status)
         self.cityDescription = try values.decodeIfPresent(String.self, forKey: .description)
         self.locationType = try values.decodeIfPresent(String.self, forKey: .locationType)
         self.parentLocationId = try values.decodeIfPresent(Int.self, forKey: .parentLocationId)
