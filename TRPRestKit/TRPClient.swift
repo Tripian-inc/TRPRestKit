@@ -26,8 +26,8 @@ import Foundation
     /// Allows Data to be shown
     public var monitorData = false
     
-    public var isReverseProxy = false
-    public var reverseProxyURL: String = ""
+//    public var isReverseProxy = false
+//    public var reverseProxyURL: String = ""
     
     internal var enviroment: Environment = .test {
         didSet {
@@ -60,8 +60,8 @@ import Foundation
         TRPClient.shared.baseUrl = baseUrl
         TRPApiKey.setApiKey(apiKey)
         
-        TRPClient.shared.reverseProxyURL = reverseProxyUrl
-        TRPClient.shared.isReverseProxy = true
+//        TRPClient.shared.reverseProxyURL = reverseProxyUrl
+//        TRPClient.shared.isReverseProxy = true
     }
     
 }
