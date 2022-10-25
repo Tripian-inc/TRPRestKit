@@ -16,7 +16,7 @@ public enum TRPImageSizeStandart {
         case .small:
             return (width: 64, height: 64)
         case .small2:
-            return (width: 128, height: 128)
+            return (width: 256, height: 256)
         case .placeDetail:
             return devices()
         case .myTrip:
