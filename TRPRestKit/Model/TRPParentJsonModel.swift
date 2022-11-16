@@ -57,9 +57,9 @@ struct TRPPaginationJsonModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case total = "total"
         case count = "count"
-        case perPage = "per_page"
-        case currentPage = "current_page"
-        case totalPages = "total_pages"
+        case perPage = "perPage"
+        case currentPage = "currentPage"
+        case totalPages = "totalPages"
         case links = "links"
     }
     

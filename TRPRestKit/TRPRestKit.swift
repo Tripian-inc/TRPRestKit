@@ -128,7 +128,7 @@ extension TRPRestKit {
     ///     - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-all-available-cities)
-    public func cities(limit: Int? = 100, isAutoPagination: Bool? = true, completion: @escaping CompletionHandlerWithPagination) {
+    public func cities(limit: Int? = nil, isAutoPagination: Bool? = true, completion: @escaping CompletionHandlerWithPagination) {
         //Fixme: - autoPagination eklenebilir.
         self.completionHandlerWithPagination = completion
         citiesServices(id: nil, limit: limit, autoPagination: isAutoPagination)
@@ -187,12 +187,12 @@ extension TRPRestKit {
     private func citiesServices(id: Int? = nil,
                                 url: String? = nil,
                                 location: TRPLocation? = nil,
-                                limit: Int? = 25,
+                                limit: Int? = nil,
                                 autoPagination: Bool? = true) {
         
         let cityService = createCitiesServices(id: id, link: url, location: location, limit: limit, autoPagination: autoPagination)
         guard let service = cityService else {return}
-        service.limit = limit ?? 50
+        service.limit = limit ?? 1000
         if let autoPagination = autoPagination {
             service.isAutoPagination = autoPagination
         }
@@ -227,7 +227,7 @@ extension TRPRestKit {
     private func createCitiesServices(id: Int? = nil,
                                       link: String? = nil,
                                       location: TRPLocation? = nil,
-                                      limit: Int? = 25,
+                                      limit: Int? = 1000,
                                       autoPagination: Bool? = true) -> TRPCities? {
         var cityService: TRPCities?
         if id == nil && location == nil && link == nil {
@@ -295,6 +295,7 @@ extension TRPRestKit {
                     distance: Float? = nil,
                     bounds: LocationBounds? = nil,
                     limit: Int? = 25,
+                    page: Int? = 1,
                     autoPagination: Bool = false,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
@@ -307,6 +308,7 @@ extension TRPRestKit {
                     distance: distance,
                     bounds: bounds,
                     limit: limit,
+                    page: page,
                     autoPagination: autoPagination)
         
     }
@@ -320,6 +322,7 @@ extension TRPRestKit {
                     distance: Float? = nil,
                     bounds: LocationBounds? = nil,
                     limit: Int? = 25,
+                    page: Int? = 1,
                     autoPagination: Bool = false,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
@@ -333,11 +336,12 @@ extension TRPRestKit {
                     distance: distance,
                     bounds: bounds,
                     limit: limit,
+                    page: page,
                     autoPagination: autoPagination)
     }
     
     
-    public func poi(url: String, limit: Int? = 25, completion: @escaping CompletionHandlerWithPagination) {
+    public func poi(url: String, limit: Int? = 25, page: Int? = 1, completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
         
         poiServices(url: url)
@@ -367,6 +371,7 @@ extension TRPRestKit {
                              distance: Float? = nil,
                              bounds: LocationBounds? = nil,
                              limit: Int? = 25,
+                             page: Int? = 1,
                              autoPagination: Bool = false,
                              url: String? = nil
     ) {
@@ -389,6 +394,8 @@ extension TRPRestKit {
         service.placeIds = poiIds
         service.mustTryIds = mustTryIds
         service.poiCategories = poiCategoies
+        service.limit = limit ?? 25
+        service.page = page ?? 1
         
         
         service.isAutoPagination = autoPagination
@@ -943,7 +950,7 @@ extension TRPRestKit {
                                 age: Int?,
                                 title: String?,
                                 completion: @escaping CompletionHandler) {
-        self.completionHandler = completion
+    self.completionHandler = completion
         companionPutPostService(id: id, name: name, title: title, answers: answers, age: age)
     }
     

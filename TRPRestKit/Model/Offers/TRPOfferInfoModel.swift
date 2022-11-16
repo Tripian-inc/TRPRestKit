@@ -18,8 +18,8 @@ public struct TRPOfferInfoModel: Decodable {
     public var caption: String
     public var productName: String?
     public var giftName: String?
-    public var threshold: Int?
-    public var discount: Int?
+    public var threshold: Double?
+    public var discount: Double?
     public var discountedProductCount: Int?
     public var quantity: Int?
     public var timeframe: TRPOffersTimeFrameModel
