@@ -927,8 +927,8 @@ extension TRPRestKit {
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-companion)
     public func addCompanion(name: String,
                              answers: [Int],
-                             age: Int?,
-                             title: String,
+                             age: Int,
+                             title: String?,
                              completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         companionPutPostService(name: name, title: title, answers: answers, age: age)
