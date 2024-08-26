@@ -11,11 +11,11 @@ internal class TRPReportAProblemServices: TRPRestServices<TRPReportAProblemJsonM
     
     let categoryName: String
     var message: String?
-    var poiId: Int?
+    var poiId: String?
     
     internal init(categoryName: String,
                   message msg: String? = nil,
-                  poiId poi: Int? = nil) {
+                  poiId poi: String? = nil) {
         self.categoryName = categoryName
         self.message = msg
         self.poiId = poi

@@ -12,11 +12,11 @@ internal class TRPAddUpadateUserReservationServices: TRPRestServices<TRPGenericP
     private(set) var key: String
     private(set) var provider: String
     var tripHash: String?
-    var poiId: Int?
+    var poiId: String?
     var value: [String: Any]?
     var reservationId: Int?
     
-    init(key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value: [String: Any]? = nil) {
+    init(key: String, provider: String, tripHash: String? = nil, poiId: String? = nil, value: [String: Any]? = nil) {
         self.key = key
         self.provider = provider
         self.tripHash = tripHash
@@ -24,7 +24,7 @@ internal class TRPAddUpadateUserReservationServices: TRPRestServices<TRPGenericP
         self.value = value
     }
     
-    init(reservationId: Int, key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value: [String: Any]? = nil) {
+    init(reservationId: Int, key: String, provider: String, tripHash: String? = nil, poiId: String? = nil, value: [String: Any]? = nil) {
         self.reservationId = reservationId
         self.key = key
         self.provider = provider

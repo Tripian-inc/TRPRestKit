@@ -10,7 +10,7 @@ import Foundation
 
 public struct TRPOfferInfoModel: Decodable {
     public var id: Int
-    public var poiId: Int
+    public var poiId: String
     public var businessId: Int
     public var title: String
     public var description:  String?

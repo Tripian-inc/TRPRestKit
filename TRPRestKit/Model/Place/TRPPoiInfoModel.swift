@@ -12,7 +12,7 @@ import Foundation
 public struct TRPPoiInfoModel: Decodable {
     
     /// An Int value. Unique id of Poi
-    public var id: Int
+    public var id: String
     /// An Int value. City Id of Poi
     public var cityId: Int
     /// A String value. Name of poi
@@ -92,7 +92,7 @@ public struct TRPPoiInfoModel: Decodable {
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try values.decode(Int.self, forKey: .id)
+        self.id = try values.decode(String.self, forKey: .id)
         self.cityId = try values.decode(Int.self, forKey: .cityId)
         self.name = try values.decode(String.self, forKey: .name)
         

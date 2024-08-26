@@ -10,7 +10,7 @@ import Foundation
 public struct TRPReactionModel: Decodable {
     
     public var id: Int
-    public var poiId: Int
+    public var poiId: String
     public var stepId: Int
     public var reaction: String?
     public var comment: String?

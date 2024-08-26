@@ -37,7 +37,7 @@ public struct TRPFavoritesInfoModel: Decodable {
     public var id: Int
     
     /// An Int value. Unique id of a poi.
-    public var poiId: Int
+    public var poiId: String
     
     /// An Int value. Id of city where the poi is located.
     public var cityId: Int
@@ -56,7 +56,7 @@ public struct TRPFavoritesInfoModel: Decodable {
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.poiId = try values.decode(Int.self, forKey: .poiId)
+        self.poiId = try values.decode(String.self, forKey: .poiId)
         self.cityId = try values.decode(Int.self, forKey: .cityId)
         self.id = try values.decode(Int.self, forKey: .id)
         self.tripHash = try values.decodeIfPresent(String.self, forKey: .tripHash)

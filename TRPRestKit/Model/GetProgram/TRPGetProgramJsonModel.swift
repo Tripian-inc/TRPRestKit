@@ -38,6 +38,7 @@ public struct TRPTripProfileModel: Decodable {
     
     public var theme: String?
     public var excludeHash: [String]?
+    public var additionalData: String?
     
     private enum CodingKeys: String, CodingKey {
         case cityId 
@@ -53,6 +54,7 @@ public struct TRPTripProfileModel: Decodable {
         case doNotGenerate
         case theme
         case excludeHash
+        case additionalData
     }
     
     /// Initializes a new object with decoder
@@ -83,6 +85,7 @@ public struct TRPTripProfileModel: Decodable {
         self.doNotGenerate = try values.decode(Int.self, forKey: .doNotGenerate)
         self.theme = try values.decodeIfPresent(String.self, forKey: .theme)
         self.excludeHash = try values.decodeIfPresent([String].self, forKey: .excludeHash)
+        self.additionalData = try values.decodeIfPresent(String.self, forKey: .additionalData)
     }
 
 }

@@ -16,7 +16,7 @@ class TRPPoiTest: XCTestCase {
     
     // MARK: Variables
     private let cityId = TestUtilConstants.MockCityConstants.BogotaCityId
-    private let placeId = 46636 //TestUtilConstants.MockPlaceConstants.PlaceId
+    private let placeId = "46636" //TestUtilConstants.MockPlaceConstants.PlaceId
     private let location = TestUtilConstants.MockCityConstants.Bogotalocation
     private let category = TestUtilConstants.MockPoiCategoryConstants.PoiCategoryId
     private let categoryIds = TestUtilConstants.MockPoiCategoryConstants.CategoryIds

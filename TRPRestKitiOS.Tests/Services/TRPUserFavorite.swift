@@ -135,7 +135,7 @@ class TRPUserFavorite: XCTestCase {
     func testAddFavoriteSamePoint() {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
-        let poiId = 520705
+        let poiId = "520705"
         TRPRestKit().addUserFavorite(cityId: TestUtilConstants.MockCityConstants.IstanbulCityId, poiId: poiId) { (_, error) in
             if  error != nil {
                 expectation.fulfill()

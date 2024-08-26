@@ -23,6 +23,7 @@ internal struct TRPConfig {
     
     internal enum ApiCall: String {
         case city
+        case shorexCities
         
         case poiCategory
         case poi
@@ -43,6 +44,7 @@ internal struct TRPConfig {
         case userPreferences
         case dailyPlanPoi
         case register
+        case guestLogin
         case favorite
         case step
         case companion
@@ -54,6 +56,7 @@ internal struct TRPConfig {
         case notifications
         case offers
         case optInOffers
+        case exportItinerary
         var link: String {
             switch self {
             case .city:
@@ -118,6 +121,12 @@ internal struct TRPConfig {
                 return "offers"
             case .optInOffers:
                 return "offers/opt-in"
+            case .exportItinerary:
+                return "misc/export-itinerary"
+            case .shorexCities:
+                return "shorex-cities"
+            case .guestLogin:
+                return "auth/guest-login"
             }
         }
         

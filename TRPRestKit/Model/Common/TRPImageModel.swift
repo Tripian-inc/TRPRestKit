@@ -10,7 +10,7 @@ import Foundation
 public class TRPImageModel: NSObject, Decodable {
     
     /// An Int value. Unique id of a city.
-    public var url: String
+    public var url: String?
     public var imageOwner: TRPImageOwnerModel?
     public var width: Int?
     public var height: Int?

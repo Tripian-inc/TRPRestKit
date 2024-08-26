@@ -15,10 +15,10 @@ internal class TRPUserFavorite: TRPRestServices<TRPFavoritesJsonModel> {
     
     private let type: Mode
     private var cityId: Int?
-    private var poiId: Int?
+    private var poiId: String?
     private var favoriteId: Int?
     //ADD
-    public init(poiId: Int, type: Mode) {
+    public init(poiId: String, type: Mode) {
         self.type = type
         
         self.poiId = poiId

@@ -80,6 +80,10 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         if let excludeHash = setting.excludeHash {
             params["excludeHash"] = excludeHash
         }
+        
+        if let additionalData = setting.additionalData {
+            params["additionalData"] = additionalData
+        }
         print("CreateTrip Params \(params)")
         return params
     }

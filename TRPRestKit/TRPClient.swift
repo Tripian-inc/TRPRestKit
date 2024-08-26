@@ -38,6 +38,8 @@ import Foundation
     
     internal var baseUrl: BaseUrlCreater = Environment.test.baseUrl
     
+    internal var firebaseToken: String = ""
+    
     private override init() {}
     
     public static func start(enviroment: Environment, apiKey: String) {
@@ -48,6 +50,10 @@ import Foundation
     public static func start(baseUrl: BaseUrlCreater, apiKey: String) {
         TRPClient.shared.baseUrl = baseUrl
         TRPApiKey.setApiKey(apiKey)
+    }
+    
+    public static func setFirebaseToken(_ token: String) {
+        TRPClient.shared.firebaseToken = token
     }
     
     public static func monitor(data: Bool? = false, url: Bool? = false) {

@@ -19,7 +19,7 @@ internal class TRPGetOfferServices: TRPRestServices<TRPGenericParser<[TRPOfferIn
     private var offerId: Int?
     private var dateFrom: String?
     private var dateTo: String?
-    var poiIds: [Int]?
+    var poiIds: [String]?
     var boundary: LocationBounds?
 //    var boundary: String?
     var typeId: [Int]?

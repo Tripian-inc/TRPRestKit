@@ -127,7 +127,7 @@ public class TRPNetwork {
             request.httpBody = bodyData
         }
        
-        request.timeoutInterval = 30
+        request.timeoutInterval = 50
         let task = URLSession.shared.dataTask(with: request as URLRequest, useOfflineOnError: true) { (data, response, error) in
             var object: Any?
             

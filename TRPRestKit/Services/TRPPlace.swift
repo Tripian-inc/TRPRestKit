@@ -13,10 +13,10 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
     //Must
     var cityId: Int?
     var coordinate: TRPLocation?
-    
+    var poiId: String?
     //Optinal
     var searchText: String?
-    var placeIds: [Int]?
+    var placeIds: [String]?
     var mustTryIds: [Int]?
     var poiCategories: [Int]?
     var distance: Float?
@@ -34,6 +34,10 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
         self.cityId = cityId
     }
     
+    internal init(poiId: String) {
+        self.poiId = poiId
+    }
+    
     internal init(coordinate: TRPLocation) {
         self.coordinate = coordinate
     }
@@ -44,7 +48,9 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
     
     private func getParameters() -> [String: Any] {
         var params: [String: Any] = [:]
-        
+        if poiId != nil {
+            return params
+        }
         //City
         if let cityId = cityId {
             params["cityId"] = cityId
@@ -90,6 +96,13 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
     }
     
     public override func path() -> String {
+        if poiId != nil {
+           var url = TRPConfig.ApiCall.poi.link
+           if let poiId = poiId {
+               url += "/\(poiId)"
+           }
+           return url
+        }
         return TRPConfig.ApiCall.poi.link
     }
     

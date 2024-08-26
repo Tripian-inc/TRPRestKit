@@ -11,11 +11,11 @@ public struct TRPReservationInfoModel: Decodable {
     
     public let id: Int
     public let key: String
-    //let value: Any?
+//    public let dynamicValue: TRPGygInfoModel?
     public let provider: String
     public let tripHash: String?
-    public let poiID: Int?
-    public let createdAt: String
+    public let poiID: String?
+    public let createdAt: String?
     public var updatedAt: String?
     public var yelpModel: TRPYelpInfoModel?
     public var gygModel: TRPGygInfoModel?
@@ -26,7 +26,7 @@ public struct TRPReservationInfoModel: Decodable {
         case poiID = "poiId"
         case createdAt = "createdAt"
         case updatedAt = "updatedAt"
-        case value = "value"
+        case dynamicValue = "value"
     }
     
     public init(from decoder: Decoder) throws {
@@ -35,27 +35,23 @@ public struct TRPReservationInfoModel: Decodable {
         self.key = try values.decode(String.self, forKey: .key)
         self.provider = try values.decode(String.self, forKey: .provider)
         self.tripHash = try values.decodeIfPresent(String.self, forKey: .tripHash)
-        self.poiID = try values.decodeIfPresent(Int.self, forKey: .poiID)
-        self.createdAt = try values.decode(String.self, forKey: .createdAt)
+        self.poiID = try values.decodeIfPresent(String.self, forKey: .poiID)
+        self.createdAt = try values.decodeIfPresent(String.self, forKey: .createdAt)
         self.updatedAt = try values.decodeIfPresent(String.self, forKey: .updatedAt)
         
-        if let yelp = try? values.decodeIfPresent(TRPYelpInfoModel.self, forKey: .value) {
+        if let yelp = try? values.decodeIfPresent(TRPYelpInfoModel.self, forKey: .dynamicValue) {
             yelpModel = yelp
         }
         
-        if let gyg = try? values.decodeIfPresent(TRPGygInfoModel.self, forKey: .value) {
+        if let gyg = try? values.decodeIfPresent(TRPGygInfoModel.self, forKey: .dynamicValue) {
             gygModel = gyg
         }
         
-        do {
-            if let gyg = try values.decodeIfPresent(TRPGygInfoModel.self, forKey: .value) {
-                gygModel = gyg
-            }
-        }catch {
-            print("[Error] \(error)")
-        }
-        
     }
+    
+}
+
+public struct TRPDynamicBookigngValue: Codable {
     
 }
 

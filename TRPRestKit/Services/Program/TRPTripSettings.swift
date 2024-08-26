@@ -42,6 +42,8 @@ public class TRPTripSettings {
     public var excludeHash: [String]?
     /// Bool value for getting offers of pois
     public var withOffers: Bool = true
+    
+    public var additionalData: String?
     /// Initializes a new Settings with cityId, arrivalTime and departureTime
     ///
     /// - Parameters:

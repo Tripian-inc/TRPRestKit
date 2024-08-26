@@ -11,7 +11,7 @@ internal class TRPUserReservationServices: TRPRestServices<TRPGenericParser<[TRP
     
     var cityId: Int?
     var tripHash: String?
-    var poiId: Int?
+    var poiId: String?
     var from: String?
     var to: String?
     var provider: String?

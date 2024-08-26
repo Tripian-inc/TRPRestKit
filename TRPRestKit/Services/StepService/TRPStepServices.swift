@@ -15,13 +15,13 @@ final class TRPStepServices: TRPRestServices<TRPGenericParser<TRPStepInfoModel>>
     }
     
     private var stepId: Int?
-    private var poiId: Int?
+    private var poiId: String?
     private var order: Int?
     private var planId: Int?
     private let serviceType: ServiceType
     
     //Edit Step
-    init(stepId: Int, poiId: Int? = nil, order: Int? = nil) {
+    init(stepId: Int, poiId: String? = nil, order: Int? = nil) {
         self.stepId = stepId
         self.poiId = poiId
         self.order = order
@@ -29,7 +29,7 @@ final class TRPStepServices: TRPRestServices<TRPGenericParser<TRPStepInfoModel>>
     }
     
     //Add Step
-    init(planId: Int, poiId: Int, order: Int? = nil) {
+    init(planId: Int, poiId: String, order: Int? = nil) {
         self.planId = planId
         self.poiId = poiId
         self.order = order
