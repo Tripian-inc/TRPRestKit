@@ -21,6 +21,8 @@ class TripianTokenController: TokenControllerProtocol {
     
     var tokenExpiredTime: String { return "trpTokenStartTime" }
     
+    var socialLoggedInTag: String { return "trpSocialLogin" }
+    
     var isTokenValid: Bool {
         guard let expired = fetchTokenExpiredTime() else {
             return false
@@ -30,7 +32,7 @@ class TripianTokenController: TokenControllerProtocol {
     
     var token: String? {
         if let model = fetchTokenInfo() {
-            return model.accessToken
+            return model.idToken
         }
         return nil
     }
@@ -64,8 +66,16 @@ class TripianTokenController: TokenControllerProtocol {
     func clearDataInUserDefaults() {
         UserDefaults.standard.removeObject(forKey: loginTokenTag)
         UserDefaults.standard.removeObject(forKey: tokenExpiredTime)
+        UserDefaults.standard.removeObject(forKey: socialLoggedInTag)
     }
     
+    func saveSocialLogin() {
+        UserDefaults.standard.set(true, forKey: socialLoggedInTag)
+    }
+    
+    func isSocialLoggedIn() -> Bool {
+        return UserDefaults.standard.bool(forKey: socialLoggedInTag)
+    }
 }
 
 extension TripianTokenController {

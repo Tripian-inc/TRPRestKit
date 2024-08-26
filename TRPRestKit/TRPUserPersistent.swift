@@ -14,7 +14,7 @@ public struct TRPUserPersistent {
 
     public static var isLoggedIn: Bool {
         guard let tokens = TripianTokenController().fetchTokenInfo() else {return false}
-        if !tokens.accessToken.isEmpty && tokens.expiresIn != 0 {
+        if !tokens.idToken.isEmpty && tokens.expiresIn != 0 {
             return true
         }
         return false
@@ -34,6 +34,14 @@ public struct TRPUserPersistent {
     
     public static func saveUserEmail(_ mail: String) {
         UserDefaults.standard.set(mail, forKey: userEmailCodeTag)
+    }
+    
+    public static var isSocialLogin: Bool {
+        return TripianTokenController().isSocialLoggedIn()
+    }
+    
+    public static func saveSocialLogin() {
+        TripianTokenController().saveSocialLogin()
     }
     
     public static func remove() {

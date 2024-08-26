@@ -23,6 +23,7 @@ internal struct TRPConfig {
     
     internal enum ApiCall: String {
         case city
+        case shorexCities
         
         case poiCategory
         case poi
@@ -43,23 +44,31 @@ internal struct TRPConfig {
         case userPreferences
         case dailyPlanPoi
         case register
+        case guestLogin
         case favorite
         case step
         case companion
         case userReaction
         case userReservation
+        case socialLogin
+        case logout
+        case resetPassword
+        case notifications
+        case offers
+        case optInOffers
+        case exportItinerary
         var link: String {
             switch self {
             case .city:
-                return getNewLink() ?? "city"
+                return getNewLink() ?? "cities"
             case .poiCategory:
-                return getNewLink() ?? "poi-category"
+                return getNewLink() ?? "poi-categories"
             case .poi:
-                return getNewLink() ?? "poi"
+                return getNewLink() ?? "pois"
             case .questions:
-                return getNewLink() ?? "question"
+                return getNewLink() ?? "trip/questions"
             case .recommendations:
-                return getNewLink() ?? "recommendation"
+                return getNewLink() ?? "recommendations"
             case .routes:
                 return getNewLink() ?? "routes"
             case .routesResult:
@@ -67,39 +76,57 @@ internal struct TRPConfig {
             case .gRouteReuslt:
                 return getNewLink() ?? "grouteresult"
             case .stepAlternative:
-                return getNewLink() ?? "step-alternative"
+                return getNewLink() ?? "step/alternatives"
             case .tags:
                 return getNewLink() ?? "tags"
             case .checkDataUpdates:
                 return getNewLink() ?? "check-data-updates"
             case .login:
-                return getNewLink() ?? "login"
+                return getNewLink() ?? "auth/login"
             case .user:
                 return getNewLink() ?? "user"
             case .userTrips:
-                return getNewLink() ?? "user-trip"
+                return getNewLink() ?? "trips"
             case .trip:
-                return getNewLink() ?? "trip"
+                return getNewLink() ?? "trips"
             case .dailyPlan:
-                return getNewLink() ?? "plan"
+                return getNewLink() ?? "plans"
             case .userPreferences:
                 return getNewLink() ?? "user/preferences"
             case .dailyPlanPoi:
                 return getNewLink() ?? "dailyplanpoi"
             case .register:
-                return getNewLink() ?? "register"
+                return getNewLink() ?? "auth/register"
             case .favorite:
-                return getNewLink() ?? "user-favorite"
+                return getNewLink() ?? "favorites"
             case .companion:
-                return getNewLink() ?? "user-companion"
+                return getNewLink() ?? "companions"
             case .refresh:
-                return getNewLink() ?? "refresh"
+                return getNewLink() ?? "auth/refresh-token"
             case .step:
-                return getNewLink() ?? "step"
+                return getNewLink() ?? "steps"
             case .userReaction:
-                return getNewLink() ?? "user-reaction"
+                return getNewLink() ?? "reactions"
             case .userReservation:
-                return getNewLink() ?? "user-reservation"
+                return getNewLink() ?? "bookings"
+            case .socialLogin:
+                return getNewLink() ?? "auth/login-social"
+            case .logout:
+                return "auth/logout"
+            case .resetPassword:
+                return "auth/reset-password"
+            case .notifications:
+                return "notifications"
+            case .offers:
+                return "offers"
+            case .optInOffers:
+                return "offers/opt-in"
+            case .exportItinerary:
+                return "misc/export-itinerary"
+            case .shorexCities:
+                return "shorex-cities"
+            case .guestLogin:
+                return "auth/guest-login"
             }
         }
         

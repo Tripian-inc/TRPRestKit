@@ -9,12 +9,14 @@
 import Foundation
 
 public enum TRPImageSizeStandart {
-    case small, placeDetail, myTrip
+    case small, small2, placeDetail, myTrip
     
     public var size: (width: Int, height: Int) {
         switch self {
         case .small:
             return (width: 64, height: 64)
+        case .small2:
+            return (width: 256, height: 256)
         case .placeDetail:
             return devices()
         case .myTrip:
@@ -26,7 +28,7 @@ public enum TRPImageSizeStandart {
         /*if UIDevice().userInterfaceIdiom == .phone {
             return (width: 800, height: 600)
         }*/
-        return (width: 800, height: 800)
+        return (width: 800, height: 600)
     }
 }
 
@@ -39,9 +41,9 @@ public struct TRPImageResizer {
     /// - Parameters:
     ///   - url: Gorselin Url i
     ///   - standart: daha önceden belirlenmiş boyutları içerir.
-    public static func generate(withUrl url: String?, standart: TRPImageSizeStandart) -> String? {
+    public static func generate(withUrl url: String?, standart: TRPImageSizeStandart, type: String? = nil) -> String? {
         
-        return generate(withUrl: url, width: standart.size.width, height: standart.size.height)
+        return generate(withUrl: url, width: standart.size.width, height: standart.size.height, type: type)
     }
     
     /// New link of image generater
@@ -51,9 +53,13 @@ public struct TRPImageResizer {
     ///   - width: target width
     ///   - height: target height
     /// - Returns: new link 
-    public static func generate(withUrl link: String?, width: Int, height: Int) -> String? {
+    public static func generate(withUrl link: String?, width: Int, height: Int, type: String? = nil) -> String? {
         guard let url = link, let component = URLComponents(string: url) else {return nil}
-        
-        return "https://d1drj6u6cu0e3j.cloudfront.net/\(width)x\(height)/smart\(component.path)"
+        var path = component.path
+        if let type = type, let range = path.range(of: "/\(type)/") {
+            let substring = path[range.lowerBound...]
+            path = String(substring)
+        }
+        return "https://d1drj6u6cu0e3j.cloudfront.net/\(width)x\(height)/smart\(path)"
     }
 }

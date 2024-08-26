@@ -12,7 +12,7 @@ import Foundation
 public struct TRPPoiInfoModel: Decodable {
     
     /// An Int value. Unique id of Poi
-    public var id: Int
+    public var id: String
     /// An Int value. City Id of Poi
     public var cityId: Int
     /// A String value. Name of poi
@@ -42,28 +42,27 @@ public struct TRPPoiInfoModel: Decodable {
     /// A TRPCoordinateModel objects. Center coordinate of poi.
     public var coordinate: TRPCoordinateModel
     
-    public var markerCoordinate: TRPCoordinateModel?
-    
-    public var booking: [TRPBookingInfoModel]?
+    public var bookings: [TRPBookingInfoModel]?
     
     /// A TRPCategoryInfoModel array. A poi can have multiple categories.
     public var category = [TRPCategoryInfoModel]()
-    public var tags: [String]
+    public var tags: [String]? = []
     public var mustTries: [TRPTastesInfoModel] = []
     public var cuisines: String?
     public var attention: String?
     public var safety: [String] = []
     public var closed: [Int]
     public var distance: Float?
-    public var status: Bool
+    public var status: Bool = true
+    public var offers: [TRPOfferInfoModel] = []
     
     private enum CodingKeys: String, CodingKey {
         case id
-        case cityId = "city_id"
+        case cityId
         case rating
-        case ratingCount = "rating_count"
+        case ratingCount
         case name
-        case address = "address"
+        case address
         case price
         case web
         case hours
@@ -75,17 +74,17 @@ public struct TRPPoiInfoModel: Decodable {
         case description
         case cuisines
         case features
-        case imageOwner = "image_owner"
+        case imageOwner
         case gallery
-        case markerCoordinate = "marker_coordinate"
-        case booking
+        case bookings
         case tags
         case attention
         case closed
         case distance
         case status
-        case mustTries = "must_tries"
+        case mustTries
         case safety
+        case offers
     }
     
     /// Json to Object converter
@@ -93,7 +92,7 @@ public struct TRPPoiInfoModel: Decodable {
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try values.decode(Int.self, forKey: .id)
+        self.id = try values.decode(String.self, forKey: .id)
         self.cityId = try values.decode(Int.self, forKey: .cityId)
         self.name = try values.decode(String.self, forKey: .name)
         
@@ -111,7 +110,6 @@ public struct TRPPoiInfoModel: Decodable {
         
         self.icon = try values.decode(String.self, forKey: .icon)
         self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
-        self.markerCoordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .markerCoordinate)
         
         if let categorys = try values.decodeIfPresent([TRPCategoryInfoModel].self, forKey: .category) {
             category = categorys
@@ -123,25 +121,27 @@ public struct TRPPoiInfoModel: Decodable {
         self.cuisines = try values.decodeIfPresent(String.self, forKey: .cuisines)
         
         do {
-             self.booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey: .booking)
+             self.bookings = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey: .bookings)
         }catch let error {
             print("Booking Error \(error)")
         }
         
        // self.booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey:.booking)
         
-        self.tags = try values.decode([String].self, forKey: .tags)
+        self.tags = try values.decodeIfPresent([String].self, forKey: .tags)
         
         self.attention = try values.decodeIfPresent(String.self, forKey: .attention)
         self.closed = try values.decodeIfPresent([Int].self, forKey: .closed) ?? []
         self.distance = try values.decodeIfPresent(Float.self, forKey: .distance)
-        self.status = try values.decode(Bool.self, forKey: .status)
+        self.status = try values.decodeIfPresent(Bool.self, forKey: .status) ?? true
         self.safety = try values.decodeIfPresent([String].self, forKey: .safety) ?? []
     
         if let mustTries = try? values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .mustTries){
             self.mustTries = mustTries ?? []
         }
-        
+        if let offers = try? values.decodeIfPresent([TRPOfferInfoModel].self, forKey: .offers) {
+            self.offers = offers ?? []
+        }
     }
     
 }

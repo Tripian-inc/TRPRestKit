@@ -18,7 +18,7 @@ internal class TRPFeedback: TRPRestServices<TRPGenericParser<[TRPUserTripInfoMod
     
     var type: Status = .getAllFeedback
     var message: String?
-    var placeId: Int?
+    var placeId: String?
     
     public override func userOAuth() -> Bool {
         return true

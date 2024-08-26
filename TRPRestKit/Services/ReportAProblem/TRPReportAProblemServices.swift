@@ -11,11 +11,11 @@ internal class TRPReportAProblemServices: TRPRestServices<TRPReportAProblemJsonM
     
     let categoryName: String
     var message: String?
-    var poiId: Int?
+    var poiId: String?
     
     internal init(categoryName: String,
                   message msg: String? = nil,
-                  poiId poi: Int? = nil) {
+                  poiId poi: String? = nil) {
         self.categoryName = categoryName
         self.message = msg
         self.poiId = poi
@@ -27,13 +27,13 @@ internal class TRPReportAProblemServices: TRPRestServices<TRPReportAProblemJsonM
     
     override func parameters() -> [String: Any]? {
         var params: [String: Any] = [:]
-        params["problem_category"] = categoryName
+        params["problemCategory"] = categoryName
         
         if let message = message {
             params["message"] = message
         }
         if let poiId = poiId {
-            params["poi_id"] = poiId
+            params["poiId"] = poiId
         }
         return params
     }

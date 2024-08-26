@@ -110,10 +110,25 @@ public class TRPRestServices<T: Decodable> {
             let result = try jsonDecode.decode(JsonParserModel.self, from: data)
             let pagination = checkPagination(result)
             self.completion?(result, nil, pagination)
-        } catch let tryError {
-            print("PARSER ERROR \(tryError)")
-            self.completion?(nil, tryError as NSError, nil)
-        }
+        } catch let DecodingError.dataCorrupted(context) {
+                print("[Error] \(context)")
+                self.completion?(nil, TRPErrors.jsonParserError(code: 301) as NSError, nil)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("[Error] Key '\(key)' not found:", context.debugDescription)
+                print("[Error] codingPath:", context.codingPath)
+                self.completion?(nil, TRPErrors.jsonParserError(code: 302) as NSError, nil)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("[Error] Value '\(value)' not found:", context.debugDescription)
+                print("[Error] codingPath:", context.codingPath)
+                self.completion?(nil, TRPErrors.jsonParserError(code: 303) as NSError, nil)
+            } catch let DecodingError.typeMismatch(type, context)  {
+                print("[Error] Type '\(type)' mismatch:", context.debugDescription)
+                print("[Error] codingPath:", context.codingPath)
+                self.completion?(nil, TRPErrors.jsonParserError(code: 304) as NSError, nil)
+            } catch {
+                print("[Error] JsonParserError: \(error.localizedDescription)")
+                self.completion?(nil, error as NSError, nil)
+            }
         
     }
     

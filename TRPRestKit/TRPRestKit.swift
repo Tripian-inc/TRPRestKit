@@ -77,6 +77,9 @@ public class TRPRestKit {
     
     fileprivate func postError(error: NSError?, pagination: Pagination? = Pagination.completed) {
         queue.async {
+            if let error = error, error.description.contains("is expired") {
+                return
+            }
             if let comp = self.completionHandler {
                 comp(nil, error)
             } else if let full = self.completionHandlerWithPagination {
@@ -128,10 +131,24 @@ extension TRPRestKit {
     ///     - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-all-available-cities)
-    public func cities(limit: Int? = 25, isAutoPagination: Bool? = true, completion: @escaping CompletionHandlerWithPagination) {
+    public func cities(limit: Int? = nil, isAutoPagination: Bool? = true, completion: @escaping CompletionHandlerWithPagination) {
         //Fixme: - autoPagination eklenebilir.
         self.completionHandlerWithPagination = completion
         citiesServices(id: nil, limit: limit, autoPagination: isAutoPagination)
+    }
+    
+    /// Obtain the list of all available shorex cities with given limit, isAutoPagination(Optional) and completionHandler parameters.
+    ///
+    /// - Parameters:
+    ///     - limit: Number of city that will be given.
+    ///     - isAutoPagination: Boolean value whether pagination is required, default value is true.
+    ///     - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityInfoModel]** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#get-all-available-cities)
+    public func shorexCities(completion: @escaping CompletionHandlerWithPagination) {
+        //Fixme: - autoPagination eklenebilir.
+        self.completionHandlerWithPagination = completion
+        citiesServices(isShorex: true)
     }
     
     /// Obtain the requested city with given cityId and completion parameters.
@@ -187,12 +204,12 @@ extension TRPRestKit {
     private func citiesServices(id: Int? = nil,
                                 url: String? = nil,
                                 location: TRPLocation? = nil,
-                                limit: Int? = 25,
-                                autoPagination: Bool? = true) {
+                                limit: Int? = nil,
+                                autoPagination: Bool? = true,
+                                isShorex: Bool = false) {
         
-        let cityService = createCitiesServices(id: id, link: url, location: location, limit: limit, autoPagination: autoPagination)
+        let cityService = createCitiesServices(id: id, link: url, location: location, limit: limit, autoPagination: autoPagination, isShorex: isShorex)
         guard let service = cityService else {return}
-        service.limit = limit ?? 50
         if let autoPagination = autoPagination {
             service.isAutoPagination = autoPagination
         }
@@ -227,8 +244,9 @@ extension TRPRestKit {
     private func createCitiesServices(id: Int? = nil,
                                       link: String? = nil,
                                       location: TRPLocation? = nil,
-                                      limit: Int? = 25,
-                                      autoPagination: Bool? = true) -> TRPCities? {
+                                      limit: Int? = 1000,
+                                      autoPagination: Bool? = true,
+                                      isShorex: Bool = false) -> TRPCities? {
         var cityService: TRPCities?
         if id == nil && location == nil && link == nil {
             cityService = TRPCities()
@@ -238,6 +256,10 @@ extension TRPRestKit {
             cityService = TRPCities(location: location)
         } else if limit != nil {
             cityService = TRPCities()
+        }
+        cityService?.limit = limit
+        if isShorex {
+            cityService?.setForShorex()
         }
         return cityService
     }
@@ -287,14 +309,24 @@ extension TRPRestKit {
 extension TRPRestKit {
     
     
+    public func poi(poiId: String,
+                    completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        
+        poiServices(poiId: poiId)
+        
+    }
+    
+    
     public func poi(cityId: Int,
                     search: String? = nil,
-                    poiIds: [Int]? = nil,
+                    poiIds: [String]? = nil,
                     poiCategoies: [Int]? = nil,
                     mustTryIds: [Int]? = nil,
                     distance: Float? = nil,
                     bounds: LocationBounds? = nil,
                     limit: Int? = 25,
+                    page: Int? = 1,
                     autoPagination: Bool = false,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
@@ -307,6 +339,7 @@ extension TRPRestKit {
                     distance: distance,
                     bounds: bounds,
                     limit: limit,
+                    page: page,
                     autoPagination: autoPagination)
         
     }
@@ -314,12 +347,13 @@ extension TRPRestKit {
     public func poi(coordinate: TRPLocation,
                     cityId: Int? = nil,
                     search: String? = nil,
-                    poiIds: [Int]? = nil,
+                    poiIds: [String]? = nil,
                     poiCategoies: [Int]? = nil,
                     mustTryIds: [Int]? = nil,
                     distance: Float? = nil,
                     bounds: LocationBounds? = nil,
                     limit: Int? = 25,
+                    page: Int? = 1,
                     autoPagination: Bool = false,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
@@ -333,11 +367,12 @@ extension TRPRestKit {
                     distance: distance,
                     bounds: bounds,
                     limit: limit,
+                    page: page,
                     autoPagination: autoPagination)
     }
     
     
-    public func poi(url: String, limit: Int? = 25, completion: @escaping CompletionHandlerWithPagination) {
+    public func poi(url: String, limit: Int? = 25, page: Int? = 1, completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
         
         poiServices(url: url)
@@ -358,21 +393,25 @@ extension TRPRestKit {
     ///   - searchText: Search text parameter for tags or places name
     ///   - cityId: CityId
     ///   - autoPagination: AutoCompletion patameter
-    private func poiServices(cityId: Int? = nil,
+    private func poiServices(poiId: String? = nil,
+                             cityId: Int? = nil,
                              coordinate: TRPLocation? = nil,
                              search: String? = nil,
-                             poiIds: [Int]? = nil,
+                             poiIds: [String]? = nil,
                              poiCategoies: [Int]? = nil,
                              mustTryIds: [Int]? = nil,
                              distance: Float? = nil,
                              bounds: LocationBounds? = nil,
                              limit: Int? = 25,
+                             page: Int? = 1,
                              autoPagination: Bool = false,
                              url: String? = nil
     ) {
         
         var services: TRPPoiService?
-        if let coordinate = coordinate {
+        if let poiId = poiId {
+            services = TRPPoiService(poiId: poiId)
+        }else if let coordinate = coordinate {
             services = TRPPoiService(coordinate: coordinate)
         }else if let cityId = cityId {
             services = TRPPoiService(cityId: cityId)
@@ -389,6 +428,8 @@ extension TRPRestKit {
         service.placeIds = poiIds
         service.mustTryIds = mustTryIds
         service.poiCategories = poiCategoies
+        service.limit = limit ?? 25
+        service.page = page ?? 1
         
         
         service.isAutoPagination = autoPagination
@@ -534,7 +575,8 @@ extension TRPRestKit {
     
 }
 
-// MARK: - USER LOGIN
+// MARK: - USER
+// MARK: Login
 extension TRPRestKit {
     
     /// Obtain the access token for API calls that require user identification.
@@ -574,9 +616,13 @@ extension TRPRestKit {
         var params = [String: Any]()
         params["email"] = email
         params["password"] = password
-        if let device = device, let deviceParams = device.params() {
-            params["device"] = deviceParams
+        var _device: TRPDevice
+        if device == nil {
+            _device = TRPDeviceModel().convertToTRPDevice()
+        } else {
+            _device = device!
         }
+        params["device"] = _device.params()
         loginServices(parameters: params)
     }
     
@@ -601,13 +647,108 @@ extension TRPRestKit {
     }
     
     /// User logout. TRPUserPersistent removes all accessToken.
-    public func logout() {
-        TRPUserPersistent.remove()
+    public func logout(completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        logoutService()
+    }
+    
+    private func logoutService() {
+        let logoutService = TRPLogOutServices()
+        logoutService.completion = { (result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPParentJsonModel {
+                TRPUserPersistent.remove()
+                self.postData(result: serviceResult, pagination: pagination)
+            } else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        logoutService.connection()
     }
     
 }
 
-// MARK: - User Register
+// MARK: Guest Login
+extension TRPRestKit {
+    public func guestLogin(firstName: String,
+                           lastName: String,
+                           email: String,
+                           password: String,
+                           device: TRPDevice? = nil,
+                           completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        var _device = device
+        if device == nil {
+            _device = TRPDeviceModel().convertToTRPDevice()
+        }
+        guestLoginServices(email: email, password: password, firstName: firstName, lastName: lastName, device: _device)
+    }
+    
+    private func guestLoginServices(email: String,
+                                    password: String,
+                                    firstName: String,
+                                    lastName: String,
+                                    device: TRPDevice? = nil) {
+        let services = TRPGuestLogin(email: email,
+                                     password: password,
+                                     firstName: firstName,
+                                     lastName: lastName,
+                                     device: device)
+        
+        services.completion = { (result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let registerResult = result as? TRPLoginJsonModel {
+                self.saveToken(TRPToken(login: registerResult.data))
+                self.postData(result: registerResult.data)
+            }else if let serviceResult = result as? TRPTestUserInfoJsonModel {
+                self.postData(result: serviceResult.data)
+            } else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        services.connection()
+    }
+}
+
+// MARK: Social Login
+extension TRPRestKit {
+    public func socialLogin(device: TRPDevice? = nil,
+                            completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        var params = [String: Any]()
+        if let device = device, let deviceParams = device.params() {
+            params["device"] = deviceParams
+        }
+        socialLoginServices(parameters: params)
+        
+    }
+    
+    private func socialLoginServices(parameters: [String: Any]) {
+        let socialLoginService: TRPSocialLogin? = TRPSocialLogin(parameters: parameters)
+        guard let service = socialLoginService else {return}
+        service.completion = {    (result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPGenericParser<TRPSocialLoginInfoModel> {
+                TRPUserPersistent.saveSocialLogin()
+                self.postData(result: serviceResult.data, pagination: pagination)
+            } else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        service.connection()
+    }
+}
+
+// MARK: User Register
 extension TRPRestKit {
     
     /// Create a new user (customer) by posting the required parameters indicated below. No extra step needed to active the new user.
@@ -621,19 +762,21 @@ extension TRPRestKit {
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-register-a-user-)
     public func register(userName: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        userRegisterServices(userName: userName)
+//        userRegisterServices(userName: userName)
     }
     
     //RETURN TRPUserInfoModel
     public func register(email: String,
                          password: String,
-                         firstName: String? = nil,
-                         lastName: String? = nil,
+                         firstName: String,
+                         lastName: String,
                          age: Int? = nil,
                          answers: [Int]? = nil,
+                         dateOfBirth: String? = nil,
+                         device: TRPDevice? = nil,
                          completion: @escaping CompletionHandler) {
         self.completionHandler = completion
-        userRegisterServices(email: email, password: password, firstName: firstName, lastName: lastName, age: age, answers: answers)
+        userRegisterServices(email: email, password: password, firstName: firstName, lastName: lastName, age: age, answers: answers, dateOfBirth: dateOfBirth, device: device)
     }
     
     /// Obtain personal user information (must be logged in with access token), such as user id, e-mail, and preferences.
@@ -649,45 +792,49 @@ extension TRPRestKit {
     
     /// A services which will be used in user register services, manages all task connecting to remote server.
     
-    private func userRegisterServices(userName: String? = nil,
-                                      email: String? = nil,
-                                      password: String? = nil,
-                                      firstName: String? = nil,
-                                      lastName: String? = nil,
+    private func userRegisterServices(email: String,
+                                      password: String,
+                                      firstName: String,
+                                      lastName: String,
                                       age: Int? = nil,
-                                      answers: [Int]? = nil) {
-        var services: TRPUserRegister?
-        if let userName = userName {
-            services = TRPUserRegister(userName: userName)
-        }else if let email = email, let password = password {
-            services = TRPUserRegister(email: email,
+                                      answers: [Int]? = nil,
+                                      dateOfBirth: String? = nil,
+                                      device: TRPDevice? = nil) {
+//        var services: TRPUserRegister?
+//        if userName != nil {
+//            services = TRPUserRegister(userName: userName)
+//        }else if let email = email, let password = password {
+        let services = TRPUserRegister(email: email,
                                        password: password,
                                        firstName: firstName,
                                        lastName: lastName,
                                        answers: answers,
-                                       age: age)
-        }
+                                       age: age,
+                                       dateOfBirth: dateOfBirth,
+                                       device: device)
+//        }
         
-        guard let mServices = services else { return }
-        mServices.completion = { (result, error, _) in
+//        guard let mServices = services else { return }
+        services.completion = { (result, error, _) in
             if let error = error {
                 self.postError(error: error)
                 return
             }
-            if let serviceResultForAirMiles = result as? TRPUserInfoJsonModel {
-                self.postData(result: serviceResultForAirMiles.data)
+            if let registerResult = result as? TRPLoginJsonModel {
+                self.saveToken(TRPToken(login: registerResult.data))
+                self.postData(result: registerResult.data)
             }else if let serviceResult = result as? TRPTestUserInfoJsonModel {
                 self.postData(result: serviceResult.data)
             } else {
                 self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
             }
         }
-        mServices.connection()
+        services.connection()
     }
     
 }
 
-// MARK: - Refresh Token
+// MARK: Refresh Token
 extension TRPRestKit {
     public func refreshToken(_ refreshToken: String, device: TRPDevice? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -734,13 +881,13 @@ extension TRPRestKit {
     public func updateUserInfo(firstName: String? = nil,
                                lastName: String? = nil,
                                password: String? = nil,
-                               age: Int? = nil,
+                               dateOfBirth: String? = nil,
                                answers: [Int]? = nil,
                                completion: @escaping CompletionHandler) {
         completionHandler = completion
         userInfoServices(firstName: firstName,
                          lastName: lastName,
-                         age: age,
+                         dateOfBirth: dateOfBirth,
                          answers: answers,
                          password: password,
                          type: .updateInfo)
@@ -765,7 +912,7 @@ extension TRPRestKit {
     /// A services which will be used in user info services, manages all task connecting to remote server.
     private func userInfoServices(firstName: String? = nil,
                                   lastName: String? = nil,
-                                  age: Int? = nil,
+                                  dateOfBirth: String? = nil,
                                   answers: [Int]? = nil,
                                   password: String? = nil,
                                   type: TRPUserInfoServices.ServiceType) {
@@ -780,7 +927,7 @@ extension TRPRestKit {
         } else if type == .updateInfo {
             infoService = TRPUserInfoServices(firstName: firstName,
                                               lastName: lastName,
-                                              age: age,
+                                              dateOfBirth: dateOfBirth,
                                               password: password,
                                               answers: answers)
         }
@@ -805,6 +952,59 @@ extension TRPRestKit {
     
 }
 
+//MARK: User Delete
+extension TRPRestKit {
+    public func deleteUser(completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        deleteUserService()
+    }
+    
+    private func deleteUserService() {
+        let deleteService = TRPUserDeleteServices()
+        deleteService.completion = { result, error, pagination in
+//            self.parseAndPost(TRPParentJsonModel.self, result, error, pagination)
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPParentJsonModel {
+                TRPUserPersistent.remove()
+                self.postData(result: serviceResult, pagination: pagination)
+            } else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        deleteService.connection()
+    }
+}
+
+//MARK: Reset Password
+extension TRPRestKit {
+    public func sendEmailForResetPassword(email: String, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        self.resetPasswordService(email: email)
+    }
+    public func resetPassword(password: String, hash: String,completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        self.resetPasswordService(password: password, hash: hash)
+    }
+    
+    private func resetPasswordService(email: String? = nil, password: String? = nil, hash: String? = nil) {
+        var service: TRPResetPasswordServices?
+        if let email = email {
+            service = TRPResetPasswordServices(email: email)
+        } else if let password = password, let hash = hash {
+            service = TRPResetPasswordServices(password: password, hash: hash)
+        }
+        guard let service = service else { return }
+
+        service.completion = { result, error, pagination in
+            self.parseAndPost(TRPParentJsonModel.self, result, error, pagination)
+        }
+        service.connection()
+    }
+}
+
 // MARK: - Companions.
 extension TRPRestKit {
     
@@ -820,8 +1020,8 @@ extension TRPRestKit {
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-companion)
     public func addCompanion(name: String,
                              answers: [Int],
-                             age: Int?,
-                             title: String,
+                             age: Int,
+                             title: String?,
                              completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         companionPutPostService(name: name, title: title, answers: answers, age: age)
@@ -843,7 +1043,7 @@ extension TRPRestKit {
                                 age: Int?,
                                 title: String?,
                                 completion: @escaping CompletionHandler) {
-        self.completionHandler = completion
+    self.completionHandler = completion
         companionPutPostService(id: id, name: name, title: title, answers: answers, age: age)
     }
     
@@ -903,11 +1103,11 @@ extension TRPRestKit {
     ///
     /// - Parameters:
     ///   - cityId: An Integer that refers to Id of city where the poi is located.
-    ///   - poiId: An Integer that refers to Id of the given place.
+    ///   - poiId: A String that refers to Id of the given place.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPFavoritesInfoModel]** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-delete-favorite)
-    public func addUserFavorite(poiId: Int, completion: @escaping CompletionHandler) {
+    public func addUserFavorite(poiId: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
         userFavoriteServices(poiId: poiId, mode: .add)
     }
@@ -928,7 +1128,7 @@ extension TRPRestKit {
     ///
     /// - Parameters:
     ///   - cityId: An Integer that refers to Id of city where the poi is located.
-    ///   - poiId: An Integer that refers to Id of the given place.
+    ///   - poiId: A String that refers to Id of the given place.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#how-to-add-delete-favorite)
@@ -938,7 +1138,7 @@ extension TRPRestKit {
     }
     
     /// A services which will be used in users favorite place of interests, manages all task connecting to remote server.
-    private func userFavoriteServices(cityId: Int? = nil, poiId: Int? = nil, favoriteId: Int? = nil, mode: TRPUserFavorite.Mode) {
+    private func userFavoriteServices(cityId: Int? = nil, poiId: String? = nil, favoriteId: Int? = nil, mode: TRPUserFavorite.Mode) {
         
         var favoriteService: TRPUserFavorite?
         if mode == .add {
@@ -1012,7 +1212,6 @@ extension TRPRestKit {
     /// A services which will be used in users trips, manages all task connecting to remote server.
     private func userTripsServices(from:String? = nil, to: String? = nil, limit: Int) {
         var tripService: TRPUserTripsServices?
-        
         if let from = from {
             tripService = TRPUserTripsServices(from: from)
         }else if let to = to {
@@ -1221,7 +1420,6 @@ extension TRPRestKit {
     
 }
 
-
 // MARK: - NearBy Services
 extension TRPRestKit {
     
@@ -1407,20 +1605,20 @@ extension TRPRestKit {
     /// - Parameters:
     ///    - category: A String value which refers to the category name of the place.
     ///    - message: A String value which refers to the message for the problem of the place.
-    ///    - poiId: An Integer value which refers to the id of the given place.
+    ///    - poiId: A String value which refers to the id of the given place.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPReportAProblemInfoModel** object.
     /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#report-a-problem)
     public func reportaProblem(category name: String,
                                message msg: String?,
-                               poiId poi: Int?,
+                               poiId poi: String?,
                                completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         reportaProblemService(categoryName: name, message: msg, poiId: poi)
     }
     
     /// A services which will be used in report a problem services, manages all task connecting to remote server.
-    private func reportaProblemService(categoryName: String, message: String?, poiId: Int?) {
+    private func reportaProblemService(categoryName: String, message: String?, poiId: String?) {
         let reportAProblemService = TRPReportAProblemServices(categoryName: categoryName,
                                                               message: message,
                                                               poiId: poiId)
@@ -1475,18 +1673,46 @@ extension TRPRestKit {
     
 }
 
+// MARK: - Export Daily Plan
+extension TRPRestKit {
+    
+    /// Update daily plan hour with given daily plan Id, start time, end time and completion parameters.
+    ///
+    /// - Parameters:
+    ///    - dailyPlanId: An Integer value that refers to the daily plan Id.
+    ///    - start: A String value which refers to start time of the daily plan.
+    ///    - end: A String value which refers to end time of the daily plan.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPDailyPlanInfoModel** object.
+    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#update-daily-plan)
+    public func exportPlanMap(planId: Int, tripHash: String, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        exportPlanMapService(planId: planId, tripHash: tripHash)
+    }
+    
+    /// A services which will be used in daily plan hour services, manages all task connecting to remote server.
+    private func exportPlanMapService(planId: Int, tripHash: String) {
+        let exportPlanService = TRPExportPlanServices(planId: planId, tripHash: tripHash)
+        exportPlanService.completion = {   (result, error, pagination) in
+            self.genericParseAndPost(TRPExportPlanJsonModel.self, result, error, pagination)
+        }
+        exportPlanService.connection()
+    }
+    
+}
+
 // MARK: - Steps
 extension TRPRestKit {
     //Burası silinen Add Plan Poit kısmının yeni hali, ordan alınabiliri
     
     /// Add Plan POI to the daily plan.
-    public func addStep(planId: Int, poiId: Int, order: Int? = nil, completion: @escaping CompletionHandler) {
+    public func addStep(planId: Int, poiId: String, order: Int? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         stepService(planId: planId, poiId: poiId, order: order)
     }
     
     public func editStep(stepId: Int,
-                         poiId: Int,
+                         poiId: String,
                          completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         stepService(poiId: poiId, stepId: stepId)
@@ -1500,7 +1726,7 @@ extension TRPRestKit {
     }
     
     public func editStep(stepId: Int,
-                         poiId: Int,
+                         poiId: String,
                          order: Int,
                          completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -1513,7 +1739,7 @@ extension TRPRestKit {
         stepDeleteService(stepId: stepId)
     }
     
-    private func stepService(planId: Int? = nil, poiId: Int? = nil, order:Int? = nil, stepId: Int? = nil) {
+    private func stepService(planId: Int? = nil, poiId: String? = nil, order:Int? = nil, stepId: Int? = nil) {
         var service: TRPStepServices?
         //Edit Step
         if let step = stepId {
@@ -1541,7 +1767,7 @@ extension TRPRestKit {
     
 }
 
-//Mark: Get User Reaction
+// MARK: - User Reaction
 extension TRPRestKit {
     
     // return [TRPReactionModel]
@@ -1557,18 +1783,14 @@ extension TRPRestKit {
         }
         service.connection()
     }
-}
-
-//Mark: Add and Update userReaction
-extension TRPRestKit {
     
-    public func addUserReaction(poiId: Int, stepId: Int, reaction: UserReactionType? = nil, comment: String? = nil, completion: @escaping CompletionHandler) {
+    public func addUserReaction(poiId: String, stepId: Int, reaction: UserReactionType? = nil, comment: String? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         userReactionService(poiId: poiId, stepId: stepId, reaction: reaction, comment: comment)
     }
     
     public func updateUserReaction(id: Int,
-                                   poiId: Int? = nil,
+                                   poiId: String? = nil,
                                    stepId: Int? = nil,
                                    reaction: UserReactionType? = nil,
                                    comment: String? = nil,
@@ -1577,13 +1799,13 @@ extension TRPRestKit {
         userReactionService(id: id, poiId: poiId, stepId: stepId, reaction: reaction, comment: comment)
     }
     
-    private func userReactionService(id: Int? = nil, poiId: Int? = nil, stepId: Int? = nil, reaction: UserReactionType? = nil, comment: String? = nil) {
+    private func userReactionService(id: Int? = nil, poiId: String? = nil, stepId: Int? = nil, reaction: UserReactionType? = nil, comment: String? = nil) {
         var services: TRPUserReactionServices?
         //Update
         if let id = id {
             services = TRPUserReactionServices(id: id, stepId: stepId, poiId: poiId, reaction: reaction, comment: comment)
-        }else if let poiId = poiId, let step = stepId {
-            //Add
+        } else if let poiId = poiId, let step = stepId {
+        //Add
             services = TRPUserReactionServices(stepId: step, poiId: poiId, reaction: reaction, comment: comment)
         }
         guard let service = services else {return}
@@ -1593,9 +1815,6 @@ extension TRPRestKit {
         service.connection()
     }
     
-}
-
-extension TRPRestKit {
     public func deleteUserReaction(id: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         deleteUserReactionService(id)
@@ -1610,7 +1829,7 @@ extension TRPRestKit {
     }
 }
 
-//MARK: - USER RESERVATION
+//MARK: - User Reservation
 extension TRPRestKit {
     
     // [TRPReservationInfoModel]
@@ -1626,20 +1845,23 @@ extension TRPRestKit {
     }
     
     // [TRPReservationInfoModel]
-    public func getUserReservation(poiId: Int, from: String? = nil, to: String? = nil, provider: String? = nil, limit: Int? = nil, completion: @escaping CompletionHandler) {
+    public func getUserReservation(poiId: String, from: String? = nil, to: String? = nil, provider: String? = nil, limit: Int? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         getUserReservationServices(poiId: poiId, from: from, to: to, provider: provider, limit: limit)
     }
     
     private func getUserReservationServices(cityId: Int? = nil,
                                             tripHash: String? = nil,
-                                            poiId: Int? = nil,
+                                            poiId: String? = nil,
                                             from: String? = nil,
                                             to: String? = nil,
                                             provider: String? = nil,
                                             limit: Int? = nil) {
         let services = TRPUserReservationServices()
-        services.cityId = cityId
+        if let cityId = cityId, cityId != 0 {
+            services.cityId = cityId
+        }
+        
         services.tripHash = tripHash
         services.poiId = poiId
         services.from = from
@@ -1652,15 +1874,13 @@ extension TRPRestKit {
         services.connection()
     }
     
-}
-
-extension TRPRestKit {
-    public func addUserReservation(key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value: [String : Any]? = nil, completion: @escaping CompletionHandler) {
+    //Add
+    public func addUserReservation(key: String, provider: String, tripHash: String? = nil, poiId: String? = nil, value: [String : Any]? = nil, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         addUserReservationServices(key: key, provider: provider, tripHash: tripHash, poiId: poiId,value: value)
     }
     
-    private func addUserReservationServices(key: String, provider: String, tripHash: String? = nil, poiId: Int? = nil, value:[String : Any]? = nil) {
+    private func addUserReservationServices(key: String, provider: String, tripHash: String? = nil, poiId: String? = nil, value:[String : Any]? = nil) {
         let service = TRPAddUpadateUserReservationServices(key: key, provider: provider, tripHash: tripHash, poiId: poiId,value: value)
         service.completion = { result, error, pagination in
             self.genericParseAndPost(TRPReservationInfoModel.self, result, error, pagination)
@@ -1668,11 +1888,12 @@ extension TRPRestKit {
         service.connection()
     }
     
+    //Update
     public func updateUserReservation(id: Int,
                                       key: String,
                                       provider: String,
                                       tripHash: String? = nil,
-                                      poiId: Int? = nil,
+                                      poiId: String? = nil,
                                       value: [String : Any]? = nil,
                                       completion: @escaping CompletionHandler) {
         self.completionHandler = completion
@@ -1688,6 +1909,7 @@ extension TRPRestKit {
         service.connection()
     }
     
+    //Delete
     public func deleteUserReservation(id: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         deletePutUserReservationServices(id: id)
@@ -1700,6 +1922,7 @@ extension TRPRestKit {
         }
         service.connection()
     }
+    
 }
 
 
@@ -1707,5 +1930,112 @@ extension TRPRestKit {
 extension TRPRestKit {
     public func saveToken(_ token: TRPToken) {
         TripianTokenController().saveTokenInfo(token)
+    }
+}
+
+//MARK: - Offers
+extension TRPRestKit {
+    
+    public func getOffers(dateFrom: String,
+                          dateTo: String,
+                          poiIds: [String]?,
+                          typeId: [Int]?,
+                          boundary: LocationBounds? = nil,
+                          page: Int?,
+                          limit: Int?,
+                          excludeOptIn: Bool?,
+                          completion: @escaping CompletionHandlerWithPagination) {
+        self.completionHandlerWithPagination = completion
+        getOffersService(dateFrom: dateFrom, dateTo: dateTo, poiIds: poiIds, typeId: typeId, boundary: boundary, page: page, limit: limit, excludeOptIn: excludeOptIn)
+    }
+    
+    public func getOffer(id: Int, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        getOffersService(offerId: id)
+    }
+    
+    private func getOffersService(offerId: Int? = nil,
+                                  dateFrom: String? = nil,
+                                  dateTo: String? = nil,
+                                  poiIds: [String]? = nil,
+                                  typeId: [Int]? = nil,
+                                  boundary: LocationBounds? = nil,
+                                  page: Int? = 1,
+                                  limit: Int? = 50,
+                                  excludeOptIn: Bool? = false) {
+        var service = TRPGetOfferServices()
+        if let offerId = offerId {
+            service = TRPGetOfferServices(offerId: offerId)
+        }
+        if let dateFrom = dateFrom, let dateTo = dateTo {
+            service = TRPGetOfferServices(dateFrom: dateFrom, dateTo: dateTo)
+        }
+        service.poiIds = poiIds
+        service.typeId = typeId
+        service.boundary = boundary
+        service.page = page
+        service.limit = limit
+        service.excludeOptIn = excludeOptIn
+        service.completion = { result, error, pagination in
+            self.genericParseAndPost([TRPOfferInfoModel].self, result, error, pagination)
+        }
+        service.connection()
+    }
+}
+
+//MARK: - Opt-In Offers
+extension TRPRestKit {
+    
+    public func getOptInOffers(dateFrom: String?,
+                               dateTo: String?,
+                               page: Int?,
+                               limit: Int?,
+                               completion: @escaping CompletionHandlerWithPagination) {
+        self.completionHandlerWithPagination = completion
+        getOptInOffersService(dateFrom: dateFrom, dateTo: dateTo, page: page, limit: limit)
+    }
+    
+    private func getOptInOffersService(dateFrom: String? = nil,
+                                       dateTo: String? = nil,
+                                       page: Int? = 1,
+                                       limit: Int? = 50) {
+        let service = TRPGetOptInOfferServices(dateFrom: dateFrom, dateTo: dateTo, page: page, limit: limit)
+        service.completion = { result, error, pagination in
+            self.genericParseAndPost([TRPPoiInfoModel].self, result, error, pagination)
+        }
+        service.connection()
+    }
+    
+    public func addOptInOffer(offerId: Int,
+                              claimDate: String?,
+                              completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        optInOffersService(offerId: offerId, claimDate: claimDate, mode: .add)
+    }
+    
+    public func deleteOptInOffer(offerId: Int,
+                                 completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        optInOffersService(offerId: offerId, mode: .delete)
+    }
+    
+    private func optInOffersService(offerId: Int,
+                                    claimDate: String? = nil,
+                                    mode: TRPUserFavorite.Mode) {
+        
+        var service: TRPOptInOfferServices?
+        if mode == .add {
+            service = TRPOptInOfferServices(offerId: offerId, claimDate: claimDate)
+        } else {
+            service = TRPOptInOfferServices(offerId: offerId)
+        }
+        guard let service = service else {
+            return
+        }
+        
+        service.completion = { result, error, pagination in
+            self.parseAndPost(TRPParentJsonModel.self, result, error, pagination)
+        }
+        service.connection()
     }
 }

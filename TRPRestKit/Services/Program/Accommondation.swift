@@ -11,10 +11,10 @@ import TRPFoundationKit
 public struct Accommondation {
     public var refId: String?
     public var name: String?
-    public let address: String
+    public let address: String?
     public let coordinate: TRPLocation
     
-    public init(refId: String? = nil, name: String? = nil, address: String, coordinate: TRPLocation) {
+    public init(refId: String? = nil, name: String? = nil, address: String? = nil, coordinate: TRPLocation) {
         self.refId = refId
         self.name = name
         self.address = address
@@ -25,7 +25,7 @@ public struct Accommondation {
         var params: [String: Any] = [:]
         
         if let refId = refId {
-            params["ref_id"] = refId
+            params["refID"] = refId
         }
         
         if let name = name {

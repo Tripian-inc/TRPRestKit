@@ -30,15 +30,15 @@ internal class TRPRecommendation: TRPRestServices<TRPGenericParser<[TRPRecommend
         }
         
         if let cityId = setting.cityId {
-            params["city_id"] = cityId
+            params["cityId"] = cityId
         }
         
         if let hash = setting.hash {
-            params["trip_hash"] = hash
+            params["tripHash"] = hash
         }
         
         if let typeIds = setting.poiCategoryIds {
-            params["poi_categories"] = typeIds.toString()
+            params["poiCategories"] = typeIds.toString()
         }
         
         if let adults = setting.adultsCount {
@@ -46,7 +46,7 @@ internal class TRPRecommendation: TRPRestServices<TRPGenericParser<[TRPRecommend
         }
         
         if let adultAgeRange = setting.adultAgeRange {
-            params["adult_age_average"] = adultAgeRange
+            params["adultAgeAverage"] = adultAgeRange
         }
         
         if let childrenCount = setting.childrenCount {
@@ -54,7 +54,7 @@ internal class TRPRecommendation: TRPRestServices<TRPGenericParser<[TRPRecommend
         }
         
         if let childrenAgeRange = setting.childrenAgeRange {
-            params["children_age_average"] = childrenAgeRange
+            params["childrenAgeAverage"] = childrenAgeRange
         }
         
         if let coord = setting.currentCoordinate {

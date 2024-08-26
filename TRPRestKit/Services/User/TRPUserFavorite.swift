@@ -15,10 +15,10 @@ internal class TRPUserFavorite: TRPRestServices<TRPFavoritesJsonModel> {
     
     private let type: Mode
     private var cityId: Int?
-    private var poiId: Int?
+    private var poiId: String?
     private var favoriteId: Int?
     //ADD
-    public init(poiId: Int, type: Mode) {
+    public init(poiId: String, type: Mode) {
         self.type = type
         
         self.poiId = poiId
@@ -63,7 +63,7 @@ internal class TRPUserFavorite: TRPRestServices<TRPFavoritesJsonModel> {
     
     override func bodyParameters() -> [String : Any]? {
         if type == .add, let poi = poiId {
-            return ["poi_id": poi]
+            return ["poiId": poi]
         }
         return nil
     }
@@ -71,7 +71,7 @@ internal class TRPUserFavorite: TRPRestServices<TRPFavoritesJsonModel> {
     public override func parameters() -> [String: Any]? {
         if type == .get {
             if let cityId = cityId {
-                return ["city_id": "\(cityId)"]
+                return ["cityId": "\(cityId)"]
             }
         }
         return nil

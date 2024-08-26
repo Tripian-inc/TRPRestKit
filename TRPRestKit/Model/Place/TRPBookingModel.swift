@@ -11,12 +11,12 @@ public struct TRPBookingInfoModel: Decodable {
     
     public var providerId: Int?
     public var providerName: String?
-    public var product: TRPBookingProductInfoModel?
+    public var products: [TRPBookingProductInfoModel]?
     
     private enum CodingKeys: String, CodingKey {
-        case providerId = "provider_id"
-        case providerName = "provider_name"
-        case product
+        case providerId = "providerId"
+        case providerName = "providerName"
+        case products
     }
     
     public init(from decoder: Decoder) throws {
@@ -24,7 +24,7 @@ public struct TRPBookingInfoModel: Decodable {
         
         providerId = try values.decodeIfPresent(Int.self, forKey: .providerId)
         providerName = try values.decodeIfPresent(String.self, forKey: .providerName)
-        product = try values.decodeIfPresent(TRPBookingProductInfoModel.self, forKey: .product)
+        products = try values.decodeIfPresent([TRPBookingProductInfoModel].self, forKey: .products)
         
     }
 }

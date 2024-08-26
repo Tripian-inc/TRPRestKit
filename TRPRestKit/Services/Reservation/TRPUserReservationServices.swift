@@ -11,7 +11,7 @@ internal class TRPUserReservationServices: TRPRestServices<TRPGenericParser<[TRP
     
     var cityId: Int?
     var tripHash: String?
-    var poiId: Int?
+    var poiId: String?
     var from: String?
     var to: String?
     var provider: String?
@@ -35,23 +35,23 @@ internal class TRPUserReservationServices: TRPRestServices<TRPGenericParser<[TRP
         var params = [String: Any]()
         
         if let cityId = cityId {
-            params["city_id"] = cityId
+            params["cityId"] = cityId
         }
         
         if let tripHash = tripHash {
-            params["trip_hash"] = tripHash
+            params["tripHash"] = tripHash
         }
         
         if let poiId = poiId {
-            params["poi_id"] = poiId
+            params["poiId"] = poiId
         }
         
         if let from = from {
-            params["from"] = from
+            params["dateFrom"] = from
         }
         
         if let mto = to {
-            params["to"] = mto
+            params["dateTo"] = mto
         }
         
         if let provider = provider {

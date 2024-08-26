@@ -9,18 +9,19 @@
 import Foundation
 import TRPFoundationKit
 
-public class TRPCities: TRPRestServices<TRPCityJsonModel> {
+internal class TRPCities: TRPRestServices<TRPCityJsonModel> {
     
     private enum RequestType {
         case allCities
         case cityWithId
         case cityWithLocation
+        case shorexCities
     }
     
     private var cityId: Int?
     private var requestType: RequestType = RequestType.allCities
     private var location: TRPLocation?
-    public var limit = 50
+    public var limit: Int? = 1000
     
     public override init() {}
     
@@ -34,6 +35,13 @@ public class TRPCities: TRPRestServices<TRPCityJsonModel> {
         self.location = location
     }
     
+    public func setForShorex() {
+        self.requestType = .shorexCities
+        self.limit = nil
+        self.cityId = nil
+        self.location = nil
+    }
+    
     public override func path() -> String {
         var path = ""
         
@@ -44,6 +52,8 @@ public class TRPCities: TRPRestServices<TRPCityJsonModel> {
             }
         } else if requestType == .cityWithLocation {
             //path = TRPConfig.ApiCall.getcityByCoordinates.link
+        } else if requestType == .shorexCities {
+            path = TRPConfig.ApiCall.shorexCities.link
         }
         return path
     }
@@ -53,7 +63,9 @@ public class TRPCities: TRPRestServices<TRPCityJsonModel> {
         if let location = location {
             params["coordinate"] = "\(location.lat),\(location.lon)"
         }
-        params["limit"] = limit
+        if let limit = limit {
+            params["limit"] = limit
+        }
         return params
     }
     

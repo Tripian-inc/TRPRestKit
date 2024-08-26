@@ -20,21 +20,32 @@ public struct TRPQuestionInfoModel: Decodable {
     /// A String value. Name of question.
     public var name: String
     
+    public var stepId: Int?
+    public var title: String?
+    public var iconUrl: String?
+    public var description: String?
+    public var theme: String?
+    
     public var category: TRPQuestionCategory
     
     public var order: Int
     
     /// A TRPQuestionOptionsJsonModel object. Options of a question.
-    public var options: [TRPQuestionOptionsJsonModel]?
+    public var answers: [TRPQuestionOptionsJsonModel]?
     
     private enum CodingKeys: String, CodingKey {
         case id
+        case stepId
         case skippable
-        case selectMultiple = "select_multiple"
+        case selectMultiple = "selectMultiple"
         case name
+        case title
+        case iconUrl
+        case description
+        case theme
         case category
         case order
-        case options
+        case answers
     }
     
     /// Json to Object converter
@@ -43,13 +54,18 @@ public struct TRPQuestionInfoModel: Decodable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
+        self.stepId = try values.decodeIfPresent(Int.self, forKey: .stepId)
         self.skippable = try values.decode(Bool.self, forKey: .skippable)
         self.selectMultiple = try values.decode(Bool.self, forKey: .selectMultiple)
         self.name = try values.decode(String.self, forKey: .name)
+        self.title = try values.decodeIfPresent(String.self, forKey: .title)
+        self.iconUrl = try values.decodeIfPresent(String.self, forKey: .iconUrl)
+        self.description = try values.decodeIfPresent(String.self, forKey: .description)
+        self.theme = try values.decodeIfPresent(String.self, forKey: .theme)
         let questionCategory = try values.decode(String.self, forKey: .category)
         self.category = TRPQuestionCategory(rawValue: questionCategory) ?? .trip
         self.order = try values.decode(Int.self, forKey: .order)
-        self.options = try values.decodeIfPresent([TRPQuestionOptionsJsonModel].self, forKey: .options)
+        self.answers = try values.decodeIfPresent([TRPQuestionOptionsJsonModel].self, forKey: .answers)
     }
     
 }

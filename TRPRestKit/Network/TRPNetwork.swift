@@ -81,8 +81,16 @@ public class TRPNetwork {
             completionHandler?(TRPErrors.undefined as NSError, nil)
             return
         }
+        
+//        if TRPClient.shared.isReverseProxy {
+//            let urlString = url.absoluteString.addingPercentEncoding( withAllowedCharacters: .alphanumerics)!
+//            let formattedUrl = URL(string: "\(TRPClient.shared.reverseProxyURL)\(urlString)")!
+//            self.generateSession(formattedUrl)
+//        } else {
+            self.generateSession(url)
+//        }
     
-        self.generateSession(url)
+//
     }
     
     private func createComponents(url: String?) -> URLComponents {
@@ -119,7 +127,7 @@ public class TRPNetwork {
             request.httpBody = bodyData
         }
        
-        request.timeoutInterval = 30
+        request.timeoutInterval = 50
         let task = URLSession.shared.dataTask(with: request as URLRequest, useOfflineOnError: true) { (data, response, error) in
             var object: Any?
             

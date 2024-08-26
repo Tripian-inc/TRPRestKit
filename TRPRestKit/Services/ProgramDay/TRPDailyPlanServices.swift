@@ -56,13 +56,13 @@ internal class TRPDailyPlanServices: TRPRestServices<TRPDayPlanJsonModel> {
     override func bodyParameters() -> [String : Any]? {
         var params: [String: Any] = [:]
         if let startTime = startTime {
-            params["start_time"] = startTime
+            params["startTime"] = startTime
         }
         if let startTime = endTime {
-            params["end_time"] = startTime
+            params["endTime"] = startTime
         }
         if let orders = stepOrders {
-            params["orders"] = orders
+            params["stepOrders"] = orders
         }
         if params.count == 0 {
             return nil

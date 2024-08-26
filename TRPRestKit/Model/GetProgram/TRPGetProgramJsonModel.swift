@@ -36,18 +36,25 @@ public struct TRPTripProfileModel: Decodable {
 
     public var doNotGenerate: Int
     
+    public var theme: String?
+    public var excludeHash: [String]?
+    public var additionalData: String?
+    
     private enum CodingKeys: String, CodingKey {
-        case cityId = "city_id"
-        case arrivalDateTime = "arrival_datetime"
-        case departureDateTime = "departure_datetime"
-        case numberOfAdults = "number_of_adults"
-        case numberOfChildren = "number_of_children"
+        case cityId 
+        case arrivalDateTime = "arrivalDatetime"
+        case departureDateTime = "departureDatetime"
+        case numberOfAdults
+        case numberOfChildren
         case answers
         case owner
         case accommodation = "accommodation"
-        case companionIds = "companion_ids"
+        case companionIds
         case pace
-        case doNotGenerate = "do_not_generate"
+        case doNotGenerate
+        case theme
+        case excludeHash
+        case additionalData
     }
     
     /// Initializes a new object with decoder
@@ -76,6 +83,9 @@ public struct TRPTripProfileModel: Decodable {
         self.companionIds = try values.decode([Int].self, forKey: .companionIds)
         self.pace = try values.decodeIfPresent(String.self, forKey: .pace)
         self.doNotGenerate = try values.decode(Int.self, forKey: .doNotGenerate)
+        self.theme = try values.decodeIfPresent(String.self, forKey: .theme)
+        self.excludeHash = try values.decodeIfPresent([String].self, forKey: .excludeHash)
+        self.additionalData = try values.decodeIfPresent(String.self, forKey: .additionalData)
     }
 
 }
@@ -84,21 +94,21 @@ public struct TRPAccommodationInfoModel: Decodable {
     
     public var name: String?
     public var referanceId: String?
-    public var address: String
+    public var address: String?
     public var coordinate: TRPCoordinateModel
     
     private enum CodingKeys: String, CodingKey {
         case name
-        case refId = "ref_id"
+        case refId = "refID"
         case address
         case coordinate
     }
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
         self.name = try values.decodeIfPresent(String.self, forKey: .name)
         self.referanceId = try values.decodeIfPresent(String.self, forKey: .refId)
-        self.address = try values.decode(String.self, forKey: .address)
-        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
+        self.address = try values.decodeIfPresent(String.self, forKey: .address)
     }
 }

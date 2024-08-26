@@ -36,7 +36,14 @@ public class TRPTripSettings {
     public var owner: String?
     public var pace: String?
     public var hash: String?
+    /// Pre generated theme tour parameter
+    public var theme: String?
+    /// Pre generated theme tour parameter
+    public var excludeHash: [String]?
+    /// Bool value for getting offers of pois
+    public var withOffers: Bool = true
     
+    public var additionalData: String?
     /// Initializes a new Settings with cityId, arrivalTime and departureTime
     ///
     /// - Parameters:

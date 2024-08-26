@@ -35,13 +35,13 @@ public struct TRPReportAProblemInfoModel: Decodable {
     /// A String value. User's message.
     let message: String?
     /// An Int value. Id of poi.
-    var poiId: Int?
+    var poiId: String?
     
     private enum CodingKeys: String, CodingKey {
         case id
-        case problemCategory = "problem_category"
+        case problemCategory = "problemCategory"
         case message
-        case poiId = "poi_id"
+        case poiId = "poiId"
     }
     
     /// Initializes a new object with decoder
@@ -52,7 +52,7 @@ public struct TRPReportAProblemInfoModel: Decodable {
         self.id = try values.decode(Int.self, forKey: .id)
         self.problemCategory = try values.decodeIfPresent(String.self, forKey: .problemCategory)
         self.message = try values.decodeIfPresent(String.self, forKey: .message)
-        self.poiId = try values.decodeIfPresent(Int.self, forKey: .poiId)
+        self.poiId = try values.decodeIfPresent(String.self, forKey: .poiId)
     }
     
 }

@@ -67,7 +67,7 @@ struct TestUtilConstants {
     }
     
     struct MockPlaceConstants {
-        static let PlaceId =  516733 //David M. Arslantas istanbul
+        static let PlaceId =  "516733" //David M. Arslantas istanbul
     }
     
     struct MockQuestionConstants {

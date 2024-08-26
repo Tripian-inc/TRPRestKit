@@ -8,7 +8,7 @@
 
 import Foundation
 /// Parent Json parser model for Poi
-internal class TRPPoiJsonModel: TRPParentJsonModel {
+public class TRPPoiJsonModel: TRPParentJsonModel {
     
     /// Pois data
     internal var data: [TRPPoiInfoModel]?
@@ -24,6 +24,13 @@ internal class TRPPoiJsonModel: TRPParentJsonModel {
         } else if let model = try? values.decodeIfPresent(TRPPoiInfoModel.self, forKey: .data), let data = [model] as? [TRPPoiInfoModel] {
             self.data = data
         }
+        
+        // Yukarıdaki mekanizma throws özelliğini kapatıyor.
+        // Eğer json yapısında bir sorun varsa burası yakalasın diye ekledim.
+        if self.data == nil {
+            self.data = try values.decodeIfPresent([TRPPoiInfoModel].self, forKey: .data)
+        }
+        
         try super.init(from: decoder)
     }
 }

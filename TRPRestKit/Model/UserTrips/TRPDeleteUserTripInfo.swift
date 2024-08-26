@@ -10,6 +10,6 @@ import Foundation
 public struct TRPDeleteUserTripInfo: Decodable {
 
     /// An Int value. Id of trip.
-    public var id: Int
+    public var recordId: Int
     
 }

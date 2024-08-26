@@ -16,11 +16,11 @@ public struct TRPDevice: Decodable, Encodable {
     public var firebaseToken: String?
     
     private enum CodingKeys: String, CodingKey {
-        case deviceId = "device_id"
-        case deviceOs = "device_os"
-        case osVersion = "os_version"
-        case firebaseToken = "firebase_token"
-        case bundleId = "bundle_id"
+        case deviceId = "deviceId"
+        case deviceOs = "deviceOs"
+        case osVersion = "osVersion"
+        case firebaseToken = "serviceToken"
+        case bundleId = "bundleId"
     }
     
     public init(from decoder: Decoder) throws {

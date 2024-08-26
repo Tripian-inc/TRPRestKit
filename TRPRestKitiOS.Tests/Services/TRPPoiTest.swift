@@ -15,15 +15,18 @@ import TRPFoundationKit
 class TRPPoiTest: XCTestCase {
     
     // MARK: Variables
-    private let cityId = TestUtilConstants.MockCityConstants.IstanbulCityId
-    private let placeId = TestUtilConstants.MockPlaceConstants.PlaceId
-    private let location = TestUtilConstants.MockCityConstants.Istanbullocation
+    private let cityId = TestUtilConstants.MockCityConstants.BogotaCityId
+    private let placeId = "46636" //TestUtilConstants.MockPlaceConstants.PlaceId
+    private let location = TestUtilConstants.MockCityConstants.Bogotalocation
     private let category = TestUtilConstants.MockPoiCategoryConstants.PoiCategoryId
     private let categoryIds = TestUtilConstants.MockPoiCategoryConstants.CategoryIds
     
     // MARK: Set Up
     override func setUp() {
         super.setUp()
+        let urlCreater = BaseUrlCreater(baseUrl: "6ezq4jb2mk.execute-api.eu-west-1.amazonaws.com", basePath: "api")
+        TRPClient.start(baseUrl: urlCreater, apiKey: "")
+        TRPClient.monitor(data: true, url: true)
     }
     
     // MARK: - Test Functions
@@ -142,7 +145,7 @@ class TRPPoiTest: XCTestCase {
         let nameSpace = #function
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         
-        let url = "\(TestUtilConstants.targetServer.url.reableUrl)/poi?city_id=107&limit=100&page=2"
+        let url = "\(TestUtilConstants.targetServer.url.reableUrl)/poi?city_id=41&limit=100&page=2"
         
         TRPRestKit().poi(url: url) { (result, error, pagination) in
             if let error = error {
@@ -210,9 +213,9 @@ class TRPPoiTest: XCTestCase {
         let expectation = XCTestExpectation(description: "\(nameSpace) expectation")
         expectation.expectedFulfillmentCount = 2
         var loopCounter = 0
-        let distance: Double = 90.0
+        let distance = 90
         
-        TRPRestKit().poi(withLocation: location, distance: distance, cityId: cityId, categoryIds: categoryIds, autoPagination: true, limit: 20) { (result, error, pagination) in
+        TRPRestKit().poi(withLocation: location, distance: Float(distance), cityId: cityId, categoryIds: categoryIds, autoPagination: true, limit: 20) { (result, error, pagination) in
             if let error = error {
                 XCTFail("\(nameSpace) Parser Fail: \(error.localizedDescription)")
                 return

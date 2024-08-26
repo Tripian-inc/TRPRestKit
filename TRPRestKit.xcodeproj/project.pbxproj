@@ -22,23 +22,41 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		6B108F0428B66421004E49A1 /* TRPGetOfferServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B108F0328B66421004E49A1 /* TRPGetOfferServices.swift */; };
+		6B108F0628B66459004E49A1 /* TRPOfferInfoJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B108F0528B66459004E49A1 /* TRPOfferInfoJsonModel.swift */; };
+		6B467C3D29DC1159009ACDAC /* TRPExportPlanServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B467C3C29DC1159009ACDAC /* TRPExportPlanServices.swift */; };
+		6B467C3F29DC1190009ACDAC /* TRPExportPlanJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B467C3E29DC1190009ACDAC /* TRPExportPlanJsonModel.swift */; };
+		6B4CA7C42BCE4921000CCC19 /* TRPCityWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4CA7C32BCE4921000CCC19 /* TRPCityWeatherModel.swift */; };
+		6B5049272C76537600C510F1 /* TRPGuestLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5049262C76537600C510F1 /* TRPGuestLogin.swift */; };
+		6B6A52AC28BBA736003125ED /* TRPOptInOfferJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A52AB28BBA736003125ED /* TRPOptInOfferJsonModel.swift */; };
+		6B6A52AE28BBA793003125ED /* TRPGetOptInOfferServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A52AD28BBA793003125ED /* TRPGetOptInOfferServices.swift */; };
+		6B6A52BF28BBB470003125ED /* TRPOptInOfferServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A52BE28BBB470003125ED /* TRPOptInOfferServices.swift */; };
+		6B6C1FCF2C6950B500D55E98 /* TRPDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C1FCE2C6950B500D55E98 /* TRPDeviceModel.swift */; };
+		6B77B38128BD85400072C9BB /* TRPSocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B77B38028BD85400072C9BB /* TRPSocialLogin.swift */; };
+		6B7953D329F9940900CFF433 /* TRPFeedbackJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7953D229F9940900CFF433 /* TRPFeedbackJsonModel.swift */; };
+		6B7953D529F9946F00CFF433 /* TRPFeedbackInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7953D429F9946F00CFF433 /* TRPFeedbackInfoModel.swift */; };
+		6B7953D729F9950600CFF433 /* TRPUserFeedbackJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7953D629F9950600CFF433 /* TRPUserFeedbackJsonModel.swift */; };
+		6BA6C5E328A2FA1900E2DB69 /* TRPOfferInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6C5E228A2FA1900E2DB69 /* TRPOfferInfoModel.swift */; };
+		6BA6C5E528A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6C5E428A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift */; };
+		6BAFB55E28C67BAC00C61B1F /* TRPResetPasswordServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAFB55D28C67BAC00C61B1F /* TRPResetPasswordServices.swift */; };
+		6BC396BF28C08F68009A8619 /* TRPUserDeleteServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC396BE28C08F68009A8619 /* TRPUserDeleteServices.swift */; };
+		6BC396C828C09979009A8619 /* TRPLogOutServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC396C728C09979009A8619 /* TRPLogOutServices.swift */; };
 		783A137F22F0339D00952CA2 /* TRPConstantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */; };
 		783A138222F039FC00952CA2 /* TRPConstantsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A138122F039FC00952CA2 /* TRPConstantsServices.swift */; };
 		784BAB9422C3505D00BBDB0F /* TRPCompanionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784BAB9322C3505C00BBDB0F /* TRPCompanionModel.swift */; };
 		784BAB9A22C354FA00BBDB0F /* TRPCompanionServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784BAB9922C354FA00BBDB0F /* TRPCompanionServices.swift */; };
-		784BABA122C3F57B00BBDB0F /* TRPCompanionsJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784BABA022C3F57B00BBDB0F /* TRPCompanionsJsonModel.swift */; };
 		78C448F1237C353C00E1DD7B /* UserMockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C448F0237C353C00E1DD7B /* UserMockSession.swift */; };
 		78C448F3237C356700E1DD7B /* TRPReportAProblemTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C448F2237C356700E1DD7B /* TRPReportAProblemTest.swift */; };
 		78C448F5237C35C000E1DD7B /* TRPLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C448F4237C35C000E1DD7B /* TRPLoginTest.swift */; };
 		78C448F7237C35FA00E1DD7B /* TRPDailyPlanTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C448F6237C35FA00E1DD7B /* TRPDailyPlanTest.swift */; };
 		78C448FA237C363B00E1DD7B /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C448F8237C363A00E1DD7B /* XCTestCase+Extensions.swift */; };
+		B205CB5424214F80001F4B5A /* TRPDeleteUserTripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B205CB5324214F80001F4B5A /* TRPDeleteUserTripInfo.swift */; };
 		B20BBAEB213046CB00DEAA3E /* TRPLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20BBAEA213046CB00DEAA3E /* TRPLogin.swift */; };
 		B20CD9C921357C0800497ED3 /* TRPGetProgramJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CD9C821357C0800497ED3 /* TRPGetProgramJsonModel.swift */; };
-		B20CD9CF213596FB00497ED3 /* TRPDailyPlanInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CD9CE213596FB00497ED3 /* TRPDailyPlanInfoModel.swift */; };
+		B20CD9CF213596FB00497ED3 /* TRPPlansInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CD9CE213596FB00497ED3 /* TRPPlansInfoModel.swift */; };
 		B20CD9D42135DC5700497ED3 /* TRPDailyPlanServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CD9D32135DC5700497ED3 /* TRPDailyPlanServices.swift */; };
 		B20CD9E621365B2700497ED3 /* TRPPlanPointAlternativeJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CD9E521365B2700497ED3 /* TRPPlanPointAlternativeJsonModel.swift */; };
 		B20CD9E821365B3D00497ED3 /* NearByJsonInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CD9E721365B3D00497ED3 /* NearByJsonInfoModel.swift */; };
-		B20CD9F321368CF800497ED3 /* TRPPlanPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CD9F221368CF800497ED3 /* TRPPlanPoints.swift */; };
 		B20CD9F62136A8E600497ED3 /* TRPProgramStepJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CD9F52136A8E600497ED3 /* TRPProgramStepJsonModel.swift */; };
 		B20CD9FC2136E23200497ED3 /* TRPFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CD9FB2136E23200497ED3 /* TRPFeedback.swift */; };
 		B20F29AE21C25B9B0041957B /* TestServerInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = B20F29AD21C25B9B0041957B /* TestServerInfo.plist */; };
@@ -49,7 +67,6 @@
 		B215BF0721319C9700659818 /* TRPUserMeJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215BF0621319C9700659818 /* TRPUserMeJsonModel.swift */; };
 		B215BF0921319D6500659818 /* TRPUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215BF0821319D6500659818 /* TRPUserInfoModel.swift */; };
 		B215BF0B2131D18A00659818 /* TRPMyPrograms.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215BF0A2131D18A00659818 /* TRPMyPrograms.swift */; };
-		B215BF102131D31700659818 /* TRPUserTripsJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215BF0F2131D31700659818 /* TRPUserTripsJsonModel.swift */; };
 		B215BF122132808A00659818 /* TRPUserTripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215BF112132808A00659818 /* TRPUserTripInfoModel.swift */; };
 		B2179D262133EF87004954A4 /* TRPUserPersistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2179D252133EF87004954A4 /* TRPUserPersistent.swift */; };
 		B21E1A89220A27DF00EF471F /* TRPGooglePlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E1A88220A27DF00EF471F /* TRPGooglePlaceService.swift */; };
@@ -60,37 +77,70 @@
 		B227F45C216CA2BA00591C70 /* TRPFavoritesJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B227F45B216CA2BA00591C70 /* TRPFavoritesJsonModel.swift */; };
 		B2341D6223143939007EAF80 /* RestKitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2341D6123143939007EAF80 /* RestKitInfo.swift */; };
 		B236885F216BAE0800920DA7 /* TRPUserFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236885E216BAE0800920DA7 /* TRPUserFavorite.swift */; };
+		B236A0D8240CFC0B002331D6 /* TRPTripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236A0D7240CFC0B002331D6 /* TRPTripModel.swift */; };
+		B236A0DA240CFD29002331D6 /* TRPGetTripService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236A0D9240CFD29002331D6 /* TRPGetTripService.swift */; };
 		B248C92023A7A6EE000063C3 /* TestUtilConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B248C91F23A7A6EE000063C3 /* TestUtilConstants.swift */; };
 		B248C92A23A7C23C000063C3 /* BaseUrlCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B248C92923A7C23C000063C3 /* BaseUrlCreater.swift */; };
 		B248C92C23A7C2D8000063C3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B248C92B23A7C2D8000063C3 /* Environment.swift */; };
 		B248C93423A7D477000063C3 /* BaseUrlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B248C93323A7D477000063C3 /* BaseUrlTest.swift */; };
+		B24F16F92488FFB200922C43 /* TRPTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24F16F82488FFB200922C43 /* TRPTokenModel.swift */; };
 		B25219B123AA708100D0F785 /* TRPUserRegisterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25219B023AA708100D0F785 /* TRPUserRegisterTest.swift */; };
 		B25251682269E76F00C0EBAA /* TRPReportAProblemJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25251672269E76F00C0EBAA /* TRPReportAProblemJsonModel.swift */; };
+		B252FC4824BE128D0014B750 /* TRPUserReservationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252FC4724BE128D0014B750 /* TRPUserReservationServices.swift */; };
+		B252FC4B24BE31FE0014B750 /* TRPReservationInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252FC4A24BE31FE0014B750 /* TRPReservationInfoModel.swift */; };
+		B25318542407E1D1007F97C3 /* TRPUserProfileInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25318532407E1D1007F97C3 /* TRPUserProfileInfoModel.swift */; };
+		B25318572407EFA2007F97C3 /* TRPRefreshTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25318562407EFA2007F97C3 /* TRPRefreshTokenService.swift */; };
+		B253185924092981007F97C3 /* TRPGenericParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253185824092981007F97C3 /* TRPGenericParserTest.swift */; };
+		B253185B24092F31007F97C3 /* TRPGenericParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253185A24092F31007F97C3 /* TRPGenericParser.swift */; };
+		B253185D240934EA007F97C3 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253185C240934EA007F97C3 /* JsonParser.swift */; };
+		B253185F24096144007F97C3 /* TRPImageParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253185E24096144007F97C3 /* TRPImageParserTest.swift */; };
+		B253186224096D75007F97C3 /* TRPRefreshTokenInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253186124096D75007F97C3 /* TRPRefreshTokenInfoModel.swift */; };
+		B25318642409744A007F97C3 /* TRPPoiRefInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25318632409744A007F97C3 /* TRPPoiRefInfoModel.swift */; };
+		B254CDDF241BAB9000B7B438 /* TRPStepAlternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254CDDE241BAB9000B7B438 /* TRPStepAlternative.swift */; };
 		B255661723B0CB1E00C8AAF2 /* BCCreateTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255661623B0CB1E00C8AAF2 /* BCCreateTrip.swift */; };
-		B255661923B0CE6800C8AAF2 /* TripHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B255661823B0CE6800C8AAF2 /* TripHolder.swift */; };
 		B2557E9423ACB14400C5BF4D /* AAUserPersistentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2557E9323ACB14400C5BF4D /* AAUserPersistentTest.swift */; };
 		B2562EF223AB86100094A7B8 /* TRPFoundationKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B23C25A423AB75FE00B6736F /* TRPFoundationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2583C4623ABAB360081ED5D /* BaseUrlCreaterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2583C4523ABAB360081ED5D /* BaseUrlCreaterTest.swift */; };
 		B2583C4823ABC1220081ED5D /* AStartTestSettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2583C4723ABC1220081ED5D /* AStartTestSettingsTest.swift */; };
+		B258DD4524BECE4200C6C335 /* TRPAddUserReservationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B258DD4424BECE4200C6C335 /* TRPAddUserReservationServices.swift */; };
+		B258DD4724BEDC3D00C6C335 /* TRPUserReservationDeletePutServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B258DD4624BEDC3D00C6C335 /* TRPUserReservationDeletePutServices.swift */; };
+		B259621724052BBC00E98DF4 /* ApiV3StartTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259621624052BBC00E98DF4 /* ApiV3StartTest.swift */; };
+		B259621924053B7000E98DF4 /* TRPImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259621824053B7000E98DF4 /* TRPImageModel.swift */; };
+		B25EC987259CACCB0027AF50 /* TRPGygInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EC986259CACCB0027AF50 /* TRPGygInfoModel.swift */; };
+		B261996C245C2D96001F1A45 /* TRPUserReactionServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261996B245C2D96001F1A45 /* TRPUserReactionServices.swift */; };
+		B261996E245C2FE5001F1A45 /* UserReactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261996D245C2FE5001F1A45 /* UserReactionType.swift */; };
+		B2619970245C3BE2001F1A45 /* TRPDeleteUserReactionServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261996F245C3BE2001F1A45 /* TRPDeleteUserReactionServices.swift */; };
 		B261A72022490DEC00D31558 /* TRPReportAProblemServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261A71F22490DEC00D31558 /* TRPReportAProblemServices.swift */; };
 		B261A72222490E4C00D31558 /* TRPProblemCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261A72122490E4C00D31558 /* TRPProblemCategories.swift */; };
 		B261A733224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261A732224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift */; };
+		B2642BEB248FC4F200A1B8CF /* TRPGetUserReactionServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2642BEA248FC4F200A1B8CF /* TRPGetUserReactionServices.swift */; };
+		B2645C52242CB6E00050F32B /* Accommondation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2645C51242CB6E00050F32B /* Accommondation.swift */; };
 		B267BBA42356F88D00C25778 /* TRPQuickRecommendationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267BBA32356F88D00C25778 /* TRPQuickRecommendationTest.swift */; };
 		B267BBA62357060500C25778 /* TRPUserInfoUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267BBA52357060500C25778 /* TRPUserInfoUpdate.swift */; };
 		B267BBBE23572BEF00C25778 /* TRPCompanionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267BBBD23572BEF00C25778 /* TRPCompanionTest.swift */; };
 		B267BBC02357396D00C25778 /* TRPTripsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267BBBF2357396D00C25778 /* TRPTripsTest.swift */; };
-		B27712AF23CCB3F10092EE69 /* TRPRestDeneme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27712AE23CCB3F10092EE69 /* TRPRestDeneme.swift */; };
+		B267EDD8241110A4006FCFA0 /* TRPStepTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267EDD7241110A4006FCFA0 /* TRPStepTest.swift */; };
+		B267EDDB241119F9006FCFA0 /* TRPStepServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267EDDA241119F9006FCFA0 /* TRPStepServices.swift */; };
+		B26E36CF24812B99003FFA2B /* TRPPoiCategoryParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26E36CE24812B99003FFA2B /* TRPPoiCategoryParent.swift */; };
+		B2731D3E245DBE0900FF5718 /* TRPReactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2731D3D245DBE0900FF5718 /* TRPReactionModel.swift */; };
+		B2757C61244EE48D00E88806 /* UserDefaults+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2757C60244EE48D00E88806 /* UserDefaults+extensions.swift */; };
+		B27E824B2498B14E00B4E096 /* LocationBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27E824A2498B14E00B4E096 /* LocationBounds.swift */; };
+		B27F37A9245817920005EC81 /* TokenRefreshServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F37A8245817920005EC81 /* TokenRefreshServices.swift */; };
+		B27F37B9245851BD0005EC81 /* TripianTokenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F37B8245851BD0005EC81 /* TripianTokenController.swift */; };
+		B27F37BB245851C90005EC81 /* TokenControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F37BA245851C90005EC81 /* TokenControllerProtocol.swift */; };
+		B282653224065504004A4EDC /* TRPProblemCategoriesInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282653124065504004A4EDC /* TRPProblemCategoriesInfoModel.swift */; };
+		B2826534240664F5004A4EDC /* TRPBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2826533240664F5004A4EDC /* TRPBookingModel.swift */; };
+		B282653624066A01004A4EDC /* TRPTastesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282653524066A01004A4EDC /* TRPTastesModel.swift */; };
 		B287616623A79DEC00951486 /* TRPApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B287616523A79DEC00951486 /* TRPApiKey.swift */; };
 		B287616823A7A10C00951486 /* TRPApiKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B287616723A7A10C00951486 /* TRPApiKeyTest.swift */; };
+		B2955F55266A9DFC009CE99C /* TRPFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2955F54266A9DFC009CE99C /* TRPFoundationKit.framework */; };
 		B29B462A20F607F90009E711 /* TRPRestKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B29B462820F607F90009E711 /* TRPRestKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B29B463720F60A630009E711 /* TRPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463620F60A630009E711 /* TRPClient.swift */; };
 		B29B463B20F60A910009E711 /* TRPConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463A20F60A910009E711 /* TRPConfig.swift */; };
-		B29B463D20F60AAB0009E711 /* TRPTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463C20F60AAB0009E711 /* TRPTime.swift */; };
 		B29B463F20F60AC30009E711 /* TRPRestKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463E20F60AC30009E711 /* TRPRestKit.swift */; };
 		B29B464120F60ADF0009E711 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464020F60ADF0009E711 /* Pagination.swift */; };
 		B29B464920F60BF80009E711 /* TRPCoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464820F60BF80009E711 /* TRPCoordinateModel.swift */; };
 		B29B464B20F60C0D0009E711 /* TRPParentJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */; };
-		B29B467820F60F220009E711 /* TRPRecommendationJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B467720F60F220009E711 /* TRPRecommendationJsonModel.swift */; };
 		B29B467A20F60F320009E711 /* TRPRecommendationInfoJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B467920F60F320009E711 /* TRPRecommendationInfoJsonModel.swift */; };
 		B29B467F20F60F5C0009E711 /* TRPTripQuestionJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B467E20F60F5C0009E711 /* TRPTripQuestionJsonModel.swift */; };
 		B29B468120F60F6A0009E711 /* TRPTripQuestionInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B468020F60F6A0009E711 /* TRPTripQuestionInfoModel.swift */; };
@@ -114,7 +164,12 @@
 		B29B46AE20F613C70009E711 /* TRPRecommendationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46AD20F613C70009E711 /* TRPRecommendationSettings.swift */; };
 		B29B46B020F613D80009E711 /* TRPRestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46AF20F613D80009E711 /* TRPRestServices.swift */; };
 		B29B46B420F613FE0009E711 /* TRPCheckDataUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46B320F613FE0009E711 /* TRPCheckDataUpdates.swift */; };
-		B29B46C120F6146D0009E711 /* TRPPlanPointAlternatives.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46C020F6146D0009E711 /* TRPPlanPointAlternatives.swift */; };
+		B29B46C120F6146D0009E711 /* TRPStepAlternativesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B46C020F6146D0009E711 /* TRPStepAlternativesServices.swift */; };
+		B2AC586824122A8700256F79 /* TripHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC586724122A8700256F79 /* TripHelper.swift */; };
+		B2AC586A2412365200256F79 /* UnitTestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC58692412365200256F79 /* UnitTestError.swift */; };
+		B2AC586C24128CDB00256F79 /* TRPDeleteStepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AC586B24128CDB00256F79 /* TRPDeleteStepService.swift */; };
+		B2AEE62D240F9DFD00395EE8 /* TRPUserFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AEE62C240F9DFD00395EE8 /* TRPUserFavorite.swift */; };
+		B2AF33ED244C918400C68B6E /* TRPDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF33EC244C918400C68B6E /* TRPDevice.swift */; };
 		B2B500B8235073860006D406 /* TRPRestKitiOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B500B7235073860006D406 /* TRPRestKitiOS_Tests.swift */; };
 		B2B500BA235073860006D406 /* TRPRestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29B462520F607F90009E711 /* TRPRestKit.framework */; };
 		B2B500C4235073A70006D406 /* TRPCitiesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B500C3235073A70006D406 /* TRPCitiesTest.swift */; };
@@ -124,15 +179,13 @@
 		B2B500F62354942B0006D406 /* TRPPoiCategoriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B500F52354942B0006D406 /* TRPPoiCategoriesTest.swift */; };
 		B2B50100235497D30006D406 /* TRPPoiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B500FF235497D30006D406 /* TRPPoiTest.swift */; };
 		B2B5011A2354C6950006D406 /* TRPQuestionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B501192354C6950006D406 /* TRPQuestionTest.swift */; };
-		B2B58F4C25F2658700138FE7 /* TRPFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B58F4B25F2658700138FE7 /* TRPFoundationKit.framework */; };
+		B2BEF941241B619200794EC2 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BEF940241B619200794EC2 /* UserDefault.swift */; };
+		B2BEF943241B67DB00794EC2 /* TripFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BEF942241B67DB00794EC2 /* TripFetcher.swift */; };
 		B2C365AC226727A300E7B4CA /* TRPImageOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C365AB226727A300E7B4CA /* TRPImageOwner.swift */; };
 		B2E0D1F521491D2300876D81 /* TRPDayPlanJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1F421491D2300876D81 /* TRPDayPlanJsonModel.swift */; };
-		B2E0D1F821491DF000876D81 /* TRPTripJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1F721491DF000876D81 /* TRPTripJsonModel.swift */; };
-		B2E0D1FA21491E0000876D81 /* TRPTripInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1F921491E0000876D81 /* TRPTripInfoModel.swift */; };
-		B2E0D1FF2149244A00876D81 /* TRPPlanPoi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1FE2149244A00876D81 /* TRPPlanPoi.swift */; };
+		B2E0D1FF2149244A00876D81 /* TRPStepInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E0D1FE2149244A00876D81 /* TRPStepInfoModel.swift */; };
 		B2FDCFB92147EE41000C9387 /* TRPLoginJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCFB82147EE41000C9387 /* TRPLoginJsonModel.swift */; };
 		B2FDCFBD2147FA45000C9387 /* TRPUserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FDCFBC2147FA45000C9387 /* TRPUserRegister.swift */; };
-		B2FE502E21354BD600CDC79E /* TRPGetProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FE502D21354BD600CDC79E /* TRPGetProgram.swift */; };
 		B2FE503621356EE700CDC79E /* TRPDeleteProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FE503521356EE700CDC79E /* TRPDeleteProgram.swift */; };
 /* End PBXBuildFile section */
 
@@ -167,25 +220,46 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B108F0328B66421004E49A1 /* TRPGetOfferServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGetOfferServices.swift; sourceTree = "<group>"; };
+		6B108F0528B66459004E49A1 /* TRPOfferInfoJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOfferInfoJsonModel.swift; sourceTree = "<group>"; };
+		6B467C3C29DC1159009ACDAC /* TRPExportPlanServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPExportPlanServices.swift; sourceTree = "<group>"; };
+		6B467C3E29DC1190009ACDAC /* TRPExportPlanJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPExportPlanJsonModel.swift; sourceTree = "<group>"; };
+		6B4CA7C32BCE4921000CCC19 /* TRPCityWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCityWeatherModel.swift; sourceTree = "<group>"; };
+		6B5049262C76537600C510F1 /* TRPGuestLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGuestLogin.swift; sourceTree = "<group>"; };
+		6B6A52AB28BBA736003125ED /* TRPOptInOfferJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOptInOfferJsonModel.swift; sourceTree = "<group>"; };
+		6B6A52AD28BBA793003125ED /* TRPGetOptInOfferServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGetOptInOfferServices.swift; sourceTree = "<group>"; };
+		6B6A52BE28BBB470003125ED /* TRPOptInOfferServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOptInOfferServices.swift; sourceTree = "<group>"; };
+		6B6C1FCE2C6950B500D55E98 /* TRPDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDeviceModel.swift; sourceTree = "<group>"; };
+		6B77B38028BD85400072C9BB /* TRPSocialLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPSocialLogin.swift; sourceTree = "<group>"; };
+		6B7953D229F9940900CFF433 /* TRPFeedbackJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPFeedbackJsonModel.swift; sourceTree = "<group>"; };
+		6B7953D429F9946F00CFF433 /* TRPFeedbackInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPFeedbackInfoModel.swift; sourceTree = "<group>"; };
+		6B7953D629F9950600CFF433 /* TRPUserFeedbackJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserFeedbackJsonModel.swift; sourceTree = "<group>"; };
+		6BA6C5E228A2FA1900E2DB69 /* TRPOfferInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOfferInfoModel.swift; sourceTree = "<group>"; };
+		6BA6C5E428A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOffersProductTypeModel.swift; sourceTree = "<group>"; };
+		6BAFB55D28C67BAC00C61B1F /* TRPResetPasswordServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPResetPasswordServices.swift; sourceTree = "<group>"; };
+		6BC396BE28C08F68009A8619 /* TRPUserDeleteServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserDeleteServices.swift; sourceTree = "<group>"; };
+		6BC396C728C09979009A8619 /* TRPLogOutServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLogOutServices.swift; sourceTree = "<group>"; };
 		783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsModel.swift; sourceTree = "<group>"; };
 		783A138122F039FC00952CA2 /* TRPConstantsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsServices.swift; sourceTree = "<group>"; };
 		784BAB9322C3505C00BBDB0F /* TRPCompanionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCompanionModel.swift; sourceTree = "<group>"; };
 		784BAB9922C354FA00BBDB0F /* TRPCompanionServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCompanionServices.swift; sourceTree = "<group>"; };
-		784BABA022C3F57B00BBDB0F /* TRPCompanionsJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCompanionsJsonModel.swift; sourceTree = "<group>"; };
 		78C448F0237C353C00E1DD7B /* UserMockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMockSession.swift; sourceTree = "<group>"; };
 		78C448F2237C356700E1DD7B /* TRPReportAProblemTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPReportAProblemTest.swift; sourceTree = "<group>"; };
 		78C448F4237C35C000E1DD7B /* TRPLoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLoginTest.swift; sourceTree = "<group>"; };
 		78C448F6237C35FA00E1DD7B /* TRPDailyPlanTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDailyPlanTest.swift; sourceTree = "<group>"; };
 		78C448F8237C363A00E1DD7B /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		B2002D79262896BE000D9782 /* TRPFoundationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B205CB5324214F80001F4B5A /* TRPDeleteUserTripInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDeleteUserTripInfo.swift; sourceTree = "<group>"; };
 		B20BBAEA213046CB00DEAA3E /* TRPLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLogin.swift; sourceTree = "<group>"; };
 		B20CD9C821357C0800497ED3 /* TRPGetProgramJsonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPGetProgramJsonModel.swift; sourceTree = "<group>"; };
-		B20CD9CE213596FB00497ED3 /* TRPDailyPlanInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDailyPlanInfoModel.swift; sourceTree = "<group>"; };
+		B20CD9CE213596FB00497ED3 /* TRPPlansInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPlansInfoModel.swift; sourceTree = "<group>"; };
 		B20CD9D32135DC5700497ED3 /* TRPDailyPlanServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDailyPlanServices.swift; sourceTree = "<group>"; };
 		B20CD9E521365B2700497ED3 /* TRPPlanPointAlternativeJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPlanPointAlternativeJsonModel.swift; sourceTree = "<group>"; };
 		B20CD9E721365B3D00497ED3 /* NearByJsonInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByJsonInfoModel.swift; sourceTree = "<group>"; };
-		B20CD9F221368CF800497ED3 /* TRPPlanPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPlanPoints.swift; sourceTree = "<group>"; };
 		B20CD9F52136A8E600497ED3 /* TRPProgramStepJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProgramStepJsonModel.swift; sourceTree = "<group>"; };
 		B20CD9FB2136E23200497ED3 /* TRPFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPFeedback.swift; sourceTree = "<group>"; };
+		B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TestServerConfig.xcconfig; sourceTree = "<group>"; };
+		B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MainConfig.xcconfig; sourceTree = "<group>"; };
 		B20F29AD21C25B9B0041957B /* TestServerInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestServerInfo.plist; sourceTree = "<group>"; };
 		B210988D2188AD8F0070946C /* TRPImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageResizer.swift; sourceTree = "<group>"; };
 		B215BEFC2131756700659818 /* TRPTripSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripSettings.swift; sourceTree = "<group>"; };
@@ -194,7 +268,6 @@
 		B215BF0621319C9700659818 /* TRPUserMeJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserMeJsonModel.swift; sourceTree = "<group>"; };
 		B215BF0821319D6500659818 /* TRPUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserInfoModel.swift; sourceTree = "<group>"; };
 		B215BF0A2131D18A00659818 /* TRPMyPrograms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPMyPrograms.swift; sourceTree = "<group>"; };
-		B215BF0F2131D31700659818 /* TRPUserTripsJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserTripsJsonModel.swift; sourceTree = "<group>"; };
 		B215BF112132808A00659818 /* TRPUserTripInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserTripInfoModel.swift; sourceTree = "<group>"; };
 		B2179D252133EF87004954A4 /* TRPUserPersistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserPersistent.swift; sourceTree = "<group>"; };
 		B21E1A88220A27DF00EF471F /* TRPGooglePlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGooglePlaceService.swift; sourceTree = "<group>"; };
@@ -203,41 +276,80 @@
 		B21E1A8E220A282800EF471F /* TRPGooglePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGooglePlace.swift; sourceTree = "<group>"; };
 		B22372232131151900E21532 /* TRPOAuthJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOAuthJsonModel.swift; sourceTree = "<group>"; };
 		B227F45B216CA2BA00591C70 /* TRPFavoritesJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPFavoritesJsonModel.swift; sourceTree = "<group>"; };
+		B22999D025BB037D0070C853 /* TRPFoundationKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = TRPFoundationKit.xcframework; sourceTree = "<group>"; };
+		B233418F25F273C800A6D280 /* TRPFoundationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2341D6123143939007EAF80 /* RestKitInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestKitInfo.swift; sourceTree = "<group>"; };
 		B236885E216BAE0800920DA7 /* TRPUserFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserFavorite.swift; sourceTree = "<group>"; };
+		B236A0D7240CFC0B002331D6 /* TRPTripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripModel.swift; sourceTree = "<group>"; };
+		B236A0D9240CFD29002331D6 /* TRPGetTripService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGetTripService.swift; sourceTree = "<group>"; };
 		B23C25A423AB75FE00B6736F /* TRPFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = "<group>"; };
 		B248C91F23A7A6EE000063C3 /* TestUtilConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtilConstants.swift; sourceTree = "<group>"; };
 		B248C92923A7C23C000063C3 /* BaseUrlCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlCreater.swift; sourceTree = "<group>"; };
 		B248C92B23A7C2D8000063C3 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		B248C93323A7D477000063C3 /* BaseUrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlTest.swift; sourceTree = "<group>"; };
+		B249688625C1968E002D63B6 /* TRPFoundationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B24F16F82488FFB200922C43 /* TRPTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTokenModel.swift; sourceTree = "<group>"; };
 		B25219B023AA708100D0F785 /* TRPUserRegisterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserRegisterTest.swift; sourceTree = "<group>"; };
 		B25251672269E76F00C0EBAA /* TRPReportAProblemJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPReportAProblemJsonModel.swift; sourceTree = "<group>"; };
+		B252FC4724BE128D0014B750 /* TRPUserReservationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserReservationServices.swift; sourceTree = "<group>"; };
+		B252FC4A24BE31FE0014B750 /* TRPReservationInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPReservationInfoModel.swift; sourceTree = "<group>"; };
+		B25318532407E1D1007F97C3 /* TRPUserProfileInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserProfileInfoModel.swift; sourceTree = "<group>"; };
+		B25318562407EFA2007F97C3 /* TRPRefreshTokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRefreshTokenService.swift; sourceTree = "<group>"; };
+		B253185824092981007F97C3 /* TRPGenericParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGenericParserTest.swift; sourceTree = "<group>"; };
+		B253185A24092F31007F97C3 /* TRPGenericParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGenericParser.swift; sourceTree = "<group>"; };
+		B253185C240934EA007F97C3 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		B253185E24096144007F97C3 /* TRPImageParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageParserTest.swift; sourceTree = "<group>"; };
+		B253186124096D75007F97C3 /* TRPRefreshTokenInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRefreshTokenInfoModel.swift; sourceTree = "<group>"; };
+		B25318632409744A007F97C3 /* TRPPoiRefInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPoiRefInfoModel.swift; sourceTree = "<group>"; };
+		B254CDDE241BAB9000B7B438 /* TRPStepAlternative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPStepAlternative.swift; sourceTree = "<group>"; };
 		B255661623B0CB1E00C8AAF2 /* BCCreateTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCCreateTrip.swift; sourceTree = "<group>"; };
-		B255661823B0CE6800C8AAF2 /* TripHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHolder.swift; sourceTree = "<group>"; };
+		B2556E0D25FDDFF100525671 /* TRPFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TRPFoundationKit.framework; path = Carthage/Build/iOS/TRPFoundationKit.framework; sourceTree = "<group>"; };
 		B2557E9323ACB14400C5BF4D /* AAUserPersistentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAUserPersistentTest.swift; sourceTree = "<group>"; };
 		B2583C4523ABAB360081ED5D /* BaseUrlCreaterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlCreaterTest.swift; sourceTree = "<group>"; };
 		B2583C4723ABC1220081ED5D /* AStartTestSettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStartTestSettingsTest.swift; sourceTree = "<group>"; };
+		B258DD4424BECE4200C6C335 /* TRPAddUserReservationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPAddUserReservationServices.swift; sourceTree = "<group>"; };
+		B258DD4624BEDC3D00C6C335 /* TRPUserReservationDeletePutServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserReservationDeletePutServices.swift; sourceTree = "<group>"; };
+		B259621624052BBC00E98DF4 /* ApiV3StartTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiV3StartTest.swift; sourceTree = "<group>"; };
+		B259621824053B7000E98DF4 /* TRPImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageModel.swift; sourceTree = "<group>"; };
+		B25DC54925FBB23A00F416AA /* TRPFoundationKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TRPFoundationKit.xcframework; path = Carthage/Build/TRPFoundationKit.xcframework; sourceTree = "<group>"; };
+		B25E0CD826288F9C0081C785 /* TRPFoundationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B25EC986259CACCB0027AF50 /* TRPGygInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGygInfoModel.swift; sourceTree = "<group>"; };
+		B261996B245C2D96001F1A45 /* TRPUserReactionServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserReactionServices.swift; sourceTree = "<group>"; };
+		B261996D245C2FE5001F1A45 /* UserReactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReactionType.swift; sourceTree = "<group>"; };
+		B261996F245C3BE2001F1A45 /* TRPDeleteUserReactionServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDeleteUserReactionServices.swift; sourceTree = "<group>"; };
 		B261A71F22490DEC00D31558 /* TRPReportAProblemServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPReportAProblemServices.swift; sourceTree = "<group>"; };
 		B261A72122490E4C00D31558 /* TRPProblemCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProblemCategories.swift; sourceTree = "<group>"; };
 		B261A732224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProblemCategoriesJsonModel.swift; sourceTree = "<group>"; };
+		B2642BEA248FC4F200A1B8CF /* TRPGetUserReactionServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGetUserReactionServices.swift; sourceTree = "<group>"; };
+		B2645C51242CB6E00050F32B /* Accommondation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accommondation.swift; sourceTree = "<group>"; };
 		B267BBA32356F88D00C25778 /* TRPQuickRecommendationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPQuickRecommendationTest.swift; sourceTree = "<group>"; };
 		B267BBA52357060500C25778 /* TRPUserInfoUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserInfoUpdate.swift; sourceTree = "<group>"; };
 		B267BBBD23572BEF00C25778 /* TRPCompanionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCompanionTest.swift; sourceTree = "<group>"; };
 		B267BBBF2357396D00C25778 /* TRPTripsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripsTest.swift; sourceTree = "<group>"; };
+		B267EDD7241110A4006FCFA0 /* TRPStepTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPStepTest.swift; sourceTree = "<group>"; };
+		B267EDDA241119F9006FCFA0 /* TRPStepServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPStepServices.swift; sourceTree = "<group>"; };
+		B26E36CE24812B99003FFA2B /* TRPPoiCategoryParent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPoiCategoryParent.swift; sourceTree = "<group>"; };
+		B2731D3D245DBE0900FF5718 /* TRPReactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPReactionModel.swift; sourceTree = "<group>"; };
+		B2757C60244EE48D00E88806 /* UserDefaults+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extensions.swift"; sourceTree = "<group>"; };
 		B2764A84218AE4EF0069B17E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B27712AE23CCB3F10092EE69 /* TRPRestDeneme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestDeneme.swift; sourceTree = "<group>"; };
+		B27E824A2498B14E00B4E096 /* LocationBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBounds.swift; sourceTree = "<group>"; };
+		B27F37A8245817920005EC81 /* TokenRefreshServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshServices.swift; sourceTree = "<group>"; };
+		B27F37B8245851BD0005EC81 /* TripianTokenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripianTokenController.swift; sourceTree = "<group>"; };
+		B27F37BA245851C90005EC81 /* TokenControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenControllerProtocol.swift; sourceTree = "<group>"; };
+		B282653124065504004A4EDC /* TRPProblemCategoriesInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProblemCategoriesInfoModel.swift; sourceTree = "<group>"; };
+		B2826533240664F5004A4EDC /* TRPBookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPBookingModel.swift; sourceTree = "<group>"; };
+		B282653524066A01004A4EDC /* TRPTastesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTastesModel.swift; sourceTree = "<group>"; };
 		B287616523A79DEC00951486 /* TRPApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPApiKey.swift; sourceTree = "<group>"; };
 		B287616723A7A10C00951486 /* TRPApiKeyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPApiKeyTest.swift; sourceTree = "<group>"; };
+		B2955F54266A9DFC009CE99C /* TRPFoundationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29B462520F607F90009E711 /* TRPRestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TRPRestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29B462820F607F90009E711 /* TRPRestKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRPRestKit.h; sourceTree = "<group>"; };
 		B29B463620F60A630009E711 /* TRPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPClient.swift; sourceTree = "<group>"; };
 		B29B463A20F60A910009E711 /* TRPConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConfig.swift; sourceTree = "<group>"; };
-		B29B463C20F60AAB0009E711 /* TRPTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTime.swift; sourceTree = "<group>"; };
 		B29B463E20F60AC30009E711 /* TRPRestKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestKit.swift; sourceTree = "<group>"; };
 		B29B464020F60ADF0009E711 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		B29B464820F60BF80009E711 /* TRPCoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCoordinateModel.swift; sourceTree = "<group>"; };
 		B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPParentJsonModel.swift; sourceTree = "<group>"; };
-		B29B467720F60F220009E711 /* TRPRecommendationJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRecommendationJsonModel.swift; sourceTree = "<group>"; };
 		B29B467920F60F320009E711 /* TRPRecommendationInfoJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRecommendationInfoJsonModel.swift; sourceTree = "<group>"; };
 		B29B467E20F60F5C0009E711 /* TRPTripQuestionJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripQuestionJsonModel.swift; sourceTree = "<group>"; };
 		B29B468020F60F6A0009E711 /* TRPTripQuestionInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripQuestionInfoModel.swift; sourceTree = "<group>"; };
@@ -261,7 +373,12 @@
 		B29B46AD20F613C70009E711 /* TRPRecommendationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRecommendationSettings.swift; sourceTree = "<group>"; };
 		B29B46AF20F613D80009E711 /* TRPRestServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestServices.swift; sourceTree = "<group>"; };
 		B29B46B320F613FE0009E711 /* TRPCheckDataUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCheckDataUpdates.swift; sourceTree = "<group>"; };
-		B29B46C020F6146D0009E711 /* TRPPlanPointAlternatives.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPlanPointAlternatives.swift; sourceTree = "<group>"; };
+		B29B46C020F6146D0009E711 /* TRPStepAlternativesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPStepAlternativesServices.swift; sourceTree = "<group>"; };
+		B2AC586724122A8700256F79 /* TripHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHelper.swift; sourceTree = "<group>"; };
+		B2AC58692412365200256F79 /* UnitTestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTestError.swift; sourceTree = "<group>"; };
+		B2AC586B24128CDB00256F79 /* TRPDeleteStepService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDeleteStepService.swift; sourceTree = "<group>"; };
+		B2AEE62C240F9DFD00395EE8 /* TRPUserFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserFavorite.swift; sourceTree = "<group>"; };
+		B2AF33EC244C918400C68B6E /* TRPDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDevice.swift; sourceTree = "<group>"; };
 		B2B500B5235073860006D406 /* TRPRestKitiOS.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TRPRestKitiOS.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B500B7235073860006D406 /* TRPRestKitiOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestKitiOS_Tests.swift; sourceTree = "<group>"; };
 		B2B500B9235073860006D406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -272,15 +389,14 @@
 		B2B500F52354942B0006D406 /* TRPPoiCategoriesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPoiCategoriesTest.swift; sourceTree = "<group>"; };
 		B2B500FF235497D30006D406 /* TRPPoiTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPoiTest.swift; sourceTree = "<group>"; };
 		B2B501192354C6950006D406 /* TRPQuestionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPQuestionTest.swift; sourceTree = "<group>"; };
-		B2B58F4B25F2658700138FE7 /* TRPFoundationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2BEF940241B619200794EC2 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		B2BEF942241B67DB00794EC2 /* TripFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripFetcher.swift; sourceTree = "<group>"; };
 		B2C365AB226727A300E7B4CA /* TRPImageOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageOwner.swift; sourceTree = "<group>"; };
 		B2E0D1F421491D2300876D81 /* TRPDayPlanJsonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPDayPlanJsonModel.swift; sourceTree = "<group>"; };
-		B2E0D1F721491DF000876D81 /* TRPTripJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripJsonModel.swift; sourceTree = "<group>"; };
-		B2E0D1F921491E0000876D81 /* TRPTripInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripInfoModel.swift; sourceTree = "<group>"; };
-		B2E0D1FE2149244A00876D81 /* TRPPlanPoi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPlanPoi.swift; sourceTree = "<group>"; };
+		B2E0D1FE2149244A00876D81 /* TRPStepInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPStepInfoModel.swift; sourceTree = "<group>"; };
+		B2E798BC25EEB40C00A9C293 /* TRPFoundationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TRPFoundationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FDCFB82147EE41000C9387 /* TRPLoginJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLoginJsonModel.swift; sourceTree = "<group>"; };
 		B2FDCFBC2147FA45000C9387 /* TRPUserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserRegister.swift; sourceTree = "<group>"; };
-		B2FE502D21354BD600CDC79E /* TRPGetProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGetProgram.swift; sourceTree = "<group>"; };
 		B2FE503521356EE700CDC79E /* TRPDeleteProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDeleteProgram.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,7 +405,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2B58F4C25F2658700138FE7 /* TRPFoundationKit.framework in Frameworks */,
+				B2955F55266A9DFC009CE99C /* TRPFoundationKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +420,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B108F0228B65E10004E49A1 /* Offers */ = {
+			isa = PBXGroup;
+			children = (
+				6B108F0328B66421004E49A1 /* TRPGetOfferServices.swift */,
+				6B6A52AD28BBA793003125ED /* TRPGetOptInOfferServices.swift */,
+				6B6A52BE28BBB470003125ED /* TRPOptInOfferServices.swift */,
+			);
+			path = Offers;
+			sourceTree = "<group>";
+		};
+		6B7953D129F993A800CFF433 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				6B7953D229F9940900CFF433 /* TRPFeedbackJsonModel.swift */,
+				6B7953D429F9946F00CFF433 /* TRPFeedbackInfoModel.swift */,
+				6B7953D629F9950600CFF433 /* TRPUserFeedbackJsonModel.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		6BA6C5E128A2F9FC00E2DB69 /* Offers */ = {
+			isa = PBXGroup;
+			children = (
+				6BA6C5E228A2FA1900E2DB69 /* TRPOfferInfoModel.swift */,
+				6BA6C5E428A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift */,
+				6B108F0528B66459004E49A1 /* TRPOfferInfoJsonModel.swift */,
+				6B6A52AB28BBA736003125ED /* TRPOptInOfferJsonModel.swift */,
+			);
+			path = Offers;
+			sourceTree = "<group>";
+		};
 		783A137D22F032CA00952CA2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,7 +471,6 @@
 			isa = PBXGroup;
 			children = (
 				784BAB9322C3505C00BBDB0F /* TRPCompanionModel.swift */,
-				784BABA022C3F57B00BBDB0F /* TRPCompanionsJsonModel.swift */,
 			);
 			name = Companion;
 			sourceTree = "<group>";
@@ -341,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				78C448F8237C363A00E1DD7B /* XCTestCase+Extensions.swift */,
+				B253185C240934EA007F97C3 /* JsonParser.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -349,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				B20CD9D32135DC5700497ED3 /* TRPDailyPlanServices.swift */,
+				6B467C3C29DC1159009ACDAC /* TRPExportPlanServices.swift */,
 			);
 			path = ProgramDay;
 			sourceTree = "<group>";
@@ -357,7 +505,8 @@
 			isa = PBXGroup;
 			children = (
 				B2E0D1F421491D2300876D81 /* TRPDayPlanJsonModel.swift */,
-				B20CD9CE213596FB00497ED3 /* TRPDailyPlanInfoModel.swift */,
+				B20CD9CE213596FB00497ED3 /* TRPPlansInfoModel.swift */,
+				6B467C3E29DC1190009ACDAC /* TRPExportPlanJsonModel.swift */,
 			);
 			path = DayPlan;
 			sourceTree = "<group>";
@@ -369,14 +518,6 @@
 				B20CD9E721365B3D00497ED3 /* NearByJsonInfoModel.swift */,
 			);
 			path = NearBy;
-			sourceTree = "<group>";
-		};
-		B20CD9F121368BFC00497ED3 /* PlanPoints */ = {
-			isa = PBXGroup;
-			children = (
-				B20CD9F221368CF800497ED3 /* TRPPlanPoints.swift */,
-			);
-			path = PlanPoints;
 			sourceTree = "<group>";
 		};
 		B20CD9F42136A8D000497ED3 /* ProgramStep */ = {
@@ -392,8 +533,9 @@
 			children = (
 				B215BEFC2131756700659818 /* TRPTripSettings.swift */,
 				B215BEFE2131765B00659818 /* TRPProgram.swift */,
-				B2FE502D21354BD600CDC79E /* TRPGetProgram.swift */,
 				B2FE503521356EE700CDC79E /* TRPDeleteProgram.swift */,
+				B236A0D9240CFD29002331D6 /* TRPGetTripService.swift */,
+				B2645C51242CB6E00050F32B /* Accommondation.swift */,
 			);
 			path = Program;
 			sourceTree = "<group>";
@@ -406,6 +548,11 @@
 				B215BF0A2131D18A00659818 /* TRPMyPrograms.swift */,
 				B2FDCFBC2147FA45000C9387 /* TRPUserRegister.swift */,
 				B236885E216BAE0800920DA7 /* TRPUserFavorite.swift */,
+				6B77B38028BD85400072C9BB /* TRPSocialLogin.swift */,
+				6BC396BE28C08F68009A8619 /* TRPUserDeleteServices.swift */,
+				6BC396C728C09979009A8619 /* TRPLogOutServices.swift */,
+				6BAFB55D28C67BAC00C61B1F /* TRPResetPasswordServices.swift */,
+				6B5049262C76537600C510F1 /* TRPGuestLogin.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -422,8 +569,8 @@
 		B215BF0E2131D2F300659818 /* UserTrips */ = {
 			isa = PBXGroup;
 			children = (
-				B215BF0F2131D31700659818 /* TRPUserTripsJsonModel.swift */,
 				B215BF112132808A00659818 /* TRPUserTripInfoModel.swift */,
+				B205CB5324214F80001F4B5A /* TRPDeleteUserTripInfo.swift */,
 			);
 			path = UserTrips;
 			sourceTree = "<group>";
@@ -459,7 +606,15 @@
 		B2373F87218B2FD700CAB14F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B2B58F4B25F2658700138FE7 /* TRPFoundationKit.framework */,
+				B2955F54266A9DFC009CE99C /* TRPFoundationKit.framework */,
+				B2002D79262896BE000D9782 /* TRPFoundationKit.framework */,
+				B25E0CD826288F9C0081C785 /* TRPFoundationKit.framework */,
+				B2556E0D25FDDFF100525671 /* TRPFoundationKit.framework */,
+				B25DC54925FBB23A00F416AA /* TRPFoundationKit.xcframework */,
+				B233418F25F273C800A6D280 /* TRPFoundationKit.framework */,
+				B2E798BC25EEB40C00A9C293 /* TRPFoundationKit.framework */,
+				B249688625C1968E002D63B6 /* TRPFoundationKit.framework */,
+				B22999D025BB037D0070C853 /* TRPFoundationKit.xcframework */,
 				B23C25A423AB75FE00B6736F /* TRPFoundationKit.framework */,
 			);
 			name = Frameworks;
@@ -482,6 +637,43 @@
 			path = ReportAProblem;
 			sourceTree = "<group>";
 		};
+		B252FC4624BE125C0014B750 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				B252FC4724BE128D0014B750 /* TRPUserReservationServices.swift */,
+				B258DD4424BECE4200C6C335 /* TRPAddUserReservationServices.swift */,
+				B258DD4624BEDC3D00C6C335 /* TRPUserReservationDeletePutServices.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		B252FC4924BE31E90014B750 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				B252FC4A24BE31FE0014B750 /* TRPReservationInfoModel.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		B25318552407EF7A007F97C3 /* RefreshToken */ = {
+			isa = PBXGroup;
+			children = (
+				B25318562407EFA2007F97C3 /* TRPRefreshTokenService.swift */,
+			);
+			path = RefreshToken;
+			sourceTree = "<group>";
+		};
+		B261996A245C2A26001F1A45 /* UserReaction */ = {
+			isa = PBXGroup;
+			children = (
+				B261996B245C2D96001F1A45 /* TRPUserReactionServices.swift */,
+				B261996D245C2FE5001F1A45 /* UserReactionType.swift */,
+				B261996F245C3BE2001F1A45 /* TRPDeleteUserReactionServices.swift */,
+				B2642BEA248FC4F200A1B8CF /* TRPGetUserReactionServices.swift */,
+			);
+			path = UserReaction;
+			sourceTree = "<group>";
+		};
 		B261A71E22490DCA00D31558 /* ReportAProblem */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,13 +687,58 @@
 			isa = PBXGroup;
 			children = (
 				B261A732224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift */,
+				B282653124065504004A4EDC /* TRPProblemCategoriesInfoModel.swift */,
 			);
 			path = ProblemCategories;
+			sourceTree = "<group>";
+		};
+		B267EDD9241119E9006FCFA0 /* StepService */ = {
+			isa = PBXGroup;
+			children = (
+				B267EDDA241119F9006FCFA0 /* TRPStepServices.swift */,
+				B2AC586B24128CDB00256F79 /* TRPDeleteStepService.swift */,
+			);
+			path = StepService;
+			sourceTree = "<group>";
+		};
+		B2731D3C245DBDF400FF5718 /* Reaction */ = {
+			isa = PBXGroup;
+			children = (
+				B2731D3D245DBE0900FF5718 /* TRPReactionModel.swift */,
+			);
+			path = Reaction;
+			sourceTree = "<group>";
+		};
+		B2757C5F244EE47C00E88806 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B2757C60244EE48D00E88806 /* UserDefaults+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B27F37B6245850490005EC81 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		B27F37B7245850560005EC81 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				B27F37A8245817920005EC81 /* TokenRefreshServices.swift */,
+				B27F37BA245851C90005EC81 /* TokenControllerProtocol.swift */,
+				B27F37B8245851BD0005EC81 /* TripianTokenController.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		B29B461B20F607F90009E711 = {
 			isa = PBXGroup;
 			children = (
+				B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */,
+				B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */,
 				B29B462720F607F90009E711 /* TRPRestKit */,
 				B2B500B6235073860006D406 /* TRPRestKitiOS.Tests */,
 				B29B462620F607F90009E711 /* Products */,
@@ -521,6 +758,8 @@
 		B29B462720F607F90009E711 /* TRPRestKit */ = {
 			isa = PBXGroup;
 			children = (
+				B27F37B6245850490005EC81 /* Logic */,
+				B2757C5F244EE47C00E88806 /* Extensions */,
 				B248C92523A7C200000063C3 /* Environment */,
 				B20F29AD21C25B9B0041957B /* TestServerInfo.plist */,
 				B2764A84218AE4EF0069B17E /* Info.plist */,
@@ -530,14 +769,13 @@
 				B29B463220F60A1F0009E711 /* Services */,
 				B29B463620F60A630009E711 /* TRPClient.swift */,
 				B29B463A20F60A910009E711 /* TRPConfig.swift */,
-				B29B463C20F60AAB0009E711 /* TRPTime.swift */,
 				B29B463E20F60AC30009E711 /* TRPRestKit.swift */,
 				B29B464020F60ADF0009E711 /* Pagination.swift */,
 				B2179D252133EF87004954A4 /* TRPUserPersistent.swift */,
 				B210988D2188AD8F0070946C /* TRPImageResizer.swift */,
 				B2341D6123143939007EAF80 /* RestKitInfo.swift */,
 				B287616523A79DEC00951486 /* TRPApiKey.swift */,
-				B27712AE23CCB3F10092EE69 /* TRPRestDeneme.swift */,
+				B24F16F82488FFB200922C43 /* TRPTokenModel.swift */,
 			);
 			path = TRPRestKit;
 			sourceTree = "<group>";
@@ -545,16 +783,20 @@
 		B29B463220F60A1F0009E711 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6B108F0228B65E10004E49A1 /* Offers */,
+				B252FC4624BE125C0014B750 /* Reservation */,
+				B261996A245C2A26001F1A45 /* UserReaction */,
+				B267EDD9241119E9006FCFA0 /* StepService */,
+				B25318552407EF7A007F97C3 /* RefreshToken */,
 				783A138022F039DE00952CA2 /* Constants */,
 				784BAB9822C354AB00BBDB0F /* Companion */,
 				B261A71E22490DCA00D31558 /* ReportAProblem */,
 				B21E1A87220A27CF00EF471F /* Google Place */,
-				B20CD9F121368BFC00497ED3 /* PlanPoints */,
 				B20CD9CA2135942500497ED3 /* ProgramDay */,
 				B215BF00213178BF00659818 /* User */,
 				B215BEFB2131754B00659818 /* Program */,
 				B29B46A320F613690009E711 /* TRPCities.swift */,
-				B29B46C020F6146D0009E711 /* TRPPlanPointAlternatives.swift */,
+				B29B46C020F6146D0009E711 /* TRPStepAlternativesServices.swift */,
 				B29B46A520F6137C0009E711 /* poiCategories.swift */,
 				B29B46A720F6138D0009E711 /* TRPPlace.swift */,
 				B29B46A920F613A00009E711 /* TRPTripQuestion.swift */,
@@ -578,6 +820,7 @@
 		B29B463420F60A310009E711 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B27F37B7245850560005EC81 /* OAuth */,
 				B29B469D20F613150009E711 /* TRPNetwork.swift */,
 				B29B469F20F613300009E711 /* TRPNetworkError.swift */,
 				B29B46A120F613430009E711 /* TRPRequestMode.swift */,
@@ -588,12 +831,18 @@
 		B29B463520F60A390009E711 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6B7953D129F993A800CFF433 /* Feedback */,
+				6BA6C5E128A2F9FC00E2DB69 /* Offers */,
+				B252FC4924BE31E90014B750 /* Reservation */,
+				B2731D3C245DBDF400FF5718 /* Reaction */,
+				B2E0D1FB21491E7D00876D81 /* Common */,
+				B29B468E20F60FE10009E711 /* City */,
+				B29B468920F60FB80009E711 /* PoiCategory */,
+				B261A731224B7E3500D31558 /* ProblemCategories */,
 				783A137D22F032CA00952CA2 /* Constants */,
 				784BAB9222C3502B00BBDB0F /* Companion */,
 				B25251662269E76200C0EBAA /* ReportAProblem */,
-				B261A731224B7E3500D31558 /* ProblemCategories */,
 				B227F459216CA2A300591C70 /* Favorites */,
-				B2E0D1FB21491E7D00876D81 /* Common */,
 				B2E0D1F621491DE400876D81 /* Trip */,
 				B20CD9F42136A8D000497ED3 /* ProgramStep */,
 				B20CD9E421365B1500497ED3 /* NearBy */,
@@ -603,13 +852,16 @@
 				B215BF0521319C8300659818 /* UserMe */,
 				B2237222213114FE00E21532 /* OAuth */,
 				B29B469A20F610430009E711 /* Update */,
-				B29B468E20F60FE10009E711 /* City */,
-				B29B468920F60FB80009E711 /* Type */,
 				B29B468420F60F8D0009E711 /* Place */,
 				B29B467D20F60F500009E711 /* Questions */,
 				B29B467620F60F170009E711 /* Recommendation */,
 				B29B464820F60BF80009E711 /* TRPCoordinateModel.swift */,
 				B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */,
+				B253185A24092F31007F97C3 /* TRPGenericParser.swift */,
+				B253186124096D75007F97C3 /* TRPRefreshTokenInfoModel.swift */,
+				B2AF33EC244C918400C68B6E /* TRPDevice.swift */,
+				B27E824A2498B14E00B4E096 /* LocationBounds.swift */,
+				B25EC986259CACCB0027AF50 /* TRPGygInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -617,7 +869,6 @@
 		B29B467620F60F170009E711 /* Recommendation */ = {
 			isa = PBXGroup;
 			children = (
-				B29B467720F60F220009E711 /* TRPRecommendationJsonModel.swift */,
 				B29B467920F60F320009E711 /* TRPRecommendationInfoJsonModel.swift */,
 			);
 			path = Recommendation;
@@ -638,18 +889,20 @@
 			children = (
 				B29B468520F60F970009E711 /* TRPPoiJsonModel.swift */,
 				B29B468720F60FA70009E711 /* TRPPoiInfoModel.swift */,
-				B2C365AB226727A300E7B4CA /* TRPImageOwner.swift */,
+				B2826533240664F5004A4EDC /* TRPBookingModel.swift */,
+				B282653524066A01004A4EDC /* TRPTastesModel.swift */,
 			);
 			path = Place;
 			sourceTree = "<group>";
 		};
-		B29B468920F60FB80009E711 /* Type */ = {
+		B29B468920F60FB80009E711 /* PoiCategory */ = {
 			isa = PBXGroup;
 			children = (
 				B29B468A20F60FC20009E711 /* TRPPoiCategories.swift */,
 				B29B468C20F60FD30009E711 /* TRPCategoryInfoModel.swift */,
+				B26E36CE24812B99003FFA2B /* TRPPoiCategoryParent.swift */,
 			);
-			path = Type;
+			path = PoiCategory;
 			sourceTree = "<group>";
 		};
 		B29B468E20F60FE10009E711 /* City */ = {
@@ -658,6 +911,7 @@
 				B29B468F20F60FEB0009E711 /* TRPCityJsonModel.swift */,
 				B29B469120F60FFB0009E711 /* TRPCityInfoModel.swift */,
 				B29B469320F6100C0009E711 /* TRPCountryJsonModel.swift */,
+				6B4CA7C32BCE4921000CCC19 /* TRPCityWeatherModel.swift */,
 			);
 			path = City;
 			sourceTree = "<group>";
@@ -670,9 +924,21 @@
 			path = Update;
 			sourceTree = "<group>";
 		};
+		B2AC5864241229AA00256F79 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B2AC58692412365200256F79 /* UnitTestError.swift */,
+				B2AC586724122A8700256F79 /* TripHelper.swift */,
+				B2BEF940241B619200794EC2 /* UserDefault.swift */,
+				B2BEF942241B67DB00794EC2 /* TripFetcher.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		B2B500B6235073860006D406 /* TRPRestKitiOS.Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B2AC5864241229AA00256F79 /* Helper */,
 				78C448FC237C364C00E1DD7B /* Utils */,
 				B2B500E3235091140006D406 /* Model */,
 				B2B500C2235073930006D406 /* Services */,
@@ -685,6 +951,8 @@
 				B2583C4523ABAB360081ED5D /* BaseUrlCreaterTest.swift */,
 				B2583C4723ABC1220081ED5D /* AStartTestSettingsTest.swift */,
 				B2557E9323ACB14400C5BF4D /* AAUserPersistentTest.swift */,
+				B259621624052BBC00E98DF4 /* ApiV3StartTest.swift */,
+				B253185824092981007F97C3 /* TRPGenericParserTest.swift */,
 			);
 			path = TRPRestKitiOS.Tests;
 			sourceTree = "<group>";
@@ -706,7 +974,9 @@
 				B267BBBF2357396D00C25778 /* TRPTripsTest.swift */,
 				B25219B023AA708100D0F785 /* TRPUserRegisterTest.swift */,
 				B255661623B0CB1E00C8AAF2 /* BCCreateTrip.swift */,
-				B255661823B0CE6800C8AAF2 /* TripHolder.swift */,
+				B2AEE62C240F9DFD00395EE8 /* TRPUserFavorite.swift */,
+				B267EDD7241110A4006FCFA0 /* TRPStepTest.swift */,
+				B254CDDE241BAB9000B7B438 /* TRPStepAlternative.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -716,6 +986,7 @@
 			children = (
 				B2B500E42350911C0006D406 /* TRPCityJsonModelTest.swift */,
 				B2B500E8235091430006D406 /* TRPParentJsonModelTest.swift */,
+				B253185E24096144007F97C3 /* TRPImageParserTest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -723,8 +994,7 @@
 		B2E0D1F621491DE400876D81 /* Trip */ = {
 			isa = PBXGroup;
 			children = (
-				B2E0D1F721491DF000876D81 /* TRPTripJsonModel.swift */,
-				B2E0D1F921491E0000876D81 /* TRPTripInfoModel.swift */,
+				B236A0D7240CFC0B002331D6 /* TRPTripModel.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -732,7 +1002,12 @@
 		B2E0D1FB21491E7D00876D81 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B2E0D1FE2149244A00876D81 /* TRPPlanPoi.swift */,
+				B2E0D1FE2149244A00876D81 /* TRPStepInfoModel.swift */,
+				B259621824053B7000E98DF4 /* TRPImageModel.swift */,
+				B2C365AB226727A300E7B4CA /* TRPImageOwner.swift */,
+				B25318532407E1D1007F97C3 /* TRPUserProfileInfoModel.swift */,
+				B25318632409744A007F97C3 /* TRPPoiRefInfoModel.swift */,
+				6B6C1FCE2C6950B500D55E98 /* TRPDeviceModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -894,7 +1169,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}\"\n\n# Step 6. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}\"\n";
+			shellScript = "#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build EXCLUDED_ARCHS=\"arm64\"\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\n# cp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}\"\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}/../TripianFrameworks/\"\n# Step 6. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}/../TripianFrameworks/\"\n\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -904,86 +1179,129 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2FE503621356EE700CDC79E /* TRPDeleteProgram.swift in Sources */,
+				6B5049272C76537600C510F1 /* TRPGuestLogin.swift in Sources */,
 				B2179D262133EF87004954A4 /* TRPUserPersistent.swift in Sources */,
 				B29B46B420F613FE0009E711 /* TRPCheckDataUpdates.swift in Sources */,
 				B29B468120F60F6A0009E711 /* TRPTripQuestionInfoModel.swift in Sources */,
 				B29B46A420F613690009E711 /* TRPCities.swift in Sources */,
 				B2FDCFBD2147FA45000C9387 /* TRPUserRegister.swift in Sources */,
-				B2FE502E21354BD600CDC79E /* TRPGetProgram.swift in Sources */,
 				B210988E2188AD8F0070946C /* TRPImageResizer.swift in Sources */,
 				B29B463B20F60A910009E711 /* TRPConfig.swift in Sources */,
 				B236885F216BAE0800920DA7 /* TRPUserFavorite.swift in Sources */,
 				B29B469020F60FEB0009E711 /* TRPCityJsonModel.swift in Sources */,
-				B29B463D20F60AAB0009E711 /* TRPTime.swift in Sources */,
 				B248C92A23A7C23C000063C3 /* BaseUrlCreater.swift in Sources */,
 				783A138222F039FC00952CA2 /* TRPConstantsServices.swift in Sources */,
 				B22372242131151900E21532 /* TRPOAuthJsonModel.swift in Sources */,
 				B20CD9D42135DC5700497ED3 /* TRPDailyPlanServices.swift in Sources */,
 				B261A72222490E4C00D31558 /* TRPProblemCategories.swift in Sources */,
+				6B6A52AE28BBA793003125ED /* TRPGetOptInOfferServices.swift in Sources */,
+				6B6C1FCF2C6950B500D55E98 /* TRPDeviceModel.swift in Sources */,
 				B29B46A020F613300009E711 /* TRPNetworkError.swift in Sources */,
 				B29B469220F60FFB0009E711 /* TRPCityInfoModel.swift in Sources */,
+				B258DD4524BECE4200C6C335 /* TRPAddUserReservationServices.swift in Sources */,
+				B25318642409744A007F97C3 /* TRPPoiRefInfoModel.swift in Sources */,
+				B261996E245C2FE5001F1A45 /* UserReactionType.swift in Sources */,
 				B29B469420F6100C0009E711 /* TRPCountryJsonModel.swift in Sources */,
+				6B4CA7C42BCE4921000CCC19 /* TRPCityWeatherModel.swift in Sources */,
+				B261996C245C2D96001F1A45 /* TRPUserReactionServices.swift in Sources */,
 				B29B467A20F60F320009E711 /* TRPRecommendationInfoJsonModel.swift in Sources */,
 				B21E1A8D220A281200EF471F /* TRPGoogleAutoComplete.swift in Sources */,
+				6B77B38128BD85400072C9BB /* TRPSocialLogin.swift in Sources */,
 				B248C92C23A7C2D8000063C3 /* Environment.swift in Sources */,
 				B29B468620F60F970009E711 /* TRPPoiJsonModel.swift in Sources */,
-				B2E0D1FF2149244A00876D81 /* TRPPlanPoi.swift in Sources */,
+				B2E0D1FF2149244A00876D81 /* TRPStepInfoModel.swift in Sources */,
 				B29B468D20F60FD30009E711 /* TRPCategoryInfoModel.swift in Sources */,
+				B25318572407EFA2007F97C3 /* TRPRefreshTokenService.swift in Sources */,
 				B29B468B20F60FC20009E711 /* TRPPoiCategories.swift in Sources */,
 				B21E1A8F220A282800EF471F /* TRPGooglePlace.swift in Sources */,
+				6B7953D729F9950600CFF433 /* TRPUserFeedbackJsonModel.swift in Sources */,
 				B215BF0721319C9700659818 /* TRPUserMeJsonModel.swift in Sources */,
 				B20CD9C921357C0800497ED3 /* TRPGetProgramJsonModel.swift in Sources */,
 				B261A72022490DEC00D31558 /* TRPReportAProblemServices.swift in Sources */,
+				B25318542407E1D1007F97C3 /* TRPUserProfileInfoModel.swift in Sources */,
 				B215BEFD2131756700659818 /* TRPTripSettings.swift in Sources */,
+				6BC396C828C09979009A8619 /* TRPLogOutServices.swift in Sources */,
+				B27F37BB245851C90005EC81 /* TokenControllerProtocol.swift in Sources */,
 				784BAB9422C3505D00BBDB0F /* TRPCompanionModel.swift in Sources */,
 				B29B46A220F613430009E711 /* TRPRequestMode.swift in Sources */,
+				B25EC987259CACCB0027AF50 /* TRPGygInfoModel.swift in Sources */,
 				B215BF0921319D6500659818 /* TRPUserInfoModel.swift in Sources */,
+				B252FC4824BE128D0014B750 /* TRPUserReservationServices.swift in Sources */,
 				B287616623A79DEC00951486 /* TRPApiKey.swift in Sources */,
-				B2E0D1F821491DF000876D81 /* TRPTripJsonModel.swift in Sources */,
+				6B6A52BF28BBB470003125ED /* TRPOptInOfferServices.swift in Sources */,
+				B267EDDB241119F9006FCFA0 /* TRPStepServices.swift in Sources */,
+				B2642BEB248FC4F200A1B8CF /* TRPGetUserReactionServices.swift in Sources */,
+				B2619970245C3BE2001F1A45 /* TRPDeleteUserReactionServices.swift in Sources */,
 				B29B469E20F613150009E711 /* TRPNetwork.swift in Sources */,
 				B29B463720F60A630009E711 /* TRPClient.swift in Sources */,
+				B205CB5424214F80001F4B5A /* TRPDeleteUserTripInfo.swift in Sources */,
+				6B7953D329F9940900CFF433 /* TRPFeedbackJsonModel.swift in Sources */,
 				B215BF122132808A00659818 /* TRPUserTripInfoModel.swift in Sources */,
+				B259621924053B7000E98DF4 /* TRPImageModel.swift in Sources */,
 				B29B46B020F613D80009E711 /* TRPRestServices.swift in Sources */,
-				B20CD9CF213596FB00497ED3 /* TRPDailyPlanInfoModel.swift in Sources */,
+				B20CD9CF213596FB00497ED3 /* TRPPlansInfoModel.swift in Sources */,
+				B236A0D8240CFC0B002331D6 /* TRPTripModel.swift in Sources */,
+				6BA6C5E328A2FA1900E2DB69 /* TRPOfferInfoModel.swift in Sources */,
+				6B467C3D29DC1159009ACDAC /* TRPExportPlanServices.swift in Sources */,
+				B282653624066A01004A4EDC /* TRPTastesModel.swift in Sources */,
 				B29B467F20F60F5C0009E711 /* TRPTripQuestionJsonModel.swift in Sources */,
 				B29B464120F60ADF0009E711 /* Pagination.swift in Sources */,
 				B20CD9E821365B3D00497ED3 /* NearByJsonInfoModel.swift in Sources */,
+				B253185B24092F31007F97C3 /* TRPGenericParser.swift in Sources */,
+				B27E824B2498B14E00B4E096 /* LocationBounds.swift in Sources */,
 				B25251682269E76F00C0EBAA /* TRPReportAProblemJsonModel.swift in Sources */,
 				B21E1A8B220A27F500EF471F /* TRPGooglePlaceLocation.swift in Sources */,
+				B252FC4B24BE31FE0014B750 /* TRPReservationInfoModel.swift in Sources */,
 				B215BF0B2131D18A00659818 /* TRPMyPrograms.swift in Sources */,
+				B2645C52242CB6E00050F32B /* Accommondation.swift in Sources */,
 				B29B46A820F6138D0009E711 /* TRPPlace.swift in Sources */,
-				B27712AF23CCB3F10092EE69 /* TRPRestDeneme.swift in Sources */,
 				B29B468820F60FA70009E711 /* TRPPoiInfoModel.swift in Sources */,
+				B24F16F92488FFB200922C43 /* TRPTokenModel.swift in Sources */,
+				B2826534240664F5004A4EDC /* TRPBookingModel.swift in Sources */,
 				B29B46AA20F613A00009E711 /* TRPTripQuestion.swift in Sources */,
+				6B108F0628B66459004E49A1 /* TRPOfferInfoJsonModel.swift in Sources */,
 				B20CD9FC2136E23200497ED3 /* TRPFeedback.swift in Sources */,
-				B215BF102131D31700659818 /* TRPUserTripsJsonModel.swift in Sources */,
 				B20CD9E621365B2700497ED3 /* TRPPlanPointAlternativeJsonModel.swift in Sources */,
+				B282653224065504004A4EDC /* TRPProblemCategoriesInfoModel.swift in Sources */,
 				B20CD9F62136A8E600497ED3 /* TRPProgramStepJsonModel.swift in Sources */,
 				B29B46AC20F613B30009E711 /* TRPRecommendation.swift in Sources */,
 				B2C365AC226727A300E7B4CA /* TRPImageOwner.swift in Sources */,
 				B2E0D1F521491D2300876D81 /* TRPDayPlanJsonModel.swift in Sources */,
+				6B6A52AC28BBA736003125ED /* TRPOptInOfferJsonModel.swift in Sources */,
 				B261A733224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift in Sources */,
 				B215BF022131791D00659818 /* TRPMe.swift in Sources */,
 				B29B463F20F60AC30009E711 /* TRPRestKit.swift in Sources */,
 				B29B468320F60F7C0009E711 /* TRPQuestionOptionsJsonModel.swift in Sources */,
+				6BA6C5E528A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift in Sources */,
+				B236A0DA240CFD29002331D6 /* TRPGetTripService.swift in Sources */,
 				B29B464B20F60C0D0009E711 /* TRPParentJsonModel.swift in Sources */,
+				6BC396BF28C08F68009A8619 /* TRPUserDeleteServices.swift in Sources */,
+				B253186224096D75007F97C3 /* TRPRefreshTokenInfoModel.swift in Sources */,
+				B27F37A9245817920005EC81 /* TokenRefreshServices.swift in Sources */,
 				B227F45C216CA2BA00591C70 /* TRPFavoritesJsonModel.swift in Sources */,
 				B29B46AE20F613C70009E711 /* TRPRecommendationSettings.swift in Sources */,
-				B2E0D1FA21491E0000876D81 /* TRPTripInfoModel.swift in Sources */,
+				B26E36CF24812B99003FFA2B /* TRPPoiCategoryParent.swift in Sources */,
+				B2AF33ED244C918400C68B6E /* TRPDevice.swift in Sources */,
 				B29B464920F60BF80009E711 /* TRPCoordinateModel.swift in Sources */,
-				B29B46C120F6146D0009E711 /* TRPPlanPointAlternatives.swift in Sources */,
+				B29B46C120F6146D0009E711 /* TRPStepAlternativesServices.swift in Sources */,
 				784BAB9A22C354FA00BBDB0F /* TRPCompanionServices.swift in Sources */,
+				B27F37B9245851BD0005EC81 /* TripianTokenController.swift in Sources */,
+				B2757C61244EE48D00E88806 /* UserDefaults+extensions.swift in Sources */,
 				B29B46A620F6137C0009E711 /* poiCategories.swift in Sources */,
-				B20CD9F321368CF800497ED3 /* TRPPlanPoints.swift in Sources */,
+				6B467C3F29DC1190009ACDAC /* TRPExportPlanJsonModel.swift in Sources */,
+				B2AC586C24128CDB00256F79 /* TRPDeleteStepService.swift in Sources */,
 				B2341D6223143939007EAF80 /* RestKitInfo.swift in Sources */,
+				6B7953D529F9946F00CFF433 /* TRPFeedbackInfoModel.swift in Sources */,
 				B2FDCFB92147EE41000C9387 /* TRPLoginJsonModel.swift in Sources */,
+				6B108F0428B66421004E49A1 /* TRPGetOfferServices.swift in Sources */,
 				B21E1A89220A27DF00EF471F /* TRPGooglePlaceService.swift in Sources */,
-				B29B467820F60F220009E711 /* TRPRecommendationJsonModel.swift in Sources */,
 				B20BBAEB213046CB00DEAA3E /* TRPLogin.swift in Sources */,
-				784BABA122C3F57B00BBDB0F /* TRPCompanionsJsonModel.swift in Sources */,
 				783A137F22F0339D00952CA2 /* TRPConstantsModel.swift in Sources */,
 				B215BEFF2131765B00659818 /* TRPProgram.swift in Sources */,
+				B2731D3E245DBE0900FF5718 /* TRPReactionModel.swift in Sources */,
+				6BAFB55E28C67BAC00C61B1F /* TRPResetPasswordServices.swift in Sources */,
 				B29B469C20F6104F0009E711 /* TRPCheckUpdateJsonModel.swift in Sources */,
+				B258DD4724BEDC3D00C6C335 /* TRPUserReservationDeletePutServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -992,30 +1310,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				B25219B123AA708100D0F785 /* TRPUserRegisterTest.swift in Sources */,
+				B253185D240934EA007F97C3 /* JsonParser.swift in Sources */,
 				78C448FA237C363B00E1DD7B /* XCTestCase+Extensions.swift in Sources */,
 				78C448F7237C35FA00E1DD7B /* TRPDailyPlanTest.swift in Sources */,
+				B2AEE62D240F9DFD00395EE8 /* TRPUserFavorite.swift in Sources */,
 				B2557E9423ACB14400C5BF4D /* AAUserPersistentTest.swift in Sources */,
 				78C448F5237C35C000E1DD7B /* TRPLoginTest.swift in Sources */,
 				78C448F3237C356700E1DD7B /* TRPReportAProblemTest.swift in Sources */,
+				B2AC586A2412365200256F79 /* UnitTestError.swift in Sources */,
+				B2AC586824122A8700256F79 /* TripHelper.swift in Sources */,
 				78C448F1237C353C00E1DD7B /* UserMockSession.swift in Sources */,
+				B259621724052BBC00E98DF4 /* ApiV3StartTest.swift in Sources */,
 				B267BBA42356F88D00C25778 /* TRPQuickRecommendationTest.swift in Sources */,
 				B267BBC02357396D00C25778 /* TRPTripsTest.swift in Sources */,
 				B2B500E9235091430006D406 /* TRPParentJsonModelTest.swift in Sources */,
 				B2B500F62354942B0006D406 /* TRPPoiCategoriesTest.swift in Sources */,
+				B2BEF943241B67DB00794EC2 /* TripFetcher.swift in Sources */,
+				B253185F24096144007F97C3 /* TRPImageParserTest.swift in Sources */,
 				B267BBBE23572BEF00C25778 /* TRPCompanionTest.swift in Sources */,
 				B248C93423A7D477000063C3 /* BaseUrlTest.swift in Sources */,
 				B2B50100235497D30006D406 /* TRPPoiTest.swift in Sources */,
 				B2B500B8235073860006D406 /* TRPRestKitiOS_Tests.swift in Sources */,
 				B2583C4623ABAB360081ED5D /* BaseUrlCreaterTest.swift in Sources */,
+				B2BEF941241B619200794EC2 /* UserDefault.swift in Sources */,
 				B2B500C4235073A70006D406 /* TRPCitiesTest.swift in Sources */,
 				B2583C4823ABC1220081ED5D /* AStartTestSettingsTest.swift in Sources */,
 				B248C92023A7A6EE000063C3 /* TestUtilConstants.swift in Sources */,
 				B2B500E2235090FC0006D406 /* TRPUserTest.swift in Sources */,
 				B287616823A7A10C00951486 /* TRPApiKeyTest.swift in Sources */,
+				B254CDDF241BAB9000B7B438 /* TRPStepAlternative.swift in Sources */,
 				B267BBA62357060500C25778 /* TRPUserInfoUpdate.swift in Sources */,
 				B2B5011A2354C6950006D406 /* TRPQuestionTest.swift in Sources */,
+				B253185924092981007F97C3 /* TRPGenericParserTest.swift in Sources */,
 				B255661723B0CB1E00C8AAF2 /* BCCreateTrip.swift in Sources */,
-				B255661923B0CE6800C8AAF2 /* TripHolder.swift in Sources */,
+				B267EDD8241110A4006FCFA0 /* TRPStepTest.swift in Sources */,
 				B2B500E52350911C0006D406 /* TRPCityJsonModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1038,6 +1366,7 @@
 /* Begin XCBuildConfiguration section */
 		B20F29A421C259DD0041957B /* Debug(TestServer) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1068,7 +1397,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1090,7 +1418,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1105,29 +1433,36 @@
 		};
 		B20F29A521C259DD0041957B /* Debug(TestServer) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = LKU8459YDL;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(SRCROOT)/../TripianFrameworks/",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/TestServerInfo.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1138,6 +1473,7 @@
 		};
 		B20F29A821C259F90041957B /* Release(TestServer) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1168,7 +1504,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1184,6 +1519,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1199,29 +1535,36 @@
 		};
 		B20F29A921C259F90041957B /* Release(TestServer) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = LKU8459YDL;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(SRCROOT)/../TripianFrameworks/",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/TestServerInfo.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 4.2;
@@ -1267,6 +1610,7 @@
 		};
 		B29B462B20F607F90009E711 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1297,7 +1641,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1319,7 +1662,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1334,6 +1677,7 @@
 		};
 		B29B462C20F607F90009E711 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1364,7 +1708,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1380,6 +1723,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1395,29 +1739,36 @@
 		};
 		B29B462E20F607F90009E711 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = LKU8459YDL;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(SRCROOT)/../TripianFrameworks/",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1428,29 +1779,36 @@
 		};
 		B29B462F20F607F90009E711 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = LKU8459YDL;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(SRCROOT)/../TripianFrameworks/",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 4.2;
@@ -1566,7 +1924,7 @@
 				B258870D22316B9100BD6930 /* Release(TestServer) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release(TestServer)";
+			defaultConfigurationName = Release;
 		};
 		B29B461F20F607F90009E711 /* Build configuration list for PBXProject "TRPRestKit" */ = {
 			isa = XCConfigurationList;
@@ -1577,7 +1935,7 @@
 				B20F29A821C259F90041957B /* Release(TestServer) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release(TestServer)";
+			defaultConfigurationName = Release;
 		};
 		B29B462D20F607F90009E711 /* Build configuration list for PBXNativeTarget "TRPRestKit" */ = {
 			isa = XCConfigurationList;
@@ -1588,7 +1946,7 @@
 				B20F29A921C259F90041957B /* Release(TestServer) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release(TestServer)";
+			defaultConfigurationName = Release;
 		};
 		B2B500BD235073860006D406 /* Build configuration list for PBXNativeTarget "TRPRestKitiOS.Tests" */ = {
 			isa = XCConfigurationList;
@@ -1599,7 +1957,7 @@
 				B2B500C1235073860006D406 /* Release(TestServer) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release(TestServer)";
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,33 +8,40 @@
 
 import Foundation
 //TODO: TRPUserInfoJsonModel VE TRPTestUserInfoJsonModel İÇİN YENİDEN YAZILACAK
-internal class TRPUserRegister: TRPRestServices<TRPUserInfoJsonModel> {
+internal class TRPUserRegister: TRPRestServices<TRPLoginJsonModel> {
     
-    private var email: String?
-    private var password: String?
+    private var email: String
+    private var password: String
     private var userName: String?
-    private var firstName: String?
-    private var lastName: String?
+    private var firstName: String
+    private var lastName: String
     private var answers: [Int]?
     private var age: Int?
+    private var dateOfBirth: String?
+    
+    private var device: TRPDevice?
     
     public init(email: String,
                 password: String,
-                firstName: String?,
-                lastName: String?,
+                firstName: String,
+                lastName: String,
                 answers: [Int]?,
-                age: Int?) {
+                age: Int?,
+                dateOfBirth: String?,
+                device: TRPDevice? = nil) {
         self.password = password
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
         self.answers = answers
         self.age = age
+        self.dateOfBirth = dateOfBirth
+        self.device = device
     }
     
-    public init(userName: String) {
-        self.userName = userName
-    }
+//    public init(userName: String) {
+//        self.userName = userName
+//    }
     
     public override func servicesResult(data: Data?, error: NSError?) {
         if let error = error {
@@ -48,44 +55,53 @@ internal class TRPUserRegister: TRPRestServices<TRPUserInfoJsonModel> {
         
         let jsonDecode = JSONDecoder()
         do {
-            if password != nil && email != nil {
-                let result = try jsonDecode.decode(TRPUserInfoJsonModel.self, from: data)
-                let pag = paginationController(parentJson: result)
-                self.completion?(result, nil, pag)
-            } else if userName != nil {
-                let result = try jsonDecode.decode(TRPTestUserInfoJsonModel.self, from: data)
-                let pag = paginationController(parentJson: result)
-                self.completion?(result, nil, pag)
-            }
+//            if password != nil && email != nil {
+//                let result = try jsonDecode.decode(TRPLoginJsonModel.self, from: data)
+//                let pag = paginationController(parentJson: result)
+//                self.completion?(result, nil, pag)
+//            } else if userName != nil {
+//                let result = try jsonDecode.decode(TRPTestUserInfoJsonModel.self, from: data)
+//                let pag = paginationController(parentJson: result)
+//                self.completion?(result, nil, pag)
+//            }
+            let result = try jsonDecode.decode(TRPLoginJsonModel.self, from: data)
+            let pag = paginationController(parentJson: result)
+            self.completion?(result, nil, pag)
         } catch let tryError {
             self.completion?(nil, tryError as NSError, nil)
         }
     }
     
     public override func bodyParameters() -> [String: Any]? {
-        if let email = email,
-            let password = password {
+//        if let email = email,
+//            let password = password {
             
             var parameters: [String: Any] = [:]
             parameters["email"] = email
             parameters["password"] = password
+            parameters["firstName"] = firstName
+            parameters["lastName"] = lastName
             
-            if let firstName = firstName {
-                parameters["first_name"] = firstName
+            if let dateOfBirth = dateOfBirth {
+                parameters["dateOfBirth"] = dateOfBirth
             }
-            if let lastName = lastName {
-                parameters["last_name"] = lastName
+            if let answers = answers {
+                parameters["answers"] = answers
             }
             if let profile = profileParams() {
                 parameters["profile"] = profile
             }
+            
+            if let device = device, let deviceParams = device.params() {
+                parameters["device"] = deviceParams
+            }
             return parameters
-        }
-        if let userName = userName {
-            return ["username": userName]
-        }
+//        }
+//        if let userName = userName {
+//            return ["username": userName]
+//        }
         
-        return [:]
+//        return [:]
     }
     
     private func profileParams() ->  [String: Any]? {

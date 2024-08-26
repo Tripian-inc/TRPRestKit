@@ -26,10 +26,10 @@ internal class TRPUserTripsServices: TRPRestServices<TRPGenericParser<[TRPUserTr
     override func parameters() -> [String: Any]? {
         var parameters = [String: Any]()
         if let from = from {
-            parameters["from"] = from
+            parameters["dateFrom"] = from
         }
         if let to = to {
-            parameters["to"] = to
+            parameters["dateTo"] = to
         }
         parameters["limit"] = limit
         return parameters

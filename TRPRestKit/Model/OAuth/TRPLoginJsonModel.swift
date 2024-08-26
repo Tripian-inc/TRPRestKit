@@ -14,15 +14,17 @@ public struct TRPLoginInfoModel: Codable {
     /// Type of token
     public var tokenType: String?
     /// Token access key
-    public var accessToken: String
+//    public var accessToken: String?
     public var expiresIn: Int
     public var refreshToken: String
+    public var idToken: String
     
     private enum CodingKeys: String, CodingKey {
-        case tokenType = "token_type"
-        case accessToken = "access_token"
-        case expiresIn = "expires_in"
-        case refreshToken = "refresh_token"
+        case tokenType
+//        case accessToken
+        case expiresIn
+        case refreshToken
+        case idToken 
     }
     
     /*/// Initializes a new object with decoder
