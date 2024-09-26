@@ -40,6 +40,8 @@ import Foundation
     
     internal var firebaseToken: String = ""
     
+    internal var language: String = "en"
+    
     private override init() {}
     
     public static func start(enviroment: Environment, apiKey: String) {
@@ -49,6 +51,12 @@ import Foundation
     
     public static func start(baseUrl: BaseUrlCreater, apiKey: String) {
         TRPClient.shared.baseUrl = baseUrl
+        TRPApiKey.setApiKey(apiKey)
+    }
+    
+    public static func start(baseUrl: BaseUrlCreater, apiKey: String, language: String) {
+        TRPClient.shared.baseUrl = baseUrl
+        TRPClient.shared.language = language
         TRPApiKey.setApiKey(apiKey)
     }
     

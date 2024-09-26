@@ -41,6 +41,9 @@
 		6BAFB55E28C67BAC00C61B1F /* TRPResetPasswordServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAFB55D28C67BAC00C61B1F /* TRPResetPasswordServices.swift */; };
 		6BC396BF28C08F68009A8619 /* TRPUserDeleteServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC396BE28C08F68009A8619 /* TRPUserDeleteServices.swift */; };
 		6BC396C828C09979009A8619 /* TRPLogOutServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC396C728C09979009A8619 /* TRPLogOutServices.swift */; };
+		6BED46562C8DCFFB008B067A /* TRPLanguagesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BED46552C8DCFFB008B067A /* TRPLanguagesServices.swift */; };
+		6BED46582C8DD01D008B067A /* TRPLanguagesParentJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BED46572C8DD01D008B067A /* TRPLanguagesParentJsonModel.swift */; };
+		6BED465A2C8DD3CD008B067A /* CodingKey+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BED46592C8DD3CD008B067A /* CodingKey+extensions.swift */; };
 		783A137F22F0339D00952CA2 /* TRPConstantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */; };
 		783A138222F039FC00952CA2 /* TRPConstantsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A138122F039FC00952CA2 /* TRPConstantsServices.swift */; };
 		784BAB9422C3505D00BBDB0F /* TRPCompanionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784BAB9322C3505C00BBDB0F /* TRPCompanionModel.swift */; };
@@ -239,6 +242,9 @@
 		6BAFB55D28C67BAC00C61B1F /* TRPResetPasswordServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPResetPasswordServices.swift; sourceTree = "<group>"; };
 		6BC396BE28C08F68009A8619 /* TRPUserDeleteServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserDeleteServices.swift; sourceTree = "<group>"; };
 		6BC396C728C09979009A8619 /* TRPLogOutServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLogOutServices.swift; sourceTree = "<group>"; };
+		6BED46552C8DCFFB008B067A /* TRPLanguagesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLanguagesServices.swift; sourceTree = "<group>"; };
+		6BED46572C8DD01D008B067A /* TRPLanguagesParentJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLanguagesParentJsonModel.swift; sourceTree = "<group>"; };
+		6BED46592C8DD3CD008B067A /* CodingKey+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingKey+extensions.swift"; sourceTree = "<group>"; };
 		783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsModel.swift; sourceTree = "<group>"; };
 		783A138122F039FC00952CA2 /* TRPConstantsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsServices.swift; sourceTree = "<group>"; };
 		784BAB9322C3505C00BBDB0F /* TRPCompanionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCompanionModel.swift; sourceTree = "<group>"; };
@@ -258,8 +264,6 @@
 		B20CD9E721365B3D00497ED3 /* NearByJsonInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByJsonInfoModel.swift; sourceTree = "<group>"; };
 		B20CD9F52136A8E600497ED3 /* TRPProgramStepJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPProgramStepJsonModel.swift; sourceTree = "<group>"; };
 		B20CD9FB2136E23200497ED3 /* TRPFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPFeedback.swift; sourceTree = "<group>"; };
-		B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TestServerConfig.xcconfig; sourceTree = "<group>"; };
-		B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MainConfig.xcconfig; sourceTree = "<group>"; };
 		B20F29AD21C25B9B0041957B /* TestServerInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestServerInfo.plist; sourceTree = "<group>"; };
 		B210988D2188AD8F0070946C /* TRPImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPImageResizer.swift; sourceTree = "<group>"; };
 		B215BEFC2131756700659818 /* TRPTripSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTripSettings.swift; sourceTree = "<group>"; };
@@ -455,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */,
+				6BED46572C8DD01D008B067A /* TRPLanguagesParentJsonModel.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				783A138122F039FC00952CA2 /* TRPConstantsServices.swift */,
+				6BED46552C8DCFFB008B067A /* TRPLanguagesServices.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -713,6 +719,7 @@
 			isa = PBXGroup;
 			children = (
 				B2757C60244EE48D00E88806 /* UserDefaults+extensions.swift */,
+				6BED46592C8DD3CD008B067A /* CodingKey+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -737,8 +744,6 @@
 		B29B461B20F607F90009E711 = {
 			isa = PBXGroup;
 			children = (
-				B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */,
-				B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */,
 				B29B462720F607F90009E711 /* TRPRestKit */,
 				B2B500B6235073860006D406 /* TRPRestKitiOS.Tests */,
 				B29B462620F607F90009E711 /* Products */,
@@ -1178,6 +1183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BED46562C8DCFFB008B067A /* TRPLanguagesServices.swift in Sources */,
 				B2FE503621356EE700CDC79E /* TRPDeleteProgram.swift in Sources */,
 				6B5049272C76537600C510F1 /* TRPGuestLogin.swift in Sources */,
 				B2179D262133EF87004954A4 /* TRPUserPersistent.swift in Sources */,
@@ -1193,6 +1199,7 @@
 				783A138222F039FC00952CA2 /* TRPConstantsServices.swift in Sources */,
 				B22372242131151900E21532 /* TRPOAuthJsonModel.swift in Sources */,
 				B20CD9D42135DC5700497ED3 /* TRPDailyPlanServices.swift in Sources */,
+				6BED46582C8DD01D008B067A /* TRPLanguagesParentJsonModel.swift in Sources */,
 				B261A72222490E4C00D31558 /* TRPProblemCategories.swift in Sources */,
 				6B6A52AE28BBA793003125ED /* TRPGetOptInOfferServices.swift in Sources */,
 				6B6C1FCF2C6950B500D55E98 /* TRPDeviceModel.swift in Sources */,
@@ -1274,6 +1281,7 @@
 				B29B468320F60F7C0009E711 /* TRPQuestionOptionsJsonModel.swift in Sources */,
 				6BA6C5E528A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift in Sources */,
 				B236A0DA240CFD29002331D6 /* TRPGetTripService.swift in Sources */,
+				6BED465A2C8DD3CD008B067A /* CodingKey+extensions.swift in Sources */,
 				B29B464B20F60C0D0009E711 /* TRPParentJsonModel.swift in Sources */,
 				6BC396BF28C08F68009A8619 /* TRPUserDeleteServices.swift in Sources */,
 				B253186224096D75007F97C3 /* TRPRefreshTokenInfoModel.swift in Sources */,
@@ -1366,7 +1374,6 @@
 /* Begin XCBuildConfiguration section */
 		B20F29A421C259DD0041957B /* Debug(TestServer) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1433,7 +1440,6 @@
 		};
 		B20F29A521C259DD0041957B /* Debug(TestServer) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AC21C25A9C0041957B /* MainConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -1473,7 +1479,6 @@
 		};
 		B20F29A821C259F90041957B /* Release(TestServer) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1535,7 +1540,6 @@
 		};
 		B20F29A921C259F90041957B /* Release(TestServer) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -1610,7 +1614,6 @@
 		};
 		B29B462B20F607F90009E711 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1677,7 +1680,6 @@
 		};
 		B29B462C20F607F90009E711 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1739,7 +1741,6 @@
 		};
 		B29B462E20F607F90009E711 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -1779,7 +1780,6 @@
 		};
 		B29B462F20F607F90009E711 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20F29AB21C25A730041957B /* TestServerConfig.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;

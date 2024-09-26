@@ -2039,3 +2039,28 @@ extension TRPRestKit {
         service.connection()
     }
 }
+
+
+//MARK: - Language Texts
+extension TRPRestKit {
+    public func getFrontendLanguages(completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        languagesServices()
+    }
+    
+    private func languagesServices() {
+        let langugaesService = TRPLanguagesServices()
+        langugaesService.completion = {   (result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPLanguagesInfoModel {
+                self.postData(result: serviceResult.translations[TRPClient.shared.language])
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        langugaesService.connection()
+    }
+}

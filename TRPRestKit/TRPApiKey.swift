@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import TRPFoundationKit
 class TRPApiKey {
     
     internal static var shared = TRPApiKey()

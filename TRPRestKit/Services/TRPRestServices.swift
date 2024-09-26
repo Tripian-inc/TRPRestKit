@@ -58,7 +58,13 @@ public class TRPRestServices<T: Decodable> {
    
     private func createParams() -> [String: Any] {
         var params: [String: Any] = [:]
-        if let additionalParams = parameters() {
+        var additionalParams = parameters()
+        if additionalParams == nil {
+            additionalParams = ["lang": TRPClient.shared.language]
+        } else {
+            additionalParams?["lang"] = TRPClient.shared.language
+        }
+        if let additionalParams = additionalParams {
             params.merge(additionalParams, uniquingKeysWith: {(_, new) in new})
         }
         return params
