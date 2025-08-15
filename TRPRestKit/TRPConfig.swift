@@ -40,6 +40,7 @@ internal struct TRPConfig {
         case user
         case userTrips
         case trip
+        case timeline
         case dailyPlan
         case userPreferences
         case dailyPlanPoi
@@ -60,57 +61,59 @@ internal struct TRPConfig {
         var link: String {
             switch self {
             case .city:
-                return getNewLink() ?? "cities"
+                return "cities"
             case .poiCategory:
-                return getNewLink() ?? "poi-categories"
+                return "poi-categories"
             case .poi:
-                return getNewLink() ?? "pois"
+                return "pois"
             case .questions:
-                return getNewLink() ?? "trip/questions"
+                return "trip/questions"
             case .recommendations:
-                return getNewLink() ?? "recommendations"
+                return "recommendations"
             case .routes:
-                return getNewLink() ?? "routes"
+                return "routes"
             case .routesResult:
-                return getNewLink() ?? "routeresult"
+                return "routeresult"
             case .gRouteReuslt:
-                return getNewLink() ?? "grouteresult"
+                return "grouteresult"
             case .stepAlternative:
-                return getNewLink() ?? "step/alternatives"
+                return "step/alternatives"
             case .tags:
-                return getNewLink() ?? "tags"
+                return "tags"
             case .checkDataUpdates:
-                return getNewLink() ?? "check-data-updates"
+                return "check-data-updates"
             case .login:
-                return getNewLink() ?? "auth/login"
+                return "auth/login"
             case .user:
-                return getNewLink() ?? "user"
+                return "user"
             case .userTrips:
-                return getNewLink() ?? "trips"
+                return "trips"
             case .trip:
-                return getNewLink() ?? "trips"
+                return "trips"
+            case .timeline:
+                return "timeline"
             case .dailyPlan:
-                return getNewLink() ?? "plans"
+                return "plans"
             case .userPreferences:
-                return getNewLink() ?? "user/preferences"
+                return "user/preferences"
             case .dailyPlanPoi:
-                return getNewLink() ?? "dailyplanpoi"
+                return "dailyplanpoi"
             case .register:
-                return getNewLink() ?? "auth/register"
+                return "auth/register"
             case .favorite:
-                return getNewLink() ?? "favorites"
+                return "favorites"
             case .companion:
-                return getNewLink() ?? "companions"
+                return "companions"
             case .refresh:
-                return getNewLink() ?? "auth/refresh-token"
+                return "auth/refresh-token"
             case .step:
-                return getNewLink() ?? "steps"
+                return "steps"
             case .userReaction:
-                return getNewLink() ?? "reactions"
+                return "reactions"
             case .userReservation:
-                return getNewLink() ?? "bookings"
+                return "bookings"
             case .socialLogin:
-                return getNewLink() ?? "auth/login-social"
+                return "auth/login-social"
             case .logout:
                 return "auth/logout"
             case .resetPassword:
@@ -128,10 +131,6 @@ internal struct TRPConfig {
             case .guestLogin:
                 return "auth/guest-login"
             }
-        }
-        
-        private func getNewLink() -> String? {
-            return nil
         }
     }
     

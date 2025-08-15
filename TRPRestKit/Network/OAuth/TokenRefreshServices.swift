@@ -9,7 +9,7 @@
 import Foundation
 public class TokenRefreshServices {
     
-    public typealias Handler = (_ token: String) -> Void
+    public typealias Handler = (_ token: String?, _ error: TRPErrors?) -> Void
     
     public static var shared = TokenRefreshServices()
     
@@ -19,27 +19,27 @@ public class TokenRefreshServices {
     public func handler(isRefresh: Bool, _ handler: @escaping Handler) {
         
         guard let token = TripianTokenController().token else {
-            handler("")
+            handler("", nil)
             return
         }
         
         if TripianTokenController().isTokenValid || isRefresh {
-            handler(token)
+            handler(token, nil)
             return
         }
         
         services.append(handler)
         print("Token zaman aşımında")
-        fetchNewRefreshToken { (newToken) in
+        fetchNewRefreshToken { (newToken, error) in
             for service in self.services {
-                service(newToken)
+                service(newToken, error)
             }
             self.services.removeAll()
         }
         
     }
  
-    private func fetchNewRefreshToken(_ completion: @escaping(_ token: String) -> Void) {
+    public func fetchNewRefreshToken(_ completion: @escaping(_ token: String?, _ error: TRPErrors?) -> Void) {
         guard !isFetching else {return}
         isFetching = true
         print("-------------- YENİ TOKEN ÇEKİLİYOR")
@@ -49,13 +49,12 @@ public class TokenRefreshServices {
         TRPRestKit().refreshToken(refresh) { (_, error) in
             self.isFetching = false
             if let error = error {
-                //TODO: BURASI KESINLİKLE GERI DONDURULECEK.
-                //FIXME: KESİN İŞLEM YAPILACAK
+                completion(nil, TRPErrors.refreshTokenError)
                 print("Refresh Error \(error.localizedDescription)")
                 return
             }
             if let newToken = TripianTokenController().token {
-                completion(newToken)
+                completion(newToken, nil)
             }else {
                 print("New Refresh is Nil")
             }

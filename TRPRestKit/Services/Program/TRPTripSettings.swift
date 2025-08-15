@@ -44,6 +44,8 @@ public class TRPTripSettings {
     public var withOffers: Bool = true
     
     public var additionalData: String?
+    
+    public var tripName: String?
     /// Initializes a new Settings with cityId, arrivalTime and departureTime
     ///
     /// - Parameters:

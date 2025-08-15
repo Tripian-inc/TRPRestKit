@@ -78,4 +78,8 @@ import Foundation
 //        TRPClient.shared.isReverseProxy = true
     }
     
+    public static func changeLanguage(_ language: String) {
+        TRPClient.shared.language = language
+    }
+    
 }

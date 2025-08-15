@@ -42,7 +42,11 @@ public class TRPRestServices<T: Decodable> {
         }
         
         if userOAuth() == true {
-            TokenRefreshServices.shared.handler(isRefresh: isRefresh) { (token) in
+            TokenRefreshServices.shared.handler(isRefresh: isRefresh) { (token, error) in
+                guard let token else {
+                    self.servicesResult(data: nil, error: error as? NSError)
+                    return
+                }
                 networkService.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
                 networkService.build { (error, data) in
                     self.servicesResult(data: data, error: error)

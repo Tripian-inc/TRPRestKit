@@ -18,6 +18,7 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
     var firstName: String?
     var lastName: String?
     var password: String?
+    var currentPassword: String?
     var dateOfBirth: String?
     
     init(type: ServiceType) {
@@ -29,12 +30,13 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
         self.answers = answers
     }
     
-    init(firstName: String? = nil, lastName: String? = nil, dateOfBirth: String? = nil, password: String? = nil, answers: [Int]? = nil) {
+    init(firstName: String? = nil, lastName: String? = nil, dateOfBirth: String? = nil, password: String? = nil, currentPassword: String? = nil, answers: [Int]? = nil) {
         self.serviceType = .updateInfo
         self.answers = answers
         self.firstName = firstName
         self.lastName = lastName
         self.password = password
+        self.currentPassword = password
         self.dateOfBirth = dateOfBirth
     }
     
@@ -62,6 +64,10 @@ internal class TRPUserInfoServices: TRPRestServices<TRPUserInfoJsonModel> {
             
             if let password = password {
                 params["password"] = password
+            }
+            
+            if let currentPassword = currentPassword {
+                params["currentPassword"] = currentPassword
             }
         }
         return params
