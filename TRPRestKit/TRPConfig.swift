@@ -58,6 +58,7 @@ internal struct TRPConfig {
         case offers
         case optInOffers
         case exportItinerary
+        case timelineStep
         var link: String {
             switch self {
             case .city:
@@ -90,8 +91,6 @@ internal struct TRPConfig {
                 return "trips"
             case .trip:
                 return "trips"
-            case .timeline:
-                return "timeline"
             case .dailyPlan:
                 return "plans"
             case .userPreferences:
@@ -130,6 +129,10 @@ internal struct TRPConfig {
                 return "shorex-cities"
             case .guestLogin:
                 return "auth/guest-login"
+            case .timeline:
+                return "timeline"
+            case .timelineStep:
+                return "timeline/steps"
             }
         }
     }

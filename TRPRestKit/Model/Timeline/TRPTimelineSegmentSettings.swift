@@ -26,28 +26,34 @@ public class TRPTimelineSegmentSettings {
     /// An Int value. Adult count.
     public var adults: Int = 1
     /// An Int value. Count of Children
-    public var children: Int = 0
+    public var children: Int?
     /// An Int value. Count of Pets
-    public var pets: Int = 0
+    public var pets: Int?
     /// Coordinate of start point
-    private(set) var coordinate: [TRPLocation]?
+    public var coordinate: TRPLocation?
     /// Coordinate of end point. If the ending point is the same as the starting point, this field can be omitted
-    private(set) var destinationCoordinate: [TRPLocation]?
+    public var destinationCoordinate: TRPLocation?
     /// Array of preference IDs to customize your experience.
     public var answerIds: [Int] = []
     /// Array of categories you wish to exclude.
-    public var doNotRecommend: [Int]?
+    public var doNotRecommend: [String]?
     /// Array of specific points of interest to exclude.
     public var excludePoiIds: [Int]?
-    /// A Bool value. If you set true, trip is not going to generate.
-    public var doNotGenerate: Bool = false
+//    /// A Int value. If you set 1, trip is not going to generate.
+    public var doNotGenerate: Int = 0
     /// Takes into account the hourly weather forecasts for the current day and the next 2 days when set to true
-    public var considerWeather: Bool = false
+    public var considerWeather: Bool?
     /// When set to true, ensures that the recommendations generated for this segment will not include places that were already suggested in other segments of the trip
-    public var distinctPlan: Bool = false
-    
+    public var distinctPlan: Bool?
+    public var available: Bool = true
     public var hash: String?
+    /// A String value. Address of hotel.
+    public var accommodationAdress: Accommondation?
+    /// A String value. Address of destination hotel.
+    public var destinationAccommodationAdress: Accommondation?
     
+    /// Public initializer to allow instantiation from other modules
+    public init() {}
     
     public func getParameters() -> [String: Any] {
         var params: [String: Any] = [:]
@@ -72,15 +78,20 @@ public class TRPTimelineSegmentSettings {
         }
         
         params["adults"] = adults
-        params["children"] = children
-        params["pets"] = pets
+        
+        if let children = children {
+            params["children"] = children
+        }
+        if let pets = pets {
+            params["pets"] = pets
+        }
         
         if let coordinate = coordinate {
-            params["coordinate"] = coordinate.map { $0.json() }
+            params["coordinate"] = coordinate.json()
         }
         
         if let destinationCoordinate = destinationCoordinate {
-            params["destinationCoordinate"] = destinationCoordinate.map { $0.json() }
+            params["destinationCoordinate"] = destinationCoordinate.json()
         }
         
         if !answerIds.isEmpty {
@@ -92,14 +103,21 @@ public class TRPTimelineSegmentSettings {
         if let excludePoiIds = excludePoiIds {
             params["excludePoiIds"] = excludePoiIds
         }
+        if let considerWeather = considerWeather {
+            params["considerWeather"] = considerWeather
+        }
+        if let distinctPlan = distinctPlan {
+            params["distinctPlan"] = distinctPlan
+        }
+        if let accommodationAdress = accommodationAdress, let accomJson = accommodationAdress.json() {
+            params["accommodation"] = accomJson
+        }
+        if let destinationAccommodationAdress = destinationAccommodationAdress, let accomJson = destinationAccommodationAdress.json() {
+            params["destinationAccommodation"] = accomJson
+        }
         
         params["doNotGenerate"] = doNotGenerate
-        params["considerWeather"] = considerWeather
-        params["distinctPlan"] = distinctPlan
-        
-        if let hash = hash {
-            params["hash"] = hash
-        }
+        params["available"] = available
         
         return params
     }

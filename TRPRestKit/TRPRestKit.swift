@@ -28,7 +28,6 @@ let log = TRPLogger(prefixText: "Tripian/TRPRestKit")
 ///  * NearBy services, and more.
 ///
 /// - See Also: [How to use](https://github.com/Tripian-inc/TRPRestKit)
-/// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#tripian-recommendation-engine)
 ///
 ///
 /// ```
@@ -173,6 +172,16 @@ extension TRPRestKit {
         citiesServices(location: location)
     }
     
+    public func cityInformation(with id: Int, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        createCityInformationServices(id: id)
+    }
+    
+    public func cityEvents(with id: Int, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        citiesServices(id: id, isEvents: true)
+    }
+    
     /// Obtain the list of all available cities with given url and completion parameters.
     ///
     /// All the available cities from the requested url will be given in the form of CompletionHandlerWithPagination.
@@ -199,9 +208,11 @@ extension TRPRestKit {
                                 location: TRPLocation? = nil,
                                 limit: Int? = nil,
                                 autoPagination: Bool? = true,
-                                isShorex: Bool = false) {
+                                isShorex: Bool = false,
+                                isInformation: Bool = false,
+                                isEvents: Bool = false) {
         
-        let cityService = createCitiesServices(id: id, link: url, location: location, limit: limit, autoPagination: autoPagination, isShorex: isShorex)
+        let cityService = createCitiesServices(id: id, link: url, location: location, limit: limit, autoPagination: autoPagination, isShorex: isShorex, isInformation: isInformation, isEvents: isEvents)
         guard let service = cityService else {return}
         if let autoPagination = autoPagination {
             service.isAutoPagination = autoPagination
@@ -239,12 +250,14 @@ extension TRPRestKit {
                                       location: TRPLocation? = nil,
                                       limit: Int? = 1000,
                                       autoPagination: Bool? = true,
-                                      isShorex: Bool = false) -> TRPCities? {
+                                      isShorex: Bool = false,
+                                      isInformation: Bool = false,
+                                      isEvents: Bool = false) -> TRPCities? {
         var cityService: TRPCities?
         if id == nil && location == nil && link == nil {
             cityService = TRPCities()
         } else if let id = id {
-            cityService = TRPCities(cityId: id)
+            cityService = TRPCities(cityId: id, isInformation: isInformation, isEvents: isEvents)
         } else if let location = location {
             cityService = TRPCities(location: location)
         } else if limit != nil {
@@ -255,6 +268,25 @@ extension TRPRestKit {
             cityService?.setForShorex()
         }
         return cityService
+    }
+    
+    private func createCityInformationServices(id: Int) {
+        let cityService = TRPCityInformation(cityId: id)
+        cityService.completion = { (result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPGenericParser<TRPCityInformationDataJsonModel> {
+                if let data = serviceResult.data {
+                    self.postData(result: data)
+                    return
+                }
+            }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+        }
+        
+        cityService.connection()
     }
     
 }
@@ -1208,6 +1240,47 @@ extension TRPRestKit {
     
 }
 
+// MARK: - User Timelines
+extension TRPRestKit {
+    
+    /// Obtain the list of user timelines with given limit, and completionHandler parameters.
+    ///
+    /// - Parameters:
+    ///   - limit: An Integer value that refers to the number of timelines which will be presented(Optional, default value is 100).
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPUserTripInfoModel]** object.
+    public func userTimelines(limit: Int? = 100, completion: @escaping CompletionHandlerWithPagination) {
+        completionHandlerWithPagination = completion
+        userTimelinesServices(limit: limit ?? 100)
+    }
+    
+    public func userTimelines(from: String? = nil, to: String? = nil, completion: @escaping CompletionHandlerWithPagination) {
+        completionHandlerWithPagination = completion
+        userTimelinesServices(from: from, to: to, limit: 100)
+    }
+    
+    /// A services which will be used in users timelines, manages all task connecting to remote server.
+    private func userTimelinesServices(from:String? = nil, to: String? = nil, limit: Int) {
+        var tripService: TRPUserTimelineServices?
+        if let from = from {
+            tripService = TRPUserTimelineServices(from: from)
+        }else if let to = to {
+            tripService = TRPUserTimelineServices(to: to)
+        }
+        
+        if tripService == nil {
+            tripService = TRPUserTimelineServices()
+        }
+        
+        tripService!.limit = limit
+        tripService!.completion = { result, error, pagination in
+            self.genericParseAndPost([TRPTimelineModel].self, result, error, pagination)
+        }
+        tripService!.connection()
+    }
+    
+}
+
 // MARK: - Constants
 extension TRPRestKit {
     
@@ -1341,7 +1414,6 @@ extension TRPRestKit {
     ///   - hash: A String value that refers to foretold deleting trip hash.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#delete-a-trip)
     public func deleteTrip(hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
         deleteTripServices(hash: hash)
@@ -1371,39 +1443,7 @@ extension TRPRestKit {
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
     public func createTimeline(settings: TRPTimelineSettings, completion: @escaping CompletionHandler) {
         completionHandler = completion
-        if let city = settings.cityId, city != 0 {
-            createOrEditTimelineServices(settings: settings)
-        } else {
-            print("[Error] City Id hash must not be empty")
-        }
-    }
-    
-    /// Create a Timeline segment with given settings and completion handler parameters.
-    ///
-    /// Values and meanings of generate attribute in of dayplans; 0=not generated yet, 1=generated and recommended, -1=generated but not recommended.
-    ///
-    /// - Parameters:
-    ///   - settings: TRPTripSettings object that includes settings for the trip.
-    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
-    public func createTimelineSegment(segmentSettings: TRPTimelineSegmentSettings, completion: @escaping CompletionHandler) {
-        completionHandler = completion
-        createOrEditTimelineServices(segmentSettings: segmentSettings)
-    }
-    
-    /// Update segment with given settings and completion handler parameters.
-    ///
-    /// - Parameters:
-    ///   - segmentSettings: TRPTimelineSegmentSettings object that includes settings for the updating trip.
-    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
-    /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
-    public func editTimelineSegment(segmentSettings: TRPTimelineSegmentSettings, completion: @escaping CompletionHandler) {
-        completionHandler = completion
-        if let hash = segmentSettings.hash, !hash.isEmpty, segmentSettings.segmentIndex != nil {
-            createOrEditTimelineServices(segmentSettings: segmentSettings)
-        }else {
-            print("[Error] Timeline hash and segment index must not be empty")
-        }
+        createOrEditTimelineServices(settings: settings)
     }
     
     /// A services which will be used for both creating and editing services, manages all task connecting to remote server.
@@ -1411,6 +1451,26 @@ extension TRPRestKit {
         let timelineService = TRPTimeline(setting: settings, segmentSetting: segmentSettings)
         timelineService.completion = { result, error, pagination in
             self.genericParseAndPost(TRPTimelineModel.self, result, error, pagination)
+        }
+        timelineService.connection()
+    }
+    
+    /// Create or Update segment with given settings and completion handler parameters. If segmentIndex is nil, it will create a new segment.
+    ///
+    /// - Parameters:
+    ///   - segmentSettings: TRPTimelineSegmentSettings object that includes settings for the updating trip.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripInfoModel** object. You can only generate trips for next two years.
+    public func createEditTimelineSegment(segmentSettings: TRPTimelineSegmentSettings, completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        createEditTimelineServices(segmentSettings: segmentSettings)
+    }
+    
+    /// A services which will be used for both creating and editing services, manages all task connecting to remote server.
+    private func createEditTimelineServices(segmentSettings: TRPTimelineSegmentSettings) {
+        let timelineService = TRPTimelineSegmentAddUpdate(segmentSetting: segmentSettings)
+        timelineService.completion = { result, error, pagination in
+            self.genericParseAndPost(TRPUpdatedModel.self, result, error, pagination)
         }
         timelineService.connection()
     }
@@ -1423,7 +1483,7 @@ extension TRPRestKit {
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPTripModel** object.
     public func getTimeline(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
-        getTripServices(hash: hash)
+        getTimelineServices(hash: hash)
     }
     
     /// A services which will be used forgetting trip info services, manages all task connecting to remote server.
@@ -1431,9 +1491,35 @@ extension TRPRestKit {
         
         let getTimelineService = TRPTimelineGetService(hash: hash)
         getTimelineService.completion = { result, error, pagination in
-            self.genericParseAndPost(TRPTripModel.self, result, error, pagination)
+            self.genericParseAndPost(TRPTimelineModel.self, result, error, pagination)
         }
         getTimelineService.connection()
+    }
+    
+    public func getTimelinePlan(id: String, completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        getTimelinePlanServices(planId: id)
+    }
+    
+    /// A services which will be used forgetting trip info services, manages all task connecting to remote server.
+    private func getTimelinePlanServices(planId: String, segmentIndex: Int? = nil) {
+        
+        let getTimelineService = TRPTimelinePlanGetService(planId: planId)
+        getTimelineService.completion = { result, error, pagination in
+            self.genericParseAndPost([TRPTimelinePlansInfoModel].self, result, error, pagination)
+        }
+        getTimelineService.connection()
+    }
+    
+    /// Delete timeline  info with given timeline hash  and completion handler parameters.
+    ///
+    /// - Parameters:
+    ///   - hash: A String value that refers to foretold deleting trip hash.
+    ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
+    public func deleteTimeline(hash: String, completion: @escaping CompletionHandler) {
+        completionHandler = completion
+        deleteTimelineServices(hash: hash)
     }
     
     /// Delete timeline segment info with given timeline hash and segmentIndex and completion handler parameters.
@@ -1442,15 +1528,14 @@ extension TRPRestKit {
     ///   - hash: A String value that refers to foretold deleting trip hash.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPParentJsonModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#delete-a-trip)
     public func deleteTimelineSegment(hash: String, segmentIndex: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
-        deleteTimelineSegmentServices(hash: hash, segmentIndex: segmentIndex)
+        deleteTimelineServices(hash: hash, segmentIndex: segmentIndex)
     }
     
     /// A services which will be used in delete trip services, manages all task connecting to remote server.
-    private func deleteTimelineSegmentServices(hash: String, segmentIndex: Int) {
-        let deleteService = TRPTimelineDeleteSegment(hash: hash, segmentIndex: segmentIndex)
+    private func deleteTimelineServices(hash: String, segmentIndex: Int? = nil) {
+        let deleteService = TRPTimelineDelete(hash: hash, segmentIndex: segmentIndex)
         deleteService.completion = { result, error, pagination in
             self.genericParseAndPost(TRPDeleteUserTripInfo.self, result, error, pagination)
         }
@@ -1470,7 +1555,6 @@ extension TRPRestKit {
     ///   - id: An Integer value that refers to id of the daily plan.
     ///   - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPDailyPlanInfoModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#day-plans-of-a-trip)
     public func dailyPlan(id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         dailyPlanServices(id: id)
@@ -1504,7 +1588,6 @@ extension TRPRestKit {
     ///    - withHash: A String value that refers to foretold trip hash.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func stepAlternatives(withHash hash: String, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointAlternative(hash: hash)
@@ -1516,7 +1599,6 @@ extension TRPRestKit {
     ///    - withDailyPlanId: An Integer that refers to Id of the daily plan.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPPlanPointAlternativeInfoModel]** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#alternative-places-suggested-for-trip)
     public func stepAlternatives(withPlanId id: Int, completion: @escaping CompletionHandler) {
         completionHandler = completion
         planPointAlternative(planId: id)
@@ -1639,6 +1721,42 @@ extension TRPRestKit {
     
 }
 
+// MARK: - Google Geocoding
+extension TRPRestKit {
+    
+    ///  Obtain infromation of a place from Google Server with given key, placeId and completion parameters.
+    ///
+    ///  This function does not require to use Tripian Server. //TODO: Bunu yazmak dogrumu?
+    ///
+    /// - Parameters:
+    ///    - key: A String value that refers to the API Key of Google.
+    ///    - id: An Integer value which refers to the Id of Place that registered in Google.
+    ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **TRPGooglePlaceLocation** object.
+    public func googleGeocoding(location: TRPLocation, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        googleGeocodingServices(location: location)
+    }
+    
+    /// A services which will be used in google place services, manages all task connecting to remote server.
+    private func googleGeocodingServices(location: TRPLocation) {
+        let googlePlaceService = TRPGoogleGeocodingService(location: location)
+        googlePlaceService.start { (data, error) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            
+            if let result = data as? String {
+                self.postData(result: result)
+            }else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+    }
+    
+}
+
 // MARK: - Problem Categories
 extension TRPRestKit {
     
@@ -1647,7 +1765,6 @@ extension TRPRestKit {
     /// - Parameters:
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **[TRPProblemCategoriesInfoModel]** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#problem-categories)
     public func problemCategories(completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         problemCategoriesService()
@@ -1683,7 +1800,6 @@ extension TRPRestKit {
     ///    - poiId: A String value which refers to the id of the given place.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPReportAProblemInfoModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#report-a-problem)
     public func reportaProblem(category name: String,
                                message msg: String?,
                                poiId poi: String?,
@@ -1723,7 +1839,6 @@ extension TRPRestKit {
     ///    - end: A String value which refers to end time of the daily plan.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPDailyPlanInfoModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#update-daily-plan)
     public func updateDailyPlanHour(dailyPlanId: Int, start: String, end: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         updateDailyPlanService(dailyPlanId: dailyPlanId, start: start, end: end)
@@ -1737,7 +1852,6 @@ extension TRPRestKit {
     ///    - end: A String value which refers to end time of the daily plan.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPDailyPlanInfoModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#update-daily-plan)
     public func updateDailyPlanStepOrders(dailyPlanId: Int, stepOrders: [Int], completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         updateDailyPlanService(dailyPlanId: dailyPlanId, stepOrders: stepOrders)
@@ -1779,7 +1893,6 @@ extension TRPRestKit {
     ///    - end: A String value which refers to end time of the daily plan.
     ///    - completion: A closer in the form of CompletionHandler will be called after request is completed.
     /// - Important: Completion Handler is an any object which needs to be converted to **TRPDailyPlanInfoModel** object.
-    /// - See Also: [Api Doc](http://airmiles-api-1837638174.ca-central-1.elb.amazonaws.com/apidocs/#update-daily-plan)
     public func exportPlanMap(planId: Int, tripHash: String, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         exportPlanMapService(planId: planId, tripHash: tripHash)
@@ -1798,7 +1911,6 @@ extension TRPRestKit {
 
 // MARK: - Steps
 extension TRPRestKit {
-    //Burası silinen Add Plan Poit kısmının yeni hali, ordan alınabiliri
     
     /// Add Plan POI to the daily plan.
     public func addStep(planId: Int, poiId: String, order: Int? = nil, completion: @escaping CompletionHandler) {
@@ -1841,7 +1953,6 @@ extension TRPRestKit {
         stepService(poiId: poiId, order: order, stepId: stepId)
     }
     
-    //TODO: - burası doldurulacak
     public func deleteStep(stepId: Int, completion: @escaping CompletionHandler) {
         self.completionHandler = completion
         stepDeleteService(stepId: stepId)
@@ -1875,6 +1986,55 @@ extension TRPRestKit {
     
     private func stepDeleteService(stepId: Int) {
         let service = TRPDeleteStepService(stepId: stepId)
+        service.completion = { result, error, pagination in
+            self.parseAndPost(TRPParentJsonModel.self, result, error, pagination)
+        }
+        service.connection()
+    }
+    
+}
+
+// MARK: - Timeline Steps
+extension TRPRestKit {
+    
+    /// Add Plan POI to the daily plan.
+    public func addTimelineStep(step: TRPTimelineStepCreateModel,
+                                completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        timelineStepService(stepCreate: step)
+    }
+    
+    public func editTimelineStep(step: TRPTimelineStepEditModel,
+                                 completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        timelineStepService(stepEdit: step)
+    }
+    
+    public func deleteTimelineStep(stepId: Int, completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        timelineStepDeleteService(stepId: stepId)
+    }
+    
+    private func timelineStepService(stepCreate: TRPTimelineStepCreateModel? = nil, stepEdit: TRPTimelineStepEditModel? = nil) {
+        var service: TRPTimelineStepServices?
+        //Edit Step
+        if let stepCreate {
+            service = TRPTimelineStepServices(stepModel: stepCreate)
+        } else if let stepEdit {
+            service = TRPTimelineStepServices(stepModel: stepEdit)
+        }
+        guard let stepService = service else {
+            print("[Error] StepService mustn't be nil")
+            return
+        }
+        stepService.completion = { result, error, pagination in
+            self.genericParseAndPost(TRPTimelineStepInfoModel.self, result, error, pagination)
+        }
+        stepService.connection()
+    }
+    
+    private func timelineStepDeleteService(stepId: Int) {
+        let service = TRPDeleteTimelineStepService(stepId: stepId)
         service.completion = { result, error, pagination in
             self.parseAndPost(TRPParentJsonModel.self, result, error, pagination)
         }

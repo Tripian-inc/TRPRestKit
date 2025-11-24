@@ -18,9 +18,9 @@ public struct TRPPoiInfoModel: Decodable {
     /// A String value. Name of poi
     public var name: String
     /// A String value. Featured image of poi
-    public var image: TRPImageModel
+    public var image: TRPImageModel?
     
-    public var gallery: [TRPImageModel]
+    public var gallery: [TRPImageModel]?
     public var duration: Int?
     /// An Int value. Indicates level of price between 0 and 4.
     public var price: Int?
@@ -100,7 +100,7 @@ public struct TRPPoiInfoModel: Decodable {
         self.cityId = try values.decode(Int.self, forKey: .cityId)
         self.name = try values.decode(String.self, forKey: .name)
         
-        self.image = try values.decode(TRPImageModel.self, forKey: .image)
+        self.image = try values.decodeIfPresent(TRPImageModel.self, forKey: .image)
         self.gallery = try values.decodeIfPresent([TRPImageModel].self, forKey: .gallery) ?? []
         self.duration = try values.decodeIfPresent(Int.self, forKey: .duration)
         self.price = try values.decodeIfPresent(Int.self, forKey: .price)

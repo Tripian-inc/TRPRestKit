@@ -36,7 +36,7 @@ internal class TRPUserTimelineServices: TRPRestServices<TRPGenericParser<[TRPTim
     }
     
     public override func path() -> String {
-        return TRPConfig.ApiCall.userTrips.link
+        return TRPConfig.ApiCall.timeline.link
     }
     
 }

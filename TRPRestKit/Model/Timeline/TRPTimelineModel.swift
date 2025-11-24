@@ -15,8 +15,8 @@ public struct TRPTimelineModel: Decodable {
     public var id: Int
     /// A String value. Unique hash of trip.
     public var tripHash: String
-    public var tripType: Int
-    public var tripProfile: TRPTripProfileModel
+    public var tripType: Int?
+    public var tripProfile: TRPTimelineProfileModel?
     public var city: TRPCityInfoModel
     public var plans: [TRPTimelinePlansInfoModel]
     
@@ -36,8 +36,8 @@ public struct TRPTimelineModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
         self.tripHash = try values.decode(String.self, forKey: .tripHash)
-        self.tripType = try values.decode(Int.self, forKey: .tripType)
-        self.tripProfile = try values.decode(TRPTripProfileModel.self, forKey: .tripProfile)
+        self.tripType = try values.decodeIfPresent(Int.self, forKey: .tripType)
+        self.tripProfile = try values.decodeIfPresent(TRPTimelineProfileModel.self, forKey: .tripProfile)
         self.plans = try values.decodeIfPresent([TRPTimelinePlansInfoModel].self, forKey: .plans) ?? []
         self.city = try values.decode(TRPCityInfoModel.self, forKey: .city)
     }

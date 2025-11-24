@@ -7,22 +7,25 @@
 //
 
 import Foundation
-internal class TRPTimelineDeleteSegment: TRPRestServices<TRPGenericParser<TRPDeleteTimelineSegmentModel>> {
+internal class TRPTimelineDelete: TRPRestServices<TRPGenericParser<TRPDeleteUserTripInfo>> {
     
-    var hash: String?
+    /// Hash value for timeline or segment
+    var hash: String
+    /// Index of the segment to delete. If nil, deletes the whole timeline.
     var segmentIndex: Int?
     
-    internal override init() {}
-    
-    internal init(hash: String, segmentIndex: Int) {
+    /// If segmentIndex is nil, this will delete the timeline. Otherwise, it will delete the timeline segment.    
+    internal init(hash: String, segmentIndex: Int?) {
         self.hash = hash
         self.segmentIndex = segmentIndex
     }
     
     public override func path() -> String {
         var path = TRPConfig.ApiCall.timeline.link
-        if let hash = hash {
-            path += "/\(hash)"
+        path += "/\(hash)"
+        
+        if let segmentIndex {
+            path += "/\(segmentIndex)"
         }
         
         return path
@@ -34,12 +37,6 @@ internal class TRPTimelineDeleteSegment: TRPRestServices<TRPGenericParser<TRPDel
     
     override func requestMode() -> TRPRequestMode {
         return .delete
-    }
-    
-    override func bodyParameters() -> [String : Any]? {
-        var params = [String: Any]()
-        params["segmentIndex"] = segmentIndex
-        return params
     }
     
 }

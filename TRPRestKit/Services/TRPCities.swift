@@ -16,6 +16,8 @@ internal class TRPCities: TRPRestServices<TRPCityJsonModel> {
         case cityWithId
         case cityWithLocation
         case shorexCities
+        case cityInformation
+        case cityEvents
     }
     
     private var cityId: Int?
@@ -25,8 +27,8 @@ internal class TRPCities: TRPRestServices<TRPCityJsonModel> {
     
     public override init() {}
     
-    public init(cityId: Int) {
-        self.requestType = .cityWithId
+    public init(cityId: Int, isInformation: Bool = false, isEvents: Bool = false) {
+        self.requestType = isInformation ? .cityInformation : isEvents ? .cityEvents : .cityWithId
         self.cityId = cityId
     }
     //Fixme: Lokasyon ile sehir arama aktif değil
@@ -45,13 +47,17 @@ internal class TRPCities: TRPRestServices<TRPCityJsonModel> {
     public override func path() -> String {
         var path = ""
         
-        if requestType == .allCities || requestType == .cityWithId {
+        if requestType == .allCities || requestType == .cityWithId || requestType == .cityInformation {
             path = TRPConfig.ApiCall.city.link
             if let id = cityId {
                 path += "/\(id)"
             }
-        } else if requestType == .cityWithLocation {
-            //path = TRPConfig.ApiCall.getcityByCoordinates.link
+            if requestType == .cityInformation {
+                path += "/information"
+            }
+            if requestType == .cityEvents {
+                path += "/events"
+            }
         } else if requestType == .shorexCities {
             path = TRPConfig.ApiCall.shorexCities.link
         }

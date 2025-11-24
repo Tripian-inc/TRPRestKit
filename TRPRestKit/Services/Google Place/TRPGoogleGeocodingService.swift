@@ -1,5 +1,5 @@
 //
-//  TRPGoogleAutoComplete.swift
+//  TRPGooglePlaceService.swift
 //  TRPRestKit
 //
 //  Created by Evren Yaşar on 5.02.2019.
@@ -8,35 +8,36 @@
 
 import Foundation
 import TRPFoundationKit
-class TRPGoogleAutoComplete {
-    
-    private var key: String
-    private var text: String
-    public var centerLocationForBoundary: TRPLocation?
-    public var radiusForBoundary: Double?
 
-    init(key: String, text: String) {
-        self.key = key
-        self.text = text
+class TRPGoogleGeocodingService {
+    
+    private var key: String = ""
+    private var location: TRPLocation
+    
+    init(location: TRPLocation) {
+        self.location = location
+        
+        if let key = TRPApiKeyController.getKey(TRPApiKeys.trpGooglePlace) {
+            self.key = key
+        }
     }
     
     func start(completion: @escaping (_ result: Any?, _ error: NSError?) -> Void) {
-        
-        guard let escapedAddress = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {return}
-        
-        var link = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\(escapedAddress)&key=\(key)"
-        
-        if let location = centerLocationForBoundary, let radius = radiusForBoundary {
-            link += "&location=\(location.lat),\(location.lon)&radius=\(radius)&strictbounds=true"
+        if key.isEmpty {
+            completion(nil, TRPErrors.someThingWronk("Google API Key is empty") as NSError)
+            return
         }
-        let network = TRPNetwork(link: link)
+        let network = TRPNetwork(link: "https://maps.googleapis.com/maps/api/geocode/json")
+        network.add(params: ["latlng": "\(location.lat),\(location.lon)", "key": key])
         network.add(mode: .post)
         network.addValue(Bundle.main.bundleIdentifier ?? "com.tripian.TripianOne", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
         network.build { (error, data) in
+            
             if let error = error {
                 completion(nil, error)
                 return
             }
+            
             if let data = data {
                 let object: NSDictionary?
                 do {
@@ -50,11 +51,18 @@ class TRPGoogleAutoComplete {
                     completion(nil, TRPErrors.someThingWronk(errorMessage) as NSError)
                     return
                 }
+                guard let results = object?["results"] as? [[String: Any]],
+                      let firstResult = results.first,
+                      let formattedAddress = firstResult["formatted_address"] as? String
+                    else {
+                        completion(nil, TRPErrors.wrongData as NSError)
+                        return
+                }
                 
-                guard let predictions = object?["predictions"] as? [[String: Any]] else { return }
-                let sonuc = predictions.map { TRPGooglePlace(prediction: $0) }
-                completion(sonuc, nil)
+                completion(formattedAddress, nil)
             }
         }
+        
     }
+    
 }

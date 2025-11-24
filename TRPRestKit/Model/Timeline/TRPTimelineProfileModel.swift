@@ -15,7 +15,7 @@ public struct TRPTimelineProfileModel: Decodable {
     /// An Int value. Id of city.
     public var cityId: Int
     /// Timeline hash value
-    public var hash: String
+    public var hash: String?
     
     /// An Int value. Adult count.
     public var adults: Int
@@ -26,7 +26,7 @@ public struct TRPTimelineProfileModel: Decodable {
     /// A String value. Answer of questions.You must convert to Array.
     public var answerIds = [Int]()
     
-    public var doNotRecommend: [Int]?
+    public var doNotRecommend: [String]?
     public var excludePoiIds: [Int]?
     public var excludeHashPois: [String]?
     public var considerWeather: Bool = false
@@ -44,6 +44,8 @@ public struct TRPTimelineProfileModel: Decodable {
         case excludeHashPois
         case considerWeather
         case segments
+        case accommodation
+        case destinationAccommodation
     }
     
     /// Initializes a new object with decoder
@@ -59,7 +61,7 @@ public struct TRPTimelineProfileModel: Decodable {
         pets = try values.decodeIfPresent(Int.self, forKey: .pets)
         
         self.answerIds = try values.decode([Int].self, forKey: .answerIds)
-        self.doNotRecommend = try values.decodeIfPresent([Int].self, forKey: .doNotRecommend)
+        self.doNotRecommend = try values.decodeIfPresent([String].self, forKey: .doNotRecommend)
         self.excludePoiIds = try values.decodeIfPresent([Int].self, forKey: .excludePoiIds)
         self.excludeHashPois = try values.decodeIfPresent([String].self, forKey: .excludeHashPois)
         self.considerWeather = try values.decode(Bool.self, forKey: .considerWeather)

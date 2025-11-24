@@ -7,15 +7,13 @@
 //
 
 import Foundation
-internal class TRPTimeline: TRPRestServices<TRPGenericParser<TRPTimelineModel>> {
+internal class TRPTimelineSegmentAddUpdate: TRPRestServices<TRPGenericParser<TRPUpdatedModel>> {
     
-    var setting: TRPTimelineSettings?
     var segmentSetting: TRPTimelineSegmentSettings?
     
     internal override init() {}
     
-    internal init(setting: TRPTimelineSettings?, segmentSetting: TRPTimelineSegmentSettings?) {
-        self.setting = setting
+    internal init(segmentSetting: TRPTimelineSegmentSettings?) {
         self.segmentSetting = segmentSetting
     }
     
@@ -28,10 +26,7 @@ internal class TRPTimeline: TRPRestServices<TRPGenericParser<TRPTimelineModel>> 
     }
     
     override func requestMode() -> TRPRequestMode {
-        if segmentSetting != nil {
-            return .put
-        }
-        return .post
+        return .put
     }
     
     override func userOAuth() -> Bool {
@@ -40,10 +35,6 @@ internal class TRPTimeline: TRPRestServices<TRPGenericParser<TRPTimelineModel>> 
     
     public override func bodyParameters() -> [String: Any]? {
         let params: [String: Any] = [:]
-        
-        if let setting = setting {
-            return setting.getParameters()
-        }
         
         if let segmentSetting {
             return segmentSetting.getParameters()

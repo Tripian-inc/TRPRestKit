@@ -16,7 +16,7 @@ public struct TRPStepAlternativeInfoModel: Decodable {
 
     public var name: String
     
-    public var image: TRPImageModel
+    public var image: TRPImageModel?
     
     public var markerCoordinate: TRPCoordinateModel
     
@@ -37,7 +37,7 @@ public struct TRPStepAlternativeInfoModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
-        image = try values.decode(TRPImageModel.self, forKey: .image)
+        image = try values.decodeIfPresent(TRPImageModel.self, forKey: .image)
         markerCoordinate = try values.decode(TRPCoordinateModel.self, forKey: .markerCoordinate)
         category = try values.decode(TRPCategoryInfoModel.self, forKey: .category)
     }

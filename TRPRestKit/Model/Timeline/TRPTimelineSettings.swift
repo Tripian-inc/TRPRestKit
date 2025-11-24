@@ -22,7 +22,7 @@ public class TRPTimelineSettings {
     /// Array of preference IDs to customize your experience.
     public var answers: [Int] = []
     /// Array of categories you wish to exclude.
-    public var doNotRecommend: [Int]?
+    public var doNotRecommend: [String]?
     /// Array of specific points of interest to exclude.
     public var excludePoiIds: [Int]?
     /// Takes into account the hourly weather forecasts for the current day and the next 2 days when set to true
@@ -31,7 +31,7 @@ public class TRPTimelineSettings {
     public var segments: [TRPTimelineSegmentSettings]?
     
     
-    public init(cityId: Int) {
+    public init(cityId: Int?) {
         self.cityId = cityId
     }
     
@@ -55,6 +55,9 @@ public class TRPTimelineSettings {
         if let excludePoiIds = excludePoiIds {
             params["excludePoiIds"] = excludePoiIds
         }
+//        if let doNotGenerate = doNotGenerate {
+//            params["doNotGenerate"] = doNotGenerate
+//        }
         
         params["considerWeather"] = considerWeather
         
