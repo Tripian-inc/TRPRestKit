@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 public struct TRPDevice: Codable {
     
     public var deviceId: String?
