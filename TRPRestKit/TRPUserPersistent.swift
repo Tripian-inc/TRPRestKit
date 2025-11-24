@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 public struct TRPUserPersistent {
     
     private static let userIdCodeTag = "trpuserid"
