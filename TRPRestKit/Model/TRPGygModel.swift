@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct TRPGygInfoModel: Codable {
+public struct TRPGygBookingModel: Codable {
     
     public init(tourName: String,
                 tourId: Int,
