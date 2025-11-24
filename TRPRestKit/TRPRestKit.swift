@@ -635,7 +635,7 @@ extension TRPRestKit {
         params["password"] = password
         var _device: TRPDevice
         if device == nil {
-            _device = TRPDeviceModel().convertToTRPDevice()
+            _device = TRPDevice()
         } else {
             _device = device!
         }
@@ -699,7 +699,7 @@ extension TRPRestKit {
         self.completionHandler = completion
         var _device = device
         if device == nil {
-            _device = TRPDeviceModel().convertToTRPDevice()
+            _device = TRPDevice()
         }
         guestLoginServices(email: email, password: password, firstName: firstName, lastName: lastName, device: _device)
     }
