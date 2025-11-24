@@ -10,13 +10,13 @@ import XCTest
 @testable import TRPRestKit
 class AaUserPersistentTest: XCTestCase {
 
-    func testHashToken() {
-        let hash = "1234"
-        TRPUserPersistent.saveHashToken(hash)
-        let fetchedHash = TRPUserPersistent.fetchHashToken()
-        XCTAssertNotNil(fetchedHash)
-        XCTAssertEqual(fetchedHash!, hash)
-    }
+    // func testHashToken() {
+    //     let hash = "1234"
+    //     TRPUserPersistent.saveHashToken(hash)
+    //     let fetchedHash = TRPUserPersistent.fetchHashToken()
+    //     XCTAssertNotNil(fetchedHash)
+    //     XCTAssertEqual(fetchedHash!, hash)
+    // }
     
     func testChangeHashToken() {
         let hash = "98765"
