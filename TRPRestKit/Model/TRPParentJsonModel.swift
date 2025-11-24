@@ -18,13 +18,16 @@ public class TRPParentJsonModel: Decodable {
     public var success: Bool
     /// A String value. Message is dependent on `Success` variable.
     public var message: String?
+    /// A String value. Unique request id.
+    public var UUID: String?
     /// A TRPPaginationJsonModel object. If request has a page more then one, You can control with pagination.
-    var pagination: TRPPaginationJsonModel?
+    public var pagination: TRPPaginationJsonModel?
     
     internal enum ParentCodingKeys: String, CodingKey {
         case status
         case message
         case success
+        case UUID
         case pagination
     }
     
@@ -36,6 +39,7 @@ public class TRPParentJsonModel: Decodable {
         status = try values.decode(Int.self, forKey: .status)
         success = try values.decode(Bool.self, forKey: TRPParentJsonModel.ParentCodingKeys.success)
         message = try values.decodeIfPresent(String.self, forKey: .message)
+        UUID = try values.decodeIfPresent(String.self, forKey: .UUID)
         
         if let pagination = try? values.decodeIfPresent(TRPPaginationJsonModel.self, forKey: .pagination) {
             self.pagination = pagination
@@ -45,7 +49,7 @@ public class TRPParentJsonModel: Decodable {
 }
 
 /// Controls how many pages the request has.
-struct TRPPaginationJsonModel: Decodable {
+public struct TRPPaginationJsonModel: Decodable {
     
     var total: Int = 0
     var count: Int = 0
@@ -63,7 +67,7 @@ struct TRPPaginationJsonModel: Decodable {
         case links = "links"
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         //This value were renamed.
         self.perPage = try values.decodeIfPresent(Int.self, forKey: .perPage) ?? 0

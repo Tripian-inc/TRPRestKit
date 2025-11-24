@@ -84,6 +84,10 @@ internal class TRPProgram: TRPRestServices<TRPGenericParser<TRPTripModel>> {
         if let additionalData = setting.additionalData {
             params["additionalData"] = additionalData
         }
+        
+        if let tripName = setting.tripName {
+            params["tripName"] = tripName
+        }
         print("CreateTrip Params \(params)")
         return params
     }

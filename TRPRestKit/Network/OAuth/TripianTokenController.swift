@@ -81,9 +81,9 @@ class TripianTokenController: TokenControllerProtocol {
 extension TripianTokenController {
     
     private func calculateExpiredTime(_ expiresIn: Int) -> Int? {
-           guard let expiredTime = calendar.date(byAdding: .second, value: expiresIn, to: Date()) else {return nil}
-           let timeInterval = Int(expiredTime.timeIntervalSince1970)
-           return timeInterval
-       }
-
+        guard let expiredTime = calendar.date(byAdding: .second, value: expiresIn, to: Date()) else {return nil}
+        let timeInterval = Int(expiredTime.timeIntervalSince1970)
+        return timeInterval
+    }
+    
 }

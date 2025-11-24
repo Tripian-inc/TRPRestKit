@@ -16,6 +16,7 @@ public struct TRPCountryJsonModel: Decodable {
     public var name: String
     /// Continient of County
     public var continent: String?
+    public var continentModel: TRPContinentJsonModel?
     
     private enum CodingKeys: String, CodingKey {
         case code
@@ -34,9 +35,24 @@ public struct TRPCountryJsonModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.code = try values.decode(String.self, forKey: .code)
         self.name = try values.decode(String.self, forKey: .name)
-        //For continient
+        //For continent
         let continientContainer = try values.nestedContainer(keyedBy: ContinientKeys.self, forKey: .continent)
         self.continent = try continientContainer.decodeIfPresent(String.self, forKey: .name)
+        
+        if let continent = try? values.decodeIfPresent(TRPContinentJsonModel.self, forKey: .continent) {
+            self.continentModel = continent
+        }
     }
     
+}
+
+public struct TRPContinentJsonModel: Decodable {
+    
+    public var name: String?
+    public var slug: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case slug
+    }
 }

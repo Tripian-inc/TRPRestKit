@@ -41,15 +41,6 @@ internal class TRPGuestLogin: TRPRestServices<TRPLoginJsonModel>  {
         
         let jsonDecode = JSONDecoder()
         do {
-//            if password != nil && email != nil {
-//                let result = try jsonDecode.decode(TRPLoginJsonModel.self, from: data)
-//                let pag = paginationController(parentJson: result)
-//                self.completion?(result, nil, pag)
-//            } else if userName != nil {
-//                let result = try jsonDecode.decode(TRPTestUserInfoJsonModel.self, from: data)
-//                let pag = paginationController(parentJson: result)
-//                self.completion?(result, nil, pag)
-//            }
             let result = try jsonDecode.decode(TRPLoginJsonModel.self, from: data)
             let pag = paginationController(parentJson: result)
             self.completion?(result, nil, pag)
@@ -59,8 +50,6 @@ internal class TRPGuestLogin: TRPRestServices<TRPLoginJsonModel>  {
     }
     
     public override func bodyParameters() -> [String: Any]? {
-//        if let email = email,
-//            let password = password {
             
             var parameters: [String: Any] = [:]
             parameters["email"] = email
@@ -74,11 +63,6 @@ internal class TRPGuestLogin: TRPRestServices<TRPLoginJsonModel>  {
             }
             return parameters
 //        }
-//        if let userName = userName {
-//            return ["username": userName]
-//        }
-        
-//        return [:]
     }
     
     public override func userOAuth() -> Bool {

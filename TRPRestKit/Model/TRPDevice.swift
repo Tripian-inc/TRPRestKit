@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct TRPDevice: Decodable, Encodable {
+public struct TRPDevice: Codable {
     
     public var deviceId: String?
     public var deviceOs: String = "iOS"

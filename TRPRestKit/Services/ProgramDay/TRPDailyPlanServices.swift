@@ -24,7 +24,6 @@ internal class TRPDailyPlanServices: TRPRestServices<TRPDayPlanJsonModel> {
         self.endTime = endTime
     }
     
-    //TODO: orde eklenecek
     internal init(id: Int, stepOrders orders: [Int]) {
         self.stepOrders = orders
         self.dayId = id

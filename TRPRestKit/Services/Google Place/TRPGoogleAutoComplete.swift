@@ -31,6 +31,7 @@ class TRPGoogleAutoComplete {
         }
         let network = TRPNetwork(link: link)
         network.add(mode: .post)
+        network.addValue(Bundle.main.bundleIdentifier ?? "com.tripian.TripianOne", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
         network.build { (error, data) in
             if let error = error {
                 completion(nil, error)

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-// NOTE: - App için aktif kullanıldığı için CreateTrip yapmadım adını
 
 /// Indicates information of a trip.
 public struct TRPTripModel: Decodable {
