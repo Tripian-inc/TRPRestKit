@@ -82,4 +82,9 @@ import Foundation
         TRPClient.shared.language = language
     }
     
+    /// Returns the current language setting
+    public static func getLanguage() -> String {
+        return TRPClient.shared.language
+    }
+    
 }
