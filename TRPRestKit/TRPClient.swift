@@ -19,7 +19,7 @@ import Foundation
 ///  ````
 @objc public class TRPClient: NSObject {
     
-    internal static var shared = TRPClient()
+    public static var shared = TRPClient()
     
     /// Allows link to be shown
     public var monitorUrl = false
