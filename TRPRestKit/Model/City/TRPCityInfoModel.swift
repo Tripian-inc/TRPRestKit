@@ -66,12 +66,8 @@ public class TRPCityInfoModel: NSObject, Decodable {
         self.boundary = try values.decodeIfPresent([Double].self, forKey: .boundary) ?? []
         self.coordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .coordinate)
         self.country = try values.decodeIfPresent(TRPCountryJsonModel.self, forKey: .country)
-        if let taste = try? values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .mustTries) {
-            self.tastes = taste ?? []
-        }
-        if let weathers = try? values.decodeIfPresent([TRPCityWeatherModel].self, forKey: .weathers) {
-            self.weathers = weathers ?? []
-        }
+        self.tastes = try values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .mustTries)
+        self.weathers = try values.decodeIfPresent([TRPCityWeatherModel].self, forKey: .weathers)
 //        self.status = try values.decode(Bool.self, forKey: .status)
         self.cityDescription = try values.decodeIfPresent(String.self, forKey: .description)
         self.locationType = try values.decodeIfPresent(String.self, forKey: .locationType)

@@ -29,14 +29,13 @@ import Foundation
 //    public var isReverseProxy = false
 //    public var reverseProxyURL: String = ""
     
-    internal var enviroment: Environment = .test {
+    internal var enviroment: Environment = .dev {
         didSet {
-            log.i("Enviroment was changed: \(self.enviroment)")
             self.baseUrl = self.enviroment.baseUrl
         }
     }
     
-    internal var baseUrl: BaseUrlCreater = Environment.test.baseUrl
+    internal var baseUrl: BaseUrlCreater = Environment.dev.baseUrl
     
     internal var firebaseToken: String = ""
     
@@ -44,8 +43,9 @@ import Foundation
     
     private override init() {}
     
-    public static func start(enviroment: Environment, apiKey: String) {
+    public static func start(enviroment: Environment, apiKey: String, language: String = "en") {
         TRPClient.shared.enviroment = enviroment
+        TRPClient.shared.language = language
         TRPApiKey.setApiKey(apiKey)
     }
     

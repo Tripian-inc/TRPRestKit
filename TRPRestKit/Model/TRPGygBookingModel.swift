@@ -1,9 +1,9 @@
 //
-//  TRPGygModel.swift
+//  TRPGygBookingModel.swift
 //  TRPRestKit
 //
-//  Created by Evren Yaşar on 2020-12-30.
-//  Copyright © 2020 Evren Yaşar. All rights reserved.
+//  Created by Cem Çaygöz on 30.11.2025.
+//  Copyright © 2025 Tripian Inc. All rights reserved.
 //
 
 import Foundation

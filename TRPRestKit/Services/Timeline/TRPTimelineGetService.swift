@@ -28,7 +28,7 @@ internal class TRPTimelineGetService: TRPRestServices<TRPGenericParser<TRPTimeli
     }
     
     override func parameters() -> [String : Any]? {
-        var parameters = [String: Any]()
+        let parameters = [String: Any]()
         return parameters
     }
     
