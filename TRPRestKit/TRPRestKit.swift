@@ -733,6 +733,48 @@ extension TRPRestKit {
     }
 }
 
+// MARK: Light Login
+extension TRPRestKit {
+    public func lightLogin(uniqueId: String,
+                           firstName: String? = nil,
+                           lastName: String? = nil,
+                           device: TRPDevice? = nil,
+                           completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        var _device = device
+        if device == nil {
+            _device = TRPDevice()
+        }
+        lightLoginServices(uniqueId: uniqueId, firstName: firstName, lastName: lastName, device: _device)
+    }
+    
+    private func lightLoginServices(uniqueId: String,
+                                    firstName: String? = nil,
+                                    lastName: String? = nil,
+                                    device: TRPDevice? = nil) {
+        let services = TRPLightLogin(uniqueId: uniqueId,
+                                     firstName: firstName,
+                                     lastName: lastName,
+                                     device: device)
+        
+        services.completion = { (result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let registerResult = result as? TRPLoginJsonModel {
+                self.saveToken(TRPToken(login: registerResult.data))
+                self.postData(result: registerResult.data)
+            }else if let serviceResult = result as? TRPTestUserInfoJsonModel {
+                self.postData(result: serviceResult.data)
+            } else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        services.connection()
+    }
+}
+
 // MARK: Social Login
 extension TRPRestKit {
     public func socialLogin(device: TRPDevice? = nil,
