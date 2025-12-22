@@ -26,6 +26,7 @@
 		6B108F0428B66421004E49A1 /* TRPGetOfferServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B108F0328B66421004E49A1 /* TRPGetOfferServices.swift */; };
 		6B108F0628B66459004E49A1 /* TRPOfferInfoJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B108F0528B66459004E49A1 /* TRPOfferInfoJsonModel.swift */; };
 		6B1E79002E6037EC0085B636 /* TRPGoogleGeocodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E78FF2E6037EC0085B636 /* TRPGoogleGeocodingService.swift */; };
+		6B4402292EDF77D500A08C30 /* TRPLightLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4402282EDF77D500A08C30 /* TRPLightLogin.swift */; };
 		6B44493F2E69CCFC002D01F2 /* TRPCityInformationJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B44493E2E69CCF2002D01F2 /* TRPCityInformationJsonModel.swift */; };
 		6B4449492E6A304B002D01F2 /* TRPCityInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4449482E6A304B002D01F2 /* TRPCityInformation.swift */; };
 		6B467C3D29DC1159009ACDAC /* TRPExportPlanServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B467C3C29DC1159009ACDAC /* TRPExportPlanServices.swift */; };
@@ -242,6 +243,7 @@
 		6B108F0328B66421004E49A1 /* TRPGetOfferServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGetOfferServices.swift; sourceTree = "<group>"; };
 		6B108F0528B66459004E49A1 /* TRPOfferInfoJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPOfferInfoJsonModel.swift; sourceTree = "<group>"; };
 		6B1E78FF2E6037EC0085B636 /* TRPGoogleGeocodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPGoogleGeocodingService.swift; sourceTree = "<group>"; };
+		6B4402282EDF77D500A08C30 /* TRPLightLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLightLogin.swift; sourceTree = "<group>"; };
 		6B44493E2E69CCF2002D01F2 /* TRPCityInformationJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCityInformationJsonModel.swift; sourceTree = "<group>"; };
 		6B4449482E6A304B002D01F2 /* TRPCityInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCityInformation.swift; sourceTree = "<group>"; };
 		6B467C3C29DC1159009ACDAC /* TRPExportPlanServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPExportPlanServices.swift; sourceTree = "<group>"; };
@@ -648,6 +650,7 @@
 				6BC396C728C09979009A8619 /* TRPLogOutServices.swift */,
 				6BAFB55D28C67BAC00C61B1F /* TRPResetPasswordServices.swift */,
 				6B5049262C76537600C510F1 /* TRPGuestLogin.swift */,
+				6B4402282EDF77D500A08C30 /* TRPLightLogin.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1424,6 +1427,7 @@
 				6B467C3F29DC1190009ACDAC /* TRPExportPlanJsonModel.swift in Sources */,
 				B2AC586C24128CDB00256F79 /* TRPDeleteStepService.swift in Sources */,
 				6BD0F0C82D3F21230028C0EE /* AnyCodable.swift in Sources */,
+				6B4402292EDF77D500A08C30 /* TRPLightLogin.swift in Sources */,
 				B2341D6223143939007EAF80 /* RestKitInfo.swift in Sources */,
 				6B7953D529F9946F00CFF433 /* TRPFeedbackInfoModel.swift in Sources */,
 				B2FDCFB92147EE41000C9387 /* TRPLoginJsonModel.swift in Sources */,
