@@ -56,8 +56,9 @@ public struct TRPPoiInfoModel: Decodable {
     public var distance: Float?
     public var status: Bool = true
     public var offers: [TRPOfferInfoModel] = []
-    
+
     public var additionalData: TRPAdditionalDataModel?
+    public var locations: [TRPPoiLocationInfoModel]?
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -89,6 +90,7 @@ public struct TRPPoiInfoModel: Decodable {
         case mustTries
         case safety
         case offers
+        case locations
     }
     
     /// Json to Object converter
@@ -147,6 +149,8 @@ public struct TRPPoiInfoModel: Decodable {
         if let offers = try? values.decodeIfPresent([TRPOfferInfoModel].self, forKey: .offers) {
             self.offers = offers ?? []
         }
+
+        self.locations = try values.decodeIfPresent([TRPPoiLocationInfoModel].self, forKey: .locations)
     }
-    
+
 }
