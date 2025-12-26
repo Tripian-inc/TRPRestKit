@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -173,7 +173,6 @@
 		B29B462A20F607F90009E711 /* TRPRestKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B29B462820F607F90009E711 /* TRPRestKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B29B463720F60A630009E711 /* TRPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463620F60A630009E711 /* TRPClient.swift */; };
 		B29B463B20F60A910009E711 /* TRPConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463A20F60A910009E711 /* TRPConfig.swift */; };
-		B29B463F20F60AC30009E711 /* TRPRestKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B463E20F60AC30009E711 /* TRPRestKit.swift */; };
 		B29B464120F60ADF0009E711 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464020F60ADF0009E711 /* Pagination.swift */; };
 		B29B464920F60BF80009E711 /* TRPCoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464820F60BF80009E711 /* TRPCoordinateModel.swift */; };
 		B29B464B20F60C0D0009E711 /* TRPParentJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */; };
@@ -396,7 +395,6 @@
 		B29B462820F607F90009E711 /* TRPRestKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRPRestKit.h; sourceTree = "<group>"; };
 		B29B463620F60A630009E711 /* TRPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPClient.swift; sourceTree = "<group>"; };
 		B29B463A20F60A910009E711 /* TRPConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConfig.swift; sourceTree = "<group>"; };
-		B29B463E20F60AC30009E711 /* TRPRestKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPRestKit.swift; sourceTree = "<group>"; };
 		B29B464020F60ADF0009E711 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		B29B464820F60BF80009E711 /* TRPCoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCoordinateModel.swift; sourceTree = "<group>"; };
 		B29B464A20F60C0D0009E711 /* TRPParentJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPParentJsonModel.swift; sourceTree = "<group>"; };
@@ -448,6 +446,10 @@
 		B2FDCFBC2147FA45000C9387 /* TRPUserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPUserRegister.swift; sourceTree = "<group>"; };
 		B2FE503521356EE700CDC79E /* TRPDeleteProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDeleteProgram.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6BF12C7E2EFF27DB001FE5E8 /* Reskit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Reskit; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B29B462220F607F90009E711 /* Frameworks */ = {
@@ -876,6 +878,7 @@
 		B29B462720F607F90009E711 /* TRPRestKit */ = {
 			isa = PBXGroup;
 			children = (
+				6BF12C7E2EFF27DB001FE5E8 /* Reskit */,
 				6B0BB2802E129D6F00B73358 /* TRPErrorModel.swift */,
 				B27F37B6245850490005EC81 /* Logic */,
 				B2757C5F244EE47C00E88806 /* Extensions */,
@@ -888,7 +891,6 @@
 				B29B463220F60A1F0009E711 /* Services */,
 				B29B463620F60A630009E711 /* TRPClient.swift */,
 				B29B463A20F60A910009E711 /* TRPConfig.swift */,
-				B29B463E20F60AC30009E711 /* TRPRestKit.swift */,
 				B29B464020F60ADF0009E711 /* Pagination.swift */,
 				B2179D252133EF87004954A4 /* TRPUserPersistent.swift */,
 				B210988D2188AD8F0070946C /* TRPImageResizer.swift */,
@@ -1179,6 +1181,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				6BF12C7E2EFF27DB001FE5E8 /* Reskit */,
+			);
 			name = TRPRestKit;
 			packageProductDependencies = (
 				B29B461E20F607F90009E712 /* TRPFoundationKit */,
@@ -1434,7 +1439,6 @@
 				6B6A52AC28BBA736003125ED /* TRPOptInOfferJsonModel.swift in Sources */,
 				B261A733224B7E4A00D31558 /* TRPProblemCategoriesJsonModel.swift in Sources */,
 				B215BF022131791D00659818 /* TRPMe.swift in Sources */,
-				B29B463F20F60AC30009E711 /* TRPRestKit.swift in Sources */,
 				B29B468320F60F7C0009E711 /* TRPQuestionOptionsJsonModel.swift in Sources */,
 				6BA6C5E528A2FB5800E2DB69 /* TRPOffersProductTypeModel.swift in Sources */,
 				B236A0DA240CFD29002331D6 /* TRPGetTripService.swift in Sources */,
