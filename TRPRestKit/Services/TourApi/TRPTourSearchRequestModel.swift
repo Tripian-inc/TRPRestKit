@@ -13,10 +13,10 @@ public class TRPTourSearchRequestModel {
 
     // Required parameters
     public var cityId: Int
-    public var lat: Double
-    public var lng: Double
 
     // Optional parameters
+    public var lat: Double?
+    public var lng: Double?
     public var instantAvailability: Int?
     public var providerId: Int?
     public var keywords: String?
@@ -41,8 +41,8 @@ public class TRPTourSearchRequestModel {
     ///
     /// - Parameters:
     ///   - cityId: City ID for the tour search (required)
-    ///   - lat: Latitude coordinate (required)
-    ///   - lng: Longitude coordinate (required)
+    ///   - lat: Latitude coordinate (optional)
+    ///   - lng: Longitude coordinate (optional)
     ///   - instantAvailability: Filter for instant availability (1 = yes, 0 = no)
     ///   - providerId: Provider ID to filter results
     ///   - keywords: Search keywords
@@ -64,8 +64,8 @@ public class TRPTourSearchRequestModel {
     ///   - sortingType: Sort order ("asc" or "desc")
     public init(
         cityId: Int,
-        lat: Double,
-        lng: Double,
+        lat: Double? = nil,
+        lng: Double? = nil,
         instantAvailability: Int? = nil,
         providerId: Int? = nil,
         keywords: String? = nil,
@@ -116,10 +116,14 @@ public class TRPTourSearchRequestModel {
 
         // Required parameters
         params["cityId"] = cityId
-        params["lat"] = lat
-        params["lng"] = lng
 
         // Optional parameters
+        if let lat = lat {
+            params["lat"] = lat
+        }
+        if let lng = lng {
+            params["lng"] = lng
+        }
         if let instantAvailability = instantAvailability {
             params["instantAvailability"] = instantAvailability
         }
