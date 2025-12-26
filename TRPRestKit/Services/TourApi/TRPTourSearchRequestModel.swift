@@ -9,7 +9,7 @@
 import Foundation
 
 /// Request model for tour search API
-public struct TRPTourSearchRequestModel {
+public class TRPTourSearchRequestModel {
 
     // Required parameters
     public var cityId: Int
