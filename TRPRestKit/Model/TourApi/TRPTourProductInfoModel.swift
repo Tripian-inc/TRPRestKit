@@ -53,7 +53,7 @@ public struct TRPTourProductInfoModel: Decodable {
     /// Array of tag names
     public var tags: [String]?
     /// Array of coordinates
-    public var locations: [TRPCoordinateModel]?
+    public var locations: [TRPTourLocationModel]?
     /// Array of related Tripian POIs
     public var tripianPois: [String]?
 
@@ -109,7 +109,7 @@ public struct TRPTourProductInfoModel: Decodable {
         self.locationNames = try values.decodeIfPresent([String].self, forKey: .locationNames)
         self.tagIds = try values.decodeIfPresent([Int].self, forKey: .tagIds)
         self.tags = try values.decodeIfPresent([String].self, forKey: .tags)
-        self.locations = try values.decodeIfPresent([TRPCoordinateModel].self, forKey: .locations)
+        self.locations = try values.decodeIfPresent([TRPTourLocationModel].self, forKey: .locations)
         self.tripianPois = try values.decodeIfPresent([String].self, forKey: .tripianPois)
     }
 }
@@ -124,5 +124,18 @@ public struct TRPTourImageModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case isCover = "is_cover"
         case url
+    }
+}
+
+/// Tour location coordinate model
+public struct TRPTourLocationModel: Decodable {
+    /// Latitude
+    public var lat: Double?
+    /// Longitude (note: API uses "lon" not "lng")
+    public var lon: Double?
+
+    private enum CodingKeys: String, CodingKey {
+        case lat
+        case lon
     }
 }
