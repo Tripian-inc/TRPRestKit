@@ -34,8 +34,8 @@ extension TRPRestKit {
                 return
             }
             if let serviceResult = result as? TRPTourSearchJsonModel {
-                if let products = serviceResult.data?.products {
-                    self.postData(result: products, pagination: pagination)
+                if let searchData = serviceResult.data {
+                    self.postData(result: searchData, pagination: pagination)
                     return
                 }
             }

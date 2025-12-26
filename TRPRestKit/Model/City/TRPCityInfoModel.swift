@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TRPFoundationKit
 
 /// This model provide you to use full information of City to creating a trip
 public class TRPCityInfoModel: NSObject, Decodable {
@@ -16,7 +17,7 @@ public class TRPCityInfoModel: NSObject, Decodable {
     /// A String value. Name of a city
     public var name: String
     /// A TRPCoordinateModel object that refers center coordinate(lat,lon) of a city.
-    public var coordinate: TRPCoordinateModel?
+    public var coordinate: TRPLocation?
     /// A TRPCountryJsonModel object that indicates a country information that which the city is in.
     public var country: TRPCountryJsonModel?
     /// A string value that indicate a featured image of City
@@ -64,7 +65,7 @@ public class TRPCityInfoModel: NSObject, Decodable {
         self.name = try values.decode(String.self, forKey: .name)
         self.image = try values.decodeIfPresent(TRPImageModel.self, forKey: .image)
         self.boundary = try values.decodeIfPresent([Double].self, forKey: .boundary) ?? []
-        self.coordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .coordinate)
+        self.coordinate = try values.decodeIfPresent(TRPLocation.self, forKey: .coordinate)
         self.country = try values.decodeIfPresent(TRPCountryJsonModel.self, forKey: .country)
         self.tastes = try values.decodeIfPresent([TRPTastesInfoModel].self, forKey: .mustTries)
         self.weathers = try values.decodeIfPresent([TRPCityWeatherModel].self, forKey: .weathers)
