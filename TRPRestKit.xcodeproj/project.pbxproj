@@ -73,6 +73,11 @@
 		6BED46562C8DCFFB008B067A /* TRPLanguagesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BED46552C8DCFFB008B067A /* TRPLanguagesServices.swift */; };
 		6BED46582C8DD01D008B067A /* TRPLanguagesParentJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BED46572C8DD01D008B067A /* TRPLanguagesParentJsonModel.swift */; };
 		6BED465A2C8DD3CD008B067A /* CodingKey+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BED46592C8DD3CD008B067A /* CodingKey+extensions.swift */; };
+		6BF12C422EFEF0BF001FE5E8 /* TRPTourSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF12C412EFEF0BF001FE5E8 /* TRPTourSearch.swift */; };
+		6BF12C472EFEF0F7001FE5E8 /* TRPTourSearchJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF12C452EFEF0F7001FE5E8 /* TRPTourSearchJsonModel.swift */; };
+		6BF12C482EFEF0F7001FE5E8 /* TRPTourSearchRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF12C462EFEF0F7001FE5E8 /* TRPTourSearchRequestModel.swift */; };
+		6BF12C492EFEF0F7001FE5E8 /* TRPTourProductInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF12C442EFEF0F7001FE5E8 /* TRPTourProductInfoModel.swift */; };
+		6BF12C4B2EFEF206001FE5E8 /* TRPPoiLocationInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF12C4A2EFEF206001FE5E8 /* TRPPoiLocationInfoModel.swift */; };
 		783A137F22F0339D00952CA2 /* TRPConstantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */; };
 		783A138222F039FC00952CA2 /* TRPConstantsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A138122F039FC00952CA2 /* TRPConstantsServices.swift */; };
 		784BAB9422C3505D00BBDB0F /* TRPCompanionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784BAB9322C3505C00BBDB0F /* TRPCompanionModel.swift */; };
@@ -290,6 +295,11 @@
 		6BED46552C8DCFFB008B067A /* TRPLanguagesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLanguagesServices.swift; sourceTree = "<group>"; };
 		6BED46572C8DD01D008B067A /* TRPLanguagesParentJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLanguagesParentJsonModel.swift; sourceTree = "<group>"; };
 		6BED46592C8DD3CD008B067A /* CodingKey+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingKey+extensions.swift"; sourceTree = "<group>"; };
+		6BF12C412EFEF0BF001FE5E8 /* TRPTourSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourSearch.swift; sourceTree = "<group>"; };
+		6BF12C442EFEF0F7001FE5E8 /* TRPTourProductInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourProductInfoModel.swift; sourceTree = "<group>"; };
+		6BF12C452EFEF0F7001FE5E8 /* TRPTourSearchJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourSearchJsonModel.swift; sourceTree = "<group>"; };
+		6BF12C462EFEF0F7001FE5E8 /* TRPTourSearchRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourSearchRequestModel.swift; sourceTree = "<group>"; };
+		6BF12C4A2EFEF206001FE5E8 /* TRPPoiLocationInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPoiLocationInfoModel.swift; sourceTree = "<group>"; };
 		783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsModel.swift; sourceTree = "<group>"; };
 		783A138122F039FC00952CA2 /* TRPConstantsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsServices.swift; sourceTree = "<group>"; };
 		784BAB9322C3505C00BBDB0F /* TRPCompanionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPCompanionModel.swift; sourceTree = "<group>"; };
@@ -543,6 +553,24 @@
 				6B6A52AB28BBA736003125ED /* TRPOptInOfferJsonModel.swift */,
 			);
 			path = Offers;
+			sourceTree = "<group>";
+		};
+		6BF12C432EFEF0E6001FE5E8 /* TourApi */ = {
+			isa = PBXGroup;
+			children = (
+				6BF12C442EFEF0F7001FE5E8 /* TRPTourProductInfoModel.swift */,
+				6BF12C452EFEF0F7001FE5E8 /* TRPTourSearchJsonModel.swift */,
+			);
+			path = TourApi;
+			sourceTree = "<group>";
+		};
+		6BF12C4C2EFEF347001FE5E8 /* TourApi */ = {
+			isa = PBXGroup;
+			children = (
+				6BF12C412EFEF0BF001FE5E8 /* TRPTourSearch.swift */,
+				6BF12C462EFEF0F7001FE5E8 /* TRPTourSearchRequestModel.swift */,
+			);
+			path = TourApi;
 			sourceTree = "<group>";
 		};
 		783A137D22F032CA00952CA2 /* Constants */ = {
@@ -874,6 +902,7 @@
 		B29B463220F60A1F0009E711 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6BF12C4C2EFEF347001FE5E8 /* TourApi */,
 				6B6DDFD32CA58B1B00F42C5B /* Misc */,
 				6B108F0228B65E10004E49A1 /* Offers */,
 				B252FC4624BE125C0014B750 /* Reservation */,
@@ -962,6 +991,7 @@
 				B27E824A2498B14E00B4E096 /* LocationBounds.swift */,
 				B25EC986259CACCB0027AF50 /* TRPGygInfoModel.swift */,
 				6B4A29A22EDBBA4700DAE755 /* TRPGygBookingModel.swift */,
+				6BF12C432EFEF0E6001FE5E8 /* TourApi */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -991,6 +1021,7 @@
 				B29B468720F60FA70009E711 /* TRPPoiInfoModel.swift */,
 				B2826533240664F5004A4EDC /* TRPBookingModel.swift */,
 				B282653524066A01004A4EDC /* TRPTastesModel.swift */,
+				6BF12C4A2EFEF206001FE5E8 /* TRPPoiLocationInfoModel.swift */,
 			);
 			path = Place;
 			sourceTree = "<group>";
@@ -1304,6 +1335,9 @@
 				783A138222F039FC00952CA2 /* TRPConstantsServices.swift in Sources */,
 				B22372242131151900E21532 /* TRPOAuthJsonModel.swift in Sources */,
 				B20CD9D42135DC5700497ED3 /* TRPDailyPlanServices.swift in Sources */,
+				6BF12C472EFEF0F7001FE5E8 /* TRPTourSearchJsonModel.swift in Sources */,
+				6BF12C482EFEF0F7001FE5E8 /* TRPTourSearchRequestModel.swift in Sources */,
+				6BF12C492EFEF0F7001FE5E8 /* TRPTourProductInfoModel.swift in Sources */,
 				6BED46582C8DD01D008B067A /* TRPLanguagesParentJsonModel.swift in Sources */,
 				B261A72222490E4C00D31558 /* TRPProblemCategories.swift in Sources */,
 				6B44493F2E69CCFC002D01F2 /* TRPCityInformationJsonModel.swift in Sources */,
@@ -1416,8 +1450,10 @@
 				B227F45C216CA2BA00591C70 /* TRPFavoritesJsonModel.swift in Sources */,
 				B29B46AE20F613C70009E711 /* TRPRecommendationSettings.swift in Sources */,
 				B26E36CF24812B99003FFA2B /* TRPPoiCategoryParent.swift in Sources */,
+				6BF12C4B2EFEF206001FE5E8 /* TRPPoiLocationInfoModel.swift in Sources */,
 				B2AF33ED244C918400C68B6E /* TRPDevice.swift in Sources */,
 				B29B464920F60BF80009E711 /* TRPCoordinateModel.swift in Sources */,
+				6BF12C422EFEF0BF001FE5E8 /* TRPTourSearch.swift in Sources */,
 				B29B46C120F6146D0009E711 /* TRPStepAlternativesServices.swift in Sources */,
 				784BAB9A22C354FA00BBDB0F /* TRPCompanionServices.swift in Sources */,
 				B27F37B9245851BD0005EC81 /* TripianTokenController.swift in Sources */,
