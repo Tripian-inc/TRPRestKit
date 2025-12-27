@@ -32,16 +32,25 @@ public class TRPTimelineSegmentModel: Decodable {
     public var distinctPlan: Bool = false
     public var accommodation: TRPAccommodationInfoModel?
     public var destinationAccommodation: TRPAccommodationInfoModel?
-    
+
+    // New fields from API response
+    public var smartRecommendation: Bool?
+    public var activityFreeText: String?
+    public var activityIds: [String]?
+    public var excludedActivityIds: [String]?
+    public var segmentType: String?
+    public var additionalData: TRPTimelineSegmentAdditionalData?
+
     enum CodingKeys: String, CodingKey {
         case available, title, description, startDate, endDate, coordinate, destinationCoordinate,
              adults, children, pets, cityId, generatedStatus, answerIds, doNotRecommend,
-             excludePoiIds, includePoiIds, dayIds, considerWeather, distinctPlan, accommodation, destinationAccommodation
+             excludePoiIds, includePoiIds, dayIds, considerWeather, distinctPlan, accommodation, destinationAccommodation,
+             smartRecommendation, activityFreeText, activityIds, excludedActivityIds, segmentType, additionalData
     }
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         available = try container.decodeIfPresent(Bool.self, forKey: .available) ?? true
         title = try container.decodeIfPresent(String.self, forKey: .title)
         description = try container.decodeIfPresent(String.self, forKey: .description)
@@ -61,14 +70,22 @@ public class TRPTimelineSegmentModel: Decodable {
         dayIds = try container.decodeIfPresent([Int].self, forKey: .dayIds)
         considerWeather = try container.decodeIfPresent(Bool.self, forKey: .considerWeather) ?? false
         distinctPlan = try container.decodeIfPresent(Bool.self, forKey: .distinctPlan) ?? false
-        
+
         if let accommondation = try? container.decodeIfPresent(TRPAccommodationInfoModel.self, forKey: .accommodation) {
             self.accommodation = accommondation
         }
-        
+
         if let destinationAccommodation = try? container.decodeIfPresent(TRPAccommodationInfoModel.self, forKey: .destinationAccommodation) {
             self.destinationAccommodation = destinationAccommodation
         }
+
+        // New fields
+        smartRecommendation = try container.decodeIfPresent(Bool.self, forKey: .smartRecommendation)
+        activityFreeText = try container.decodeIfPresent(String.self, forKey: .activityFreeText)
+        activityIds = try container.decodeIfPresent([String].self, forKey: .activityIds)
+        excludedActivityIds = try container.decodeIfPresent([String].self, forKey: .excludedActivityIds)
+        segmentType = try container.decodeIfPresent(String.self, forKey: .segmentType)
+        additionalData = try container.decodeIfPresent(TRPTimelineSegmentAdditionalData.self, forKey: .additionalData)
     }
     
     public init() {} // empty init if needed
