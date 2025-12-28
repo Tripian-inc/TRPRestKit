@@ -8,11 +8,13 @@
 
 import Foundation
 public enum Environment {
-    case dev, test, production
+    case predev, dev, test, production
     
     public var baseUrl: BaseUrlCreater {
         
         switch self {
+        case .predev:
+            return BaseUrlCreater(baseUrl: "gyssxjfp9d.execute-api.eu-west-1.amazonaws.com", basePath: "predev")
         case .dev:
             return BaseUrlCreater(baseUrl: "gyssxjfp9d.execute-api.eu-west-1.amazonaws.com", basePath: "dev")
         case .test:
