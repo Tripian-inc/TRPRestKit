@@ -40,20 +40,20 @@ public struct TRPPoiInfoModel: Decodable {
     /// A String value. Address of poi.
     public var address: String?
     /// A String value. Icon name of poi.
-    public var icon: String
+    public var icon: String?
     /// A TRPCoordinateModel objects. Center coordinate of poi.
-    public var coordinate: TRPLocation
+    public var coordinate: TRPLocation?
     
     public var bookings: [TRPBookingInfoModel]?
     
     /// A TRPCategoryInfoModel array. A poi can have multiple categories.
-    public var category = [TRPCategoryInfoModel]()
+    public var category: [TRPCategoryInfoModel] = []
     public var tags: [String]? = []
     public var mustTries: [TRPTastesInfoModel] = []
     public var cuisines: String?
     public var attention: String?
     public var safety: [String] = []
-    public var closed: [Int]
+    public var closed: [Int]? = []
     public var distance: Float?
     public var status: Bool = true
     public var offers: [TRPOfferInfoModel] = []
@@ -116,8 +116,8 @@ public struct TRPPoiInfoModel: Decodable {
         self.hours = try values.decodeIfPresent(String.self, forKey: .hours)
         self.phone = try values.decodeIfPresent(String.self, forKey: .phone)
         
-        self.icon = try values.decode(String.self, forKey: .icon)
-        self.coordinate = try values.decode(TRPLocation.self, forKey: .coordinate)
+        self.icon = try values.decodeIfPresent(String.self, forKey: .icon)
+        self.coordinate = try values.decodeIfPresent(TRPLocation.self, forKey: .coordinate)
         
         if let categorys = try values.decodeIfPresent([TRPCategoryInfoModel].self, forKey: .category) {
             category = categorys
