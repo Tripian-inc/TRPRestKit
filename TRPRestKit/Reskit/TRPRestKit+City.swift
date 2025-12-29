@@ -23,6 +23,18 @@ extension TRPRestKit {
         self.completionHandlerWithPagination = completion
         citiesServices(id: nil, limit: limit, autoPagination: isAutoPagination)
     }
+
+    /// Search cities by name with given search term and limit parameters.
+    ///
+    /// - Parameters:
+    ///     - search: Search term to filter cities by name.
+    ///     - limit: Number of city that will be given.
+    ///     - completion: A closer in the form of CompletionHandlerWithPagination will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityInfoModel]** object.
+    public func cities(search: String, limit: Int? = nil, completion: @escaping CompletionHandlerWithPagination) {
+        self.completionHandlerWithPagination = completion
+        citiesServices(id: nil, limit: limit, search: search, autoPagination: false)
+    }
     
     /// Obtain the list of all available shorex cities with given limit, isAutoPagination(Optional) and completionHandler parameters.
     ///
@@ -93,17 +105,19 @@ extension TRPRestKit {
     ///   - url: url that will be returned from Pagination (Optional).
     ///   - location: User's current location (Optional).
     ///   - limit: number of city list to display (Optional).
+    ///   - search: search term to filter cities (Optional).
     ///   - autoPagination: bool value to declare whether pagination is requested or not (Optional).
     private func citiesServices(id: Int? = nil,
                                 url: String? = nil,
                                 location: TRPLocation? = nil,
                                 limit: Int? = nil,
+                                search: String? = nil,
                                 autoPagination: Bool? = true,
                                 isShorex: Bool = false,
                                 isInformation: Bool = false,
                                 isEvents: Bool = false) {
-        
-        let cityService = createCitiesServices(id: id, link: url, location: location, limit: limit, autoPagination: autoPagination, isShorex: isShorex, isInformation: isInformation, isEvents: isEvents)
+
+        let cityService = createCitiesServices(id: id, link: url, location: location, limit: limit, search: search, autoPagination: autoPagination, isShorex: isShorex, isInformation: isInformation, isEvents: isEvents)
         guard let service = cityService else {return}
         if let autoPagination = autoPagination {
             service.isAutoPagination = autoPagination
@@ -140,6 +154,7 @@ extension TRPRestKit {
                                       link: String? = nil,
                                       location: TRPLocation? = nil,
                                       limit: Int? = 1000,
+                                      search: String? = nil,
                                       autoPagination: Bool? = true,
                                       isShorex: Bool = false,
                                       isInformation: Bool = false,
@@ -155,6 +170,7 @@ extension TRPRestKit {
             cityService = TRPCities()
         }
         cityService?.limit = limit
+        cityService?.search = search
         if isShorex {
             cityService?.setForShorex()
         }
