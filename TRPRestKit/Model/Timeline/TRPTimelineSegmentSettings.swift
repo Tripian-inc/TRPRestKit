@@ -208,6 +208,8 @@ public struct TRPTimelineSegmentAdditionalData: Codable {
     public var cancellation: String?
     /// Price of the booked activity
     public var price: Double?
+    /// Duration in minutes
+    public var duration: Double?
 
     public init() {}
 
@@ -243,6 +245,9 @@ public struct TRPTimelineSegmentAdditionalData: Codable {
         }
         if let price = price {
             params["price"] = price
+        }
+        if let duration = duration {
+            params["duration"] = duration
         }
 
         return params.isEmpty ? nil : params
