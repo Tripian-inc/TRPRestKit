@@ -8,19 +8,14 @@
 
 import Foundation
 
-public struct TRPAdditionalDataModel: Decodable {
+public struct TRPAdditionalDataModel: Codable {
     
     public var bookingUrl: String?
-    
-    private enum CodingKeys: String, CodingKey {
-        case bookingUrl
-    }
-    
-    /// Initializes a new object with decoder
-    ///
-    /// - Parameter decoder: Json decoder
-    public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        bookingUrl = try values.decodeIfPresent(String.self, forKey: .bookingUrl)
-    }
+    public var productId: String?
+    public var providerId: Int?
+    public var currency: String?
+    public var version: String?
+    public var tagIds: [Int]?
+    public var tripianPois: [String]?  // veya uygun tip
+    public var price: Double?
 }
