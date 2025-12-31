@@ -25,8 +25,8 @@ public class TRPTimelineSegmentModel: Decodable {
     public var generatedStatus: Int?
     public var answerIds: [Int]?
     public var doNotRecommend: [String]?
-    public var excludePoiIds: [Int]?
-    public var includePoiIds: [Int]?
+    public var excludePoiIds: [String]?
+    public var includePoiIds: [String]?
     public var dayIds: [Int]?
     public var considerWeather: Bool = false
     public var distinctPlan: Bool = false
@@ -65,8 +65,8 @@ public class TRPTimelineSegmentModel: Decodable {
         generatedStatus = try container.decodeIfPresent(Int.self, forKey: .generatedStatus)
         answerIds = try container.decodeIfPresent([Int].self, forKey: .answerIds)
         doNotRecommend = try container.decodeIfPresent([String].self, forKey: .doNotRecommend)
-        excludePoiIds = try container.decodeIfPresent([Int].self, forKey: .excludePoiIds)
-        includePoiIds = try container.decodeIfPresent([Int].self, forKey: .includePoiIds)
+        excludePoiIds = try container.decodeIfPresent([String].self, forKey: .excludePoiIds)
+        includePoiIds = try container.decodeIfPresent([String].self, forKey: .includePoiIds)
         dayIds = try container.decodeIfPresent([Int].self, forKey: .dayIds)
         considerWeather = try container.decodeIfPresent(Bool.self, forKey: .considerWeather) ?? false
         distinctPlan = try container.decodeIfPresent(Bool.self, forKey: .distinctPlan) ?? false

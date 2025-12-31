@@ -38,9 +38,9 @@ public class TRPTimelineSegmentSettings: Codable {
     /// Array of categories you wish to exclude.
     public var doNotRecommend: [String]?
     /// Array of specific points of interest to exclude.
-    public var excludePoiIds: [Int]?
+    public var excludePoiIds: [String]?
     /// Array of specific points of interest to include.
-    public var includePoiIds: [Int]?
+    public var includePoiIds: [String]?
     /// A Int value. If you set 1, trip is not going to generate.
     public var doNotGenerate: Int = 0
     /// Takes into account the hourly weather forecasts for the current day and the next 2 days when set to true

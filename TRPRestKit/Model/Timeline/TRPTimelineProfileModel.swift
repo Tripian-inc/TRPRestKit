@@ -27,7 +27,7 @@ public struct TRPTimelineProfileModel: Decodable {
     public var answerIds = [Int]()
     
     public var doNotRecommend: [String]?
-    public var excludePoiIds: [Int]?
+    public var excludePoiIds: [String]?
     public var excludeHashPois: [String]?
     public var considerWeather: Bool = false
     public var segments: [TRPTimelineSegmentModel]?
@@ -62,7 +62,7 @@ public struct TRPTimelineProfileModel: Decodable {
         
         self.answerIds = try values.decode([Int].self, forKey: .answerIds)
         self.doNotRecommend = try values.decodeIfPresent([String].self, forKey: .doNotRecommend)
-        self.excludePoiIds = try values.decodeIfPresent([Int].self, forKey: .excludePoiIds)
+        self.excludePoiIds = try values.decodeIfPresent([String].self, forKey: .excludePoiIds)
         self.excludeHashPois = try values.decodeIfPresent([String].self, forKey: .excludeHashPois)
         self.considerWeather = try values.decode(Bool.self, forKey: .considerWeather)
         self.segments = try values.decodeIfPresent([TRPTimelineSegmentModel].self, forKey: .segments)
