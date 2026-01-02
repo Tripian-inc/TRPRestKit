@@ -91,6 +91,7 @@ public struct TRPPoiInfoModel: Decodable {
         case mustTries
         case safety
         case offers
+        case additionalData
         case locations
     }
     
@@ -150,7 +151,7 @@ public struct TRPPoiInfoModel: Decodable {
         if let offers = try? values.decodeIfPresent([TRPOfferInfoModel].self, forKey: .offers) {
             self.offers = offers ?? []
         }
-
+        self.additionalData = try values.decodeIfPresent(TRPAdditionalDataModel.self, forKey: .additionalData)
         self.locations = try values.decodeIfPresent([TRPPoiLocationInfoModel].self, forKey: .locations)
     }
 
