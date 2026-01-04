@@ -24,7 +24,7 @@ public class TRPTimelineSettings {
     /// Array of categories you wish to exclude.
     public var doNotRecommend: [String]?
     /// Array of specific points of interest to exclude.
-    public var excludePoiIds: [Int]?
+    public var excludePoiIds: [String]?
     /// Takes into account the hourly weather forecasts for the current day and the next 2 days when set to true
     public var considerWeather: Bool = false
     /// Array of segment profiles.

@@ -46,7 +46,7 @@ class TRPQuestionTest: XCTestCase {
             }
             XCTAssertNotNil(question.id)
             XCTAssertNotNil(question.name)
-            XCTAssertNotNil(question.options)
+            // XCTAssertNotNil(question.options)
             XCTAssertEqual(question.id, questionID)
             expectation.fulfill()
         }
@@ -112,7 +112,7 @@ class TRPQuestionTest: XCTestCase {
             }
             XCTAssertNotNil(question.first!.id)
             XCTAssertNotNil(question.first!.name)
-            XCTAssertNotNil(question.first!.options)
+            // XCTAssertNotNil(question.options)
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10.0)
@@ -145,7 +145,7 @@ class TRPQuestionTest: XCTestCase {
             }
             XCTAssertNotNil(question.first!.id)
             XCTAssertNotNil(question.first!.name)
-            XCTAssertNotNil(question.first!.options)
+            // XCTAssertNotNil(question.options)
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10.0)

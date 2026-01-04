@@ -1,7 +1,70 @@
+# Xcode
 build/
-Carthage/
-/.DS_Store
-.DS_Store
-
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
 xcuserdata/
-/TRPRestKit.xcodeproj/xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace/xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# CocoaPods
+Pods/
+*.xcworkspace
+!default.xcworkspace
+
+# Carthage
+Carthage/
+Cartfile.resolved
+
+# macOS
+.DS_Store
+/.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Other
+*.swp
+*~.nib
+*.tmp
+*.temp
+*.log
+*.orig
+*.rej
+*.o
+*.a
+*.dylib
+*.framework
+!TRPRestKit.framework/
+*.dSYM.zip
+*.dSYM
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.user
+*.userosscache
+*.sln.docstates

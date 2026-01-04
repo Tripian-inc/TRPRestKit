@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import TRPFoundationKit
 public class TRPPoiRefInfoModel: Decodable {
     
     /// An Int value. Unique id of a city.
     public var id: Int
     public var name: String
-    public var coordinate: TRPCoordinateModel?
+    public var coordinate: TRPLocation?
     public var category: [TRPCategoryInfoModel]?
     public var image: TRPImageModel?
    
@@ -32,7 +33,7 @@ public class TRPPoiRefInfoModel: Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
         self.name = try values.decode(String.self, forKey: .name)
-        self.coordinate = try values.decodeIfPresent(TRPCoordinateModel.self, forKey: .coordinate)
+        self.coordinate = try values.decodeIfPresent(TRPLocation.self, forKey: .coordinate)
         self.category = try values.decodeIfPresent([TRPCategoryInfoModel].self, forKey: .category)
         self.image = try values.decodeIfPresent(TRPImageModel.self, forKey: .image)
     }

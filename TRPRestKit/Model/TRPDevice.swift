@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 public struct TRPDevice: Codable {
     
     public var deviceId: String?
@@ -57,6 +59,23 @@ public struct TRPDevice: Codable {
         self.bundleId = bundleId
     }
     
+    /// Convenience initializer that creates a device from current system and TRPClient settings
+    public init() {
+        var uuid = ""
+        if let uuidString = UIDevice.current.identifierForVendor?.uuidString {
+            uuid = uuidString
+        } else {
+            uuid = UUID().uuidString
+        }
+        self.deviceId = uuid
+        self.deviceOs = UIDevice.current.systemName
+        self.osVersion = UIDevice.current.systemVersion
+        self.bundleId = Bundle.main.bundleIdentifier
+        if !TRPClient.shared.firebaseToken.isEmpty {
+            self.firebaseToken = TRPClient.shared.firebaseToken
+        }
+    }
+    
     public func params() -> [String: String]? {
         var params = [String: String]()
         
@@ -68,7 +87,7 @@ public struct TRPDevice: Codable {
             params[CodingKeys.osVersion.rawValue] = osVersion
         }
         
-        if let firebase = firebaseToken {
+        if let firebase = firebaseToken, !firebase.isEmpty {
             params[CodingKeys.firebaseToken.rawValue] = firebase
         }
         

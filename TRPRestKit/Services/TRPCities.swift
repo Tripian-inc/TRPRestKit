@@ -24,6 +24,7 @@ internal class TRPCities: TRPRestServices<TRPCityJsonModel> {
     private var requestType: RequestType = RequestType.allCities
     private var location: TRPLocation?
     public var limit: Int? = 1000
+    public var search: String?
     
     public override init() {}
     
@@ -71,6 +72,9 @@ internal class TRPCities: TRPRestServices<TRPCityJsonModel> {
         }
         if let limit = limit {
             params["limit"] = limit
+        }
+        if let search = search {
+            params["search"] = search
         }
         return params
     }

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "TRPFoundationKit",
+        "repositoryURL": "https://github.com/Tripian-inc/TRPFoundationKit",
+        "state": {
+          "branch": "master",
+          "revision": "20b2799a522ab8520aeb3bd7c9cf7caa060e9dab",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

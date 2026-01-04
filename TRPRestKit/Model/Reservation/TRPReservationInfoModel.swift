@@ -11,7 +11,6 @@ public struct TRPReservationInfoModel: Decodable {
     
     public let id: Int
     public let key: String
-//    public let dynamicValue: TRPGygInfoModel?
     public let provider: String
     public let tripHash: String?
     public let poiID: String?

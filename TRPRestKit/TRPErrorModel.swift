@@ -6,6 +6,8 @@
 //  Copyright © 2025 Evren Yaşar. All rights reserved.
 //
 
+import Foundation
+
 class TRPErrorModel: NSError, @unchecked Sendable {
     private var isAuthError: Bool = false
     

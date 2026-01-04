@@ -98,7 +98,7 @@ public struct TRPAccommodationInfoModel: Decodable {
     public var name: String?
     public var referanceId: String?
     public var address: String?
-    public var coordinate: TRPCoordinateModel
+    public var coordinate: TRPLocation
     
     private enum CodingKeys: String, CodingKey {
         case name
@@ -109,7 +109,7 @@ public struct TRPAccommodationInfoModel: Decodable {
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.coordinate = try values.decode(TRPCoordinateModel.self, forKey: .coordinate)
+        self.coordinate = try values.decode(TRPLocation.self, forKey: .coordinate)
         self.name = try values.decodeIfPresent(String.self, forKey: .name)
         self.referanceId = try values.decodeIfPresent(String.self, forKey: .refId)
         self.address = try values.decodeIfPresent(String.self, forKey: .address)

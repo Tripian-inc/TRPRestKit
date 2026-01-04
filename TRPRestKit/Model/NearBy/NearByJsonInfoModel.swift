@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TRPFoundationKit
 
 /// Indicates alternative of the plan poi.
 public struct TRPStepAlternativeInfoModel: Decodable {
@@ -18,7 +19,7 @@ public struct TRPStepAlternativeInfoModel: Decodable {
     
     public var image: TRPImageModel?
     
-    public var markerCoordinate: TRPCoordinateModel
+    public var markerCoordinate: TRPLocation
     
     public var category: TRPCategoryInfoModel
 
@@ -38,7 +39,7 @@ public struct TRPStepAlternativeInfoModel: Decodable {
         id = try values.decode(Int.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         image = try values.decodeIfPresent(TRPImageModel.self, forKey: .image)
-        markerCoordinate = try values.decode(TRPCoordinateModel.self, forKey: .markerCoordinate)
+        markerCoordinate = try values.decode(TRPLocation.self, forKey: .markerCoordinate)
         category = try values.decode(TRPCategoryInfoModel.self, forKey: .category)
     }
     

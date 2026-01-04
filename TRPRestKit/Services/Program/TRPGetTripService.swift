@@ -28,7 +28,7 @@ internal class TRPGetTripServices: TRPRestServices<TRPGenericParser<TRPTripModel
     }
     
     override func parameters() -> [String : Any]? {
-        var parameters = [String: Any]()
+        let parameters = [String: Any]()
 //        parameters["withOffers"] = "1"
         return parameters
     }

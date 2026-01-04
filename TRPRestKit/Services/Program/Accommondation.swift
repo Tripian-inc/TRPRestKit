@@ -8,12 +8,19 @@
 
 import Foundation
 import TRPFoundationKit
-public struct Accommondation {
+public struct Accommondation: Codable {
     public var refId: String?
     public var name: String?
     public let address: String?
     public let coordinate: TRPLocation
-    
+
+    private enum CodingKeys: String, CodingKey {
+        case refId = "refID"
+        case name
+        case address
+        case coordinate
+    }
+
     public init(refId: String? = nil, name: String? = nil, address: String? = nil, coordinate: TRPLocation) {
         self.refId = refId
         self.name = name

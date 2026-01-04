@@ -46,6 +46,7 @@ internal struct TRPConfig {
         case dailyPlanPoi
         case register
         case guestLogin
+        case lightLogin
         case favorite
         case step
         case companion
@@ -59,6 +60,8 @@ internal struct TRPConfig {
         case optInOffers
         case exportItinerary
         case timelineStep
+        case tourSearch
+        case tourSchedule
         var link: String {
             switch self {
             case .city:
@@ -129,12 +132,18 @@ internal struct TRPConfig {
                 return "shorex-cities"
             case .guestLogin:
                 return "auth/guest-login"
+            case .lightLogin:
+                return "auth/light-register-login"
             case .timeline:
                 return "timeline"
             case .timelineStep:
                 return "timeline/steps"
+            case .tourSearch:
+                return "tour-api/search"
+            case .tourSchedule:
+                return "tour-api/{productId}/schedule"
             }
         }
     }
-    
+
 }

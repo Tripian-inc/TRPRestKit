@@ -19,7 +19,7 @@ import Foundation
 ///  ````
 @objc public class TRPClient: NSObject {
     
-    internal static var shared = TRPClient()
+    public static var shared = TRPClient()
     
     /// Allows link to be shown
     public var monitorUrl = false
@@ -29,14 +29,13 @@ import Foundation
 //    public var isReverseProxy = false
 //    public var reverseProxyURL: String = ""
     
-    internal var enviroment: Environment = .test {
+    internal var enviroment: Environment = .dev {
         didSet {
-            log.i("Enviroment was changed: \(self.enviroment)")
             self.baseUrl = self.enviroment.baseUrl
         }
     }
     
-    internal var baseUrl: BaseUrlCreater = Environment.test.baseUrl
+    internal var baseUrl: BaseUrlCreater = Environment.dev.baseUrl
     
     internal var firebaseToken: String = ""
     
@@ -44,8 +43,9 @@ import Foundation
     
     private override init() {}
     
-    public static func start(enviroment: Environment, apiKey: String) {
+    public static func start(enviroment: Environment, apiKey: String, language: String = "en") {
         TRPClient.shared.enviroment = enviroment
+        TRPClient.shared.language = language
         TRPApiKey.setApiKey(apiKey)
     }
     
@@ -80,6 +80,11 @@ import Foundation
     
     public static func changeLanguage(_ language: String) {
         TRPClient.shared.language = language
+    }
+    
+    /// Returns the current language setting
+    public static func getLanguage() -> String {
+        return TRPClient.shared.language
     }
     
 }
