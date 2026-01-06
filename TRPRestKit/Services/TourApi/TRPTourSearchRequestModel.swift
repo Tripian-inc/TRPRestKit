@@ -21,15 +21,15 @@ public class TRPTourSearchRequestModel {
     public var providerId: Int?
     public var keywords: String?
     public var tagIds: String?
-    public var minPrice: Double?
-    public var maxPrice: Double?
+    public var minPrice: Int?
+    public var maxPrice: Int?
     public var adults: Int?
     public var currency: String?
     public var date: String?
     public var hour: String?
     public var minRating: Double?
-    public var minDuration: Double?
-    public var maxDuration: Double?
+    public var minDuration: Int?
+    public var maxDuration: Int?
     public var lang: String?
     public var offset: Int
     public var limit: Int
@@ -70,15 +70,15 @@ public class TRPTourSearchRequestModel {
         providerId: Int? = nil,
         keywords: String? = nil,
         tagIds: String? = nil,
-        minPrice: Double? = nil,
-        maxPrice: Double? = nil,
+        minPrice: Int? = nil,
+        maxPrice: Int? = nil,
         adults: Int? = nil,
         currency: String? = nil,
         date: String? = nil,
         hour: String? = nil,
         minRating: Double? = nil,
-        minDuration: Double? = nil,
-        maxDuration: Double? = nil,
+        minDuration: Int? = nil,
+        maxDuration: Int? = nil,
         lang: String? = nil,
         offset: Int = 0,
         limit: Int = 30,
