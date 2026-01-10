@@ -34,8 +34,8 @@ public class TRPRestServices<T: Decodable> {
         guard let networkService = network else {return}
         
         networkService.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
-        
-        if let bodyData = bodyDataToJson(bodyParameters()) {
+
+        if let bodyData = bodyDataToJson(bodyParametersWithLang()) {
             networkService.addValue("application/json", forHTTPHeaderField: "Content-Type")
             networkService.addValue("application/json", forHTTPHeaderField: "Accept")
             networkService.add(body: bodyData)
@@ -63,11 +63,16 @@ public class TRPRestServices<T: Decodable> {
     private func createParams() -> [String: Any] {
         var params: [String: Any] = [:]
         var additionalParams = parameters()
-        if additionalParams == nil {
-            additionalParams = ["lang": TRPClient.shared.language]
-        } else {
-            additionalParams?["lang"] = TRPClient.shared.language
+
+        // Only add lang to query params for non-POST requests
+        if requestMode() != .post {
+            if additionalParams == nil {
+                additionalParams = ["lang": TRPClient.shared.language]
+            } else {
+                additionalParams?["lang"] = TRPClient.shared.language
+            }
         }
+
         if let additionalParams = additionalParams {
             params.merge(additionalParams, uniquingKeysWith: {(_, new) in new})
         }
@@ -86,7 +91,23 @@ public class TRPRestServices<T: Decodable> {
         }
         return jsonData
     }
-    
+
+    private func bodyParametersWithLang() -> [String: Any]? {
+        var bodyParams = bodyParameters()
+
+        // Only add lang to body for POST requests
+        if requestMode() == .post {
+            if bodyParams == nil {
+                bodyParams = ["lang": TRPClient.shared.language]
+            } else if bodyParams?["lang"] == nil {
+                // Only add if lang doesn't already exist in body
+                bodyParams?["lang"] = TRPClient.shared.language
+            }
+        }
+
+        return bodyParams
+    }
+
     var isPagination: Bool {
         return false
     }
