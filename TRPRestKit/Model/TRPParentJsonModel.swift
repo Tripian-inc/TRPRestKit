@@ -50,12 +50,12 @@ public class TRPParentJsonModel: Decodable {
 
 /// Controls how many pages the request has.
 public struct TRPPaginationJsonModel: Decodable {
-    
-    var total: Int = 0
-    var count: Int = 0
-    var perPage: Int = 0
-    var currentPage: Int = 0
-    var totalPages: Int = 0
+
+    public var total: Int = 0
+    public var count: Int = 0
+    public var perPage: Int = 0
+    public var currentPage: Int = 0
+    public var totalPages: Int = 0
     var links: TRPPaginationLinkJsonModel?
     
     private enum CodingKeys: String, CodingKey {

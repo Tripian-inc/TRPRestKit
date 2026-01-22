@@ -13,8 +13,8 @@ import Foundation
 /// - continues: pages have shown yet.
 /// - completed: request is completed. Pages were showed.
 public enum Pagination {
-    // Pages have shown yet. Value is a link
-    case continues(String)
+    // Pages have shown yet. Value is pagination info from parent
+    case continues(TRPPaginationJsonModel)
     // request is completed. Pages were showed.
     case completed
 }
