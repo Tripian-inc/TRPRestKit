@@ -193,11 +193,8 @@ public class TRPRestServices<T: Decodable> {
         guard let pagination = parentJson.pagination else {
             return nil
         }
-        if let nextPage = pagination.links?.next {
-            if isAutoPagination {
-                connection(nextPage)
-            }
-            return .continues(nextPage)
+        if pagination.currentPage < pagination.totalPages {
+            return .continues(pagination)
         } else {
             return .completed
         }
