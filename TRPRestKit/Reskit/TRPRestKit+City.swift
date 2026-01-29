@@ -177,6 +177,49 @@ extension TRPRestKit {
         return cityService
     }
     
+    // MARK: - City Resolve Services
+
+    /// Resolve city IDs from coordinates.
+    ///
+    /// - Parameters:
+    ///   - coordinates: Array of TRPLocation objects with lat/lng values.
+    ///   - completion: A closure in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityResolveInfoModel]** object.
+    public func resolveCities(coordinates: [TRPLocation], completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        let items = coordinates.map { ["coordinate": ["lat": $0.lat, "lng": $0.lon]] }
+        cityResolveService(requestItems: items)
+    }
+
+    /// Resolve city IDs from city name and country name pairs.
+    ///
+    /// - Parameters:
+    ///   - cityNames: Array of TRPCityResolveNameRequest objects with cityName and countryName values.
+    ///   - completion: A closure in the form of CompletionHandler will be called after request is completed.
+    /// - Important: Completion Handler is an any object which needs to be converted to **[TRPCityResolveInfoModel]** object.
+    public func resolveCities(cityNames: [TRPCityResolveNameRequest], completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        let items = cityNames.map { $0.toDictionary() }
+        cityResolveService(requestItems: items)
+    }
+
+    private func cityResolveService(requestItems: [[String: Any]]) {
+        let service = TRPCityResolveService(requestItems: requestItems)
+        service.completion = { (result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPGenericParser<[TRPCityResolveInfoModel]>,
+               let data = serviceResult.data {
+                self.postData(result: data)
+                return
+            }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+        }
+        service.connection()
+    }
+
     private func createCityInformationServices(id: Int) {
         let cityService = TRPCityInformation(cityId: id)
         cityService.completion = { (result, error, pagination) in
