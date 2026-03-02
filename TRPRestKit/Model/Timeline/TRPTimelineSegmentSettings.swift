@@ -69,6 +69,8 @@ public class TRPTimelineSegmentSettings: Codable {
     public var dayIds: [Int]?
     /// Type of segment (e.g., "booked_activity", "generated", etc.)
     public var segmentType: String?
+    /// Currency code (e.g., "USD", "EUR")
+    public var currency: String?
     /// Additional data for booked activities or custom segments
     public var additionalData: TRPTimelineSegmentAdditionalData?
     /// Accommodation information (from response)
@@ -85,7 +87,7 @@ public class TRPTimelineSegmentSettings: Codable {
         case answerIds, doNotRecommend, excludePoiIds, includePoiIds
         case doNotGenerate, considerWeather, distinctPlan, available, hash
         case smartRecommendation, activityFreeText, activityIds, excludedActivityIds
-        case generatedStatus, dayIds, segmentType, additionalData
+        case generatedStatus, dayIds, segmentType, currency, additionalData
         case accommodation, destinationAccommodation
     }
     
@@ -174,6 +176,9 @@ public class TRPTimelineSegmentSettings: Codable {
         }
         if let segmentType = segmentType {
             params["segmentType"] = segmentType
+        }
+        if let currency = currency {
+            params["currency"] = currency
         }
         if let additionalData = additionalData, let json = additionalData.json() {
             params["additionalData"] = json
