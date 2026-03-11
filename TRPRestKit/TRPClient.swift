@@ -40,12 +40,15 @@ import Foundation
     internal var firebaseToken: String = ""
     
     internal var language: String = "en"
-    
+
+    internal var currency: String = "USD"
+
     private override init() {}
     
-    public static func start(enviroment: Environment, apiKey: String, language: String = "en") {
+    public static func start(enviroment: Environment, apiKey: String, language: String = "en", currency: String = "USD") {
         TRPClient.shared.enviroment = enviroment
         TRPClient.shared.language = language
+        TRPClient.shared.currency = currency
         TRPApiKey.setApiKey(apiKey)
     }
     
@@ -54,9 +57,10 @@ import Foundation
         TRPApiKey.setApiKey(apiKey)
     }
     
-    public static func start(baseUrl: BaseUrlCreater, apiKey: String, language: String) {
+    public static func start(baseUrl: BaseUrlCreater, apiKey: String, language: String, currency: String = "USD") {
         TRPClient.shared.baseUrl = baseUrl
         TRPClient.shared.language = language
+        TRPClient.shared.currency = currency
         TRPApiKey.setApiKey(apiKey)
     }
     
@@ -86,5 +90,13 @@ import Foundation
     public static func getLanguage() -> String {
         return TRPClient.shared.language
     }
-    
+
+    public static func changeCurrency(_ currency: String) {
+        TRPClient.shared.currency = currency
+    }
+
+    public static func getCurrency() -> String {
+        return TRPClient.shared.currency
+    }
+
 }

@@ -28,7 +28,8 @@ internal class TRPTimelineGetService: TRPRestServices<TRPGenericParser<TRPTimeli
     }
     
     override func parameters() -> [String : Any]? {
-        let parameters = [String: Any]()
+        var parameters = [String: Any]()
+        parameters["currency"] = TRPClient.shared.currency
         return parameters
     }
     

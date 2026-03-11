@@ -35,7 +35,9 @@ public class TRPRestServices<T: Decodable> {
         
         networkService.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
 
-        if let bodyData = bodyDataToJson(bodyParametersWithLang()) {
+        let rawBody = bodyRawData()
+        let dictBody = bodyDataToJson(bodyParametersWithLang())
+        if let bodyData = rawBody ?? dictBody {
             networkService.addValue("application/json", forHTTPHeaderField: "Content-Type")
             networkService.addValue("application/json", forHTTPHeaderField: "Accept")
             networkService.add(body: bodyData)
@@ -168,6 +170,14 @@ public class TRPRestServices<T: Decodable> {
         return paginationController(parentJson: parent)
     }
     
+    /// Returns raw HTTP body data (for array or custom body formats).
+    /// Override this to provide raw body data directly, bypassing dictionary serialization.
+    ///
+    /// - Returns: Raw body data
+    public func bodyRawData() -> Data? {
+        return nil
+    }
+
     /// Returns HTTP body parameters
     ///
     /// - Returns: Body params
