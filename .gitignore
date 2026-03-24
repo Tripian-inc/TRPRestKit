@@ -45,6 +45,10 @@ Icon
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 
+# Claude
+.claude/
+CLAUDE.md
+
 # Other
 *.swp
 *~.nib
@@ -68,3 +72,4 @@ Icon
 *.user
 *.userosscache
 *.sln.docstates
+ANDROID_INTEGRATION_GUIDE.md
