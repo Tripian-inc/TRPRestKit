@@ -58,10 +58,10 @@ public struct TRPBookingProductInfoModel: Decodable {
         case title
         case currency
         case price
-        case priceDescription = "price_description"
+        case priceDescription = "priceDescription"
         case image
         case rating
-        case ratingCount = "rating_count"
+        case ratingCount = "ratingCount"
         case duration
         case info
         case url
