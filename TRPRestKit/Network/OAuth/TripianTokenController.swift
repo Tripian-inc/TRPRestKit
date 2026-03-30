@@ -68,6 +68,10 @@ class TripianTokenController: TokenControllerProtocol {
         UserDefaults.standard.removeObject(forKey: tokenExpiredTime)
         UserDefaults.standard.removeObject(forKey: socialLoggedInTag)
     }
+
+    public func clearToken() {
+        clearDataInUserDefaults()
+    }
     
     func saveSocialLogin() {
         UserDefaults.standard.set(true, forKey: socialLoggedInTag)

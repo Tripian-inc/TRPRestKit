@@ -27,6 +27,8 @@ public enum TRPErrors: Error {
     case someThingWronk(_ message: String)
     case jsonParserError(code: Int)
     case refreshTokenError
+    case refreshTokenInvalid      // 401/403 - Token is permanently invalid
+    case refreshTokenExhausted    // Max retries reached
 }
 
 extension TRPErrors: LocalizedError {
@@ -52,6 +54,10 @@ extension TRPErrors: LocalizedError {
             return NSLocalizedString("\(message)", comment: "")
         case .refreshTokenError:
             return NSLocalizedString("Refresh Token Error", comment: "")
+        case .refreshTokenInvalid:
+            return NSLocalizedString("Refresh token is invalid. Please login again.", comment: "")
+        case .refreshTokenExhausted:
+            return NSLocalizedString("Unable to refresh token after multiple attempts.", comment: "")
         }
     }
 }
@@ -68,6 +74,10 @@ extension TRPErrors: CustomNSError {
         switch self {
         case .httpResult(let code, _, _):
             return code
+        case .refreshTokenInvalid:
+            return 401
+        case .refreshTokenExhausted:
+            return 998
         default:
             return 999
         }
