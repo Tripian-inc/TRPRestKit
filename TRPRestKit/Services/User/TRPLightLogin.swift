@@ -65,10 +65,6 @@ internal class TRPLightLogin: TRPRestServices<TRPLoginJsonModel>  {
         return parameters
     }
     
-    public override func userOAuth() -> Bool {
-        return true
-    }
-    
     public override func requestMode() -> TRPRequestMode {
         return TRPRequestMode.post
     }

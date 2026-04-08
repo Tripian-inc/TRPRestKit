@@ -118,13 +118,6 @@ internal class TRPUserRegister: TRPRestServices<TRPLoginJsonModel> {
         return nil
     }
     
-    
-    
-    
-    public override func userOAuth() -> Bool {
-        return false
-    }
-    
     public override func requestMode() -> TRPRequestMode {
         return TRPRequestMode.post
     }

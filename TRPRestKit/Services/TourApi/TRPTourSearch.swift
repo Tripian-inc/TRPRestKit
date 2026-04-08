@@ -22,7 +22,7 @@ internal class TRPTourSearchService: TRPRestServices<TRPTourSearchJsonModel> {
     }
 
     override func userOAuth() -> Bool {
-        return true
+        return false
     }
 
     override func requestMode() -> TRPRequestMode {

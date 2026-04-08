@@ -36,9 +36,6 @@ internal class TRPSocialLogin: TRPRestServices<TRPGenericParser<TRPSocialLoginIn
     public override func bodyParameters() -> [String: Any]? {
         return socialLoginParameters
     }
-    override func userOAuth() -> Bool {
-        true
-    }
 
 }
 
