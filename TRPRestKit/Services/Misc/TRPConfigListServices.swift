@@ -21,7 +21,4 @@ internal class TRPConfigListServices: TRPRestServices<TRPConfigListParentJsonMod
         params["platform"] = "ios"
         return params
     }
-    override func userOAuth() -> Bool {
-        return true
-    }
 }
