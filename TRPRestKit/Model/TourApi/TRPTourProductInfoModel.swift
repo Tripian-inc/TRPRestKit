@@ -56,6 +56,10 @@ public struct TRPTourProductInfoModel: Decodable {
     public var locations: [TRPTourLocationModel]?
     /// Array of related Tripian POIs
     public var tripianPois: [String]?
+    /// Distance in km from search origin (null if no origin given)
+    public var distanceKm: Double?
+    /// Available time slots for the requested date range
+    public var slots: [TRPTourSlotModel]?
 
     private enum CodingKeys: String, CodingKey {
         case productId = "product_id"
@@ -80,6 +84,8 @@ public struct TRPTourProductInfoModel: Decodable {
         case tags
         case locations
         case tripianPois = "tripian_pois"
+        case distanceKm = "distance_km"
+        case slots
     }
 
     /// Json to Object converter
@@ -111,6 +117,8 @@ public struct TRPTourProductInfoModel: Decodable {
         self.tags = try values.decodeIfPresent([String].self, forKey: .tags)
         self.locations = try values.decodeIfPresent([TRPTourLocationModel].self, forKey: .locations)
         self.tripianPois = try values.decodeIfPresent([String].self, forKey: .tripianPois)
+        self.distanceKm = try values.decodeIfPresent(Double.self, forKey: .distanceKm)
+        self.slots = try values.decodeIfPresent([TRPTourSlotModel].self, forKey: .slots)
     }
 }
 
@@ -137,5 +145,24 @@ public struct TRPTourLocationModel: Decodable {
     private enum CodingKeys: String, CodingKey {
         case lat
         case lon
+    }
+}
+
+/// Tour availability slot model
+public struct TRPTourSlotModel: Decodable {
+    /// Slot date (format: "YYYY-MM-DD")
+    public var date: String?
+    /// Slot start time (format: "HH:mm")
+    public var time: String?
+    /// Slot price (may differ from product base price)
+    public var price: Double?
+    /// Whether the slot is fully refundable
+    public var fullRefund: Bool?
+
+    private enum CodingKeys: String, CodingKey {
+        case date
+        case time
+        case price
+        case fullRefund
     }
 }

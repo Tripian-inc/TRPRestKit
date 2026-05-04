@@ -26,6 +26,7 @@ public class TRPTourSearchRequestModel {
     public var adults: Int?
     public var currency: String?
     public var date: String?
+    public var to: String?
     public var hour: String?
     public var minRating: Double?
     public var minDuration: Int?
@@ -51,7 +52,8 @@ public class TRPTourSearchRequestModel {
     ///   - maxPrice: Maximum price filter
     ///   - adults: Number of adults
     ///   - currency: Currency code (e.g., "usd")
-    ///   - date: Date for the tour (format: "YYYY-MM-DD")
+    ///   - date: Start date for the tour range (format: "YYYY-MM-DD")
+    ///   - to: End date for the tour range (format: "YYYY-MM-DD", optional)
     ///   - hour: Hour for the tour
     ///   - minRating: Minimum rating filter
     ///   - minDuration: Minimum duration in minutes
@@ -75,6 +77,7 @@ public class TRPTourSearchRequestModel {
         adults: Int? = nil,
         currency: String? = nil,
         date: String? = nil,
+        to: String? = nil,
         hour: String? = nil,
         minRating: Double? = nil,
         minDuration: Int? = nil,
@@ -98,6 +101,7 @@ public class TRPTourSearchRequestModel {
         self.adults = adults
         self.currency = currency
         self.date = date
+        self.to = to
         self.hour = hour
         self.minRating = minRating
         self.minDuration = minDuration
@@ -150,6 +154,9 @@ public class TRPTourSearchRequestModel {
         }
         if let date = date {
             params["date"] = date
+        }
+        if let to = to {
+            params["to"] = to
         }
         if let hour = hour {
             params["hour"] = hour
