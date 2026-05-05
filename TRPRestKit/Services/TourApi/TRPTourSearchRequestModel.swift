@@ -21,6 +21,7 @@ public class TRPTourSearchRequestModel {
     public var providerId: Int?
     public var keywords: String?
     public var tagIds: String?
+    public var categories: String?
     public var minPrice: Int?
     public var maxPrice: Int?
     public var adults: Int?
@@ -48,6 +49,7 @@ public class TRPTourSearchRequestModel {
     ///   - providerId: Provider ID to filter results
     ///   - keywords: Search keywords
     ///   - tagIds: Comma-separated tag IDs
+    ///   - categories: Comma-separated category IDs (e.g., "1,2,3")
     ///   - minPrice: Minimum price filter
     ///   - maxPrice: Maximum price filter
     ///   - adults: Number of adults
@@ -72,6 +74,7 @@ public class TRPTourSearchRequestModel {
         providerId: Int? = nil,
         keywords: String? = nil,
         tagIds: String? = nil,
+        categories: String? = nil,
         minPrice: Int? = nil,
         maxPrice: Int? = nil,
         adults: Int? = nil,
@@ -96,6 +99,7 @@ public class TRPTourSearchRequestModel {
         self.providerId = providerId
         self.keywords = keywords
         self.tagIds = tagIds
+        self.categories = categories
         self.minPrice = minPrice
         self.maxPrice = maxPrice
         self.adults = adults
@@ -139,6 +143,9 @@ public class TRPTourSearchRequestModel {
         }
         if let tagIds = tagIds, !tagIds.isEmpty {
             params["tagIds"] = tagIds
+        }
+        if let categories = categories, !categories.isEmpty {
+            params["categories"] = categories
         }
         if let minPrice = minPrice {
             params["minPrice"] = minPrice
