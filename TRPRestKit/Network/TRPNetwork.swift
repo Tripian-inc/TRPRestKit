@@ -149,13 +149,32 @@ public class TRPNetwork {
                     }
                     self.completionHandler?(nil, data)
                 } else {
-                    //Mistake from Server side.
-                    guard let json = object as? JSON else {
-                        self.completionHandler?(TRPErrors.wrongData as NSError, nil)
+                    // Mistake from Server side — preserve HTTP status code in the NSError so
+                    // callers (and SDK retry logic) can detect transient errors (502/503/504)
+                    // regardless of whether the response body is Tripian-formatted JSON.
+                    let httpStatus = httpResponse.statusCode
+
+                    // Tripian-formatted JSON error keeps richer info; trpError.errorCode ==
+                    // httpStatus already (via .httpResult), so casting to NSError preserves it.
+                    if let json = object as? JSON,
+                       let trpError = TRPErrors(json: json, link: "\(url)") {
+                        self.completionHandler?(trpError as NSError, nil)
                         return
                     }
-                    let trpError = TRPErrors(json: json, link: "\(url)") ?? TRPErrors.undefined
-                    self.completionHandler?(trpError as NSError, nil)
+
+                    // Generic / non-Tripian body (HTML, plain text, or non-Tripian JSON):
+                    // build an NSError that exposes the HTTP status code on .code.
+                    let description = HTTPURLResponse.localizedString(forStatusCode: httpStatus)
+                    let nsError = NSError(
+                        domain: TRPErrors.errorDomain,
+                        code: httpStatus,
+                        userInfo: [
+                            NSLocalizedDescriptionKey: description,
+                            "statusCode": httpStatus,
+                            "url": "\(url)"
+                        ]
+                    )
+                    self.completionHandler?(nsError, nil)
                 }
             }
             
