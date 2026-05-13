@@ -71,9 +71,10 @@ extension TRPRestKit {
                     limit: Int? = 25,
                     page: Int? = 1,
                     autoPagination: Bool = false,
+                    sort: String? = nil,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
-        
+
         poiServices(cityId: cityId,
                     search: search,
                     poiIds: poiIds,
@@ -83,10 +84,11 @@ extension TRPRestKit {
                     bounds: bounds,
                     limit: limit,
                     page: page,
-                    autoPagination: autoPagination)
-        
+                    autoPagination: autoPagination,
+                    sort: sort)
+
     }
-    
+
     public func poi(coordinate: TRPLocation,
                     cityId: Int? = nil,
                     search: String? = nil,
@@ -98,9 +100,10 @@ extension TRPRestKit {
                     limit: Int? = 25,
                     page: Int? = 1,
                     autoPagination: Bool = false,
+                    sort: String? = nil,
                     completion: @escaping CompletionHandlerWithPagination) {
         self.completionHandlerWithPagination = completion
-        
+
         poiServices(cityId:cityId,
                     coordinate: coordinate,
                     search: search,
@@ -111,7 +114,8 @@ extension TRPRestKit {
                     bounds: bounds,
                     limit: limit,
                     page: page,
-                    autoPagination: autoPagination)
+                    autoPagination: autoPagination,
+                    sort: sort)
     }
     
     
@@ -148,6 +152,7 @@ extension TRPRestKit {
                              limit: Int? = 25,
                              page: Int? = 1,
                              autoPagination: Bool = false,
+                             sort: String? = nil,
                              url: String? = nil
     ) {
         
@@ -173,8 +178,9 @@ extension TRPRestKit {
         service.poiCategories = poiCategoies
         service.limit = limit ?? 25
         service.page = page ?? 1
-        
-        
+        service.sort = sort
+
+
         service.isAutoPagination = autoPagination
         service.completion = {    (result, error, pagination) in
             if let error = error {

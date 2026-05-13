@@ -23,7 +23,8 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
     var bounds: LocationBounds?
     var limit: Int = 30
     var page: Int = 1
-    
+    var sort: String?
+
     internal override init() {}
     
     override func userOAuth() -> Bool {
@@ -91,7 +92,11 @@ internal class TRPPoiService: TRPRestServices<TRPPoiJsonModel> {
         
         params["limit"] = String(limit)
         params["page"] = String(page)
-        
+
+        if let sort = sort {
+            params["sort"] = sort
+        }
+
         return params
     }
     
