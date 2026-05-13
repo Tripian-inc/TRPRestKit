@@ -215,6 +215,10 @@ public struct TRPTimelineSegmentAdditionalData: Codable {
     public var price: Double?
     /// Currency code (e.g., "USD", "EUR")
     public var currency: String?
+    /// Average user rating (1.0–5.0). Carried from the source product.
+    public var rating: Float?
+    /// Number of ratings backing `rating`.
+    public var ratingCount: Int?
     /// Duration in minutes
     public var duration: Double?
 
@@ -255,6 +259,12 @@ public struct TRPTimelineSegmentAdditionalData: Codable {
         }
         if let currency = currency {
             params["currency"] = currency
+        }
+        if let rating = rating {
+            params["rating"] = rating
+        }
+        if let ratingCount = ratingCount {
+            params["ratingCount"] = ratingCount
         }
         if let duration = duration {
             params["duration"] = duration
