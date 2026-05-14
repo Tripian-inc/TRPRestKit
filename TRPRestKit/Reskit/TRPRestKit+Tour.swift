@@ -77,4 +77,37 @@ extension TRPRestKit {
 
         service.connection()
     }
+
+    /// Look up a single tour product by provider + product ID
+    ///
+    /// - Parameters:
+    ///   - request: Tour product lookup request model (providerId + productId)
+    ///   - completion: Completion handler returning a TRPTourProductInfoModel
+    public func lookupTourProduct(
+        request: TRPTourProductLookupRequestModel,
+        completion: @escaping CompletionHandler
+    ) {
+        self.completionHandler = completion
+        tourProductLookupServices(request: request)
+    }
+
+    private func tourProductLookupServices(request: TRPTourProductLookupRequestModel) {
+        let service = TRPTourProductLookupService(requestModel: request)
+
+        service.completion = { (result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPTourProductLookupJsonModel {
+                if let product = serviceResult.data {
+                    self.postData(result: product, pagination: pagination)
+                    return
+                }
+            }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+        }
+
+        service.connection()
+    }
 }
