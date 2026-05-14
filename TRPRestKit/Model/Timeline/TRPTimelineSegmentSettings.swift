@@ -209,6 +209,9 @@ public struct TRPTimelineSegmentAdditionalData: Codable {
     public var endDatetime: String?
     /// Location coordinate
     public var coordinate: TRPLocation?
+    /// Whether this segment intentionally has no location.
+    /// Defaults to false; legacy payloads without this key decode as false rather than nil.
+    public var isNoLocation: Bool = false
     /// Cancellation policy
     public var cancellation: String?
     /// Price of the booked activity
@@ -223,6 +226,45 @@ public struct TRPTimelineSegmentAdditionalData: Codable {
     public var duration: Double?
 
     public init() {}
+
+    private enum CodingKeys: String, CodingKey {
+        case activityId
+        case bookingId
+        case title
+        case imageUrl
+        case description
+        case startDatetime
+        case endDatetime
+        case coordinate
+        case isNoLocation
+        case cancellation
+        case price
+        case currency
+        case rating
+        case ratingCount
+        case duration
+    }
+
+    /// Custom decoder so `isNoLocation` falls back to `false` when missing
+    /// from legacy payloads instead of failing the whole decode.
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.activityId = try values.decodeIfPresent(String.self, forKey: .activityId)
+        self.bookingId = try values.decodeIfPresent(String.self, forKey: .bookingId)
+        self.title = try values.decodeIfPresent(String.self, forKey: .title)
+        self.imageUrl = try values.decodeIfPresent(String.self, forKey: .imageUrl)
+        self.description = try values.decodeIfPresent(String.self, forKey: .description)
+        self.startDatetime = try values.decodeIfPresent(String.self, forKey: .startDatetime)
+        self.endDatetime = try values.decodeIfPresent(String.self, forKey: .endDatetime)
+        self.coordinate = try values.decodeIfPresent(TRPLocation.self, forKey: .coordinate)
+        self.isNoLocation = try values.decodeIfPresent(Bool.self, forKey: .isNoLocation) ?? false
+        self.cancellation = try values.decodeIfPresent(String.self, forKey: .cancellation)
+        self.price = try values.decodeIfPresent(Double.self, forKey: .price)
+        self.currency = try values.decodeIfPresent(String.self, forKey: .currency)
+        self.rating = try values.decodeIfPresent(Float.self, forKey: .rating)
+        self.ratingCount = try values.decodeIfPresent(Int.self, forKey: .ratingCount)
+        self.duration = try values.decodeIfPresent(Double.self, forKey: .duration)
+    }
 
     public func json() -> [String: Any]? {
         var params: [String: Any] = [:]
@@ -251,6 +293,7 @@ public struct TRPTimelineSegmentAdditionalData: Codable {
         if let coordinate = coordinate {
             params["coordinate"] = coordinate.json()
         }
+        params["isNoLocation"] = isNoLocation
         if let cancellation = cancellation {
             params["cancellation"] = cancellation
         }
