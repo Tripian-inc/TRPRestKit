@@ -18,7 +18,7 @@ internal class TRPTourScheduleAvailabilityService: TRPRestServices<TRPTourSchedu
     }
 
     override func userOAuth() -> Bool {
-        return false
+        return true
     }
 
     override func requestMode() -> TRPRequestMode {
