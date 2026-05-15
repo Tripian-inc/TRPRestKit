@@ -110,4 +110,37 @@ extension TRPRestKit {
 
         service.connection()
     }
+
+    /// Check schedule availability for a list of activities on a given date
+    ///
+    /// - Parameters:
+    ///   - request: Tour schedule availability request model (items + date + optional currency/lang)
+    ///   - completion: Completion handler returning a `TRPTourScheduleAvailabilityDataModel`
+    public func getTourScheduleAvailability(
+        request: TRPTourScheduleAvailabilityRequestModel,
+        completion: @escaping CompletionHandler
+    ) {
+        self.completionHandler = completion
+        tourScheduleAvailabilityServices(request: request)
+    }
+
+    private func tourScheduleAvailabilityServices(request: TRPTourScheduleAvailabilityRequestModel) {
+        let service = TRPTourScheduleAvailabilityService(requestModel: request)
+
+        service.completion = { (result, error, pagination) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPTourScheduleAvailabilityJsonModel {
+                if let availabilityData = serviceResult.data {
+                    self.postData(result: availabilityData, pagination: pagination)
+                    return
+                }
+            }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+        }
+
+        service.connection()
+    }
 }
