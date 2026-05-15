@@ -62,12 +62,15 @@ public struct TRPTourScheduleSlot: Decodable {
     public var price: Double?
     /// Full refund available
     public var fullRefund: Bool?
+    /// Remaining capacity for the slot (populated by `tour-api/schedule-availability`)
+    public var availableCount: Int?
 
     private enum CodingKeys: String, CodingKey {
         case date
         case time
         case price
         case fullRefund
+        case availableCount
     }
 }
 
