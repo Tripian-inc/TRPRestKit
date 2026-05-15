@@ -148,7 +148,7 @@ internal struct TRPConfig {
             case .tourProductLookup:
                 return "tour-api/product-lookup"
             case .tourScheduleAvailability:
-                return "tour-api/schedule-availability"
+                return "tour-api/schedule-bulk"
             case .cityResolve:
                 return "cities/resolve"
             }
