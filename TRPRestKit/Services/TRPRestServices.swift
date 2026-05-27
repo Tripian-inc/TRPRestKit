@@ -34,6 +34,7 @@ public class TRPRestServices<T: Decodable> {
         guard let networkService = network else {return}
         
         networkService.addValue(TRPApiKey.getApiKey(), forHTTPHeaderField: "x-api-key")
+        networkService.addValue("ios-sdk", forHTTPHeaderField: "User-Agent")
 
         let rawBody = bodyRawData()
         let dictBody = bodyDataToJson(bodyParametersWithLang())
