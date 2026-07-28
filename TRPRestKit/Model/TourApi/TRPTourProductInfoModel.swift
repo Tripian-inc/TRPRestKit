@@ -62,10 +62,10 @@ public struct TRPTourProductInfoModel: Decodable {
     public var slots: [TRPTourSlotModel]?
 
     private enum CodingKeys: String, CodingKey {
-        case productId = "product_id"
-        case providerId = "provider_id"
+        case productId
+        case providerId
         case id
-        case cityId = "city_id"
+        case cityId
         case title
         case description
         case url
@@ -74,17 +74,17 @@ public struct TRPTourProductInfoModel: Decodable {
         case currentPrice = "current_price"
         case duration
         case rating
-        case ratingCount = "rating_count"
+        case ratingCount
         case status
         case available
         case version
         case images
-        case locationNames = "location_names"
-        case tagIds = "tag_ids"
+        case locationNames
+        case tagIds
         case tags
         case locations
-        case tripianPois = "tripian_pois"
-        case distanceKm = "distance_km"
+        case tripianPois
+        case distanceKm
         case slots
     }
 

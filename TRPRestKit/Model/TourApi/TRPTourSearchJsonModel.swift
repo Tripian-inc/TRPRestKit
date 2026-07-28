@@ -71,8 +71,8 @@ public struct TRPTourFacetModel: Decodable {
         case source
         case categories
         case features
-        case priceRange = "price_range"
-        case durationRange = "duration_range"
+        case priceRange
+        case durationRange
     }
 }
 

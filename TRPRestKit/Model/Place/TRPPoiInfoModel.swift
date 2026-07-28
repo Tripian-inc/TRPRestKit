@@ -45,7 +45,10 @@ public struct TRPPoiInfoModel: Decodable {
     public var coordinate: TRPLocation?
     
     public var bookings: [TRPBookingInfoModel]?
-    
+
+    /// A Bool value. Indicates the poi has bookable products, fetched separately via tour search.
+    public var hasBookings: Bool?
+
     /// A TRPCategoryInfoModel array. A poi can have multiple categories.
     public var category: [TRPCategoryInfoModel] = []
     public var tags: [String]? = []
@@ -83,6 +86,7 @@ public struct TRPPoiInfoModel: Decodable {
         case imageOwner
         case gallery
         case bookings
+        case hasBookings
         case tags
         case attention
         case closed
@@ -134,9 +138,11 @@ public struct TRPPoiInfoModel: Decodable {
         }catch let error {
             print("Booking Error \(error)")
         }
-        
+
+        self.hasBookings = try values.decodeIfPresent(Bool.self, forKey: .hasBookings)
+
        // self.booking = try values.decodeIfPresent([TRPBookingInfoModel].self, forKey:.booking)
-        
+
         self.tags = try values.decodeIfPresent([String].self, forKey: .tags)
         
         self.attention = try values.decodeIfPresent(String.self, forKey: .attention)

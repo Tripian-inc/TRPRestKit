@@ -19,6 +19,7 @@ public class TRPTourSearchRequestModel {
     public var lng: Double?
     public var instantAvailability: Int?
     public var providerId: Int?
+    public var poiId: String?
     public var keywords: String?
     public var tagIds: String?
     public var categories: String?
@@ -47,6 +48,7 @@ public class TRPTourSearchRequestModel {
     ///   - lng: Longitude coordinate (optional)
     ///   - instantAvailability: Filter for instant availability (1 = yes, 0 = no)
     ///   - providerId: Provider ID to filter results
+    ///   - poiId: Tripian POI ID; restricts results to the products attached to that POI
     ///   - keywords: Search keywords
     ///   - tagIds: Comma-separated tag IDs
     ///   - categories: Comma-separated category IDs (e.g., "1,2,3")
@@ -72,6 +74,7 @@ public class TRPTourSearchRequestModel {
         lng: Double? = nil,
         instantAvailability: Int? = nil,
         providerId: Int? = nil,
+        poiId: String? = nil,
         keywords: String? = nil,
         tagIds: String? = nil,
         categories: String? = nil,
@@ -97,6 +100,7 @@ public class TRPTourSearchRequestModel {
         self.lng = lng
         self.instantAvailability = instantAvailability
         self.providerId = providerId
+        self.poiId = poiId
         self.keywords = keywords
         self.tagIds = tagIds
         self.categories = categories
@@ -137,6 +141,9 @@ public class TRPTourSearchRequestModel {
         }
         if let providerId = providerId {
             params["providerId"] = providerId
+        }
+        if let poiId = poiId, !poiId.isEmpty {
+            params["poiId"] = poiId
         }
         if let keywords = keywords, !keywords.isEmpty {
             params["keywords"] = keywords
