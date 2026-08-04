@@ -35,24 +35,44 @@ public struct TRPLanguagesInfoModel: Codable {
     }
 }
 
-/// Response of `misc/frontend-translationsv2`, which returns the translations of
-/// the requested `lang` only instead of every available language.
+/// Parent JSON parser model for `misc/frontend-translationsv2`
+public class TRPLanguagesV2JsonModel: TRPParentJsonModel {
+
+    public var data: TRPLanguagesV2InfoModel?
+
+    private enum CodingKeys: String, CodingKey {
+        case data
+    }
+
+    required public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.data = try values.decodeIfPresent(TRPLanguagesV2InfoModel.self, forKey: .data)
+        try super.init(from: decoder)
+    }
+}
+
+/// Data of `misc/frontend-translationsv2`. Unlike v1, `translations` carries the
+/// requested `lang` only, still keyed by its language code.
 public struct TRPLanguagesV2InfoModel: Codable {
     public let translations: [String: Any]
+    public let langCodes: [TRPLanguagesLangCodeModel]
 
     private enum CodingKeys: String, CodingKey {
         case translations
+        case langCodes
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let translationsData = try container.decode([String: AnyCodable].self, forKey: .translations)
         self.translations = translationsData.mapValues { $0.value }
+        self.langCodes = try container.decodeIfPresent([TRPLanguagesLangCodeModel].self, forKey: .langCodes) ?? []
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(translations.mapValues { AnyCodable($0) }, forKey: .translations)
+        try container.encode(langCodes, forKey: .langCodes)
     }
 }
 
