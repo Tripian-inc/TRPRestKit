@@ -22,7 +22,7 @@ internal class TRPLanguagesServices: TRPRestServices<TRPLanguagesInfoModel> {
 
 }
 
-internal class TRPLanguagesV2Services: TRPRestServices<TRPLanguagesV2InfoModel> {
+internal class TRPLanguagesV2Services: TRPRestServices<TRPLanguagesV2JsonModel> {
 
     internal override init() {}
 

@@ -320,11 +320,12 @@ extension TRPRestKit {
                 self.postError(error: error)
                 return
             }
-            if let serviceResult = result as? TRPLanguagesV2InfoModel {
-                self.postData(result: serviceResult)
-            } else {
-                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            if let serviceResult = result as? TRPLanguagesV2JsonModel,
+               let translations = serviceResult.data {
+                self.postData(result: translations)
+                return
             }
+            self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
         }
         languagesService.connection()
     }
