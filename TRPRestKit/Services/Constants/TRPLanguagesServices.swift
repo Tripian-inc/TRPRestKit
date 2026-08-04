@@ -19,5 +19,19 @@ internal class TRPLanguagesServices: TRPRestServices<TRPLanguagesInfoModel> {
     override func requestMode() -> TRPRequestMode {
         return .get
     }
-    
+
+}
+
+internal class TRPLanguagesV2Services: TRPRestServices<TRPLanguagesV2InfoModel> {
+
+    internal override init() {}
+
+    override func path() -> String {
+        return "misc/frontend-translationsv2"
+    }
+
+    override func requestMode() -> TRPRequestMode {
+        return .get
+    }
+
 }

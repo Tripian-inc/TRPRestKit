@@ -35,6 +35,27 @@ public struct TRPLanguagesInfoModel: Codable {
     }
 }
 
+/// Response of `misc/frontend-translationsv2`, which returns the translations of
+/// the requested `lang` only instead of every available language.
+public struct TRPLanguagesV2InfoModel: Codable {
+    public let translations: [String: Any]
+
+    private enum CodingKeys: String, CodingKey {
+        case translations
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let translationsData = try container.decode([String: AnyCodable].self, forKey: .translations)
+        self.translations = translationsData.mapValues { $0.value }
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(translations.mapValues { AnyCodable($0) }, forKey: .translations)
+    }
+}
+
 public struct TRPLanguagesLangCodeModel: Codable {
     public let value: String
     public let label: String

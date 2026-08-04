@@ -305,5 +305,28 @@ extension TRPRestKit {
         }
         langugaesService.connection()
     }
+
+    /// Fetches the translations of the current `TRPClient` language only.
+    /// Result is a `TRPLanguagesV2InfoModel`.
+    public func getFrontendLanguagesV2(completion: @escaping CompletionHandler) {
+        self.completionHandler = completion
+        languagesV2Services()
+    }
+
+    private func languagesV2Services() {
+        let languagesService = TRPLanguagesV2Services()
+        languagesService.completion = { (result, error, _) in
+            if let error = error {
+                self.postError(error: error)
+                return
+            }
+            if let serviceResult = result as? TRPLanguagesV2InfoModel {
+                self.postData(result: serviceResult)
+            } else {
+                self.postError(error: TRPErrors.emptyDataOrParserError as NSError)
+            }
+        }
+        languagesService.connection()
+    }
 }
 
