@@ -84,12 +84,6 @@
 		6BF12C472EFEF0F7001FE5E8 /* TRPTourSearchJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF12C452EFEF0F7001FE5E8 /* TRPTourSearchJsonModel.swift */; };
 		6BF12C482EFEF0F7001FE5E8 /* TRPTourSearchRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF12C462EFEF0F7001FE5E8 /* TRPTourSearchRequestModel.swift */; };
 		6BF12C492EFEF0F7001FE5E8 /* TRPTourProductInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF12C442EFEF0F7001FE5E8 /* TRPTourProductInfoModel.swift */; };
-		AA01B11C2F0F0001001FE5E8 /* TRPTourProductLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02B11C2F0F0001001FE5E8 /* TRPTourProductLookup.swift */; };
-		AA03B11C2F0F0001001FE5E8 /* TRPTourProductLookupRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA04B11C2F0F0001001FE5E8 /* TRPTourProductLookupRequestModel.swift */; };
-		AA05B11C2F0F0001001FE5E8 /* TRPTourProductLookupJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA06B11C2F0F0001001FE5E8 /* TRPTourProductLookupJsonModel.swift */; };
-		AA10B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityService.swift */; };
-		AA12B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA13B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityRequestModel.swift */; };
-		AA14B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA15B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityJsonModel.swift */; };
 		6BF12C4B2EFEF206001FE5E8 /* TRPPoiLocationInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF12C4A2EFEF206001FE5E8 /* TRPPoiLocationInfoModel.swift */; };
 		783A137F22F0339D00952CA2 /* TRPConstantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */; };
 		783A138222F039FC00952CA2 /* TRPConstantsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A138122F039FC00952CA2 /* TRPConstantsServices.swift */; };
@@ -100,6 +94,12 @@
 		78C448F5237C35C000E1DD7B /* TRPLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C448F4237C35C000E1DD7B /* TRPLoginTest.swift */; };
 		78C448F7237C35FA00E1DD7B /* TRPDailyPlanTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C448F6237C35FA00E1DD7B /* TRPDailyPlanTest.swift */; };
 		78C448FA237C363B00E1DD7B /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C448F8237C363A00E1DD7B /* XCTestCase+Extensions.swift */; };
+		AA01B11C2F0F0001001FE5E8 /* TRPTourProductLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02B11C2F0F0001001FE5E8 /* TRPTourProductLookup.swift */; };
+		AA03B11C2F0F0001001FE5E8 /* TRPTourProductLookupRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA04B11C2F0F0001001FE5E8 /* TRPTourProductLookupRequestModel.swift */; };
+		AA05B11C2F0F0001001FE5E8 /* TRPTourProductLookupJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA06B11C2F0F0001001FE5E8 /* TRPTourProductLookupJsonModel.swift */; };
+		AA10B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityService.swift */; };
+		AA12B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA13B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityRequestModel.swift */; };
+		AA14B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA15B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityJsonModel.swift */; };
 		B205CB5424214F80001F4B5A /* TRPDeleteUserTripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B205CB5324214F80001F4B5A /* TRPDeleteUserTripInfo.swift */; };
 		B20BBAEB213046CB00DEAA3E /* TRPLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20BBAEA213046CB00DEAA3E /* TRPLogin.swift */; };
 		B20CD9C921357C0800497ED3 /* TRPGetProgramJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20CD9C821357C0800497ED3 /* TRPGetProgramJsonModel.swift */; };
@@ -317,12 +317,6 @@
 		6BF12C442EFEF0F7001FE5E8 /* TRPTourProductInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourProductInfoModel.swift; sourceTree = "<group>"; };
 		6BF12C452EFEF0F7001FE5E8 /* TRPTourSearchJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourSearchJsonModel.swift; sourceTree = "<group>"; };
 		6BF12C462EFEF0F7001FE5E8 /* TRPTourSearchRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourSearchRequestModel.swift; sourceTree = "<group>"; };
-		AA02B11C2F0F0001001FE5E8 /* TRPTourProductLookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourProductLookup.swift; sourceTree = "<group>"; };
-		AA04B11C2F0F0001001FE5E8 /* TRPTourProductLookupRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourProductLookupRequestModel.swift; sourceTree = "<group>"; };
-		AA06B11C2F0F0001001FE5E8 /* TRPTourProductLookupJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourProductLookupJsonModel.swift; sourceTree = "<group>"; };
-		AA11B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourScheduleAvailabilityService.swift; sourceTree = "<group>"; };
-		AA13B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourScheduleAvailabilityRequestModel.swift; sourceTree = "<group>"; };
-		AA15B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourScheduleAvailabilityJsonModel.swift; sourceTree = "<group>"; };
 		6BF12C4A2EFEF206001FE5E8 /* TRPPoiLocationInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPPoiLocationInfoModel.swift; sourceTree = "<group>"; };
 		783A137E22F0339D00952CA2 /* TRPConstantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsModel.swift; sourceTree = "<group>"; };
 		783A138122F039FC00952CA2 /* TRPConstantsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPConstantsServices.swift; sourceTree = "<group>"; };
@@ -333,6 +327,12 @@
 		78C448F4237C35C000E1DD7B /* TRPLoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLoginTest.swift; sourceTree = "<group>"; };
 		78C448F6237C35FA00E1DD7B /* TRPDailyPlanTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDailyPlanTest.swift; sourceTree = "<group>"; };
 		78C448F8237C363A00E1DD7B /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		AA02B11C2F0F0001001FE5E8 /* TRPTourProductLookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourProductLookup.swift; sourceTree = "<group>"; };
+		AA04B11C2F0F0001001FE5E8 /* TRPTourProductLookupRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourProductLookupRequestModel.swift; sourceTree = "<group>"; };
+		AA06B11C2F0F0001001FE5E8 /* TRPTourProductLookupJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourProductLookupJsonModel.swift; sourceTree = "<group>"; };
+		AA11B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourScheduleAvailabilityService.swift; sourceTree = "<group>"; };
+		AA13B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourScheduleAvailabilityRequestModel.swift; sourceTree = "<group>"; };
+		AA15B11C2F0F0001001FE5E8 /* TRPTourScheduleAvailabilityJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPTourScheduleAvailabilityJsonModel.swift; sourceTree = "<group>"; };
 		B205CB5324214F80001F4B5A /* TRPDeleteUserTripInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPDeleteUserTripInfo.swift; sourceTree = "<group>"; };
 		B20BBAEA213046CB00DEAA3E /* TRPLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPLogin.swift; sourceTree = "<group>"; };
 		B20CD9C821357C0800497ED3 /* TRPGetProgramJsonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRPGetProgramJsonModel.swift; sourceTree = "<group>"; };
@@ -472,7 +472,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		6BF12C7E2EFF27DB001FE5E8 /* Reskit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Reskit; sourceTree = "<group>"; };
+		6BF12C7E2EFF27DB001FE5E8 /* Reskit */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = Reskit;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1669,12 +1679,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(SRCROOT)/../TripianFrameworks/",
-					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/TestServerInfo.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1768,12 +1775,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(SRCROOT)/../TripianFrameworks/",
-					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/TestServerInfo.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1799,6 +1803,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LKU8459YDL;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1883,7 +1888,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1968,12 +1973,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(SRCROOT)/../TripianFrameworks/",
-					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1984,6 +1986,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tripian.TRPRestKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2006,12 +2009,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(SRCROOT)/../TripianFrameworks/",
-					"$(SRCROOT)/../ModularIOS/TripianFrameworks/",
 				);
 				INFOPLIST_FILE = TRPRestKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2049,6 +2049,7 @@
 					"@loader_path/Frameworks",
 				);
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.evrenYasar.TRPRestKitiOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
