@@ -31,6 +31,8 @@ internal class TRPUserFeedbackJsonModel: TRPParentJsonModel {
 
 /// This model provides you information of Favorites Poi.
 public struct TRPUserFeedbackInfoModel: Decodable {
+    public var id: String?
+    public var subjectTitle: String?
     
     public var subjectId: Int
     public var desc: String
@@ -43,6 +45,8 @@ public struct TRPUserFeedbackInfoModel: Decodable {
     public var tripHash: String?
     
     private enum CodingKeys: String, CodingKey {
+        case id
+        case subjectTitle = "subject_title"
         case poiId = "poi_id"
         case subjectId = "subject_id"
         case subjectType = "subject_type"
@@ -58,6 +62,8 @@ public struct TRPUserFeedbackInfoModel: Decodable {
     /// - Parameter decoder: Json Decoder Object
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try? values.decodeIfPresent(String.self, forKey: .id)
+        self.subjectTitle = try? values.decodeIfPresent(String.self, forKey: .subjectTitle)
         self.subjectId = try values.decode(Int.self, forKey: .subjectId)
         self.desc = try values.decode(String.self, forKey: .desc)
         self.isRead = try values.decode(Bool.self, forKey: .isRead)
@@ -75,12 +81,23 @@ public class TRPUserFeedbackReplyModel: NSObject, Decodable {
     public var sender: String
     public var reply: String
     public var createdAt: String
+    public var isRead: Bool?
     
     /// Tag matcher
     private enum CodingKeys: String, CodingKey {
         case sender
+        case isRead = "is_read"
         case reply
         case createdAt = "created_at"
     }
-    
+
+    /// `isRead` is optional and never fails the decode, so a reply without it or with an unexpected value still decodes.
+    public required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.sender = try values.decode(String.self, forKey: .sender)
+        self.reply = try values.decode(String.self, forKey: .reply)
+        self.createdAt = try values.decode(String.self, forKey: .createdAt)
+        self.isRead = try? values.decodeIfPresent(Bool.self, forKey: .isRead)
+        super.init()
+    }
 }

@@ -65,6 +65,11 @@ internal struct TRPConfig {
         case tourProductLookup
         case tourScheduleAvailability
         case cityResolve
+        case cruises
+        case feedbacks
+        case feedbackReply
+        case notificationSettings
+        case topTenPois
         var link: String {
             switch self {
             case .city:
@@ -151,6 +156,16 @@ internal struct TRPConfig {
                 return "tour-api/schedule-bulk"
             case .cityResolve:
                 return "cities/resolve"
+            case .cruises:
+                return "cruises"
+            case .feedbacks:
+                return "feedbacks"
+            case .feedbackReply:
+                return "feedback/reply"
+            case .notificationSettings:
+                return "notification/settings"
+            case .topTenPois:
+                return "top10-pois"
             }
         }
     }
