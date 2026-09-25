@@ -1,19 +1,49 @@
 name: CI
 
-on: 
+on:
   push:
-    branches: 
-      - master
-      - documentation_rest_kit_in_rest_kit_swift
+    branches: [master]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
-
-    runs-on: macOS-latest
-
+  test:
+    runs-on: macos-26
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
     steps:
-    - uses: actions/checkout@v1
-    - name: Run Unit Test
-      run: xcodebuild -project 'TRPRestKit.xcodeproj' -scheme 'TRPRestKitiOS.Tests' -destination 'platform=iOS Simulator, name=iPhone 8' test | xcpretty
-    - name: Run a multi-line script
-      run: xcodebuild -project 'TRPRestKit.xcodeproj' -scheme 'TRPRestKit' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO | xcpretty
+      - uses: actions/checkout@v4
+
+      - name: Build the package rather than the legacy project
+        run: rm -rf TRPRestKit.xcodeproj
+
+      - name: Pick a simulator
+        run: |
+          udid=$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          devices = json.load(sys.stdin)["devices"]
+          runtimes = sorted((r for r in devices if "iOS" in r), reverse=True)
+          print(next(d["udid"] for r in runtimes for d in devices[r] if d["name"].startswith("iPhone")))
+          ')
+          echo "SIMULATOR_UDID=$udid" >> "$GITHUB_ENV"
+
+      - name: Test
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -scheme TRPRestKit \
+            -destination "id=$SIMULATOR_UDID" \
+            -resultBundlePath TestResults.xcresult \
+            | tee xcodebuild.log | grep -E "error:|failed|Executed|\*\* TEST"
+
+      - name: Upload the result bundle
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults
+          path: TestResults.xcresult
