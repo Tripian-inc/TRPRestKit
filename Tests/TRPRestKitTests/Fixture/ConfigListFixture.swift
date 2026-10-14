@@ -11,7 +11,7 @@ extension Fixture {
           "data": {
             "apiKey": "REDACTED_32",
             "whiteLabels": {
-              "reverseProxyUrl": "https://5emjjgg3z0.execute-api.eu-west-1.amazonaws.com",
+              "reverseProxyUrl": "https://example.execute-api.eu-west-1.amazonaws.com",
               "brandName": "Cruise Genie",
               "cookieConsentUrl": "",
               "brandUrl": "",
@@ -63,7 +63,7 @@ extension Fixture {
               "providers": [],
               "cognito": {
                 "clientId": "REDACTED_26",
-                "domain": "dev-ripianone",
+                "domain": "example-domain",
                 "region": "eu-west-1",
                 "identityProviders": [
                   "Google",
@@ -196,7 +196,7 @@ extension Fixture {
             "androidVersionName": "",
             "aiSupport": false
           },
-          "UUID": "d0f1a1837a944cc89e6055fa25a6faf9"
+          "UUID": "00000000000000000000000000000000"
         }
         """#
 }

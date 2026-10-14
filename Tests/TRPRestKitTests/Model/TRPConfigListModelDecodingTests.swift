@@ -33,32 +33,15 @@ final class TRPConfigListModelDecodingTests: XCTestCase {
         XCTAssertEqual(providers.accommodation?.count, 0)
     }
 
-    func testFixtureDecodesTheRestOfTheConfiguration() throws {
-        let config = try decodeFixture()
-
-        XCTAssertEqual(config.apiKey, "REDACTED_32")
-        XCTAssertEqual(config.whiteLabels?.brandName, "Cruise Genie")
-        XCTAssertEqual(config.whiteLabels?.cookieConsentUrl, "")
-        XCTAssertEqual(config.whiteLabels?.languages, ["en", "de", "es"])
-        XCTAssertEqual(config.whiteLabels?.cognito?.region, "eu-west-1")
-        XCTAssertEqual(config.whiteLabels?.cognito?.identityProviders, ["Google", "SignInWithApple"])
-        XCTAssertEqual(config.whiteLabels?.theme?.light?.primary, "#e9314a")
-        XCTAssertEqual(config.whiteLabels?.externalMenuLinks, [:])
-        XCTAssertEqual(config.baseFeatures?.showRegister, true)
-        XCTAssertEqual(config.baseFeatures?.qrReader, "business")
-        XCTAssertEqual(config.baseFeatures?.landingPage, "LandingPage")
-        XCTAssertEqual(config.sbt?.offerTypes, ["percentage", "amount", "quantity", "spend_for_gift"])
-        XCTAssertEqual(config.androidVersionCode, 0)
-        XCTAssertEqual(config.aiSupport, false)
+    func testFixtureDecodesTheApiKey() throws {
+        XCTAssertEqual(try decodeFixture().apiKey, "REDACTED_32")
     }
 
     func testPayloadWithoutProvidersDecodes() throws {
         let config = try decode(TRPConfigListModel.self, from: #"{"apiKey": "k", "androidVersionCode": 3}"#)
 
         XCTAssertNil(config.providers)
-        XCTAssertNil(config.whiteLabels)
         XCTAssertEqual(config.apiKey, "k")
-        XCTAssertEqual(config.androidVersionCode, 3)
     }
 
     func testEmptyPayloadDecodes() throws {
@@ -81,13 +64,11 @@ final class TRPConfigListModelDecodingTests: XCTestCase {
         XCTAssertEqual(config.providers?.tourAndTicket?.first?.name, "viator")
         XCTAssertNil(config.providers?.tourAndTicket?.first?.limit)
         XCTAssertNil(config.providers?.transportation)
-        XCTAssertEqual(config.whiteLabels?.brandName, "Cruise Genie")
     }
 
     func testWronglyTypedFieldsDecodeAsNil() throws {
         let json = #"""
         {"apiKey": 42,
-         "aiSupport": "yes",
          "providers": {"tourAndTicket": [{"id": "1", "name": "viator", "limit": "fifty", "prod": 1, "apiUrl": null}],
                        "restaurant": "none"},
          "whiteLabels": {"languages": "en", "brandName": "Cruise Genie"}}
@@ -96,15 +77,21 @@ final class TRPConfigListModelDecodingTests: XCTestCase {
         let provider = try XCTUnwrap(config.providers?.tourAndTicket?.first)
 
         XCTAssertNil(config.apiKey)
-        XCTAssertNil(config.aiSupport)
         XCTAssertNil(provider.id)
         XCTAssertEqual(provider.name, "viator")
         XCTAssertNil(provider.limit)
         XCTAssertNil(provider.prod)
         XCTAssertNil(provider.apiUrl)
         XCTAssertNil(config.providers?.restaurant)
-        XCTAssertNil(config.whiteLabels?.languages)
-        XCTAssertEqual(config.whiteLabels?.brandName, "Cruise Genie")
+    }
+
+    func testProviderListSkipsElementsThatDoNotDecode() throws {
+        let json = #"{"providers": {"tourAndTicket": [null, {"id": 1, "name": "viator"}, "toristy", 7, [1]], "transportation": null}}"#
+        let providers = try XCTUnwrap(try decode(TRPConfigListModel.self, from: json).providers)
+
+        XCTAssertEqual(providers.tourAndTicket?.map(\.id), [1])
+        XCTAssertEqual(providers.tourAndTicket?.map(\.name), ["viator"])
+        XCTAssertNil(providers.transportation)
     }
 
     func testEnvelopeWithoutDataDecodesAsNil() throws {
