@@ -70,6 +70,7 @@ internal struct TRPConfig {
         case feedbackReply
         case notificationSettings
         case topTenPois
+        case configList
         var link: String {
             switch self {
             case .city:
@@ -166,6 +167,8 @@ internal struct TRPConfig {
                 return "notification/settings"
             case .topTenPois:
                 return "top10-pois"
+            case .configList:
+                return "misc/config-list"
             }
         }
     }
