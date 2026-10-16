@@ -9,18 +9,23 @@ import Foundation
 
 /// The platform configuration `misc/config-list` answers with, narrowed to what the app reads.
 /// A missing or wrongly typed field decodes as nil and unknown keys are ignored.
+/// `mapboxAccessToken` and `googlePlacesApiKey` are the map and places credentials of the customer the api key belongs to.
 public struct TRPConfigListModel: Codable {
     public let apiKey: String?
     public let providers: TRPConfigProvidersModel?
+    public let mapboxAccessToken: String?
+    public let googlePlacesApiKey: String?
 
     private enum CodingKeys: String, CodingKey {
-        case apiKey, providers
+        case apiKey, providers, mapboxAccessToken, googlePlacesApiKey
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         apiKey = container.lenient(String.self, forKey: .apiKey)
         providers = container.lenient(TRPConfigProvidersModel.self, forKey: .providers)
+        mapboxAccessToken = container.lenient(String.self, forKey: .mapboxAccessToken)
+        googlePlacesApiKey = container.lenient(String.self, forKey: .googlePlacesApiKey)
     }
 }
 

@@ -10,6 +10,8 @@ extension Fixture {
           "message": "Success",
           "data": {
             "apiKey": "REDACTED_32",
+            "mapboxAccessToken": "REDACTED_40",
+            "googlePlacesApiKey": "REDACTED_39",
             "whiteLabels": {
               "reverseProxyUrl": "https://example.execute-api.eu-west-1.amazonaws.com",
               "brandName": "Cruise Genie",

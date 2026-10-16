@@ -49,6 +49,38 @@ final class TRPConfigListModelDecodingTests: XCTestCase {
 
         XCTAssertNil(config.apiKey)
         XCTAssertNil(config.providers)
+        XCTAssertNil(config.mapboxAccessToken)
+        XCTAssertNil(config.googlePlacesApiKey)
+    }
+
+    func testFixtureDecodesTheMapboxAndGooglePlacesCredentials() throws {
+        let config = try decodeFixture()
+
+        XCTAssertEqual(config.mapboxAccessToken, "REDACTED_40")
+        XCTAssertEqual(config.googlePlacesApiKey, "REDACTED_39")
+    }
+
+    func testMapboxAndGooglePlacesCredentialsAreNilWhenMissing() throws {
+        let config = try decode(TRPConfigListModel.self, from: #"{"apiKey": "k"}"#)
+
+        XCTAssertNil(config.mapboxAccessToken)
+        XCTAssertNil(config.googlePlacesApiKey)
+    }
+
+    func testMapboxAndGooglePlacesCredentialsAreNilWhenNull() throws {
+        let json = #"{"mapboxAccessToken": null, "googlePlacesApiKey": null}"#
+        let config = try decode(TRPConfigListModel.self, from: json)
+
+        XCTAssertNil(config.mapboxAccessToken)
+        XCTAssertNil(config.googlePlacesApiKey)
+    }
+
+    func testMapboxAndGooglePlacesCredentialsAreNilWhenWronglyTyped() throws {
+        let json = #"{"mapboxAccessToken": 123, "googlePlacesApiKey": {"token": "x"}}"#
+        let config = try decode(TRPConfigListModel.self, from: json)
+
+        XCTAssertNil(config.mapboxAccessToken)
+        XCTAssertNil(config.googlePlacesApiKey)
     }
 
     func testUnknownKeysAreIgnored() throws {
