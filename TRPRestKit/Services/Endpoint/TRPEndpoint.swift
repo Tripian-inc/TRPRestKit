@@ -56,6 +56,8 @@ internal enum TRPEndpoint {
 
     case topTenPois(cityId: Int, poiCategories: [Int]?)
 
+    case configList(platform: String)
+
     var path: String {
         typealias Call = TRPConfig.ApiCall
         switch self {
@@ -89,6 +91,7 @@ internal enum TRPEndpoint {
         case .markFeedbackRead(let feedbackId): return "\(Call.feedbacks.link)/\(feedbackId)"
         case .replyFeedback: return Call.feedbackReply.link
         case .topTenPois: return Call.topTenPois.link
+        case .configList: return Call.configList.link
         }
     }
 
@@ -108,10 +111,10 @@ internal enum TRPEndpoint {
         }
     }
 
-    /// Login, registration and password reset are made before there is a session to send.
+    /// Login, registration, password reset and the platform configuration are made before there is a session to send.
     var requiresAuth: Bool {
         switch self {
-        case .login, .guestLogin, .register, .requestPasswordReset, .resetPassword:
+        case .login, .guestLogin, .register, .requestPasswordReset, .resetPassword, .configList:
             return false
         default:
             return true
@@ -148,6 +151,8 @@ internal enum TRPEndpoint {
             var params: [String: Any] = ["cityId": cityId]
             params["poiCategories"] = poiCategories?.map(String.init).joined(separator: ",")
             return params
+        case let .configList(platform):
+            return ["platform": platform]
         default:
             return nil
         }
