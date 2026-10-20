@@ -51,6 +51,7 @@ public struct TRPConfigProvidersModel: Codable {
 }
 
 /// One provider and the credentials the platform uses with it. `name` is kept as the backend sends it.
+/// `apiSecret` signs the provider's requests and `checkoutUrl` is the base of its hosted checkout page; both are nil when not sent.
 public struct TRPConfigProviderModel: Codable {
     public let id: Int?
     public let name: String?
@@ -59,9 +60,11 @@ public struct TRPConfigProviderModel: Codable {
     public let clientId: String?
     public let limit: Int?
     public let prod: Bool?
+    public let apiSecret: String?
+    public let checkoutUrl: String?
 
     private enum CodingKeys: String, CodingKey {
-        case id, name, apiKey, apiUrl, clientId, limit, prod
+        case id, name, apiKey, apiUrl, clientId, limit, prod, apiSecret, checkoutUrl
     }
 
     public init(from decoder: Decoder) throws {
@@ -73,6 +76,8 @@ public struct TRPConfigProviderModel: Codable {
         clientId = container.lenient(String.self, forKey: .clientId)
         limit = container.lenient(Int.self, forKey: .limit)
         prod = container.lenient(Bool.self, forKey: .prod)
+        apiSecret = container.lenient(String.self, forKey: .apiSecret)
+        checkoutUrl = container.lenient(String.self, forKey: .checkoutUrl)
     }
 }
 

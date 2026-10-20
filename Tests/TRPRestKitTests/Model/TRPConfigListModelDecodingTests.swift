@@ -126,6 +126,35 @@ final class TRPConfigListModelDecodingTests: XCTestCase {
         XCTAssertNil(providers.transportation)
     }
 
+    func testProviderSecretAndCheckoutUrlDecode() throws {
+        let json = #"""
+        {"providers": {"tourAndTicket": [{"id": 13, "name": "Victory", "apiKey": "t",
+                                          "apiSecret": "s", "checkoutUrl": "https://checkout.example.com/v1"}]}}
+        """#
+        let provider = try XCTUnwrap(try decode(TRPConfigListModel.self, from: json).providers?.tourAndTicket?.first)
+
+        XCTAssertEqual(provider.apiSecret, "s")
+        XCTAssertEqual(provider.checkoutUrl, "https://checkout.example.com/v1")
+        XCTAssertEqual(provider.apiKey, "t")
+    }
+
+    func testProviderSecretAndCheckoutUrlAreNilWhenMissing() throws {
+        let provider = try XCTUnwrap(try decodeFixture().providers?.tourAndTicket?.last)
+
+        XCTAssertEqual(provider.id, 13)
+        XCTAssertNil(provider.apiSecret)
+        XCTAssertNil(provider.checkoutUrl)
+    }
+
+    func testProviderSecretAndCheckoutUrlAreNilWhenNullOrWronglyTyped() throws {
+        let json = #"{"providers": {"tourAndTicket": [{"id": 13, "apiSecret": null, "checkoutUrl": 5}]}}"#
+        let provider = try XCTUnwrap(try decode(TRPConfigListModel.self, from: json).providers?.tourAndTicket?.first)
+
+        XCTAssertEqual(provider.id, 13)
+        XCTAssertNil(provider.apiSecret)
+        XCTAssertNil(provider.checkoutUrl)
+    }
+
     func testEnvelopeWithoutDataDecodesAsNil() throws {
         let envelope = try decode(TRPGenericParser<TRPConfigListModel>.self,
                                   from: #"{"status": 200, "success": true, "message": "Success"}"#)
