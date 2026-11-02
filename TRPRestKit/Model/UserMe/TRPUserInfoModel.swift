@@ -25,6 +25,8 @@ public struct TRPUserInfoModel: Decodable {
     public var dateOfBirth: String?
     
     public var answers: [Int]?
+    public var age: Int?
+    public var profileImage: String?
    
     /// A array of TRPUserPreferencesInfoModel objects.
 //    public var profile: TRPUserProfileInfoModel?
@@ -38,6 +40,8 @@ public struct TRPUserInfoModel: Decodable {
         case lastName
         case dateOfBirth
         case answers
+        case age
+        case profileImage
     }
     
     /// Json to Object converter
@@ -62,6 +66,8 @@ public struct TRPUserInfoModel: Decodable {
         self.lastName = try values.decodeIfPresent(String.self, forKey: .lastName)
         self.dateOfBirth = try values.decodeIfPresent(String.self, forKey: .dateOfBirth)
         self.answers = try values.decodeIfPresent([Int].self, forKey: .answers)
+        self.age = try? values.decodeIfPresent(Int.self, forKey: .age)
+        self.profileImage = try? values.decodeIfPresent(String.self, forKey: .profileImage)
 //        self.profile = try values.decodeIfPresent(TRPUserProfileInfoModel.self, forKey: .profile)
     }
     

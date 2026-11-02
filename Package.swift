@@ -28,6 +28,10 @@ let package = Package(
             ],
             path: "TRPRestKit"
         ),
+        .testTarget(
+            name: "TRPRestKitTests",
+            dependencies: ["TRPRestKit"]
+        ),
     ],
     swiftLanguageVersions: [.v5]
 )
