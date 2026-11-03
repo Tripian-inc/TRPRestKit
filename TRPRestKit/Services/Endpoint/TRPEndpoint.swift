@@ -18,7 +18,7 @@ internal enum TRPEndpoint {
     case register(firstName: String, lastName: String, email: String, password: String, device: TRPDevice)
     case logout
     case requestPasswordReset(email: String)
-    case resetPassword(password: String, hash: String)
+    case resetPassword(password: String, hash: String, email: String? = nil)
 
     case user
     case updateUser(TRPUserUpdateRequestModel)
@@ -171,8 +171,10 @@ internal enum TRPEndpoint {
             return Self.withDevice(["firstName": firstName, "lastName": lastName, "email": email, "password": password], device)
         case let .requestPasswordReset(email):
             return ["email": email]
-        case let .resetPassword(password, hash):
-            return ["password": password, "hash": hash]
+        case let .resetPassword(password, hash, email):
+            var params: [String: Any] = ["password": password, "hash": hash]
+            params["email"] = email
+            return params
         case let .updateUser(request):
             return request.toDictionary()
         case let .updateUserImage(profileImage):

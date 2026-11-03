@@ -106,6 +106,21 @@ final class TRPEndpointAccountTests: XCTestCase {
         XCTAssertFalse(endpoint.requiresAuth)
     }
 
+    func testResetPasswordWithAnEmailAddsItToTheBody() {
+        let endpoint = TRPEndpoint.resetPassword(password: "new-secret", hash: "hash-1", email: "a@b.com")
+
+        XCTAssertEqual(endpoint.mode, .put)
+        XCTAssertParameters(endpoint.bodyParameters, ["password": "new-secret", "hash": "hash-1", "email": "a@b.com"])
+        XCTAssertFalse(endpoint.requiresAuth)
+    }
+
+    func testResetPasswordWithoutAnEmailLeavesTheEmailKeyOut() {
+        let endpoint = TRPEndpoint.resetPassword(password: "new-secret", hash: "hash-1", email: nil)
+
+        XCTAssertNil(endpoint.bodyParameters?["email"])
+        XCTAssertParameters(endpoint.bodyParameters, ["password": "new-secret", "hash": "hash-1"])
+    }
+
     func testUserIsAnAuthorisedGetWithoutParameters() {
         let endpoint = TRPEndpoint.user
 

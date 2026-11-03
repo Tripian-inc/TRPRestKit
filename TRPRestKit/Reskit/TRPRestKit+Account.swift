@@ -59,10 +59,12 @@ extension TRPRestKit {
         send(.requestPasswordReset(email: email), completion: completion)
     }
 
+    /// Sets the new password for the reset link's `hash`; `email`, when given, is the address the reset was requested for.
     public func resetPassword(newPassword: String,
                               hash: String,
+                              email: String? = nil,
                               completion: @escaping ResultHandler<TRPResetPasswordUserModel>) {
-        send(.resetPassword(password: newPassword, hash: hash), completion: completion)
+        send(.resetPassword(password: newPassword, hash: hash, email: email), completion: completion)
     }
 }
 
